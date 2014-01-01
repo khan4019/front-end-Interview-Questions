@@ -127,28 +127,12 @@
   </code></pre>
   <p><strong>result:</strong>Some part of this paragraph is <mark>highlighted</mark> by using mark element.</p>  
 </div>
-<!-- <div id="set_length">
-  <h2>6. Don't blindly set length</h2>
-  <p>array.length if you only want to read it</p>
-  <pre><code>
-var myArr = ['javaScript', 'is', 'my', 'favorite', 'language' ];
-> myArr.length;
-  = 5  
-  </code></pre>
-  <strong>Don't blindly set length:</strong>
-  <p>if you set the length you resize the array. If you set length to a number higher than the actual length, insert "underfined" elements. On the otherhand, if you set length lower than the actual length, it removes all the elements after the newly set length. <span class="purpleBold">So, be careful to set array.length</span></p>
-
-  <pre><code>
-myArr.length = 8;
-> myArr;
-  = ["javaScript", "is", "my", "favorite", "language", undefined × 3] //three undefined elements inserted
-
-myArr.length = 4;
-> myArr;
-  = ["javaScript", "is", "my", "favorite"] //removed 4 elements
-
-  </code></pre>
-</div> -->
+<div id="set_length">
+  <h2>6. scoped</h2>
+  <p><strong>Question:</strong>Can u apply css rule to a part of html document?</p>
+  <p><strong>Answer:</strong> yes. by using "scopped" in the style tag</p>
+   ref <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style">MDN: style</a>
+</div>
 <!-- <div id="indexOf_sensitive">
   <h2>7. IndexOf: type and instace sensitive </h2>
   <p>indexOf compare type of the element and instance of the element. For the second example, though {b:2} looks identical, they are two seperate instance hence indexOf will not find it in the array. similarly [3] in the third example and inside indexOf are two seperate instance of array. though they contain same element inside, they are two seperate instance</p>
