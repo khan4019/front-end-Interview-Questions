@@ -97,62 +97,16 @@
   <p><strong>Answer:</strong> storing data in the DOM. a lot of javascript libraries uses it like knockout, angular. u can put any of ur customized arrtibute in the dom.</p>
 
   </div>
-  <!-- <div id="right_index">
-    <h2>3. use right index to insert</h2>
-  <strong>Only use positive integer as Index:</strong>
-  <p>if you use, negative (-ve) integer, float number or string as index, you will see it in array. even for loop will not display these.  In fact, only use positive interger as index. Javascript will not give any error, they will simply be lost when you check array in bare eye. However they sticks, you can read as property or by using a for-in loop. or use dir() in the browser.</p>
+  <div id="right_index">
+    <h2>3. keygen</h2>
+  <p><strong>Question:</strong> How can u generate public key in html?</p>
+  <p><strong>Answer:</strong> html has a keygen element that failitate generation of key and submission via a form.</p>
   <pre><code>
-var myArr = [1,2,3,4];
-myArr[-7] = -7;
-myArr[2.5] = 3.5;
-myArr['myDude'] = 'thatJSDude';
-
-myArr.length;
-  = 4
-myArr;
-  = [1, 2, 3, 4]  
+    &lt;keygen name=&quot;name&quot; challenge=&quot;challenge string&quot; keytype=&quot;type&quot; keyparams=&quot;pqg-params&quot;&gt;
   </code></pre>
-  <p>However you can read those</p>
-  <pre><code>
-var myArr = [1,2,3,4];
-
->myArr[169];
-  = undefined  
->myArr[2.5];
-  = 3.5
->myArr['myDude'];
-  = "thatJSDude"
->myArr[-7];
-  = -7
-  </code></pre>
-  <p>though u can access those elements by non-positive integer index. you will not see those in the array and for loop will not found those</p>
-  <pre><code>
-for(var i=0, len = myArr.length; i&lt;len; i++){
-   console.log(myArr[i]);
-}
- = 1
- = 2
- = 3
- = 4
-  </code></pre>
-  <strong>To soleve this problem:</strong>
-  <p>If you have random index, use object/ Associated Array other than array. if you are looping, use for in loop</p>
-  <pre><code>
-var myObj = {};
-myObj[-7] = 7;
-myObj[68] = 69;
-
-> myObj;
-  = Object {68: 69, -7: 7}
-
-//or use for in loop. But for in loop has its own issues
-for(var i in myArr){
-  console.log(myArr[i]);  
-}  
-  </code></pre>
-  <p class="purpleBold">talk about dir(myArr)</p>
-  ref: <a href="http://blog.caplin.com/2012/01/13/javascript-is-hard-part-1-you-cant-trust-arrays/">Can't Trust Array</a>, <a href="http://coredogs.com/article/number-elements-javascript-array-length-misleading">misleading length</a>
-</div> -->
+  <p><strong>extra:</strong> keygen has to be used inside a form</p>
+  ref: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/keygen">MDN: keyge</a>
+</div>
 
 <!-- <div id="push_multiple">
   <h2>4. push multiple</h2>
