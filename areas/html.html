@@ -113,39 +113,20 @@
   <p><strong>Question:</strong> how can u change direction of html text?</p>
   <p><strong>Answer:</strong> use bdo (bidirectional ovverride) element of html.</p>
   <pre><code>
-&lt;!-- Switch text direction --&gt;<br/>&lt;p&gt;This text will go left to right.&lt;/p&gt;<br/>&lt;p&gt;&lt;bdo dir=&quot;rtl&quot;&gt;This text will go right to left.&lt;/bdo&gt;&lt;/p&gt;
+&lt;!-- Switch text direction --&gt;<br/>&lt;p&gt;&lt;bdo dir=&quot;rtl&quot;&gt;This text will go right to left.&lt;/bdo&gt;&lt;/p&gt;
   </code></pre>
-  <strong>result:</strong>
-  <p>This text will go left to right.</p>
+  <strong>result:</strong>  
 <p><bdo dir="rtl">This text will go right to left.</bdo></p>
 </div>
-<!-- <div id="unshift_multiple">
-  <h2>5. unshift multiple</h2>
-  <p>unshfit inserts elements at the head (beginning) of the array and returns updated length of the array. you can insert multiple property at the same time</p>
+<div id="unshift_multiple">
+  <h2>5. mark</h2>
+  <p><strong>Question:</strong> how can u highlight text in html</p>
+  <p><strong>Answer:</strong> use mark element.</p>
   <pre><code>
-var bigFamily = ['Dad', 'uncle', 'me without gf'];
-bigFamily.unshift("Dad's gf");
- = 4
-> bigFamily;
-  = ["Dad's gf", "Dad", "uncle", "me without gf"]
-
-bigFamily.unshift('grandPa', 'grandMa');
- = 6
-bigFamily;
-  = ['grandPa', 'grandMa', "Dad's gf", "Dad", "uncle", "me without gf"]
+&lt;p&gt;Some part of this paragraph is &lt;mark&gt;highlighted&lt;/mark&gt; by using mark element.&lt;/p&gt;
   </code></pre>
-  <pre><code>
-//be careful to unshift array. it will be just one element
-bigFamily.unshift(["Uncle's gf", 'her daughter']);
-
-bigFamily
-  = [ Array[2], "grandPa", "grandMa", "Dad's gf", "Dad", "uncle", "me without gf"]
-> bigFamily.length;
-  = 7
-  </code></pre>
-  <p>shift will return you the first element of the array and will remove it. shift reduces the array length by 1.
-  <span class="purpleBold">unshift and shift is slower than push pop</span></p>
-</div> -->
+  <p><strong>result:</strong>Some part of this paragraph is <mark>highlighted</mark> by using mark element.</p>  
+</div>
 <!-- <div id="set_length">
   <h2>6. Don't blindly set length</h2>
   <p>array.length if you only want to read it</p>
