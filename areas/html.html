@@ -91,22 +91,12 @@
   
   ref: <a href="http://www.w3.org/QA/Tips/Doctype">don't forget doctype</a>, <a href="http://www.2ality.com/2012/06/dense-arrays.html">Sparse vs Dense Array</a>
 </div>
-<!-- <div id="insert_by_index">
-  <h2>2. Don't randomly insert by Index</h2>
-  <p>if you insert elements in an arry by index. Please make sure you insert the element in the right place. If you just put an index much higher than the length of the array, JavaScript will put "underfined" elements in between and waste a lot of memory</p>
-  <pre><code>
-var myArr = [1, 2, 3, 4];
+<div id="insert_by_index">
+  <h2>2. data-</h2>
+  <p><strong>Question:</strong> what is the use of data= attribute?</p>
+  <p><strong>Answer:</strong> storing data in the DOM. a lot of javascript libraries uses it like knockout, angular. u can put any of ur customized arrtibute in the dom.</p>
 
-> myArr.length;
-  = 4
-//just enter an element in higher index
-myArr[68] = 69;
-> myArr.length;
-  = 69
-> myArr;
-  =[1, 2, 3, 4, undefined × 64, 69]
-  </code></pre>
-  </div> -->
+  </div>
   <!-- <div id="right_index">
     <h2>3. use right index to insert</h2>
   <strong>Only use positive integer as Index:</strong>
