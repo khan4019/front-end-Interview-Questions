@@ -82,32 +82,15 @@
         <li class="skipListItem"><a href="">sort, reverse (not added)</a></li>
         <li class="skipListItem"><a href="">join, concat (not added)</a></li>
        </ol> -->
-<!-- <div id="create_array">
-  <h2>1. Best way to Create Array</h2>
-  <strong>using constructor:</strong>
-  <p>One of the ways to create array is to call the new Array() constructor. Additionally, you can set array length inside constructor. However, this is not recommended if you are not sure you will use the whole array. As this will create an array with "undefined" elements. Besides, you can pass elements.</p>
-  <p>If you pass more than one elements in comma seperation, those would initial elements and length of the array would be number of elements you passed.</p>
-  <pre><code>
-var myArr = new Array();
-//nor
-var myArr = new Array(100);
-> myArr;
-  = [undefined × 100]
-//nor
-var myArr2 = new Array(2,3,4,5);
-> myArr;  
-  = [2, 3, 4, 5]
-  </code></pre>
-  <strong>better alternative:</strong>
-  <p>rather construct it as empty array. if you know intial elements, its recommended to put them there rather inserting them later.</p>
-  <pre><code>
-var myArr = [];
-
-//or, create with elements if you know
-var myArr2 = ['You', 'Are', 'the', 'Best' ];    
-  </code></pre>
-  ref: <a href="http://yuiblog.com/blog/2006/11/13/javascript-we-hardly-new-ya/">Hardly use new</a>, <a href="http://www.2ality.com/2012/06/dense-arrays.html">Sparse vs Dense Array</a>
-</div> -->
+<div id="create_array">
+  <h2>1. doctype</h2>
+  <p><strong>Question:</strong> What is doctype? why u need it?</p>  
+  <p><strong>Answer:</strong> doctype is a instruction to the browser to inform about the version of html and how browser should render it.</p>
+  <p>It ensures how element should be displayed on the page by most of the browser. And it also makes browsers life easier. otherwise, browser will guess and will go to <a href="http://en.wikipedia.org/wiki/Quirks_mode">quirks mode</a>. Moreover, doctype is required to <a href="http://validator.w3.org/">validate markup</a>.</p>
+  <p><strong>extra:</strong> this the first tag of html file, dont need a closing tag and not case senstitive.</p>
+  
+  ref: <a href="http://www.w3.org/QA/Tips/Doctype">don't forget doctype</a>, <a href="http://www.2ality.com/2012/06/dense-arrays.html">Sparse vs Dense Array</a>
+</div>
 <!-- <div id="insert_by_index">
   <h2>2. Don't randomly insert by Index</h2>
   <p>if you insert elements in an arry by index. Please make sure you insert the element in the right place. If you just put an index much higher than the length of the array, JavaScript will put "underfined" elements in between and waste a lot of memory</p>
