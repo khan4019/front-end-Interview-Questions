@@ -108,28 +108,17 @@
   ref: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/keygen">MDN: keyge</a>
 </div>
 
-<!-- <div id="push_multiple">
-  <h2>4. push multiple</h2>
-  <p>push inserts elements in the tail and returns updated length of the array</p>
-  <p>you know you can push one at a time. do you know you can push more than one at a time. But dont push an array, that will be one element of the whole array</p>
+<div id="push_multiple">
+  <h2>4. bdo</h2>
+  <p><strong>Question:</strong> how can u change direction of html text?</p>
+  <p><strong>Answer:</strong> use bdo (bidirectional ovverride) element of html.</p>
   <pre><code>
-var family= ['william', 'kate'];
-family.push('prince George', 'princess Nevada');
- = 4
-> family;
-  = ["william", "kate", "prince George", "princess Nevada"]
-
-//don't insert an array, if u dont mean it
-family.push(['children', 'of', 'duke']);
-
-> family
-  = ["william", "kate", "prince George", "princess Nevada", Array[3] ]
-
->family.length;
-  = 5  
+&lt;!-- Switch text direction --&gt;<br/>&lt;p&gt;This text will go left to right.&lt;/p&gt;<br/>&lt;p&gt;&lt;bdo dir=&quot;rtl&quot;&gt;This text will go right to left.&lt;/bdo&gt;&lt;/p&gt;
   </code></pre>
-  <p>pop just removes the last element and returns it. if there is no element in left, it returns undefined.</p>
-</div> -->
+  <strong>result:</strong>
+  <p>This text will go left to right.</p>
+<p><bdo dir="rtl">This text will go right to left.</bdo></p>
+</div>
 <!-- <div id="unshift_multiple">
   <h2>5. unshift multiple</h2>
   <p>unshfit inserts elements at the head (beginning) of the array and returns updated length of the array. you can insert multiple property at the same time</p>
