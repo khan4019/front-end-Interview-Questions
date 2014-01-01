@@ -61,8 +61,8 @@
         <!-- <iframe width="853" height="480" src="//www.youtube.com/embed/Rx_JFOSxgpY" frameborder="0" allowfullscreen></iframe> -->
       </div>
             
-      <h3>If you have hard time to follow this video, you can see the content below. Things you will learn-</h3>
-       <ol>
+      <!-- <h3>If you have hard time to follow this video, you can see the content below. Things you will learn-</h3> -->
+       <!-- <ol>
         <li><a href="#create_array">Best way to create Array</a></li>
         <li><a href="#insert_by_index">Don't randomly insert by index</a></li>
         <li><a href="#right_index">use right index to insert</a></li>        
@@ -81,8 +81,8 @@
         <li><a href="#string_method">Array methods in string</a></li>
         <li class="skipListItem"><a href="">sort, reverse (not added)</a></li>
         <li class="skipListItem"><a href="">join, concat (not added)</a></li>
-       </ol>
-<div id="create_array">
+       </ol> -->
+<!-- <div id="create_array">
   <h2>1. Best way to Create Array</h2>
   <strong>using constructor:</strong>
   <p>One of the ways to create array is to call the new Array() constructor. Additionally, you can set array length inside constructor. However, this is not recommended if you are not sure you will use the whole array. As this will create an array with "undefined" elements. Besides, you can pass elements.</p>
@@ -107,8 +107,8 @@ var myArr = [];
 var myArr2 = ['You', 'Are', 'the', 'Best' ];    
   </code></pre>
   ref: <a href="http://yuiblog.com/blog/2006/11/13/javascript-we-hardly-new-ya/">Hardly use new</a>, <a href="http://www.2ality.com/2012/06/dense-arrays.html">Sparse vs Dense Array</a>
-</div>
-<div id="insert_by_index">
+</div> -->
+<!-- <div id="insert_by_index">
   <h2>2. Don't randomly insert by Index</h2>
   <p>if you insert elements in an arry by index. Please make sure you insert the element in the right place. If you just put an index much higher than the length of the array, JavaScript will put "underfined" elements in between and waste a lot of memory</p>
   <pre><code>
@@ -123,8 +123,8 @@ myArr[68] = 69;
 > myArr;
   =[1, 2, 3, 4, undefined × 64, 69]
   </code></pre>
-  </div>
-  <div id="right_index">
+  </div> -->
+  <!-- <div id="right_index">
     <h2>3. use right index to insert</h2>
   <strong>Only use positive integer as Index:</strong>
   <p>if you use, negative (-ve) integer, float number or string as index, you will see it in array. even for loop will not display these.  In fact, only use positive interger as index. Javascript will not give any error, they will simply be lost when you check array in bare eye. However they sticks, you can read as property or by using a for-in loop. or use dir() in the browser.</p>
@@ -179,9 +179,9 @@ for(var i in myArr){
   </code></pre>
   <p class="purpleBold">talk about dir(myArr)</p>
   ref: <a href="http://blog.caplin.com/2012/01/13/javascript-is-hard-part-1-you-cant-trust-arrays/">Can't Trust Array</a>, <a href="http://coredogs.com/article/number-elements-javascript-array-length-misleading">misleading length</a>
-</div>
+</div> -->
 
-<div id="push_multiple">
+<!-- <div id="push_multiple">
   <h2>4. push multiple</h2>
   <p>push inserts elements in the tail and returns updated length of the array</p>
   <p>you know you can push one at a time. do you know you can push more than one at a time. But dont push an array, that will be one element of the whole array</p>
@@ -202,8 +202,8 @@ family.push(['children', 'of', 'duke']);
   = 5  
   </code></pre>
   <p>pop just removes the last element and returns it. if there is no element in left, it returns undefined.</p>
-</div>
-<div id="unshift_multiple">
+</div> -->
+<!-- <div id="unshift_multiple">
   <h2>5. unshift multiple</h2>
   <p>unshfit inserts elements at the head (beginning) of the array and returns updated length of the array. you can insert multiple property at the same time</p>
   <pre><code>
@@ -229,8 +229,8 @@ bigFamily
   </code></pre>
   <p>shift will return you the first element of the array and will remove it. shift reduces the array length by 1.
   <span class="purpleBold">unshift and shift is slower than push pop</span></p>
-</div>
-<div id="set_length">
+</div> -->
+<!-- <div id="set_length">
   <h2>6. Don't blindly set length</h2>
   <p>array.length if you only want to read it</p>
   <pre><code>
@@ -251,8 +251,8 @@ myArr.length = 4;
   = ["javaScript", "is", "my", "favorite"] //removed 4 elements
 
   </code></pre>
-</div>
-<div id="indexOf_sensitive">
+</div> -->
+<!-- <div id="indexOf_sensitive">
   <h2>7. IndexOf: type and instace sensitive </h2>
   <p>indexOf compare type of the element and instance of the element. For the second example, though {b:2} looks identical, they are two seperate instance hence indexOf will not find it in the array. similarly [3] in the third example and inside indexOf are two seperate instance of array. though they contain same element inside, they are two seperate instance</p>
   <pre><code>
@@ -277,8 +277,8 @@ var myObj = {a:1},
 [myObj, urObj].indexOf(urObj);
  = 1    
   </code></pre>
-</div>
-<div id="indexOf_extra">
+</div> -->
+<!-- <div id="indexOf_extra">
   <h2>8. indexOf extra fromIndex</h2>
   <p>good part of indexOf is that you can provide second parameter to tell from where indexOf should start searching for ur element</p>
   <pre><code>
@@ -293,9 +293,9 @@ var myObj = {a:1},
   </code></pre>
 <p>samething is true for lastIndexOf. use ur own brain to think how that will work. or open console and check it out.</p>
 ref: <a href="http://es5.github.io/#x15.4.4.14">es5:indexOf</a>
-</div>
+</div> -->
 
-<div id="slice_splice">
+<!-- <div id="slice_splice">
   <h2>9. slice & splice</h2>
   <strong>slice</strong>
   <p>slice retuns the sliced array but dont change the original array</p>
@@ -330,8 +330,8 @@ GFs.splice(2, 2, 'Texas GF', 'Florida GF', 'Hawai GF')
  GFs
   =["Winter", "Spring", "Texas GF", "Florida GF", "Hawai GF", "rain", "harvest"] 
   </code></pre>
-</div>
-<div id="delete_element">
+</div> -->
+<!-- <div id="delete_element">
   <h2>10. delete dont delete</h2>
   <p>delete just creates a hole in ur array. dont delete element, use splice/ slice</p>
   <pre><code>
@@ -341,8 +341,8 @@ delete myArr[3]
 myArr
  = [1, 2, 3, undefined × 1, 5, 6, 7]
   </code></pre>
-</div>
-<div id="array_method">
+</div> -->
+<!-- <div id="array_method">
   <h2>Basic Array method</h2>
   <p>callback function of map, filter, some, every, forEach has three parameters: elem, index, arr. And you can optionally pass "this" as second argument of these Array method.</p>
   <strong>forEach</strong>
@@ -394,8 +394,8 @@ myArr
   = false;  
 </code></pre>
   
-</div>
-<div id="buildIn_function">
+</div> -->
+<!-- <div id="buildIn_function">
   <h2>11.use build in function</h2>
   <p></p>
   <pre><code>
@@ -403,8 +403,8 @@ myArr
   = ["Happy", "New", "Year"]
   </code></pre>
   <p>ref: <a href="http://net.tutsplus.com/tutorials/javascript-ajax/what-they-didnt-tell-you-about-es5s-array-extras/">es5 array extra</a></p>
-</div>
-<div>
+</div> -->
+<!-- <div>
   <h2>reduce</h2>
   <p>reduce cache the value. for example u want to get the sum of all the element. alternatively, you can initially </p>
   <pre><code>
@@ -418,8 +418,8 @@ myArr
 }, 100)
  = 110
   </code></pre>
-</div>
-<div>
+</div> -->
+<!-- <div>
   <h2>12. real length by reduce</h2>
   <p>talk about reduce here</p>
   <pre><code> 
@@ -428,8 +428,8 @@ myArr
   }, 0);
   = 2 
   </code></pre>
-</div>
-<div id="isArray">
+</div> -->
+<!-- <div id="isArray">
   <h2>13. check array</h2>
   <p></p>
   <pre><code>
@@ -443,8 +443,8 @@ myArr
 > Array.isArray({});
   = false
   </code></pre>
-</div>
-<div id="array_like">
+</div> -->
+<!-- <div id="array_like">
   <h2>14. deal with Array-like objects</h2>
   <p></p>
   <pre><code>
@@ -475,8 +475,8 @@ function foo(){
 foo(1, 2, 3,4)
  = [1, 2, 3, 4, 5] "len" 5 "2nd" 2 
   </code></pre>
-</div>
-<div id="string_method">
+</div> -->
+<!-- <div id="string_method">
   <h2>15. array method in string</h2>
   <p></p>
   <pre><code>
@@ -493,7 +493,7 @@ dd.filter(function (el, idx){
 })
  = ["D", "u", "d", "e"]
   </code></pre>
-</div>
+</div> -->
 
 <p>for more: <a href="http://blog.mikota.cz/2013/06/fun-with-javascript-arrays.html">Fun with JS Array</a>, <a href="https://www.destroyallsoftware.com/talks/wat">WAT</a></p>
 <!-- div>h2+p+pre>code -->
