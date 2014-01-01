@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="that js dude" content="">
+    <link rel="shortcut icon" href="../../images/favicon.jpg">
+
+    <title>JS: console</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/zenburn.css">
+    <!-- Custom styles for this template -->
+    <style>
+      /* Move down content because we have a fixed navbar that is 50px tall */
+      body {
+        padding-top: 50px;
+        padding-bottom: 20px;
+      }
+      .singInStuff{
+        margin-top: 9px;
+      }
+      #uName{
+        margin-top: -7px;
+      }
+    </style>
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">          
+          <a class="navbar-brand" href="../../index.html">That Js Dude</a>
+        </div>
+        <div class="navbar-collapse collapse singInStuff">          
+          <a href='#' class="btn btn-success  navbar-right" id="loginText"> sign in </a>
+          <a href="#" class="btn btn-success  navbar-right hide" id="logoutText">log out </a>
+          <a href="#" class="navbar-brand navbar-right" id="uName" >Welcome</a>
+          <iframe name="myIFrame" id="myIFrame" class="hide"></iframe>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>>console</h1>        
+        <p>To be a decent web developer you have to know developer tool. If you want to be a better JavaScript developer, you have to master in the console tab of dev tool. there is no exception. no hanky panky...</p>   
+        <p>first draft published: December 8, 2013</p>     
+      </div>
+    </div>
+    <div class="container">
+      <!-- Example row of columns -->
+
+      <div class="row center">        
+        <iframe class="videoLink" width="853" height="480" src="//www.youtube.com/embed/2zmUSoVMyRU" frameborder="0" allowfullscreen></iframe> 
+      </div>
+            
+      <h3>If you have hard time to follow this video, you can see the content below. Things you will learn-</h3>
+       <ul>
+         <li>use $, $$ like jQuery</li>
+         <li>preserve current content in the log</li>
+         <li>edit contents like a text editor</li>
+         <li>get all the event bound to a DOM</li>
+         <li>moitor specif Events when fired</li>
+         <li>stop monitoring Events when done</li>         
+         <li>log multiple object than can expand</li>
+         <li>group all or some log together</li>
+         <li>view multiple object in a table</li>
+         <li>get call stack anytime, anywhere</li>
+         <li>time to run code</li>
+         <li>get the last result in console</li>
+         <li>how manytimes a function is called</li>
+         <li>profile from console tab</li>
+         <li>get properties of dom or any object</li>
+         <li>inspect form console tab</li>
+         <li>get previous dom</li>
+       </ul>
+
+      <h2>1. $</h2>
+      When you dont have access to jQuery. You can pass any css selector to $. like $('a'), this will return the first elment of match. $ is an alias of document.querySelector
+      <pre><code>
+ > $('a');
+  = &lta class=​"navbar-brand" href=​"../​../​index.html"&gt​That Js Dude​&lt/a&gt​
+ 
+ > $('a') === document.querySelector('a')
+  = true
+</code></pre>
+$$ of chrome returns all the match for a css selector. This is equivalent to document.querySelectorAll. You will get an array of all the matched selectors.
+<pre><code> 
+ > $$('a');
+ = [
+    &lta class=​"navbar-brand" href=​"../​../​index.html"&gt​That Js Dude​&lt/a&gt​
+    , 
+    &lta href=​"#" class=​"btn btn-success  navbar-right" id=​"loginText"&gt​ sign in ​&lt/a&gt​
+    , 
+    &lta href=​"#" class=​"btn btn-success  navbar-right hide" id=​"logoutText"&gt​log out ​&lt/a&gt​
+    , 
+    &lta href=​"#" class=​"navbar-brand navbar-right" id=​"uName"&gt​Welcome​&lt/a&gt​
+    , 
+    &lta href=​"https:​/​/​gist.github.com/​cavneb/​7873485"&gt​github gist​&lt/a&gt​
+   ]
+
+ > $$('a').length;
+ = 4
+
+ > document.querySelectorAll('a').length;
+ = 4
+</code></pre>
+<h2>2. Preserve Log</h2>
+if you relaod the page, anything in the console get cleared. somtimes you want to compare values before after and want to preserve the log upon page load or navigate to a different site. This could easily be done.
+<pre><code>  
+  right cick on the console tab and select "preserve log upon navigation"
+</code></pre>
+<h2>3. contentEditable</h2>
+Just edit anything as if browser is a text editor. This is very helpful when you want to take a quick screenshot. 
+<pre><code>
+  //edit texts in browser like a text editor
+  > document.body.contentEditable = true;
+    = true
+  //now you can edit anything on the page like a text editor  
+</code></pre>
+<h2>4. Log Object</h2>
+String concatenation with an object makes it teriible when you want to log object. you cant expand properties. Some developers tries to use JSON.stringify to log it but that becomes very tough to read and expand. use of comman instead of "+" sign will solve this problem. 
+<pre><code>  
+  >console.log('window: '+ window)
+   = window: [object Window] 
+
+   //this is not useful at all. i want to get the object
+   //and would like to expand properties. to solve this problem, use comma
+
+   > console.log('window: ', window)
+    = window: Window {top: Window, window: Window, location: Location, external: Object, chrome: Object…}
+
+   > console.log('window: ', window, 'body: ', document.body);
+    = widnow: Window{...}
+      body: <body class="hp vasq" onload="">...</body>     
+</code></pre>
+<h2>5. getEventListeners</h2>
+getEventListeners is very helpful when you want to know what are the events a dom is listening. Get all the event binded to input with Id 'myInput'
+<pre><code>  
+ > getEventListeners($('#myInput'))
+  = Object {click: Array[1], keyup: Array[1], focus: Array[1]}
+
+  //there are three events (click, keyup and focus) binded to the input with id myInput
+
+  //to view the binded code/listener
+  //expand click, then Object, then lisenter
+</code></pre>
+It depends on how events are binded to the DOM. if you use any library like JQuery, you will not see your code attached to the listener. Rather, you will see, JQuery library code/ wrapper function that bind your code (callback fucntion) to the dom. By using vanila JS like this one bellow. if you see getEventListeners result and you expand click then first object and then listener you will get the function you have written. 
+<pre><code>
+  > $('#myInput').addEventListener('click', function (){ 
+      console.log('clicked'); 
+    });
+  
+  > getEventListensers($('#myInput'));
+    =Object {click:Array[1]}
+  > getEventListeners($('#myInput')).click[0].listener 
+    =function (){console.log('clicked');}  
+</code></pre>
+<h2>6. monitorEvents</h2>
+monitorEvents log the event fired by the element you passed to the fucntion. if you dont pass any parameter, it will log all events fired and your console will be flooded. to monitor a particular event of your interest, just pass the name of the event. if you want to monitor muliple events just pass an array of name of the events to the function. 
+<pre><code>  
+  > monitorEvents($('#myInput'));
+    =...
+    //this will monitor every single event happening to the input with ID myInput
+
+  > monitorEvents($('myInput'), 'click');
+    =...
+    //will log only when click event is fired from input with ID myInput
+
+  > monitorEvents($('#myInput'), ['click', 'keyup', 'focus']);
+    =...
+    //will log all click, keyup and focus events fired   
+</code></pre>
+<h3>unmonitorEvents</h3>
+unmonitorEvents will stop logging events for the element you started monitoring. just pass the element to the fucntion. if you dont do this, browser will keep logging and this can become annoying.
+<pre><code>
+  > unmonitorEvents($('#myInput'));
+    //no more logging of events
+</code></pre>
+<h2>7. console.time</h2>
+console.time helps you to see how long a block of code tooks to execute. 
+<pre><code>
+  > console.time('myLoop');
+    for(var i=0; i<100000; i++){
+      2+2*3;
+    }
+    console.timeEnd('myLoop');
+
+  = myLoop: 86.000ms 
+</code></pre>
+<h2>8. console.group</h2>
+when you have too many things to log, the console get flooded. you can simply log console generating from one place. or all the palces. if you dont write console.groupEnd(), all the consequent console will be grouped. this could be useful.
+<pre><code>
+  > console.groupCollapsed('my Error Group');
+    for(var i=50; i--;){
+       console.error(i);
+    }
+    console.groupEnd()
+  
+  == my Error Group
+  //if you expand "my Error Group" you will see all erros
+  //remember you have to use console.groupEnd()
+  //otherwise, all the consequence log would be grouped inside it 
+</code></pre>
+<h2>9. console.table</h2>
+<pre><code>
+  //console.table
+</code></pre>
+<h2>10. $_</h2>
+$_ holds the value of the last result. this is very useful, you dont have to assign result to a variable explicity and use it in the next expression. However, $_ is not persistent. Its always the value of the last result.
+<pre><code>
+  > 2+365+8/2*25
+   = 467
+  > $_
+   = 467
+  > $_*$_
+   = 218089
+  > $_
+   = 218089 //$_ is always the last result.
+  > Math.sqrt($_);
+   = 467
+</code></pre>
+<h2>11. clear</h2>
+For windows you can press Ctrl + L for mac Cmd + K to clear your console. it is an alias of console.clear that will clean your garbases in console
+<pre><code>
+  > clear();
+    //will remove everything from your console.
+
+</code></pre>
+<h2>12. console.trace</h2>
+<pre><code>
+  > console.trace('myTrace');
+   =  myTrace
+   //you will get the call stack
+</code></pre>
+<h2>13. console.count</h2>
+count helps you to find number of hit. Everytime you hit the foo function, it will increase the count. You dont have to have a global variable to remember the count.
+<pre><code>
+  > function foo(){
+     console.count('fooed');
+   }
+  > foo();
+   = fooed: 1
+  > foo();
+   = fooed: 2
+  > foo();
+   = fooed: 3
+  > foo();
+   = fooed: 4  
+</code></pre>
+<h2>14. profile</h2>
+you can start profiling from console tab. After finishing profiling (profileEnd), go to the profile tab of dev tool. you will see 'myProfile' and do the digging you want to do. 
+<pre><code>
+  > profile('myProfile');
+   = Profile 'myProfile' started;
+
+  //do whaterver you want to profile 
+
+  > porfileEnd('myProfile');
+   = Profile 'myProfile' finished.
+</code></pre>
+<h2>15. dir</h2>
+to get the all the propertis of an object/DOM element
+<pre><code>  
+  > dir($('#myInput'));
+   = input#myInput
+   //you can expand it to see all the properties
+</code></pre>
+<h2>16. inspect</h2>
+inspect a dom element from console tab
+<pre><code>
+  > inpsect($('#myInput'));
+   // will switch you to the element tab to inspect #myInput
+  > inspect($$('a')[3]);
+    //this iwll start inspecting 4th anchor you have in a page 
+</code></pre>
+<h2>17. $0-$4</h2>
+get the previously accessed dom
+<pre><code>
+  > $0
+    //last element you have insepected
+  > $1
+    //second to the last item you have inspected
+  > $2
+    //you can use $0-$4 to get the last inspected elements    
+</code></pre>
+
+      <hr>
+
+      <footer>
+        <p>&copy;thatJSDude 2013</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../js/jquery-2.0.3.min.js"></script>
+    <script src="../../js/jquery.fitvids.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/oAuth/googleOAuth.js"></script>
+    <script src="../../js/oAuth/cookieManager.js"></script>
+    <script src="../../js/oAuth/managerLogin.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+  </body>
+</html>

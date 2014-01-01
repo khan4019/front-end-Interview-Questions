@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="that js dude" content="">
+    <link rel="shortcut icon" href="../../images/favicon.jpg">
+
+    <title>JS: array</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/zenburn.css">
+    <!-- Custom styles for this template -->
+    <style>
+      /* Move down content because we have a fixed navbar that is 50px tall */
+      body {
+        padding-top: 50px;
+        padding-bottom: 20px;
+      }
+      .purpleBold{
+        color:purple;        
+        font-weight: bold;
+      }
+      .singInStuff{
+        margin-top: 9px;
+      }
+      #uName{
+        margin-top: -7px;
+      }
+      .skipListItem{
+        list-style-type: none;
+      }
+    </style>
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">          
+          <a class="navbar-brand" href="../../index.html">That Js Dude</a>
+        </div>
+        <div class="navbar-collapse collapse singInStuff">          
+          <a href='#' class="btn btn-success  navbar-right" id="loginText"> sign in </a>
+          <a href="#" class="btn btn-success  navbar-right hide" id="logoutText">log out </a>
+          <a href="#" class="navbar-brand navbar-right" id="uName" >Welcome</a>
+          <iframe name="myIFrame" id="myIFrame" class="hide"></iframe>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>array</h1>        
+        <h2>15 things you need to know be master in JS array</h2>
+        <p>need to add some junk text here...</p>   
+        <p>first draft published: December 25, 2013</p>     
+      </div>
+    </div>
+    <div class="container">
+      <!-- Example row of columns -->
+
+      <div class="row center">        
+        <iframe width="853" height="480" src="//www.youtube.com/embed/Rx_JFOSxgpY" frameborder="0" allowfullscreen></iframe>
+      </div>
+            
+      <h3>If you have hard time to follow this video, you can see the content below. Things you will learn-</h3>
+       <ol>
+        <li><a href="#create_array">Best way to create Array</a></li>
+        <li><a href="#insert_by_index">Don't randomly insert by index</a></li>
+        <li><a href="#right_index">use right index to insert</a></li>        
+        <li><a href="#push_multiple">push multiple</a></li>
+        <li><a href="#unshift_multiple">unshift multiple</a></li>        
+        <li><a href="#set_length">Don't blindly set length</a></li>        
+        <li><a href="#indexOf_sensitive">IndexOf: type and instance sensitive</a></li>
+        <li><a href="#indexOf_extra">IndexOf Extra parameter</a></li>
+        <li><a href="#slice_splice">slice splice</a></li>
+        <li><a href="#delete_element">delete dont delete</a></li>
+        <li class="skipListItem"><a href="#array_method">map, forEach, filter, some, every</a></li>
+        <li value="11"><a href="#buildIn_function">use build in function as callBack</a></li>
+        <li><a href="#real_length">real length by reduce</a></li>
+        <li><a href="#isArray">isArray</a></li>        
+        <li><a href="#array_like">Array like object</a></li>
+        <li><a href="#string_method">Array methods in string</a></li>
+        <li class="skipListItem"><a href="">sort, reverse (not added)</a></li>
+        <li class="skipListItem"><a href="">join, concat (not added)</a></li>
+       </ol>
+<div id="create_array">
+  <h2>1. Best way to Create Array</h2>
+  <strong>using constructor:</strong>
+  <p>One of the ways to create array is to call the new Array() constructor. Additionally, you can set array length inside constructor. However, this is not recommended if you are not sure you will use the whole array. As this will create an array with "undefined" elements. Besides, you can pass elements.</p>
+  <p>If you pass more than one elements in comma seperation, those would initial elements and length of the array would be number of elements you passed.</p>
+  <pre><code>
+var myArr = new Array();
+//nor
+var myArr = new Array(100);
+> myArr;
+  = [undefined × 100]
+//nor
+var myArr2 = new Array(2,3,4,5);
+> myArr;  
+  = [2, 3, 4, 5]
+  </code></pre>
+  <strong>better alternative:</strong>
+  <p>rather construct it as empty array. if you know intial elements, its recommended to put them there rather inserting them later.</p>
+  <pre><code>
+var myArr = [];
+
+//or, create with elements if you know
+var myArr2 = ['You', 'Are', 'the', 'Best' ];    
+  </code></pre>
+  ref: <a href="http://yuiblog.com/blog/2006/11/13/javascript-we-hardly-new-ya/">Hardly use new</a>, <a href="http://www.2ality.com/2012/06/dense-arrays.html">Sparse vs Dense Array</a>
+</div>
+<div id="insert_by_index">
+  <h2>2. Don't randomly insert by Index</h2>
+  <p>if you insert elements in an arry by index. Please make sure you insert the element in the right place. If you just put an index much higher than the length of the array, JavaScript will put "underfined" elements in between and waste a lot of memory</p>
+  <pre><code>
+var myArr = [1, 2, 3, 4];
+
+> myArr.length;
+  = 4
+//just enter an element in higher index
+myArr[68] = 69;
+> myArr.length;
+  = 69
+> myArr;
+  =[1, 2, 3, 4, undefined × 64, 69]
+  </code></pre>
+  </div>
+  <div id="right_index">
+    <h2>3. use right index to insert</h2>
+  <strong>Only use positive integer as Index:</strong>
+  <p>if you use, negative (-ve) integer, float number or string as index, you will see it in array. even for loop will not display these.  In fact, only use positive interger as index. Javascript will not give any error, they will simply be lost when you check array in bare eye. However they sticks, you can read as property or by using a for-in loop. or use dir() in the browser.</p>
+  <pre><code>
+var myArr = [1,2,3,4];
+myArr[-7] = -7;
+myArr[2.5] = 3.5;
+myArr['myDude'] = 'thatJSDude';
+
+myArr.length;
+  = 4
+myArr;
+  = [1, 2, 3, 4]  
+  </code></pre>
+  <p>However you can read those</p>
+  <pre><code>
+var myArr = [1,2,3,4];
+
+>myArr[169];
+  = undefined  
+>myArr[2.5];
+  = 3.5
+>myArr['myDude'];
+  = "thatJSDude"
+>myArr[-7];
+  = -7
+  </code></pre>
+  <p>though u can access those elements by non-positive integer index. you will not see those in the array and for loop will not found those</p>
+  <pre><code>
+for(var i=0, len = myArr.length; i&lt;len; i++){
+   console.log(myArr[i]);
+}
+ = 1
+ = 2
+ = 3
+ = 4
+  </code></pre>
+  <strong>To soleve this problem:</strong>
+  <p>If you have random index, use object/ Associated Array other than array. if you are looping, use for in loop</p>
+  <pre><code>
+var myObj = {};
+myObj[-7] = 7;
+myObj[68] = 69;
+
+> myObj;
+  = Object {68: 69, -7: 7}
+
+//or use for in loop. But for in loop has its own issues
+for(var i in myArr){
+  console.log(myArr[i]);  
+}  
+  </code></pre>
+  <p class="purpleBold">talk about dir(myArr)</p>
+  ref: <a href="http://blog.caplin.com/2012/01/13/javascript-is-hard-part-1-you-cant-trust-arrays/">Can't Trust Array</a>, <a href="http://coredogs.com/article/number-elements-javascript-array-length-misleading">misleading length</a>
+</div>
+
+<div id="push_multiple">
+  <h2>4. push multiple</h2>
+  <p>push inserts elements in the tail and returns updated length of the array</p>
+  <p>you know you can push one at a time. do you know you can push more than one at a time. But dont push an array, that will be one element of the whole array</p>
+  <pre><code>
+var family= ['william', 'kate'];
+family.push('prince George', 'princess Nevada');
+ = 4
+> family;
+  = ["william", "kate", "prince George", "princess Nevada"]
+
+//don't insert an array, if u dont mean it
+family.push(['children', 'of', 'duke']);
+
+> family
+  = ["william", "kate", "prince George", "princess Nevada", Array[3] ]
+
+>family.length;
+  = 5  
+  </code></pre>
+  <p>pop just removes the last element and returns it. if there is no element in left, it returns undefined.</p>
+</div>
+<div id="unshift_multiple">
+  <h2>5. unshift multiple</h2>
+  <p>unshfit inserts elements at the head (beginning) of the array and returns updated length of the array. you can insert multiple property at the same time</p>
+  <pre><code>
+var bigFamily = ['Dad', 'uncle', 'me without gf'];
+bigFamily.unshift("Dad's gf");
+ = 4
+> bigFamily;
+  = ["Dad's gf", "Dad", "uncle", "me without gf"]
+
+bigFamily.unshift('grandPa', 'grandMa');
+ = 6
+bigFamily;
+  = ['grandPa', 'grandMa', "Dad's gf", "Dad", "uncle", "me without gf"]
+  </code></pre>
+  <pre><code>
+//be careful to unshift array. it will be just one element
+bigFamily.unshift(["Uncle's gf", 'her daughter']);
+
+bigFamily
+  = [ Array[2], "grandPa", "grandMa", "Dad's gf", "Dad", "uncle", "me without gf"]
+> bigFamily.length;
+  = 7
+  </code></pre>
+  <p>shift will return you the first element of the array and will remove it. shift reduces the array length by 1.
+  <span class="purpleBold">unshift and shift is slower than push pop</span></p>
+</div>
+<div id="set_length">
+  <h2>6. Don't blindly set length</h2>
+  <p>array.length if you only want to read it</p>
+  <pre><code>
+var myArr = ['javaScript', 'is', 'my', 'favorite', 'language' ];
+> myArr.length;
+  = 5  
+  </code></pre>
+  <strong>Don't blindly set length:</strong>
+  <p>if you set the length you resize the array. If you set length to a number higher than the actual length, insert "underfined" elements. On the otherhand, if you set length lower than the actual length, it removes all the elements after the newly set length. <span class="purpleBold">So, be careful to set array.length</span></p>
+
+  <pre><code>
+myArr.length = 8;
+> myArr;
+  = ["javaScript", "is", "my", "favorite", "language", undefined × 3] //three undefined elements inserted
+
+myArr.length = 4;
+> myArr;
+  = ["javaScript", "is", "my", "favorite"] //removed 4 elements
+
+  </code></pre>
+</div>
+<div id="indexOf_sensitive">
+  <h2>7. IndexOf: type and instace sensitive </h2>
+  <p>indexOf compare type of the element and instance of the element. For the second example, though {b:2} looks identical, they are two seperate instance hence indexOf will not find it in the array. similarly [3] in the third example and inside indexOf are two seperate instance of array. though they contain same element inside, they are two seperate instance</p>
+  <pre><code>
+[1,2,3,4].indexOf(3);
+ = 2
+ //'3' is a string where 3 is number
+[1,2,3,4].indexOf('3');
+ = -1
+
+[{a:1}, {b:2}].indexOf({b:2});
+ = -1
+
+ //similarly
+ [[1], [2], [3]].indexOf([3])
+ = -1
+  </code></pre>
+  <p>to solve the problem of object. you have to hold the reference</p>
+  <pre><code>
+var myObj = {a:1}, 
+    urObj = {b:2};
+
+[myObj, urObj].indexOf(urObj);
+ = 1    
+  </code></pre>
+</div>
+<div id="indexOf_extra">
+  <h2>8. indexOf extra fromIndex</h2>
+  <p>good part of indexOf is that you can provide second parameter to tell from where indexOf should start searching for ur element</p>
+  <pre><code>
+[1,2,3,4,5,4,3,2,1].indexOf(3)
+= 2
+
+[1,2,3,4,5,4,3,2,1].indexOf(3, 4)
+= 6
+
+[1,2,3,4,5,4,3,2,1].indexOf(3, 7)
+= -1
+  </code></pre>
+<p>samething is true for lastIndexOf. use ur own brain to think how that will work. or open console and check it out.</p>
+ref: <a href="http://es5.github.io/#x15.4.4.14">es5:indexOf</a>
+</div>
+
+<div id="slice_splice">
+  <h2>9. slice & splice</h2>
+  <strong>slice</strong>
+  <p>slice retuns the sliced array but dont change the original array</p>
+  <pre><code>
+var GFs = ['Winter', 'Spring', 'summer', 'fall', 'rain', 'harvest'];
+
+GFs.slice(2);
+ = ['summer', 'fall', 'rain', 'harvest']
+
+GFs.slice(2, 2);
+ = ['summer', 'fall'] 
+
+GFs
+ = ['Winter', 'Spring', 'summer', 'fall', 'rain', 'harvest']; 
+  </code></pre>
+  <strong>splice</strong>
+  <p>splice change the original array</p>
+  <pre><code>
+var GFs = ['Winter', 'Spring', 'summer', 'fall', 'rain', 'harvest'];
+
+GFs.splice(2);
+ = ['summer', 'fall', 'rain', 'harvest']
+GFs 
+ = ['Winter', 'Spring']
+
+GFs.splice(2, 2);
+ = ['summer', 'fall'] 
+
+GFs.splice(2, 2, 'Texas GF', 'Florida GF', 'Hawai GF')
+ = ["summer", "fall"]
+
+ GFs
+  =["Winter", "Spring", "Texas GF", "Florida GF", "Hawai GF", "rain", "harvest"] 
+  </code></pre>
+</div>
+<div id="delete_element">
+  <h2>10. delete dont delete</h2>
+  <p>delete just creates a hole in ur array. dont delete element, use splice/ slice</p>
+  <pre><code>
+var myArr = [1,2,3,4,5,6,7];
+delete myArr[3]
+ = true
+myArr
+ = [1, 2, 3, undefined × 1, 5, 6, 7]
+  </code></pre>
+</div>
+<div id="array_method">
+  <h2>Basic Array method</h2>
+  <p>callback function of map, filter, some, every, forEach has three parameters: elem, index, arr. And you can optionally pass "this" as second argument of these Array method.</p>
+  <strong>forEach</strong>
+  <p>forEach dont return anything. it just run the callback functionf or each element of the array</p>
+  <pre><code>
+> [1,2,3].forEach(function(elem, index, arr){
+    console.log(elem);
+  });
+  = 1
+  = 2
+  = 3
+    
+  </code></pre>
+  <strong>map</strong>
+  <p>returns new array by executing the callback function for each elements of the array</p>
+  <pre><code>
+> [1,2,3].map(function(elem, index, arr){
+    return elem * elem;
+  });
+  = [1, 4, 9];
+</code></pre>
+<strong>filter</strong>
+<p>if the condition is true for an element, element is picked for the return array</p>
+<pre><code>
+> [1,2,3,4,5,6,7].filter(function(elem, index, arr){
+    return index % 2==0;
+  });
+  = [1, 3, 5, 7]
+</code></pre>
+<strong>some</strong>
+<p>if any of element in the arrya fulfil the condition, some will return true else will return false</p>
+<pre><code>
+  >[1,2,3, 4].some(function(elem, index, arr){
+    return elem >3;
+  });
+  = true;
+</code></pre>
+<strong>every</strong>
+<p>it will return true if every elements in the array fulfil the condition. else return false</p>
+<pre><code>
+>[1,2,3, 4].some(function(elem, index, arr){
+    return elem >3;
+  });
+  = false;
+
+>[1,2,3, 4].some(function(elem, index, arr){
+    return elem >0;
+  });
+  = false;  
+</code></pre>
+  
+</div>
+<div id="buildIn_function">
+  <h2>11.use build in function</h2>
+  <p></p>
+  <pre><code>
+> ["Happy", 0, "New", "", "Year", false].filter(Boolean);
+  = ["Happy", "New", "Year"]
+  </code></pre>
+  <p>ref: <a href="http://net.tutsplus.com/tutorials/javascript-ajax/what-they-didnt-tell-you-about-es5s-array-extras/">es5 array extra</a></p>
+</div>
+<div>
+  <h2>reduce</h2>
+  <p>reduce cache the value. for example u want to get the sum of all the element. alternatively, you can initially </p>
+  <pre><code>
+[1, 2, 3, 4].reduce(function(sum, el, idx, arr){
+  return sum + el;
+})
+ = 10
+
+[1, 2, 3, 4].reduce(function(sum, el, idx, arr){
+  return sum + el;
+}, 100)
+ = 110
+  </code></pre>
+</div>
+<div>
+  <h2>12. real length by reduce</h2>
+  <p>talk about reduce here</p>
+  <pre><code> 
+> ["hello", , , , , "javaScript"].reduce(function(count){ 
+    return count + 1; 
+  }, 0);
+  = 2 
+  </code></pre>
+</div>
+<div id="isArray">
+  <h2>13. check array</h2>
+  <p></p>
+  <pre><code>
+> typeof []
+  = "object"
+> typeof {}
+  = "object"  
+
+> Array.isArray([]);
+  = true
+> Array.isArray({});
+  = false
+  </code></pre>
+</div>
+<div id="array_like">
+  <h2>14. deal with Array-like objects</h2>
+  <p></p>
+  <pre><code>
+function foo(){
+  console.log(arguments, 'len', arguments.length, '2nd', arguments[1])
+}
+
+foo(1, 2, 3,4)
+ = [1, 2, 3, 4] "len" 4 "2nd" 2 
+  </code></pre>
+  <pre><code>
+function foo(){
+  console.log(Array.isArray(arguments));
+  arguments.push(5);
+  console.log(arguments, 'len', arguments.length, '2nd', arguments[1])
+}
+foo(1, 2, 3,4)
+ = false
+ = TypeError: Object #&lt;Object&gt; has no method 'push'
+  </code></pre>
+  <pre><code>
+function foo(){
+  var args = Array.prototype.slice.call(arguments);
+  args.push(5);
+  console.log(args, 'len', args.length, '2nd', args[1])
+}
+
+foo(1, 2, 3,4)
+ = [1, 2, 3, 4, 5] "len" 5 "2nd" 2 
+  </code></pre>
+</div>
+<div id="string_method">
+  <h2>15. array method in string</h2>
+  <p></p>
+  <pre><code>
+var dd = 'that JS Dude';
+
+dd.filter(function (el, idx){
+  return idx>7;
+})
+ = TypeError: Object that JS Dude has no method 'filter'
+  </code></pre>
+  <pre><code>
+[].filter.call(dd, function(el, idx){
+ return idx>7;
+})
+ = ["D", "u", "d", "e"]
+  </code></pre>
+</div>
+
+<p>for more: <a href="http://blog.mikota.cz/2013/06/fun-with-javascript-arrays.html">Fun with JS Array</a>, <a href="https://www.destroyallsoftware.com/talks/wat">WAT</a></p>
+<!-- div>h2+p+pre>code -->
+      <hr>
+
+      <footer>
+        <p>&copy;thatJSDude 2013</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../js/jquery-2.0.3.min.js"></script>
+    <script src="../../js/jquery.fitvids.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/oAuth/googleOAuth.js"></script>
+    <script src="../../js/oAuth/cookieManager.js"></script>
+    <script src="../../js/oAuth/manageLogin.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+  </body>
+</html>
