@@ -133,48 +133,33 @@
   <p><strong>Answer:</strong> yes. by using "scopped" in the style tag</p>
    ref <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style">MDN: style</a>
 </div>
-<!-- <div id="indexOf_sensitive">
-  <h2>7. IndexOf: type and instace sensitive </h2>
-  <p>indexOf compare type of the element and instance of the element. For the second example, though {b:2} looks identical, they are two seperate instance hence indexOf will not find it in the array. similarly [3] in the third example and inside indexOf are two seperate instance of array. though they contain same element inside, they are two seperate instance</p>
+<div id="indexOf_sensitive">
+  <h2>7. http requst </h2>
+  <p><strong>Question:</strong> Does the following trigger http request at the time of page load?</p>  
   <pre><code>
-[1,2,3,4].indexOf(3);
- = 2
- //'3' is a string where 3 is number
-[1,2,3,4].indexOf('3');
- = -1
-
-[{a:1}, {b:2}].indexOf({b:2});
- = -1
-
- //similarly
- [[1], [2], [3]].indexOf([3])
- = -1
+&lt;img src=&quot;mypic.jpg&quot; style=&quot;visibility:hidden&quot; alt=&quot;My photo&quot;&gt;<br/>
   </code></pre>
-  <p>to solve the problem of object. you have to hold the reference</p>
+<p><strong>Answer:</strong>yes</p>
   <pre><code>
-var myObj = {a:1}, 
-    urObj = {b:2};
-
-[myObj, urObj].indexOf(urObj);
- = 1    
+ &lt;div style=&quot;display: none;&quot;&gt;<br/>    &lt;img src=&quot;mypic.jpg&quot; alt=&quot;My photo&quot;&gt;<br/>&lt;/div&gt;
   </code></pre>
-</div> -->
-<!-- <div id="indexOf_extra">
-  <h2>8. indexOf extra fromIndex</h2>
-  <p>good part of indexOf is that you can provide second parameter to tell from where indexOf should start searching for ur element</p>
+  <P><strong>Answer:</strong> yes</P>
+</div>
+<div id="indexOf_extra">
+  <h2>8. download order</h2>
+  <p><strong>Question:</strong> Does style1.css have to be downloaded and parsed before style2.css can be fetched?</p>
   <pre><code>
-[1,2,3,4,5,4,3,2,1].indexOf(3)
-= 2
-
-[1,2,3,4,5,4,3,2,1].indexOf(3, 4)
-= 6
-
-[1,2,3,4,5,4,3,2,1].indexOf(3, 7)
-= -1
+&lt;head&gt;<br/>    &lt;link href=&quot;style1.css&quot; rel=&quot;stylesheet&quot;&gt;<br/>    &lt;link href=&quot;main2.css&quot; rel=&quot;stylesheet&quot;&gt;<br/>&lt;/head&gt;
   </code></pre>
-<p>samething is true for lastIndexOf. use ur own brain to think how that will work. or open console and check it out.</p>
-ref: <a href="http://es5.github.io/#x15.4.4.14">es5:indexOf</a>
-</div> -->
+<p><strong>Answer:</strong>No</p>
+<p><strong>Question:</strong> Does main2.css have to be downloaded and parsed before Paragraph 1 is rendered on the page?</p>
+<pre><code>
+&lt;head&gt;<br/>    &lt;link href=&quot;main1.css&quot; rel=&quot;stylesheet&quot;&gt;<br/>&lt;/head&gt;<br/>&lt;body&gt;<br/>    &lt;p&gt;Paragraph 1&lt;/p&gt;<br/>    &lt;p&gt;Paragraph 2&lt;/p&gt;<br/>    &lt;link href=&quot;main2.css&quot; rel=&quot;stylesheet&quot;&gt;<br/>&lt;/body&gt;
+</code></pre>
+<p><strong>Answer:</strong>yes</p>
+
+ref: <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a>
+</div>
 
 <!-- <div id="slice_splice">
   <h2>9. slice & splice</h2>
