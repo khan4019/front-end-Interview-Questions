@@ -71,12 +71,12 @@
         <li><a href="#scopped">can you apply css to a part of html document only?</a></li>        
         <li><a href="#http_request">Will browser make http request for the following case?</a></li>
         <li><a href="#download_order">Which resource would be downloaded first?</a></li>
-        <li><a href="#standard_quirks">Explain standard and quirks mode.</a></li>
+        <li><a href="#optional_tag">What is optional tag?</a></li>        
         <li><a href="#div_span">What are the differences between div and span?</a></li>        
         <li><a href="#div_section_article">How you would differentiate div, section and article?</a></li>
         <li><a href="#svg_canvas">How to select svg or canvas for your site?</a></li>
         <li><a href="#mtuli_lang">How to serve html in multiple language?</a></li>        
-        <li><a href="#optional_tag">What is optional tag?</a></li>
+        <li><a href="#standard_quirks">Explain standard and quirks mode.</a></li>
         <li><a href="#semantic_html">Array methods in string?</a></li>
        </ol>
 <div id="doctype">
@@ -84,8 +84,11 @@
   <p><strong>Question:</strong> What is doctype? why do u need it?</p>  
   <p><strong>Answer:</strong> doctype is a instruction to the browser to inform about the version of html and how browser should render it.</p>
   <p>It ensures how element should be displayed on the page by most of the browser. And it also makes browsers life easier. otherwise, browser will guess and will go to <a href="http://en.wikipedia.org/wiki/Quirks_mode">quirks mode</a>. Moreover, doctype is required to <a href="http://validator.w3.org/">validate markup</a>.</p>
-  <p><strong>extra:</strong> this the first tag of html file, dont need a closing tag and not case senstitive.</p>
-  
+  <pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+  </code></pre>
+  <p><strong>extra:</strong> this the first tag of html file, dont need a closing tag and not case senstitive.</p>  
   ref: <a href="http://www.w3.org/QA/Tips/Doctype">don't forget doctype</a>, <a href="http://www.2ality.com/2012/06/dense-arrays.html">Sparse vs Dense Array</a>
 </div>
 <div id="data_attribute">
@@ -117,6 +120,7 @@
   </code></pre>
   <strong>result:</strong>  
 <p><bdo dir="rtl">This text will go right to left.</bdo></p>
+<p><strong>extra:</strong> rtl: right to left. and alternatively you can use, ltr: left to right</p>
 </div>
 <div id="mark">
   <h2>5. mark</h2>
@@ -143,7 +147,8 @@
   <pre><code>
  &lt;div style=&quot;display: none;&quot;&gt;<br/>    &lt;img src=&quot;mypic.jpg&quot; alt=&quot;My photo&quot;&gt;<br/>&lt;/div&gt;
   </code></pre>
-  <P><strong>Answer:</strong> yes</P>
+  <P><strong>Answer:</strong> yes</P>  
+  <p>ref: <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a></p>
 </div>
 <div id="download_order">
   <h2>8. download order</h2>
@@ -160,12 +165,21 @@
 
 ref: <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a>
 </div>
-<h1>Old School questions</h1>
-<div id="standard_quirks">
-  <h2>9. standar & quirks mode</h2>
-  <p><strong>Question:</strong> Difference between standard mode and quirks mode</p>
-  <p><strong>Answer:</strong> quriks mode in browser allows u to render page for as old browsers. This is for backward compatibility.</p> 
+<div id="optional_tag">
+  <h2>9. self closing tag</h2>
+  <p><strong>Question:</strong>What are optional closing tag? and why would u use it?</p>
+  <p><strong>Answer:</strong> p, li, td, tr, th, html, body, etc. you dont have to provide end tag. whenever browser hits a new tag it automatically ends the previous tag. However, you have to be careful to escape it</p>
+  <p><strong>reason:</strong> you can save some byte and reduce bytes needs to be downloaded in a html file.</p>
+  <pre><code>
+&lt;p&gt;Some text<br/>&lt;p&gt;Some more text<br/>&lt;ul&gt;<br/> &lt;li&gt;A list item<br/> &lt;li&gt;Another list item<br/>&lt;/ul&gt;
+  </code></pre>
+  <p> the above html will be parsed as the following blocks</p>
+  <pre><code>
+&lt;p&gt;Some text&lt;/p&gt;<br/>&lt;p&gt;Some more text&lt;/p&gt;<br/>&lt;ul&gt;<br/> &lt;li&gt;A list item&lt;/li&gt;<br/> &lt;li&gt;Another list item&lt;/li&gt;<br/>&lt;/ul&gt;
+  </code></pre>  
+  <p>ref: <a href="http://www.w3.org/TR/REC-html40/index/elements.html">W3.org: index of elements</a> </p>
 </div>
+<h1>Old School questions</h1>
 <div id="div_span">
   <h2>10. span vs div</h2>
   <p><strong>Question:</strong> What is the difference between span, div?</p>
@@ -194,19 +208,10 @@ ref: <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a>
   <p><strong>Answer:</strong> CMS could be used to deliver content in different language with same structure and style.</p>
   <p>ref: <a href="https://github.com/johnpolacek/Front-end-Developer-Interview-Questions/blob/master/README.md">john polacek</a>   </p>
 </div>
-<div id="optional_tag">
-  <h2>14. self closing tag</h2>
-  <p><strong>Question:</strong>What are optional closing tag? and why would u use it?</p>
-  <p><strong>Answer:</strong> p, li, td, tr, th, html, body, etc. you dont have to provide end tag. whenever browser hits a new tag it automatically ends the previous tag. However, you have to be careful to escape it</p>
-  <p><strong>reason:</strong> you can save some byte and reduce bytes needs to be downloaded in a html file.</p>
-  <pre><code>
-&lt;p&gt;Some text<br/>&lt;p&gt;Some more text<br/>&lt;ul&gt;<br/> &lt;li&gt;A list item<br/> &lt;li&gt;Another list item<br/>&lt;/ul&gt;
-  </code></pre>
-  <p> the above html will be parsed as the following blocks</p>
-  <pre><code>
-&lt;p&gt;Some text&lt;/p&gt;<br/>&lt;p&gt;Some more text&lt;/p&gt;<br/>&lt;ul&gt;<br/> &lt;li&gt;A list item&lt;/li&gt;<br/> &lt;li&gt;Another list item&lt;/li&gt;<br/>&lt;/ul&gt;
-  </code></pre>  
-  <p>ref: <a href="http://www.w3.org/TR/REC-html40/index/elements.html">W3.org: index of elements</a> </p>
+<div id="standard_quirks">
+  <h2>14. standar & quirks mode</h2>
+  <p><strong>Question:</strong> Difference between standard mode and quirks mode</p>
+  <p><strong>Answer:</strong> quriks mode in browser allows u to render page for as old browsers. This is for backward compatibility.</p> 
 </div>
 <div id="semantic_html">
   <h2>15. semantic</h2>
