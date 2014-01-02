@@ -230,20 +230,20 @@
 <p><strong>Answer:</strong> red</p>
 ref: <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a>
 </div>
-<!-- <div id="optional_tag">
-  <h2>9. self closing tag</h2>
-  <p><strong>Question:</strong> What are optional closing tag? and why would u use it?</p>
-  <p><strong>Answer:</strong> p, li, td, tr, th, html, body, etc. you dont have to provide end tag. whenever browser hits a new tag it automatically ends the previous tag. However, you have to be careful to escape it.</p>
-  <p><strong>reason:</strong> you can save some byte and reduce bytes needs to be downloaded in a html file.</p>
+<div id="optional_tag">
+  <h2>9. applied rule-2</h2>
+  <p><strong>Question:</strong> What will happen to the position of #example?</p>
   <pre><code>
-&lt;p&gt;Some text<br/>&lt;p&gt;Some more text<br/>&lt;ul&gt;<br/> &lt;li&gt;A list item<br/> &lt;li&gt;Another list item<br/>&lt;/ul&gt;
+&lt;style&gt;<br/>  #example {<br/>    margin-bottom: -5px;<br/>  }<br/>&lt;/style&gt;<br/>&lt;&lt;p id=&quot;example&quot;&gt;Hello&lt;/p&gt;p id=&quot;example&quot;&gt;Hello&lt;/p&gt;
   </code></pre>
-  <p> the above html will be parsed as the following blocks.</p>
+  <p><strong>Answer:</strong> All elements succeeding #example will move 5px updward.</p>
+  <p><strong>reason:</strong> .</p>
   <pre><code>
-&lt;p&gt;Some text&lt;/p&gt;<br/>&lt;p&gt;Some more text&lt;/p&gt;<br/>&lt;ul&gt;<br/> &lt;li&gt;A list item&lt;/li&gt;<br/> &lt;li&gt;Another list item&lt;/li&gt;<br/>&lt;/ul&gt;
-  </code></pre>  
-  <p>ref: <a href="http://www.w3.org/TR/REC-html40/index/elements.html">W3.org: index of elements</a> </p>
-</div> -->
+&lt;style&gt;<br/>  #example {<br/>    margin-left: -5px;<br/>  }<br/>&lt;/style&gt;<br/>&lt;&lt;p id=&quot;example&quot;&gt;Hello&lt;/p&gt;p id=&quot;example&quot;&gt;Hello&lt;/p&gt;
+  </code></pre> 
+  <p><strong>Answer:</strong> #example will move 5px left.</p>
+  <p>ref: <a href="">David Shariff</a> </p>
+</div>
 
 <!-- <div id="div_span">
   <h2>10. span vs div</h2>
