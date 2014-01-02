@@ -50,7 +50,7 @@
     <div class="jumbotron">
       <div class="container">
         <h1>html</h1>        
-        <h2>master interview in html</h2>        
+        <h2>HTML related interview questions</h2>
         <p>January 01, 2014</p>     
       </div>
     </div>
@@ -64,7 +64,7 @@
       <!-- <h3>If you have hard time to follow this video, you can see the content below. Things you will learn-</h3> -->
        <ol>
         <li><a href="#doctype">what is the use of html doctype?</a></li>
-        <li><a href="#data_attribute">What is the use of data-attribute?</a></li>
+        <li><a href="#data_attribute">What is the use of data-* attribute?</a></li>
         <li><a href="#keygen">How can you generate public key in html?</a></li>        
         <li><a href="#bdo">How do you change direction of html text?</a></li>
         <li><a href="#mark">How can you highlight text in html?</a></li>        
@@ -81,7 +81,7 @@
        </ol>
 <div id="doctype">
   <h2>1. doctype</h2>
-  <p><strong>Question:</strong> What is doctype? why u need it?</p>  
+  <p><strong>Question:</strong> What is doctype? why do u need it?</p>  
   <p><strong>Answer:</strong> doctype is a instruction to the browser to inform about the version of html and how browser should render it.</p>
   <p>It ensures how element should be displayed on the page by most of the browser. And it also makes browsers life easier. otherwise, browser will guess and will go to <a href="http://en.wikipedia.org/wiki/Quirks_mode">quirks mode</a>. Moreover, doctype is required to <a href="http://validator.w3.org/">validate markup</a>.</p>
   <p><strong>extra:</strong> this the first tag of html file, dont need a closing tag and not case senstitive.</p>
@@ -89,10 +89,13 @@
   ref: <a href="http://www.w3.org/QA/Tips/Doctype">don't forget doctype</a>, <a href="http://www.2ality.com/2012/06/dense-arrays.html">Sparse vs Dense Array</a>
 </div>
 <div id="data_attribute">
-  <h2>2. data-</h2>
+  <h2>2. data-*</h2>
   <p><strong>Question:</strong> what is the use of data- attribute?</p>
-  <p><strong>Answer:</strong> storing data in the DOM. a lot of javascript libraries uses it like knockout, angular. u can put any of ur customized arrtibute in the dom. built to store sensitive or private data that is exclusive to a page or application, for which there are no other matching attributes or elements.</p>
-
+  <p><strong>Answer:</strong> allow you to store extra information/data in the DOM. u can write valid html withe embeded private data. You can easily access data attribute by using javascript and hence a lot of libraries like knockout uses it.</p>
+  <pre><code>
+&lt;div id=&quot;myDiv&quot; data-user=&quot;jsDude&quot; data-list-size=&quot;5&quot; data-maxage=&quot;180&quot;&gt;&lt;/div&gt;
+  </code></pre>
+  <p>ref: <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_data_attributes">MDN: data-*</a>, <a href="http://www.sitepoint.com/use-html5-data-attributes/">use data attribute</a></p>  
   </div>
   <div id="keygen">
     <h2>3. keygen</h2>
@@ -102,7 +105,7 @@
     &lt;keygen name=&quot;name&quot; challenge=&quot;challenge string&quot; keytype=&quot;type&quot; keyparams=&quot;pqg-params&quot;&gt;
   </code></pre>
   <p><strong>extra:</strong> keygen has to be used inside a form</p>
-  ref: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/keygen">MDN: keyge</a>
+  ref: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/keygen">MDN: keygen</a>
 </div>
 
 <div id="bdo">
