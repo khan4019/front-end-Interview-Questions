@@ -245,13 +245,16 @@ ref: <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a>
   <p>ref: <a href="">David Shariff</a> </p>
 </div>
 
-<!-- <div id="div_span">
-  <h2>10. span vs div</h2>
-  <p><strong>Question:</strong> What is the difference between span, div?</p>
-  <p><strong>Answer:</strong> div is a block element and span is inline element.</p>  
-  <p><strong>Extra:</strong> it is illegal to put block element inside inline element. div can have a p tag and a p tag can have a span. However, span can't have a div or p tag inside.</p>
+<div id="div_span">
+  <h2>10. download resources</h2>
+  <p><strong>Question:</strong> On page load, will mypic.jpg get downloaded by the browser?</p>  
+  <pre><code>
+&lt;style&gt;<br/>  #test1 {<br/>    display: none;<br/>  }<br/>  #test2 {<br/>    background-image: url('mypic.jpg');<br/>    visibility: hidden;<br/>  }<br/>&lt;/style&gt;<br/>&lt;div id=&quot;test1&quot;&gt;<br/>    &lt;span id=&quot;test2&quot;&gt;&lt;/span&gt;<br/>&lt;/div&gt;
+  </code></pre>
+  <p><strong>Answer:</strong> No.</p>  
+  <p><strong>reason:</strong> .</p>
   <p>ref: <a href="http://stackoverflow.com/questions/183532/what-is-the-difference-between-html-tags-div-and-span">Stackoverflow: div vs span</a> </p>
-</div> -->
+</div>
 <!-- <div id="div_section_article">
   <h2>11. div, section & article</h2>
   <p><strong>Question:</strong> When should i prefer div over section and vice versa?</p>
