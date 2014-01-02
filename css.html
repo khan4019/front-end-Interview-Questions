@@ -80,18 +80,16 @@
         <li><a href="#standard_quirks">Explain standard and quirks mode.</a></li>
         <li><a href="#semantic_html">Array methods in string?</a></li>
        </ol> -->
-<!-- <div id="doctype">
-  <h2>1. doctype</h2>
-  <p><strong>Question:</strong> What is doctype? why do u need it?</p>  
-  <p><strong>Answer:</strong> doctype is a instruction to the browser to inform about the version of html and how browser should render it.</p>
-  <p>It ensures how element should be displayed on the page by most of the browser. And it also makes browsers life easier. otherwise, browser will guess and will go to <a href="http://en.wikipedia.org/wiki/Quirks_mode">quirks mode</a>. Moreover, doctype is required to <a href="http://validator.w3.org/">validate markup</a>.</p>
-  <pre><code>
-&lt;!DOCTYPE html&gt;
-&lt;meta charset=&quot;UTF-8&quot;&gt;
-  </code></pre>
-  <p><strong>extra:</strong> this the first tag of html file, dont need a closing tag and not case senstitive.</p>  
-  ref: <a href="http://www.w3.org/QA/Tips/Doctype">don't forget doctype</a>, <a href="http://www.2ality.com/2012/06/dense-arrays.html">Sparse vs Dense Array</a>
-</div> -->
+<div id="doctype">
+  <h2>1. float</h2>
+  <p><strong>Question:</strong> How float works?</p>  
+  <p><strong>Answer:</strong> float is to push element on a side of a page with text wrap around it. you can create entire page or litter area by using float. if size of a floated element changes, text around it will reflow to accomodate the changes. You can have float left, right, none or inherit.</p>
+  <p> if you set, 'float: left;' for an image, it will move to the left until the margin, padding or border of another block-level element is reached. The normal flow will wrap around on the right side.</p>
+
+  <p>If interviewer wants to ask one question about css, that would be most likely about float</a>.</p>  
+  <p><strong>extra:</strong> read the positioning constraints in <a href="http://www.w3.org/TR/CSS1/#floating-elements">W3.org: floating elements</a>.</p>  
+  ref: <a href="http://css-tricks.com/all-about-floats/">css-tricks: float</a>, <a href="http://alistapart.com/article/css-floats-101">float 101</a> 
+</div>
 <!-- <div id="data_attribute">
   <h2>2. data-*</h2>
   <p><strong>Question:</strong> what is the use of data- attribute?</p>
