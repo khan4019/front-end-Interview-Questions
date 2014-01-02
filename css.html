@@ -32,6 +32,19 @@
       .skipListItem{
         list-style-type: none;
       }
+      /*style for demo*/
+      .floatContainer{
+        width: 200px;
+        height: 100px;
+        border: 2px solid purple;
+       }
+       .box{
+        float: left;
+        width:50px;
+        height: 30px;
+        border: 2px solid gray;
+        margin:5px;
+       }
     </style>
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
@@ -85,20 +98,28 @@
   <p><strong>Question:</strong> How float works?</p>  
   <p><strong>Answer:</strong> float is to push element on a side of a page with text wrap around it. you can create entire page or litter area by using float. if size of a floated element changes, text around it will reflow to accomodate the changes. You can have float left, right, none or inherit.</p>
   <p> if you set, 'float: left;' for an image, it will move to the left until the margin, padding or border of another block-level element is reached. The normal flow will wrap around on the right side.</p>
-
+    <pre><code>
+ &lt;style&gt;<br/>   .floatContainer{<br/>        width: 200px;<br/>        height: 100px;<br/>        border: 2px solid purple;<br/>   }<br/>   .box{<br/>        float: left;<br/>        width:50px;<br/>        height: 30px;<br/>        border: 2px solid gray;<br/>        margin:5px;<br/>   }<br/> &lt;/style&gt;
+ &lt;div class=&quot;container&quot;&gt;<br/>    &lt;div class=&quot;box&quot;&gt;&lt;span&gt;1&lt;/span&gt;&lt;/div&gt;<br/>    &lt;div class=&quot;box&quot;&gt;&lt;span&gt;2&lt;/span&gt;&lt;/div&gt;<br/>    &lt;div class=&quot;box&quot;&gt;&lt;span&gt;3&lt;/span&gt;&lt;/div&gt;<br/>    &lt;div class=&quot;box&quot;&gt;&lt;span&gt;4&lt;/span&gt;&lt;/div&gt;<br/>    &lt;div class=&quot;box&quot;&gt;&lt;span&gt;5&lt;/span&gt;&lt;/div&gt;<br/>  &lt;/div&gt; 
+  </code></pre>
+  <div class="floatContainer">
+    <div class="box"><span>1</span></div>
+    <div class="box"><span>2</span></div>
+    <div class="box"><span>3</span></div>
+    <div class="box"><span>4</span></div>
+    <div class="box"><span>5</span></div>
+  </div>
   <p>If interviewer wants to ask one question about css, that would be most likely about float</a>.</p>  
   <p><strong>extra:</strong> read the positioning constraints in <a href="http://www.w3.org/TR/CSS1/#floating-elements">W3.org: floating elements</a>.</p>  
   ref: <a href="http://css-tricks.com/all-about-floats/">css-tricks: float</a>, <a href="http://alistapart.com/article/css-floats-101">float 101</a> 
 </div>
-<!-- <div id="data_attribute">
-  <h2>2. data-*</h2>
-  <p><strong>Question:</strong> what is the use of data- attribute?</p>
-  <p><strong>Answer:</strong> allow you to store extra information/data in the DOM. u can write valid html withe embeded private data. You can easily access data attribute by using javascript and hence a lot of libraries like knockout uses it.</p>
-  <pre><code>
-&lt;div id=&quot;myDiv&quot; data-user=&quot;jsDude&quot; data-list-size=&quot;5&quot; data-maxage=&quot;180&quot;&gt;&lt;/div&gt;
-  </code></pre>
+<div id="data_attribute">
+  <h2>2. clear</h2>
+  <p><strong>Question:</strong> When will you use clear?</p>
+  <p><strong>Answer:</strong> clear is used to stop wrap of an element around a floating element. .</p>
+  
   <p>ref: <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_data_attributes">MDN: data-*</a>, <a href="http://www.sitepoint.com/use-html5-data-attributes/">use data attribute</a></p>  
-  </div> -->
+  </div>
   <!-- <div id="keygen">
     <h2>3. keygen</h2>
   <p><strong>Question:</strong> How can u generate public key in html?</p>
