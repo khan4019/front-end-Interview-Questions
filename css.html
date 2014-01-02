@@ -263,11 +263,14 @@ ref: <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a>
   </code></pre>
   <p><strong>Answer:</strong> Stops older browsers from parsing the remainder of the selector</p>
 </div>
-<!-- <div id="svg_canvas">
-  <h2>12. svg vs canvas</h2>
-  <p><strong>Question:</strong> What are the difference between svg and canvas?</p>
-  <p><strong>Answer:</strong> <a href="http://www.sitepoint.com/how-to-choose-between-canvas-and-svg/">Read this one.</a> (I am tired of copy-pasting)</p>
-</div> -->
+<div id="svg_canvas">
+  <h2>12. overflow</h2>
+  <p><strong>Question:</strong> Does overflow: hidden create a new block formatting context?</p>
+  <pre><code>
+&lt;style&gt;<br/>  div {<br/>    overflow: hidden;<br/>  }<br/>  p {<br/>    float: left;<br/>  }<br/>&lt;/style&gt;<br/>&lt;div&gt;<br/>    &lt;p&gt;I am floated&lt;/p&gt;<br/>    &lt;p&gt;So am I&lt;/p&gt;<br/>&lt;/div&gt;<br/>
+  </code></pre>
+  <p><strong>Answer:</strong> yes</p>
+</div>
 <!-- <div id="mtuli_lang">
   <h2>13. multiple languages</h2>
   <p><strong>Question:</strong> How to serve a page content in multiple languages?</p>
