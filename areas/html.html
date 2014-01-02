@@ -194,38 +194,20 @@ ref: <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a>
   <p><strong>Answer:</strong> CMS could be used to deliver content in different language with same structure and style.</p>
   <p>ref: <a href="https://github.com/johnpolacek/Front-end-Developer-Interview-Questions/blob/master/README.md">john polacek</a>   </p>
 </div>
-<!-- <div id="array_like">
-  <h2>14. deal with Array-like objects</h2>
-  <p></p>
+<div id="array_like">
+  <h2>14. self closing tag</h2>
+  <p><strong>Question:</strong>What are optional closing tag? and why would u use it?</p>
+  <p><strong>Answer:</strong> p, li, td, tr, th, html, body, etc. you dont have to provide end tag. whenever browser hits a new tag it automatically ends the previous tag. However, you have to be careful to escape it</p>
+  <p><strong>reason:</strong> you can save some byte and reduce bytes needs to be downloaded in a html file.</p>
   <pre><code>
-function foo(){
-  console.log(arguments, 'len', arguments.length, '2nd', arguments[1])
-}
-
-foo(1, 2, 3,4)
- = [1, 2, 3, 4] "len" 4 "2nd" 2 
+&lt;p&gt;Some text<br/>&lt;p&gt;Some more text<br/>&lt;ul&gt;<br/> &lt;li&gt;A list item<br/> &lt;li&gt;Another list item<br/>&lt;/ul&gt;
   </code></pre>
+  <p> the above html will be parsed as the following blocks</p>
   <pre><code>
-function foo(){
-  console.log(Array.isArray(arguments));
-  arguments.push(5);
-  console.log(arguments, 'len', arguments.length, '2nd', arguments[1])
-}
-foo(1, 2, 3,4)
- = false
- = TypeError: Object #&lt;Object&gt; has no method 'push'
-  </code></pre>
-  <pre><code>
-function foo(){
-  var args = Array.prototype.slice.call(arguments);
-  args.push(5);
-  console.log(args, 'len', args.length, '2nd', args[1])
-}
-
-foo(1, 2, 3,4)
- = [1, 2, 3, 4, 5] "len" 5 "2nd" 2 
-  </code></pre>
-</div> -->
+&lt;p&gt;Some text&lt;/p&gt;<br/>&lt;p&gt;Some more text&lt;/p&gt;<br/>&lt;ul&gt;<br/> &lt;li&gt;A list item&lt;/li&gt;<br/> &lt;li&gt;Another list item&lt;/li&gt;<br/>&lt;/ul&gt;
+  </code></pre>  
+  <p>ref: <a href="http://www.w3.org/TR/REC-html40/index/elements.html">W3.org: index of elements</a> </p>
+</div>
 <!-- <div id="string_method">
   <h2>15. array method in string</h2>
   <p></p>
