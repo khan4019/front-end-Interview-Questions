@@ -210,6 +210,24 @@
 &lt;style&gt;<br/>  ul#awesome {<br/>    color: red;<br/>  }<br/>  ul.shopping-list li.favorite span {<br/>    color: blue;<br/>  }<br/>&lt;/style&gt;
 </code></pre>
 <p><strong>Answer:</strong> blue</p>
+<br>
+<strong>d.</strong>
+<pre><code>
+&lt;style&gt;<br/> ul#awesome #must-buy {<br/>    color: red;<br/> }<br/> .favorite span {<br/>    color: blue!important;<br/> }<br/>&lt;/style&gt;<br/>
+</code></pre>
+<p><strong>Answer:</strong> blue</p>
+<br>
+<strong>e.</strong>
+<pre><code>
+&lt;style&gt;<br/>  ul.shopping-list li .highlight {<br/>    color: red;<br/>  }<br/>  ul.shopping-list li .highlight:nth-of-type(odd) {<br/>    color: blue;<br/>  }<br/>&lt;/style&gt;<br/>
+</code></pre>
+<p><strong>Answer:</strong> blue</p>
+<br>
+<strong>f.</strong>
+<pre><code>
+&lt;style&gt;<br/>  #awesome .favorite:not(#awesome) .highlight {<br/>    color: red;<br/>  }<br/>  #awesome .highlight:nth-of-type(1):nth-last-of-type(1) {<br/>    color: blue;<br/>  }<br/>&lt;/style&gt;<br/>
+</code></pre>
+<p><strong>Answer:</strong> red</p>
 ref: <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a>
 </div>
 <!-- <div id="optional_tag">
