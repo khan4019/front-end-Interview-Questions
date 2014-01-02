@@ -51,7 +51,7 @@
       <div class="container">
         <h1>html</h1>        
         <h2>master interview in html</h2>        
-        <p>January 05, 2013</p>     
+        <p>January 01, 2014</p>     
       </div>
     </div>
     <div class="container">
@@ -62,27 +62,24 @@
       </div>
             
       <!-- <h3>If you have hard time to follow this video, you can see the content below. Things you will learn-</h3> -->
-       <!-- <ol>
-        <li><a href="#create_array">Best way to create Array</a></li>
-        <li><a href="#insert_by_index">Don't randomly insert by index</a></li>
-        <li><a href="#right_index">use right index to insert</a></li>        
-        <li><a href="#push_multiple">push multiple</a></li>
-        <li><a href="#unshift_multiple">unshift multiple</a></li>        
-        <li><a href="#set_length">Don't blindly set length</a></li>        
-        <li><a href="#indexOf_sensitive">IndexOf: type and instance sensitive</a></li>
-        <li><a href="#indexOf_extra">IndexOf Extra parameter</a></li>
-        <li><a href="#slice_splice">slice splice</a></li>
-        <li><a href="#delete_element">delete dont delete</a></li>
-        <li class="skipListItem"><a href="#array_method">map, forEach, filter, some, every</a></li>
-        <li value="11"><a href="#buildIn_function">use build in function as callBack</a></li>
-        <li><a href="#real_length">real length by reduce</a></li>
-        <li><a href="#isArray">isArray</a></li>        
-        <li><a href="#array_like">Array like object</a></li>
-        <li><a href="#string_method">Array methods in string</a></li>
-        <li class="skipListItem"><a href="">sort, reverse (not added)</a></li>
-        <li class="skipListItem"><a href="">join, concat (not added)</a></li>
-       </ol> -->
-<div id="create_array">
+       <ol>
+        <li><a href="#doctype">what is the use of html doctype?</a></li>
+        <li><a href="#data_attribute">What is the use of data-attribute?</a></li>
+        <li><a href="#keygen">How can you generate public key in html?</a></li>        
+        <li><a href="#bdo">How do you change direction of html text?</a></li>
+        <li><a href="#mark">How can you highlight text in html?</a></li>        
+        <li><a href="#scopped">can you apply css to a part of html document only?</a></li>        
+        <li><a href="#http_request">Will browser make http request for the following case?</a></li>
+        <li><a href="#download_order">Which resource would be downloaded first?</a></li>
+        <li><a href="#standard_quirks">Explain standard and quirks mode.</a></li>
+        <li><a href="#div_span">What are the differences between div and span?</a></li>        
+        <li><a href="#div_section_article">How you would differentiate div, section and article?</a></li>
+        <li><a href="#svg_canvas">How to select svg or canvas for your site?</a></li>
+        <li><a href="#mtuli_lang">How to serve html in multiple language?</a></li>        
+        <li><a href="#optional_tag">What is optional tag?</a></li>
+        <li><a href="#semantic_html">Array methods in string?</a></li>
+       </ol>
+<div id="doctype">
   <h2>1. doctype</h2>
   <p><strong>Question:</strong> What is doctype? why u need it?</p>  
   <p><strong>Answer:</strong> doctype is a instruction to the browser to inform about the version of html and how browser should render it.</p>
@@ -91,13 +88,13 @@
   
   ref: <a href="http://www.w3.org/QA/Tips/Doctype">don't forget doctype</a>, <a href="http://www.2ality.com/2012/06/dense-arrays.html">Sparse vs Dense Array</a>
 </div>
-<div id="insert_by_index">
+<div id="data_attribute">
   <h2>2. data-</h2>
-  <p><strong>Question:</strong> what is the use of data= attribute?</p>
+  <p><strong>Question:</strong> what is the use of data- attribute?</p>
   <p><strong>Answer:</strong> storing data in the DOM. a lot of javascript libraries uses it like knockout, angular. u can put any of ur customized arrtibute in the dom. built to store sensitive or private data that is exclusive to a page or application, for which there are no other matching attributes or elements.</p>
 
   </div>
-  <div id="right_index">
+  <div id="keygen">
     <h2>3. keygen</h2>
   <p><strong>Question:</strong> How can u generate public key in html?</p>
   <p><strong>Answer:</strong> html has a keygen element that failitate generation of key and submission via a form.</p>
@@ -108,7 +105,7 @@
   ref: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/keygen">MDN: keyge</a>
 </div>
 
-<div id="push_multiple">
+<div id="bdo">
   <h2>4. bdo</h2>
   <p><strong>Question:</strong> how can u change direction of html text?</p>
   <p><strong>Answer:</strong> use bdo (bidirectional ovverride) element of html.</p>
@@ -118,7 +115,7 @@
   <strong>result:</strong>  
 <p><bdo dir="rtl">This text will go right to left.</bdo></p>
 </div>
-<div id="unshift_multiple">
+<div id="mark">
   <h2>5. mark</h2>
   <p><strong>Question:</strong> how can u highlight text in html</p>
   <p><strong>Answer:</strong> use mark element.</p>
@@ -127,13 +124,13 @@
   </code></pre>
   <p><strong>result:</strong>Some part of this paragraph is <mark>highlighted</mark> by using mark element.</p>  
 </div>
-<div id="set_length">
+<div id="scopped">
   <h2>6. scoped</h2>
   <p><strong>Question:</strong>Can u apply css rule to a part of html document?</p>
   <p><strong>Answer:</strong> yes. by using "scopped" in the style tag</p>
    ref <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style">MDN: style</a>
 </div>
-<div id="indexOf_sensitive">
+<div id="http_request">
   <h2>7. http requst </h2>
   <p><strong>Question:</strong> Does the following trigger http request at the time of page load?</p>  
   <pre><code>
@@ -145,7 +142,7 @@
   </code></pre>
   <P><strong>Answer:</strong> yes</P>
 </div>
-<div id="indexOf_extra">
+<div id="download_order">
   <h2>8. download order</h2>
   <p><strong>Question:</strong> Does style1.css have to be downloaded and parsed before style2.css can be fetched?</p>
   <pre><code>
@@ -161,19 +158,19 @@
 ref: <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a>
 </div>
 <h1>Old School questions</h1>
-<div id="slice_splice">
+<div id="standard_quirks">
   <h2>9. standar & quirks mode</h2>
   <p><strong>Question:</strong> Difference between standard mode and quirks mode</p>
   <p><strong>Answer:</strong> quriks mode in browser allows u to render page for as old browsers. This is for backward compatibility.</p> 
 </div>
-<div id="delete_element">
+<div id="div_span">
   <h2>10. span vs div</h2>
   <p><strong>Question:</strong> What is the difference between span, div?</p>
   <p><strong>Answer:</strong> div is a block element and span is inline element.</p>  
   <p><strong>Extra:</strong> it is illegal to put block element inside inline element. div can have a p tag and a p tag can have a span. However, span can't have a div or p tag inside.</p>
   <p>ref: <a href="http://stackoverflow.com/questions/183532/what-is-the-difference-between-html-tags-div-and-span">Stackoverflow: div vs span</a> </p>
 </div>
-<div id="buildIn_function">
+<div id="div_section_article">
   <h2>11. div, section & article</h2>
   <p><strong>Question:</strong> When should i prefer div over section and vice versa?</p>
   <p><strong>Answer:</strong> <br>&lt;section&gt; means that the content inside is grouped (i.e. relates to a single theme), and should appear as an entry in an outline of the page.  A section normally has a heading (title) and maybe a footer too. It’s a chunk of related content, like a subsection of a long article, a major part of the page (eg the news section on the homepage), or a page in a webapp’s tabbed interface.</p>
@@ -183,18 +180,18 @@ ref: <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a>
   <p><strong>Extra:</strong> Authors are strongly encouraged to view the div element as an element of last resort, for when no other element is suitable. Use of more appropriate elements instead of the div element leads to better accessibility for readers and easier maintainability for authors.</p>
   <p>ref: (copied from) <a href="http://dev.w3.org/html5/spec-author-view/the-section-element.html#the-section-element">W3C: section</a>, <a href="http://dev.w3.org/html5/spec-author-view/the-div-element.html#the-div-element">W3C: div</a>, <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-article-element">W3c: article</a> </p>
 </div>
-<div>
+<div id="svg_canvas">
   <h2>12. svg vs canvas</h2>
   <p><strong>Question:</strong>What are the difference between svg and canvas?</p>
   <p><strong>Answer:</strong> <a href="http://www.sitepoint.com/how-to-choose-between-canvas-and-svg/">Read this one.</a> (I am tired of copy-pasting)</p>
 </div>
-<div id="isArray">
+<div id="mtuli_lang">
   <h2>13. multiple languages</h2>
   <p><strong>Question:</strong>How to serve a page content in multiple languages?</p>
   <p><strong>Answer:</strong> CMS could be used to deliver content in different language with same structure and style.</p>
   <p>ref: <a href="https://github.com/johnpolacek/Front-end-Developer-Interview-Questions/blob/master/README.md">john polacek</a>   </p>
 </div>
-<div id="array_like">
+<div id="optional_tag">
   <h2>14. self closing tag</h2>
   <p><strong>Question:</strong>What are optional closing tag? and why would u use it?</p>
   <p><strong>Answer:</strong> p, li, td, tr, th, html, body, etc. you dont have to provide end tag. whenever browser hits a new tag it automatically ends the previous tag. However, you have to be careful to escape it</p>
@@ -208,7 +205,7 @@ ref: <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a>
   </code></pre>  
   <p>ref: <a href="http://www.w3.org/TR/REC-html40/index/elements.html">W3.org: index of elements</a> </p>
 </div>
-<div id="string_method">
+<div id="semantic_html">
   <h2>15. semantic</h2>
   <p><strong>Question:</strong> What is semantic HTML?</p>
   <p><strong>Answer:</strong>Semantic HTML, or "semantically-correct HTML", is HTML where the tags used to structure content are selected and applied appropriately to the meaning of the content.</p>
