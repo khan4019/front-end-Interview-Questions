@@ -33,11 +33,19 @@
         list-style-type: none;
       }
       /*style for demo*/
-      .floatContainer{
+      .demoContainer{
         width: 200px;
-        height: 100px;
         border: 2px solid purple;
+      }
+      .floatContainer{
+         height: 100px;
        }
+       .clearContainer{
+         height: 150px;
+       }
+       .clearLeft{
+         clear:left;
+       }       
        .box{
         float: left;
         width:50px;
@@ -102,7 +110,7 @@
  &lt;style&gt;<br/>   .floatContainer{<br/>        width: 200px;<br/>        height: 100px;<br/>        border: 2px solid purple;<br/>   }<br/>   .box{<br/>        float: left;<br/>        width:50px;<br/>        height: 30px;<br/>        border: 2px solid gray;<br/>        margin:5px;<br/>   }<br/> &lt;/style&gt;
  &lt;div class=&quot;container&quot;&gt;<br/>    &lt;div class=&quot;box&quot;&gt;&lt;span&gt;1&lt;/span&gt;&lt;/div&gt;<br/>    &lt;div class=&quot;box&quot;&gt;&lt;span&gt;2&lt;/span&gt;&lt;/div&gt;<br/>    &lt;div class=&quot;box&quot;&gt;&lt;span&gt;3&lt;/span&gt;&lt;/div&gt;<br/>    &lt;div class=&quot;box&quot;&gt;&lt;span&gt;4&lt;/span&gt;&lt;/div&gt;<br/>    &lt;div class=&quot;box&quot;&gt;&lt;span&gt;5&lt;/span&gt;&lt;/div&gt;<br/>  &lt;/div&gt; 
   </code></pre>
-  <div class="floatContainer">
+  <div class="floatContainer demoContainer">
     <div class="box"><span>1</span></div>
     <div class="box"><span>2</span></div>
     <div class="box"><span>3</span></div>
@@ -116,9 +124,20 @@
 <div id="data_attribute">
   <h2>2. clear</h2>
   <p><strong>Question:</strong> When will you use clear?</p>
-  <p><strong>Answer:</strong> clear is used to stop wrap of an element around a floating element. .</p>
-  
-  <p>ref: <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_data_attributes">MDN: data-*</a>, <a href="http://www.sitepoint.com/use-html5-data-attributes/">use data attribute</a></p>  
+  <p><strong>Answer:</strong> floating elements will not be accepted on the side you cleared. With 'clear' set to 'left', an element will be moved below any floating element on the left side. clear is used to stop wrap of an element around a floating element. .</p>
+      <pre><code>
+ &lt;style&gt;<br/>   .clearLeft{<br/>      clear:left;<br/>   }<br/> &lt;/style&gt;
+ &lt;div class=&quot;container&quot;&gt;<br/>    &lt;div class=&quot;box&quot;&gt;&lt;span&gt;1&lt;/span&gt;&lt;/div&gt;<br/>    &lt;div class=&quot;box clearLeft&quot;&gt;&lt;span&gt;2&lt;/span&gt;&lt;/div&gt;<br/>    &lt;div class=&quot;box&quot;&gt;&lt;span&gt;3&lt;/span&gt;&lt;/div&gt;<br/>    &lt;div class=&quot;box&quot;&gt;&lt;span&gt;4&lt;/span&gt;&lt;/div&gt;<br/>    &lt;div class=&quot;box&quot;&gt;&lt;span&gt;5&lt;/span&gt;&lt;/div&gt;<br/>  &lt;/div&gt; 
+  </code></pre>
+  <p>as clear left is applied to the second box. nother would be on the left of that box and hence it is placed in a new row. </p>
+  <div class="clearContainer demoContainer">
+    <div class="box"><span>1</span></div>
+    <div class="box clearLeft"><span>2</span></div>
+    <div class="box"><span>3</span></div>
+    <div class="box"><span>4</span></div>
+    <div class="box"><span>5</span></div>
+  </div>  
+  <p>ref: <a href="http://www.w3.org/TR/CSS1/#clear">W3.org: clear</a>
   </div>
   <!-- <div id="keygen">
     <h2>3. keygen</h2>
