@@ -107,24 +107,24 @@
   <pre><code>
     &lt;keygen name=&quot;name&quot; challenge=&quot;challenge string&quot; keytype=&quot;type&quot; keyparams=&quot;pqg-params&quot;&gt;
   </code></pre>
-  <p><strong>extra:</strong> keygen has to be used inside a form</p>
+  <p><strong>extra:</strong> keygen has to be used inside a form.</p>
   ref: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/keygen">MDN: keygen</a>
 </div>
 
 <div id="bdo">
   <h2>4. bdo</h2>
-  <p><strong>Question:</strong> how can u change direction of html text?</p>
+  <p><strong>Question:</strong> How can u change direction of html text?</p>
   <p><strong>Answer:</strong> use bdo (bidirectional ovverride) element of html.</p>
   <pre><code>
 &lt;!-- Switch text direction --&gt;<br/>&lt;p&gt;&lt;bdo dir=&quot;rtl&quot;&gt;This text will go right to left.&lt;/bdo&gt;&lt;/p&gt;
   </code></pre>
   <strong>result:</strong>  
 <p><bdo dir="rtl">This text will go right to left.</bdo></p>
-<p><strong>extra:</strong> rtl: right to left. and alternatively you can use, ltr: left to right</p>
+<p><strong>extra:</strong> rtl: right to left. and alternatively you can use, ltr: left to right.</p>
 </div>
 <div id="mark">
   <h2>5. mark</h2>
-  <p><strong>Question:</strong> how can u highlight text in html</p>
+  <p><strong>Question:</strong> How can u highlight text in html?</p>
   <p><strong>Answer:</strong> use mark element.</p>
   <pre><code>
 &lt;p&gt;Some part of this paragraph is &lt;mark&gt;highlighted&lt;/mark&gt; by using mark element.&lt;/p&gt;
@@ -134,7 +134,7 @@
 <div id="scopped">
   <h2>6. scoped</h2>
   <p><strong>Question:</strong>Can u apply css rule to a part of html document?</p>
-  <p><strong>Answer:</strong> yes. by using "scopped" in the style tag</p>
+  <p><strong>Answer:</strong> yes. by using "scopped" in the style tag.</p>
    ref <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style">MDN: style</a>
 </div>
 <div id="http_request">
@@ -143,7 +143,7 @@
   <pre><code>
 &lt;img src=&quot;mypic.jpg&quot; style=&quot;visibility:hidden&quot; alt=&quot;My photo&quot;&gt;<br/>
   </code></pre>
-<p><strong>Answer:</strong>yes</p>
+<p><strong>Answer:</strong> yes</p>
   <pre><code>
  &lt;div style=&quot;display: none;&quot;&gt;<br/>    &lt;img src=&quot;mypic.jpg&quot; alt=&quot;My photo&quot;&gt;<br/>&lt;/div&gt;
   </code></pre>
@@ -156,24 +156,24 @@
   <pre><code>
 &lt;head&gt;<br/>    &lt;link href=&quot;style1.css&quot; rel=&quot;stylesheet&quot;&gt;<br/>    &lt;link href=&quot;main2.css&quot; rel=&quot;stylesheet&quot;&gt;<br/>&lt;/head&gt;
   </code></pre>
-<p><strong>Answer:</strong>No</p>
+<p><strong>Answer:</strong> No</p>
 <p><strong>Question:</strong> Does main2.css have to be downloaded and parsed before Paragraph 1 is rendered on the page?</p>
 <pre><code>
 &lt;head&gt;<br/>    &lt;link href=&quot;main1.css&quot; rel=&quot;stylesheet&quot;&gt;<br/>&lt;/head&gt;<br/>&lt;body&gt;<br/>    &lt;p&gt;Paragraph 1&lt;/p&gt;<br/>    &lt;p&gt;Paragraph 2&lt;/p&gt;<br/>    &lt;link href=&quot;main2.css&quot; rel=&quot;stylesheet&quot;&gt;<br/>&lt;/body&gt;
 </code></pre>
-<p><strong>Answer:</strong>yes</p>
+<p><strong>Answer:</strong> yes</p>
 
 ref: <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a>
 </div>
 <div id="optional_tag">
   <h2>9. self closing tag</h2>
-  <p><strong>Question:</strong>What are optional closing tag? and why would u use it?</p>
-  <p><strong>Answer:</strong> p, li, td, tr, th, html, body, etc. you dont have to provide end tag. whenever browser hits a new tag it automatically ends the previous tag. However, you have to be careful to escape it</p>
+  <p><strong>Question:</strong> What are optional closing tag? and why would u use it?</p>
+  <p><strong>Answer:</strong> p, li, td, tr, th, html, body, etc. you dont have to provide end tag. whenever browser hits a new tag it automatically ends the previous tag. However, you have to be careful to escape it.</p>
   <p><strong>reason:</strong> you can save some byte and reduce bytes needs to be downloaded in a html file.</p>
   <pre><code>
 &lt;p&gt;Some text<br/>&lt;p&gt;Some more text<br/>&lt;ul&gt;<br/> &lt;li&gt;A list item<br/> &lt;li&gt;Another list item<br/>&lt;/ul&gt;
   </code></pre>
-  <p> the above html will be parsed as the following blocks</p>
+  <p> the above html will be parsed as the following blocks.</p>
   <pre><code>
 &lt;p&gt;Some text&lt;/p&gt;<br/>&lt;p&gt;Some more text&lt;/p&gt;<br/>&lt;ul&gt;<br/> &lt;li&gt;A list item&lt;/li&gt;<br/> &lt;li&gt;Another list item&lt;/li&gt;<br/>&lt;/ul&gt;
   </code></pre>  
@@ -199,24 +199,24 @@ ref: <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a>
 </div>
 <div id="svg_canvas">
   <h2>12. svg vs canvas</h2>
-  <p><strong>Question:</strong>What are the difference between svg and canvas?</p>
+  <p><strong>Question:</strong> What are the difference between svg and canvas?</p>
   <p><strong>Answer:</strong> <a href="http://www.sitepoint.com/how-to-choose-between-canvas-and-svg/">Read this one.</a> (I am tired of copy-pasting)</p>
 </div>
 <div id="mtuli_lang">
   <h2>13. multiple languages</h2>
-  <p><strong>Question:</strong>How to serve a page content in multiple languages?</p>
+  <p><strong>Question:</strong> How to serve a page content in multiple languages?</p>
   <p><strong>Answer:</strong> CMS could be used to deliver content in different language with same structure and style.</p>
   <p>ref: <a href="https://github.com/johnpolacek/Front-end-Developer-Interview-Questions/blob/master/README.md">john polacek</a>   </p>
 </div>
 <div id="standard_quirks">
   <h2>14. standar & quirks mode</h2>
-  <p><strong>Question:</strong> Difference between standard mode and quirks mode</p>
+  <p><strong>Question:</strong> Difference between standard mode and quirks mode?</p>
   <p><strong>Answer:</strong> quriks mode in browser allows u to render page for as old browsers. This is for backward compatibility.</p> 
 </div>
 <div id="semantic_html">
   <h2>15. semantic</h2>
   <p><strong>Question:</strong> What is semantic HTML?</p>
-  <p><strong>Answer:</strong>Semantic HTML, or "semantically-correct HTML", is HTML where the tags used to structure content are selected and applied appropriately to the meaning of the content.</p>
+  <p><strong>Answer:</strong> Semantic HTML, or "semantically-correct HTML", is HTML where the tags used to structure content are selected and applied appropriately to the meaning of the content.</p>
   <p>for example, &lt;b&gt;&lt;/b&gt; (for bold), and &lt;i&gt;&lt;/i&gt; (for italic) should never be used, because they&#x2019;re to do with formatting, not with the meaning or structure of the content. Instead, use the replacements &lt;strong&gt;&lt;/strong&gt; and &lt;em&gt;&lt;/em&gt; (meaning emphasis), which by default will turn text bold and italic (but don&#x2019;t have to do so in all browsers), while adding meaning to the structure of the content.</p>
   <p>ref: <a href="http://en.wikipedia.org/wiki/Semantic_HTML">Wiki: semantic HTML</a> </p>
 </div>
