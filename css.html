@@ -188,15 +188,26 @@
 </div>
 <div id="download_order">
   <h2>8. applied rule</h2>
-  <p><strong>Question:</strong> What is the color of text sausage?</p>
+  <p><strong>Question:</strong> What is the color of text sausage for he following rule?</p>
+  <strong>html:</strong>
   <pre><code>
-&lt;style&gt;<br/> ul {<br/>   color: red;<br/> }<br/> li {<br/>   color: blue;<br/> }<br/>&lt;/style&gt;<br/>&lt;ul class=&quot;shopping-list&quot; id=&quot;awesome&quot;&gt;<br/>    &lt;li&gt;&lt;span&gt;Milk&lt;/span&gt;&lt;/li&gt;<br/>    &lt;li class=&quot;favorite&quot; id=&quot;must-buy&quot;&gt;&lt;span class=&quot;highlight&quot;&gt;Sausage&lt;/span&gt;&lt;/li&gt;<br/>&lt;/ul&gt;
+&lt;ul class=&quot;shopping-list&quot; id=&quot;awesome&quot;&gt;<br/>    &lt;li&gt;&lt;span&gt;Milk&lt;/span&gt;&lt;/li&gt;<br/>    &lt;li class=&quot;favorite&quot; id=&quot;must-buy&quot;&gt;&lt;span class=&quot;highlight&quot;&gt;Sausage&lt;/span&gt;&lt;/li&gt;<br/>&lt;/ul&gt;
+  </code></pre>
+  <strong>a.</strong>
+  <pre><code>
+&lt;style&gt;<br/> ul {<br/>   color: red;<br/> }<br/> li {<br/>   color: blue;<br/> }<br/>&lt;/style&gt;
   </code></pre>
 <p><strong>Answer:</strong> blue</p>
 <br>
-<p><strong>Question:</strong> What would be color of text sausage?</p>
+<p><strong>b.</strong></p>
 <pre><code>
-&lt;style&gt;<br/> ul li {<br/>    color: red;<br/> }<br/> #must-buy {<br/>    color: blue;<br/> }<br/>&lt;/style&gt;<br/>&lt;ul class=&quot;shopping-list&quot; id=&quot;awesome&quot;&gt;<br/>    &lt;li&gt;&lt;span&gt;Milk&lt;/span&gt;&lt;/li&gt;<br/>    &lt;li class=&quot;favorite&quot; id=&quot;must-buy&quot;&gt;&lt;span class=&quot;highlight&quot;&gt;Sausage&lt;/span&gt;&lt;/li&gt;<br/>&lt;/ul&gt;
+&lt;style&gt;<br/> .shopping-list .favorite {<br/>    color: red;<br/> }<br/> #must-buy {<br/>    color: blue;<br/> }<br/>&lt;/style&gt;
+</code></pre>
+<p><strong>Answer:</strong> blue</p>
+<br>
+<strong>c.</strong>
+<pre><code>
+&lt;style&gt;<br/>  ul#awesome {<br/>    color: red;<br/>  }<br/>  ul.shopping-list li.favorite span {<br/>    color: blue;<br/>  }<br/>&lt;/style&gt;
 </code></pre>
 <p><strong>Answer:</strong> blue</p>
 ref: <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a>
