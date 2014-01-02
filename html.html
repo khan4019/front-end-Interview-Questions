@@ -51,6 +51,7 @@
       <div class="container">
         <h1>html</h1>        
         <h2>HTML related interview questions</h2>
+        <p>For Javascript developer to have some idea about html to impress interviewer..</p>
         <p>January 01, 2014</p>
         <div class="g-plusone"></div>
       </div>
@@ -64,27 +65,27 @@
             
       <!-- <h3>If you have hard time to follow this video, you can see the content below. Things you will learn-</h3> -->
        <ol>
-        <li><a href="#doctype">what is the use of html doctype?</a></li>
+        <li><a href="#doctype">Why do u need doctype?</a></li>
         <li><a href="#data_attribute">What is the use of data-* attribute?</a></li>
         <li><a href="#keygen">How can you generate public key in html?</a></li>        
         <li><a href="#bdo">How do you change direction of html text?</a></li>
         <li><a href="#mark">How can you highlight text in html?</a></li>        
-        <li><a href="#scopped">can you apply css to a part of html document only?</a></li>        
-        <li><a href="#http_request">Will browser make http request for the following case?</a></li>
+        <li><a href="#scopped">Can you apply css to a part of html document only?</a></li>        
+        <li><a href="#http_request">Will browser make http request for the following cases?</a></li>
         <li><a href="#download_order">Which resource would be downloaded first?</a></li>
         <li><a href="#optional_tag">What is optional tag?</a></li>        
         <li><a href="#div_span">What are the differences between div and span?</a></li>        
-        <li><a href="#div_section_article">How you would differentiate div, section and article?</a></li>
+        <li><a href="#div_section_article">How would you differentiate div, section and article?</a></li>
         <li><a href="#svg_canvas">How to select svg or canvas for your site?</a></li>
-        <li><a href="#mtuli_lang">How to serve html in multiple language?</a></li>        
+        <li><a href="#mtuli_lang">How to serve html in multiple languages?</a></li>        
         <li><a href="#standard_quirks">Explain standard and quirks mode.</a></li>
-        <li><a href="#semantic_html">Array methods in string?</a></li>
+        <li><a href="#semantic_html">What is semantic tag?</a></li>
        </ol>
 <div id="doctype">
   <h2>1. doctype</h2>
-  <p><strong>Question:</strong> What is doctype? why do u need it?</p>  
-  <p><strong>Answer:</strong> doctype is a instruction to the browser to inform about the version of html and how browser should render it.</p>
-  <p>It ensures how element should be displayed on the page by most of the browser. And it also makes browsers life easier. otherwise, browser will guess and will go to <a href="http://en.wikipedia.org/wiki/Quirks_mode">quirks mode</a>. Moreover, doctype is required to <a href="http://validator.w3.org/">validate markup</a>.</p>
+  <p><strong>Question:</strong> What is doctype? Why do u need it?</p>  
+  <p><strong>Answer:</strong> doctype is an instruction to the browser to inform about the version of html document and how browser should render it.</p>
+  <p>It ensures how element should be displayed on the page by most of the browser. And it also makes browser's life easier. otherwise, browser will guess and will go to <a href="http://en.wikipedia.org/wiki/Quirks_mode">quirks mode</a>. Moreover, doctype is required to <a href="http://validator.w3.org/">validate markup</a>.</p>
   <pre><code>
 &lt;!DOCTYPE html&gt;
 &lt;meta charset=&quot;UTF-8&quot;&gt;
@@ -94,8 +95,8 @@
 </div>
 <div id="data_attribute">
   <h2>2. data-*</h2>
-  <p><strong>Question:</strong> what is the use of data- attribute?</p>
-  <p><strong>Answer:</strong> allow you to store extra information/data in the DOM. u can write valid html withe embeded private data. You can easily access data attribute by using javascript and hence a lot of libraries like knockout uses it.</p>
+  <p><strong>Question:</strong> What is the use of data- attribute?</p>
+  <p><strong>Answer:</strong> allow you to store extra information/data in the DOM. u can write valid html with embeded private data. You can easily access data attribute by using javascript and hence a lot of libraries like knockout uses it.</p>
   <pre><code>
 &lt;div id=&quot;myDiv&quot; data-user=&quot;jsDude&quot; data-list-size=&quot;5&quot; data-maxage=&quot;180&quot;&gt;&lt;/div&gt;
   </code></pre>
@@ -134,7 +135,7 @@
 </div>
 <div id="scopped">
   <h2>6. scoped</h2>
-  <p><strong>Question:</strong>Can u apply css rule to a part of html document?</p>
+  <p><strong>Question:</strong> Can u apply css rule to a part of html document?</p>
   <p><strong>Answer:</strong> yes. by using "scopped" in the style tag.</p>
    ref <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style">MDN: style</a>
 </div>
@@ -155,12 +156,12 @@
   <h2>8. download order</h2>
   <p><strong>Question:</strong> Does style1.css have to be downloaded and parsed before style2.css can be fetched?</p>
   <pre><code>
-&lt;head&gt;<br/>    &lt;link href=&quot;style1.css&quot; rel=&quot;stylesheet&quot;&gt;<br/>    &lt;link href=&quot;main2.css&quot; rel=&quot;stylesheet&quot;&gt;<br/>&lt;/head&gt;
+&lt;head&gt;<br/>    &lt;link href=&quot;style1.css&quot; rel=&quot;stylesheet&quot;&gt;<br/>    &lt;link href=&quot;style2.css&quot; rel=&quot;stylesheet&quot;&gt;<br/>&lt;/head&gt;
   </code></pre>
 <p><strong>Answer:</strong> No</p>
-<p><strong>Question:</strong> Does main2.css have to be downloaded and parsed before Paragraph 1 is rendered on the page?</p>
+<p><strong>Question:</strong> Does style2.css have to be downloaded and parsed before Paragraph 1 is rendered on the page?</p>
 <pre><code>
-&lt;head&gt;<br/>    &lt;link href=&quot;main1.css&quot; rel=&quot;stylesheet&quot;&gt;<br/>&lt;/head&gt;<br/>&lt;body&gt;<br/>    &lt;p&gt;Paragraph 1&lt;/p&gt;<br/>    &lt;p&gt;Paragraph 2&lt;/p&gt;<br/>    &lt;link href=&quot;main2.css&quot; rel=&quot;stylesheet&quot;&gt;<br/>&lt;/body&gt;
+&lt;head&gt;<br/>    &lt;link href=&quot;style1.css&quot; rel=&quot;stylesheet&quot;&gt;<br/>&lt;/head&gt;<br/>&lt;body&gt;<br/>    &lt;p&gt;Paragraph 1&lt;/p&gt;<br/>    &lt;p&gt;Paragraph 2&lt;/p&gt;<br/>    &lt;link href=&quot;style2.css&quot; rel=&quot;stylesheet&quot;&gt;<br/>&lt;/body&gt;
 </code></pre>
 <p><strong>Answer:</strong> yes</p>
 
@@ -169,7 +170,7 @@ ref: <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a>
 <div id="optional_tag">
   <h2>9. self closing tag</h2>
   <p><strong>Question:</strong> What are optional closing tag? and why would u use it?</p>
-  <p><strong>Answer:</strong> p, li, td, tr, th, html, body, etc. you dont have to provide end tag. whenever browser hits a new tag it automatically ends the previous tag. However, you have to be careful to escape it.</p>
+  <p><strong>Answer:</strong> p, li, td, tr, th, html, body, etc. you dont have to provide end tag. Whenever browser hits a new tag it automatically ends the previous tag. However, you have to be careful to escape it.</p>
   <p><strong>reason:</strong> you can save some byte and reduce bytes needs to be downloaded in a html file.</p>
   <pre><code>
 &lt;p&gt;Some text<br/>&lt;p&gt;Some more text<br/>&lt;ul&gt;<br/> &lt;li&gt;A list item<br/> &lt;li&gt;Another list item<br/>&lt;/ul&gt;
@@ -183,17 +184,17 @@ ref: <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a>
 <h1>Old School questions</h1>
 <div id="div_span">
   <h2>10. span vs div</h2>
-  <p><strong>Question:</strong> What is the difference between span, div?</p>
+  <p><strong>Question:</strong> What is the difference between span and div?</p>
   <p><strong>Answer:</strong> div is a block element and span is inline element.</p>  
-  <p><strong>Extra:</strong> it is illegal to put block element inside inline element. div can have a p tag and a p tag can have a span. However, span can't have a div or p tag inside.</p>
+  <p><strong>Extra:</strong> It is illegal to put block element inside inline element. div can have a p tag and a p tag can have a span. However, span can't have a div or p tag inside.</p>
   <p>ref: <a href="http://stackoverflow.com/questions/183532/what-is-the-difference-between-html-tags-div-and-span">Stackoverflow: div vs span</a> </p>
 </div>
 <div id="div_section_article">
   <h2>11. div, section & article</h2>
-  <p><strong>Question:</strong> When should i prefer div over section and vice versa?</p>
-  <p><strong>Answer:</strong> <br>&lt;section&gt; means that the content inside is grouped (i.e. relates to a single theme), and should appear as an entry in an outline of the page.  A section normally has a heading (title) and maybe a footer too. It’s a chunk of related content, like a subsection of a long article, a major part of the page (eg the news section on the homepage), or a page in a webapp’s tabbed interface.</p>
-  <p>&lt;div&gt;, on the other hand, does not convey any meaning, aside from any found in its class, lang and title attributes.</p>
+  <p><strong>Question:</strong> When should you use section, div or article?</p>
+  <p><strong>Answer:</strong> <br>&lt;section&gt;, group of content inside is related to a single theme, and should appear as an entry in an outline of the page. It’s a chunk of related content, like a subsection of a long article, a major part of the page (eg the news section on the homepage), or a page in a webapp’s tabbed interface.  A section normally has a heading (title) and maybe a footer too.</p> 
   <p>&lt;article&gt;, represents a complete, or self-contained, composition in a document, page, application, or site and that is, in principle, independently distributable or reusable, e.g. in syndication. This could be a forum post, a magazine or newspaper article, a blog entry, a user-submitted comment, an interactive widget or gadget, or any other independent item of content.</p>
+  <p>&lt;div&gt;, on the other hand, does not convey any meaning, aside from any found in its class, lang and title attributes.</p>
   <p><strong>Good Summary:</strong><a href="http://oli.jp/2009/html5-structure1/">div, section & article</a></p>
   <p><strong>Extra:</strong> Authors are strongly encouraged to view the div element as an element of last resort, for when no other element is suitable. Use of more appropriate elements instead of the div element leads to better accessibility for readers and easier maintainability for authors.</p>
   <p>ref: (copied from) <a href="http://dev.w3.org/html5/spec-author-view/the-section-element.html#the-section-element">W3C: section</a>, <a href="http://dev.w3.org/html5/spec-author-view/the-div-element.html#the-div-element">W3C: div</a>, <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-article-element">W3c: article</a> </p>
@@ -210,8 +211,8 @@ ref: <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a>
   <p>ref: <a href="https://github.com/johnpolacek/Front-end-Developer-Interview-Questions/blob/master/README.md">john polacek</a>   </p>
 </div>
 <div id="standard_quirks">
-  <h2>14. standar & quirks mode</h2>
-  <p><strong>Question:</strong> Difference between standard mode and quirks mode?</p>
+  <h2>14. standard & quirks mode</h2>
+  <p><strong>Question:</strong> Difference between standard/strict mode and quirks mode?</p>
   <p><strong>Answer:</strong> quriks mode in browser allows u to render page for as old browsers. This is for backward compatibility.</p> 
 </div>
 <div id="semantic_html">
