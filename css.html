@@ -148,97 +148,131 @@
 </div>
 
 
-<!-- <div id="bdo">
-  <h2>4. bdo</h2>
-  <p><strong>Question:</strong> How can u change direction of html text?</p>
-  <p><strong>Answer:</strong> use bdo (bidirectional ovverride) element of html.</p>
+<div id="bdo">
+  <h2>4. case sensitive</h2>
+  <p><strong>Question:</strong> Does css properties are case sensitive?</p>
+  <p><strong>Answer:</strong> no.</p>
   <pre><code>
-&lt;!-- Switch text direction --&gt;<br/>&lt;p&gt;&lt;bdo dir=&quot;rtl&quot;&gt;This text will go right to left.&lt;/bdo&gt;&lt;/p&gt;
+//add an example here
   </code></pre>
-  <strong>result:</strong>  
-<p><bdo dir="rtl">This text will go right to left.</bdo></p>
-<p><strong>extra:</strong> rtl: right to left. and alternatively you can use, ltr: left to right.</p>
-</div> -->
-<!-- <div id="mark">
-  <h2>5. mark</h2>
-  <p><strong>Question:</strong> How can u highlight text in html?</p>
-  <p><strong>Answer:</strong> use mark element.</p>
-  <pre><code>
-&lt;p&gt;Some part of this paragraph is &lt;mark&gt;highlighted&lt;/mark&gt; by using mark element.&lt;/p&gt;
-  </code></pre>
-  <p><strong>result:</strong>Some part of this paragraph is <mark>highlighted</mark> by using mark element.</p>  
-</div> -->
-<!-- <div id="scopped">
-  <h2>6. scoped</h2>
-  <p><strong>Question:</strong>Can u apply css rule to a part of html document?</p>
-  <p><strong>Answer:</strong> yes. by using "scopped" in the style tag.</p>
-   ref <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style">MDN: style</a>
-</div> -->
-<!-- <div id="http_request">
-  <h2>7. http requst </h2>
-  <p><strong>Question:</strong> Does the following trigger http request at the time of page load?</p>  
-  <pre><code>
-&lt;img src=&quot;mypic.jpg&quot; style=&quot;visibility:hidden&quot; alt=&quot;My photo&quot;&gt;<br/>
-  </code></pre>
-<p><strong>Answer:</strong> yes</p>
-  <pre><code>
- &lt;div style=&quot;display: none;&quot;&gt;<br/>    &lt;img src=&quot;mypic.jpg&quot; alt=&quot;My photo&quot;&gt;<br/>&lt;/div&gt;
-  </code></pre>
-  <P><strong>Answer:</strong> yes</P>  
+</div>
+<div id="mark">
+  <h2>5. margin/padding inline</h2>
+  <p><strong>Question:</strong> Does margin-top or margin-bottom has effect on inline elemet?</p>
+  <p><strong>Answer:</strong> no.</p> 
+  <p><strong>Question:</strong> Does padding-top or padding-bottom has effect on inline elemet?</p>
+  <p><strong>Answer:</strong> no.</p>
+</div>
+<div id="scopped">
+  <h2>6. rem</h2>
+  <p><strong>Question:</strong>If you have a &lt;p&gt; element with font-size: 10rem, will the text be responsive when the user resizes / drags the browser window?</p>
+  <p><strong>Answer:</strong> no.</p>
+  Note: google it and read about it.
+   ref: 
+</div>
+<div id="http_request">
+  <h2>7. David Shariff </h2>
+  <p><strong>Question:</strong> The pseudo class :checked will select inputs with type radio or checkbox, but not &lt;option&gt; elements.</p>  
+  <p><strong>Answer:</strong> False</p>
+   <p><strong>Question:</strong> In a HTML document, the pseudo class :root always refers to the &lt;html&gt; element.</p>
+   <p><strong>Answer:</strong> True</p>   
+   <p><strong>Question:</strong> The translate() function can move the position of an element on the z-axis.</p>
+   <p><strong>Answer:</strong> False</p> 
+   <p><strong>Question:</strong></p>
+   <p><strong>Answer:</strong></p> 
+   <p><strong>Question:</strong></p>
+   <p><strong>Answer:</strong></p> 
+   <p><strong>Question:</strong></p>
+   <p><strong>Answer:</strong></p> 
   <p>ref: <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a></p>
-</div> -->
-<!-- <div id="download_order">
-  <h2>8. download order</h2>
-  <p><strong>Question:</strong> Does style1.css have to be downloaded and parsed before style2.css can be fetched?</p>
+</div>
+<div id="download_order">
+  <h2>8. applied rule</h2>
+  <p><strong>Question:</strong> What is the color of text sausage for he following rule?</p>
+  <strong>html:</strong>
   <pre><code>
-&lt;head&gt;<br/>    &lt;link href=&quot;style1.css&quot; rel=&quot;stylesheet&quot;&gt;<br/>    &lt;link href=&quot;main2.css&quot; rel=&quot;stylesheet&quot;&gt;<br/>&lt;/head&gt;
+&lt;ul class=&quot;shopping-list&quot; id=&quot;awesome&quot;&gt;<br/>    &lt;li&gt;&lt;span&gt;Milk&lt;/span&gt;&lt;/li&gt;<br/>    &lt;li class=&quot;favorite&quot; id=&quot;must-buy&quot;&gt;&lt;span class=&quot;highlight&quot;&gt;Sausage&lt;/span&gt;&lt;/li&gt;<br/>&lt;/ul&gt;
   </code></pre>
-<p><strong>Answer:</strong> No</p>
-<p><strong>Question:</strong> Does main2.css have to be downloaded and parsed before Paragraph 1 is rendered on the page?</p>
+  <strong>a.</strong>
+  <pre><code>
+&lt;style&gt;<br/> ul {<br/>   color: red;<br/> }<br/> li {<br/>   color: blue;<br/> }<br/>&lt;/style&gt;
+  </code></pre>
+<p><strong>Answer:</strong> blue</p>
+<br>
+<p><strong>b.</strong></p>
 <pre><code>
-&lt;head&gt;<br/>    &lt;link href=&quot;main1.css&quot; rel=&quot;stylesheet&quot;&gt;<br/>&lt;/head&gt;<br/>&lt;body&gt;<br/>    &lt;p&gt;Paragraph 1&lt;/p&gt;<br/>    &lt;p&gt;Paragraph 2&lt;/p&gt;<br/>    &lt;link href=&quot;main2.css&quot; rel=&quot;stylesheet&quot;&gt;<br/>&lt;/body&gt;
+&lt;style&gt;<br/> .shopping-list .favorite {<br/>    color: red;<br/> }<br/> #must-buy {<br/>    color: blue;<br/> }<br/>&lt;/style&gt;
 </code></pre>
-<p><strong>Answer:</strong> yes</p>
-
+<p><strong>Answer:</strong> blue</p>
+<br>
+<strong>c.</strong>
+<pre><code>
+&lt;style&gt;<br/>  ul#awesome {<br/>    color: red;<br/>  }<br/>  ul.shopping-list li.favorite span {<br/>    color: blue;<br/>  }<br/>&lt;/style&gt;
+</code></pre>
+<p><strong>Answer:</strong> blue</p>
+<br>
+<strong>d.</strong>
+<pre><code>
+&lt;style&gt;<br/> ul#awesome #must-buy {<br/>    color: red;<br/> }<br/> .favorite span {<br/>    color: blue!important;<br/> }<br/>&lt;/style&gt;<br/>
+</code></pre>
+<p><strong>Answer:</strong> blue</p>
+<br>
+<strong>e.</strong>
+<pre><code>
+&lt;style&gt;<br/>  ul.shopping-list li .highlight {<br/>    color: red;<br/>  }<br/>  ul.shopping-list li .highlight:nth-of-type(odd) {<br/>    color: blue;<br/>  }<br/>&lt;/style&gt;<br/>
+</code></pre>
+<p><strong>Answer:</strong> blue</p>
+<br>
+<strong>f.</strong>
+<pre><code>
+&lt;style&gt;<br/>  #awesome .favorite:not(#awesome) .highlight {<br/>    color: red;<br/>  }<br/>  #awesome .highlight:nth-of-type(1):nth-last-of-type(1) {<br/>    color: blue;<br/>  }<br/>&lt;/style&gt;<br/>
+</code></pre>
+<p><strong>Answer:</strong> red</p>
 ref: <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a>
-</div> -->
-<!-- <div id="optional_tag">
-  <h2>9. self closing tag</h2>
-  <p><strong>Question:</strong> What are optional closing tag? and why would u use it?</p>
-  <p><strong>Answer:</strong> p, li, td, tr, th, html, body, etc. you dont have to provide end tag. whenever browser hits a new tag it automatically ends the previous tag. However, you have to be careful to escape it.</p>
-  <p><strong>reason:</strong> you can save some byte and reduce bytes needs to be downloaded in a html file.</p>
+</div>
+<div id="optional_tag">
+  <h2>9. applied rule-2</h2>
+  <p><strong>Question:</strong> What will happen to the position of #example?</p>
   <pre><code>
-&lt;p&gt;Some text<br/>&lt;p&gt;Some more text<br/>&lt;ul&gt;<br/> &lt;li&gt;A list item<br/> &lt;li&gt;Another list item<br/>&lt;/ul&gt;
+&lt;style&gt;<br/>  #example {<br/>    margin-bottom: -5px;<br/>  }<br/>&lt;/style&gt;<br/>&lt;&lt;p id=&quot;example&quot;&gt;Hello&lt;/p&gt;p id=&quot;example&quot;&gt;Hello&lt;/p&gt;
   </code></pre>
-  <p> the above html will be parsed as the following blocks.</p>
+  <p><strong>Answer:</strong> All elements succeeding #example will move 5px updward.</p>
+  <p><strong>reason:</strong> .</p>
   <pre><code>
-&lt;p&gt;Some text&lt;/p&gt;<br/>&lt;p&gt;Some more text&lt;/p&gt;<br/>&lt;ul&gt;<br/> &lt;li&gt;A list item&lt;/li&gt;<br/> &lt;li&gt;Another list item&lt;/li&gt;<br/>&lt;/ul&gt;
-  </code></pre>  
-  <p>ref: <a href="http://www.w3.org/TR/REC-html40/index/elements.html">W3.org: index of elements</a> </p>
-</div> -->
+&lt;style&gt;<br/>  #example {<br/>    margin-left: -5px;<br/>  }<br/>&lt;/style&gt;<br/>&lt;&lt;p id=&quot;example&quot;&gt;Hello&lt;/p&gt;p id=&quot;example&quot;&gt;Hello&lt;/p&gt;
+  </code></pre> 
+  <p><strong>Answer:</strong> #example will move 5px left.</p>
+  <p>ref: <a href="">David Shariff</a> </p>
+</div>
 
-<!-- <div id="div_span">
-  <h2>10. span vs div</h2>
-  <p><strong>Question:</strong> What is the difference between span, div?</p>
-  <p><strong>Answer:</strong> div is a block element and span is inline element.</p>  
-  <p><strong>Extra:</strong> it is illegal to put block element inside inline element. div can have a p tag and a p tag can have a span. However, span can't have a div or p tag inside.</p>
-  <p>ref: <a href="http://stackoverflow.com/questions/183532/what-is-the-difference-between-html-tags-div-and-span">Stackoverflow: div vs span</a> </p>
-</div> -->
-<!-- <div id="div_section_article">
-  <h2>11. div, section & article</h2>
-  <p><strong>Question:</strong> When should i prefer div over section and vice versa?</p>
-  <p><strong>Answer:</strong> <br>&lt;section&gt; means that the content inside is grouped (i.e. relates to a single theme), and should appear as an entry in an outline of the page.  A section normally has a heading (title) and maybe a footer too. It’s a chunk of related content, like a subsection of a long article, a major part of the page (eg the news section on the homepage), or a page in a webapp’s tabbed interface.</p>
-  <p>&lt;div&gt;, on the other hand, does not convey any meaning, aside from any found in its class, lang and title attributes.</p>
-  <p>&lt;article&gt;, represents a complete, or self-contained, composition in a document, page, application, or site and that is, in principle, independently distributable or reusable, e.g. in syndication. This could be a forum post, a magazine or newspaper article, a blog entry, a user-submitted comment, an interactive widget or gadget, or any other independent item of content.</p>
-  <p><strong>Good Summary:</strong><a href="http://oli.jp/2009/html5-structure1/">div, section & article</a></p>
-  <p><strong>Extra:</strong> Authors are strongly encouraged to view the div element as an element of last resort, for when no other element is suitable. Use of more appropriate elements instead of the div element leads to better accessibility for readers and easier maintainability for authors.</p>
-  <p>ref: (copied from) <a href="http://dev.w3.org/html5/spec-author-view/the-section-element.html#the-section-element">W3C: section</a>, <a href="http://dev.w3.org/html5/spec-author-view/the-div-element.html#the-div-element">W3C: div</a>, <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-article-element">W3c: article</a> </p>
-</div> -->
-<!-- <div id="svg_canvas">
-  <h2>12. svg vs canvas</h2>
-  <p><strong>Question:</strong> What are the difference between svg and canvas?</p>
-  <p><strong>Answer:</strong> <a href="http://www.sitepoint.com/how-to-choose-between-canvas-and-svg/">Read this one.</a> (I am tired of copy-pasting)</p>
-</div> -->
+<div id="div_span">
+  <h2>10. download resources</h2>
+  <p><strong>Question:</strong> On page load, will mypic.jpg get downloaded by the browser?</p>  
+  <pre><code>
+&lt;style&gt;<br/>  #test1 {<br/>    display: none;<br/>  }<br/>  #test2 {<br/>    background-image: url('mypic.jpg');<br/>    visibility: hidden;<br/>  }<br/>&lt;/style&gt;<br/>&lt;div id=&quot;test1&quot;&gt;<br/>    &lt;span id=&quot;test2&quot;&gt;&lt;/span&gt;<br/>&lt;/div&gt;
+  </code></pre>
+  <p><strong>Answer:</strong> No.</p>  
+  <p><strong>reason:</strong> .</p>
+  <p>ref: <a href="">might add css question 18 in david shariff</a> </p>
+</div>
+<div id="div_section_article">
+  <h2>11. only</h2>
+  <p><strong>Question:</strong> What is the use of only?</p>
+  <pre><code>
+&lt;style&gt;<br/>  @media only screen and (max-width: 1024px) {<br/>    margin: 0;<br/>  }<br/>&lt;/style&gt;<br/>
+  </code></pre>
+  <p><strong>Answer:</strong> Stops older browsers from parsing the remainder of the selector</p>
+  <p><strong>Question:</strong> Does the screen keyword apply to the device's physical screen or the browser's viewport?</p>
+  <p><strong>Answer:</strong> Browser's Viewport</p>
+</div>
+<div id="svg_canvas">
+  <h2>12. overflow</h2>
+  <p><strong>Question:</strong> Does overflow: hidden create a new block formatting context?</p>
+  <pre><code>
+&lt;style&gt;<br/>  div {<br/>    overflow: hidden;<br/>  }<br/>  p {<br/>    float: left;<br/>  }<br/>&lt;/style&gt;<br/>&lt;div&gt;<br/>    &lt;p&gt;I am floated&lt;/p&gt;<br/>    &lt;p&gt;So am I&lt;/p&gt;<br/>&lt;/div&gt;<br/>
+  </code></pre>
+  <p><strong>Answer:</strong> yes</p>
+</div>
 <!-- <div id="mtuli_lang">
   <h2>13. multiple languages</h2>
   <p><strong>Question:</strong> How to serve a page content in multiple languages?</p>
@@ -290,6 +324,7 @@ ref: <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a>
     <li><a href=""></a></li>
     <li><a href=""></a></li>
   </ul>
+
 </div>
 
 <!-- div>h2+p+pre>code -->
