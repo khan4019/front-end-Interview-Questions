@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="that js dude" content="">
+    <link rel="shortcut icon" href="images/favicon.jpg">
+
+    <title>interview: browser questions</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/zenburn.css">
+    <!-- Custom styles for this template -->
+    <style>
+      /* Move down content because we have a fixed navbar that is 50px tall */
+      body {        
+        padding-bottom: 20px;
+      }
+      .purpleBold{
+        color:purple;        
+        font-weight: bold;
+      }
+      .singInStuff{
+        margin-top: 9px;
+      }
+      #uName{
+        margin-top: -7px;
+      }
+      .skipListItem{
+        list-style-type: none;
+      }
+    </style>
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>browser</h1>        
+        <h2>browser related interview questions</h2>
+        <p>January 05, 2014</p>
+        <div class="g-plusone"></div>
+      </div>
+    </div>
+    <div class="container">
+      <!-- Example row of columns -->
+
+      <div class="row center">        
+        <!-- <iframe width="853" height="480" src="//www.youtube.com/embed/Rx_JFOSxgpY" frameborder="0" allowfullscreen></iframe> -->
+      </div>
+            
+      <!-- <h3>If you have hard time to follow this video, you can see the content below. Things you will learn-</h3> -->
+<!--        <ol>
+        <li><a href="#doctype">what is the use of html doctype?</a></li>
+        <li><a href="#data_attribute">What is the use of data-* attribute?</a></li>
+        <li><a href="#keygen">How can you generate public key in html?</a></li>        
+        <li><a href="#bdo">How do you change direction of html text?</a></li>
+        <li><a href="#mark">How can you highlight text in html?</a></li>        
+        <li><a href="#scopped">can you apply css to a part of html document only?</a></li>        
+        <li><a href="#http_request">Will browser make http request for the following case?</a></li>
+        <li><a href="#download_order">Which resource would be downloaded first?</a></li>
+        <li><a href="#optional_tag">What is optional tag?</a></li>        
+        <li><a href="#div_span">What are the differences between div and span?</a></li>        
+        <li><a href="#div_section_article">How you would differentiate div, section and article?</a></li>
+        <li><a href="#svg_canvas">How to select svg or canvas for your site?</a></li>
+        <li><a href="#mtuli_lang">How to serve html in multiple language?</a></li>        
+        <li><a href="#standard_quirks">Explain standard and quirks mode.</a></li>
+        <li><a href="#semantic_html">Array methods in string?</a></li>
+       </ol> -->
+<!-- <div id="doctype">
+  <h2>1. doctype</h2>
+  <p><strong>Question:</strong> What is doctype? why do u need it?</p>  
+  <p><strong>Answer:</strong> doctype is a instruction to the browser to inform about the version of html and how browser should render it.</p>
+  <p>It ensures how element should be displayed on the page by most of the browser. And it also makes browsers life easier. otherwise, browser will guess and will go to <a href="http://en.wikipedia.org/wiki/Quirks_mode">quirks mode</a>. Moreover, doctype is required to <a href="http://validator.w3.org/">validate markup</a>.</p>
+  <pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+  </code></pre>
+  <p><strong>extra:</strong> this the first tag of html file, dont need a closing tag and not case senstitive.</p>  
+  ref: <a href="http://www.w3.org/QA/Tips/Doctype">don't forget doctype</a>, <a href="http://www.2ality.com/2012/06/dense-arrays.html">Sparse vs Dense Array</a>
+</div> -->
+<!-- <div id="data_attribute">
+  <h2>2. data-*</h2>
+  <p><strong>Question:</strong> what is the use of data- attribute?</p>
+  <p><strong>Answer:</strong> allow you to store extra information/data in the DOM. u can write valid html withe embeded private data. You can easily access data attribute by using javascript and hence a lot of libraries like knockout uses it.</p>
+  <pre><code>
+&lt;div id=&quot;myDiv&quot; data-user=&quot;jsDude&quot; data-list-size=&quot;5&quot; data-maxage=&quot;180&quot;&gt;&lt;/div&gt;
+  </code></pre>
+  <p>ref: <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_data_attributes">MDN: data-*</a>, <a href="http://www.sitepoint.com/use-html5-data-attributes/">use data attribute</a></p>  
+  </div> -->
+  <!-- <div id="keygen">
+    <h2>3. keygen</h2>
+  <p><strong>Question:</strong> How can u generate public key in html?</p>
+  <p><strong>Answer:</strong> html has a keygen element that failitate generation of key and submission via a form.</p>
+  <pre><code>
+    &lt;keygen name=&quot;name&quot; challenge=&quot;challenge string&quot; keytype=&quot;type&quot; keyparams=&quot;pqg-params&quot;&gt;
+  </code></pre>
+  <p><strong>extra:</strong> keygen has to be used inside a form.</p>
+  ref: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/keygen">MDN: keygen</a>
+</div> -->
+
+<!-- <div id="bdo">
+  <h2>4. bdo</h2>
+  <p><strong>Question:</strong> How can u change direction of html text?</p>
+  <p><strong>Answer:</strong> use bdo (bidirectional ovverride) element of html.</p>
+  <pre><code>
+&lt;!-- Switch text direction --&gt;<br/>&lt;p&gt;&lt;bdo dir=&quot;rtl&quot;&gt;This text will go right to left.&lt;/bdo&gt;&lt;/p&gt;
+  </code></pre>
+  <strong>result:</strong>  
+<p><bdo dir="rtl">This text will go right to left.</bdo></p>
+<p><strong>extra:</strong> rtl: right to left. and alternatively you can use, ltr: left to right.</p>
+</div> -->
+<!-- <div id="mark">
+  <h2>5. mark</h2>
+  <p><strong>Question:</strong> How can u highlight text in html?</p>
+  <p><strong>Answer:</strong> use mark element.</p>
+  <pre><code>
+&lt;p&gt;Some part of this paragraph is &lt;mark&gt;highlighted&lt;/mark&gt; by using mark element.&lt;/p&gt;
+  </code></pre>
+  <p><strong>result:</strong>Some part of this paragraph is <mark>highlighted</mark> by using mark element.</p>  
+</div> -->
+<!-- <div id="scopped">
+  <h2>6. scoped</h2>
+  <p><strong>Question:</strong>Can u apply css rule to a part of html document?</p>
+  <p><strong>Answer:</strong> yes. by using "scopped" in the style tag.</p>
+   ref <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style">MDN: style</a>
+</div> -->
+<!-- <div id="http_request">
+  <h2>7. http requst </h2>
+  <p><strong>Question:</strong> Does the following trigger http request at the time of page load?</p>  
+  <pre><code>
+&lt;img src=&quot;mypic.jpg&quot; style=&quot;visibility:hidden&quot; alt=&quot;My photo&quot;&gt;<br/>
+  </code></pre>
+<p><strong>Answer:</strong> yes</p>
+  <pre><code>
+ &lt;div style=&quot;display: none;&quot;&gt;<br/>    &lt;img src=&quot;mypic.jpg&quot; alt=&quot;My photo&quot;&gt;<br/>&lt;/div&gt;
+  </code></pre>
+  <P><strong>Answer:</strong> yes</P>  
+  <p>ref: <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a></p>
+</div> -->
+<!-- <div id="download_order">
+  <h2>8. download order</h2>
+  <p><strong>Question:</strong> Does style1.css have to be downloaded and parsed before style2.css can be fetched?</p>
+  <pre><code>
+&lt;head&gt;<br/>    &lt;link href=&quot;style1.css&quot; rel=&quot;stylesheet&quot;&gt;<br/>    &lt;link href=&quot;main2.css&quot; rel=&quot;stylesheet&quot;&gt;<br/>&lt;/head&gt;
+  </code></pre>
+<p><strong>Answer:</strong> No</p>
+<p><strong>Question:</strong> Does main2.css have to be downloaded and parsed before Paragraph 1 is rendered on the page?</p>
+<pre><code>
+&lt;head&gt;<br/>    &lt;link href=&quot;main1.css&quot; rel=&quot;stylesheet&quot;&gt;<br/>&lt;/head&gt;<br/>&lt;body&gt;<br/>    &lt;p&gt;Paragraph 1&lt;/p&gt;<br/>    &lt;p&gt;Paragraph 2&lt;/p&gt;<br/>    &lt;link href=&quot;main2.css&quot; rel=&quot;stylesheet&quot;&gt;<br/>&lt;/body&gt;
+</code></pre>
+<p><strong>Answer:</strong> yes</p>
+
+ref: <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a>
+</div> -->
+<!-- <div id="optional_tag">
+  <h2>9. self closing tag</h2>
+  <p><strong>Question:</strong> What are optional closing tag? and why would u use it?</p>
+  <p><strong>Answer:</strong> p, li, td, tr, th, html, body, etc. you dont have to provide end tag. whenever browser hits a new tag it automatically ends the previous tag. However, you have to be careful to escape it.</p>
+  <p><strong>reason:</strong> you can save some byte and reduce bytes needs to be downloaded in a html file.</p>
+  <pre><code>
+&lt;p&gt;Some text<br/>&lt;p&gt;Some more text<br/>&lt;ul&gt;<br/> &lt;li&gt;A list item<br/> &lt;li&gt;Another list item<br/>&lt;/ul&gt;
+  </code></pre>
+  <p> the above html will be parsed as the following blocks.</p>
+  <pre><code>
+&lt;p&gt;Some text&lt;/p&gt;<br/>&lt;p&gt;Some more text&lt;/p&gt;<br/>&lt;ul&gt;<br/> &lt;li&gt;A list item&lt;/li&gt;<br/> &lt;li&gt;Another list item&lt;/li&gt;<br/>&lt;/ul&gt;
+  </code></pre>  
+  <p>ref: <a href="http://www.w3.org/TR/REC-html40/index/elements.html">W3.org: index of elements</a> </p>
+</div> -->
+
+<!-- <div id="div_span">
+  <h2>10. span vs div</h2>
+  <p><strong>Question:</strong> What is the difference between span, div?</p>
+  <p><strong>Answer:</strong> div is a block element and span is inline element.</p>  
+  <p><strong>Extra:</strong> it is illegal to put block element inside inline element. div can have a p tag and a p tag can have a span. However, span can't have a div or p tag inside.</p>
+  <p>ref: <a href="http://stackoverflow.com/questions/183532/what-is-the-difference-between-html-tags-div-and-span">Stackoverflow: div vs span</a> </p>
+</div> -->
+<!-- <div id="div_section_article">
+  <h2>11. div, section & article</h2>
+  <p><strong>Question:</strong> When should i prefer div over section and vice versa?</p>
+  <p><strong>Answer:</strong> <br>&lt;section&gt; means that the content inside is grouped (i.e. relates to a single theme), and should appear as an entry in an outline of the page.  A section normally has a heading (title) and maybe a footer too. It’s a chunk of related content, like a subsection of a long article, a major part of the page (eg the news section on the homepage), or a page in a webapp’s tabbed interface.</p>
+  <p>&lt;div&gt;, on the other hand, does not convey any meaning, aside from any found in its class, lang and title attributes.</p>
+  <p>&lt;article&gt;, represents a complete, or self-contained, composition in a document, page, application, or site and that is, in principle, independently distributable or reusable, e.g. in syndication. This could be a forum post, a magazine or newspaper article, a blog entry, a user-submitted comment, an interactive widget or gadget, or any other independent item of content.</p>
+  <p><strong>Good Summary:</strong><a href="http://oli.jp/2009/html5-structure1/">div, section & article</a></p>
+  <p><strong>Extra:</strong> Authors are strongly encouraged to view the div element as an element of last resort, for when no other element is suitable. Use of more appropriate elements instead of the div element leads to better accessibility for readers and easier maintainability for authors.</p>
+  <p>ref: (copied from) <a href="http://dev.w3.org/html5/spec-author-view/the-section-element.html#the-section-element">W3C: section</a>, <a href="http://dev.w3.org/html5/spec-author-view/the-div-element.html#the-div-element">W3C: div</a>, <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-article-element">W3c: article</a> </p>
+</div> -->
+<!-- <div id="svg_canvas">
+  <h2>12. svg vs canvas</h2>
+  <p><strong>Question:</strong> What are the difference between svg and canvas?</p>
+  <p><strong>Answer:</strong> <a href="http://www.sitepoint.com/how-to-choose-between-canvas-and-svg/">Read this one.</a> (I am tired of copy-pasting)</p>
+</div> -->
+<!-- <div id="mtuli_lang">
+  <h2>13. multiple languages</h2>
+  <p><strong>Question:</strong> How to serve a page content in multiple languages?</p>
+  <p><strong>Answer:</strong> CMS could be used to deliver content in different language with same structure and style.</p>
+  <p>ref: <a href="https://github.com/johnpolacek/Front-end-Developer-Interview-Questions/blob/master/README.md">john polacek</a>   </p>
+</div> -->
+<!-- <div id="standard_quirks">
+  <h2>14. standar & quirks mode</h2>
+  <p><strong>Question:</strong> Difference between standard mode and quirks mode?</p>
+  <p><strong>Answer:</strong> quriks mode in browser allows u to render page for as old browsers. This is for backward compatibility.</p> 
+</div> -->
+<!-- <div id="semantic_html">
+  <h2>15. semantic</h2>
+  <p><strong>Question:</strong> What is semantic HTML?</p>
+  <p><strong>Answer:</strong> Semantic HTML, or "semantically-correct HTML", is HTML where the tags used to structure content are selected and applied appropriately to the meaning of the content.</p>
+  <p>for example, &lt;b&gt;&lt;/b&gt; (for bold), and &lt;i&gt;&lt;/i&gt; (for italic) should never be used, because they&#x2019;re to do with formatting, not with the meaning or structure of the content. Instead, use the replacements &lt;strong&gt;&lt;/strong&gt; and &lt;em&gt;&lt;/em&gt; (meaning emphasis), which by default will turn text bold and italic (but don&#x2019;t have to do so in all browsers), while adding meaning to the structure of the content.</p>
+  <p>ref: <a href="http://en.wikipedia.org/wiki/Semantic_HTML">Wiki: semantic HTML</a> </p>
+</div> -->
+<div>
+  <h2>References</h2>
+  <ul>
+    <li><a href=""></a></li>   
+    <li><a href=""></a></li>
+    <li><a href=""></a></li>
+    <li><a href=""></a></li>
+  </ul>
+</div>
+
+<!-- div>h2+p+pre>code -->
+      <hr>
+
+      <footer>
+        <p>&copy;thatJSDude 2014</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery-2.0.3.min.js"></script>    
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script type="text/javascript">
+      (function() {
+        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+        po.src = 'https://apis.google.com/js/platform.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+      })();
+    </script>
+  </body>
+</html>
