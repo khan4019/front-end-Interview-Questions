@@ -140,16 +140,7 @@
   <p>ref: <a href="http://www.w3.org/TR/CSS1/#clear">W3.org: clear</a>
   </div>
   <div id="keygen">
-    <h2>3. preprocessor</h2>
-  <p><strong>Question:</strong> What are the reasons to use preprocessor?</p>
-  <p><strong>Answer:</strong> .</p>
-  
-  ref: <a href="http://www.frontendjournal.com/most-common-technical-interview-question-for-frontend-developers/">most common interview questions</a>
-</div>
-
-
-<div id="bdo">
-  <h2>4. rapid fire</h2>
+    <h2>3. rapid fire</h2>  
   <p><strong>Question:</strong> Does css properties are case sensitive?</p>
   <p><strong>Answer:</strong> no.</p>
   <p><strong>Question:</strong> Does margin-top or margin-bottom has effect on inline elemet?</p>
@@ -161,7 +152,21 @@
    <p><strong>Question:</strong> In a HTML document, the pseudo class :root always refers to the &lt;html&gt; element.</p>
    <p><strong>Answer:</strong> True</p>   
    <p><strong>Question:</strong> The translate() function can move the position of an element on the z-axis.</p>
-   <p><strong>Answer:</strong> False</p> 
+   <p><strong>Answer:</strong> False</p>
+   <p><strong>Question:</strong>If you have a &lt;p&gt; element with font-size: 10rem, will the text be responsive when the user resizes / drags the browser window?</p>
+  <p><strong>Answer:</strong> no.</p> 
+</div>
+
+
+<div id="bdo">
+  <h2>4. px, em or %</h2>
+  <p><strong>Question:</strong> What do you prefer px, em or % and why?</p>
+  <p><strong>Answer:</strong> it depends.</p>
+  <p>px, gives fine grained control and maintains alignment because 1 px or multiple of 1 px is guaranteed to look sharp. px is not cascade, this means if parent font-size is 20px and child 16px. child would be 16px.</p>
+  <p>em, em is the width of the letter 'm' in the selected typeface. maintains relative size. you can have responsive fonts. However, this concept is tricky. 1em is equal to the current font-size of the element or the browser default. if u sent font-size to 16px then 1em = 16px. The common practice is to set default body font-size to 62.5% (equal to 10px). em is cascade</p>
+  <p>%, set font-size of the body to a reasonable size and everything else would be percent of the body. this is easy to use and does cascade. for example, if parent font-size is 20px and child font-size is 50%. child would be 10px.</p>
+  <p>pt, points are traditionally used in print. 1pt = 1/72 inch and it is fixed-size unit.</p>
+  <p>ref: <a href="http://css-tricks.com/the-lengths-of-css/">css-tricks: length</a>, <a href="http://css-tricks.com/css-font-size/">css-tricks: px, em, %</a>, <a href="http://kyleschaeffer.com/development/css-font-size-em-vs-px-vs-pt-vs/">css font-size</a> </p>
 </div>
 <div id="mark">
   <h2>5. margin/padding inline</h2>
@@ -169,20 +174,13 @@
 </div>
 <div id="scopped">
   <h2>6. rem</h2>
-  <p><strong>Question:</strong>If you have a &lt;p&gt; element with font-size: 10rem, will the text be responsive when the user resizes / drags the browser window?</p>
-  <p><strong>Answer:</strong> no.</p>
+  
   Note: google it and read about it.
    ref: 
 </div>
 <div id="http_request">
   <h2>7. David Shariff </h2>
   
-   <p><strong>Question:</strong></p>
-   <p><strong>Answer:</strong></p> 
-   <p><strong>Question:</strong></p>
-   <p><strong>Answer:</strong></p> 
-   <p><strong>Question:</strong></p>
-   <p><strong>Answer:</strong></p> 
   <p>ref: <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a></p>
 </div>
 <div id="download_order">
@@ -272,12 +270,13 @@ ref: <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a>
   </code></pre>
   <p><strong>Answer:</strong> yes</p>
 </div>
-<!-- <div id="mtuli_lang">
-  <h2>13. multiple languages</h2>
-  <p><strong>Question:</strong> How to serve a page content in multiple languages?</p>
-  <p><strong>Answer:</strong> CMS could be used to deliver content in different language with same structure and style.</p>
-  <p>ref: <a href="https://github.com/johnpolacek/Front-end-Developer-Interview-Questions/blob/master/README.md">john polacek</a>   </p>
-</div> -->
+<div id="mtuli_lang">
+  <h2>13. pre processor</h2>
+  <p><strong>Question:</strong> What are the reasons to use preprocessor?</p>
+  <p><strong>Answer:</strong> .</p>
+  
+  ref: <a href="http://www.frontendjournal.com/most-common-technical-interview-question-for-frontend-developers/">most common interview questions</a>
+</div>
 <!-- <div id="standard_quirks">
   <h2>14. standar & quirks mode</h2>
   <p><strong>Question:</strong> Difference between standard mode and quirks mode?</p>
