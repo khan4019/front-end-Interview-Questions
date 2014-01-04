@@ -320,22 +320,24 @@
   <br>
   <p>ref: <a href="http://css-tricks.com/the-css-overflow-property/">overflow</a> (read the link and add something from it)</p>
 </div>
+
+<div id="div_section_article">
+  <h2>13. media queries</h2>
+  <p><strong>Question:</strong> How could you apply css rules specific to a media?</p>
+  <p><strong>Answer: </strong> <code>@media (max-width:700px){...}</code> means you want to apply rules to those media whose max-width is 700 px. this means every samller device will have this rule.</p>
+  <p><code>@media (max-width:700px) and (orientation: landscape){...}</code> will apply rules for media smaller than 700px and in landscape orientation.</p>
+  <p><strong>Question:</strong> What is the use of only?</p>
+  <p><strong>Answer:</strong> to hide style sheets from older user agents.</p>
+  <p><strong>Question:</strong> Does the screen keyword apply to the device's physical screen or the browser's viewport?</p>
+  <p><strong>Answer:</strong> Browser's Viewport</p>
+  <p>ref: <a href="http://mobile.smashingmagazine.com/2010/07/19/how-to-use-css3-media-queries-to-create-a-mobile-version-of-your-website/">how to use media queries</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries">css media queries</a>, <a href="http://www.w3.org/TR/css3-mediaqueries/#media0">W3: media queries</a></p>
+</div>
 <div id="mtuli_lang">
-  <h2>12. pre processor</h2>
+  <h2>13. pre processor</h2>
   <p><strong>Question:</strong> Have you used any preprocessor? What are the reasons to use preprocessor?</p>
   <p><strong>Answer:</strong> .</p>
   
   ref: <a href="http://www.frontendjournal.com/most-common-technical-interview-question-for-frontend-developers/">most common interview questions</a>
-</div>
-<div id="div_section_article">
-  <h2>13. only screen</h2>
-  <p><strong>Question:</strong> What is the use of only?</p>
-  <pre><code>
-&lt;style&gt;<br/>  @media only screen and (max-width: 1024px) {<br/>    margin: 0;<br/>  }<br/>&lt;/style&gt;<br/>
-  </code></pre>
-  <p><strong>Answer:</strong> Stops older browsers from parsing the remainder of the selector</p>
-  <p><strong>Question:</strong> Does the screen keyword apply to the device's physical screen or the browser's viewport?</p>
-  <p><strong>Answer:</strong> Browser's Viewport</p>
 </div>
 <div id="download_order">
   <h2>14. applied rule</h2>
