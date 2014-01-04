@@ -106,17 +106,22 @@
   <p><strong>Question:</strong> How float works?</p>  
   <p><strong>Answer:</strong> float is to push element on a side of a page with text wrap around it. you can create entire page or litter area by using float. if size of a floated element changes, text around it will reflow to accomodate the changes. You can have float left, right, none or inherit.</p>
   <p> if you set, 'float: left;' for an image, it will move to the left until the margin, padding or border of another block-level element is reached. The normal flow will wrap around on the right side.</p>
-    <pre><code>
+    <div>
+      <button id = "float" type="button" class="toggleExample btn btn-primary">show example</button>
+      <div id="floatExample" class="hide">
+        <pre><code>
  &lt;style&gt;<br/>   .floatContainer{<br/>        width: 200px;<br/>        height: 100px;<br/>        border: 2px solid purple;<br/>   }<br/>   .box{<br/>        float: left;<br/>        width:50px;<br/>        height: 30px;<br/>        border: 2px solid gray;<br/>        margin:5px;<br/>   }<br/> &lt;/style&gt;
  &lt;div class=&quot;container&quot;&gt;<br/>    &lt;div class=&quot;box&quot;&gt;&lt;span&gt;1&lt;/span&gt;&lt;/div&gt;<br/>    &lt;div class=&quot;box&quot;&gt;&lt;span&gt;2&lt;/span&gt;&lt;/div&gt;<br/>    &lt;div class=&quot;box&quot;&gt;&lt;span&gt;3&lt;/span&gt;&lt;/div&gt;<br/>    &lt;div class=&quot;box&quot;&gt;&lt;span&gt;4&lt;/span&gt;&lt;/div&gt;<br/>    &lt;div class=&quot;box&quot;&gt;&lt;span&gt;5&lt;/span&gt;&lt;/div&gt;<br/>  &lt;/div&gt; 
-  </code></pre>
-  <div class="floatContainer demoContainer">
-    <div class="box"><span>1</span></div>
-    <div class="box"><span>2</span></div>
-    <div class="box"><span>3</span></div>
-    <div class="box"><span>4</span></div>
-    <div class="box"><span>5</span></div>
-  </div>
+        </code></pre>
+        <div class="floatContainer demoContainer">
+          <div class="box"><span>1</span></div>
+          <div class="box"><span>2</span></div>
+          <div class="box"><span>3</span></div>
+          <div class="box"><span>4</span></div>
+          <div class="box"><span>5</span></div>
+        </div>
+      </div>
+    </div>    
   <p>If interviewer wants to ask one question about css, that would be most likely about float</a>.</p>  
   <p><strong>extra:</strong> read the positioning constraints in <a href="http://www.w3.org/TR/CSS1/#floating-elements">W3.org: floating elements</a>.</p>  
   ref: <a href="http://css-tricks.com/all-about-floats/">css-tricks: float</a>, <a href="http://alistapart.com/article/css-floats-101">float 101</a> 
@@ -125,18 +130,23 @@
   <h2>2. clear</h2>
   <p><strong>Question:</strong> When will you use clear?</p>
   <p><strong>Answer:</strong> floating elements will not be accepted on the side you cleared. With 'clear' set to 'left', an element will be moved below any floating element on the left side. clear is used to stop wrap of an element around a floating element. .</p>
+  <div>
+      <button id = "clear" type="button" class="toggleExample btn btn-primary">show example</button>
+      <div id="clearExample" class="hide">
       <pre><code>
  &lt;style&gt;<br/>   .clearLeft{<br/>      clear:left;<br/>   }<br/> &lt;/style&gt;
  &lt;div class=&quot;container&quot;&gt;<br/>    &lt;div class=&quot;box&quot;&gt;&lt;span&gt;1&lt;/span&gt;&lt;/div&gt;<br/>    &lt;div class=&quot;box clearLeft&quot;&gt;&lt;span&gt;2&lt;/span&gt;&lt;/div&gt;<br/>    &lt;div class=&quot;box&quot;&gt;&lt;span&gt;3&lt;/span&gt;&lt;/div&gt;<br/>    &lt;div class=&quot;box&quot;&gt;&lt;span&gt;4&lt;/span&gt;&lt;/div&gt;<br/>    &lt;div class=&quot;box&quot;&gt;&lt;span&gt;5&lt;/span&gt;&lt;/div&gt;<br/>  &lt;/div&gt; 
   </code></pre>
   <p>as clear left is applied to the second box. nother would be on the left of that box and hence it is placed in a new row. </p>
-  <div class="clearContainer demoContainer">
-    <div class="box"><span>1</span></div>
-    <div class="box clearLeft"><span>2</span></div>
-    <div class="box"><span>3</span></div>
-    <div class="box"><span>4</span></div>
-    <div class="box"><span>5</span></div>
-  </div>  
+      <div class="clearContainer demoContainer">
+        <div class="box"><span>1</span></div>
+        <div class="box clearLeft"><span>2</span></div>
+        <div class="box"><span>3</span></div>
+        <div class="box"><span>4</span></div>
+        <div class="box"><span>5</span></div>
+      </div>
+    </div>
+  </div>      
   <p>ref: <a href="http://www.w3.org/TR/CSS1/#clear">W3.org: clear</a>
   </div>
   <div id="keygen">
@@ -347,6 +357,7 @@ ref: <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a>
     <script src="js/jquery-2.0.3.min.js"></script>    
     <script src="js/bootstrap.min.js"></script>
     <script src="js/highlight.pack.js"></script>
+    <script src = "js/toggleExample.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
     <script type="text/javascript">
       (function() {
