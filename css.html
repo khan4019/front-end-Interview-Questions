@@ -45,6 +45,9 @@
        }
        .clearLeft{
          clear:left;
+       }
+       .clearBoth{
+        clear: both;
        }       
        .box{
         float: left;
@@ -62,6 +65,33 @@
        .element:hover {
           width: 100px;
           background-color: red;
+       }
+       .overflowContainer{
+        height: 280px;
+        border: 2px solid gray;
+        padding: 5px;
+       }
+       .overflowBox{
+        padding: 5px;
+        margin: 5px;
+        float: left;
+        border: 2px solid gray;
+       }
+       .overflowBox p{
+        width: 150px;
+        height: 150px;
+       }
+       .overflowVisible{
+        overflow: visible;
+       }
+       .overflowHidden{
+        overflow: hidden;
+       }
+       .overflowScroll{
+        overflow: scroll;
+       }
+       .overflowAuto{
+        overflow: auto;
        }
     </style>
 
@@ -262,23 +292,40 @@
   <p>ref: <a href="http://blog.alexmaccaw.com/css-transitions">all you need to know about css transition</a>, <a href="http://css3.bradshawenterprises.com/transitions/">transition: tutorial</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Using_CSS_transitions">css transition</a>, <a href="http://www.html5rocks.com/en/tutorials/3d/css/">transition and 3D</a></p>
 
 </div>
+<div id="svg_canvas">
+  <h2>11. overflow</h2>
+  <p><strong>Question:</strong> Describe Overflow</p>
+  <p><strong>Answer:</strong> overflow property deals with the content if content size exceeds the allocated size for the content. You can make extra content visible, hidden, scroll or auto (viewport default behavior).</p>
+  <p><strong>Question:</strong> Does overflow: hidden create a new block formatting context?</p>
+  <p><strong>Answer:</strong> yes</p>
+  <div>
+    <button id = "overflow" type="button" class="toggleExample btn btn-primary">show example</button>
+    <div id="overflowExample" class="hide">        
+      <div class="overflowContainer">
+        <div class="overflowBox">
+          <p class="overflowVisible"><code>overflow:visible</code> This is some simple content to see how overflow works when you have too many things to say in a too small space. But don't be the person who just say rather be the person who does. does something for himself and others.</p>
+        </div>
+        <div class="overflowBox">
+          <p class="overflowHidden"><code>overflow:hidden</code> This is some simple content to see how overflow works when you have too many things to say in a too small space. But don't be the person who just say rather be the person who does. does something for himself and others.</p>
+        </div>
+        <div class="overflowBox">
+          <p class="overflowScroll"><code>overflow:scroll</code> This is some simple content to see how overflow works when you have too many things to say in a too small space. But don't be the person who just say rather be the person who does. does something for himself and others.</p>
+        </div>
+        <div class="overflowBox">
+          <p class="overflowAuto"><code>overflow:auto</code> This is some simple content to see how overflow works when you have too many things to say in a too small space. But don't be the person who just say rather be the person who does. does something for himself and others.</p>
+        </div>
+      </div>      
+    </div>
+  </div>
+  <br>
+  <p>ref: <a href="http://css-tricks.com/the-css-overflow-property/">overflow</a> (read the link and add something from it)</p>
+</div>
 <div id="mtuli_lang">
-  <h2>11. pre processor</h2>
+  <h2>12. pre processor</h2>
   <p><strong>Question:</strong> Have you used any preprocessor? What are the reasons to use preprocessor?</p>
   <p><strong>Answer:</strong> .</p>
   
   ref: <a href="http://www.frontendjournal.com/most-common-technical-interview-question-for-frontend-developers/">most common interview questions</a>
-</div>
-<div id="svg_canvas">
-  <h2>12. overflow</h2>
-  <p><strong>Question:</strong> Describe Overflow</p>
-  <p><strong>Answer:</strong> overflow property deals with the content if content size exceeds the allocated size for the content. You can make extra content visible, hidden, scroll or auto (viewport default behavior).</p>
-  <p><strong>Question:</strong> Does overflow: hidden create a new block formatting context?</p>
-  <pre><code>
-&lt;style&gt;<br/>  div {<br/>    overflow: hidden;<br/>  }<br/>  p {<br/>    float: left;<br/>  }<br/>&lt;/style&gt;<br/>&lt;div&gt;<br/>    &lt;p&gt;I am floated&lt;/p&gt;<br/>    &lt;p&gt;So am I&lt;/p&gt;<br/>&lt;/div&gt;<br/>
-  </code></pre>  
-  <p><strong>Answer:</strong> yes</p>
-  <p>ref: <a href="http://css-tricks.com/the-css-overflow-property/">overflow</a> (read the link and add something from it)</p>
 </div>
 <div id="div_section_article">
   <h2>13. only screen</h2>
