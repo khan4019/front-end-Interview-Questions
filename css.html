@@ -202,26 +202,26 @@
 </div>
 
 <div id="mark">
-  <h2>5. box model</h2>
+  <h2>8. box model</h2>
   <p><strong>Question:</strong> What is css box model?</p>
   <p><strong>Answer:</strong> everything in a web page is a box where you can control size, position, background, etc. Each box/content area is optionally surrounded by padding, border and margin.</p>
   <p>ref: <a href="http://www.w3.org/TR/CSS21/box.html">W3: box model</a>, <a href="http://css-tricks.com/the-css-box-model/">css box model</a></p>
 </div>
 <div id="standard_quirks">
-  <h2>14. shadow DOM</h2>
+  <h2>9. shadow DOM</h2>
   <p><strong>Question:</strong> What is shadow DOM?</p>
   <p><strong>Answer:</strong> encapsulate part of a DOM. hide subtree. you can have same ID in different shadow DOM. Polymers uses it. This way your DOM becomes reusable and u dont have to do iframe. if interviewer is not happy with your answer give him the links and tell him to spend a weekend on reading.</p>
   <p>ref: <a href="http://www.w3.org/TR/shadow-dom/#introduction">W3: shadow-DOM</a>, <a href="http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom/">html5rock: shadow DOM</a></p> 
 </div>
 <div id="semantic_html">
-  <h2>15. transition</h2>
+  <h2>10. transition</h2>
   <p><strong>Question:</strong> What do u know about tranisition 3D?</p>
   <p><strong>Answer:</strong> .</p>
   
   <p>ref: <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Using_CSS_transitions">css transition</a> <a href="http://www.html5rocks.com/en/tutorials/3d/css/">transition and 3D</a></p>
 </div>
 <div id="mtuli_lang">
-  <h2>13. pre processor</h2>
+  <h2>11. pre processor</h2>
   <p><strong>Question:</strong> What are the reasons to use preprocessor?</p>
   <p><strong>Answer:</strong> .</p>
   
@@ -237,7 +237,7 @@
   <p>ref: <a href="http://css-tricks.com/the-css-overflow-property/">overflow</a> (read the link and add something from it)</p>
 </div>
 <div id="div_section_article">
-  <h2>11. only</h2>
+  <h2>13. only screen</h2>
   <p><strong>Question:</strong> What is the use of only?</p>
   <pre><code>
 &lt;style&gt;<br/>  @media only screen and (max-width: 1024px) {<br/>    margin: 0;<br/>  }<br/>&lt;/style&gt;<br/>
@@ -247,7 +247,7 @@
   <p><strong>Answer:</strong> Browser's Viewport</p>
 </div>
 <div id="download_order">
-  <h2>8. applied rule</h2>
+  <h2>14. applied rule</h2>
   <p><strong>Question:</strong> What is the color of text sausage for he following rule?</p>
   <strong>html:</strong>
   <pre><code>
@@ -288,10 +288,8 @@
 &lt;style&gt;<br/>  #awesome .favorite:not(#awesome) .highlight {<br/>    color: red;<br/>  }<br/>  #awesome .highlight:nth-of-type(1):nth-last-of-type(1) {<br/>    color: blue;<br/>  }<br/>&lt;/style&gt;<br/>
 </code></pre>
 <p><strong>Answer:</strong> red</p>
-ref: <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a>
 </div>
-<div id="optional_tag">
-  <h2>9. applied rule-2</h2>
+<div id="optional_tag">  
   <p><strong>Question:</strong> What will happen to the position of #example?</p>
   <pre><code>
 &lt;style&gt;<br/>  #example {<br/>    margin-bottom: -5px;<br/>  }<br/>&lt;/style&gt;<br/>&lt;&lt;p id=&quot;example&quot;&gt;Hello&lt;/p&gt;p id=&quot;example&quot;&gt;Hello&lt;/p&gt;
@@ -302,11 +300,11 @@ ref: <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a>
 &lt;style&gt;<br/>  #example {<br/>    margin-left: -5px;<br/>  }<br/>&lt;/style&gt;<br/>&lt;&lt;p id=&quot;example&quot;&gt;Hello&lt;/p&gt;p id=&quot;example&quot;&gt;Hello&lt;/p&gt;
   </code></pre> 
   <p><strong>Answer:</strong> #example will move 5px left.</p>
-  <p>ref: <a href="">David Shariff</a> </p>
+  ref: <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a>
 </div>
 
 <div id="div_span">
-  <h2>10. download resources</h2>
+  <h2>15. download resources</h2>
   <p><strong>Question:</strong> On page load, will mypic.jpg get downloaded by the browser?</p>  
   <pre><code>
 &lt;style&gt;<br/>  #test1 {<br/>    display: none;<br/>  }<br/>  #test2 {<br/>    background-image: url('mypic.jpg');<br/>    visibility: hidden;<br/>  }<br/>&lt;/style&gt;<br/>&lt;div id=&quot;test1&quot;&gt;<br/>    &lt;span id=&quot;test2&quot;&gt;&lt;/span&gt;<br/>&lt;/div&gt;
