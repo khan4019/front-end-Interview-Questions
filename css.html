@@ -148,6 +148,22 @@
         font-weight: bolder;
         color: purple;
        }
+       #alignExample div{
+        height: 100px;
+        border: 2px solid gray;
+        text-align: center;
+        position: relative;
+       }
+       #alignExample div p{        
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 50%;
+        height: 30%;
+        margin: auto;
+       }
     </style>
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
@@ -437,9 +453,22 @@
   <p>ref: be careful while using @import (<a href="http://www.stevesouders.com/blog/2009/04/09/dont-use-import/">don't use @import</a>)</p>
 </div>
 <div id="something">
-  <h2>17. vertical alignment</h2>
-  <p><strong></strong></p>
-  <p><strong></strong></p>
+  <h2>17. vertical Center</h2>
+  <p><strong>Question:</strong> How do you align a p center-center inside a div?</p>
+  <p><strong>Answer:</strong> <code>text-align:center</code>will do the horizontal alignment but <code>vertical-laign:middle</code> will not work here. there are couple of different ways to solve this problem and one of them are positioning. You make the parent as relative position and child as absolute positioning. And then define all position parameter as sero and width 50% and height 30% (sounds messy look at the example and read ref) </p>
+  <div>
+    <button id = "align" type="button" class="toggleExample btn btn-primary">show example</button>
+    <div id="alignExample" class="hide">
+      <pre><code>
+&lt;style&gt;<br/>   .divContainer{<br/>      height: 100px;<br/>      border: 2px solid gray;<br/>      text-align: center;<br/>      position: relative;<br/>   }<br/>   p{        <br/>      position: absolute;<br/>      top: 0;<br/>      bottom: 0;<br/>      left: 0;<br/>      right: 0;<br/>      width: 50%;<br/>      height: 30%;<br/>      margin: auto;<br/>    }<br/>&lt;/style&gt;<br/>&lt;div class = &quot;divContainer&quot;&gt;<br/>  &lt;p&gt;content example&lt;/p&gt;<br/>&lt;/div&gt;<br/>
+      </code></pre>
+      <strong>result:</strong>
+      <div>
+        <p>content example</p>
+      </div>
+    </div>
+  </div>
+  <p>ref: <a href="http://www.vanseodesign.com/css/vertical-centering/">6 methods for vertical center</a>, <a href="http://coding.smashingmagazine.com/2013/08/09/absolute-horizontal-vertical-centering-css/">Absolute horizontal and vertical centering</a></p>
 </div>
 <div id="something">
   <h2>18. sprite</h2>
