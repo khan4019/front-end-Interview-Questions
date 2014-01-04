@@ -56,11 +56,12 @@
        .element{
         height: 50px;
         width: 50px;
-        transition: width 2s linear 0.5s;
+        transition: width  2s linear 0.5s, background-color 2s linear 0.5s;
         background-color: purple;
        }       
        .element:hover {
           width: 100px;
+          background-color: red;
        }
     </style>
 
@@ -201,6 +202,7 @@
   <h2>6. display vs visibility</h2>
   <p><strong>Question:</strong> What are the differences between visibility hidden and display none?</p>
   <p><strong>Answer:</strong> <code>display:none</code> removes the element from the normal layout flow and allow other elements to fill in. <code>visibility:hidden</code> tag is rendered, it takes space in the normal flow but hides it.</p>
+  <p>if u want to say it smartly, <code>display:none</code> cuases DOM reflow where is <code>visibility:hidden</code> doesn't. btw, what is reflow? answer. sorry i wont tell you, google it.</p>
   <p>ref: <a href="http://www.vanseodesign.com/css/visibility-vs-display/">visibility vs Display</a></p>
 </div>
 <div id="http_request">
@@ -233,7 +235,7 @@
 <div id="semantic_html">
   <h2>10. transition</h2>
   <p><strong>Question:</strong> What do u know about tranisition 3D?</p>
-  <p><strong>Answer:</strong> transition allows to add an effect while changing from one style to another. You can set the which property you want to transition, duration, how u want to transit (linear, ease, ease-in, ease-out, cubic-bezier) and delay when transition will start.</p>
+  <p><strong>Answer:</strong> transition allows to add an effect while changing from one style to another. You can set the which property you want to transition, duration, how u want to transit (linear, ease, ease-in, ease-out, cubic-bezier) and delay when transition will start. you can transition more than one property by comma seperation</p>
   <div>
     <button id = "transition" type="button" class="toggleExample btn btn-primary">show example</button>
     <div id="transitionExample" class="hide">
@@ -243,17 +245,22 @@
 }
 .element {
   width: 50px;
-  transition: width 2s ease 0.5s;
+  background-color:purple;
+  transition: width  2s linear 0.5s, background-color 2s linear 0.5s;  
 }
 
 .element:hover {
   width: 100px;
+  background-color:red;
 }
       </code></pre>
+      <p>Hover over the purple box and wait.</p>
       <div class="element"></div>
+      <p><strong>Advanced:</strong> you can check transfrom: <a href="http://www.sitepoint.com/advanced-css3-2d-and-3d-transform-techniques/">css 2D 3D transform</a>, <a href="http://css3.bradshawenterprises.com/flip/">flip an image</a></p>
     </div>
   </div>
-  <p>ref: <a href="http://blog.alexmaccaw.com/css-transitions">all you need to know about css transition</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Using_CSS_transitions">css transition</a> <a href="http://www.html5rocks.com/en/tutorials/3d/css/">transition and 3D</a></p>
+  <p>ref: <a href="http://blog.alexmaccaw.com/css-transitions">all you need to know about css transition</a>, <a href="http://css3.bradshawenterprises.com/transitions/">transition: tutorial</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Using_CSS_transitions">css transition</a>, <a href="http://www.html5rocks.com/en/tutorials/3d/css/">transition and 3D</a></p>
+
 </div>
 <div id="mtuli_lang">
   <h2>11. pre processor</h2>
