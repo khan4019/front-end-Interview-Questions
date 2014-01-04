@@ -93,6 +93,56 @@
        .overflowAuto{
         overflow: auto;
        }
+       .imageContainer{
+        height: 155px;
+        border: 2px solid gray;
+       }
+       .imageHolder{
+        float: left;
+       }
+       .imageContainer img{
+        width: 120px;
+        height: 120px;
+        margin: 5px;        
+       }
+       .imageHolder p{
+        text-align: center;
+       }
+       .imgGray{
+        filter:grayscale(100%);
+        -webkit-filter:grayscale(100%);
+        -moz-filter:grayscale(100%);
+        -ms-filter:grayscale(100%);
+        -o-filter:grayscale(100%);
+       }
+       .imgInvert{
+        filter:invert(100%);
+        -webkit-filter:invert(100%);
+        -moz-filter:invert(100%);
+        -ms-filter:invert(100%);
+        -o-filter:invert(100%);
+       }
+       .imgBlur{
+        filter:blur(3px);
+        -webkit-filter:blur(3px);
+        -moz-filter:blur(3px);
+        -ms-filter:blur(3px);
+        -o-filter:blur(3px);
+       }
+       .imgBright{
+        filter:brightness(200%);
+        -webkit-filter:brightness(200%);
+        -moz-filter:brightness(200%);
+        -ms-filter:brightness(200%);
+        -o-filter:brightness(200%);
+       }
+       .imgOpacity{
+        filter:opacity(30%);
+        -webkit-filter:opacity(30%);
+        -moz-filter:opacity(30%);
+        -ms-filter:opacity(30%);
+        -o-filter:opacity(30%);
+       }
     </style>
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
@@ -349,8 +399,20 @@
 </div>
 <div id="filter">
   <h2>15. filter</h2>
-  <p><strong>Question: </strong></p>
-  <p><strong>Answer: </strong></p>
+  <p><strong>Question: What are the different css filter you can use?</strong></p>
+  <p><strong>Answer: css filter allows u to render DOM element, image, or video. u can choose from: grayscale, blur, opacity, brightness, contrast.</strong></p>
+  <div>
+    <button id = "filter" type="button" class="toggleExample btn btn-primary">show example</button>
+    <div id="filterExample" class="imageContainer hide">
+      <div class="imageHolder"><img class="" src="images/flower.jpg" alt=""><p>Original</p></div>
+      <div class="imageHolder"><img class="imgGray" src="images/flower.jpg" alt=""><p>grayscale(100%)</p></div>
+      <div class="imageHolder"><img class="imgBright" src="images/flower.jpg" alt=""><p>brightness(200%)</p></div>
+      <div class="imageHolder"><img class="imgBlur" src="images/flower.jpg" alt=""><p>blur(3px)</p></div>
+      <div class="imageHolder"><img class="imgOpacity" src="images/flower.jpg" alt=""><p>opacity(30%)</p></div>
+      <div class="imageHolder"><img class="imgInvert" src="images/flower.jpg" alt=""><p>invert(100%)</p></div>
+    </div>    
+  </div>
+  <p>ref: <a href="http://www.html5rocks.com/en/tutorials/filters/understanding-css/">Understanding css filter effect</a></p>
 </div>
 <div id="something">
   <h2>16. @import</h2>
