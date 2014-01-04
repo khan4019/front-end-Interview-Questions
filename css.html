@@ -53,6 +53,15 @@
         border: 2px solid gray;
         margin:5px;
        }
+       .element{
+        height: 50px;
+        width: 50px;
+        transition: width 2s linear 0.5s;
+        background-color: purple;
+       }       
+       .element:hover {
+          width: 100px;
+       }
     </style>
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
@@ -64,7 +73,7 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
   </head>
-
+ 
   <body>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
@@ -216,9 +225,27 @@
 <div id="semantic_html">
   <h2>10. transition</h2>
   <p><strong>Question:</strong> What do u know about tranisition 3D?</p>
-  <p><strong>Answer:</strong> .</p>
-  
-  <p>ref: <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Using_CSS_transitions">css transition</a> <a href="http://www.html5rocks.com/en/tutorials/3d/css/">transition and 3D</a></p>
+  <p><strong>Answer:</strong> transition allows to add an effect while changing from one style to another. You can set the which property you want to transition, duration, how u want to transit (linear, ease, ease-in, ease-out, cubic-bezier) and delay when transition will start.</p>
+  <div>
+    <button id = "transition" type="button" class="toggleExample btn btn-primary">show example</button>
+    <div id="transitionExample" class="hide">
+      <pre><code>
+.transition {
+    transition: [transition-property] [transition-duration] [transition-timing-function] [transition-delay];
+}
+.element {
+  width: 50px;
+  transition: width 2s ease 0.5s;
+}
+
+.element:hover {
+  width: 100px;
+}
+      </code></pre>
+      <div class="element"></div>
+    </div>
+  </div>
+  <p>ref: <a href="http://blog.alexmaccaw.com/css-transitions">all you need to know about css transition</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Using_CSS_transitions">css transition</a> <a href="http://www.html5rocks.com/en/tutorials/3d/css/">transition and 3D</a></p>
 </div>
 <div id="mtuli_lang">
   <h2>11. pre processor</h2>
