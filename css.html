@@ -178,14 +178,8 @@
   <p>pt, points are traditionally used in print. 1pt = 1/72 inch and it is fixed-size unit.</p>
   <p>ref: <a href="http://css-tricks.com/the-lengths-of-css/">css-tricks: length</a>, <a href="http://css-tricks.com/css-font-size/">css-tricks: px, em, %</a>, <a href="http://kyleschaeffer.com/development/css-font-size-em-vs-px-vs-pt-vs/">css font-size</a> </p>
 </div>
-<div id="mark">
-  <h2>5. box model</h2>
-  <p><strong>Question:</strong> What is css box model?</p>
-  <p><strong>Answer:</strong> everything in a web page is a box where you can control size, position, background, etc. Each box/content area is optionally surrounded by padding, border and margin.</p>
-  <p>ref: <a href="http://www.w3.org/TR/CSS21/box.html">W3: box model</a>, <a href="http://css-tricks.com/the-css-box-model/">css box model</a></p>
-</div>
 <div id="scopped">
-  <h2>6. position</h2>
+  <h2>5. position</h2>
   <p><strong>Question:</strong> How absolute, relative, fixed and static position differ?</p>
   <p><strong>Answer:</strong> </p>
   <p><em>absolute</em>, place an element exactly where you want to place it. position is relative to parent. if no parent available then relatively place to the page itself.</p>
@@ -194,12 +188,63 @@
   <p><em>static</em>, element will be positioned based on the normal flow of the document. usually, u will use position static to remove other position mibht be applied to an element.</p>
   <p>ref: <a href="http://www.barelyfitz.com/screencast/html-training/css/positioning/">css positioning in ten steps</a>, <a href="http://css-tricks.com/absolute-relative-fixed-positioining-how-do-they-differ/">css position</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position">MDN: position</a></p>
 </div>
+<div id="">
+  <h2>6. hidden vs display</h2>
+  <p><strong>Question:</strong> What are the differences between visibility hidden and display none?</p>
+  <p><strong>Answer:</strong> </p>
+</div>
 <div id="http_request">
   <h2>7. specificity </h2>
   <p><strong>Question:</strong> What is specificity</p>
   <p><strong>Answer:</strong> is a process of determining which css rule will be applied to an element. it actually determines which rules will take precedence. </p>
   <p>inline style usually wins then ID then class value (or pseudo-class or attribute selector), unversal selector (*) has no specificity.</p>
   <p>ref: <a href="http://coding.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/">css specificity: things you need to know</a>, <a href="http://www.standardista.com/css3/css-specificity/">specifishity</a>, <a href="http://specificity.keegan.st/">specificiyt calculator</a></p>
+</div>
+
+<div id="mark">
+  <h2>5. box model</h2>
+  <p><strong>Question:</strong> What is css box model?</p>
+  <p><strong>Answer:</strong> everything in a web page is a box where you can control size, position, background, etc. Each box/content area is optionally surrounded by padding, border and margin.</p>
+  <p>ref: <a href="http://www.w3.org/TR/CSS21/box.html">W3: box model</a>, <a href="http://css-tricks.com/the-css-box-model/">css box model</a></p>
+</div>
+<div id="standard_quirks">
+  <h2>14. shadow DOM</h2>
+  <p><strong>Question:</strong> What is shadow DOM?</p>
+  <p><strong>Answer:</strong> encapsulate part of a DOM. hide subtree. you can have same ID in different shadow DOM. Polymers uses it. This way your DOM becomes reusable and u dont have to do iframe. if interviewer is not happy with your answer give him the links and tell him to spend a weekend on reading.</p>
+  <p>ref: <a href="http://www.w3.org/TR/shadow-dom/#introduction">W3: shadow-DOM</a>, <a href="http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom/">html5rock: shadow DOM</a></p> 
+</div>
+<div id="semantic_html">
+  <h2>15. transition</h2>
+  <p><strong>Question:</strong> What do u know about tranisition 3D?</p>
+  <p><strong>Answer:</strong> .</p>
+  
+  <p>ref: <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Using_CSS_transitions">css transition</a> <a href="http://www.html5rocks.com/en/tutorials/3d/css/">transition and 3D</a></p>
+</div>
+<div id="mtuli_lang">
+  <h2>13. pre processor</h2>
+  <p><strong>Question:</strong> What are the reasons to use preprocessor?</p>
+  <p><strong>Answer:</strong> .</p>
+  
+  ref: <a href="http://www.frontendjournal.com/most-common-technical-interview-question-for-frontend-developers/">most common interview questions</a>
+</div>
+<div id="svg_canvas">
+  <h2>12. overflow</h2>
+  <p><strong>Question:</strong> Does overflow: hidden create a new block formatting context?</p>
+  <pre><code>
+&lt;style&gt;<br/>  div {<br/>    overflow: hidden;<br/>  }<br/>  p {<br/>    float: left;<br/>  }<br/>&lt;/style&gt;<br/>&lt;div&gt;<br/>    &lt;p&gt;I am floated&lt;/p&gt;<br/>    &lt;p&gt;So am I&lt;/p&gt;<br/>&lt;/div&gt;<br/>
+  </code></pre>
+  <p><strong>Answer:</strong> yes</p>
+  <p>ref: <a href="http://css-tricks.com/the-css-overflow-property/">overflow</a> (read the link and add something from it)</p>
+</div>
+<div id="div_section_article">
+  <h2>11. only</h2>
+  <p><strong>Question:</strong> What is the use of only?</p>
+  <pre><code>
+&lt;style&gt;<br/>  @media only screen and (max-width: 1024px) {<br/>    margin: 0;<br/>  }<br/>&lt;/style&gt;<br/>
+  </code></pre>
+  <p><strong>Answer:</strong> Stops older browsers from parsing the remainder of the selector</p>
+  <p><strong>Question:</strong> Does the screen keyword apply to the device's physical screen or the browser's viewport?</p>
+  <p><strong>Answer:</strong> Browser's Viewport</p>
 </div>
 <div id="download_order">
   <h2>8. applied rule</h2>
@@ -270,45 +315,8 @@ ref: <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a>
   <p><strong>reason:</strong> .</p>
   <p>ref: <a href="">might add css question 18 in david shariff</a> </p>
 </div>
-<div id="div_section_article">
-  <h2>11. only</h2>
-  <p><strong>Question:</strong> What is the use of only?</p>
-  <pre><code>
-&lt;style&gt;<br/>  @media only screen and (max-width: 1024px) {<br/>    margin: 0;<br/>  }<br/>&lt;/style&gt;<br/>
-  </code></pre>
-  <p><strong>Answer:</strong> Stops older browsers from parsing the remainder of the selector</p>
-  <p><strong>Question:</strong> Does the screen keyword apply to the device's physical screen or the browser's viewport?</p>
-  <p><strong>Answer:</strong> Browser's Viewport</p>
-</div>
-<div id="svg_canvas">
-  <h2>12. overflow</h2>
-  <p><strong>Question:</strong> Does overflow: hidden create a new block formatting context?</p>
-  <pre><code>
-&lt;style&gt;<br/>  div {<br/>    overflow: hidden;<br/>  }<br/>  p {<br/>    float: left;<br/>  }<br/>&lt;/style&gt;<br/>&lt;div&gt;<br/>    &lt;p&gt;I am floated&lt;/p&gt;<br/>    &lt;p&gt;So am I&lt;/p&gt;<br/>&lt;/div&gt;<br/>
-  </code></pre>
-  <p><strong>Answer:</strong> yes</p>
-  <p>ref: <a href="http://css-tricks.com/the-css-overflow-property/">overflow</a> (read the link and add something from it)</p>
-</div>
-<div id="mtuli_lang">
-  <h2>13. pre processor</h2>
-  <p><strong>Question:</strong> What are the reasons to use preprocessor?</p>
-  <p><strong>Answer:</strong> .</p>
-  
-  ref: <a href="http://www.frontendjournal.com/most-common-technical-interview-question-for-frontend-developers/">most common interview questions</a>
-</div>
-<div id="standard_quirks">
-  <h2>14. shadow DOM</h2>
-  <p><strong>Question:</strong> What is shadow DOM?</p>
-  <p><strong>Answer:</strong> encapsulate part of a DOM. hide subtree. you can have same ID in different shadow DOM. Polymers uses it. This way your DOM becomes reusable and u dont have to do iframe. if interviewer is not happy with your answer give him the links and tell him to spend a weekend on reading.</p>
-  <p>ref: <a href="http://www.w3.org/TR/shadow-dom/#introduction">W3: shadow-DOM</a>, <a href="http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom/">html5rock: shadow DOM</a></p> 
-</div>
-<div id="semantic_html">
-  <h2>15. transition</h2>
-  <p><strong>Question:</strong> What do u know about tranisition 3D?</p>
-  <p><strong>Answer:</strong> .</p>
-  
-  <p>ref: <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Using_CSS_transitions">css transition</a> <a href="http://www.html5rocks.com/en/tutorials/3d/css/">transition and 3D</a></p>
-</div>
+
+
 <div>
   
 <h2>temporary list of questions</h2>
