@@ -143,6 +143,11 @@
         -ms-filter:opacity(30%);
         -o-filter:opacity(30%);
        }
+       #pseudoElementExample p:before{
+        content: "Strating of Paragraph: ";
+        font-weight: bolder;
+        color: purple;
+       }
     </style>
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
@@ -389,7 +394,18 @@
   <p>pseudo classes is better if you dont want to mess up with javascript however, pesudo-classes is slow to process and apply rules.</p>
   <p>ref: <a href="http://coding.smashingmagazine.com/2011/03/30/how-to-use-css3-pseudo-classes/">How to use pseudo classes</a>, <a href="http://css-tricks.com/pseudo-class-selectors/">meet pseudo classes</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">list of pseudo classes</a></p>
   <h4>pseudo elements</h4>
-  <p>pseudo elements helps you to add cosmetics contents. for example, you can add contents before/after of a content</p>
+  <p>pseudo elements helps you to add cosmetics contents. pseudo elements generates content where as pseudo class deals with state of the element. for example, you can style <code>:first-letter</code> of every paragrpah. similarly,  <code>:first-line</code> and fancy stuff with <code>:before</code>, <code>:after</code></p>
+  <div>
+    <button id = "pseudoElement" type="button" class="toggleExample btn btn-primary">show example</button>
+    <div id="pseudoElementExample" class="hide">
+      <pre><code>
+&lt;style&gt;<br/>   p:before{<br/>     content: &quot;Strating of Paragraph: &quot;;<br/>     font-weight: bolder;<br/>     color: purple;<br/>   }<br/>&lt;/style&gt;<br/>&lt;p&gt;First Paragraph with some content.&lt;/p&gt;<br/>&lt;p&gt;Second Paragraph with something else.&lt;/p&gt;
+      </code></pre>
+      <strong>result:</strong>
+      <p>First Paragraph with some content.</p>
+      <p>Second Paragraph with something else.</p>
+    </div>
+  </div>
   <p>ref: <a href="http://nicolasgallagher.com/an-introduction-to-css-pseudo-element-hacks/">intro to css pseudo element</a>, <a href="http://coding.smashingmagazine.com/2011/07/13/learning-to-use-the-before-and-after-pseudo-elements-in-css/">:before :after</a>, <a href="http://css-tricks.com/css-content/">css content</a>, <a href="http://www.w3.org/TR/CSS21/generate.html">W3: generate content</a></p>
 </div>
 <div id="something">
@@ -399,8 +415,8 @@
 </div>
 <div id="filter">
   <h2>15. filter</h2>
-  <p><strong>Question: What are the different css filter you can use?</strong></p>
-  <p><strong>Answer: css filter allows u to render DOM element, image, or video. u can choose from: grayscale, blur, opacity, brightness, contrast.</strong></p>
+  <p><strong>Question:</strong>  What are the different css filter you can use?</p>
+  <p><strong>Answer:</strong> css filter allows u to render DOM element, image, or video. u can choose from: grayscale, blur, opacity, brightness, contrast.</p>
   <div>
     <button id = "filter" type="button" class="toggleExample btn btn-primary">show example</button>
     <div id="filterExample" class="imageContainer hide">
