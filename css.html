@@ -272,20 +272,20 @@
   <p><strong>Answer:</strong> no.</p> 
   <p><strong>Question:</strong> Does padding-top or padding-bottom has effect on inline elemet?</p>
   <p><strong>Answer:</strong> no.</p>
+  <p><strong>Question:</strong>If you have a &lt;p&gt; element with font-size: 10rem, will the text be responsive when the user resizes / drags the browser window?</p>
+  <p><strong>Answer:</strong> no.</p>
   <p><strong>Question:</strong> The pseudo class :checked will select inputs with type radio or checkbox, but not &lt;option&gt; elements.</p>  
   <p><strong>Answer:</strong> False</p>
    <p><strong>Question:</strong> In a HTML document, the pseudo class :root always refers to the &lt;html&gt; element.</p>
    <p><strong>Answer:</strong> True</p>   
    <p><strong>Question:</strong> The translate() function can move the position of an element on the z-axis.</p>
-   <p><strong>Answer:</strong> False</p>
-   <p><strong>Question:</strong>If you have a &lt;p&gt; element with font-size: 10rem, will the text be responsive when the user resizes / drags the browser window?</p>
-  <p><strong>Answer:</strong> no.</p> 
+   <p><strong>Answer:</strong> False</p>   
 </div>
 
 
 <div id="bdo">
-  <h2>4. px, em or %</h2>
-  <p><strong>Question:</strong> What do you prefer px, em or % and why?</p>
+  <h2>4. units</h2>
+  <p><strong>Question:</strong> What do you prefer px, em % or pt and why?</p>
   <p><strong>Answer:</strong> it depends.</p>
   <p>px, gives fine grained control and maintains alignment because 1 px or multiple of 1 px is guaranteed to look sharp. px is not cascade, this means if parent font-size is 20px and child 16px. child would be 16px.</p>
   <p>em, em is the width of the letter 'm' in the selected typeface. maintains relative size. you can have responsive fonts. However, this concept is tricky. 1em is equal to the current font-size of the element or the browser default. if u sent font-size to 16px then 1em = 16px. The common practice is to set default body font-size to 62.5% (equal to 10px). em is cascade</p>
@@ -320,8 +320,8 @@
 
 <div id="mark">
   <h2>8. box model</h2>
-  <p><strong>Question:</strong> What is css box model?</p>
-  <p><strong>Answer:</strong> everything in a web page is a box where you can control size, position, background, etc. Each box/content area is optionally surrounded by padding, border and margin. When you set height and widht of an element, you set content height and width.</p>
+  <p><strong>Question:</strong> What are the properties related to box model?</p>
+  <p><strong>Answer:</strong> everything in a web page is a box where you can control size, position, background, etc. Each box/content area is optionally surrounded by padding, border and margin. When you set height and width of an element, you set content height and width.</p>
   <p>Technically, height, width, padding and border are part of box model and margin is related to it.</p>
   <p>ref: <a href="http://www.w3.org/TR/CSS21/box.html">W3: box model</a>, <a href="http://css-tricks.com/the-css-box-model/">css box model</a></p>
   <div>
@@ -340,7 +340,7 @@
 </div>
 <div id="semantic_html">
   <h2>10. transition</h2>
-  <p><strong>Question:</strong> What do u know about tranisition 3D?</p>
+  <p><strong>Question:</strong> What do u know about tranisition?</p>
   <p><strong>Answer:</strong> transition allows to add an effect while changing from one style to another. You can set the which property you want to transition, duration, how u want to transit (linear, ease, ease-in, ease-out, cubic-bezier) and delay when transition will start. you can transition more than one property by comma seperation</p>
   <div>
     <button id = "transition" type="button" class="toggleExample btn btn-primary">show example</button>
@@ -409,7 +409,7 @@
 </div>
 <div id="div_span">
   <h2>13. pseudo class</h2>
-  <p><strong>Question:</strong> Whare are some peseudo classed u have used?</p>
+  <p><strong>Question:</strong> What are the some peseudo classed u have used?</p>
   <p><strong>Answer: </strong> pseudo class tells you specific state of an element. allow to style element dynamically. The most popular one is <code>:hover</code>. Besides i have used <code>:visited</code>, <code>:focus</code>, <code>:nth-child</code>, <code>nth-of-type</code>, <code>:link</code>, etc.</p>
   <p>pseudo classes is better if you dont want to mess up with javascript however, pesudo-classes is slow to process and apply rules.</p>
   <p>ref: <a href="http://coding.smashingmagazine.com/2011/03/30/how-to-use-css3-pseudo-classes/">How to use pseudo classes</a>, <a href="http://css-tricks.com/pseudo-class-selectors/">meet pseudo classes</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">list of pseudo classes</a></p>
@@ -433,7 +433,7 @@
   <p><strong>Question:</strong> How do you optimize css selectors?</p>
   <p><strong>Answer: </strong> This is very open and depend on what you are trying to achieve. If i order selectors interms of render speed it would be like id, class, tag, siblings, child, descendent, universal, attribute, pseudo. Speed of ID and class is very close. However your code should be readable, maintainable and DRY along with highly performant.</p>
   <p>The best practices in general are: avoid universal selectors, don't repeat yourself, remove redundant selectors, be as specific as possible, and keep learning.</p>
-  <p>ref: <a href="http://realityonweb.com/cascading-style-sheet-css/performance-improvement-by-writing-efficient-css-selector/">Efficient CSS selectors</a></p>
+  <p>ref: <a href="http://realityonweb.com/cascading-style-sheet-css/performance-improvement-by-writing-efficient-css-selector/">Efficient CSS selectors</a>, <a href="http://css-tricks.com/efficiently-rendering-css/">efficently rendering</a></p>
 </div>
 <div id="filter">
   <h2>15. filter</h2>
@@ -566,7 +566,10 @@
   
 <h2>Deleted Scenses</h2>
 <ul>
-  <li>Why reset css is useful? or how normalize.css works?</li>  
+  <li>Why reset css is useful? or how normalize.css works?</li>
+  <li>How do you test cross-browser compatibility of your site?</li>
+  <li>what is grid layout?</li>
+  <li>How can you make a site responsive?</li>  
   <li>vertical align center</li>
   <li>z-index, ask something about it</li>
   <li>What do you know about text shadows, box shadows?</li>
