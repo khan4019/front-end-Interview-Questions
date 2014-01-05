@@ -298,12 +298,12 @@
 
 <div id="units">
   <h2>4. units</h2>
-  <p><strong>Question:</strong> What do you prefer px, em % or pt and why?</p>
-  <p><strong>Answer:</strong> it depends.</p>
-  <p>px, gives fine grained control and maintains alignment because 1 px or multiple of 1 px is guaranteed to look sharp. px is not cascade, this means if parent font-size is 20px and child 16px. child would be 16px.</p>
-  <p>em, em is the width of the letter 'm' in the selected typeface. maintains relative size. you can have responsive fonts. However, this concept is tricky. 1em is equal to the current font-size of the element or the browser default. if u sent font-size to 16px then 1em = 16px. The common practice is to set default body font-size to 62.5% (equal to 10px). em is cascade</p>
-  <p>%, set font-size of the body to a reasonable size and everything else would be percent of the body. this is easy to use and does cascade. for example, if parent font-size is 20px and child font-size is 50%. child would be 10px.</p>
-  <p>pt, points are traditionally used in print. 1pt = 1/72 inch and it is fixed-size unit.</p>
+  <p><strong>Question:</strong> Which one would you prefer among px, em % or pt and why?</p>
+  <p><strong>Answer:</strong> it depends on what you are trying to do.</p>
+  <p><code>px</code> gives fine grained control and maintains alignment because 1 px or multiple of 1 px is guaranteed to look sharp. px is not cascade, this means if parent font-size is 20px and child 16px. child would be 16px.</p>
+  <p><code>em</code> maintains relative size. you can have responsive fonts. em is the width of the letter 'm' in the selected typeface. However, this concept is tricky. 1em is equal to the current font-size of the element or the browser default. if u sent font-size to 16px then 1em = 16px. The common practice is to set default body font-size to 62.5% (equal to 10px). em is cascade</p>
+  <p><code>%</code> sets font-size relative to the font size of the body. Hence, you have to set font-size of the body to a reasonable size. this is easy to use and does cascade. for example, if parent font-size is 20px and child font-size is 50%. child would be 10px.</p>
+  <p><code>pt</code>(points) are traditionally used in print. 1pt = 1/72 inch and it is fixed-size unit.</p>
   <p>ref: <a href="http://css-tricks.com/the-lengths-of-css/">css-tricks: length</a>, <a href="http://css-tricks.com/css-font-size/">css-tricks: px, em, %</a>, <a href="http://kyleschaeffer.com/development/css-font-size-em-vs-px-vs-pt-vs/">css font-size</a> </p>
 </div>
 <div id="position">
