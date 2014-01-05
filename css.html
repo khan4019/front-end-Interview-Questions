@@ -409,7 +409,7 @@
 <div id="verticalCenter">
   <h2>12. vertical Center</h2>
   <p><strong>Question:</strong> How do you align a p center-center inside a div?</p>
-  <p><strong>Answer:</strong> <code>text-align:center</code>will do the horizontal alignment but <code>vertical-laign:middle</code> will not work here. there are couple of different ways to solve this problem and one of them are positioning. You make the parent as relative position and child as absolute positioning. And then define all position parameter as sero and width 50% and height 30% (sounds messy look at the example and read ref) </p>
+  <p><strong>Answer:</strong> <code>text-align:center</code>will do the horizontal alignment but <code>vertical-align:middle</code> will not work here. there are couple of different ways to solve this problem and one of them are positioning. You make the parent as relative position and child as absolute positioning. And then define all position parameter as sero and width 50% and height 30% (sounds messy look at the example and read ref) </p>
   <div>
     <button id = "align" type="button" class="toggleExample btn btn-primary">show example</button>
     <div id="alignExample" class="hide">
@@ -427,21 +427,21 @@
 <div id="optimizeSelector">
   <h2>13. optimize selector</h2>
   <p><strong>Question:</strong> How do you optimize css selectors?</p>
-  <p><strong>Answer: </strong> This is very open and depend on what you are trying to achieve. If i order selectors interms of render speed it would be like id, class, tag, siblings, child, descendent, universal, attribute, pseudo. Speed of ID and class is very close. However your code should be readable, maintainable and DRY along with highly performant.</p>
+  <p><strong>Answer: </strong> This is very open and depend on what you are trying to achieve. If i order selectors in terms of render speed it would be like id, class, tag, siblings, child, descendant, universal, attribute, pseudo. Speed of ID and class is very close. However your code should be readable, maintainable and DRY along with highly performant.</p>
   <p>The best practices in general are: avoid universal selectors, don't repeat yourself, remove redundant selectors, be as specific as possible, and keep learning.</p>
-  <p>ref: <a href="http://realityonweb.com/cascading-style-sheet-css/performance-improvement-by-writing-efficient-css-selector/">Efficient CSS selectors</a>, <a href="http://css-tricks.com/efficiently-rendering-css/">efficently rendering</a></p>
+  <p>ref: <a href="http://realityonweb.com/cascading-style-sheet-css/performance-improvement-by-writing-efficient-css-selector/">Efficient CSS selectors</a>, <a href="http://css-tricks.com/efficiently-rendering-css/">efficiently rendering</a></p>
 </div>
 <div id="importStyle">
   <h2>14. @import</h2>
   <p><strong>Question:</strong> How can you load css resources conditionally?</p>
-  <p><strong>Answer:</strong> @import allows you to load/import stylesheet by using a prth (uri) representing the location of the file. You can define one or more media by comma seperation for which you want to load the stylesheet. If browser dont support the media stylesheet will not be loaded.</p>
+  <p><strong>Answer:</strong> @import allows you to load/import stylesheet by using a path (uri) representing the location of the file. You can define one or more media by comma separation for which you want to load the stylesheet. If browser dont support the media stylesheet will not be loaded.</p>
   <p>ref: be careful while using @import (<a href="http://www.stevesouders.com/blog/2009/04/09/dont-use-import/">don't use @import</a>)</p>
 </div>
 <div id="cssSprite">
   <h2>15. sprite</h2>
   <p><strong>Question:</strong> Why would you use sprites?</p>
-  <p><strong>Answer:</strong> When you have multiple images/icons, browser makes seperate call to the server for each one of them. sprite is a technique to combine all of them (usually similar one in terms of type of image. For example, you will put jpg in one sprite) in one image. you can later optimize the image. To display the icon you set height, width and background position.</p>
-  <p>popular libraries like bootstrap use this technques. If you repeat the image. want to scale you have to be careful with sprite.</p>
+  <p><strong>Answer:</strong> When you have multiple images/icons, browser makes separate call to the server for each one of them. sprite is a technique to combine all/some of them (usually similar one in terms of type of image. For example, you will put jpg in one sprite) in one image. To display the icon you set height, width and background position.</p>
+  <p>popular libraries like bootstrap use this technique. If you repeat the image. want to scale you have to be careful with sprite.</p>
   <p>ref: <a href="http://coding.smashingmagazine.com/2009/04/27/the-mystery-of-css-sprites-techniques-tools-and-tutorials/">css sprites</a>, <a href="http://css.spritegen.com/">generate sprites</a></p>
 </div>
 <div id="specificity">
