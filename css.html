@@ -198,13 +198,13 @@
       </div>
             
       <!-- <h3>If you have hard time to follow this video, you can see the content below. Things you will learn-</h3> -->
-<!--        <ol>
-        <li><a href="#doctype">what is the use of html doctype?</a></li>
-        <li><a href="#data_attribute">What is the use of data-* attribute?</a></li>
-        <li><a href="#keygen">How can you generate public key in html?</a></li>        
-        <li><a href="#bdo">How do you change direction of html text?</a></li>
-        <li><a href="#mark">How can you highlight text in html?</a></li>        
-        <li><a href="#scopped">can you apply css to a part of html document only?</a></li>        
+       <ol>
+        <li><a href="#float">float</a></li>
+        <li><a href="#clear">clear sides of floats</a></li>
+        <li><a href="#rapidFire">tricky questions</a></li>        
+        <li><a href="#units">pixels, em vs percent</a></li>
+        <li><a href="#position">relative, absolute or fixed position.</a></li>        
+        <li><a href="#displayVisibility"><code>display:none</code> vs <code>visibility:hidden</code></a></li>        
         <li><a href="#http_request">Will browser make http request for the following case?</a></li>
         <li><a href="#download_order">Which resource would be downloaded first?</a></li>
         <li><a href="#optional_tag">What is optional tag?</a></li>        
@@ -214,8 +214,8 @@
         <li><a href="#mtuli_lang">How to serve html in multiple language?</a></li>        
         <li><a href="#standard_quirks">Explain standard and quirks mode.</a></li>
         <li><a href="#semantic_html">Array methods in string?</a></li>
-       </ol> -->
-<div id="doctype">
+       </ol>
+<div id="float">
   <h2>1. float</h2>
   <p><strong>Question:</strong> How float works?</p>  
   <p><strong>Answer:</strong> float is to push element on a side of a page with text wrap around it. you can create entire page or smaller area by using float. if size of a floated element changes, text around it will reflow to accomodate the changes. You can have float left, right, none or inherit.</p>
@@ -240,9 +240,9 @@
   <p><strong>extra:</strong> read the positioning constraints in <a href="http://www.w3.org/TR/CSS1/#floating-elements">W3.org: floating elements</a>.</p>  
   ref: <a href="http://css-tricks.com/all-about-floats/">css-tricks: float</a>, <a href="http://alistapart.com/article/css-floats-101">float 101</a> 
 </div>
-<div id="data_attribute">
+<div id="clear">
   <h2>2. clear</h2>
-  <p><strong>Question:</strong> How can you clear side of a floating element?</p>
+  <p><strong>Question:</strong> How can you clear sides of a floating element?</p>
   <p><strong>Answer:</strong> If you clear a silde of an element, floating elements will not be accepted on that side. With 'clear' set to 'left', an element will be moved below any floating element on the left side. clear is used to stop wrap of an element around a floating element.</p>
   <div>
       <button id = "clear" type="button" class="toggleExample btn btn-primary">show example</button>
@@ -265,7 +265,7 @@
   <p><strong>Answer:</strong> You can use <code>clear:both</code> in an empty div <code>&lt;div style="clear: both;"&gt;&lt;/div&gt;</code>, you can use overflow hidden or scroll and you can float the parent as well.</p>
   <p>ref: <a href="http://www.w3.org/TR/CSS1/#clear">W3.org: clear</a>
   </div>
-  <div id="keygen">
+  <div id="rapidFire">
     <h2>3. rapid fire</h2>  
   <p><strong>Question:</strong> Does css properties are case sensitive?</p>
   <p><strong>Answer:</strong> no.</p>
@@ -284,7 +284,7 @@
 </div>
 
 
-<div id="bdo">
+<div id="units">
   <h2>4. units</h2>
   <p><strong>Question:</strong> What do you prefer px, em % or pt and why?</p>
   <p><strong>Answer:</strong> it depends.</p>
@@ -294,7 +294,7 @@
   <p>pt, points are traditionally used in print. 1pt = 1/72 inch and it is fixed-size unit.</p>
   <p>ref: <a href="http://css-tricks.com/the-lengths-of-css/">css-tricks: length</a>, <a href="http://css-tricks.com/css-font-size/">css-tricks: px, em, %</a>, <a href="http://kyleschaeffer.com/development/css-font-size-em-vs-px-vs-pt-vs/">css font-size</a> </p>
 </div>
-<div id="scopped">
+<div id="position">
   <h2>5. position</h2>
   <p><strong>Question:</strong> How absolute, relative, fixed and static position differ?</p>
   <p><strong>Answer:</strong> </p>
@@ -304,7 +304,7 @@
   <p><em>static</em>, element will be positioned based on the normal flow of the document. usually, u will use position static to remove other position mibht be applied to an element.</p>
   <p>ref: <a href="http://www.barelyfitz.com/screencast/html-training/css/positioning/">css positioning in ten steps</a>, <a href="http://css-tricks.com/absolute-relative-fixed-positioining-how-do-they-differ/">css position</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position">MDN: position</a></p>
 </div>
-<div id="">
+<div id="displayVisibility">
   <h2>6. display vs visibility</h2>
   <p><strong>Question:</strong> What are the differences between visibility hidden and display none?</p>
   <p><strong>Answer:</strong> <code>display:none</code> removes the element from the normal layout flow and allow other elements to fill in. <code>visibility:hidden</code> tag is rendered, it takes space in the normal flow but hides it.</p>
