@@ -70,6 +70,8 @@
         height: 280px;
         border: 2px solid gray;
         padding: 5px;
+        overflow-y: scroll;
+        overflow-x: hidden;
        }
        .overflowBox{
         padding: 5px;
@@ -93,6 +95,78 @@
        .overflowAuto{
         overflow: auto;
        }
+       .imageContainer{
+        height: 165px;
+        border: 2px solid gray;
+        overflow-y:scroll; 
+       }
+       .imageHolder{
+        float: left;
+       }
+       .imageContainer img{
+        width: 120px;
+        height: 120px;
+        margin: 5px;        
+       }
+       .imageHolder p{
+        text-align: center;
+       }
+       .imgGray{
+        filter:grayscale(100%);
+        -webkit-filter:grayscale(100%);
+        -moz-filter:grayscale(100%);
+        -ms-filter:grayscale(100%);
+        -o-filter:grayscale(100%);
+       }
+       .imgInvert{
+        filter:invert(100%);
+        -webkit-filter:invert(100%);
+        -moz-filter:invert(100%);
+        -ms-filter:invert(100%);
+        -o-filter:invert(100%);
+       }
+       .imgBlur{
+        filter:blur(3px);
+        -webkit-filter:blur(3px);
+        -moz-filter:blur(3px);
+        -ms-filter:blur(3px);
+        -o-filter:blur(3px);
+       }
+       .imgBright{
+        filter:brightness(200%);
+        -webkit-filter:brightness(200%);
+        -moz-filter:brightness(200%);
+        -ms-filter:brightness(200%);
+        -o-filter:brightness(200%);
+       }
+       .imgOpacity{
+        filter:opacity(30%);
+        -webkit-filter:opacity(30%);
+        -moz-filter:opacity(30%);
+        -ms-filter:opacity(30%);
+        -o-filter:opacity(30%);
+       }
+       #pseudoElementExample p:before{
+        content: "Strating of Paragraph: ";
+        font-weight: bolder;
+        color: purple;
+       }
+       #alignExample div{
+        height: 100px;
+        border: 2px solid gray;
+        text-align: center;
+        position: relative;
+       }
+       #alignExample div p{        
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 50%;
+        height: 30%;
+        margin: auto;
+       }
     </style>
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
@@ -111,7 +185,7 @@
     <div class="jumbotron">
       <div class="container">
         <h1>css</h1>        
-        <h2>css related interview questions</h2>
+        <h2>21+ interview questions for JavaScript developer</h2>
         <p>January 05, 2014</p>
         <div class="g-plusone"></div>
       </div>
@@ -124,27 +198,33 @@
       </div>
             
       <!-- <h3>If you have hard time to follow this video, you can see the content below. Things you will learn-</h3> -->
-<!--        <ol>
-        <li><a href="#doctype">what is the use of html doctype?</a></li>
-        <li><a href="#data_attribute">What is the use of data-* attribute?</a></li>
-        <li><a href="#keygen">How can you generate public key in html?</a></li>        
-        <li><a href="#bdo">How do you change direction of html text?</a></li>
-        <li><a href="#mark">How can you highlight text in html?</a></li>        
-        <li><a href="#scopped">can you apply css to a part of html document only?</a></li>        
-        <li><a href="#http_request">Will browser make http request for the following case?</a></li>
-        <li><a href="#download_order">Which resource would be downloaded first?</a></li>
-        <li><a href="#optional_tag">What is optional tag?</a></li>        
-        <li><a href="#div_span">What are the differences between div and span?</a></li>        
-        <li><a href="#div_section_article">How you would differentiate div, section and article?</a></li>
-        <li><a href="#svg_canvas">How to select svg or canvas for your site?</a></li>
-        <li><a href="#mtuli_lang">How to serve html in multiple language?</a></li>        
-        <li><a href="#standard_quirks">Explain standard and quirks mode.</a></li>
-        <li><a href="#semantic_html">Array methods in string?</a></li>
-       </ol> -->
-<div id="doctype">
+       <ol>
+        <li><a href="#float">float</a></li>
+        <li><a href="#clear">clear sides of floats</a></li>
+        <li><a href="#rapidFire">tricky questions</a></li>        
+        <li><a href="#units">pixels, em vs percent</a></li>
+        <li><a href="#position">relative, absolute or fixed position.</a></li>        
+        <li><a href="#displayVisibility">display:none vs visibility:hidden</a></li>        
+        <li><a href="#inlineBlock">inline, inline-block vs block</a></li>
+        <li><a href="#boxModel">box Model</a></li>
+        <li><a href="#overflow">overflow</a></li>        
+        <li><a href="#mediaQueries">media queries</a></li>        
+        <li><a href="#pseudoClass">pseudo class and element</a></li>
+        <li><a href="#verticalCenter">vertical center issues</a></li>
+        <li><a href="#optimizeSelector">optimize selector</a></li>        
+        <li><a href="#importStyle">@import</a></li>
+        <li><a href="#cssSprite">sprite</a></li>
+        <li><a href="#specificity">specificty</a></li>
+        <li><a href="#shadowDOM">shadow DOM</a></li>
+        <li><a href="#transition">css transition</a></li>
+        <li><a href="#filter">filter effect</a></li>
+        <li><a href="#preProcessor">css pre processor</a></li>
+        <li><a href="#seeAndTell">see & Tell</a></li>
+       </ol>
+<div id="float">
   <h2>1. float</h2>
   <p><strong>Question:</strong> How float works?</p>  
-  <p><strong>Answer:</strong> float is to push element on a side of a page with text wrap around it. you can create entire page or litter area by using float. if size of a floated element changes, text around it will reflow to accomodate the changes. You can have float left, right, none or inherit.</p>
+  <p><strong>Answer:</strong> float is to push element on a side of a page with text wrap around it. you can create entire page or smaller area by using float. if size of a floated element changes, text around it will reflow to accomodate the changes. You can have float left, right, none or inherit.</p>
   <p> if you set, 'float: left;' for an image, it will move to the left until the margin, padding or border of another block-level element is reached. The normal flow will wrap around on the right side.</p>
     <div>
       <button id = "float" type="button" class="toggleExample btn btn-primary">show example</button>
@@ -166,10 +246,10 @@
   <p><strong>extra:</strong> read the positioning constraints in <a href="http://www.w3.org/TR/CSS1/#floating-elements">W3.org: floating elements</a>.</p>  
   ref: <a href="http://css-tricks.com/all-about-floats/">css-tricks: float</a>, <a href="http://alistapart.com/article/css-floats-101">float 101</a> 
 </div>
-<div id="data_attribute">
+<div id="clear">
   <h2>2. clear</h2>
-  <p><strong>Question:</strong> When will you use clear?</p>
-  <p><strong>Answer:</strong> floating elements will not be accepted on the side you cleared. With 'clear' set to 'left', an element will be moved below any floating element on the left side. clear is used to stop wrap of an element around a floating element. .</p>
+  <p><strong>Question:</strong> How can you clear sides of a floating element?</p>
+  <p><strong>Answer:</strong> If you clear a silde of an element, floating elements will not be accepted on that side. With 'clear' set to 'left', an element will be moved below any floating element on the left side. clear is used to stop wrap of an element around a floating element.</p>
   <div>
       <button id = "clear" type="button" class="toggleExample btn btn-primary">show example</button>
       <div id="clearExample" class="hide">
@@ -186,10 +266,12 @@
         <div class="box"><span>5</span></div>
       </div>
     </div>
-  </div>      
+  </div>
+  <p><strong>Question:</strong> How can you fix, "floated points don't add up to the height of a parent"?</p>
+  <p><strong>Answer:</strong> You can use <code>clear:both</code> in an empty div <code>&lt;div style="clear: both;"&gt;&lt;/div&gt;</code>, you can use overflow hidden or scroll and you can float the parent as well.</p>
   <p>ref: <a href="http://www.w3.org/TR/CSS1/#clear">W3.org: clear</a>
   </div>
-  <div id="keygen">
+  <div id="rapidFire">
     <h2>3. rapid fire</h2>  
   <p><strong>Question:</strong> Does css properties are case sensitive?</p>
   <p><strong>Answer:</strong> no.</p>
@@ -197,20 +279,20 @@
   <p><strong>Answer:</strong> no.</p> 
   <p><strong>Question:</strong> Does padding-top or padding-bottom has effect on inline elemet?</p>
   <p><strong>Answer:</strong> no.</p>
+  <p><strong>Question:</strong>If you have a &lt;p&gt; element with font-size: 10rem, will the text be responsive when the user resizes / drags the browser window?</p>
+  <p><strong>Answer:</strong> no.</p>
   <p><strong>Question:</strong> The pseudo class :checked will select inputs with type radio or checkbox, but not &lt;option&gt; elements.</p>  
   <p><strong>Answer:</strong> False</p>
    <p><strong>Question:</strong> In a HTML document, the pseudo class :root always refers to the &lt;html&gt; element.</p>
    <p><strong>Answer:</strong> True</p>   
    <p><strong>Question:</strong> The translate() function can move the position of an element on the z-axis.</p>
-   <p><strong>Answer:</strong> False</p>
-   <p><strong>Question:</strong>If you have a &lt;p&gt; element with font-size: 10rem, will the text be responsive when the user resizes / drags the browser window?</p>
-  <p><strong>Answer:</strong> no.</p> 
+   <p><strong>Answer:</strong> False</p>   
 </div>
 
 
-<div id="bdo">
-  <h2>4. px, em or %</h2>
-  <p><strong>Question:</strong> What do you prefer px, em or % and why?</p>
+<div id="units">
+  <h2>4. units</h2>
+  <p><strong>Question:</strong> What do you prefer px, em % or pt and why?</p>
   <p><strong>Answer:</strong> it depends.</p>
   <p>px, gives fine grained control and maintains alignment because 1 px or multiple of 1 px is guaranteed to look sharp. px is not cascade, this means if parent font-size is 20px and child 16px. child would be 16px.</p>
   <p>em, em is the width of the letter 'm' in the selected typeface. maintains relative size. you can have responsive fonts. However, this concept is tricky. 1em is equal to the current font-size of the element or the browser default. if u sent font-size to 16px then 1em = 16px. The common practice is to set default body font-size to 62.5% (equal to 10px). em is cascade</p>
@@ -218,7 +300,7 @@
   <p>pt, points are traditionally used in print. 1pt = 1/72 inch and it is fixed-size unit.</p>
   <p>ref: <a href="http://css-tricks.com/the-lengths-of-css/">css-tricks: length</a>, <a href="http://css-tricks.com/css-font-size/">css-tricks: px, em, %</a>, <a href="http://kyleschaeffer.com/development/css-font-size-em-vs-px-vs-pt-vs/">css font-size</a> </p>
 </div>
-<div id="scopped">
+<div id="position">
   <h2>5. position</h2>
   <p><strong>Question:</strong> How absolute, relative, fixed and static position differ?</p>
   <p><strong>Answer:</strong> </p>
@@ -228,25 +310,27 @@
   <p><em>static</em>, element will be positioned based on the normal flow of the document. usually, u will use position static to remove other position mibht be applied to an element.</p>
   <p>ref: <a href="http://www.barelyfitz.com/screencast/html-training/css/positioning/">css positioning in ten steps</a>, <a href="http://css-tricks.com/absolute-relative-fixed-positioining-how-do-they-differ/">css position</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position">MDN: position</a></p>
 </div>
-<div id="">
+<div id="displayVisibility">
   <h2>6. display vs visibility</h2>
   <p><strong>Question:</strong> What are the differences between visibility hidden and display none?</p>
   <p><strong>Answer:</strong> <code>display:none</code> removes the element from the normal layout flow and allow other elements to fill in. <code>visibility:hidden</code> tag is rendered, it takes space in the normal flow but hides it.</p>
   <p>if u want to say it smartly, <code>display:none</code> cuases DOM reflow where is <code>visibility:hidden</code> doesn't. btw, what is reflow? answer. sorry i wont tell you, google it.</p>
   <p>ref: <a href="http://www.vanseodesign.com/css/visibility-vs-display/">visibility vs Display</a></p>
 </div>
-<div id="http_request">
-  <h2>7. specificity </h2>
-  <p><strong>Question:</strong> What is specificity</p>
-  <p><strong>Answer:</strong> is a process of determining which css rule will be applied to an element. it actually determines which rules will take precedence. </p>
-  <p>inline style usually wins then ID then class value (or pseudo-class or attribute selector), unversal selector (*) has no specificity.</p>
-  <p>ref: <a href="http://coding.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/">css specificity: things you need to know</a>, <a href="http://www.standardista.com/css3/css-specificity/">specifishity</a>, <a href="http://specificity.keegan.st/">specificiyt calculator</a></p>
+<div id="inlineBlock">
+  <h2>7. inline block</h2>
+  <p><strong>Question:</strong> What are the differences between inline, block and inline-block</p>
+  <p><strong>Answer: </strong></p>
+  <p><code>inline</code>, elements do not break the flow. think of span it fits in the line. Important points about inline elements, margin/padding will push other elements horizontally not vertically. Moreover, inline elements ignores height and width.</p>  
+  <p><code>block</code>, breaks the flow and dont sits inline. they are usually container like div, section, ul and also text p, h1, etc.</p>
+  <p><code>inline-block</code>, will be similar to inline and will go with the flow of the page. Only differences is this this will take height and width.</p>
+  <p>ref: <a href="http://css-tricks.com/almanac/properties/d/display/">display</a></p>
 </div>
-
-<div id="mark">
+<div id="boxModel">
   <h2>8. box model</h2>
-  <p><strong>Question:</strong> What is css box model?</p>
-  <p><strong>Answer:</strong> everything in a web page is a box where you can control size, position, background, etc. Each box/content area is optionally surrounded by padding, border and margin. When you set height and widht of an element, you set content height and width</p>
+  <p><strong>Question:</strong> What are the properties related to box model?</p>
+  <p><strong>Answer:</strong> everything in a web page is a box where you can control size, position, background, etc. Each box/content area is optionally surrounded by padding, border and margin. When you set height and width of an element, you set content height and width.</p>
+  <p>Technically, height, width, padding and border are part of box model and margin is related to it.</p>
   <p>ref: <a href="http://www.w3.org/TR/CSS21/box.html">W3: box model</a>, <a href="http://css-tricks.com/the-css-box-model/">css box model</a></p>
   <div>
     <button id = "boxModel" type="button" class="toggleExample btn btn-primary">show example</button>
@@ -256,15 +340,120 @@
     </div>
   </div>
 </div>
-<div id="standard_quirks">
-  <h2>9. shadow DOM</h2>
+<div id="overflow">
+  <h2>9. overflow</h2>
+  <p><strong>Question:</strong> Does overflow: hidden create a new block formatting context?</p>
+  <p><strong>Answer:</strong> yes</p>  
+  <p><strong>Extra:</strong> overflow property deals with the content if content size exceeds the allocated size for the content. You can make extra content visible, hidden, scroll or auto (viewport default behavior).</p>  
+  <div>
+    <button id = "overflow" type="button" class="toggleExample btn btn-primary">show example</button>
+    <div id="overflowExample" class="hide">        
+      <div class="overflowContainer">
+        <div class="overflowBox">
+          <p class="overflowVisible"><code>overflow:visible</code> This is some simple content to see how overflow works when you have too many things to say in a too small space. But don't be the person who just say rather be the person who does. does something for himself and others.</p>
+        </div>
+        <div class="overflowBox">
+          <p class="overflowHidden"><code>overflow:hidden</code> This is some simple content to see how overflow works when you have too many things to say in a too small space. But don't be the person who just say rather be the person who does. does something for himself and others.</p>
+        </div>
+        <div class="overflowBox">
+          <p class="overflowScroll"><code>overflow:scroll</code> This is some simple content to see how overflow works when you have too many things to say in a too small space. But don't be the person who just say rather be the person who does. does something for himself and others.</p>
+        </div>
+        <div class="overflowBox">
+          <p class="overflowAuto"><code>overflow:auto</code> This is some simple content to see how overflow works when you have too many things to say in a too small space. But don't be the person who just say rather be the person who does. does something for himself and others.</p>
+        </div>
+      </div>      
+    </div>
+  </div>
+  <br>
+  <p>ref: <a href="http://css-tricks.com/the-css-overflow-property/">overflow</a> (read the link and add something from it)</p>
+</div>
+
+<div id="mediaQueries">
+  <h2>10. media queries</h2>
+  <p><strong>Question:</strong> How could you apply css rules specific to a media?</p>
+  <p><strong>Answer: </strong> <code>@media (max-width:700px){...}</code> means you want to apply rules to those media whose max-width is 700 px. this means every samller device will have this rule.</p>
+  <p><code>@media (max-width:700px) and (orientation: landscape){...}</code> will apply rules for media smaller than 700px and in landscape orientation.</p>
+  <p><strong>Question:</strong> What is the use of only?</p>
+  <p><strong>Answer:</strong> to hide style sheets from older user agents.</p>
+  <p><strong>Question:</strong> Does the screen keyword apply to the device's physical screen or the browser's viewport?</p>
+  <p><strong>Answer:</strong> Browser's Viewport</p>
+  <p>ref: <a href="http://mobile.smashingmagazine.com/2010/07/19/how-to-use-css3-media-queries-to-create-a-mobile-version-of-your-website/">how to use media queries</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries">css media queries</a>, <a href="http://www.w3.org/TR/css3-mediaqueries/#media0">W3: media queries</a></p>
+</div>
+<div id="pseudoClass">
+  <h2>11. pseudo class</h2>
+  <p><strong>Question:</strong> What are the some peseudo classed u have used?</p>
+  <p><strong>Answer: </strong> pseudo class tells you specific state of an element. allow to style element dynamically. The most popular one is <code>:hover</code>. Besides i have used <code>:visited</code>, <code>:focus</code>, <code>:nth-child</code>, <code>nth-of-type</code>, <code>:link</code>, etc.</p>
+  <p>pseudo classes is better if you dont want to mess up with javascript however, pesudo-classes is slow to process and apply rules.</p>
+  <p>ref: <a href="http://coding.smashingmagazine.com/2011/03/30/how-to-use-css3-pseudo-classes/">How to use pseudo classes</a>, <a href="http://css-tricks.com/pseudo-class-selectors/">meet pseudo classes</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">list of pseudo classes</a></p>
+  <h4>pseudo elements</h4>
+  <p>pseudo elements helps you to add cosmetics contents. pseudo elements generates content where as pseudo class deals with state of the element. for example, you can style <code>:first-letter</code> of every paragrpah. similarly,  <code>:first-line</code> and fancy stuff with <code>:before</code>, <code>:after</code></p>
+  <div>
+    <button id = "pseudoElement" type="button" class="toggleExample btn btn-primary">show example</button>
+    <div id="pseudoElementExample" class="hide">
+      <pre><code>
+&lt;style&gt;<br/>   p:before{<br/>     content: &quot;Strating of Paragraph: &quot;;<br/>     font-weight: bolder;<br/>     color: purple;<br/>   }<br/>&lt;/style&gt;<br/>&lt;p&gt;First Paragraph with some content.&lt;/p&gt;<br/>&lt;p&gt;Second Paragraph with something else.&lt;/p&gt;
+      </code></pre>
+      <strong>result:</strong>
+      <p>First Paragraph with some content.</p>
+      <p>Second Paragraph with something else.</p>
+    </div>
+  </div>
+  <p>ref: <a href="http://nicolasgallagher.com/an-introduction-to-css-pseudo-element-hacks/">intro to css pseudo element</a>, <a href="http://coding.smashingmagazine.com/2011/07/13/learning-to-use-the-before-and-after-pseudo-elements-in-css/">:before :after</a>, <a href="http://css-tricks.com/css-content/">css content</a>, <a href="http://www.w3.org/TR/CSS21/generate.html">W3: generate content</a></p>
+</div>
+<div id="verticalCenter">
+  <h2>12. vertical Center</h2>
+  <p><strong>Question:</strong> How do you align a p center-center inside a div?</p>
+  <p><strong>Answer:</strong> <code>text-align:center</code>will do the horizontal alignment but <code>vertical-laign:middle</code> will not work here. there are couple of different ways to solve this problem and one of them are positioning. You make the parent as relative position and child as absolute positioning. And then define all position parameter as sero and width 50% and height 30% (sounds messy look at the example and read ref) </p>
+  <div>
+    <button id = "align" type="button" class="toggleExample btn btn-primary">show example</button>
+    <div id="alignExample" class="hide">
+      <pre><code>
+&lt;style&gt;<br/>   .divContainer{<br/>      height: 100px;<br/>      border: 2px solid gray;<br/>      text-align: center;<br/>      position: relative;<br/>   }<br/>   p{        <br/>      position: absolute;<br/>      top: 0;<br/>      bottom: 0;<br/>      left: 0;<br/>      right: 0;<br/>      width: 50%;<br/>      height: 30%;<br/>      margin: auto;<br/>    }<br/>&lt;/style&gt;<br/>&lt;div class = &quot;divContainer&quot;&gt;<br/>  &lt;p&gt;content example&lt;/p&gt;<br/>&lt;/div&gt;<br/>
+      </code></pre>
+      <strong>result:</strong>
+      <div>
+        <p>content example</p>
+      </div>
+    </div>
+  </div>
+  <p>ref: <a href="http://www.vanseodesign.com/css/vertical-centering/">6 methods for vertical center</a>, <a href="http://coding.smashingmagazine.com/2013/08/09/absolute-horizontal-vertical-centering-css/">Absolute horizontal and vertical centering</a></p>
+</div>
+<div id="optimizeSelector">
+  <h2>13. optimize selector</h2>
+  <p><strong>Question:</strong> How do you optimize css selectors?</p>
+  <p><strong>Answer: </strong> This is very open and depend on what you are trying to achieve. If i order selectors interms of render speed it would be like id, class, tag, siblings, child, descendent, universal, attribute, pseudo. Speed of ID and class is very close. However your code should be readable, maintainable and DRY along with highly performant.</p>
+  <p>The best practices in general are: avoid universal selectors, don't repeat yourself, remove redundant selectors, be as specific as possible, and keep learning.</p>
+  <p>ref: <a href="http://realityonweb.com/cascading-style-sheet-css/performance-improvement-by-writing-efficient-css-selector/">Efficient CSS selectors</a>, <a href="http://css-tricks.com/efficiently-rendering-css/">efficently rendering</a></p>
+</div>
+<div id="importStyle">
+  <h2>14. @import</h2>
+  <p><strong>Question:</strong> How can you load css resources conditionally?</p>
+  <p><strong>Answer:</strong> @import allows you to load/import stylesheet by using a prth (uri) representing the location of the file. You can define one or more media by comma seperation for which you want to load the stylesheet. If browser dont support the media stylesheet will not be loaded.</p>
+  <p>ref: be careful while using @import (<a href="http://www.stevesouders.com/blog/2009/04/09/dont-use-import/">don't use @import</a>)</p>
+</div>
+<div id="cssSprite">
+  <h2>15. sprite</h2>
+  <p><strong>Question:</strong> Why would you use sprites?</p>
+  <p><strong>Answer:</strong> When you have multiple images/icons, browser makes seperate call to the server for each one of them. sprite is a technique to combine all of them (usually similar one in terms of type of image. For example, you will put jpg in one sprite) in one image. you can later optimize the image. To display the icon you set height, width and background position.</p>
+  <p>popular libraries like bootstrap use this technques. If you repeat the image. want to scale you have to be careful with sprite.</p>
+  <p>ref: <a href="http://coding.smashingmagazine.com/2009/04/27/the-mystery-of-css-sprites-techniques-tools-and-tutorials/">css sprites</a>, <a href="http://css.spritegen.com/">generate sprites</a></p>
+</div>
+<div id="specificity">
+  <h2>16. specificity </h2>
+  <p><strong>Question:</strong> What is specificity? How do u calculate specificity?</p>
+  <p><strong>Answer:</strong> is a process of determining which css rule will be applied to an element. it actually determines which rules will take precedence. </p>
+  <p>inline style usually wins then ID then class value (or pseudo-class or attribute selector), unversal selector (*) has no specificity.</p>
+  <p>ref: <a href="http://coding.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/">css specificity: things you need to know</a>, <a href="http://www.standardista.com/css3/css-specificity/">specifishity</a>, <a href="http://specificity.keegan.st/">specificiyt calculator</a></p>
+</div>
+<div id="shadowDOM">
+  <h2>17. shadow DOM</h2>
   <p><strong>Question:</strong> What is shadow DOM?</p>
   <p><strong>Answer:</strong> encapsulate part of a DOM. hide subtree. you can have same ID in different shadow DOM. Polymers uses it. This way your DOM becomes reusable and u dont have to do iframe. if interviewer is not happy with your answer give him the links and tell him to spend a weekend on reading.</p>
   <p>ref: <a href="http://www.w3.org/TR/shadow-dom/#introduction">W3: shadow-DOM</a>, <a href="http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom/">html5rock: shadow DOM</a></p> 
 </div>
-<div id="semantic_html">
-  <h2>10. transition</h2>
-  <p><strong>Question:</strong> What do u know about tranisition 3D?</p>
+<div id="transition">
+  <h2>18. transition</h2>
+  <p><strong>Question:</strong> What do u know about tranisition?</p>
   <p><strong>Answer:</strong> transition allows to add an effect while changing from one style to another. You can set the which property you want to transition, duration, how u want to transit (linear, ease, ease-in, ease-out, cubic-bezier) and delay when transition will start. you can transition more than one property by comma seperation</p>
   <div>
     <button id = "transition" type="button" class="toggleExample btn btn-primary">show example</button>
@@ -290,96 +479,57 @@
     </div>
   </div>
   <p>ref: <a href="http://blog.alexmaccaw.com/css-transitions">all you need to know about css transition</a>, <a href="http://css3.bradshawenterprises.com/transitions/">transition: tutorial</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Using_CSS_transitions">css transition</a>, <a href="http://www.html5rocks.com/en/tutorials/3d/css/">transition and 3D</a></p>
-
 </div>
-<div id="svg_canvas">
-  <h2>11. overflow</h2>
-  <p><strong>Question:</strong> Describe Overflow</p>
-  <p><strong>Answer:</strong> overflow property deals with the content if content size exceeds the allocated size for the content. You can make extra content visible, hidden, scroll or auto (viewport default behavior).</p>
-  <p><strong>Question:</strong> Does overflow: hidden create a new block formatting context?</p>
-  <p><strong>Answer:</strong> yes</p>
+<div id="filter">
+  <h2>19. filter</h2>
+  <p><strong>Question:</strong>  What are the different css filter you can use?</p>
+  <p><strong>Answer:</strong> css filter allows u to render DOM element, image, or video. u can choose from: grayscale, blur, opacity, brightness, contrast.</p>
   <div>
-    <button id = "overflow" type="button" class="toggleExample btn btn-primary">show example</button>
-    <div id="overflowExample" class="hide">        
-      <div class="overflowContainer">
-        <div class="overflowBox">
-          <p class="overflowVisible"><code>overflow:visible</code> This is some simple content to see how overflow works when you have too many things to say in a too small space. But don't be the person who just say rather be the person who does. does something for himself and others.</p>
-        </div>
-        <div class="overflowBox">
-          <p class="overflowHidden"><code>overflow:hidden</code> This is some simple content to see how overflow works when you have too many things to say in a too small space. But don't be the person who just say rather be the person who does. does something for himself and others.</p>
-        </div>
-        <div class="overflowBox">
-          <p class="overflowScroll"><code>overflow:scroll</code> This is some simple content to see how overflow works when you have too many things to say in a too small space. But don't be the person who just say rather be the person who does. does something for himself and others.</p>
-        </div>
-        <div class="overflowBox">
-          <p class="overflowAuto"><code>overflow:auto</code> This is some simple content to see how overflow works when you have too many things to say in a too small space. But don't be the person who just say rather be the person who does. does something for himself and others.</p>
-        </div>
-      </div>      
-    </div>
+    <button id = "filter" type="button" class="toggleExample btn btn-primary">show example</button>
+    <div id="filterExample" class="imageContainer hide">
+      <div class="imageHolder"><img class="" src="images/flower.jpg" alt=""><p>Original</p></div>
+      <div class="imageHolder"><img class="imgGray" src="images/flower.jpg" alt=""><p>grayscale(100%)</p></div>
+      <div class="imageHolder"><img class="imgBright" src="images/flower.jpg" alt=""><p>brightness(200%)</p></div>
+      <div class="imageHolder"><img class="imgBlur" src="images/flower.jpg" alt=""><p>blur(3px)</p></div>
+      <div class="imageHolder"><img class="imgOpacity" src="images/flower.jpg" alt=""><p>opacity(30%)</p></div>
+      <div class="imageHolder"><img class="imgInvert" src="images/flower.jpg" alt=""><p>invert(100%)</p></div>
+    </div>    
   </div>
-  <br>
-  <p>ref: <a href="http://css-tricks.com/the-css-overflow-property/">overflow</a> (read the link and add something from it)</p>
+  <p>ref: <a href="http://www.html5rocks.com/en/tutorials/filters/understanding-css/">Understanding css filter effect</a></p>
 </div>
-
-<div id="div_section_article">
-  <h2>13. media queries</h2>
-  <p><strong>Question:</strong> How could you apply css rules specific to a media?</p>
-  <p><strong>Answer: </strong> <code>@media (max-width:700px){...}</code> means you want to apply rules to those media whose max-width is 700 px. this means every samller device will have this rule.</p>
-  <p><code>@media (max-width:700px) and (orientation: landscape){...}</code> will apply rules for media smaller than 700px and in landscape orientation.</p>
-  <p><strong>Question:</strong> What is the use of only?</p>
-  <p><strong>Answer:</strong> to hide style sheets from older user agents.</p>
-  <p><strong>Question:</strong> Does the screen keyword apply to the device's physical screen or the browser's viewport?</p>
-  <p><strong>Answer:</strong> Browser's Viewport</p>
-  <p>ref: <a href="http://mobile.smashingmagazine.com/2010/07/19/how-to-use-css3-media-queries-to-create-a-mobile-version-of-your-website/">how to use media queries</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries">css media queries</a>, <a href="http://www.w3.org/TR/css3-mediaqueries/#media0">W3: media queries</a></p>
-</div>
-<div id="div_span">
-  <h2>13. something</h2>
-</div>
-<div id="mtuli_lang">
-  <h2>14. pre processor</h2>
-  <p><strong>Question:</strong> Have you used any preprocessor? What are the reasons to use preprocessor?</p>
-  <p><strong>Answer:</strong> learn sass or pass away.</p>
+<div id="preProcessor">
+  <h2>20. pre processor</h2>
+  <p><strong>Question:</strong> What are the reasons to use preprocessor?</p>
+  <p><strong>Answer:</strong> you write css in high level with some special syntax (declaring variable, nested syntax, mathmetical operations, etc.) and that is compiled to css. Preprocessor helps you to speed up develop, maintain, ensure best practices and also confirms concatenation, compression, etc.</p>
   
-  ref: <a href="http://www.frontendjournal.com/most-common-technical-interview-question-for-frontend-developers/">most common interview questions</a>
+  ref: <a href="http://css-tricks.com/musings-on-preprocessing/">css preprocessor</a>, <a href="https://developers.google.com/chrome-developer-tools/docs/css-preprocessors">working with preprocessor</a>
 </div>
-<div id="download_order">
-  <h2>15. show & tell</h2>
+<div id="seeAndTell">
+  <h2>21. see & tell</h2>
   <p><strong>Question:</strong> What is the color of text sausage for he following rule?</p>
-  <strong>html:</strong>
+  <p><strong>html:</strong> for questions a-d.</p>
   <pre><code>
 &lt;ul class=&quot;shopping-list&quot; id=&quot;awesome&quot;&gt;<br/>    &lt;li&gt;&lt;span&gt;Milk&lt;/span&gt;&lt;/li&gt;<br/>    &lt;li class=&quot;favorite&quot; id=&quot;must-buy&quot;&gt;&lt;span class=&quot;highlight&quot;&gt;Sausage&lt;/span&gt;&lt;/li&gt;<br/>&lt;/ul&gt;
-  </code></pre>
-  <strong>a.</strong>
-  <pre><code>
-&lt;style&gt;<br/> ul {<br/>   color: red;<br/> }<br/> li {<br/>   color: blue;<br/> }<br/>&lt;/style&gt;
-  </code></pre>
-<p><strong>Answer:</strong> blue</p>
-<br>
-<p><strong>b.</strong></p>
-<pre><code>
-&lt;style&gt;<br/> .shopping-list .favorite {<br/>    color: red;<br/> }<br/> #must-buy {<br/>    color: blue;<br/> }<br/>&lt;/style&gt;
-</code></pre>
-<p><strong>Answer:</strong> blue</p>
-<br>
-<strong>c.</strong>
+  </code></pre>  
+<strong>a.</strong>
 <pre><code>
 &lt;style&gt;<br/>  ul#awesome {<br/>    color: red;<br/>  }<br/>  ul.shopping-list li.favorite span {<br/>    color: blue;<br/>  }<br/>&lt;/style&gt;
 </code></pre>
 <p><strong>Answer:</strong> blue</p>
 <br>
-<strong>d.</strong>
+<strong>b.</strong>
 <pre><code>
 &lt;style&gt;<br/> ul#awesome #must-buy {<br/>    color: red;<br/> }<br/> .favorite span {<br/>    color: blue!important;<br/> }<br/>&lt;/style&gt;<br/>
 </code></pre>
 <p><strong>Answer:</strong> blue</p>
 <br>
-<strong>e.</strong>
+<strong>c.</strong>
 <pre><code>
 &lt;style&gt;<br/>  ul.shopping-list li .highlight {<br/>    color: red;<br/>  }<br/>  ul.shopping-list li .highlight:nth-of-type(odd) {<br/>    color: blue;<br/>  }<br/>&lt;/style&gt;<br/>
 </code></pre>
 <p><strong>Answer:</strong> blue</p>
 <br>
-<strong>f.</strong>
+<strong>d.</strong>
 <pre><code>
 &lt;style&gt;<br/>  #awesome .favorite:not(#awesome) .highlight {<br/>    color: red;<br/>  }<br/>  #awesome .highlight:nth-of-type(1):nth-last-of-type(1) {<br/>    color: blue;<br/>  }<br/>&lt;/style&gt;<br/>
 </code></pre>
@@ -407,38 +557,29 @@
 &lt;style&gt;<br/>  #test1 {<br/>    display: none;<br/>  }<br/>  #test2 {<br/>    background-image: url('mypic.jpg');<br/>    visibility: hidden;<br/>  }<br/>&lt;/style&gt;<br/>&lt;div id=&quot;test1&quot;&gt;<br/>    &lt;span id=&quot;test2&quot;&gt;&lt;/span&gt;<br/>&lt;/div&gt;
   </code></pre>
   <p><strong>Answer:</strong> No.</p>  
-  
-  ref: <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a>
+  <br>
+  <h3>read selector</h3>
+  <p><strong>Question:</strong> What will this selector do?</p>
+  <pre><code>
+[role=navigation] &gt; ul a:not([href^=mailto]) {
+
+}
+  </code></pre>
+  <p><strong>Answer:</strong> This selects anchor links that are not email links that are decedents of an unordered list that is the direct child of any element with a role attribute of 'navigation'. this answer copied from <a href="http://css-tricks.com/interview-questions-css/">css tricks</a></p>
+  ref: <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a> 
 </div>
-
-
-
-
 <div>
   
-<h2>temporary list of questions</h2>
+<h2>Deleted Scenes</h2>
 <ul>  
-  <li>opacity <a href="http://www.youtube.com/watch?v=iYdfj0XxoMY">paul irish</a></li>
-  <li>text effect in css3</li>  
-  <li>reset css</li>  
-  <li>what is filter? why would u use it?</li>
-  <li>what is conditional css</li>  
-  <li>@import</li>
-  <li>sprites</li>  
-  <li>:after and :before</li>
-  <li>pseudo classes</li>
-  <li>vertical align center</li>
+  <li>How descendent css selectors are matched? <a href="https://www.youtube.com/watch?v=EW8Bg_H_P7M">get answer</a></li>
+  <li>Why reset css is useful? or how normalize.css works?</li>  
+  <li>How do you test cross-browser compatibility of your site?</li>
+  <li>What is grid layout?</li>
+  <li>How can you make a site responsive?</li>
+  <li>z-index, ask something about it</li>
+  <li>What do you know about text shadows, box shadows?</li>
 </ul>
-  <h2>References</h2>
-  <ul>
-    <li><a href="http://css-tricks.com/interview-questions-css/">very good: css tricks</a></li>
-    <li><a href="https://github.com/johnpolacek/Front-end-Developer-Interview-Questions/blob/master/README.md">decent in github</a></li>
-    <li><a href="https://github.com/darcyclarke/Front-end-Developer-Interview-Questions">just the list of questions</a></li>
-    <li><a href="http://www.frontendjournal.com/most-common-technical-interview-question-for-frontend-developers/">some basic: float clear</a></li>
-    <li><a href="http://www.codeproject.com/Articles/702051/40-important-HTML-5-Interview-questions-with-answe">40 important HTML interview questions (basic css question)</a></li>
-    <li><a href="http://www.getallfix.com/2012/11/web-developer-interview-questions-ui-developer-interview-questions-most-common-web-developer-interview-questions/">some old css question</a></li>    
-  </ul>
-
 </div>
 
 <!-- div>h2+p+pre>code -->
