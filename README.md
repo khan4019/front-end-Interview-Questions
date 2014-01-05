@@ -6,7 +6,7 @@ mostly for intermediate JavasScript developers. Where interviewer is looking for
 -------
 there would be 4/5 parts in this series. you can see the first one
 
-###[html](http://www.thatjsdude.com/interview/html.html)
+##[html](http://www.thatjsdude.com/interview/html.html)
 15 basic questions and asnwers
 ______
 1. Why do u need doctype?
@@ -25,5 +25,7 @@ ______
 14. Explain standard and quirks mode.
 15. What is semantic tag?
 
-###[css](http://www.thatjsdude.com/interview/css.html)
+####[html Answers ](http://www.thatjsdude.com/interview/html.html)
+
+##[css](http://www.thatjsdude.com/interview/css.html)
 21+ questions and answers
