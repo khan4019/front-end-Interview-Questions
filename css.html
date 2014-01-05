@@ -5,13 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <meta name="that js dude" content="">
-    <link rel="shortcut icon" href="images/favicon.jpg">
-
+    <meta name="that js dude" content="">    
     <title>interview: css questions</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicon.jpg">    
+    <link rel="stylesheet" href="css/bootstrap.min.css" >
     <link rel="stylesheet" href="css/zenburn.css">
     <!-- Custom styles for this template -->
     <style>
@@ -170,7 +168,7 @@
     </style>
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
-    <!--[if lt IE 9]><script src="../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -187,7 +185,7 @@
         <h1>css</h1>        
         <h2>21+ interview questions for JavaScript developer</h2>
         <p>January 05, 2014</p>
-        <div class="g-plusone"></div>
+        <div id="fb-root"></div><div class="fb-like" data-href="http://www.thatjsdude.com/interview/css.html" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div> &nbsp;<div class="g-plusone"></div>
       </div>
     </div>
     <div class="container">
@@ -335,7 +333,7 @@
   <div>
     <button id = "boxModel" type="button" class="toggleExample btn btn-primary">show example</button>
     <div id="boxModelExample" class="hide">
-      <img src="images/box-model.gif" alt="">
+      <img src="images/boxModel.gif" alt="">
       <p>ref: image taken from google search</p>
     </div>
   </div>
@@ -596,15 +594,25 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/jquery-2.0.3.min.js"></script>    
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/highlight.pack.js"></script>
-    <script src = "js/toggleExample.js"></script>
+    <script src="js/highlight.pack.js"></script>    
     <script>hljs.initHighlightingOnLoad();</script>
+    <script src="js/toggleExample.js"></script>
     <script type="text/javascript">
+      //social plugins
+      //g+
       (function() {
         var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
         po.src = 'https://apis.google.com/js/platform.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
       })();
+      //fb
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
     </script>
   </body>
 </html>
