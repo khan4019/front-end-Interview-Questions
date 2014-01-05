@@ -211,9 +211,9 @@
         <li><a href="#mediaQueries">media queries</a></li>        
         <li><a href="#pseudoClass">pseudo class and element</a></li>
         <li><a href="#verticalCenter">vertical center issues</a></li>
-        <li><a href="#mtuli_lang">How to serve html in multiple language?</a></li>        
-        <li><a href="#standard_quirks">Explain standard and quirks mode.</a></li>
-        <li><a href="#semantic_html">Array methods in string?</a></li>
+        <li><a href="#optimizeSelector">optimize selector</a></li>        
+        <li><a href="#importStyle">@import</a></li>
+        <li><a href="#cssSprite">sprite</a></li>
        </ol>
 <div id="float">
   <h2>1. float</h2>
@@ -412,40 +412,40 @@
   </div>
   <p>ref: <a href="http://www.vanseodesign.com/css/vertical-centering/">6 methods for vertical center</a>, <a href="http://coding.smashingmagazine.com/2013/08/09/absolute-horizontal-vertical-centering-css/">Absolute horizontal and vertical centering</a></p>
 </div>
-<div id="something">
+<div id="optimizeSelector">
   <h2>13. optimize selector</h2>
   <p><strong>Question:</strong> How do you optimize css selectors?</p>
   <p><strong>Answer: </strong> This is very open and depend on what you are trying to achieve. If i order selectors interms of render speed it would be like id, class, tag, siblings, child, descendent, universal, attribute, pseudo. Speed of ID and class is very close. However your code should be readable, maintainable and DRY along with highly performant.</p>
   <p>The best practices in general are: avoid universal selectors, don't repeat yourself, remove redundant selectors, be as specific as possible, and keep learning.</p>
   <p>ref: <a href="http://realityonweb.com/cascading-style-sheet-css/performance-improvement-by-writing-efficient-css-selector/">Efficient CSS selectors</a>, <a href="http://css-tricks.com/efficiently-rendering-css/">efficently rendering</a></p>
 </div>
-<div id="something">
+<div id="importStyle">
   <h2>14. @import</h2>
   <p><strong>Question:</strong> How can you load css resources conditionally?</p>
   <p><strong>Answer:</strong> @import allows you to load/import stylesheet by using a prth (uri) representing the location of the file. You can define one or more media by comma seperation for which you want to load the stylesheet. If browser dont support the media stylesheet will not be loaded.</p>
   <p>ref: be careful while using @import (<a href="http://www.stevesouders.com/blog/2009/04/09/dont-use-import/">don't use @import</a>)</p>
 </div>
-<div id="something">
+<div id="cssSprite">
   <h2>15. sprite</h2>
   <p><strong>Question:</strong> Why would you use sprites?</p>
   <p><strong>Answer:</strong> When you have multiple images/icons, browser makes seperate call to the server for each one of them. sprite is a technique to combine all of them (usually similar one in terms of type of image. For example, you will put jpg in one sprite) in one image. you can later optimize the image. To display the icon you set height, width and background position.</p>
   <p>popular libraries like bootstrap use this technques. If you repeat the image. want to scale you have to be careful with sprite.</p>
   <p>ref: <a href="http://coding.smashingmagazine.com/2009/04/27/the-mystery-of-css-sprites-techniques-tools-and-tutorials/">css sprites</a>, <a href="http://css.spritegen.com/">generate sprites</a></p>
 </div>
-<div id="http_request">
+<div id="specificity">
   <h2>16. specificity </h2>
   <p><strong>Question:</strong> What is specificity? How do u calculate specificity?</p>
   <p><strong>Answer:</strong> is a process of determining which css rule will be applied to an element. it actually determines which rules will take precedence. </p>
   <p>inline style usually wins then ID then class value (or pseudo-class or attribute selector), unversal selector (*) has no specificity.</p>
   <p>ref: <a href="http://coding.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/">css specificity: things you need to know</a>, <a href="http://www.standardista.com/css3/css-specificity/">specifishity</a>, <a href="http://specificity.keegan.st/">specificiyt calculator</a></p>
 </div>
-<div id="standard_quirks">
+<div id="shadowDom">
   <h2>17. shadow DOM</h2>
   <p><strong>Question:</strong> What is shadow DOM?</p>
   <p><strong>Answer:</strong> encapsulate part of a DOM. hide subtree. you can have same ID in different shadow DOM. Polymers uses it. This way your DOM becomes reusable and u dont have to do iframe. if interviewer is not happy with your answer give him the links and tell him to spend a weekend on reading.</p>
   <p>ref: <a href="http://www.w3.org/TR/shadow-dom/#introduction">W3: shadow-DOM</a>, <a href="http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom/">html5rock: shadow DOM</a></p> 
 </div>
-<div id="semantic_html">
+<div id="transition">
   <h2>18. transition</h2>
   <p><strong>Question:</strong> What do u know about tranisition?</p>
   <p><strong>Answer:</strong> transition allows to add an effect while changing from one style to another. You can set the which property you want to transition, duration, how u want to transit (linear, ease, ease-in, ease-out, cubic-bezier) and delay when transition will start. you can transition more than one property by comma seperation</p>
@@ -491,15 +491,15 @@
   </div>
   <p>ref: <a href="http://www.html5rocks.com/en/tutorials/filters/understanding-css/">Understanding css filter effect</a></p>
 </div>
-<div id="mtuli_lang">
+<div id="preProcessor">
   <h2>20. pre processor</h2>
   <p><strong>Question:</strong> What are the reasons to use preprocessor?</p>
   <p><strong>Answer:</strong> you write css in high level with some special syntax (declaring variable, nested syntax, mathmetical operations, etc.) and that is compiled to css. Preprocessor helps you to speed up develop, maintain, ensure best practices and also confirms concatenation, compression, etc.</p>
   
   ref: <a href="http://css-tricks.com/musings-on-preprocessing/">css preprocessor</a>, <a href="https://developers.google.com/chrome-developer-tools/docs/css-preprocessors">working with preprocessor</a>
 </div>
-<div id="download_order">
-  <h2>21. show & tell</h2>
+<div id="seeAndTell">
+  <h2>21. see & tell</h2>
   <p><strong>Question:</strong> What is the color of text sausage for he following rule?</p>
   <strong>html:</strong>
   <pre><code>
