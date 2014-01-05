@@ -25,7 +25,7 @@ ______
 14. Explain standard and quirks mode.
 15. What is semantic tag?
 
-####[html Answers ](http://www.thatjsdude.com/interview/html.html)
+####[html Answers](http://www.thatjsdude.com/interview/html.html)
 
 ##[css](http://www.thatjsdude.com/interview/css.html)
 21+ questions and answers
@@ -39,7 +39,7 @@ ____________
   1. Does margin-top or margin-bottom has effect on inline element?
   1. Does padding-top or padding-bottom has effect on inline element?
   1. Does padding-left or padding-right or margin-left or margin-right has effect on inline element?
-  1. If you have a <p> element with font-size: 10rem, will the text be responsive when the user resizes / drags the browser window?
+  1. If you have a &lt;p&gt; element with font-size: 10rem, will the text be responsive when the user resizes / drags the browser window?
   1. The pseudo class :checked will select inputs with type radio or checkbox, but not
   1. In a HTML document, the pseudo class :root always refers to the element.
   1. The translate() function can move the position of an element on the z-axis.
@@ -63,3 +63,5 @@ ____________
 1. What are the different css filter you can use?
 1. What are the reasons to use preprocessor?
 1. [Show you couple of style example and you have to tell what does it do](http://www.thatjsdude.com/interview/css.html#seeAndTell).
+
+####[css answers](http://www.thatjsdude.com/interview/css.html)
