@@ -459,7 +459,7 @@
 </div>
 <div id="transition">
   <h2>18. transition</h2>
-  <p><strong>Question:</strong> What do you know about tranisition?</p>
+  <p><strong>Question:</strong> What do you know about transition?</p>
   <p><strong>Answer:</strong> transition allows to add an effect while changing from one style to another. You can set the which property you want to transition, duration, how you want to transit (linear, ease, ease-in, ease-out, cubic-bezier) and delay when transition will start. you can transition more than one property by comma separation</p>
   <div>
     <button id = "transition" type="button" class="toggleExample btn btn-primary">show example</button>
@@ -479,7 +479,7 @@
   background-color:red;
 }
       </code></pre>
-      <p>Hover over the purple box and wait.</p>
+      <p>Hover over the purple box and wait. also move the out ur mouse.</p>
       <div class="element"></div>
       <p><strong>Advanced:</strong> you can check transfrom: <a href="http://www.sitepoint.com/advanced-css3-2d-and-3d-transform-techniques/">css 2D 3D transform</a>, <a href="http://css3.bradshawenterprises.com/flip/">flip an image</a></p>
     </div>
@@ -506,16 +506,16 @@
 <div id="preProcessor">
   <h2>20. pre processor</h2>
   <p><strong>Question:</strong> What are the reasons to use preprocessor?</p>
-  <p><strong>Answer:</strong> you write css in high level with some special syntax (declaring variable, nested syntax, mathmetical operations, etc.) and that is compiled to css. Preprocessor helps you to speed up develop, maintain, ensure best practices and also confirms concatenation, compression, etc.</p>
+  <p><strong>Answer:</strong> you write css in high level with some special syntax (declaring variable, nested syntax, mathematical operations, etc.) and that is compiled to css. Preprocessor helps you to speed up develop, maintain, ensure best practices and also confirms concatenation, compression, etc.</p>
   
   ref: <a href="http://css-tricks.com/musings-on-preprocessing/">css preprocessor</a>, <a href="https://developers.google.com/chrome-developer-tools/docs/css-preprocessors">working with preprocessor</a>
 </div>
 <div id="seeAndTell">
   <h2>21. see & tell</h2>
-  <p><strong>Question:</strong> What is the color of text sausage for he following rule?</p>
+  <p><strong>Question:</strong> What would be the color of text "I am awesome" for he following rules?</p>
   <p><strong>html:</strong> for questions a-d.</p>
   <pre><code>
-&lt;ul class=&quot;shopping-list&quot; id=&quot;awesome&quot;&gt;<br/>    &lt;li&gt;&lt;span&gt;Milk&lt;/span&gt;&lt;/li&gt;<br/>    &lt;li class=&quot;favorite&quot; id=&quot;must-buy&quot;&gt;&lt;span class=&quot;highlight&quot;&gt;Sausage&lt;/span&gt;&lt;/li&gt;<br/>&lt;/ul&gt;
+&lt;ul class=&quot;shopping-list&quot; id=&quot;awesome&quot;&gt;<br/>    &lt;li&gt;&lt;span&gt;Milk&lt;/span&gt;&lt;/li&gt;<br/>    &lt;li class=&quot;favorite&quot; id=&quot;must-buy&quot;&gt;&lt;span class=&quot;highlight&quot;&gt;I am awesome&lt;/span&gt;&lt;/li&gt;<br/>&lt;/ul&gt;
   </code></pre>  
 <strong>a.</strong>
 <pre><code>
@@ -541,17 +541,18 @@
 </code></pre>
 <p><strong>Answer:</strong> red</p>
 </div>
+<h3>Position related</h3>
 <div id="optional_tag">  
-  <p><strong>Question:</strong> What will happen to the position of #example?</p>
+  <p><strong>Question:</strong> What will happen to the position of #myDude?</p>
   <pre><code>
-&lt;style&gt;<br/>  #example {<br/>    margin-bottom: -5px;<br/>  }<br/>&lt;/style&gt;<br/>&lt;&lt;p id=&quot;example&quot;&gt;Hello&lt;/p&gt;p id=&quot;example&quot;&gt;Hello&lt;/p&gt;
+&lt;style&gt;<br/>  #myDude {<br/>    margin-bottom: -5px;<br/>  }<br/>&lt;/style&gt;<br/>&lt;p id=&quot;myDude&quot;&gt;Dude&lt;/p&gt;
   </code></pre>
-  <p><strong>Answer:</strong> All elements succeeding #example will move 5px updward.</p>
+  <p><strong>Answer:</strong> All elements succeeding #myDude will move 5px updward.</p>
   <p><strong>reason:</strong> .</p>
   <pre><code>
-&lt;style&gt;<br/>  #example {<br/>    margin-left: -5px;<br/>  }<br/>&lt;/style&gt;<br/>&lt;&lt;p id=&quot;example&quot;&gt;Hello&lt;/p&gt;p id=&quot;example&quot;&gt;Hello&lt;/p&gt;
+&lt;style&gt;<br/>  #myDude {<br/>    margin-left: -5px;<br/>  }<br/>&lt;/style&gt;<br/>&lt;p id=&quot;myDude&quot;&gt;Dude&lt;/p&gt;
   </code></pre> 
-  <p><strong>Answer:</strong> #example will move 5px left.</p>
+  <p><strong>Answer:</strong> #myDude will move 5px left.</p>
   <h3>download resources</h3>
   <p><strong>Question:</strong> On page load, will mypic.jpg get downloaded by the browser?.</p>
   <pre><code>
@@ -572,7 +573,7 @@
 }
   </code></pre>
   <p><strong>Answer:</strong> This selects anchor links that are not email links that are decedents of an unordered list that is the direct child of any element with a role attribute of 'navigation'. this answer copied from <a href="http://css-tricks.com/interview-questions-css/">css tricks</a></p>
-  ref: <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a> 
+  ref: show & tell is mostly based on <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a> 
 </div>
 <div>
   
