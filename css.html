@@ -205,12 +205,12 @@
         <li><a href="#units">pixels, em vs percent</a></li>
         <li><a href="#position">relative, absolute or fixed position.</a></li>        
         <li><a href="#displayVisibility"><code>display:none</code> vs <code>visibility:hidden</code></a></li>        
-        <li><a href="#http_request">Will browser make http request for the following case?</a></li>
-        <li><a href="#download_order">Which resource would be downloaded first?</a></li>
-        <li><a href="#optional_tag">What is optional tag?</a></li>        
-        <li><a href="#div_span">What are the differences between div and span?</a></li>        
-        <li><a href="#div_section_article">How you would differentiate div, section and article?</a></li>
-        <li><a href="#svg_canvas">How to select svg or canvas for your site?</a></li>
+        <li><a href="#inlineBlock">inline, inline-block vs block</a></li>
+        <li><a href="#boxModel">box Model</a></li>
+        <li><a href="#overflow">overflow</a></li>        
+        <li><a href="#mediaQueries">media queries</a></li>        
+        <li><a href="#pseudoClass">pseudo class and element</a></li>
+        <li><a href="#verticalCenter">vertical center issues</a></li>
         <li><a href="#mtuli_lang">How to serve html in multiple language?</a></li>        
         <li><a href="#standard_quirks">Explain standard and quirks mode.</a></li>
         <li><a href="#semantic_html">Array methods in string?</a></li>
@@ -311,7 +311,7 @@
   <p>if u want to say it smartly, <code>display:none</code> cuases DOM reflow where is <code>visibility:hidden</code> doesn't. btw, what is reflow? answer. sorry i wont tell you, google it.</p>
   <p>ref: <a href="http://www.vanseodesign.com/css/visibility-vs-display/">visibility vs Display</a></p>
 </div>
-<div id="inline_block">
+<div id="inlineBlock">
   <h2>7. inline block</h2>
   <p><strong>Question:</strong> What are the differences between inline, block and inline-block</p>
   <p><strong>Answer: </strong></p>
@@ -320,7 +320,7 @@
   <p><code>inline-block</code>, will be similar to inline and will go with the flow of the page. Only differences is this this will take height and width.</p>
   <p>ref: <a href="http://css-tricks.com/almanac/properties/d/display/">display</a></p>
 </div>
-<div id="mark">
+<div id="boxModel">
   <h2>8. box model</h2>
   <p><strong>Question:</strong> What are the properties related to box model?</p>
   <p><strong>Answer:</strong> everything in a web page is a box where you can control size, position, background, etc. Each box/content area is optionally surrounded by padding, border and margin. When you set height and width of an element, you set content height and width.</p>
@@ -334,7 +334,7 @@
     </div>
   </div>
 </div>
-<div id="svg_canvas">
+<div id="overflow">
   <h2>9. overflow</h2>
   <p><strong>Question:</strong> Does overflow: hidden create a new block formatting context?</p>
   <p><strong>Answer:</strong> yes</p>  
@@ -362,7 +362,7 @@
   <p>ref: <a href="http://css-tricks.com/the-css-overflow-property/">overflow</a> (read the link and add something from it)</p>
 </div>
 
-<div id="div_section_article">
+<div id="mediaQueries">
   <h2>10. media queries</h2>
   <p><strong>Question:</strong> How could you apply css rules specific to a media?</p>
   <p><strong>Answer: </strong> <code>@media (max-width:700px){...}</code> means you want to apply rules to those media whose max-width is 700 px. this means every samller device will have this rule.</p>
@@ -373,7 +373,7 @@
   <p><strong>Answer:</strong> Browser's Viewport</p>
   <p>ref: <a href="http://mobile.smashingmagazine.com/2010/07/19/how-to-use-css3-media-queries-to-create-a-mobile-version-of-your-website/">how to use media queries</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries">css media queries</a>, <a href="http://www.w3.org/TR/css3-mediaqueries/#media0">W3: media queries</a></p>
 </div>
-<div id="div_span">
+<div id="pseudoClass">
   <h2>11. pseudo class</h2>
   <p><strong>Question:</strong> What are the some peseudo classed u have used?</p>
   <p><strong>Answer: </strong> pseudo class tells you specific state of an element. allow to style element dynamically. The most popular one is <code>:hover</code>. Besides i have used <code>:visited</code>, <code>:focus</code>, <code>:nth-child</code>, <code>nth-of-type</code>, <code>:link</code>, etc.</p>
@@ -394,7 +394,7 @@
   </div>
   <p>ref: <a href="http://nicolasgallagher.com/an-introduction-to-css-pseudo-element-hacks/">intro to css pseudo element</a>, <a href="http://coding.smashingmagazine.com/2011/07/13/learning-to-use-the-before-and-after-pseudo-elements-in-css/">:before :after</a>, <a href="http://css-tricks.com/css-content/">css content</a>, <a href="http://www.w3.org/TR/CSS21/generate.html">W3: generate content</a></p>
 </div>
-<div id="something">
+<div id="verticalCenter">
   <h2>12. vertical Center</h2>
   <p><strong>Question:</strong> How do you align a p center-center inside a div?</p>
   <p><strong>Answer:</strong> <code>text-align:center</code>will do the horizontal alignment but <code>vertical-laign:middle</code> will not work here. there are couple of different ways to solve this problem and one of them are positioning. You make the parent as relative position and child as absolute positioning. And then define all position parameter as sero and width 50% and height 30% (sounds messy look at the example and read ref) </p>
