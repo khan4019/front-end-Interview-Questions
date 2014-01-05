@@ -185,7 +185,7 @@
     <div class="jumbotron">
       <div class="container">
         <h1>css</h1>        
-        <h2>css related interview questions</h2>
+        <h2>21+ interview questions for JavaScript developer</h2>
         <p>January 05, 2014</p>
         <div class="g-plusone"></div>
       </div>
@@ -204,7 +204,7 @@
         <li><a href="#rapidFire">tricky questions</a></li>        
         <li><a href="#units">pixels, em vs percent</a></li>
         <li><a href="#position">relative, absolute or fixed position.</a></li>        
-        <li><a href="#displayVisibility"><code>display:none</code> vs <code>visibility:hidden</code></a></li>        
+        <li><a href="#displayVisibility">display:none vs visibility:hidden</a></li>        
         <li><a href="#inlineBlock">inline, inline-block vs block</a></li>
         <li><a href="#boxModel">box Model</a></li>
         <li><a href="#overflow">overflow</a></li>        
@@ -507,41 +507,29 @@
 <div id="seeAndTell">
   <h2>21. see & tell</h2>
   <p><strong>Question:</strong> What is the color of text sausage for he following rule?</p>
-  <strong>html:</strong>
+  <p><strong>html:</strong> for questions a-d.</p>
   <pre><code>
 &lt;ul class=&quot;shopping-list&quot; id=&quot;awesome&quot;&gt;<br/>    &lt;li&gt;&lt;span&gt;Milk&lt;/span&gt;&lt;/li&gt;<br/>    &lt;li class=&quot;favorite&quot; id=&quot;must-buy&quot;&gt;&lt;span class=&quot;highlight&quot;&gt;Sausage&lt;/span&gt;&lt;/li&gt;<br/>&lt;/ul&gt;
-  </code></pre>
-  <strong>a.</strong>
-  <pre><code>
-&lt;style&gt;<br/> ul {<br/>   color: red;<br/> }<br/> li {<br/>   color: blue;<br/> }<br/>&lt;/style&gt;
-  </code></pre>
-<p><strong>Answer:</strong> blue</p>
-<br>
-<p><strong>b.</strong></p>
-<pre><code>
-&lt;style&gt;<br/> .shopping-list .favorite {<br/>    color: red;<br/> }<br/> #must-buy {<br/>    color: blue;<br/> }<br/>&lt;/style&gt;
-</code></pre>
-<p><strong>Answer:</strong> blue</p>
-<br>
-<strong>c.</strong>
+  </code></pre>  
+<strong>a.</strong>
 <pre><code>
 &lt;style&gt;<br/>  ul#awesome {<br/>    color: red;<br/>  }<br/>  ul.shopping-list li.favorite span {<br/>    color: blue;<br/>  }<br/>&lt;/style&gt;
 </code></pre>
 <p><strong>Answer:</strong> blue</p>
 <br>
-<strong>d.</strong>
+<strong>b.</strong>
 <pre><code>
 &lt;style&gt;<br/> ul#awesome #must-buy {<br/>    color: red;<br/> }<br/> .favorite span {<br/>    color: blue!important;<br/> }<br/>&lt;/style&gt;<br/>
 </code></pre>
 <p><strong>Answer:</strong> blue</p>
 <br>
-<strong>e.</strong>
+<strong>c.</strong>
 <pre><code>
 &lt;style&gt;<br/>  ul.shopping-list li .highlight {<br/>    color: red;<br/>  }<br/>  ul.shopping-list li .highlight:nth-of-type(odd) {<br/>    color: blue;<br/>  }<br/>&lt;/style&gt;<br/>
 </code></pre>
 <p><strong>Answer:</strong> blue</p>
 <br>
-<strong>f.</strong>
+<strong>d.</strong>
 <pre><code>
 &lt;style&gt;<br/>  #awesome .favorite:not(#awesome) .highlight {<br/>    color: red;<br/>  }<br/>  #awesome .highlight:nth-of-type(1):nth-last-of-type(1) {<br/>    color: blue;<br/>  }<br/>&lt;/style&gt;<br/>
 </code></pre>
