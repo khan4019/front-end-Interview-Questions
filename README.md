@@ -4,7 +4,7 @@ front end Interview Questions
 mostly for intermediate JavasScript developers. Where interviewer is looking for very strong knowledge in Javascript, moderate in CSS and some html and core web development practices and trends.
 
 -------
-there would be 4/5 parts in this series. you can see the first one
+there would be 4/5 parts in this series. still working on it. If you want to add any question to this let me know.
 
 ##[html](http://www.thatjsdude.com/interview/html.html)
 15 basic questions and asnwers
@@ -29,3 +29,37 @@ ______
 
 ##[css](http://www.thatjsdude.com/interview/css.html)
 21+ questions and answers
+____________
+1. What does float do?
+1. How can you clear sides of a floating element?
+  1. How can you clear sides of a floating element?
+1. some tricky questions in rapid fire style
+  1. Does css properties are case sensitive?
+  1. Why css selectors mixed up with cases don't apply the styles?
+  1. Does margin-top or margin-bottom has effect on inline element?
+  1. Does padding-top or padding-bottom has effect on inline element?
+  1. Does padding-left or padding-right or margin-left or margin-right has effect on inline element?
+  1. If you have a <p> element with font-size: 10rem, will the text be responsive when the user resizes / drags the browser window?
+  1. The pseudo class :checked will select inputs with type radio or checkbox, but not
+  1. In a HTML document, the pseudo class :root always refers to the element.
+  1. The translate() function can move the position of an element on the z-axis.
+1. Which one would you prefer among px, em % or pt and why?
+1. How absolute, relative, fixed and static position differ?
+1. What are the differences between visibility hidden and display none?
+1. What are the differences between inline, block and inline-block?
+1. What are the properties related to box model?
+1. Does overflow: hidden create a new block formatting context?
+1. How could you apply css rules specific to a media?
+  1. What is the use of only?
+  1. Does the screen keyword apply to the device's physical screen or the browser's viewport?
+1. What are the some pseudo classed u have used?
+1. How do you align a p center-center inside a div?
+1. How do you optimize css selectors?
+1. How can you load css resources conditionally?
+1. Why would you use sprites?
+1. What is specificity? How do u calculate specificity?
+1. What is shadow DOM?
+1. What do you know about transition?
+1. What are the different css filter you can use?
+1. What are the reasons to use preprocessor?
+1. [Show you couple of style example and you have to tell what does it do](http://www.thatjsdude.com/interview/css.html#seeAndTell).
