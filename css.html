@@ -70,6 +70,8 @@
         height: 280px;
         border: 2px solid gray;
         padding: 5px;
+        overflow-y: scroll;
+        overflow-x: hidden;
        }
        .overflowBox{
         padding: 5px;
@@ -215,7 +217,7 @@
 <div id="doctype">
   <h2>1. float</h2>
   <p><strong>Question:</strong> How float works?</p>  
-  <p><strong>Answer:</strong> float is to push element on a side of a page with text wrap around it. you can create entire page or litter area by using float. if size of a floated element changes, text around it will reflow to accomodate the changes. You can have float left, right, none or inherit.</p>
+  <p><strong>Answer:</strong> float is to push element on a side of a page with text wrap around it. you can create entire page or smaller area by using float. if size of a floated element changes, text around it will reflow to accomodate the changes. You can have float left, right, none or inherit.</p>
   <p> if you set, 'float: left;' for an image, it will move to the left until the margin, padding or border of another block-level element is reached. The normal flow will wrap around on the right side.</p>
     <div>
       <button id = "float" type="button" class="toggleExample btn btn-primary">show example</button>
@@ -239,8 +241,8 @@
 </div>
 <div id="data_attribute">
   <h2>2. clear</h2>
-  <p><strong>Question:</strong> When will you use clear?</p>
-  <p><strong>Answer:</strong> floating elements will not be accepted on the side you cleared. With 'clear' set to 'left', an element will be moved below any floating element on the left side. clear is used to stop wrap of an element around a floating element. .</p>
+  <p><strong>Question:</strong> How can you clear side of a floating element?</p>
+  <p><strong>Answer:</strong> If you clear a silde of an element, floating elements will not be accepted on that side. With 'clear' set to 'left', an element will be moved below any floating element on the left side. clear is used to stop wrap of an element around a floating element.</p>
   <div>
       <button id = "clear" type="button" class="toggleExample btn btn-primary">show example</button>
       <div id="clearExample" class="hide">
@@ -257,7 +259,9 @@
         <div class="box"><span>5</span></div>
       </div>
     </div>
-  </div>      
+  </div>
+  <p><strong>Question:</strong> How can you fix, "floated points don't add up to the height of a parent"?</p>
+  <p><strong>Answer:</strong> You can use <code>clear:both</code> in an empty div <code>&lt;div style="clear: both;"&gt;&lt;/div&gt;</code>, you can use overflow hidden or scroll and you can float the parent as well.</p>
   <p>ref: <a href="http://www.w3.org/TR/CSS1/#clear">W3.org: clear</a>
   </div>
   <div id="keygen">
