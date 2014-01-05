@@ -556,17 +556,22 @@
 &lt;style&gt;<br/>  #test1 {<br/>    display: none;<br/>  }<br/>  #test2 {<br/>    background-image: url('mypic.jpg');<br/>    visibility: hidden;<br/>  }<br/>&lt;/style&gt;<br/>&lt;div id=&quot;test1&quot;&gt;<br/>    &lt;span id=&quot;test2&quot;&gt;&lt;/span&gt;<br/>&lt;/div&gt;
   </code></pre>
   <p><strong>Answer:</strong> No.</p>  
-  
-  ref: <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a>, <a href="http://css-tricks.com/interview-questions-css/">very good: css tricks</a>
+  <br>
+  <h3>read selector</h3>
+  <p><strong>Question:</strong> What will this selector do?</p>
+  <pre><code>
+[role=navigation] &gt; ul a:not([href^=mailto]) {
+
+}
+  </code></pre>
+  <p><strong>Answer:</strong> This selects anchor links that are not email links that are decedents of an unordered list that is the direct child of any element with a role attribute of 'navigation'. this answer copied from <a href="http://css-tricks.com/interview-questions-css/">css tricks</a></p>
+  ref: <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a> 
 </div>
-
-
-
-
 <div>
   
 <h2>Deleted Scenses</h2>
 <ul>
+  <li>What are the differences among inline, inline-block, block element?</li>
   <li>Why reset css is useful? or how normalize.css works?</li>
   <li>How do you test cross-browser compatibility of your site?</li>
   <li>what is grid layout?</li>
