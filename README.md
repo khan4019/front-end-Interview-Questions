@@ -64,3 +64,16 @@ ____________
 1. [Show you couple of style example and you have to tell what does it do](http://www.thatjsdude.com/interview/css.html#seeAndTell).
 
 ####[css Answers](http://www.thatjsdude.com/interview/css.html)
+
+###css Deleted questions!
+Looks like these are for hardcore designer. Hence, didn't make for developers.
+______
+1. How descendant css selectors are matched? [get answer](https://www.youtube.com/watch?v=EW8Bg_H_P7M)
+1. How would u implement modularity in css?
+1. If something doesn't work in a specific browser (IE8), you would u approach this problem?
+1. How do you test cross-browser compatibility of your site?
+1. What is the greatest hack you did in css so far?
+1. What is grid layout?
+1. How can you make a site responsive?
+1. Why reset css is useful? or how normalize.css works?
+1. What do you know about text shadows, box shadows?
