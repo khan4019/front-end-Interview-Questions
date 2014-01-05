@@ -1,7 +1,6 @@
 front end Interview Questions
 =============================
-
-mostly for intermediate JavasScript developers. Where interviewer is looking for very strong knowledge in Javascript, moderate in CSS and some html and core web development practices and trends.
+Warning!, if you have couple of tattoos in your body, this is not the right place. You certainly have more in depth knowledge, fancy portfolio and you have to express that. These questions are for lazy intermediate JS developers to get the job by creating an illusion of familiarity with css---
 
 -------
 there would be 4/5 parts in this series. still working on it. If you want to add any question to this let me know.
@@ -64,4 +63,4 @@ ____________
 1. What are the reasons to use preprocessor?
 1. [Show you couple of style example and you have to tell what does it do](http://www.thatjsdude.com/interview/css.html#seeAndTell).
 
-####[css answers](http://www.thatjsdude.com/interview/css.html)
+####[css Answers](http://www.thatjsdude.com/interview/css.html)
