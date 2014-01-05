@@ -205,7 +205,7 @@
         <li><a href="#rapidFire">tricky questions</a></li>        
         <li><a href="#units">pixels, em vs percent</a></li>
         <li><a href="#position">relative, absolute or fixed position.</a></li>        
-        <li><a href="#displayVisibility">display:none vs visibility:hidden</a></li>        
+        <li><a href="#displayVisibility">display: none vs visibility: hidden</a></li>        
         <li><a href="#inlineBlock">inline, inline-block vs block</a></li>
         <li><a href="#boxModel">box Model</a></li>
         <li><a href="#overflow">overflow</a></li>        
@@ -231,7 +231,7 @@
       <button id = "float" type="button" class="toggleExample btn btn-primary">show example</button>
       <div id="floatExample" class="hide">
         <pre><code>
- &lt;style&gt;<br/>   .floatContainer{<br/>        width: 200px;<br/>        height: 100px;<br/>        border: 2px solid purple;<br/>   }<br/>   .box{<br/>        float: left;<br/>        width:50px;<br/>        height: 30px;<br/>        border: 2px solid gray;<br/>        margin:5px;<br/>   }<br/> &lt;/style&gt;
+ &lt;style&gt;<br/>   .floatContainer{<br/>        width: 200px;<br/>        height: 100px;<br/>        border: 2px solid purple;<br/>   }<br/>   .box{<br/>        float: left;<br/>        width: 50px;<br/>        height: 30px;<br/>        border: 2px solid gray;<br/>        margin: 5px;<br/>   }<br/> &lt;/style&gt;
  &lt;div class=&quot;container&quot;&gt;<br/>    &lt;div class=&quot;box&quot;&gt;&lt;span&gt;1&lt;/span&gt;&lt;/div&gt;<br/>    &lt;div class=&quot;box&quot;&gt;&lt;span&gt;2&lt;/span&gt;&lt;/div&gt;<br/>    &lt;div class=&quot;box&quot;&gt;&lt;span&gt;3&lt;/span&gt;&lt;/div&gt;<br/>    &lt;div class=&quot;box&quot;&gt;&lt;span&gt;4&lt;/span&gt;&lt;/div&gt;<br/>    &lt;div class=&quot;box&quot;&gt;&lt;span&gt;5&lt;/span&gt;&lt;/div&gt;<br/>  &lt;/div&gt; 
         </code></pre>
         <div class="floatContainer demoContainer">
@@ -255,7 +255,7 @@
       <button id = "clear" type="button" class="toggleExample btn btn-primary">show example</button>
       <div id="clearExample" class="hide">
       <pre><code>
- &lt;style&gt;<br/>   .clearLeft{<br/>      clear:left;<br/>   }<br/> &lt;/style&gt;
+ &lt;style&gt;<br/>   .clearLeft{<br/>      clear: left;<br/>   }<br/> &lt;/style&gt;
  &lt;div class=&quot;container&quot;&gt;<br/>    &lt;div class=&quot;box&quot;&gt;&lt;span&gt;1&lt;/span&gt;&lt;/div&gt;<br/>    &lt;div class=&quot;box clearLeft&quot;&gt;&lt;span&gt;2&lt;/span&gt;&lt;/div&gt;<br/>    &lt;div class=&quot;box&quot;&gt;&lt;span&gt;3&lt;/span&gt;&lt;/div&gt;<br/>    &lt;div class=&quot;box&quot;&gt;&lt;span&gt;4&lt;/span&gt;&lt;/div&gt;<br/>    &lt;div class=&quot;box&quot;&gt;&lt;span&gt;5&lt;/span&gt;&lt;/div&gt;<br/>  &lt;/div&gt; 
   </code></pre>
   <p>as clear left is applied to the second box. no other elements would be on the left of that box and hence it is placed in a new row. </p>
@@ -269,7 +269,7 @@
     </div>
   </div>
   <p><strong>Question:</strong> How can you fix, "floated points don't add up to the height of a parent"?</p>
-  <p><strong>Answer:</strong> You can use <code>clear:both</code> in an empty div <code>&lt;div style="clear: both;"&gt;&lt;/div&gt;</code>, you can use overflow hidden or scroll and you can float the parent as well. </p>
+  <p><strong>Answer:</strong> You can use <code>clear: both</code> in an empty div <code>&lt;div style="clear: both;"&gt;&lt;/div&gt;</code>, you can use overflow hidden or scroll and you can float the parent as well. </p>
   <p><span class="purpleBold">What the heck?</span> Sorry. if you didn't get the question or answer, please read "Techniques for clearing floats" in <a href="http://css-tricks.com/all-about-floats/">css-tricks: all about floats</a></p>
   <p>ref: <a href="http://www.w3.org/TR/CSS1/#clear">W3.org: clear</a>
   </div>
@@ -279,11 +279,11 @@
   <p><strong>Answer:</strong> no.</p>
   <p><strong>Question:</strong> Why css selectors mixed up with cases don't apply the styles?</p>
   <p><strong>Answer:</strong> because, html ID and classes are case sensitive.</p>
-  <p><strong>Question:</strong> Does margin-top or margin-bottom has effect on inline elemet?</p>
+  <p><strong>Question:</strong> Does margin-top or margin-bottom has effect on inline element?</p>
   <p><strong>Answer:</strong> no.</p> 
-  <p><strong>Question:</strong> Does padding-top or padding-bottom has effect on inline elemet?</p>
+  <p><strong>Question:</strong> Does padding-top or padding-bottom has effect on inline element?</p>
   <p><strong>Answer:</strong> no.</p>
-  <p><strong>Question:</strong> Does padding-left or padding-right or margin-left or margin-right has effect on inline elemet?</p>
+  <p><strong>Question:</strong> Does padding-left or padding-right or margin-left or margin-right has effect on inline element?</p>
   <p><strong>Answer:</strong> yes.</p>
   <p><strong>Question:</strong> If you have a &lt;p&gt; element with font-size: 10rem, will the text be responsive when the user resizes / drags the browser window?</p>
   <p><strong>Answer:</strong> no.</p>
@@ -311,7 +311,7 @@
   <p><strong>Question:</strong> How absolute, relative, fixed and static position differ?</p>
   <p><strong>Answer:</strong> </p>
   <p><em>absolute</em>, place an element exactly where you want to place it. absolute position is actually set relative to the element's parent. if no parent available then relatively place to the page itself.</p>
-  <p><em>relative</em>, is position an element relative to itself (from where the element would be placed, if u don't apply relative positioning). for example, if u set position relative to an element and set top:10px, it will move 10px down from where it would be normally.</p>
+  <p><em>relative</em>, is position an element relative to itself (from where the element would be placed, if u don't apply relative positioning). for example, if u set position relative to an element and set top: 10px, it will move 10px down from where it would be normally.</p>
   <p><em>fixed</em>, element is positioned relative to viewport or the browser window itself. viewport doesn't changed if u scroll and hence fixed element will stay right in the same position.</p>
   <p><em>static</em>, element will be positioned based on the normal flow of the document. usually, u will use position static to remove other position might be applied to an element.</p>
   <p>ref: <a href="http://www.barelyfitz.com/screencast/html-training/css/positioning/">css positioning in ten steps</a>, <a href="http://css-tricks.com/absolute-relative-fixed-positioining-how-do-they-differ/">css position</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position">MDN: position</a></p>
@@ -319,15 +319,15 @@
 <div id="displayVisibility">
   <h2>6. display vs visibility</h2>
   <p><strong>Question:</strong> What are the differences between visibility hidden and display none?</p>
-  <p><strong>Answer:</strong> <code>display:none</code> removes the element from the normal layout flow and allow other elements to fill in. <code>visibility:hidden</code> tag is rendered, it takes space in the normal flow but doesn't show it.</p>
-  <p>if u want to say it smartly, <code>display:none</code> causes DOM reflow where is <code>visibility:hidden</code> doesn't. btw, what is re-flow? answer. sorry i wont tell you, google it.</p>
+  <p><strong>Answer:</strong> <code>display: none</code> removes the element from the normal layout flow and allow other elements to fill in. <code>visibility: hidden</code> tag is rendered, it takes space in the normal flow but doesn't show it.</p>
+  <p>if u want to say it smartly, <code>display: none</code> causes DOM reflow where is <code>visibility: hidden</code> doesn't. btw, what is re-flow? answer. sorry i wont tell you, google it.</p>
   <p>ref: <a href="http://www.vanseodesign.com/css/visibility-vs-display/">visibility vs Display</a></p>
 </div>
 <div id="inlineBlock">
   <h2>7. inline block</h2>
   <p><strong>Question:</strong> What are the differences between inline, block and inline-block</p>
   <p><strong>Answer: </strong></p>
-  <p><code>inline</code>, elements do not break the flow. think of span it fits in the line. Important points about inline elements, margin/padding will push other elements horizontally not vertically. Moreover, inline elements ignores height and width.</p>  
+  <p><code>inline</code>, elements do not break the flow. think of span it fits in the line. Important points about inline elements, margin/ padding will push other elements horizontally not vertically. Moreover, inline elements ignores height and width.</p>  
   <p><code>block</code>, breaks the flow and dont sits inline. they are usually container like div, section, ul and also text p, h1, etc.</p>
   <p><code>inline-block</code>, will be similar to inline and will go with the flow of the page. Only differences is this this will take height and width.</p>
   <p>ref: <a href="http://css-tricks.com/almanac/properties/d/display/">display</a></p>
@@ -336,7 +336,7 @@
   <h2>8. box model</h2>
   <p><strong>Question:</strong> What are the properties related to box model?</p>
   <p><strong>Answer:</strong> Technically, height, width, padding and border are part of box model and margin is related to it.</p>
-  <p><strong>Extra:</strong> Everything in a web page is a box where you can control size, position, background, etc. Each box/content area is optionally surrounded by padding, border and margin. When you set height and width of an element, you set content height and width.</p>
+  <p><strong>Extra:</strong> Everything in a web page is a box where you can control size, position, background, etc. Each box/ content area is optionally surrounded by padding, border and margin. When you set height and width of an element, you set content height and width.</p>
   <p>ref: <a href="http://www.w3.org/TR/CSS21/box.html">W3: box model</a>, <a href="http://css-tricks.com/the-css-box-model/">css box model</a></p>
   <div>
     <button id = "boxModel" type="button" class="toggleExample btn btn-primary">show example</button>
@@ -356,16 +356,16 @@
     <div id="overflowExample" class="hide">        
       <div class="overflowContainer">
         <div class="overflowBox">
-          <p class="overflowVisible"><code>overflow:visible</code> This is some simple content to see how overflow works when you have too many things to say in a too small space. But don't be the person who just say rather be the person who does. does something for himself and others.</p>
+          <p class="overflowVisible"><code>overflow: visible</code> This is some simple content to see how overflow works when you have too many things to say in a too small space. But don't be the person who just say rather be the person who does. does something for himself and others.</p>
         </div>
         <div class="overflowBox">
-          <p class="overflowHidden"><code>overflow:hidden</code> This is some simple content to see how overflow works when you have too many things to say in a too small space. But don't be the person who just say rather be the person who does. does something for himself and others.</p>
+          <p class="overflowHidden"><code>overflow: hidden</code> This is some simple content to see how overflow works when you have too many things to say in a too small space. But don't be the person who just say rather be the person who does. does something for himself and others.</p>
         </div>
         <div class="overflowBox">
-          <p class="overflowScroll"><code>overflow:scroll</code> This is some simple content to see how overflow works when you have too many things to say in a too small space. But don't be the person who just say rather be the person who does. does something for himself and others.</p>
+          <p class="overflowScroll"><code>overflow: scroll</code> This is some simple content to see how overflow works when you have too many things to say in a too small space. But don't be the person who just say rather be the person who does. does something for himself and others.</p>
         </div>
         <div class="overflowBox">
-          <p class="overflowAuto"><code>overflow:auto</code> This is some simple content to see how overflow works when you have too many things to say in a too small space. But don't be the person who just say rather be the person who does. does something for himself and others.</p>
+          <p class="overflowAuto"><code>overflow: auto</code> This is some simple content to see how overflow works when you have too many things to say in a too small space. But don't be the person who just say rather be the person who does. does something for himself and others.</p>
         </div>
       </div>      
     </div>
@@ -377,8 +377,8 @@
 <div id="mediaQueries">
   <h2>10. media queries</h2>
   <p><strong>Question:</strong> How could you apply css rules specific to a media?</p>
-  <p><strong>Answer: </strong> <code>@media (max-width:700px){...}</code> means you want to apply rules to those media whose max-width is 700 px. this means every smaller device will have this rule.</p>
-  <p><code>@media (max-width:700px) and (orientation: landscape){...}</code> will apply rules for media smaller than 700px and in landscape orientation.</p>
+  <p><strong>Answer: </strong> <code>@media (max-width: 700px){...}</code> means you want to apply rules to those media whose max-width is 700 px. this means every smaller device will have this rule.</p>
+  <p><code>@media (max-width: 700px) and (orientation: landscape){...}</code> will apply rules for media smaller than 700px and in landscape orientation.</p>
   <p><strong>Question:</strong> What is the use of only?</p>
   <p><strong>Answer:</strong> to hide style sheets from older user agents.</p>
   <p><strong>Question:</strong> Does the screen keyword apply to the device's physical screen or the browser's viewport?</p>
@@ -389,7 +389,7 @@
   <h2>11. pseudo class</h2>
   <p><strong>Question:</strong> What are the some pseudo classed u have used?</p>
   <p><strong>Answer: </strong> pseudo class tells you specific state of an element. allow to style element dynamically. The most popular one is <code>:hover</code>. Besides i have used <code>:visited</code>, <code>:focus</code>, <code>:nth-child</code>, <code>nth-of-type</code>, <code>:link</code>, etc.</p>
-  <p>pseudo classes is better if you dont want to mess up with javaScript however, pseudo-classes is slow to process and apply rules.</p>
+  <p>pseudo classes is better if you don't want to mess up with javaScript however, pseudo-classes is slow to process and apply rules.</p>
   <p>ref: <a href="http://coding.smashingmagazine.com/2011/03/30/how-to-use-css3-pseudo-classes/">How to use pseudo classes</a>, <a href="http://css-tricks.com/pseudo-class-selectors/">meet pseudo classes</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">list of pseudo classes</a></p>
   <h4>pseudo elements</h4>
   <p>pseudo elements helps you to add cosmetics contents. pseudo elements generates content where as pseudo class deals with state of the element. for example, you can style <code>:first-letter</code> of every paragraph. similarly,  <code>:first-line</code> and fancy stuff with <code>:before</code>, <code>:after</code></p>
@@ -409,7 +409,7 @@
 <div id="verticalCenter">
   <h2>12. vertical Center</h2>
   <p><strong>Question:</strong> How do you align a p center-center inside a div?</p>
-  <p><strong>Answer:</strong> <code>text-align:center</code>will do the horizontal alignment but <code>vertical-align:middle</code> will not work here. there are couple of different ways to solve this problem and one of them are positioning. You make the parent as relative position and child as absolute positioning. And then define all position parameter as sero and width 50% and height 30% (sounds messy look at the example and read ref) </p>
+  <p><strong>Answer:</strong> <code>text-align: center</code>will do the horizontal alignment but <code>vertical-align: middle</code> will not work here. there are couple of different ways to solve this problem and one of them are positioning. You make the parent as relative position and child as absolute positioning. And then define all position parameter as sero and width 50% and height 30% (sounds messy look at the example and read ref) </p>
   <div>
     <button id = "align" type="button" class="toggleExample btn btn-primary">show example</button>
     <div id="alignExample" class="hide">
@@ -434,13 +434,13 @@
 <div id="importStyle">
   <h2>14. @import</h2>
   <p><strong>Question:</strong> How can you load css resources conditionally?</p>
-  <p><strong>Answer:</strong> @import allows you to load/import stylesheet by using a path (uri) representing the location of the file. You can define one or more media by comma separation for which you want to load the stylesheet. If browser dont support the media stylesheet will not be loaded.</p>
+  <p><strong>Answer:</strong> @import allows you to load/ import stylesheet by using a path (uri) representing the location of the file. You can define one or more media by comma separation for which you want to load the stylesheet. If browser dont support the media stylesheet will not be loaded.</p>
   <p>ref: be careful while using @import (<a href="http://www.stevesouders.com/blog/2009/04/09/dont-use-import/">don't use @import</a>)</p>
 </div>
 <div id="cssSprite">
   <h2>15. sprite</h2>
   <p><strong>Question:</strong> Why would you use sprites?</p>
-  <p><strong>Answer:</strong> When you have multiple images/icons, browser makes separate call to the server for each one of them. sprite is a technique to combine all/some of them (usually similar one in terms of type of image. For example, you will put jpg in one sprite) in one image. To display the icon you set height, width and background position.</p>
+  <p><strong>Answer:</strong> When you have multiple images/ icons, browser makes separate call to the server for each one of them. sprite is a technique to combine all/ some of them (usually similar one in terms of type of image. For example, you will put jpg in one sprite) in one image. To display the icon you set height, width and background position.</p>
   <p>popular libraries like bootstrap use this technique. If you repeat the image. want to scale you have to be careful with sprite.</p>
   <p>ref: <a href="http://coding.smashingmagazine.com/2009/04/27/the-mystery-of-css-sprites-techniques-tools-and-tutorials/">css sprites</a>, <a href="http://css.spritegen.com/">generate sprites</a></p>
 </div>
@@ -448,8 +448,8 @@
   <h2>16. specificity </h2>
   <p><strong>Question:</strong> What is specificity? How do u calculate specificity?</p>
   <p><strong>Answer:</strong> is a process of determining which css rule will be applied to an element. it actually determines which rules will take precedence. </p>
-  <p>inline style usually wins then ID then class value (or pseudo-class or attribute selector), unversal selector (*) has no specificity.</p>
-  <p>ref: <a href="http://coding.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/">css specificity: things you need to know</a>, <a href="http://www.standardista.com/css3/css-specificity/">specifishity</a>, <a href="http://specificity.keegan.st/">specificiyt calculator</a></p>
+  <p>inline style usually wins then ID then class value (or pseudo-class or attribute selector), universal selector (*) has no specificity.</p>
+  <p>ref: <a href="http://coding.smashingmagazine.com/2007/07/27/css-specificity-things-you-should-know/">css specificity: things you need to know</a>, <a href="http://www.standardista.com/css3/css-specificity/">specifishity</a>, <a href="http://specificity.keegan.st/">specificity calculator</a></p>
 </div>
 <div id="shadowDOM">
   <h2>17. shadow DOM</h2>
@@ -470,18 +470,18 @@
 }
 .element {
   width: 50px;
-  background-color:purple;
+  background-color: purple;
   transition: width  2s linear 0.5s, background-color 2s linear 0.5s;  
 }
 
 .element:hover {
   width: 100px;
-  background-color:red;
+  background-color: red;
 }
       </code></pre>
       <p>Hover over the purple box and wait. also move the out ur mouse.</p>
       <div class="element"></div>
-      <p><strong>Advanced:</strong> you can check transfrom: <a href="http://www.sitepoint.com/advanced-css3-2d-and-3d-transform-techniques/">css 2D 3D transform</a>, <a href="http://css3.bradshawenterprises.com/flip/">flip an image</a></p>
+      <p><strong>Advanced:</strong> you can check transform: <a href="http://www.sitepoint.com/advanced-css3-2d-and-3d-transform-techniques/">css 2D 3D transform</a>, <a href="http://css3.bradshawenterprises.com/flip/">flip an image</a></p>
     </div>
   </div>
   <p>ref: <a href="http://blog.alexmaccaw.com/css-transitions">all you need to know about css transition</a>, <a href="http://css3.bradshawenterprises.com/transitions/">transition: tutorial</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Using_CSS_transitions">css transition</a>, <a href="http://www.html5rocks.com/en/tutorials/3d/css/">transition and 3D</a></p>
@@ -579,7 +579,7 @@
   
 <h2>Deleted Scenes</h2>
 <ul>  
-  <li>How descendent css selectors are matched? <a href="https://www.youtube.com/watch?v=EW8Bg_H_P7M">get answer</a></li>
+  <li>How descendant css selectors are matched? <a href="https://www.youtube.com/watch?v=EW8Bg_H_P7M">get answer</a></li>
   <li>Why reset css is useful? or how normalize.css works?</li>  
   <li>How do you test cross-browser compatibility of your site?</li>
   <li>What is grid layout?</li>
@@ -590,11 +590,9 @@
 </div>
 <div>
   <h3 class="purpleBold">Express anger!</h3>
-  <p class="gray">Feel free to expres your anger here (sorry u have to use facebook). also find out mistakes ( technical, wrong answer, spelling, grammar, sentence, whatever), let ur dude learn and grow.</p>
+  <p class="gray">Feel free to express your anger here (sorry u have to use facebook). also find out mistakes ( technical, wrong answer, spelling, grammar, sentence, whatever), let ur dude learn and grow.</p>
   <div class="fb-comments" data-href="http://www.thatjsdude.com/interview/css.html" data-numposts="5" data-colorscheme="light"></div>
 </div>
-
-<!-- div>h2+p+pre>code -->
       <hr>
 
       <footer>
