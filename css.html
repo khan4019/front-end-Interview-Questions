@@ -319,8 +319,8 @@
 <div id="displayVisibility">
   <h2>6. display vs visibility</h2>
   <p><strong>Question:</strong> What are the differences between visibility hidden and display none?</p>
-  <p><strong>Answer:</strong> <code>display:none</code> removes the element from the normal layout flow and allow other elements to fill in. <code>visibility:hidden</code> tag is rendered, it takes space in the normal flow but hides it.</p>
-  <p>if u want to say it smartly, <code>display:none</code> cuases DOM reflow where is <code>visibility:hidden</code> doesn't. btw, what is reflow? answer. sorry i wont tell you, google it.</p>
+  <p><strong>Answer:</strong> <code>display:none</code> removes the element from the normal layout flow and allow other elements to fill in. <code>visibility:hidden</code> tag is rendered, it takes space in the normal flow but doesn't show it.</p>
+  <p>if u want to say it smartly, <code>display:none</code> causes DOM reflow where is <code>visibility:hidden</code> doesn't. btw, what is re-flow? answer. sorry i wont tell you, google it.</p>
   <p>ref: <a href="http://www.vanseodesign.com/css/visibility-vs-display/">visibility vs Display</a></p>
 </div>
 <div id="inlineBlock">
@@ -335,8 +335,8 @@
 <div id="boxModel">
   <h2>8. box model</h2>
   <p><strong>Question:</strong> What are the properties related to box model?</p>
-  <p><strong>Answer:</strong> everything in a web page is a box where you can control size, position, background, etc. Each box/content area is optionally surrounded by padding, border and margin. When you set height and width of an element, you set content height and width.</p>
-  <p>Technically, height, width, padding and border are part of box model and margin is related to it.</p>
+  <p><strong>Answer:</strong> Technically, height, width, padding and border are part of box model and margin is related to it.</p>
+  <p><strong>Extra:</strong> Everything in a web page is a box where you can control size, position, background, etc. Each box/content area is optionally surrounded by padding, border and margin. When you set height and width of an element, you set content height and width.</p>
   <p>ref: <a href="http://www.w3.org/TR/CSS21/box.html">W3: box model</a>, <a href="http://css-tricks.com/the-css-box-model/">css box model</a></p>
   <div>
     <button id = "boxModel" type="button" class="toggleExample btn btn-primary">show example</button>
@@ -377,7 +377,7 @@
 <div id="mediaQueries">
   <h2>10. media queries</h2>
   <p><strong>Question:</strong> How could you apply css rules specific to a media?</p>
-  <p><strong>Answer: </strong> <code>@media (max-width:700px){...}</code> means you want to apply rules to those media whose max-width is 700 px. this means every samller device will have this rule.</p>
+  <p><strong>Answer: </strong> <code>@media (max-width:700px){...}</code> means you want to apply rules to those media whose max-width is 700 px. this means every smaller device will have this rule.</p>
   <p><code>@media (max-width:700px) and (orientation: landscape){...}</code> will apply rules for media smaller than 700px and in landscape orientation.</p>
   <p><strong>Question:</strong> What is the use of only?</p>
   <p><strong>Answer:</strong> to hide style sheets from older user agents.</p>
@@ -387,17 +387,17 @@
 </div>
 <div id="pseudoClass">
   <h2>11. pseudo class</h2>
-  <p><strong>Question:</strong> What are the some peseudo classed u have used?</p>
+  <p><strong>Question:</strong> What are the some pseudo classed u have used?</p>
   <p><strong>Answer: </strong> pseudo class tells you specific state of an element. allow to style element dynamically. The most popular one is <code>:hover</code>. Besides i have used <code>:visited</code>, <code>:focus</code>, <code>:nth-child</code>, <code>nth-of-type</code>, <code>:link</code>, etc.</p>
-  <p>pseudo classes is better if you dont want to mess up with javascript however, pesudo-classes is slow to process and apply rules.</p>
+  <p>pseudo classes is better if you dont want to mess up with javaScript however, pseudo-classes is slow to process and apply rules.</p>
   <p>ref: <a href="http://coding.smashingmagazine.com/2011/03/30/how-to-use-css3-pseudo-classes/">How to use pseudo classes</a>, <a href="http://css-tricks.com/pseudo-class-selectors/">meet pseudo classes</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes">list of pseudo classes</a></p>
   <h4>pseudo elements</h4>
-  <p>pseudo elements helps you to add cosmetics contents. pseudo elements generates content where as pseudo class deals with state of the element. for example, you can style <code>:first-letter</code> of every paragrpah. similarly,  <code>:first-line</code> and fancy stuff with <code>:before</code>, <code>:after</code></p>
+  <p>pseudo elements helps you to add cosmetics contents. pseudo elements generates content where as pseudo class deals with state of the element. for example, you can style <code>:first-letter</code> of every paragraph. similarly,  <code>:first-line</code> and fancy stuff with <code>:before</code>, <code>:after</code></p>
   <div>
     <button id = "pseudoElement" type="button" class="toggleExample btn btn-primary">show example</button>
     <div id="pseudoElementExample" class="hide">
       <pre><code>
-&lt;style&gt;<br/>   p:before{<br/>     content: &quot;Strating of Paragraph: &quot;;<br/>     font-weight: bolder;<br/>     color: purple;<br/>   }<br/>&lt;/style&gt;<br/>&lt;p&gt;First Paragraph with some content.&lt;/p&gt;<br/>&lt;p&gt;Second Paragraph with something else.&lt;/p&gt;
+&lt;style&gt;<br/>   p:before{<br/>     content: &quot;Starting of Paragraph: &quot;;<br/>     font-weight: bolder;<br/>     color: purple;<br/>   }<br/>&lt;/style&gt;<br/>&lt;p&gt;First Paragraph with some content.&lt;/p&gt;<br/>&lt;p&gt;Second Paragraph with something else.&lt;/p&gt;
       </code></pre>
       <strong>result:</strong>
       <p>First Paragraph with some content.</p>
