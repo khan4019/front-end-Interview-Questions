@@ -53,7 +53,7 @@
         <h2>HTML related interview questions</h2>
         <p>For Javascript developer to have some idea about html to impress interviewer..</p>
         <p>January 01, 2014</p>
-        <div class="g-plusone"></div>
+        <div id="fb-root"></div><div class="fb-like" data-href="http://www.thatjsdude.com/interview/css.html" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div> &nbsp;<div class="g-plusone"></div>
       </div>
     </div>
     <div class="container">
@@ -226,7 +226,11 @@ ref: <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a>
   <h2>Need more!</h2>
   read: <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5?redirectlocale=en-US&redirectslug=HTML%2FHTML5">HTML5</a>
 </div>
-
+<div>
+  <h3 class="purpleBold">Express anger!</h3>
+  <p class="gray">Feel free to express your anger (sorry u have to use facebook). also find out mistakes ( technical, wrong answer, spelling, grammar, sentence, whatever), let ur dude learn and grow.</p>
+  <div class="fb-comments" data-href="http://www.thatjsdude.com/interview/css.html" data-numposts="5" data-colorscheme="light"></div>
+</div>
       <hr>
 
       <footer>
@@ -243,11 +247,20 @@ ref: <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a>
     <script src="js/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
     <script type="text/javascript">
+      //g+
       (function() {
         var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
         po.src = 'https://apis.google.com/js/platform.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
       })();
+      //fb
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
     </script>
   </body>
 </html>
