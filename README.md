@@ -77,3 +77,7 @@ ______
 1. How can you make a site responsive?
 1. Why reset css is useful? or how normalize.css works?
 1. What do you know about text shadows, box shadows?
+
+
+##[JavaScript (part -1)](http://www.thatjsdude.com/interview/js1.html)
+17+ questions and answers (for beginners)
