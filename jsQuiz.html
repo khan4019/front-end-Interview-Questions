@@ -205,10 +205,14 @@ window.onclick =function(e){
         <p><strong>Answer:</strong> <a href="http://stackoverflow.com/a/1813267/1535443">stack overflow</a></p>
       </div>
       <div id="deferAsync">
+        <h2>defer vs async</h2>
         <p><strong>Question:</strong> what is defer and async keyword does in a script tag</p>
-        <p><strong>Answer:</strong></p>
-        <p>ref: <a href="http://peter.sh/experiments/asynchronous-and-deferred-javascript-execution-explained/">JS script execution</a></p>
-        <pre><code></code></pre>
+        <p><strong>Answer:</strong> When HTML parser find a script tag.</p>
+        <p><strong>normal</strong> when you have a plain script tag (no defer or async keyword), parser will pause parsing, script would be downloaded and exectuted. After that parsing resume.</p>
+        <p><strong>defer</strong> defer keyword in the script tag will defer the execution of the script. Hence script will be executed when DOM is available. Its not recommeded to use defer when you dont have any src attribute in the script tag. Important point is, defer is not supported by all major major browsers.</p>
+        <p><strong>async</strong> if possible, set the execution of the script, asynchronously. <code>async</code> keyword has no effect on inline script (script that has no src attribute)</p>
+        <img src="images/asyncVsDefer.jpg" alt="">
+        (src: <a href="http://peter.sh/experiments/asynchronous-and-deferred-javascript-execution-explained/">JS script execution</a>)
       </div>
       <div id="showAndTell">
         <h2>show and tell</h2>
