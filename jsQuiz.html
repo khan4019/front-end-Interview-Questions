@@ -212,8 +212,15 @@ window.onclick =function(e){
         <p><strong>defer</strong> defer keyword in the script tag will defer the execution of the script. Hence script will be executed when DOM is available. Important point is, defer is not supported by all major major browsers.</p>
         <p><strong>async</strong> if possible, set the execution of the script, asynchronously. <code>async</code> keyword has no effect on inline script.</p>
         <p> try to get some idea fromt he image copied from <a href="http://peter.sh/experiments/asynchronous-and-deferred-javascript-execution-explained/">JS script execution</a></p>
-        <img src="images/asyncVsDefer.jpg" alt="">
-        
+        <img src="images/asyncVsDefer.jpg" alt="">        
+      </div>
+      <div id="onload">
+        <h2>window.onload vs document.onload</h2>
+        <p><strong>Question:</strong> What are the differences between document.onload and window.onload</p>
+        <p><strong>Answer:</strong> <code>window.onload</code> is fired when DOM is ready and all the contents including images, css, scripts, sub-frames, etc. finished loaded.</p>
+        <p><code>document.onload</code> is fired when DOM (DOM tree built from markup code within the document)is ready which can be prior to images and other external content is loaded.</p>
+        <p><strong>bonus:</strong><code>document.readyState</code> Returns "loading" while the Document is loading, "interactive" once it is finished parsing but still loading sub-resources, and "complete" once it has loaded. The <code>readystatechange</code> event fires on the Document object when this value changes.</p>
+        <p>ref: <a href="http://stackoverflow.com/questions/588040/window-onload-vs-document-onload"> stackoverflow</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/document.readyState">MDN: readyState</a></p>
       </div>
       <div id="showAndTell">
         <h2>show and tell</h2>
@@ -240,7 +247,7 @@ foo();//?
           <li>difference between .call .apply and .bind</li>          
           <li>passing by value or by ref <a href="http://snook.ca/archives/javascript/javascript_pass/">js pass</a></li>
           <li>How to achieve static variable in JS</li>
-          <li>what is window.onload</li>
+          <li></li>
           <li>How will you make a website response </li>
           <li>If you want to make a website responsive, you will you start</li>
           <li>how will you start when you have to make a site compatible to different browser</li>
