@@ -24,7 +24,7 @@ ______
 14. Explain standard and quirks mode.
 15. What is semantic tag?
 
-####[html Answers](http://www.thatjsdude.com/interview/html.html)
+####[HTML Answers](http://www.thatjsdude.com/interview/html.html)
 
 ##[css](http://www.thatjsdude.com/interview/css.html)
 21+ questions and answers
@@ -63,7 +63,7 @@ ____________
 1. What are the reasons to use preprocessor?
 1. [Show you couple of style example and you have to tell what does it do](http://www.thatjsdude.com/interview/css.html#seeAndTell).
 
-####[css Answers](http://www.thatjsdude.com/interview/css.html)
+####[CSS Answers](http://www.thatjsdude.com/interview/css.html)
 
 ###css Deleted questions!
 Looks like these are for hardcore designer. Hence, didn't make for developers.
@@ -79,5 +79,28 @@ ______
 1. What do you know about text shadows, box shadows?
 
 
-##[JavaScript (part -1)](http://www.thatjsdude.com/interview/js1.html)
-17+ questions and answers (for beginners)
+##[JavaScript: Algorithm (part -1)](http://www.thatjsdude.com/interview/js1.html)
+20 questions and answers (for beginners)
+__________________
+1. Verify a prime number?
+1. Find all prime factors of a number?
+1. Get nth Fibonacci number?
+1. Find the greatest common divisor of two numbers?
+1. Remove duplicate members from an array?
+1. merge two sorted array?
+1. Swap two numbers without using a temp variable?
+1. Reverse a string in JavaScript?
+1. How would you reverse words in a sentence?
+1. Reverse words in place?
+1. Find the first non repeating char in a string?
+1. Remove duplicate characters from a sting?
+1. How will you verify a word as palindrome?
+1. Generate random between 5 to 7 by using defined function.
+1. Find missing number from unsorted array of integers.
+1. Get two numbers that equal to a given number?
+1. Find the largest sum of any two elements?
+1. Total number of zeros from 1 upto n?
+1. Check whether a given string is a substring of bigger string
+2. Get permutaitons of a string
+
+####[JS: Algorithm (part-1) Answers](http://www.thatjsdude.com/interview/js1.html)
