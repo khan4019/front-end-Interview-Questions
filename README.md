@@ -79,8 +79,8 @@ ______
 1. What do you know about text shadows, box shadows?
 
 
-##[JavaScript (part -1)](http://www.thatjsdude.com/interview/js1.html)
-18+ questions and answers (for beginners)
+##[JavaScript: Algorithm (part -1)](http://www.thatjsdude.com/interview/js1.html)
+20 questions and answers (for beginners)
 __________________
 1. Verify a prime number?
 1. Find all prime factors of a number?
@@ -100,5 +100,6 @@ __________________
 1. Get two numbers that equal to a given number?
 1. Find the largest sum of any two elements?
 1. Total number of zeros from 1 upto n?
- 
+1. Check whether a given string is a substring of bigger string
+2. Get permutaitons of a string
 ####[JS (part-1) Answers](http://www.thatjsdude.com/interview/js1.html)
