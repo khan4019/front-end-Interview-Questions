@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="that js dude" content="">    
+    <title>JS: Quiz Explanation</title>
+
+    <link rel="shortcut icon" href="images/favicon.jpg">    
+    <link rel="stylesheet" href="css/bootstrap.min.css" >
+    <link rel="stylesheet" href="css/zenburn.css">
+    <!-- Custom styles for this template -->
+    <style>
+      /* Move down content because we have a fixed navbar that is 50px tall */
+      body {        
+        padding-bottom: 20px;
+      }
+      .purpleBold{
+        color:purple;        
+        font-weight: bold;
+      }
+      .gray{
+        color: gray;
+      }
+      .blueish{
+        color: rgba(151, 182, 209, 0.98);
+      }
+      .singInStuff{
+        margin-top: 9px;
+      }
+      #uName{
+        margin-top: -7px;
+      }
+      .skipListItem{
+        list-style-type: none;
+      }
+      .skipListItem a{
+        color: inherit;
+      }
+      a:visited
+      { 
+        color: rgba(218, 209, 149, 0.98);
+      }
+      /*style for demo*/
+      
+    </style>
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+ 
+  <body>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>JS: tricky Quiz</h1>        
+        <h2>part -3: intermediate</h2>
+        <p>January 26, 2014</p>
+<!--         <div id="fb-root"></div><div class="fb-like" data-href="http://www.thatjsdude.com/interview/js1.htmQuiz" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div> &nbsp;<div class="g-plusone"></div>
+      -->
+      </div> 
+    </div>
+    <div class="container">
+      <!-- Example row of columns -->
+
+      <div class="row center">        
+        <!-- <iframe width="853" height="480" src="//www.youtube.com/embed/Rx_JFOSxgpY" frameborder="0" allowfullscreen></iframe> -->
+      </div>
+           
+      <!-- <p class="gray">if you are little more comfortable or claim to be comfortable with javascript, these questions would not be enough for you. more coming</p>
+      <p class="gray"> <span class="purpleBold">More Questions</span> <a href="css.html">css interview questions</a>, <a href="html.html">html interview questions</a> </p> -->
+      
+      <div id="addClass">
+        <h2>add class</h2>
+        <p><strong>Question:</strong> How you could add a class to an element by query selector</p>
+        <p><strong></strong></p>
+        <pre><code>
+function addClass(selector, className){
+   var elm = document.querySelector(selector);
+   if (elm)
+      elm.classList.add(className);
+}
+        </code></pre>
+      </div>
+      <div id="isDescendant">
+        <h2>is Descendant</h2>
+        <p><strong>Question:</strong> Check if one element child of another?</p>
+        <p><strong>Answer:</strong> check if the parent of the child is the node passed. if not keep checking</p>
+        <pre><code>
+function isDescendant(parent, child){ 
+  while(child.parentNode ){ 
+    if(child.parentNode == parent)
+      return true;
+    else
+      child = child.parentNode;
+  }
+  return false;
+}
+        </code></pre>
+      </div>
+      <div id="flattenArray">
+        <h2>flatten associated array</h2>
+        <p><strong>Question:</strong> How would you flatten an associated array in JavaScript?</p>
+        <p><strong>Answer:</strong></p>
+        <pre><code></code></pre>
+        <p>ref: <a href="https://gist.github.com/penguinboy/762197">look at this one</a></p>
+      </div>
+      <div id="allClick">
+          <h2>capture all click</h2>
+          <p><strong>Question:</strong> How could you capture all clicks in a page?</p>
+          <p><strong>Answer:</strong> </p>
+          <pre><code>
+document.querySelector('body').addEventListener('click', function(e){
+  console.log('body clicked', e.target);
+});
+
+//or
+window.onclick =function(e){
+  console.log('someone clicked', e.target)
+}
+          </code></pre>
+          <p>However, if event bubbling is canceled by <code>stopPropagation()</code> your code will not work. think about it.</p>
+        </div>
+          
+      <div>
+        <h2>rapid fire</h2>
+        <p><strong>Question:</strong> What is <code>typeof []</code></p>
+        <p><strong>Answer:</strong> Object. Actually Array is derived from Object.</p>
+        <p><strong>Question:</strong> What is <code>typeof arguments</code></p>
+        <p><strong>Answer:</strong> Object. arguments are array like but not array. it has length, can access by index but can't push pop, etc.</p>
+        <p><strong>Question:</strong>What is <code>2+true</code></p>
+        <p><strong>Answer:</strong> 3</p>
+        <p><strong>Question:</strong>what is <code>'6'+9</code></p>
+        <p><strong>Answer:</strong> 69</p>
+        <p><strong>Question:</strong> what is the value of <code>4+3+2+"1"</code></p>
+        <p><strong>Answer:</strong> 91</p>
+        <p><strong>Question:</strong> what is the value of <code>"1"+2+4</code></p>
+        <p><strong>Answer:</strong> 124</p>
+        <p><strong>Question:</strong> what is the value of <code>-'34'+10</code></p>
+        <p><strong>Answer:</strong> -24</p>
+        <p><strong>Question:</strong> what is the value of <code>+'dude'</code></p>
+        <p><strong>Answer:</strong> NaN</p>
+        <p><strong>Question:</strong> for <code>var y = 1, x = y = typeof x;</code> what is the value of x?</p>
+        <p><strong>Answer:</strong> "undefined"</p>
+        <p><strong>Question:</strong> for <code>var a = (2, 3, 5);</code> what is the value of a?</p>
+        <p><strong>Answer:</strong> 5</p>
+        <p><strong>Question:</strong> for <code>var a = (1,5 - 1) * 2</code> what is the value of a?</p>
+        <p><strong>Answer:</strong> 8</p>
+        <p><strong>Question:</strong> what is the value of <code>!'bang'</code></p>
+        <p><strong>Answer:</strong> false</p>
+        <p><strong>Question:</strong> what is the value of <code>parseFloat('12.3.4')</code></p>
+        <p><strong>Answer:</strong> 12.3</p>
+        <p><strong>Question:</strong> what is the value of <code>Math.max([2,3,4,5]);</code></p>
+        <p><strong>Answer:</strong> NaN</p>
+        <p><strong>Question:</strong> <code>3 instanceof Number</code></p>
+        <p><strong>Answer:</strong> false</p>
+        <p><strong>Question:</strong><code>null == undefined</code></p>
+        <p><strong>Answer:</strong> true</p>
+        <p><strong>Question:</strong>what is the value of <code>!!function(){};</code></p>
+        <p><strong>Answer:</strong> true</p>
+        <p><strong>Question:</strong> what is the value of <code>typeof bar</code></p>
+        <p><strong>Answer:</strong> "undefined"</p>
+        <p><strong>Question:</strong> what is the value of <code>typeof null</code></p>
+        <p><strong>Answer:</strong> "object"</p>
+        <p><strong>Question:</strong> if <code> var a = 2, b =3</code> what would be value of <code>a && b</code></p>
+        <p><strong>Answer:</strong> 3</p>
+        <p><strong>Question:</strong> what would be consoled <code>var foo = 'outside'; function logIt(){console.log(foo); var foo = 'inside';} logIt();</code></p>
+        <p><strong>Answer:</strong> undefined</p>
+      </div>      
+      <div id="mythicalHydra">
+        <h2>destroy button</h2>
+        <p><strong>Question:</strong> create a button that is destroyed by clicking it, but two new buttons are created in it's place.</p>
+        <p><strong>Answer:</strong> One way of solving is to attach a event handler with the button to destroy itself and append two. However, we can leverage event delegate. If we attach the event hander to the parent div instead of the button itself. we dont have to add the event handler to each button we create. So, we will take advantage of event bubbling.</p>
+        <pre><code>
+&lt;div id=&quot;doubleHolder&quot;&gt;<br/>  &lt;button class=&quot;double&quot;&gt;double&lt;/button&gt;<br/>&lt;/div&gt;<br/>&lt;script&gt;<br/> document.getElementById('doubleHolder').addEventListener('click', function (e) {<br/>   <br/>   if(e.target.classList.contains('double')){<br/>     var btn = document.createElement('button');<br/>      btn.setAttribute('class', 'double');<br/>     btn.innerHTML = 'double';<br/><br/>     var btn2 = document.createElement('button');<br/>     btn2.setAttribute('class', 'double');<br/>      btn2.innerHTML = 'double';<br/>     <br/>     this.appendChild(btn);<br/>     this.appendChild(btn2);<br/>      this.removeChild(e.target);   <br/>   }<br/>  }); <br/>&lt;/script&gt;
+        </code></pre>
+        <p>ref: <a href="http://www.careercup.com/question?id=17328675">destroy button</a></p>
+      </div>
+      <div>
+        <p><strong>Question:</strong> What is the difference between slice, substr, substring</p>
+        <p><strong>Answer:</strong> <a href="http://www.tvids.net/watch69/The-Big-Bang-Theory/season-01-episode-01-Pilot">slice, substr, substring</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substr?redirectlocale=en-US&redirectslug=JavaScript%2FReference%2FGlobal_Objects%2FString%2Fsubstr">MDN: substr</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring?redirectlocale=en-US&redirectslug=JavaScript%2FReference%2FGlobal_Objects%2FString%2Fsubstring">substring</a></p>
+        <pre><code>
+//put something here
+        </code></pre>
+      </div>
+      <div>
+        <p><strong>Question:</strong>What is the difference between null and undefined.</p>
+        <p><strong>Answer:</strong> <code>undefined</code> means, value of the variable is not defined. More specifically, you declared a variable but no value has been assigned to that variable.</p>
+        <p><code>null</code> means empty or non-existent value. null is a primitive value and you can assign null to any variable.</p>
+        <p>Where as undefined is a primitive type, null is a type of object. you can set variable to undefined but it is recommended to set it to null (if required) so that you can distinguish between null and undefined. though <code>null == undefined</code></p>
+        <p>if you delete any object property, that will become undefined.</p>
+        
+      </div>
+      <div id="equality">
+        <p><strong>Question:</strong> What are the difference between == and ===</p>
+        <p><strong>Answer:</strong> <a href="http://stackoverflow.com/a/1813267/1535443">stack overflow</a></p>
+      </div>
+      <div id="deferAsync">
+        <p><strong>Question:</strong> what is defer and async keyword does in a script tag</p>
+        <p><strong>Answer:</strong></p>
+        <p>ref: <a href="http://peter.sh/experiments/asynchronous-and-deferred-javascript-execution-explained/">JS script execution</a></p>
+        <pre><code></code></pre>
+      </div>
+      <div id="showAndTell">
+        <h2>show and tell</h2>
+        <p><strong>Question:</strong> for the following code</p>
+        <p><strong></strong></p>
+        <pre><code>
+function foo(){
+    function bar() {
+        return 3;
+    }
+    return bar();
+    function bar() {
+        return 8;
+    }
+}
+foo();//?
+        </code></pre>
+        <p><strong>Answer:</strong> 8</p>
+      </div>
+      <h2>Question about JS</h2>
+        <ul>
+          <li>How to extend a javascript object (<a href="http://stackoverflow.com/questions/11197247/javascript-equivalent-of-jquerys-extend-method">extend</a>)</li>
+          <li>Function as object</li>
+          <li>difference between .call .apply and .bind</li>          
+          <li>passing by value or by ref <a href="http://snook.ca/archives/javascript/javascript_pass/">js pass</a></li>
+          <li>How to achieve static variable in JS</li>
+          <li>what is window.onload</li>
+          <li>How will you make a website response </li>
+          <li>If you want to make a website responsive, you will you start</li>
+          <li>how will you start when you have to make a site compatible to different browser</li>
+          <li>what is html5 why you are using it</li>
+          <li>script tag defer vs async (refer to my presentation)</li>
+          <li>discuss scoping</li>
+          <li>closure</li>
+          <li>garbage collection</li>
+          <li>AJAX call in native JavaScript</li>
+          <li>event bubble</li>
+          <li>DOM access API</li>
+          <li>request animation frame</li>
+          <li>document fragment</li>
+        </ul>
+        <h2>medium level</h2>
+        <ul>
+          <li></li>
+          <li>From two sorted array how would you find common number?</li>
+          <li>How would u write a emitter. How could u make it distributed</li>
+          <li>From web page, how would u find similar words like rat, cat, bat and broom, groom etc.</li>
+          <li>pagination problem by Tony. [1] 2 3 4 5, ... 2 3 [4] 5 6 ..., 6 [7] 8 9 10 </li>
+          <li>permutation <a href="http://stackoverflow.com/a/21064332/1535443">stack overflow</a></li>
+          <li>get first 100 character long string from a big message but dont cut the last word (word break problem)</li>
+          <li>dealing with Node api like Ethan asked</li>
+          <li>Find the max difference of elements from two sorted array with non duplicate integer elements</li>
+          <li>Second symbol starting index <a href="http://programmingpraxis.com/2013/03/12/an-array-of-two-symbols/#comments">Array of two symbol</a></li>
+          <li><a href="http://programmingpraxis.com/2012/11/09/taxicab-numbers/">Determine if a positive number can be expressed as a sum of two cubes?</a></li>
+          <li><a href="http://programmingpraxis.com/2012/08/14/4sum/">4SUM</a></li>
+          <li>from an array of integers find 10 numbers closest to a given number <a href="http://programmingpraxis.com/2012/11/27/amazon-interview-question/">amazon</a></li>
+          <li>find a rotation point of a sorted array.</li>
+          <li><a href="http://stackoverflow.com/questions/2070359/finding-three-elements-in-an-array-whose-sum-is-closest-to-an-given-number">Finding three elements in an array whose sum is closest to an given number</a></li>
+          <li>Write a function to find the nearest link on a webpage given the mouse x,y coordinates. <a href="http://www.careercup.com/question?id=3538036">career cup</a></li>
+        </ul>  
+      <p>ref: <a href="http://www.w3.org/TR/REC-DOM-Level-1/level-one-core.html">DOM object</a></p>      
+      <div>
+        <h3>More Questions</h3>
+        <ul>
+          <li><a href="http://programmingpraxis.com/">Programming Praxis</a></li>
+          <li><a href=""></a></li>
+          <li><a href=""></a></li>
+          <li><a href=""></a></li>
+          <li><a href=""></a></li>
+        </ul>
+      </div>
+<div>
+  <!-- <h3 class="purpleBold">Express anger!</h3>
+  <p class="gray">Feel free to express your anger (sorry u have to use facebook). also find out mistakes ( technical, wrong answer, spelling, grammar, sentence, whatever), let ur dude learn and grow.</p>
+  <div class="fb-comments" data-href="http://www.thatjsdude.com/interview/js1.html" data-numposts="5" data-colorscheme="light"></div>
+-->
+</div> 
+      <hr>
+
+      <footer>
+        <p>&copy;thatJSDude 2014</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery-2.0.3.min.js"></script>    
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/highlight.pack.js"></script>    
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="js/toggleExample.js"></script>
+    <script type="text/javascript">
+      // //social plugins
+      // //g+
+      // (function() {
+      //   var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+      //   po.src = 'https://apis.google.com/js/platform.js';
+      //   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+      // })();
+      // //fb
+      // (function(d, s, id) {
+      //   var js, fjs = d.getElementsByTagName(s)[0];
+      //   if (d.getElementById(id)) return;
+      //   js = d.createElement(s); js.id = id;
+      //   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+      //   fjs.parentNode.insertBefore(js, fjs);
+      // }(document, 'script', 'facebook-jssdk'));
+    </script>
+  </body>
+</html>

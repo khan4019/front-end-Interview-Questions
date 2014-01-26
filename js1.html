@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="that js dude" content="">    
+    <title>JS: Algorithm</title>
+
+    <link rel="shortcut icon" href="images/favicon.jpg">    
+    <link rel="stylesheet" href="css/bootstrap.min.css" >
+    <link rel="stylesheet" href="css/zenburn.css">
+    <!-- Custom styles for this template -->
+    <style>
+      /* Move down content because we have a fixed navbar that is 50px tall */
+      body {        
+        padding-bottom: 20px;
+      }
+      .purpleBold{
+        color:purple;        
+        font-weight: bold;
+      }
+      .gray{
+        color: gray;
+      }
+      .blueish{
+        color: rgba(151, 182, 209, 0.98);
+      }
+      .singInStuff{
+        margin-top: 9px;
+      }
+      #uName{
+        margin-top: -7px;
+      }
+      .skipListItem{
+        list-style-type: none;
+      }
+      .skipListItem a{
+        color: inherit;
+      }
+      a:visited
+      { 
+        color: rgba(218, 209, 149, 0.98);
+      }
+      /*style for demo*/
+      
+    </style>
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+ 
+  <body>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>JS: Interview Algorithm</h1>        
+        <h2>part -1: beginner</h2>
+        <p>January 26, 2014</p>
+        <div id="fb-root"></div><div class="fb-like" data-href="http://www.thatjsdude.com/interview/js1.html" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div> &nbsp;<div class="g-plusone"></div>
+      </div>
+    </div>
+    <div class="container">
+      <!-- Example row of columns -->
+
+      <div class="row center">        
+        <!-- <iframe width="853" height="480" src="//www.youtube.com/embed/Rx_JFOSxgpY" frameborder="0" allowfullscreen></iframe> -->
+      </div>
+      <div>
+        <ol>
+          <li><a href="#isPrime">Verify a prime number?</a></li>
+          <li><a href="#primFactors">Find all prime factors of a number?</a></li>
+          <li><a href="#fibonacci">Get nth Fibonacci number?</a></li>
+          <li><a href="#greatestCommonDivisor">Find the greatest common divisor of two numbers?</a></li>
+          <li><a href="#removeDuplicate">Remove duplicate members from an array?</a></li>
+          <li><a href="#mergeSotedArray">Merge two sorted array?</a></li>
+          <li><a href="#swapTemp">Swap two numbers without using a temp variable?</a></li>
+          <li><a href="#string_reverse">Reverse a string in JavaScript?</a></li>
+          <li><a href="#reverseWords">Reverse words in a sentence?</a></li>
+          <li><a href="#reverseInPlace">Reverse words in place?</a></li>
+          <li><a href="#firstNonRepeating">Find the first non repeating char in a string?</a></li>
+          <li><a href="#removeDuplicateChar">Remove duplicate characters from a sting?</a></li>
+          <li><a href="#checkPalindrome">Verify a word as palindrome?</a></li>
+          <li><a href="#generateRandom">Generate random between 5 to 7 by using defined function.</a></li>
+          <li><a href="#missingNumber">Find missing number from unsorted array of integers.</a></li>
+          <li><a href="#sumOfTwo">Check whether any two numbers in an array sums to a given number?</a></li>
+          <li><a href="#SumOfLargestTwo">Find the largest sum of any two elements?</a></li>
+          <li><a href="#countingZeros">Total number of zeros from 1 upto n?</a></li>
+          <li><a href="#subString">Match substring of a sting?</a></li>
+          <li><a href="#permutation">Create all permutation of a string?</a></li>
+        </ol>
+      </div>
+      <p><span class="purpleBold">More Questions</span> <strong><a href="css.html">CSS Interview Questions</a></strong>, <strong><a href="html.html">HTML Interview Questions</a></strong></p>      
+      <p class="gray">if you are little more comfortable or claim to be comfortable with javascript, these questions would not be enough for you. more coming</p>
+      
+      <div id="isPrime">
+        <h2>1. check Prime</h2>
+        <p><strong>Question:</strong> How would you verify a prime number?</p>
+        <p><strong>Answer:</strong> a prime number is only divisible by itself and 1. So, i will run a while loop and increase by 1. (look at the code example. If you dont get it. this is not your cake. do learn javaScript basics and come back.)</p>
+        <pre><code>
+function isPrime(n){
+  var divisor = 2;
+
+  while (n > divisor){
+    if(n % divisor == 0){
+     return false; 
+    }
+    else
+      divisor++;
+  }
+  return true;
+}
+
+> isPrime(137);
+  = true
+> isPrime(237);
+  = false
+        </code></pre>
+            <p><strong>Interviewer:</strong> Can you make this better?</p>
+        <p><strong>You: </strong> yes. the divisor are increased 1 at a time. after 3 i can increase by 2. if a number is divisible by any even number, it will be divisible by 2.</p>
+        <p><strong>Extra:</strong> if you dont have to increase the divisor up to the number. you can stop much earlier. let me explain it in the following steps (just seat back and read as many times as needed)</p>
+        <div>
+          <button id = "primeExtra" type="button" class="toggleExample btn btn-primary">show example</button>
+          <div id="primeExtraExample" class="hide">
+        
+        <ul>
+          <li><strong>step-1:</strong> Any number will not be divisible by a number bigger than half of it. for example, 13 will never be divisible by 7, 8, 9 .. it could be as big as half of it for even number. for example, 16 will be divisible by 8 but will never be by 9, 10, 11, 12...</li>
+          <li><strong>Decision:</strong> a number will never be divisible by a number bigger than half of its values. So, we dont have to loop 50%</li>
+          <li><strong>step-2:</strong> Now, if a number is not divisible by 3. (if it is divisible by 3, then it wouldn't be a prime number). then it would be divisible any number bigger than the 1/3 of its value. for example, 35 is not divisible by 3. hence it will be never divisible by any number bigger than 35/3 will never be divisible by 12, 13, 14 ... if you take an even number like 36 it will never be divisible by 13, 14, 15 </li>
+          <li><strong>Decision:</strong> a number could be divisible by numbers 1/3 of its value.</li>
+          <li><strong>step-3:</strong> For example u have the number 127. 127 is not divisible by 2 hence you should check upto 63.5. Secondly, 127 is not divisible by 3. So, you will check up to 127/3 approximately 42. It is not divisible by 5, divisor should be less than 127/5 approximately 25  not by 7. So, where should we stop?</li>
+          <li><strong>Decision:</strong> divisor would be less than Math.sqrt (n)</li>
+        </ul>
+        <h3>try 2</h3>
+        <p><strong>Don't worry!</strong> if you didnt get it. just leave it. If you are not applying for a Research post, you would be alright.</p>
+        <pre><code>
+function isPrime(n)
+{
+  var divisor = 3, 
+      limit = Math.sqrt(n);
+  
+  //check simple cases
+  if (n == 2 || n == 3)
+     return true;
+  if (n % 2 == 0)
+     return false;
+
+  while (divisor &lt;= limit)
+  {
+    if (n % divisor == 0)
+      return false;
+    else
+      divisor += 2;
+  }
+  return true;
+}
+
+> isPrime(137);
+  = true
+> isPrime(237);
+  = false
+        </code></pre>
+          </div>
+        </div>
+      </div>
+      <div id="primFactors">
+        <h2>2. Prime Factors</h2>
+        <p><strong>Question:</strong> How could you find all prime factors of a number?</p>
+        <p><strong>Answer:</strong> Run a while loop. start dividing by two and if not divisible increase divider until u r done.</p>
+        <pre><code>
+function primeFactors(n){
+  var factors = [], 
+      divisor = 2;
+  
+  while(n>2){
+    if(n % divisor == 0){
+       factors.push(divisor); 
+       n= n/ divisor;
+    }
+    else{
+      divisor++;
+    }     
+  }
+  return factors;
+}
+
+> primeFactors(69);
+  = [3, 23]
+        </code></pre>
+        <p><strong>Interviewer:</strong>What is the run time complexity? can you make this better</p>
+        <p><strong>You:</strong> this is O(n). you can increase divisor by 2 form divisor = 3. Because, if a number is divisible by any even number it would divisible by 2. Hence, you dont need to divide by even numbers. Besides, you will not have a factor bigger than half of its value. if you want make it complex use tough concept in no. 1 (try-2. if u get it)</p>
+      </div>  
+      <div id="fibonacci">
+        <h2>3. Fibonacci</h2>
+        <p><strong>Question:</strong> How do get nth Fibonacci number?</p>
+        <p><strong>Answer:</strong> I create an array and start from iterate through. </p>
+        <p>Fibonacci series is one of the most popular interview question for beginners. so, you have to learn this one.</p>
+        <h3>try 1</h3>
+        <pre><code>
+function fibonacci(n){
+  var fibo = [0, 1];
+  
+  if (n &lt;= 2) return 1;
+
+  for (var i = 2; i &lt;=n; i++ ){
+   fibo[i] = fibo[i-1]+fibo[i-2];
+  }
+
+ return fibo[n];
+} 
+
+> fibonacci(12);
+  = 144       </code></pre>
+        <p><strong>Interviewer:</strong> What is the run time complexity?</p>
+         <p><strong>you:</strong> O(n)</p>
+         <p><strong>Interviewer:</strong> can you make it recursive?</p>
+         <p><strong></strong></p>
+         <h3>try 2</h3>
+         <pre><code>
+function fibonacci(n){
+  if(n&lt;=1)
+    return n;
+  else
+    return fibonacci(n-1) + fibonacci (n-2);  
+}
+
+> fibonacci(12);
+  = 144
+         </code></pre>
+         <p><strong>Interviewer:</strong> What is the run time complexity?</p>
+         <p><strong>You:</strong> O(2<sup>n</sup>). <a href="http://stackoverflow.com/a/360773/1535443">detail about complexity</a></p>
+      </div>
+          
+      <div id="greatestCommonDivisor">
+        <h2>4. Greatest Common Divisor</h2>
+        <p><strong>Question:</strong> How would you find the greatest common divisor of two numbers?</p>
+        <p><strong></strong></p>
+        <pre><code>
+function greatestCommonDivisor(a, b){
+  var divisor = 2, 
+      greatestDivisor = 1;
+
+  //if u pass a -ve number this will not work. fix it dude!!
+  if (a &lt; 2 || b &lt; 2)
+     return 1;
+  
+  while(a >= divisor && b >= divisor){
+   if(a %divisor == 0 && b% divisor ==0){
+      greatestDivisor = divisor;      
+    }
+   divisor++;
+  }
+  return greatestDivisor;
+}
+
+> greatestCommonDivisor(14, 21);
+  =7 
+> greatestCommonDivisor(69, 169);
+  = 1
+
+        </code></pre>
+        <h3>fancy algorithm</h3>
+        <p><strong>Sorry.</strong>  can't explain it. As i myself dont understand it 80% of the times. my algorithm analysis instructor told about this and stole if from class note (i am a good student, btw!)</p>
+        <pre><code>
+function greatestCommonDivisor(a, b){
+   if(b == 0)
+     return a;
+   else 
+     return greatestCommonDivisor(b, a%b);
+}
+        </code></pre>
+        <p><strong>Note:</strong> use your brain to understand it.</p>
+      </div>
+      <div id="removeDuplicate">
+        <h2>5. remove Duplicate</h2>
+        <p><strong>Question:</strong> How would you remove duplicate members from an array?</p>
+        <p><strong>Answer:</strong> will start a  while looping and  keep an object/ associated array. If i find an element for the first time i will set its value as true (that will tell me element added once.). if i find a element in the exists object, i will not insert it into the return array.</p>
+        <pre><code>
+function removeDuplicate(arr){
+  var exists ={},
+      outArr = [], 
+      elm;
+
+  for(var i =0; i&lt;arr.length; i++){
+    elm = arr[i];
+    if(!exists[elm]){
+      outArr.push(elm);
+      exists[elm] = true;
+   }
+  }
+  return outArr;
+}
+
+> removeDuplicate([1,3,3,3,1,5,6,7,8,1]);
+  = [1, 3, 5, 6, 7, 8]
+        </code></pre>
+      </div>
+      <div id="mergeSotedArray">
+        <h2>6. merge two sorted array</h2>
+        <p><strong>Question:</strong> How would you merge two sorted array?</p>
+        <p><strong>Answer:</strong> I will keep a pointer for each array and (read the code. and be careful about this one.)</p>
+        <pre><code>
+function mergeSortedArray(a, b){
+  var merged = [], 
+      aElm = a[0],
+      bElm = b[0],
+      i = j = 1;
+  
+  if(a.length ==0)
+    return b;
+  if(b.length ==0)
+    return a;
+  /* 
+  if aElm or bElm exists we will insert to merged array
+  (will go inside while loop)
+   to insert: aElm exists and bElm doesn't exists
+             or both exists and aElm &lt; bElm
+    this is the critical part of the example            
+  */
+  while(aElm || bElm){
+   if((aElm && !bElm) || aElm &lt; bElm){
+     merged.push(aElm);
+     aElm = a[i++];
+   }   
+   else {
+     merged.push(bElm);
+     bElm = b[j++];
+   }
+  }
+  return merged;
+}
+
+> mergeSortedArray([2,5,6,9], [1,2,3,29]);
+ = [1, 2, 2, 3, 5, 6, 9, 29]
+        </code></pre>
+      </div>
+      <div id="swapTemp">
+        <h2>7. swap number without temp</h2>
+        <p><strong>Question:</strong> How would you swap two numbers without using a temporary variable?</p>
+        <p><strong>Answer:</strong> Waste time about thinking it. though u know the answer, act like you are thinking and take your time to answer this one.</p>
+        <pre><code>
+function swapNumb(a, b){
+  console.log('before swap: ','a: ', a, 'b: ', b);
+  b = b -a;
+  a = a+ b;
+  b = a-b;
+  console.log('after swap: ','a: ', a, 'b: ', b);  
+}
+
+> swapNumb(2, 3);
+   = before swap:  a:  2 b:  3 VM849:3
+   = after swap:  a:  3 b:  2 
+        </code></pre>
+        <p><strong>bit manipulation</strong>: Sorry, i can't explain this to you. If you understand it, help me, please.</p>
+        <pre><code>
+function swapNumb(a, b){
+  console.log("a: " + a + " and b: " + b);
+  a = a ^ b;
+  b = a ^ b;
+  a = a ^ b;
+  console.log("a: " + a + " and b: " + b);
+}
+
+> swapNumb(2, 3);
+  = a: 2 and b: 3
+  = a: 3 and b: 2
+        </code></pre>
+      </div>      
+      <div id="string_reverse">
+        <h2>8. string reverse</h2>
+        <p><strong>Question:</strong> How would you reverse a string in JavaScript?</p>
+        <p><strong>Answer:</strong> I can loop through the string and concatenate letters to a new string</p>
+        <h3>try 1</h3>
+        <pre><code>
+function reverse(str){
+  var rtnStr = '';
+  for(var i = str.length-1; i&gt;=0;i--){
+    rtnStr +=str[i];
+  }
+  return rtnStr;
+}
+
+> reverse('you are a nice dude');
+  = "edud ecin a era uoy"
+        </code></pre>
+        <p><strong>Interviewer:</strong> You know concatenation performed well in modern browsers but becomes slow in older browsers like IE8. Is there any different way, you can reverse a string?</p>
+        <p><strong>Answer:</strong> sure. i can use an array and also add some checking. if string is null or other than string this will fail. let me do some type check as well. Using this array is like using string buffer in some server side languages.</p>
+        
+        <h3>try 2</h3>
+        <pre><code>
+function reverse(str){
+  var rtnStr = [];
+  if(!str || typeof str != 'string' || str.length &lt; 2 ) return str;
+  
+  for(var i = str.length-1; i&gt;=0;i--){
+    rtnStr.push(str[i]);
+  }
+  return rtnStr.join('');
+}
+        </code></pre>        
+        <p><strong>Interviewer:</strong> What is the run time complexity?</p>
+        <p><strong>You:</strong> O(n)</p>
+        <p><strong>Interviewer: </strong> Can you make this better?</p>
+        <p><strong>You:</strong> I can loop through half of the index and it will save little bit. (this is kind of useless, might not impress interviewer)</p>
+        <h3>try 3</h3>
+        <pre><code>
+function reverse(str) {
+  str = str.split('');
+  var len = str.length,
+      halfIndex = Math.floor(len / 2) - 1,
+      revStr;
+  for (var i = 0; i &lt;= halfIndex; i++) {
+    revStr = str[len - i - 1];
+    str[len - i - 1] = str[i];
+    str[i] = revStr;
+  }
+  return str.join('');
+}
+        </code></pre>
+        <p><strong>Interviewer:</strong> That works, but can u do it in a recursive way?</p>
+        <p><strong>You:</strong> sure.</p>
+        <h3>try 4</h3>        
+        <pre><code>
+function reverse (str) {
+    if (str === "") {
+        return "";
+    } else {
+        return reverse(str.substr(1)) + str.charAt(0);
+    }
+}
+        </code></pre>
+        <h3>try 5</h3>
+        <p><strong>Interviewer:</strong> Can you use any build in method to make it little cleaner?</p>
+        <p><strong>You:</strong> yes.</p>
+        <pre><code>
+function reverse(str){
+  if(!str || str.length &lt;2) return str;
+  
+  return str.split('').reverse().join('');
+}
+        </code></pre>
+        <h3>try 6</h3>
+        <p><strong>Question:</strong> Can you make reverse function as string extension?</p>
+        <p><strong>Answer:</strong> I need to add this function to the String.prototype and instead of using str as parameter, i need to use this</p>
+        <pre><code>
+String.prototype.reverse = function (){
+  if(!this || this.length &lt;2) return this;
+  
+  return this.split('').reverse().join('');
+}
+
+> 'abc'.reverse();
+  = 'cba'
+        </code></pre>
+      </div>
+      <div id="reverseWords">
+        <h2>9. reverse words</h2>
+        <p><strong>Question:</strong> How would you reverse words in a sentence?</p>
+        <p><strong>Answer: </strong> You have to check for white space and walk through the string. Ask is there could be multiple whitespace.</p>
+        <pre><code>
+//have a tailing white space
+//fix this later
+//now i m sleepy
+function reverseWords(str){
+ var rev = [], 
+     wordLen = 0;
+ for(var i = str.length-1; i>=0; i--){
+   if(str[i]==' ' || i==0){
+     rev.push(str.substr(i,wordLen+1));
+     wordLen = 0;
+   }
+   else
+     wordLen++;
+ }
+ return rev.join(' ');
+}
+        </code></pre>
+        <p><strong>A quick solution with build in methods:</strong></p>
+        <pre><code>
+function reverseWords(str){
+  return str.split(' ').reverse();
+}
+        </code></pre>
+      </div>
+      <div id="reverseInPlace">
+        <h2>10. reverse in place</h2>
+        <p><strong>Question: </strong> If you have a string like "I am the good boy". How can you generate "I ma eht doog yob"? Please note that the words are in place but reverse.</p>
+        <p><strong>Answer:</strong> To do this, i have to do both string reverse and word reverse.</p>        
+        <pre><code>
+function reverseInPlace(str){
+  return str.split(' ').reverse().join(' ').split('').reverse().join('');
+}
+
+> reverseInPlace('I am the good boy');
+ = "I ma eht doog yob"
+        </code></pre>
+        <p><strong>Interviewer:</strong> ok. fine. can you do it without using build in reverse function?</p>
+        <p><strong>you:</strong> (you mumbled): what the heck!!</p>
+        <pre><code>
+//sum two methods.
+//you can simply split words by ' '
+//and for each words, call reverse function
+//put reverse in a separate function
+
+
+//if u cant do this, 
+//have a glass of water, and sleep
+        </code></pre>
+      </div>
+      <div id="firstNonRepeating">
+        <h2>11. First non repeating char</h2>
+        <p><strong>Question:</strong> How could you find the first non repeating char in a string?</p>
+        <p><strong>Answer:</strong> You must ask follow up questions.</p>
+        <p><strong>Clarification:</strong> Is it case sensitive?</p>
+        <p><strong>Interviewer:</strong> interviewer might say no.</p>
+        <p><strong>Clarification:</strong> is it very long string or couple hundred?</p>
+        <p><strong>Interviewer:</strong> Why does that matter</p>
+        <p><strong>you:</strong> for example, if it is a very long string say a million characters and i want to check whether 26 English characters are repeating. I might check whether all characters are duplicated in every 200 letters (for example) other than looping through the whole string. this will save computation time.</p>
+        <p><strong>Interviewer:</strong> For simplicity, you string is "the quick brown fox jumps then quickly blow air"</p>
+        <p><strong>Clarification:</strong> (silly question) ascii or unicode.</p>
+        <pre><code>
+function firstNonRepeatChar(str){
+  var len = str.length,
+      char, 
+      charCount = {};
+  for(var i =0; i&lt;len; i++){
+    char = str[i];
+    if(charCount[char]){
+      charCount[char]++;
+    }
+    else
+      charCount[char] = 1;
+  }
+  for (var j in charCount){
+    if (charCount[j]==1)
+       return j;
+  }
+}  
+
+>firstNonRepeatChar('the quick brown fox jumps then quickly blow air');
+ = "f"
+        </code></pre>
+        <p>this has one problem. It is not guaranteed that for in loop will be executed in order.</p>
+      </div>
+      <div id="removeDuplicateChar">
+        <h2>12. remove duplicate char</h2>
+        <p><strong>Question:</strong> How will you remove duplicate characters from a sting?</p>
+        <p><strong>You:</strong> This is very similar to first non repeating char. You will asks similar question. Is it case sensitive.</p>
+        <p>If interviewer says, this is case sensitive then life become easier you. If he says no. you can either use string.toLowercase() to make whole string lower. he might not like it. because return string will not posses the same case. So </p>
+        <pre><code>
+function removeDuplicateChar(str){
+  var len = str.length,
+      char, 
+      charCount = {}, 
+      newStr = [];
+  for(var i =0; i&lt;len; i++){
+    char = str[i];
+    if(charCount[char]){
+      charCount[char]++;
+    }
+    else
+      charCount[char] = 1;
+  }
+  for (var j in charCount){
+    if (charCount[j]==1)
+       newStr.push(j);
+  }
+  return newStr.join('');
+}
+
+> removeDuplicateChar('Learn more javascript dude');
+  = "Lnmojvsciptu"
+        </code></pre>
+        <p><strong>Note:</strong>this has one problem. It is not guaranteed that for in loop will be executed in order.</p>
+        <p><strong>For case insensitive:</strong> when u r setting property of charCount or increase counter, just make the char.toLowerCase(). or you can do something fancy with charCode (if you can deal with it.)</p>
+
+      </div>
+      <div id="checkPalindrome">
+        <h2>13. check palindrome</h2>
+        <p><strong>Question:</strong> How will you verify a word as palindrome?</p>
+        <p><strong>Answer:</strong> if you reverse a word and it becomes same as the previous word, it is called palindrome.</p>
+        <pre><code>
+function isPalindrome(str){
+  var i, len = str.length;
+  for(i =0; i&lt;len/2; i++){
+    if (str[i]!== str[len -1 -i])
+       return false;
+  }
+  return true;
+}
+
+> isPalindrome('madam')
+  = true
+> isPalindrome('toyota')
+  = false
+        </code></pre>
+        <p>or you can use build in method</p>
+        <pre><code>
+function checkPalindrom(str) {
+    return str == str.split('').reverse().join('');
+}
+        </code></pre>
+        <p><strong>Similar:</strong> Find whether a string contains a contiguous palindromic substring in O(n) time. Can you solve the problem in O(1) time?</p>
+      </div>
+      <div id="generateRandom">
+        <h2>14. random between 5 to 7</h2>
+        <p><strong>Question:</strong>If you have a function that generate random number between 1 to 5 how could u generate random number 1 to 7 by using that function?</p>
+        <p><strong>Answer:</strong> Very simple. think of some basic arithmetic and you will get it.</p>
+        <pre><code>
+function rand5(){
+   return 1 + Math.random() * 4;
+}
+
+function rand7(){
+  return 5 + rand5() / 5 * 2;
+}
+        </code></pre>
+        
+        <p><strong></strong></p>
+      </div>
+      <div id="missingNumber">
+        <h2>15. missing number</h2>
+        <p><strong>Question:</strong> from a unsorted array of numbers 1 to 100 except one number. how will you find that number. </p>
+        <p><strong>Answer:</strong> You have to act like you are thinking a lot. and then talk about the sum of a linear series  of n numbers = n*(n+1)/2</p>
+        <pre><code>
+function missingNumber(arr){
+  var n = arr.length+1, 
+  sum = 0,
+  expectedSum = n* (n+1)/2;
+  
+  for(var i = 0, len = arr.length; i < len; i++){
+    sum += arr[i];
+  }
+  
+  return expectedSum - sum;
+}
+
+> missingNumber([5, 2, 6, 1, 3]);
+  = 4
+        </code></pre>
+        <p><strong>Note:</strong> this one will give u missing one number in any array of length</p>
+      </div>
+      <div id="sumOfTwo">
+        <h2>16. Sum of two</h2>
+        <p><strong>Question:</strong> From a unsorted array, check whether there are any two numbers that will sum up to a given number?</p>
+        <p><strong>Answer:</strong> Simplest thing in the world. double loop</p>
+        <pre><code>
+function sumFinder(arr, sum){
+  var len = arr.length;
+  
+  for(var i =0; i&lt;len-1; i++){  
+     for(var j = i+1;j&lt;len; j++){
+        if (arr[i] + arr[j] == sum)
+            return true;
+     }
+  }
+  
+  return false;
+}
+
+> sumFinder([6,4,3,2,1,7], 9);
+  = true
+> sumFinder([6,4,3,2,1,7], 2);
+  = false
+        </code></pre>
+        <p><strong>Interviewer:</strong> What is the time complexity of this function</p>
+        <p><strong>You:</strong> O(n<sup>2</sup>)</p>
+        <p><strong>Interviewer:</strong> Can you make this better</p>
+        <p><strong>You:</strong> Let me see. I can have an object where i will store the difference of sum and element. And then when i get to a new element and if i find the difference is the object, then i have a pair that sums up to the desired sum.</p>
+        <h3>try 2</h3>
+        <pre><code>
+function sumFinder(arr, sum){
+  var differ = {}, 
+      len = arr.length,
+      substract;
+  
+  for(var i =0; i&lt;len; i++){
+     substract = sum - arr[i];
+
+     if(differ[substract])
+       return true;       
+     else
+       differ[arr[i]] = true;
+  }
+  
+  return false;
+}
+
+> sumFinder([6,4,3,2,1,7], 9);
+  = true
+> sumFinder([6,4,3,2,1,7], 2);
+  = false
+        </code></pre>        
+        <p>similar problem: find the maximum difference of two numbers in an array <a href="http://programmingpraxis.com/2011/04/01/maximum-difference-in-an-array/">max difference</a></p>
+        <p><strong>Even tougher</strong><a href="http://stackoverflow.com/questions/2070359/finding-three-elements-in-an-array-whose-sum-is-closest-to-an-given-number">Finding three elements in an array whose sum is closest to an given number</a></p>
+      </div>
+      <div id="SumOfLargestTwo">
+        <h2>17. Largest Sum</h2>
+        <p><strong>Question:</strong> How would you find the largest sum of any two elements?</p>
+        <p><strong>Answer:</strong> this is actually very simple and straight forward. Just find the two largest number and return sum of them</p>
+        <pre><code>
+function topSum(arr){
+  
+  var biggest = arr[0], 
+      second = arr[1], 
+      len = arr.length, 
+      i = 2;
+
+  if (len&lt;2) return null;
+  
+  if (biggest&lt;second){
+    biggest = arr[1];
+    second = arr[0];
+  } 
+  
+  for(; i&lt;len; i++){
+
+   if(arr[i] > biggest){
+      second = biggest;
+      biggest = arr[i];
+    }
+   else if (arr[i]>second){
+      second = arr[i];
+   }
+    
+ }
+ return biggest + second;
+}
+        </code></pre>
+      </div>
+      <div id="countingZeros">
+        <h2>18. Counting Zeros</h2>
+        <p><strong>Question:</strong> Count Total number of zeros from 1 upto n?</p>
+        <p><strong>Answer:</strong> If n = 50. number of 0 would be 11 (0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100). Please note that 100 has two 0. This one looks simple but little tricky</p>
+        <p><strong>Explanation:</strong> So the tick here is. if you have a number 1 to 50 the value is 5. just 50 divided by 10. However, if the value is 100. the value is 11. you will get by 100/10 = 10 and 10/10. Thats how you will get in the more zeros in one number like (100, 200, 1000)</p>
+        <pre><code>
+function countZero(n){
+  var count = 0;
+  while(n>0){
+   count += Math.floor(n/10);
+   n = n/10;
+  }
+  return count;
+}
+
+> countZero(2014);
+  = 223
+        </code></pre>
+      </div>
+      <div id="subString">
+            <h2>19. subString</h2>
+            <p><strong>Question:</strong> How can you match substring of a sting?</p>
+            <p><strong>Answer:</strong> Will use to pointer (one for string and another for the substring) while iterating the string. And will have another variable to hold the starting index of the initial match.</p>
+            <pre><code>
+function subStringFinder(str, subStr){
+  var idx = i = j = 0,
+      len = str.length,
+      subLen = subStr.length;
+
+   for(; i&lt;len; i++){
+   
+      if(str[i] == subStr[j])
+         j++;
+      else
+         j = 0;
+      
+      //check starting point or a match   
+      if(j == 0)
+        idx = i;
+      else if (j == subLen)
+        return idx;
+  }
+
+  return -1;
+}
+
+> subStringFinder('abbcdabbbbbck', 'ab')
+  = 0
+> subStringFinder('abbcdabbbbbck', 'bck')
+  = 9
+
+//doesn't work for this one.
+> subStringFinder('abbcdabbbbbck', 'bbbck')  
+  = -1
+            </code></pre>
+            <p><strong>Question:</strong> How can you fix the last problem?</p>
+            <p><strong>Answer:</strong> figure out yourself.</p>
+          </div>
+          <div id="permutation">
+        <h2>20. Permutations</h2>
+        <p><strong>Question:</strong> How would you create all permutation of a string?</p>
+        <p><strong>Answer:</strong> This could be a tough one based on you level of knowledge about algorithm.</p>
+        <pre><code>
+function permutations(str){
+var arr = str.split(''),
+    len = arr.length, 
+    perms = [],
+    rest,
+    picked,
+    restPerms,
+    next;
+
+    //for one or less item there is only one permutation 
+    if (len == 0)
+        return [str];
+
+    for (var i=0; i&lt;len; i++)
+    {
+        //copy original array to avoid changing it while picking elements
+        rest = Object.create(arr);
+
+        //splice removed element change array original array(copied array)
+        //[1,2,3,4].splice(2,1) will return [3] and remaining array = [1,2,4]
+        picked = rest.splice(i, 1);
+
+        //get the permutation of the rest of the elements by passing array as string
+        restPerms = permutations(rest.join(''));
+
+       // Now concat like a+permute(bc) for each
+       for (var j=0; j&lt;restPerms.length; j++)
+       {
+           next = picked.concat(restPerms[j]);
+           perms.push(next.join(''));
+       }
+    }
+
+   return perms;
+}
+        </code></pre>
+      </div>            
+      <div>
+        <h2>similar question</h2>        
+        <ul>
+          <li>display prime numbers up to n. </li>
+          <li>Display number which is repeated for event times in an array</li>
+          <li>Fist non repeating character not case sensitive <a href="http://programmingpraxis.com/2013/04/30/first-unrepeated-character-in-a-string/">programming praxis</a></li>          
+          <li>count words in a string</li>
+          <li>In an integer array, there is 1 to 100 number, out of one is duplicate, how to find ?</li>
+          <li>implement substring of a string. also make it case sensitive</li>
+          <li>Find a square of a number. but you can only use addition or subtraction but no multiplication or division <a href="http://programmingpraxis.com/2013/02/26/an-odd-way-to-square/2/">Odd way to Square</a></li>
+        </ul>
+        <h2>medium level</h2>
+        <ul>
+          <li>From two sorted array how would you find common number?</li>          
+          <li>From web page, how would u find similar words like rat, cat, bat and broom, groom etc.</li>          
+          <li>get first 100 character long string from a big message but dont cut the last word (word break problem)</li>          
+          <li>Find the max difference of elements from two sorted array with non duplicate integer elements</li>
+          <li>Second symbol starting index <a href="http://programmingpraxis.com/2013/03/12/an-array-of-two-symbols/#comments">Array of two symbol</a></li>
+          <li><a href="http://programmingpraxis.com/2012/11/09/taxicab-numbers/">Determine if a positive number can be expressed as a sum of two cubes?</a></li>
+          <li><a href="http://programmingpraxis.com/2012/08/14/4sum/">4SUM</a></li>
+          <li>from an array of integers find 10 numbers closest to a given number <a href="http://programmingpraxis.com/2012/11/27/amazon-interview-question/">amazon</a></li>
+          <li>find a rotation point of a sorted array.</li>
+          <li><a href="http://stackoverflow.com/questions/2070359/finding-three-elements-in-an-array-whose-sum-is-closest-to-an-given-number">Finding three elements in an array whose sum is closest to an given number</a></li>
+          <li>Write a function to find the nearest link on a webpage given the mouse x,y coordinates. <a href="http://www.careercup.com/question?id=3538036">career cup</a></li>
+        </ul> 
+        <p>ref: <a href="http://www.interviewcake.com/tips-and-tricks">Coding interview tips</a></p>
+        <p><a href="http://projecteuler.net/problems">more problems</a></p>
+      </div>
+<p><strong>Need more:</strong> <strong><a href="css.html">CSS Interview Questions</a></strong>, <strong><a href="html.html">HTML Interview Questions</a></strong></p>      
+<div>
+  <h3 class="purpleBold">Express anger!</h3>
+  <p class="gray">Feel free to express your anger (sorry u have to use facebook). also find out mistakes ( technical, wrong answer, spelling, grammar, sentence, whatever), let ur dude learn and grow.</p>
+  <div class="fb-comments" data-href="http://www.thatjsdude.com/interview/js1.html" data-numposts="5" data-colorscheme="light"></div>
+</div>
+      <hr>
+
+      <footer>
+        <p>&copy;thatJSDude 2014</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery-2.0.3.min.js"></script>    
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/highlight.pack.js"></script>    
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="js/toggleExample.js"></script>
+    <script type="text/javascript">
+      //social plugins
+      //g+
+      (function() {
+        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+        po.src = 'https://apis.google.com/js/platform.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+      })();
+      //fb
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+  </body>
+</html>
