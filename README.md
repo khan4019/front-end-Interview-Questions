@@ -24,7 +24,7 @@ ______
 14. Explain standard and quirks mode.
 15. What is semantic tag?
 
-####[html Answers](http://www.thatjsdude.com/interview/html.html)
+####[HTML Answers](http://www.thatjsdude.com/interview/html.html)
 
 ##[css](http://www.thatjsdude.com/interview/css.html)
 21+ questions and answers
@@ -63,7 +63,7 @@ ____________
 1. What are the reasons to use preprocessor?
 1. [Show you couple of style example and you have to tell what does it do](http://www.thatjsdude.com/interview/css.html#seeAndTell).
 
-####[css Answers](http://www.thatjsdude.com/interview/css.html)
+####[CSS Answers](http://www.thatjsdude.com/interview/css.html)
 
 ###css Deleted questions!
 Looks like these are for hardcore designer. Hence, didn't make for developers.
@@ -102,4 +102,5 @@ __________________
 1. Total number of zeros from 1 upto n?
 1. Check whether a given string is a substring of bigger string
 2. Get permutaitons of a string
-####[JS (part-1) Answers](http://www.thatjsdude.com/interview/js1.html)
+
+####[JS: Algorithm (part-1) Answers](http://www.thatjsdude.com/interview/js1.html)
