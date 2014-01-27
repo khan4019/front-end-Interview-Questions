@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="that js dude" content="">    
+    <title>JS: Quiz Explanation</title>
+
+    <link rel="shortcut icon" href="images/favicon.jpg">    
+    <link rel="stylesheet" href="css/bootstrap.min.css" >
+    <link rel="stylesheet" href="css/zenburn.css">
+    <!-- Custom styles for this template -->
+    <style>
+      /* Move down content because we have a fixed navbar that is 50px tall */
+      body {        
+        padding-bottom: 20px;
+      }
+      .purpleBold{
+        color:purple;        
+        font-weight: bold;
+      }
+      .gray{
+        color: gray;
+      }
+      .blueish{
+        color: rgba(151, 182, 209, 0.98);
+      }
+      .singInStuff{
+        margin-top: 9px;
+      }
+      #uName{
+        margin-top: -7px;
+      }
+      .skipListItem{
+        list-style-type: none;
+      }
+      .skipListItem a{
+        color: inherit;
+      }
+      a:visited
+      { 
+        color: rgba(218, 209, 149, 0.98);
+      }
+      /*style for demo*/
+      
+    </style>
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+ 
+  <body>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>JS: tricky Quiz</h1>        
+        <h2>part -3: intermediate</h2>
+        <p>January 26, 2014</p>
+<!--         <div id="fb-root"></div><div class="fb-like" data-href="http://www.thatjsdude.com/interview/js1.htmQuiz" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div> &nbsp;<div class="g-plusone"></div>
+      -->
+      </div> 
+    </div>
+    <div class="container">
+      <!-- Example row of columns -->
+
+      <div class="row center">        
+        <!-- <iframe width="853" height="480" src="//www.youtube.com/embed/Rx_JFOSxgpY" frameborder="0" allowfullscreen></iframe> -->
+      </div>
+           
+      <!-- <p class="gray">if you are little more comfortable or claim to be comfortable with javascript, these questions would not be enough for you. more coming</p>
+      <p class="gray"> <span class="purpleBold">More Questions</span> <a href="css.html">css interview questions</a>, <a href="html.html">html interview questions</a> </p> -->
+      
+      <div id="responsiveWebsite">
+        <h2>responsive</h2>
+        <p><strong>Question:</strong> What are the things you would consider to make a website responsive?</p>
+        <p><strong>Answer:</strong> It depends on what I am trying to do but you can talk about a some of them-</p>
+        <ul>
+          <li><strong>layout</strong>, keep it simple. dont use div, absolute position or float unnecessarily. kill inline styles. use HTML5 doctype, reset stylesheet, semantic core layout.</li>
+          <li><strong>media queries</strong>, to load stylesheet based on the size of the media or apply rules based on the orientation of the media</li>
+          <li><strong>breakpoints</strong>, choose the right breakpoints to switch style. common breakpoints are &lt;480px, &lt;768px, &gt;768px. There are three nice to have breakpoints &lt;320px, &gt;769px and &lt;1024px, &gt;1024px.</li>
+          <li><strong>flexible</strong>, don't use fixed width rather use relative to viewport size. For example, 50% of the viewport will always be half of the screen and doesn't depend on the device. This is also important for font-size and it is recommended to use something relative like em</li>
+          <li><strong>pictures</strong>, pictures are a big of a deal for responsive websites. Right now you can change src attribute of an image based on the media query alone. Hence you can use background-image or use different picture versions and show/hide their parent in media queries.</li>
+          <li><strong>max-*, min-*</strong>, you can use <code>max-width:768px;</code> <code>min-height:350px;</code> to apply style</li>
+          <li><strong>navigation</strong>, re-layout navigation/ menu in lower resolution is very important</li>
+          <li><strong>tools</strong>, don't reinvent the wheel. use bootstrap or similar libraries for responsive website</li>
+        </ul>
+        <p>ref: <a href="http://www.1stwebdesigner.com/css/responsive-website-tutorial/">responsive tutorial</a>, <a href="http://readwrite.com/2013/04/16/10-developer-tips-to-build-a-responsive-website-infographic#awesm=~ou5vLQZqqXIubV">Read best practices</a></p>
+      </div>
+      <div id="browserCompatible">
+        <h2>browser compatibility</h2>
+        <p><strong>Question:</strong> How will you make a website compatible to multiple browsers?</p>
+        <p><strong>Answer:</strong></p>
+        <ul>
+          <li><strong>html</strong>, write valid html. use doctype.</li>
+          <li><strong>css</strong>, understand box model, float, clear and other css properties. Remember older browser doesnt support css3</li>
+          <li><strong>browser prefix</strong>, dont use browser prefix. Or you could use it if you implement <a href="http://dev.opera.com/articles/view/graceful-degradation-progressive-enhancement/">graceful degradation</a></li>
+          <li><strong>tools</strong>, reset, bootstrap, <a href="http://modernizr.com/">modernizr</a>, jquery, etc.</li>          
+          <li><strong>never same</strong>, something will never be same across browsers like drop down menu</li>
+          <li><strong>internet explorer</strong>, understand problems in IE6, IE7. IE6 becomes problematic when float is overused like double margin on floated elements, negative margin. You can have a stylesheet for IE specific version.</li>
+          <li><strong>test</strong>, ther is no alternative to test your website as many browser versions as possible</li>
+          <p>ref: <a href="http://coding.smashingmagazine.com/2010/06/07/the-principles-of-cross-browser-css-coding/">cross-browser css coding</a>, <a href="http://coding.smashingmagazine.com/2010/04/28/css3-solutions-for-internet-explorer/">css3 solutions for IE</a></p>
+        </ul>
+      </div>
+      <div id="compatibilityTest">
+        <h2>test compatibility</h2>
+        <p><strong>Question:</strong> How would you test browser compatibility of your site?</p>
+        <p><strong>Answer:</strong> It becomes tiresome to test all the different browser and versions available. I can check current market share of the browsers and create short list to test. and then i can use lools like <a href="http://browsershots.org/">browsershots</a>, <a href="http://www.browserstack.com/screenshots">browserStack</a>, etc.</p>
+        <p>ref: <a href="http://www.hongkiat.com/blog/complete-guide-to-cross-browser-compatibility-check/">compatibility checking tools</a>, <a href="http://www.1stwebdesigner.com/design/tools-browser-compatibility-check/">10 tools</a></p>
+      </div>
+<div>
+  <!-- <h3 class="purpleBold">Express anger!</h3>
+  <p class="gray">Feel free to express your anger (sorry u have to use facebook). also find out mistakes ( technical, wrong answer, spelling, grammar, sentence, whatever), let ur dude learn and grow.</p>
+  <div class="fb-comments" data-href="http://www.thatjsdude.com/interview/js1.html" data-numposts="5" data-colorscheme="light"></div>
+-->
+</div> 
+      <hr>
+
+      <footer>
+        <p>&copy;thatJSDude 2014</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery-2.0.3.min.js"></script>    
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/highlight.pack.js"></script>    
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="js/toggleExample.js"></script>
+    <script type="text/javascript">
+      // //social plugins
+      // //g+
+      // (function() {
+      //   var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+      //   po.src = 'https://apis.google.com/js/platform.js';
+      //   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+      // })();
+      // //fb
+      // (function(d, s, id) {
+      //   var js, fjs = d.getElementsByTagName(s)[0];
+      //   if (d.getElementById(id)) return;
+      //   js = d.createElement(s); js.id = id;
+      //   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+      //   fjs.parentNode.insertBefore(js, fjs);
+      // }(document, 'script', 'facebook-jssdk'));
+    </script>
+  </body>
+</html>
