@@ -312,7 +312,8 @@ function mergeSortedArray(a, b){
   var merged = [], 
       aElm = a[0],
       bElm = b[0],
-      i = j = 1;
+      i = 1,
+      j = 1;
   
   if(a.length ==0)
     return b;
@@ -761,7 +762,9 @@ function countZero(n){
             <p><strong>Answer:</strong> Will use to pointer (one for string and another for the substring) while iterating the string. And will have another variable to hold the starting index of the initial match.</p>
             <pre><code>
 function subStringFinder(str, subStr){
-  var idx = i = j = 0,
+  var idx = 0,
+      i = 0,
+      j = 0,
       len = str.length,
       subLen = subStr.length;
 
