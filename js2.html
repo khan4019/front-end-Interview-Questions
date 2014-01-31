@@ -185,6 +185,21 @@ window.onclick =function(e){
         </code></pre>
         <p>ref: <a href="http://www.careercup.com/question?id=17328675">destroy button</a></p>
       </div>
+      <div id="destroyList">
+        <h2>destroy list</h2>
+        <p><strong>Question:</strong>you have a list of items that has anchor. how would you destroy list item when someone click on a list item</p>
+        <p><strong>Answer:</strong></p>
+        <pre><code>
+&lt;ul id=&quot;listToDestroy&quot;&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;first item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;third item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;forth item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Fifth item&lt;/a&gt;&lt;/li&gt;<br/>&lt;/ul&gt;<br/>&lt;script type=&quot;text/javascript&quot;&gt; <br/> document.getElementById('listToDestroy').addEventListener('click', function (e) { <br/>    e.target.parentNode.parentNode.removeChild(e.target.parentNode);<br/>    e.preventDefault();<br/> });<br/>&lt;/script&gt;
+        </code></pre>
+        <ul id="listToDestroy">
+          <li><a href="#">first item</a></li>
+          <li><a href="#">second item</a></li>
+          <li><a href="#">third item</a></li>
+          <li><a href="#">forth item</a></li>
+          <li><a href="#">Fifth item</a></li>
+        </ul>
+      </div>
       <div>
         <p><strong>Question:</strong> What is the difference between slice, substr, substring</p>
         <p><strong>Answer:</strong> <a href="http://www.tvids.net/watch69/The-Big-Bang-Theory/season-01-episode-01-Pilot">slice, substr, substring</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substr?redirectlocale=en-US&redirectslug=JavaScript%2FReference%2FGlobal_Objects%2FString%2Fsubstr">MDN: substr</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring?redirectlocale=en-US&redirectslug=JavaScript%2FReference%2FGlobal_Objects%2FString%2Fsubstring">substring</a></p>
@@ -348,6 +363,12 @@ foo();//?
       //   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
       //   fjs.parentNode.insertBefore(js, fjs);
       // }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <script type="text/javascript">
+        document.getElementById('listToDestroy').addEventListener('click', function (e) {
+          e.target.parentNode.parentNode.removeChild(e.target.parentNode);
+          e.preventDefault();
+        })
     </script>
   </body>
 </html>
