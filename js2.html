@@ -212,6 +212,14 @@ window.onclick =function(e){
         <pre><code>
 &lt;div id=&quot;doubleHolder&quot;&gt;<br/>  &lt;button class=&quot;double&quot;&gt;double&lt;/button&gt;<br/>&lt;/div&gt;<br/>&lt;script type="text/javascript" &gt;<br/> document.getElementById('doubleHolder').addEventListener('click', function (e) {<br/>   <br/>   if(e.target.classList.contains('double')){<br/>     var btn = document.createElement('button');<br/>      btn.setAttribute('class', 'double');<br/>     btn.innerHTML = 'double';<br/><br/>     var btn2 = document.createElement('button');<br/>     btn2.setAttribute('class', 'double');<br/>      btn2.innerHTML = 'double';<br/>     <br/>     this.appendChild(btn);<br/>     this.appendChild(btn2);<br/>      this.removeChild(e.target);   <br/>   }<br/>  }); <br/>&lt;/script&gt;
         </code></pre>
+        <div>
+          <button id = "distroyBtn" type="button" class="toggleExample btn btn-primary">show example</button>
+          <div id="distroyBtnExample" class="hide">
+            <div id="doubleHolder">
+              <button class="double">double</button>
+            </div>
+          </div>  
+        </div>
         <p>ref: <a href="http://www.careercup.com/question?id=17328675">destroy button</a></p>
       </div>
       <div id="destroyList">
@@ -417,11 +425,28 @@ foo();//?
       //   fjs.parentNode.insertBefore(js, fjs);
       // }(document, 'script', 'facebook-jssdk'));
     </script>
-    <script type="text/javascript">
+    <script type="text/javascript">        
         document.getElementById('listToDestroy').addEventListener('click', function (e) {
           e.target.parentNode.parentNode.removeChild(e.target.parentNode);
           e.preventDefault();
-        })
+        }); 
+
+        document.getElementById('doubleHolder').addEventListener('click', function (e) {
+   
+           if(e.target.classList.contains('double')){
+              var btn = document.createElement('button');
+              btn.setAttribute('class', 'double');
+              btn.innerHTML = 'double';
+
+              var btn2 = document.createElement('button');
+              btn2.setAttribute('class', 'double');
+              btn2.innerHTML = 'double';
+             
+              this.appendChild(btn);
+              this.appendChild(btn2);
+              this.removeChild(e.target);   
+           }
+        }); 
     </script>
   </body>
 </html>
