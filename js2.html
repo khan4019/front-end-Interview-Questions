@@ -63,7 +63,7 @@
     <div class="jumbotron">
       <div class="container">
         <h1>JS: tricky Quiz</h1>        
-        <h2>part -3: intermediate</h2>
+        <h2>part -2: intermediate</h2>
         <p>January 26, 2014</p>
 <!--         <div id="fb-root"></div><div class="fb-like" data-href="http://www.thatjsdude.com/interview/js1.htmQuiz" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div> &nbsp;<div class="g-plusone"></div>
       -->
@@ -108,10 +108,37 @@ function isDescendant(parent, child){
         </code></pre>
       </div>
       <div id="flattenArray">
-        <h2>flatten associated array</h2>
-        <p><strong>Question:</strong> How would you flatten an associated array in JavaScript?</p>
+        <h2>flatten an array</h2>
+        <p><strong>Question:</strong> How would you flatten an array in JavaScript?</p>
         <p><strong>Answer:</strong></p>
-        <pre><code></code></pre>
+        <pre><code>
+function flatten(array) {
+      var i = - 1,
+          j = 0, 
+          length = array ? array.length : 0,
+          elm,
+          elmLength = 0,
+          output = [];
+
+      while (++i &lt; length) {
+        elm = array[i];
+        //if elm is an array faltten it and then insert each item into output
+        if (elm && (Array.isArray(elm))) {
+          
+          elm = flatten(elm);
+
+          for(j =0, elmLength = elm.length; j &lt;elmLength; j++)
+             output.push(elm[j]);
+
+        } 
+        else {
+          output.push(elm);
+        }
+      }
+      return output;
+    }
+
+        </code></pre>
         <p>ref: <a href="https://gist.github.com/penguinboy/762197">look at this one</a></p>
       </div>
       <div id="allClick">
@@ -233,7 +260,7 @@ window.onclick =function(e){
       <div id="inheritance">
         <h2>inheritance</h2>
         <p><strong>Question:</strong> How would you perform inhertiance in JavaScript?</p>
-        <p><strong></strong></p>
+        <p><strong>Answer:</strong> ddddd</p>
       </div>
       <div id="onload">
         <h2>window.onload vs document.onload</h2>
@@ -300,17 +327,21 @@ foo();//?
           <li>DOM access API</li>
           <li>request animation frame</li>
           <li>document fragment</li>
+          <li>how to check a form is empty</li>
         </ul>
         <h2>medium level</h2>
         <ul>
-          <li></li>
+          <li>replace every "bb" in a given string like "aaabbc" by "ee" and output should be "aaaeec"</li>
           <li>From two sorted array how would you find common number?</li>
+          <li>Write the HTML/CSS for a mockup</li>
           <li>How would u write a emitter. How could u make it distributed</li>
           <li>From web page, how would u find similar words like rat, cat, bat and broom, groom etc.</li>
           <li>pagination problem by Tony. [1] 2 3 4 5, ... 2 3 [4] 5 6 ..., 6 [7] 8 9 10 </li>
           <li>permutation <a href="http://stackoverflow.com/a/21064332/1535443">stack overflow</a></li>
           <li>get first 100 character long string from a big message but dont cut the last word (word break problem)</li>
           <li>dealing with Node api like Ethan asked</li>
+          <li>notify any change</li>
+          <li>how to flatten an array <a href="http://stackoverflow.com/a/7875151/1535443">stackoverflow</a> or look into <a href="https://github.com/lodash/lodash/blob/master/lodash.js">lo-dash flatten in linke 1440</a></li>
           <li>Find the max difference of elements from two sorted array with non duplicate integer elements</li>
           <li>Second symbol starting index <a href="http://programmingpraxis.com/2013/03/12/an-array-of-two-symbols/#comments">Array of two symbol</a></li>
           <li><a href="http://programmingpraxis.com/2012/11/09/taxicab-numbers/">Determine if a positive number can be expressed as a sum of two cubes?</a></li>
