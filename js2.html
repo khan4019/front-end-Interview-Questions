@@ -227,7 +227,7 @@ window.onclick =function(e){
         <p><strong>Question:</strong>you have a list of items that has anchor. how would you destroy list item when someone click on a list item</p>
         <p><strong>Answer:</strong></p>
         <pre><code>
-&lt;ul id=&quot;listToDestroy&quot;&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;first item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;third item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;forth item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Fifth item&lt;/a&gt;&lt;/li&gt;<br/>&lt;/ul&gt;<br/>&lt;script type=&quot;text/javascript&quot;&gt; <br/> document.getElementById('listToDestroy').addEventListener('click', function (e) { <br/>    e.target.parentNode.parentNode.removeChild(e.target.parentNode);<br/>    e.preventDefault();<br/> });<br/>&lt;/script&gt;
+&lt;ul id=&quot;listToDestroy&quot;&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;first item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;third item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;forth item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Fifth item&lt;/a&gt;&lt;/li&gt;<br/>&lt;/ul&gt;<br/>&lt;script type=&quot;text/javascript&quot;&gt; <br/> document.getElementById('listToDestroy').addEventListener('click', function (e) { <br/>    var elm = e.target.parentNode; <br/>    elm.parentNode.removeChild(elm);<br/>    e.preventDefault();<br/> });<br/>&lt;/script&gt;
         </code></pre>
         <div>
           <button id = "destroyLst" type="button" class="toggleExample btn btn-primary">show example</button>
@@ -432,7 +432,8 @@ foo();//?
     </script>
     <script type="text/javascript">        
         document.getElementById('listToDestroy').addEventListener('click', function (e) {
-          e.target.parentNode.parentNode.removeChild(e.target.parentNode);
+          var elm = e.target.parentNode;
+          elm.parentNode.removeChild(elm);
           e.preventDefault();
         }); 
 
