@@ -116,6 +116,41 @@
         <p><strong>Answer:</strong> It becomes tiresome to test all the different browser and versions available. I can check current market share of the browsers and create short list to test. and then i can use lools like <a href="http://browsershots.org/">browsershots</a>, <a href="http://www.browserstack.com/screenshots">browserStack</a>, etc.</p>
         <p>ref: <a href="http://www.hongkiat.com/blog/complete-guide-to-cross-browser-compatibility-check/">compatibility checking tools</a>, <a href="http://www.1stwebdesigner.com/design/tools-browser-compatibility-check/">10 tools</a></p>
       </div>
+      <div id="byValueByRef">
+        <h2>pass by Value </h2>
+        <p><strong>Question:</strong> Does JavaScript pass parameter by value or by reference</p>
+        <p><strong>Answer:</strong> </p>
+        <pre><code>
+   var num = 10,
+        name = "Jane Austen",
+ 
+        obj1 = {
+          state: "unchanged"
+        },
+ 
+        obj2 = {
+          state: "unchanged"
+        },
+      
+        obj3 = obj2;
+ 
+    function change(num, name, obj1, obj2) {
+      num = num * 10;
+      name = "Nathaniel Hawthorne";
+      obj1 = obj2;
+      obj2.state = "changed";
+    }
+ 
+    change(num, name, obj1, obj2);
+ 
+    console.log("num = " + num); // 10
+    console.log("name = " + name);// "jane Austen"
+    console.log("obj1.state = " + obj1.state);//"unchanged"
+    console.log("obj2.state = " + obj2.state);//"changed"
+    console.log("obj3.state = " + obj3.state);//"changed"        
+        </code></pre>
+        <p>ref: <a href="http://stackoverflow.com/a/3638034/1535443">stackoverflow</a>, more detailed: <a href="http://snook.ca/archives/javascript/javascript_pass">Jonathan Snook</a></p>
+      </div>
       <div>
         <h3>questions: shutterlock</h3>
         <ul>
