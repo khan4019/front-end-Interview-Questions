@@ -305,9 +305,24 @@ window.onclick =function(e){
 document.getElementsByTagName('body')[0].innerText;
         </code></pre>
         <p><strong>QuestioN:</strong>Can you do by accessing DOM?</p>
-        <p><strong>Answer:</strong>Make it recursive</p>
+        <p><strong>Answer:</strong>Make it recursive. I used closure. there could be many implementation</p>
         <pre><code>
-//access the dom and make a recursive call        
+function getAllText(node){
+  var allText = [];
+
+  function getNodeText(node){
+      if(node && node.childNodes && node.childNodes.length){
+          for(var i = 0, len = node.childNodes.length; i&lt;len; i++){
+              getNodeText(node.childNodes[i]);
+          }
+      }
+      else{
+          allText.push(node.nodeValue);
+     }
+  }
+  getNodeText(node);
+  return allText.join('');
+}
         </code></pre>
       </div>
       <div id="ajaxCall">
