@@ -141,22 +141,6 @@ function flatten(array) {
         </code></pre>
         <p>ref: <a href="https://gist.github.com/penguinboy/762197">look at this one</a></p>
       </div>
-      <div id="allClick">
-          <h2>capture all click</h2>
-          <p><strong>Question:</strong> How could you capture all clicks in a page?</p>
-          <p><strong>Answer:</strong> </p>
-          <pre><code>
-document.querySelector('body').addEventListener('click', function(e){
-  console.log('body clicked', e.target);
-});
-
-//or
-window.onclick =function(e){
-  console.log('someone clicked', e.target)
-}
-          </code></pre>
-          <p>However, if event bubbling is canceled by <code>stopPropagation()</code> your code will not work. think about it.</p>
-        </div>
           
       <div>
         <h2>rapid fire</h2>
@@ -203,6 +187,44 @@ window.onclick =function(e){
         <p><strong>Question:</strong> what would be consoled <code>var foo = 'outside'; function logIt(){console.log(foo); var foo = 'inside';} logIt();</code></p>
         <p><strong>Answer:</strong> undefined</p>
       </div>      
+      <div id="eventBubble">
+        <h2>Event bubble</h2>
+        <p><strong>Question:</strong> What is event bubble? Can you fire an event in the capturing stage</p>
+        <p><strong>Answer:</strong> to understand event bubble, you have to understand what happen when u click on anything on a page</p>
+        <p><strong>where u clicked</strong> if you have a table with multiple rows and multiple columns and you click in one of the cell</p>
+        <ul>
+          <li>you will think that you clicked on the cell and browser will know that and if you have a click handler with the cell that will be fired immediately</li>
+          <li>you are wrong. right away, browser doesn't know where you clicked </li>         
+        </ul>
+        The way browser find out where u have clicked are as follows
+        <ol>
+          <li><strong>Capture:</strong>When you clicked, browser knows a click event occurred. it starts from the window (lowest level/root of your website), then goes to document, then html root tag, then body, then table... its trying to reach the as lowest level of elements it can go. This is called capturing stage</li>
+          <li><strong>Target:</strong> when browser reach the lowest level of element. in this case, you have clicked on a table cell (table data) hence target would be "td" tag. Then browser check whether there is any click handler attached to this element. if there is any, browser executes that click hander.</li>
+          <li><strong>Bubbling:</strong>After firing click hander attached to "td", browser walks toward root. one level upward and check whether there is any click handler attached with table row ("tr" element). if there is any it will execute that. then it goes to tbody, table, body, html, document, window. In this stage its moving upward hence this is called event bubbling. Please note that, u clicked on cell but all the event handler with parent elements will be fired. This is actually very powerful (check event delegation)</li>
+        </ol>
+        <br>
+        <p><strong>Flow chart:</strong> click on show example to view a flow chart for event bubble</p>
+        <div>
+          <button id = "eventBubble" type="button" class="toggleExample btn btn-primary">show example</button>
+          <div id="eventBubbleExample" class="hide">
+            <img src="images/eventBubble.png" alt="">
+          </div>
+        </div>
+      </div>
+      <div id="eventDelegate">
+        <h2>Event Delegate</h2>
+        <p><strong>Question:</strong> How you can use event delegate on a list of item</p>
+        <p><strong>Answer:</strong>Make sure u understand event bubble first. if you have hundreds of list item where u want to handle an event. First problem is you have to write (actually copy paste) same code in hundred different place. and if something changes, u r screwed. </p>
+        <p>second problem is if u want to add a new element, you have to make sure event handler is attached with the element</p>
+        <p><strong>solution:</strong> as events will be bubbled up. if u have the event handler attached to the parent element. for example, if event handler is attached with "ul" tag, event handler will be fired for clicking any of the child element</p>
+        <p>if you want to do anything specific to the element. for example, you want to log the text in the list item. by using target</p>
+        <pre><code>
+          //add code here.
+          //also add example
+        </code></pre>
+
+      </div>
+
       <div id="mythicalHydra">
         <h2>destroy button</h2>
         <p><strong>Question:</strong> create a button that is destroyed by clicking it, but two new buttons are created in it's place.</p>
@@ -242,6 +264,22 @@ window.onclick =function(e){
           </div>
         </div>
       </div>
+            <div id="allClick">
+                <h2>capture all click</h2>
+                <p><strong>Question:</strong> How could you capture all clicks in a page?</p>
+                <p><strong>Answer:</strong> </p>
+                <pre><code>
+      document.querySelector('body').addEventListener('click', function(e){
+        console.log('body clicked', e.target);
+      });
+
+      //or
+      window.onclick =function(e){
+        console.log('someone clicked', e.target)
+      }
+                </code></pre>
+                <p>However, if event bubbling is canceled by <code>stopPropagation()</code> your code will not work. think about it.</p>
+              </div>
       <div>
         <p><strong>Question:</strong> What is the difference between slice, substr, substring</p>
         <p><strong>Answer:</strong> <a href="http://www.tvids.net/watch69/The-Big-Bang-Theory/season-01-episode-01-Pilot">slice, substr, substring</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substr?redirectlocale=en-US&redirectslug=JavaScript%2FReference%2FGlobal_Objects%2FString%2Fsubstr">MDN: substr</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring?redirectlocale=en-US&redirectslug=JavaScript%2FReference%2FGlobal_Objects%2FString%2Fsubstring">substring</a></p>
@@ -284,43 +322,6 @@ window.onclick =function(e){
         <p><code>document.onload</code> is fired when DOM (DOM tree built from markup code within the document)is ready which can be prior to images and other external content is loaded.</p>
         <p><strong>bonus:</strong><code>document.readyState</code> Returns "loading" while the Document is loading, "interactive" once it is finished parsing but still loading sub-resources, and "complete" once it has loaded. The <code>readystatechange</code> event fires on the Document object when this value changes.</p>
         <p>ref: <a href="http://stackoverflow.com/questions/588040/window-onload-vs-document-onload"> stackoverflow</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/document.readyState">MDN: readyState</a></p>
-      </div>
-      <div id="eventBubble">
-        <h2>Event bubble</h2>
-        <p><strong>Question:</strong> What is event bubble? Can you fire an event in the capturing stage</p>
-        <p><strong>Answer:</strong> to understand event bubble, you have to understand what happen when u click on anything on a page</p>
-        <p><strong>where u clicked</strong> if you have a table with multiple rows and multiple columns and you click in one of the cell</p>
-        <ul>
-          <li>you will think that you clicked on the cell and browser will know that and if you have a click handler with the cell that will be fired immediately</li>
-          <li>you are wrong. right away, browser doesn't know where you clicked </li>         
-        </ul>
-        The way browser find out where u have clicked are as follows
-        <ol>
-          <li><strong>Capture:</strong>When you clicked, browser knows a click event occurred. it starts from the window (lowest level/root of your website), then goes to document, then html root tag, then body, then table... its trying to reach the as lowest level of elements it can go. This is called capturing stage</li>
-          <li><strong>Target:</strong> when browser reach the lowest level of element. in this case, you have clicked on a table cell (table data) hence target would be "td" tag. Then browser check whether there is any click handler attached to this element. if there is any, browser executes that click hander.</li>
-          <li><strong>Bubbling:</strong>After firing click hander attached to "td", browser walks toward root. one level upward and check whether there is any click handler attached with table row ("tr" element). if there is any it will execute that. then it goes to tbody, table, body, html, document, window. In this stage its moving upward hence this is called event bubbling. Please note that, u clicked on cell but all the event handler with parent elements will be fired. This is actually very powerful (check event delegation)</li>
-        </ol>
-        <br>
-        <p><strong>Flow chart:</strong> click on show example to view a flow chart for event bubble</p>
-        <div>
-          <button id = "eventBubble" type="button" class="toggleExample btn btn-primary">show example</button>
-          <div id="eventBubbleExample" class="hide">
-            <img src="images/eventBubble.png" alt="">
-          </div>
-        </div>
-      </div>
-      <div id="eventDelegate">
-        <h2>Event Delegate</h2>
-        <p><strong>Question:</strong> How you can use event delegate on a list of item</p>
-        <p><strong>Answer:</strong>Make sure u understand event bubble first. if you have hundreds of list item where u want to handle an event. First problem is you have to write (actually copy paste) same code in hundred different place. and if something changes, u r screwed. </p>
-        <p>second problem is if u want to add a new element, you have to make sure event handler is attached with the element</p>
-        <p><strong>solution:</strong> as events will be bubbled up. if u have the event handler attached to the parent element. for example, if event handler is attached with "ul" tag, event handler will be fired for clicking any of the child element</p>
-        <p>if you want to do anything specific to the element. for example, you want to log the text in the list item. by using target</p>
-        <pre><code>
-          //add code here.
-          //also add example
-        </code></pre>
-
       </div>
       <div id="getElementByallAttribute">
         <p><strong>Question:</strong> If you need to implement getElementByAttributeValue, how would you implement it?</p>
