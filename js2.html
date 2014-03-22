@@ -309,6 +309,19 @@ window.onclick =function(e){
           </div>
         </div>
       </div>
+      <div id="eventDelegate">
+        <h2>Event Delegate</h2>
+        <p><strong>Question:</strong> How you can use event delegate on a list of item</p>
+        <p><strong>Answer:</strong>Make sure u understand event bubble first. if you have hundreds of list item where u want to handle an event. First problem is you have to write (actually copy paste) same code in hundred different place. and if something changes, u r screwed. </p>
+        <p>second problem is if u want to add a new element, you have to make sure event handler is attached with the element</p>
+        <p><strong>solution:</strong> as events will be bubbled up. if u have the event handler attached to the parent element. for example, if event handler is attached with "ul" tag, event handler will be fired for clicking any of the child element</p>
+        <p>if you want to do anything specific to the element. for example, you want to log the text in the list item. by using target</p>
+        <pre><code>
+          //add code here.
+          //also add example
+        </code></pre>
+
+      </div>
       <div id="getElementByallAttribute">
         <p><strong>Question:</strong> If you need to implement getElementByAttributeValue, how would you implement it?</p>
         <p><strong></strong></p>
@@ -325,12 +338,7 @@ function getElementByAttributeValue(attribute)
       }
     }
         </code></pre>
-      </div>
-      <div id="eventDelegate">
-        <h2>Event Delegate</h2>
-        <p><strong>Question:</strong> Talk about Twitter question</p>
-        <p><strong>Answer:</strong></p>
-      </div>
+      </div>      
       <div id="allText">
         <h2>Get all text in a website</h2>
         <p><strong>Question:</strong>How can you get all the texts in a website</p>
