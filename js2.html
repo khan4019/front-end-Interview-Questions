@@ -339,7 +339,23 @@ function getElementByAttributeValue(attribute)
       }
     }
         </code></pre>
-      </div>      
+      </div>
+      <div id="selectElement">
+              <p><strong>Question:</strong> What is the best way to select an element from DOM?</p>
+              <p><strong>Answer:</strong> It depends on what you are selecting. if you have an ID of an element <code>document.getElmentById</code> is the fastest way to select an element. However, you should not have so many ID in you document. then you have to repeat styles a lot. css class <code>document.getElementsByClassName</code> is the second quickest way to select an element</p>
+              <p>in terms of speed of selecting elements. here is the list. As we go downwards to the list, it takes more time to select elements </p>
+              <ul>
+                <li>ID (#myID)</li>
+                <li>Class (.myClass)</li>
+                <li>Tag (div, p)</li>
+                <li>Sibling (div+p, div~p)</li>
+                <li>child (div>p)</li>
+                <li>Descendant (div p)</li>
+                <li>Universal (*)</li>
+                <li>Attribute (input[type="checkbox"])</li>
+                <li>Pseudo (p:first-child)</li>       
+              </ul>
+            </div>      
       <div id="allText">
         <h2>Get all text in a website</h2>
         <p><strong>Question:</strong>How can you get all the texts in a website</p>
