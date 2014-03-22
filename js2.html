@@ -110,7 +110,7 @@ function isDescendant(parent, child){
       <div id="flattenArray">
         <h2>flatten an array</h2>
         <p><strong>Question:</strong> How would you flatten an array in JavaScript?</p>
-        <p><strong>Answer:</strong></p>
+        <p><strong>Answer:</strong> flatten of an array means, if one or more array elements are also array, you will took out those elements and you will have a plain array. For example, if you if array is like [1, 2, [3, 4], [5, [6, 7]], 8] your flatten array would be [1, 2, 3, 4,5, 6, 7, 8]</p>
         <pre><code>
 function flatten(array) {
       var i = - 1,
@@ -291,6 +291,23 @@ window.onclick =function(e){
         <p><strong>Answer:</strong></p>
 
         <img src="" alt="">
+      </div>
+      <div id="getElementByallAttribute">
+        <p><strong>Question:</strong> If you need to implement getElementByAttributeValue, how would you implement it?</p>
+        <p><strong></strong></p>
+        <pre><code>
+function getElementByAttributeValue(attribute)
+    {
+      var allElements = document.getElementsByTagName('*');
+      for (var i = 0; i &lt; allElements.length; i++)
+       {
+        if (allElements[i].getAttribute(attribute))
+        {
+          return allElements[i];
+        }
+      }
+    }
+        </code></pre>
       </div>
       <div id="eventDelegate">
         <h2>Event Delegate</h2>
