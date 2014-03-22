@@ -399,6 +399,20 @@ function first100Char(str){
 }          
         </code></pre>
       </div>
+      <div id="duplicateArray">
+        <p><strong>Question:</strong> how do u duplicate an array. for example if you have array like [1, 2, 3] the duplicate array would be [1, 2, 3, 1, 2, 3]</p>
+        <p><strong>Answer:</strong> very simple. </p>
+        <pre><code>
+function arrayDuplicator(arr){
+
+  for (var i =0, len = arr.length, j = len; i&lt;len; i++){
+      arr[j++] = arr[i];
+  }
+  
+  return arr;
+}
+        </code></pre>
+      </div>
       <div id="ajaxCall">
         <h2>Ajax in Native call</h2>
         <p><strong>Question:</strong>How would you apply asynchronous call without any help of library</p>
@@ -482,8 +496,6 @@ foo();//?
           <li>frame rates</li>
           <li>DOM manipulation method</li>
           <li>Scope in JavaScript</li>
-          <li>event delegate</li>
-          <li>how will you get all texts in a website</li>
         </ul>  
       <p>ref: <a href="http://www.w3.org/TR/REC-DOM-Level-1/level-one-core.html">DOM object</a></p>      
       <div>
