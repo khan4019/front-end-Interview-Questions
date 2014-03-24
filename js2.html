@@ -413,6 +413,17 @@ function arrayDuplicator(arr){
 }
         </code></pre>
       </div>
+      <div id="replaceSubstring">
+        <p><strong>Question:</strong> replace every "bb" in a given string like "aaabbc" by "ee" and output should be "aaaeec"</p>
+        <p><strong>Answer: </strong></p>
+        <pre><code>
+function replaceStr(str, match, replace){
+ var toreplace = '/'+match+'/g';
+ return str.replace(toreplace, replace) 
+  
+}
+        </code></pre>
+      </div>
       <div id="ajaxCall">
         <h2>Ajax in Native call</h2>
         <p><strong>Question:</strong>How would you apply asynchronous call without any help of library</p>
@@ -476,7 +487,6 @@ foo();//?
           <li>notify any change</li>
           <li> Function.prototype.bind</li>
           <li>difference between attribute and property</li>
-          <li>implement this: [1,2,3,4,5].duplicator(); // [1,2,3,4,5,1,2,3,4,5]</li>
           <li> Recreate in html and css a linkedin page.</li>
           <li>detect useragent in css <a href="http://www.careercup.com/question?id=14410665">career cup</a></li>
           <li>Major difference between Forward and sendRedirect apart from browser calls sendRedirect and container process forward request? <a href="http://www.careercup.com/question?id=13961670">career cup</a></li>
