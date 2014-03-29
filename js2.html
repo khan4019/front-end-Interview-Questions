@@ -448,6 +448,53 @@ foo();//?
         </code></pre>
         <p><strong>Answer:</strong> 8</p>
       </div>
+      <div>
+        <h2>Floats and computed height</h2>
+        <h4>will help in interview</h4>
+        <p>A parent element that has only floated content will have a computed height: 0;. Add a clearfix to the parent to force browsers to compute a height.</p>
+        <p>ref: <a href="http://wtfhtmlcss.com/"> wtf css (get others)</a></p>
+      </div>
+      <div id="javaScriptEquality">
+        <h2>JavaScript Equality</h2> 
+        <p> internally JavaScript actually has two different approaches for testing equality. Primitives like strings and numbers are compared by their value, while objects like arrays, dates, and plain objects are compared by their reference. That comparison by reference basically checks to see if the objects given refer to the same location in memory. </p>
+        <pre><code>
+          function isEquivalent(a, b) {
+    // Create arrays of property names
+    var aProps = Object.getOwnPropertyNames(a);
+    var bProps = Object.getOwnPropertyNames(b);
+
+    // If number of properties is different,
+    // objects are not equivalent
+    if (aProps.length != bProps.length) {
+        return false;
+    }
+
+    for (var i = 0; i &lt; aProps.length; i++) {
+        var propName = aProps[i];
+
+        // If values of same property are not equal,
+        // objects are not equivalent
+        if (a[propName] !== b[propName]) {
+            return false;
+        }
+    }
+
+    // If we made it this far, objects
+    // are considered equivalent
+    return true;
+}
+        </code></pre>
+        <p><strong>Limitation:</strong> 
+          <ul>
+            <li>if one of the property values is itself an object</li>
+            <li> if one of the property values is NaN (the only value in JavaScript that is not equal to itself?)</li>
+            <li>if a has a property with value undefined, while b doesn't have this property (which thus evaluates to undefined?)</li>
+          </ul>
+
+          for better result use, underscore or lo-dash _.isEqual
+        </p>
+        <p>ref: <a href="http://designpepper.com/blog/drips/object-equality-in-javascript.html">object equality in JS</a></p>
+      </div>
       <h2>Question about JS</h2>
         <ul>
           <li>How to extend a javascript object (<a href="http://stackoverflow.com/questions/11197247/javascript-equivalent-of-jquerys-extend-method">extend</a>)</li>
