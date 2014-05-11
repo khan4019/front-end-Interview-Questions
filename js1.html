@@ -312,7 +312,8 @@ function mergeSortedArray(a, b){
   var merged = [], 
       aElm = a[0],
       bElm = b[0],
-      i = j = 1;
+      i = 1,
+      j = 1;
   
   if(a.length ==0)
     return b;
@@ -356,10 +357,10 @@ function swapNumb(a, b){
 }
 
 > swapNumb(2, 3);
-   = before swap:  a:  2 b:  3 VM849:3
+   = before swap:  a:  2 b:  3
    = after swap:  a:  3 b:  2 
         </code></pre>
-        <p><strong>bit manipulation</strong>: Sorry, i can't explain this to you. If you understand it, help me, please.</p>
+        <p><strong>bit manipulation</strong>: Sorry, i can't explain this to you. Kinjal Dave suggested <a href="http://en.wikipedia.org/wiki/Logical_conjunction">logical conjunction</a> to understand it. Waste 30 min there at your own risk.</p>
         <pre><code>
 function swapNumb(a, b){
   console.log("a: " + a + " and b: " + b);
@@ -761,7 +762,9 @@ function countZero(n){
             <p><strong>Answer:</strong> Will use to pointer (one for string and another for the substring) while iterating the string. And will have another variable to hold the starting index of the initial match.</p>
             <pre><code>
 function subStringFinder(str, subStr){
-  var idx = i = j = 0,
+  var idx = 0,
+      i = 0,
+      j = 0,
       len = str.length,
       subLen = subStr.length;
 

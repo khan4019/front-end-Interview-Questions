@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="that js dude" content="">    
-    <title>JS: Quiz Explanation</title>
+    <title>Intermediate developer</title>
 
     <link rel="shortcut icon" href="images/favicon.jpg">    
     <link rel="stylesheet" href="css/bootstrap.min.css" >
@@ -103,7 +103,7 @@
           <li><strong>html</strong>, write valid html. use doctype.</li>
           <li><strong>css</strong>, understand box model, float, clear and other css properties. Remember older browser doesnt support css3</li>
           <li><strong>browser prefix</strong>, dont use browser prefix. Or you could use it if you implement <a href="http://dev.opera.com/articles/view/graceful-degradation-progressive-enhancement/">graceful degradation</a></li>
-          <li><strong>tools</strong>, reset, bootstrap, <a href="http://modernizr.com/">modernizr</a>, jquery, etc.</li>          
+          <li><strong>tools</strong>, <a href="http://sixrevisions.com/css/should-you-reset-your-css/">reset</a>, bootstrap, <a href="http://modernizr.com/">modernizr</a>, jquery, etc.</li>          
           <li><strong>never same</strong>, something will never be same across browsers like drop down menu</li>
           <li><strong>internet explorer</strong>, understand problems in IE6, IE7. IE6 becomes problematic when float is overused like double margin on floated elements, negative margin. You can have a stylesheet for IE specific version.</li>
           <li><strong>test</strong>, ther is no alternative to test your website as many browser versions as possible</li>
@@ -115,6 +115,68 @@
         <p><strong>Question:</strong> How would you test browser compatibility of your site?</p>
         <p><strong>Answer:</strong> It becomes tiresome to test all the different browser and versions available. I can check current market share of the browsers and create short list to test. and then i can use lools like <a href="http://browsershots.org/">browsershots</a>, <a href="http://www.browserstack.com/screenshots">browserStack</a>, etc.</p>
         <p>ref: <a href="http://www.hongkiat.com/blog/complete-guide-to-cross-browser-compatibility-check/">compatibility checking tools</a>, <a href="http://www.1stwebdesigner.com/design/tools-browser-compatibility-check/">10 tools</a></p>
+      </div>
+      <div id="byValueByRef">
+        <h2>pass by Value </h2>
+        <p><strong>Question:</strong> Does JavaScript pass parameter by value or by reference</p>
+        <p><strong>Answer:</strong> </p>
+        <pre><code>
+   var num = 10,
+        name = "Jane Austen",
+ 
+        obj1 = {
+          state: "unchanged"
+        },
+ 
+        obj2 = {
+          state: "unchanged"
+        },
+      
+        obj3 = obj2;
+ 
+    function change(num, name, obj1, obj2) {
+      num = num * 10;
+      name = "Nathaniel Hawthorne";
+      obj1 = obj2;
+      obj2.state = "changed";
+    }
+ 
+    change(num, name, obj1, obj2);
+ 
+    console.log("num = " + num); // 10
+    console.log("name = " + name);// "jane Austen"
+    console.log("obj1.state = " + obj1.state);//"unchanged"
+    console.log("obj2.state = " + obj2.state);//"changed"
+    console.log("obj3.state = " + obj3.state);//"changed"        
+        </code></pre>
+        <p>ref: <a href="http://stackoverflow.com/a/3638034/1535443">stackoverflow</a>, more detailed: <a href="http://snook.ca/archives/javascript/javascript_pass">Jonathan Snook</a></p>
+      </div>
+      <div id="createLayout">
+        <h2>Create layout</h2>
+        <p><strong>Question:</strong> How would you create layout like below.</p>
+        <p><strong></strong></p>
+        <img src="images/layout.jpg" alt=" ">
+        <p><strong>Interviewer:</strong> Why they put list item in navigation.</p>
+        <p><strong>Answer:</strong> one reason could be list items are block elements and those go into a different line and you don't have to explicitly style those. another reason could be semantic so that people could use the functionalities of your site even though there is no style or js. this is called graceful degradation. Like google.com even you disable all style and js still you can search and navigate to the links. This is mostly for older browsers. </p>
+        <p>ref: <a href="http://css-tricks.com/wrapup-of-navigation-in-lists/">Lists in Navigation</a>, <a href="http://css-tricks.com/navigation-in-lists-to-be-or-not-to-be/">Navigation without list</a>, <a href="http://www.w3.org/html/wg/drafts/html/master/sections.html#the-nav-element">W3.org nav element</a></p>
+      </div>
+      <div>
+        <h3>questions: shutterlock</h3>
+        <ul>
+          <li><strong>css</strong>, u have two columns. you want a dividing line. first column has a login box and second one has text. sometimes you have very long text and sometimes you have small text. hence either the login box or the text column could be longer. you need to make sure the dividing line goes all the way to bottom. How could you do with plain css</li>
+          <li><strong>css</strong>, again you have two box. you want to have them 50% of width with 20px padding. How could you make sure width of the column remains half of the page when user resize the window. without using js. use plain css</li>
+          <li><strong>css</strong>, what are the different position in css</li>
+          <li><strong>javascript</strong>, what are the problems you could have if you set prototype of an object to another object. What are the other ways to create inheritance in JS</li>
+          <li><strong>javascript</strong>, how would you apply animation by using plain javascript.</li>          
+          <li><strong>javascript</strong>, how would you cancel a timer in JS</li>
+          <li><strong>css</strong>, what are the different position in css. if you have a logo in header. how could you position logo 20 px from left and 30px from top</li>
+          <li><strong>javascript</strong>, write a javascript function that will take a number and everytime you call it it will generate a times table. For example, you have a function myFunc. you set var mult = myFunc(3). now when u call mult() u get 3 and then mult, u get 6 and then mult u get 9</li>
+          <li><strong>javascript</strong>, how you could use polymorphism in javascript</li>
+          <li><strong>javascript</strong>, why you might not be interested to use closure in js</li>
+          <li><strong>css-tricks</strong>, <a href="http://css-tricks.com/thought-process-front-end-problem/">add thought process</a></li>
+          <li><strong>web design weekly</strong> <a href="http://uxmag.com/articles/when-design-best-practices-become-performance-worst-practices">Best practice becomes bad</a></li>
+          <li>what is REST. whart are the verb. which one is called when you load a page</li>
+        </ul>
       </div>
 <div>
   <!-- <h3 class="purpleBold">Express anger!</h3>
