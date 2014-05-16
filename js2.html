@@ -178,7 +178,7 @@ var undefined = 123;
         </code></pre>
         <p>The only difference here is that this version results in 4 more bytes being used in case it is minified, and there is no other var statement inside the anonymous wrapper.</p>
         
-        <h2>null</h2>
+        <h4>null</h4>
         <p>While undefined in the context of the JavaScript language is mostly used in the sense of a traditional null, the actual null (both a literal and a type) is more or less just another data type.</p>
         <p>It is used in some JavaScript internals (like declaring the end of the prototype chain by setting Foo.prototype = null), but in almost all cases, it can be replaced by undefined.</p>
       </div>
@@ -590,10 +590,59 @@ function replaceStr(str, match, replace){
 }
         </code></pre>
       </div>
+      <div id="closureInsideLoop">
+        <h2>Closures Inside Loops</h2>
+
+        <p>What will you see in your console</p>
+
+<pre><code>
+  for(var i = 0; i < 10; i++) {
+    setTimeout(function() {
+        console.log(i);  
+    }, 1000);
+}
+</code></pre>
+      <p><strong>Answer:</strong> The above will not output the numbers 0 through 9, but will simply print the number 10 ten times.</p>
+      <p><strong>Question:</strong> How will you fix it?</p>
+      <p>The anonymous function keeps a reference to i. At the time console.log gets called, the for loop has already finished, and the value of i has been set to 10.</p>
+      <p>In order to get the desired behavior, it is necessary to create a copy of the value of i.</p>
+      
+      <h4>Avoiding the Reference Problem</h4>
+      <p>In order to copy the value of the loop's index variable, it is best to use an anonymous wrapper.</p>
+<pre><code>
+for(var i = 0; i < 10; i++) {
+    (function(e) {
+        setTimeout(function() {
+            console.log(e);  
+        }, 1000);
+    })(i);
+}  
+</code></pre>
+
+      <p>The anonymous outer function gets called immediately with i as its first argument and will receive a copy of the value of i as its parameter e.</p>
+      <p>The anonymous function that gets passed to setTimeout now has a reference to e, whose value does not get changed by the loop.</p>
+      <p>There is another possible way of achieving this, which is to return a function from the anonymous wrapper that will then have the same behavior as the code above.</p>
+<pre><code>
+for(var i = 0; i < 10; i++) {
+    setTimeout((function(e) {
+        return function() {
+            console.log(e);
+        }
+    })(i), 1000)
+}
+</code></pre>
+<p>There's yet another way to accomplish this by using .bind, which can bind a this context and arguments to function. It behaves identially to the code above</p>
+<pre><code>
+for(var i = 0; i < 10; i++) {
+    setTimeout(console.log.bind(console, i), 1000);
+}
+</code></pre>
+      </div>
       <div id="ajaxCall">
         <h2>Ajax in Native call</h2>
         <p><strong>Question:</strong>How would you apply asynchronous call without any help of library</p>
         <p><strong>Answer:</strong></p>
+        <p><strong>Question:</strong> JavaScript is single threaded how it makes ajax call while it is doing something else</p>
         <p>ref: <a href="http://net.tutsplus.com/articles/news/how-to-make-ajax-requests-with-raw-javascript/">ajax request with raw JS</a>, <a href="http://blog.adtile.me/2014/01/16/a-dive-into-plain-javascript/">read more about native JS</a>, <a href="http://www.sitepoint.com/jquery-vs-raw-javascript-3-events-ajax/">events ajax</a>, <a href="http://www.sitepoint.com/jquery-vs-raw-javascript-1-dom-forms/">DOM and form</a></p>
       </div>
       <div id="showAndTell">
