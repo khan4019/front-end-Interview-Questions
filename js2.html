@@ -114,6 +114,7 @@
           <li> asked at google... How would you extend Array in JavaScript so that it could add all the values stored in an array</li>
           <li>Google Maps allows you to zoom in and out of satellite maps, with terabytes of data accessible via a very fast interface. How would you go about implementing this functionality</li>
           <li>Design a webpage which can auto post new posts when you reach the bottom of the page by using javascript. So you may use AJAX and some javascript event listeners. But, they do not require you remember the functions names, it will be great as long as you can describe your thought and design</li>
+          <li>what are the difference between function expression and function declaration</li>
         </ul>
       </div>
       <div id="addClass">
@@ -282,6 +283,13 @@ function spacify(str){
 function spacify(str){
   return str.split('').join(' ');
 }
+        </code></pre>
+        <p><strong>Question:</strong> As a follow up, can you do something like <code>'hello world'.spacify();</code></p>
+        <p><strong>Answer: </strong> You just have to extend the properties of of the String Object. In sus of the Stran a adda method in the properties of the String object. and yuse this as the value of the string.</p>
+        <pre><code>
+String.prototype.spacify = function(){
+  return this.split('').join(' ');
+};
         </code></pre>
         <p>ref: <a href="http://blog.sourcing.io/interview-questions">Interviewing front End Engineer</a></p>
       </div>
