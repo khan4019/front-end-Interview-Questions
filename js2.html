@@ -266,32 +266,32 @@ function flatten(array) {
       </div>
       <div id="insertSpace">
         <h2>Insert Space</h2>
-        <p><strong>Question: </strong> spacify('hello world') // => 'h e l l o  w o r l d'</p>
-        <p><strong>Answer:</strong> This question is asking to define a function that will take a string and return string with a space in it.</p>
-        <p>you can have different version of it. First one is you are looping through the string and have another array where you are pushing a single element of the array and then an empty space. after looping you are joining the array and returning it. </p>
+        <p><strong>Question: </strong> Create a simple function that will log any message you are submitting</p>
         <pre><code>
-function spacify(str){
-  var arr = [];
-  for(var i =0, len = str.length; i&lt;len; i++){
-    arr.push(str[i], ' ');
-  }  
-  return arr.join('');
+function log(msg){
+  console.log(msg)
 }
         </code></pre>
-        <p>If you want to show the JavaScript power here.</p>
+        <p><strong>Question:</strong> Problem with this one is, if you pass more than one arguments to the log function all arguments after the first one will not be logged. How could you fix it?</p>
         <pre><code>
-function spacify(str){
-  return str.split('').join(' ');
+function log(){
+  console.log.apply(console, arguments);
 }
         </code></pre>
-        <p><strong>Question:</strong> As a follow up, can you do something like <code>'hello world'.spacify();</code></p>
-        <p><strong>Answer: </strong> You just have to extend the properties of of the String Object. In sus of the Stran a adda method in the properties of the String object. and yuse this as the value of the string.</p>
+        <p><strong>Question: </strong> Prefix a word before every log. for example, if you <code>log('my message')</code> it will log: "(app)my message"</p>
+        <p><strong>Answer:</strong> There are several solution of it. </p>
         <pre><code>
-String.prototype.spacify = function(){
-  return this.split('').join(' ');
-};
+function log(){
+  var args = Array.prototype.slice.call(arguments);
+  args.unshift('(app)');
+  console.log.apply(console, args);
+}
         </code></pre>
-        <p>ref: <a href="http://blog.sourcing.io/interview-questions">Interviewing front End Engineer</a></p>
+        <p>this will take all the arguments you are p</p>
+        <p><strong>Question:</strong> You have used multiple argument to the console.log function. Now, i want to log multiple msg at the same time like <code>log(msg1, msg2, msg3)</code>, your function will not log all arguments after it. How could you fix it?</p>
+        <p><strong>Answer: </strong> Now you could say i will log arguemtns object. in that case, it will log array not the arguments. You cannot do <code>arguments.join(' ')</code> because arguments are not array rather it is array like object.</p>
+        <p>your solution has to </p>
+        <p>ref: <a href="http://blog.sourcing.io/interview-questions">This is a really good materials, walks you through an interview process.</a></p>
       </div>
       <div id="mythicalHydra">
         <h2>destroy button</h2>
