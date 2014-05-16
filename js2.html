@@ -115,7 +115,72 @@
           <li>Google Maps allows you to zoom in and out of satellite maps, with terabytes of data accessible via a very fast interface. How would you go about implementing this functionality</li>
           <li>Design a webpage which can auto post new posts when you reach the bottom of the page by using javascript. So you may use AJAX and some javascript event listeners. But, they do not require you remember the functions names, it will be great as long as you can describe your thought and design</li>
           <li>what are the difference between function expression and function declaration</li>
+          <li>Implement curring arguments</li>
+          <li>AMD, common JS module. what are the differences</li>
+          <li>HTML5 API. </li>
+          <li>constructors</li>
+          <li>what is monkey patching (used by prototype library). why is it bad</li>
         </ul>
+        <h2>Facts</h2>
+        <ul>
+          <li>Everything in JavaScript acts like an object, with the only two exceptions being null and undefined.</li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+        <p>ref: great place to learn JavaScript <a href="http://bonsaiden.github.io/JavaScript-Garden/">JS Garden</a></p>
+      </div>
+      <div id="nullVsUndefined">
+        <h2>undefined and null</h2>
+        <p>copied from JavaScript garden</p>
+        <p>Read and modify</p>
+
+        JavaScript has two distinct values for nothing, null and undefined, with the latter being more useful.
+
+      <h4>undefined</h4>
+
+        undefined is a type with exactly one value: undefined.
+
+        The language also defines a global variable that has the value of undefined; this variable is also called undefined. However, this variable is neither a constant nor a keyword of the language. This means that its value can be easily overwritten.
+        <h4>Ways to get Undefined</h4>
+        <ul>
+          <li>Accessing the (unmodified) global variable undefined.</li>
+          <li>Accessing a declared but not yet initialized variable.</li>
+          <li>Implicit returns of functions due to missing return statements.</li>
+          <li>return statements that do not explicitly return anything.</li>
+          <li>Lookups of non-existent properties.</li>
+          <li>Function parameters that do not have any explicit value passed.</li>
+          <li>Anything that has been set to the value of undefined.</li>
+          <li>Any expression in the form of void(expression)</li>
+          <li>Handling Changes to the Value of undefined</li>          
+        </ul>
+        
+        <p>Since the global variable undefined only holds a copy of the actual value of undefined, assigning a new value to it does not change the value of the type undefined.</p>
+        <p>Still, in order to compare something against the value of undefined, it is necessary to retrieve the value of undefined first.</p>
+        <p>To protect code against a possible overwritten undefined variable, a common technique used is to add an additional parameter to an anonymous wrapper that gets no argument passed to it.</p>
+        <pre><code>
+  var undefined = 123;
+(function(something, foo, undefined) {
+    // undefined in the local scope does 
+    // now again refer to the value `undefined`
+
+})('Hello World', 42);
+        </code></pre>
+        <p>Another way to achieve the same effect would be to use a declaration inside the wrapper.</p>
+        <pre><code>
+var undefined = 123;
+(function(something, foo) {
+    var undefined;
+    ...
+
+})('Hello World', 42);
+        </code></pre>
+        <p>The only difference here is that this version results in 4 more bytes being used in case it is minified, and there is no other var statement inside the anonymous wrapper.</p>
+        
+        <h2>null</h2>
+        <p>While undefined in the context of the JavaScript language is mostly used in the sense of a traditional null, the actual null (both a literal and a type) is more or less just another data type.</p>
+        <p>It is used in some JavaScript internals (like declaring the end of the prototype chain by setting Foo.prototype = null), but in almost all cases, it can be replaced by undefined.</p>
       </div>
       <div id="addClass">
         <h2>add class</h2>
@@ -279,7 +344,7 @@ function log(){
 }
         </code></pre>
         <p><strong>Question: </strong> Prefix a word before every log. for example, if you <code>log('my message')</code> it will log: "(app)my message"</p>
-        <p><strong>Answer:</strong> There are several solution of it. </p>
+        <p><strong>Answer:</strong> There are several solution of it. Add more text here to explain what going on</p>
         <pre><code>
 function log(){
   var args = Array.prototype.slice.call(arguments);
@@ -288,10 +353,21 @@ function log(){
 }
         </code></pre>
         <p>this will take all the arguments you are p</p>
-        <p><strong>Question:</strong> You have used multiple argument to the console.log function. Now, i want to log multiple msg at the same time like <code>log(msg1, msg2, msg3)</code>, your function will not log all arguments after it. How could you fix it?</p>
-        <p><strong>Answer: </strong> Now you could say i will log arguemtns object. in that case, it will log array not the arguments. You cannot do <code>arguments.join(' ')</code> because arguments are not array rather it is array like object.</p>
-        <p>your solution has to </p>
+        <p><strong>Question:</strong> If an older browser dont have bind function, how will you shim it</p>
+        <p><strong>Answer:</strong></p>
+        <pre><code>
+//try to understand this
+//don't forget to use build in bind function, if available
+Function.prototype.bind = Function.prototype.bind || function(context){
+  var self = this;
+
+  return function(){
+    return self.apply(context, arguments);
+  };
+}
+        </code></pre>
         <p>ref: <a href="http://blog.sourcing.io/interview-questions">This is a really good materials, walks you through an interview process.</a></p>
+        <p>Read: what is the overlay app in the last section of this link</p>
       </div>
       <div id="mythicalHydra">
         <h2>destroy button</h2>
@@ -407,6 +483,28 @@ function getElementByAttributeValue(attribute)
       }
     }
         </code></pre>
+      </div>
+      <div id="safeCoding">
+        <p><strong>Question:</strong> If you mistakenly overrirde some of the build in method like <code>hasOwnProperty</code> how you will make sure its works</p>
+        <p><strong>Answer:</strong></p>
+        <pre><code>
+var foo = {
+    hasOwnProperty: function() {
+        return false;
+    },
+    bar: 'Here be dragons'
+};
+
+foo.hasOwnProperty('bar'); // always returns false
+
+// Use another Object's hasOwnProperty and call it with 'this' set to foo
+({}).hasOwnProperty.call(foo, 'bar'); // true
+
+// It's also possible to use hasOwnProperty from the Object
+// prototype for this purpose
+Object.prototype.hasOwnProperty.call(foo, 'bar'); // true
+        </code></pre>
+        <p>ref: Javascript garden</p>
       </div>
       <div id="selectElement">
               <p><strong>Question:</strong> What is the best way to select an element from DOM?</p>
