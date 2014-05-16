@@ -87,6 +87,33 @@
           <li>what are the difference between null and undefined</li>
           <li>if you have a function. inside it there is a for loop. i to 10 and you have settimeout. inside settimeout you have console.log(i). What will you get in the console and why. Explain why this happened</li>
           <li>check js2.html for more question</li>
+          <li>what are differences between host object and native object</li>
+          <li>difference between, call and apply and bind</li>
+          <li>explain inheritance in JS</li>
+          <li>how ajax works</li>
+          <li>explain json p and why it is not AJAX</li>
+          <li>FOUC</li>
+          <li>difference between attribute and property</li>
+          <li>why extending build in JavaScript object is a bad idea  </li>
+          <li>How will you get query string in a browsers URL</li>
+          <li>what is same origin policy with regards to JS</li>
+          <li>make this work... [1,2,3,4,5].duplicator(); // [1,2,3,4,5,1,2,3,4,5]</li>
+          <li>describe memoization in JS</li>
+          <li>why is it called ternary statement. what does the word ternary indicate</li>
+          <li>~~3.14 ?? what and why</li>
+          <li>difference between cookies, sessionStorage and local storage</li>
+          <li>what is the typical use of anonymous function</li>
+          <li>Expalin JS module pattern</li>
+          <li>sort in Javascript: <a href="http://www.nczonline.net/blog/tag/computer-science/">computer sci in JS</a></li>
+          <li>How would you go about implementing a spreadsheet in a browser. Google it. somebody did it couple of days ago</li>
+          <li>“Write your own script that does a JSONP request, without using jQuery. Should work with multiple calls to the function and support async.”</li>
+          <li>“Browsers running javascript is single threaded, how can we make AJAX calls in the backgroung?</li>
+          <li>How would you create an accordion-style nav menu using css and javascript without using jQuery</li>
+          <li>Write a function in Javascript that takes Roman numerals (in String form) and convert it to decimal form. Assume the string is well-formed</li>
+          <li>If we wanted to implement a method of tracking every click that the user made on the site, how would we want to do this</li>
+          <li> asked at google... How would you extend Array in JavaScript so that it could add all the values stored in an array</li>
+          <li>Google Maps allows you to zoom in and out of satellite maps, with terabytes of data accessible via a very fast interface. How would you go about implementing this functionality</li>
+          <li>Design a webpage which can auto post new posts when you reach the bottom of the page by using javascript. So you may use AJAX and some javascript event listeners. But, they do not require you remember the functions names, it will be great as long as you can describe your thought and design</li>
         </ul>
       </div>
       <div id="addClass">
@@ -236,7 +263,28 @@ function flatten(array) {
         </code></pre>
 
       </div>
-
+      <div id="insertSpace">
+        <h2>Insert Space</h2>
+        <p><strong>Question: </strong> spacify('hello world') // => 'h e l l o  w o r l d'</p>
+        <p><strong>Answer:</strong> This question is asking to define a function that will take a string and return string with a space in it.</p>
+        <p>you can have different version of it. First one is you are looping through the string and have another array where you are pushing a single element of the array and then an empty space. after looping you are joining the array and returning it. </p>
+        <pre><code>
+function spacify(str){
+  var arr = [];
+  for(var i =0, len = str.length; i&lt;len; i++){
+    arr.push(str[i], ' ');
+  }  
+  return arr.join('');
+}
+        </code></pre>
+        <p>If you want to show the JavaScript power here.</p>
+        <pre><code>
+function spacify(str){
+  return str.split('').join(' ');
+}
+        </code></pre>
+        <p>ref: <a href="http://blog.sourcing.io/interview-questions">Interviewing front End Engineer</a></p>
+      </div>
       <div id="mythicalHydra">
         <h2>destroy button</h2>
         <p><strong>Question:</strong> create a button that is destroyed by clicking it, but two new buttons are created in it's place.</p>
