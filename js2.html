@@ -132,21 +132,20 @@
         <p>ref: great place to learn JavaScript <a href="http://bonsaiden.github.io/JavaScript-Garden/">JS Garden</a></p>
       </div>
       <div id="nullVsUndefined">
-        <h2>undefined and null</h2>
+        <h2>undefined Vs null</h2>
         <p>copied from JavaScript garden</p>
         <p>Read and modify</p>
 
         JavaScript has two distinct values for nothing, null and undefined, with the latter being more useful.
 
       <h4>undefined</h4>
-
+      <p>JavaScript has a global variable <code>undefined</code> whose value is "undefined". And <code>typeof undefined</code> is also "undefined". Remember, undefined is not a constant or a keyword.</p>
         undefined is a type with exactly one value: undefined.
 
-        The language also defines a global variable that has the value of undefined; this variable is also called undefined. However, this variable is neither a constant nor a keyword of the language. This means that its value can be easily overwritten.
-        <h4>Ways to get Undefined</h4>
+        <h4>9 Ways to get Undefined</h4>
         <ul>
-          <li>Accessing the (unmodified) global variable undefined.</li>
-          <li>Accessing a declared but not yet initialized variable.</li>
+          <li>if you dont modify the global variable <code>undefined</code>, it's value would be undefined.</li>
+          <li>A declared without assigning any value to it will give undefined.</li>
           <li>Implicit returns of functions due to missing return statements.</li>
           <li>return statements that do not explicitly return anything.</li>
           <li>Lookups of non-existent properties.</li>
@@ -179,8 +178,11 @@ var undefined = 123;
         <p>The only difference here is that this version results in 4 more bytes being used in case it is minified, and there is no other var statement inside the anonymous wrapper.</p>
         
         <h4>null</h4>
+        <p>null is not an object, it is a primitive value. For example, you cannot add properties to it. Sometimes people wrongly assume that it is an object, because typeof null returns "object". But that is actually a bug (that might even be fixed in ECMAScript 6).</p>
+        <p>null: used by programmers to indicate “no value”, e.g. as a parameter to a function.</p>
         <p>While undefined in the context of the JavaScript language is mostly used in the sense of a traditional null, the actual null (both a literal and a type) is more or less just another data type.</p>
         <p>It is used in some JavaScript internals (like declaring the end of the prototype chain by setting Foo.prototype = null), but in almost all cases, it can be replaced by undefined.</p>
+        <p>ref: <a href="http://www.2ality.com/2013/10/typeof-null.html">history of typeof null</a></p>
       </div>
       <div id="addClass">
         <h2>add class</h2>
