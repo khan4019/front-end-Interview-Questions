@@ -4,7 +4,7 @@
 	classes,
 	toggleHandler = function (el) {
 		classes = document.getElementById(this.id+'Example').classList;		
-		this.innerHTML = (classes.contains('hide')) ? 'hide example' : 'show example';
+		this.innerHTML = (classes.contains('hide') ? 'Hide': 'Show') + this.innerHTML.substr(4);
 		classes.toggle('hide');
 	};
 

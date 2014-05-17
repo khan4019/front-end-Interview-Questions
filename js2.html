@@ -43,6 +43,11 @@
       { 
         color: rgba(218, 209, 149, 0.98);
       }
+      .toggleContent{
+        padding-left: 10px;
+        padding-top: 10px;
+        margin-top: 10px;
+      }
       /*style for demo*/
       
     </style>
@@ -78,111 +83,112 @@
            
       <!-- <p class="gray">if you are little more comfortable or claim to be comfortable with javascript, these questions would not be enough for you. more coming</p>
       <p class="gray"> <span class="purpleBold">More Questions</span> <a href="css.html">css interview questions</a>, <a href="html.html">html interview questions</a> </p> -->
+      
       <div>
-        <h2>must read</h2>
-        <h4><a href="http://www.toptal.com/javascript#hiring-guide">Very good JS question</a></h4>
-        <ul>
-          <li>If you want to add an extension to all instance of data like nextDay. how will you do it</li>
-          <li>if you want to use an arbitary object as value of this, how will you do that</li>
-          <li>what are the difference between null and undefined</li>
-          <li>if you have a function. inside it there is a for loop. i to 10 and you have settimeout. inside settimeout you have console.log(i). What will you get in the console and why. Explain why this happened</li>
-          <li>check js2.html for more question</li>
-          <li>what are differences between host object and native object</li>
-          <li>difference between, call and apply and bind</li>
-          <li>explain inheritance in JS</li>
-          <li>how ajax works</li>
-          <li>explain json p and why it is not AJAX</li>
-          <li>FOUC</li>
-          <li>difference between attribute and property</li>
-          <li>why extending build in JavaScript object is a bad idea  </li>
-          <li>How will you get query string in a browsers URL</li>
-          <li>what is same origin policy with regards to JS</li>
-          <li>make this work... [1,2,3,4,5].duplicator(); // [1,2,3,4,5,1,2,3,4,5]</li>
-          <li>describe memoization in JS</li>
-          <li>why is it called ternary statement. what does the word ternary indicate</li>
-          <li>~~3.14 ?? what and why</li>
-          <li>difference between cookies, sessionStorage and local storage</li>
-          <li>what is the typical use of anonymous function</li>
-          <li>Expalin JS module pattern</li>
-          <li>sort in Javascript: <a href="http://www.nczonline.net/blog/tag/computer-science/">computer sci in JS</a></li>
-          <li>How would you go about implementing a spreadsheet in a browser. Google it. somebody did it couple of days ago</li>
-          <li>“Write your own script that does a JSONP request, without using jQuery. Should work with multiple calls to the function and support async.”</li>
-          <li>“Browsers running javascript is single threaded, how can we make AJAX calls in the backgroung?</li>
-          <li>How would you create an accordion-style nav menu using css and javascript without using jQuery</li>
-          <li>Write a function in Javascript that takes Roman numerals (in String form) and convert it to decimal form. Assume the string is well-formed</li>
-          <li>If we wanted to implement a method of tracking every click that the user made on the site, how would we want to do this</li>
-          <li> asked at google... How would you extend Array in JavaScript so that it could add all the values stored in an array</li>
-          <li>Google Maps allows you to zoom in and out of satellite maps, with terabytes of data accessible via a very fast interface. How would you go about implementing this functionality</li>
-          <li>Design a webpage which can auto post new posts when you reach the bottom of the page by using javascript. So you may use AJAX and some javascript event listeners. But, they do not require you remember the functions names, it will be great as long as you can describe your thought and design</li>
-          <li>what are the difference between function expression and function declaration</li>
-          <li>Implement curring arguments</li>
-          <li>AMD, common JS module. what are the differences</li>
-          <li>HTML5 API. </li>
-          <li>constructors</li>
-          <li>what is monkey patching (used by prototype library). why is it bad</li>
-        </ul>
-        <h2>Facts</h2>
-        <ul>
-          <li>Everything in JavaScript acts like an object, with the only two exceptions being null and undefined.</li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-        <p>ref: great place to learn JavaScript <a href="http://bonsaiden.github.io/JavaScript-Garden/">JS Garden</a></p>
+        <h2>null vs undefined</h2>
+        <p><strong>Question:</strong>What is the difference between null and undefined.</p>
+        <p><strong>Answer:</strong> <code>undefined</code> means, value of the variable is not defined. More specifically, you declared a variable but no value has been assigned to that variable.</p>
+        <p><code>null</code> means empty or non-existent value. null is a primitive value and you can assign null to any variable.</p>
+        <p>Where as undefined is a primitive type, null is a type of object. you can set variable to undefined but it is recommended to set it to null (if required) so that you can distinguish between null and undefined. though <code>null == undefined</code></p>
+        <p>if you delete any object property, that will become undefined.</p>        
       </div>
-      <div id="nullVsUndefined">
-        <h2>undefined Vs null</h2>
-        <p>copied from JavaScript garden</p>
-        <p>Read and modify</p>
+      <div>
+        <button id = "nullVsUndefinedDetail" type="button" class="toggleExample btn btn-primary">Show Much More Details</button>
+        <div id="nullVsUndefinedDetailExample" class="hide">
+          <div id="nullVsUndefined" class="bg-success toggleContent">
+          <h3>Crazy detail</h3>
+          <p>JavaScript has two distinct values for nothing, null and undefined, with the latter being more useful.</p>  
+          <h4>undefined</h4>
+          <p>JavaScript has a global variable <code>undefined</code> whose value is "undefined". And <code>typeof undefined</code> is also "undefined". Remember, undefined is not a constant or a keyword.</p>
+            undefined is a type with exactly one value: undefined.
 
-        JavaScript has two distinct values for nothing, null and undefined, with the latter being more useful.
+            <h4>9 Ways to get Undefined</h4>
+            <ul>
+              <li>if you dont modify the global variable <code>undefined</code>, it's value would be undefined.</li>
+              <li>A declared without assigning any value to it will give undefined.</li>
+              <li>Implicit returns of functions due to missing return statements.</li>
+              <li>return statements that do not explicitly return anything.</li>
+              <li>Lookups of non-existent properties.</li>
+              <li>Function parameters that do not have any explicit value passed.</li>
+              <li>Anything that has been set to the value of undefined.</li>
+              <li>Any expression in the form of void(expression)</li>
+              <li>Handling Changes to the Value of undefined</li>          
+            </ul>
+            
+            <p>Since the global variable undefined only holds a copy of the actual value of undefined, assigning a new value to it does not change the value of the type undefined.</p>
+            <p>Still, in order to compare something against the value of undefined, it is necessary to retrieve the value of undefined first.</p>
+            <p>To protect code against a possible overwritten undefined variable, a common technique used is to add an additional parameter to an anonymous wrapper that gets no argument passed to it.</p>
+            <pre><code>
+      var undefined = 123;
+    (function(something, foo, undefined) {
+        // undefined in the local scope does 
+        // now again refer to the value `undefined`
 
-      <h4>undefined</h4>
-      <p>JavaScript has a global variable <code>undefined</code> whose value is "undefined". And <code>typeof undefined</code> is also "undefined". Remember, undefined is not a constant or a keyword.</p>
-        undefined is a type with exactly one value: undefined.
+    })('Hello World', 42);
+            </code></pre>
+            <p>Another way to achieve the same effect would be to use a declaration inside the wrapper.</p>
+            <pre><code>
+    var undefined = 123;
+    (function(something, foo) {
+        var undefined;
+        ...
 
-        <h4>9 Ways to get Undefined</h4>
-        <ul>
-          <li>if you dont modify the global variable <code>undefined</code>, it's value would be undefined.</li>
-          <li>A declared without assigning any value to it will give undefined.</li>
-          <li>Implicit returns of functions due to missing return statements.</li>
-          <li>return statements that do not explicitly return anything.</li>
-          <li>Lookups of non-existent properties.</li>
-          <li>Function parameters that do not have any explicit value passed.</li>
-          <li>Anything that has been set to the value of undefined.</li>
-          <li>Any expression in the form of void(expression)</li>
-          <li>Handling Changes to the Value of undefined</li>          
-        </ul>
-        
-        <p>Since the global variable undefined only holds a copy of the actual value of undefined, assigning a new value to it does not change the value of the type undefined.</p>
-        <p>Still, in order to compare something against the value of undefined, it is necessary to retrieve the value of undefined first.</p>
-        <p>To protect code against a possible overwritten undefined variable, a common technique used is to add an additional parameter to an anonymous wrapper that gets no argument passed to it.</p>
+    })('Hello World', 42);
+            </code></pre>
+            <p>The only difference here is that this version results in 4 more bytes being used in case it is minified, and there is no other var statement inside the anonymous wrapper.</p>
+            
+            <h4>null</h4>
+            <p>null is not an object, it is a primitive value. For example, you cannot add properties to it. Sometimes people wrongly assume that it is an object, because typeof null returns "object". But that is actually a bug (that might even be fixed in ECMAScript 6).</p>
+            <p>null: used by programmers to indicate “no value”, e.g. as a parameter to a function.</p>
+            <p>While undefined in the context of the JavaScript language is mostly used in the sense of a traditional null, the actual null (both a literal and a type) is more or less just another data type.</p>
+            <p>It is used in some JavaScript internals (like declaring the end of the prototype chain by setting Foo.prototype = null), but in almost all cases, it can be replaced by undefined.</p>
+            <p>ref: <a href="http://www.2ality.com/2013/10/typeof-null.html">history of typeof null</a></p>
+          </div>    
+        </div>
+      </div>
+      <div id="extension">
+        <h2>Extend Core Object</h2>
+        <p><strong>Question:</strong> How could you write a method on instance of a date which will give you next day.</p>
+        <p><strong>Answer:</strong> I have to declare a method on the prototype of Date object. To get access to the current value of the instance of the date, i will use this</p>
         <pre><code>
-  var undefined = 123;
-(function(something, foo, undefined) {
-    // undefined in the local scope does 
-    // now again refer to the value `undefined`
+Date.prototype.addOneDay = function(){
+  var currentDate = this.getDate();
+  return new Date(this.setDate(currentDate +1));
+}
 
-})('Hello World', 42);
+var date = new Date(); 
+date; //Fri May 16 2014 20:47:14 GMT-0500 (Central Daylight Time)
+date.addOneDay;//Sat May 17 2014 20:47:14 GMT-0500 (Central Daylight Time)
         </code></pre>
-        <p>Another way to achieve the same effect would be to use a declaration inside the wrapper.</p>
-        <pre><code>
-var undefined = 123;
-(function(something, foo) {
-    var undefined;
-    ...
+        <div>
+          <button id = "eventBubble" type="button" class="toggleExample btn btn-primary">Show Similar Question</button>
+          <div id="eventBubbleExample" class="hide bg-success toggleText">
+            <p><strong>Question: </strong> if i have a <code>var str = 'hello world'</code>, how could i get <code>str.reverse()</code> return 'dlrow olleh'</p>
+            <p><strong>Answer:</strong> you have to extend the core String Object</p>
+            <pre><code>
+String.prototype.reverse = function(){
+return this.split('').reverse().join('');
+}
 
-})('Hello World', 42);
-        </code></pre>
-        <p>The only difference here is that this version results in 4 more bytes being used in case it is minified, and there is no other var statement inside the anonymous wrapper.</p>
-        
-        <h4>null</h4>
-        <p>null is not an object, it is a primitive value. For example, you cannot add properties to it. Sometimes people wrongly assume that it is an object, because typeof null returns "object". But that is actually a bug (that might even be fixed in ECMAScript 6).</p>
-        <p>null: used by programmers to indicate “no value”, e.g. as a parameter to a function.</p>
-        <p>While undefined in the context of the JavaScript language is mostly used in the sense of a traditional null, the actual null (both a literal and a type) is more or less just another data type.</p>
-        <p>It is used in some JavaScript internals (like declaring the end of the prototype chain by setting Foo.prototype = null), but in almost all cases, it can be replaced by undefined.</p>
-        <p>ref: <a href="http://www.2ality.com/2013/10/typeof-null.html">history of typeof null</a></p>
+var str = 'hello world';
+str.reverse();//"dlrow olleh"
+            </code></pre>
+            <p><strong>Question: </strong> make this work [1,2,3,4,5].duplicator(); // [1,2,3,4,5,1,2,3,4,5]</p>
+            <p><strong>Answer:</strong></p>
+            <pre><code>
+Array.prototype.duplicator=function(){
+   var arr = this;
+  for(var i=0, len = this.length; i&lt;len; i++){
+    arr.push(this[i]);
+ }
+ return arr;
+}
+
+[1,2,3,4,5].duplicator(); // [1,2,3,4,5,1,2,3,4,5]
+            </code></pre>
+            <p>If you dont understand, how this works. take a nap and dont come back.</p>
+          </div>
+        </div>
       </div>
       <div id="addClass">
         <h2>add class</h2>
@@ -432,16 +438,7 @@ Function.prototype.bind = Function.prototype.bind || function(context){
         <pre><code>
 //put something here
         </code></pre>
-      </div>
-      <div>
-        <h2>null vs Undefined</h2>
-        <p><strong>Question:</strong>What is the difference between null and undefined.</p>
-        <p><strong>Answer:</strong> <code>undefined</code> means, value of the variable is not defined. More specifically, you declared a variable but no value has been assigned to that variable.</p>
-        <p><code>null</code> means empty or non-existent value. null is a primitive value and you can assign null to any variable.</p>
-        <p>Where as undefined is a primitive type, null is a type of object. you can set variable to undefined but it is recommended to set it to null (if required) so that you can distinguish between null and undefined. though <code>null == undefined</code></p>
-        <p>if you delete any object property, that will become undefined.</p>
-        
-      </div>
+      </div>      
       <div id="equality">
         <p><strong>Question:</strong> What are the difference between == and ===</p>
         <p><strong>Answer:</strong> <a href="http://stackoverflow.com/a/1813267/1535443">stack overflow</a></p>
@@ -711,6 +708,58 @@ foo();//?
           for better result use, underscore or lo-dash _.isEqual
         </p>
         <p>ref: <a href="http://designpepper.com/blog/drips/object-equality-in-javascript.html">object equality in JS</a></p>
+      </div>
+      <div>
+        <h2>must read</h2>
+        <h4><a href="http://www.toptal.com/javascript#hiring-guide">Very good JS question</a></h4>
+        <ul>
+          <li>If you want to add an extension to all instance of data like nextDay. how will you do it</li>
+          <li>if you want to use an arbitary object as value of this, how will you do that</li>
+          <li>what are the difference between null and undefined</li>
+          <li>if you have a function. inside it there is a for loop. i to 10 and you have settimeout. inside settimeout you have console.log(i). What will you get in the console and why. Explain why this happened</li>
+          <li>check js2.html for more question</li>
+          <li>what are differences between host object and native object</li>
+          <li>difference between, call and apply and bind</li>
+          <li>explain inheritance in JS</li>
+          <li>how ajax works</li>
+          <li>explain json p and why it is not AJAX</li>
+          <li>FOUC</li>
+          <li>difference between attribute and property</li>
+          <li>why extending build in JavaScript object is a bad idea  </li>
+          <li>How will you get query string in a browsers URL</li>
+          <li>what is same origin policy with regards to JS</li>          
+          <li>describe memoization in JS</li>
+          <li>why is it called ternary statement. what does the word ternary indicate</li>
+          <li>~~3.14 ?? what and why</li>
+          <li>difference between cookies, sessionStorage and local storage</li>
+          <li>what is the typical use of anonymous function</li>
+          <li>Expalin JS module pattern</li>
+          <li>sort in Javascript: <a href="http://www.nczonline.net/blog/tag/computer-science/">computer sci in JS</a></li>
+          <li>How would you go about implementing a spreadsheet in a browser. Google it. somebody did it couple of days ago</li>
+          <li>“Write your own script that does a JSONP request, without using jQuery. Should work with multiple calls to the function and support async.”</li>
+          <li>“Browsers running javascript is single threaded, how can we make AJAX calls in the backgroung?</li>
+          <li>How would you create an accordion-style nav menu using css and javascript without using jQuery</li>
+          <li>Write a function in Javascript that takes Roman numerals (in String form) and convert it to decimal form. Assume the string is well-formed</li>
+          <li>If we wanted to implement a method of tracking every click that the user made on the site, how would we want to do this</li>
+          <li> asked at google... How would you extend Array in JavaScript so that it could add all the values stored in an array</li>
+          <li>Google Maps allows you to zoom in and out of satellite maps, with terabytes of data accessible via a very fast interface. How would you go about implementing this functionality</li>
+          <li>Design a webpage which can auto post new posts when you reach the bottom of the page by using javascript. So you may use AJAX and some javascript event listeners. But, they do not require you remember the functions names, it will be great as long as you can describe your thought and design</li>
+          <li>what are the difference between function expression and function declaration</li>
+          <li>Implement curring arguments</li>
+          <li>AMD, common JS module. what are the differences</li>
+          <li>HTML5 API. </li>
+          <li>constructors</li>
+          <li>what is monkey patching (used by prototype library). why is it bad</li>
+        </ul>
+        <h2>Facts</h2>
+        <ul>
+          <li>Everything in JavaScript acts like an object, with the only two exceptions being null and undefined.</li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+        <p>ref: great place to learn JavaScript <a href="http://bonsaiden.github.io/JavaScript-Garden/">JS Garden</a></p>
       </div>
       <h2>Question about JS</h2>
         <ul>
