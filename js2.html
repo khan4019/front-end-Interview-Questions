@@ -44,9 +44,7 @@
         color: rgba(218, 209, 149, 0.98);
       }
       .toggleContent{
-        padding-left: 10px;
-        padding-top: 10px;
-        margin-top: 10px;
+        padding: 10px;
       }
       /*style for demo*/
       
@@ -85,7 +83,7 @@
       <p class="gray"> <span class="purpleBold">More Questions</span> <a href="css.html">css interview questions</a>, <a href="html.html">html interview questions</a> </p> -->
       
       <div>
-        <h2>null vs undefined</h2>
+        <hDD2>null vs undefined</h2>
         <p><strong>Question:</strong>What is the difference between null and undefined.</p>
         <p><strong>Answer:</strong> <code>undefined</code> means, value of the variable is not defined. More specifically, you declared a variable but no value has been assigned to that variable.</p>
         <p><code>null</code> means empty or non-existent value. null is a primitive value and you can assign null to any variable.</p>
@@ -162,7 +160,7 @@ date.addOneDay;//Sat May 17 2014 20:47:14 GMT-0500 (Central Daylight Time)
         </code></pre>
         <div>
           <button id = "eventBubble" type="button" class="toggleExample btn btn-primary">Show Similar Question</button>
-          <div id="eventBubbleExample" class="hide bg-success toggleText">
+          <div id="eventBubbleExample" class="hide bg-success toggleContent">
             <p><strong>Question: </strong> if i have a <code>var str = 'hello world'</code>, how could i get <code>str.reverse()</code> return 'dlrow olleh'</p>
             <p><strong>Answer:</strong> you have to extend the core String Object</p>
             <pre><code>
@@ -190,6 +188,114 @@ Array.prototype.duplicator=function(){
           </div>
         </div>
       </div>
+      <div id="bindthis">
+        <h2>bind this</h2>
+        <p><strong>Question: </strong>if you want to use an arbitary object as value of this, how will you do that?</p>
+        <p><strong>Answer:</strong> There are at least three different ways to doing this by using bind, call and apply </p>
+        <p>For example, i have a function name deductMontlyFee</p>
+        <pre><code>
+function deductMonthlyFee (fee){
+  this.total = this.total - fee; 
+  return this.name + ' remaining balance is '+ this.total; 
+}
+        </code></pre>
+        <p>i can totally use this function with a object <code>rachel</code> where rachel would be the value of this</p>
+        <pre><code>
+var rachel = {name: 'Rachel Green', total: 1500};
+//bind
+var rachelFeeDeductor = deductMonthlyFee.bind(rachel, 200);
+//after execution
+rachelFeeDeductor(); //"Rachel Green remaining balance is 1300"
+rachelFeeDeductor(); //"Rachel Green remaining balance is 1100"
+rachelFeeDeductor(); //"Rachel Green remaining balance is 900"
+        </code></pre>
+        <p>you can reuse the same function with new value of this</p>
+        <pre><code>
+var ross = {name:'Ross Geller', total:250};
+//bind
+var rossFeeDeductor = deductMonthlyFee.bind(ross, 25);
+//after execution
+rossFeeDeductor(); //"Ross Geller remaining balance is 225"
+rossFeeDeductor(); //"Ross Geller remaining balance is 200"
+        </code></pre>
+        <p>bind allows you to borrow a method and determines what the value of <code>this</code> would be, but it does not call the function but returns an exact copy of the function.</p>
+      </div>
+      <div id="borrowMethod">
+        <h2>Call and Apply</h2>
+        <p><strong>Question:</strong> How could you borrow method from an object and use it somewhere else?</p>
+        <p><strong>Answer:</strong>.call() and .apply() method will allow you to do that. for example, <code>arguments</code> is an array-like object doesnt have methods of array. If you want to use methods of array you can call that method of array. One  of the popular use of call is</p>
+        <pre><code>
+Array.prototype.slice.call(arguments);
+        </code></pre>
+        <p>what are we doing here? we are calling the slice method of an array and use it on arguments. The value of this would be arguments. The first parameter of call function is always be treated as value of this.</p>
+        <p>this will convert an array like object to an array and then use methods of array in it. For example, arguments don't have a <code>.reverse()</code> you will get a TypeError</p>
+        <pre><code>
+function myFunc(){
+  return arguments.reverse();  
+}
+
+myFunc(1,2,3); //TypeError: undefined is not a function
+        </code></pre>
+        <p>to solve this problem, you can call a slice method of Array and convert arguments to an array.</p>
+        <pre><code>
+function myFunc(){
+  var args = Array.prototype.slice.call(arguments);
+  return args.reverse();  
+}
+
+myFunc(1,2,3); //[3, 2, 1]
+        </code></pre>
+        <div>
+          <button id = "callApplyDetail" type="button" class="toggleExample btn btn-primary">Show Detail Example</button>
+          <div id="callApplyDetailExample" class="hide bg-success toggleContent">
+            <h3>call and apply Detail Example</h3>
+            <p>If i have a class Friend. It has two properties- name and libraries. and has two methods- addLib and isExpertOf. </p>
+            <pre><code>
+function Friend(name){
+  return {
+    name: name,
+    libraries:[],
+
+    addLib:function(lib){
+      this.libraries.push(lib);
+    },
+
+    isExpertOf:function(lib){
+      return this.libraries.indexOf(lib) > -1;
+    }
+  }
+}
+            </code></pre>
+            <p>I can create friend by using above function</p>
+            <pre><code>
+var sheldon = new Friend('Shelodn Cooper');
+sheldon.addLib('angular');
+sheldon.addLib('backbone');
+sheldon.addLib('ember');
+            </code></pre>
+            <p>Now, Sheldon knows angular, backbone and ember. You can use isExpertOf to check whether he knows particular library</p>
+            <pre><code>
+sheldon.isExpertOf('ember'); //true
+sheldon.isExpertOf('react'); //false
+            </code></pre>
+            <p>Now the beauty of call is, you can call <code>isExpertOf</code> method in Sheldon to check whether another friend is an expert of some library. Have a look into the code below</p>
+            <pre><code>
+var raj = {
+  name:'Raj Koothrappali', 
+  libraries:['prototype', 'jquery']
+}
+
+//call method on sheldon
+shelod.isExpertOf.call(raj, 'jquery'); //true
+shelod.isExpertOf.call(raj, 'ember'); //false
+            </code></pre>
+            <p>What are we doing here? we are calling <code>isExpertOf</code> method in sheldon object. and then using it on raj object. If you look at the method <code>isExpetOf</code>, you will see <code>this.libraries.indexOf(lib)</code>. this means, whatever is the libraries in the object "this".</p>
+            <p>the first parameter of the call function is assigned to be the value of "this". when you use <code>shelod.inisExpertOf.call(raj, 'jquery'); </code> the first parameter of call (in this case, raj) become the value of this. Hence we are looking for 'jquery' in raj's libraries not in sheldon libraries.</p>
+            <p>.apply() is very similar. the only difference here is </p>
+          </div>
+        </div>
+        <p></p>
+      </div>      
       <div id="addClass">
         <h2>add class</h2>
         <p><strong>Question:</strong> How you could add a class to an element by query selector</p>
@@ -639,10 +745,33 @@ for(var i = 0; i < 10; i++) {
       </div>
       <div id="ajaxCall">
         <h2>Ajax in Native call</h2>
+        <p><strong>Question:</strong> JavaScript is single threaded how it makes ajax call while it is doing something else?</p>
+        <p><strong>Answer: </strong> By using event queue. When you make an ajax call, an event will be added to the event queue. Besides, you will have some code to handle/ do something when ajax call is done. When server is done executing the request and it returns some data/status. when you receive data/status and if you have new event to be performed on data received, you have event handlers. these event handers will also be added in the event queue. </p>
+        <p>could talk about promise pattern. </p>        
+        <p>ref: <a href="http://stackoverflow.com/a/7575649/1535443">Handling of Ajax in the background</a></p>
         <p><strong>Question:</strong>How would you apply asynchronous call without any help of library</p>
-        <p><strong>Answer:</strong></p>
-        <p><strong>Question:</strong> JavaScript is single threaded how it makes ajax call while it is doing something else</p>
-        <p>ref: <a href="http://net.tutsplus.com/articles/news/how-to-make-ajax-requests-with-raw-javascript/">ajax request with raw JS</a>, <a href="http://blog.adtile.me/2014/01/16/a-dive-into-plain-javascript/">read more about native JS</a>, <a href="http://www.sitepoint.com/jquery-vs-raw-javascript-3-events-ajax/">events ajax</a>, <a href="http://www.sitepoint.com/jquery-vs-raw-javascript-1-dom-forms/">DOM and form</a></p>
+        <p><strong>Answer:</strong> google it and put it here</p>
+        
+      </div>
+      <div id="jsonP">
+        <p><strong>Question:</strong> What do you know about JSONP?</p>
+        <p><strong></strong></p>
+        <pre><code>
+&lt;div id = 'twitterFeed'&gt;&lt;/div&gt;
+        &lt;script&gt;
+        function myCallback(dataWeGotViaJsonp){
+            var text = '';
+            var len = dataWeGotViaJsonp.length;
+            for(var i=0;i&lt;len;i++){
+                twitterEntry = dataWeGotViaJsonp[i];
+                text += '&lt;p&gt;&lt;img src = &quot;' + twitterEntry.user.profile_image_url_https +'&quot;/&gt;' + twitterEntry['text'] + '&lt;/p&gt;'
+            }
+            document.getElementById('twitterFeed').innerHTML = text;
+        }
+        &lt;/script&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;http://twitter.com/status/user_timeline/padraicb.json?count=10&amp;callback=myCallback&quot;&gt;&lt;/script&gt;
+        </code></pre>
+        <p>ref: <a href="http://stackoverflow.com/questions/2067472/what-is-jsonp-all-about">all about JSONP</a></p>
       </div>
       <div id="showAndTell">
         <h2>show and tell</h2>
@@ -712,32 +841,24 @@ foo();//?
       <div>
         <h2>must read</h2>
         <h4><a href="http://www.toptal.com/javascript#hiring-guide">Very good JS question</a></h4>
-        <ul>
-          <li>If you want to add an extension to all instance of data like nextDay. how will you do it</li>
-          <li>if you want to use an arbitary object as value of this, how will you do that</li>
-          <li>what are the difference between null and undefined</li>
+        <ul>          
+          
           <li>if you have a function. inside it there is a for loop. i to 10 and you have settimeout. inside settimeout you have console.log(i). What will you get in the console and why. Explain why this happened</li>
-          <li>check js2.html for more question</li>
-          <li>what are differences between host object and native object</li>
-          <li>difference between, call and apply and bind</li>
-          <li>explain inheritance in JS</li>
-          <li>how ajax works</li>
-          <li>explain json p and why it is not AJAX</li>
-          <li>FOUC</li>
-          <li>difference between attribute and property</li>
+          <li>what are differences between host object and native object</li>          
+          <li>explain inheritance in JS</li>          
+          
           <li>why extending build in JavaScript object is a bad idea  </li>
           <li>How will you get query string in a browsers URL</li>
           <li>what is same origin policy with regards to JS</li>          
           <li>describe memoization in JS</li>
           <li>why is it called ternary statement. what does the word ternary indicate</li>
-          <li>~~3.14 ?? what and why</li>
+          <li>~~3.14 ?? what and why. <a href="http://stackoverflow.com/questions/5971645/what-is-the-double-tilde-operator-in-javascript">answer here</a> or <a href="http://www.joezimjs.com/javascript/great-mystery-of-the-tilde/">great mystery of tilde</a></li>
           <li>difference between cookies, sessionStorage and local storage</li>
           <li>what is the typical use of anonymous function</li>
           <li>Expalin JS module pattern</li>
           <li>sort in Javascript: <a href="http://www.nczonline.net/blog/tag/computer-science/">computer sci in JS</a></li>
           <li>How would you go about implementing a spreadsheet in a browser. Google it. somebody did it couple of days ago</li>
           <li>“Write your own script that does a JSONP request, without using jQuery. Should work with multiple calls to the function and support async.”</li>
-          <li>“Browsers running javascript is single threaded, how can we make AJAX calls in the backgroung?</li>
           <li>How would you create an accordion-style nav menu using css and javascript without using jQuery</li>
           <li>Write a function in Javascript that takes Roman numerals (in String form) and convert it to decimal form. Assume the string is well-formed</li>
           <li>If we wanted to implement a method of tracking every click that the user made on the site, how would we want to do this</li>
@@ -765,7 +886,7 @@ foo();//?
         <ul>
           <li>How to extend a javascript object (<a href="http://stackoverflow.com/questions/11197247/javascript-equivalent-of-jquerys-extend-method">extend</a>)</li>
           <li>Function as object</li>
-          <li>difference between .call .apply and .bind</li>          
+          
           <li>passing by value or by ref <a href="http://snook.ca/archives/javascript/javascript_pass/">js pass</a></li>
           <li>How to achieve static variable in JS</li>
           <li></li>
