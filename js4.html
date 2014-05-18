@@ -128,7 +128,90 @@ myQueue.shift(); //3
       <div id="queue">
         <h2>Linked list</h2>
         <p><strong>Question: </strong> How will you create a linked list in JavaScript?</p>
-        <p>ref: <a href="http://www.nczonline.net/blog/2009/04/13/computer-science-in-javascript-linked-list/">Nicholas Zakas: linked list</a></p>
+        <p>if you don't have any idea about linked list. read: <a href="http://en.wikipedia.org/wiki/Linked_list">wiki: linked list</a></p>
+        <h3>singly linked list</h3>
+        <p>to have linked list, you need a node object that will point to the next. you need one pointers (head) to point the first node of your linked list. Besides, you need methods to add and remove node from your linked list</p>
+        <p>let's get started. We have an object LinkedList and that has one property head (a pointer)</p>
+        <pre><code>
+function LinkedList(){  
+  this.head = null;
+}
+        </code></pre>
+        <p>to create add elements, will use a push method in the prototype of the object. push method will take value and will create a node object. if there is no head, then node will be the value of head. if there is a head. then we have to walk through the linked list chain to read the tail (tail is where the next node is null). We will simple set the of next at the tail to node.</p>
+        <pre><code>
+LinkedList.prototype.push = function(val){
+    var node = {
+       value: val,
+       next: null
+    }
+    if(!this.head){
+      this.head = node;      
+    }
+    else{
+      current = this.head;
+      while(current.next){
+        current = current.next;
+      }
+      current.next = node;
+    }
+  }
+        </code></pre>
+        <p>Now. create a linked list and push values in it. </p>
+        <pre><code>
+var myLinkedList = new LinkedList();
+
+//push node
+myLinkedList.push(2);
+myLinkedList.push(3);
+myLinkedList.push(4);
+
+//check values by traversing LinkedList 
+myLinkedList.head; //Object {data: 2, next: Object}
+myLinkedList.head.next; //Object {data: 3, next: Object}
+myLinkedList.head.next.next; //Object {data: 4, next: null}
+        </code></pre>
+        <p>If you want to remove a node from your linked list you have to find the node. There are three conditions here</p>
+        <ul>
+          <li>case -1: your targeted node is in the head. you have to replace the head with the next node</li>
+          <li>case -2: your targeted node is in the tail. you just have to remove it from the tail. Hence next of the node before the tail will be null. </li>
+          <li>case-3: your targeted node is in the middle of the LinkedList, you have to make the node after your targeted node to be the next node of the node before your targeted node.</li>
+        </ul>
+        <p>let's do it</p>
+        <pre><code>
+LinkedList.prototype.remove = function(val){
+    var current = this.head;
+    //case-1
+    if(current.value == val){
+       this.head = current.next;     
+    }
+    else{
+      var previous = current;
+      
+      while(current.next){
+        //case-3
+        if(current.value == val){
+          previous.next = current.next;          
+          break;
+        }
+        previous = current;
+        current = current.next;
+      }
+      //case -2
+      if(current.value == val){
+        previous.next == null;
+      }
+    }
+  }  
+
+        </code></pre>
+        <p>Now if you want to remove you can just pass the value</p>
+        <pre><code>
+myLinkedList.remove(3); 
+myLinkedList.remove(1); 
+        </code></pre>
+        <h3 class="text-danger bg-info">remove last element doesnt work</h3>
+        <p>read: <a href="http://en.wikipedia.org/wiki/Linked_list">Advantage and disadvantage of linked list</a></p>
+        <p>copied from: <a href="http://www.nczonline.net/blog/2009/04/13/computer-science-in-javascript-linked-list/">Nicholas Zakas: linked list</a></p>
       </div>      
 <div>
   <!-- <h3 class="purpleBold">Express anger!</h3>
