@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="that js dude" content="">    
-    <title>JS: Quiz Explanation</title>
+    <title>JS: interview Questions -2</title>
 
     <link rel="shortcut icon" href="images/favicon.jpg">    
     <link rel="stylesheet" href="css/bootstrap.min.css" >
@@ -65,7 +65,7 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>JS: tricky Quiz</h1>        
+        <h1>JS: Tricky Interview Questions</h1>        
         <h2>part -2: intermediate</h2>
         <p>January 26, 2014</p>
 <!--         <div id="fb-root"></div><div class="fb-like" data-href="http://www.thatjsdude.com/interview/js1.htmQuiz" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div> &nbsp;<div class="g-plusone"></div>
@@ -83,7 +83,7 @@
       <p class="gray"> <span class="purpleBold">More Questions</span> <a href="css.html">css interview questions</a>, <a href="html.html">html interview questions</a> </p> -->
       
       <div>
-        <hDD2>null vs undefined</h2>
+        <h2>null vs undefined</h2>
         <p><strong>Question:</strong>What is the difference between null and undefined.</p>
         <p><strong>Answer:</strong> <code>undefined</code> means, value of the variable is not defined. More specifically, you declared a variable but no value has been assigned to that variable.</p>
         <p><code>null</code> means empty or non-existent value. null is a primitive value and you can assign null to any variable.</p>
@@ -295,35 +295,21 @@ shelod.isExpertOf.call(raj, 'ember'); //false
           </div>
         </div>
         <p></p>
-      </div>      
-      <div id="addClass">
-        <h2>add class</h2>
-        <p><strong>Question:</strong> How you could add a class to an element by query selector</p>
-        <p><strong></strong></p>
+      </div>    
+      <div id="checkInteger">
+        <p><strong>Question:</strong> How you can check integer in JavaScript</p>
+        <p><strong>Answer: </strong>5 ways</p>
         <pre><code>
-function addClass(selector, className){
-   var elm = document.querySelector(selector);
-   if (elm)
-      elm.classList.add(className);
-}
+Number.IsInteger(num); 
+num === parseInt(num);
+!isNaN(num) && num== parseInt(num);
+num%1 === 0; 
+typeof num == 'number' && num%1===0
+Math.round(num)===num;
+num == ~~num; //'1' will give you true
+num == num + 0 && num == ~~num;
         </code></pre>
-      </div>
-      <div id="isDescendant">
-        <h2>is Descendant</h2>
-        <p><strong>Question:</strong> Check if one element child of another?</p>
-        <p><strong>Answer:</strong> check if the parent of the child is the node passed. if not keep checking</p>
-        <pre><code>
-function isDescendant(parent, child){ 
-  while(child.parentNode ){ 
-    if(child.parentNode == parent)
-      return true;
-    else
-      child = child.parentNode;
-  }
-  return false;
-}
-        </code></pre>
-      </div>
+      </div>        
       <div id="flattenArray">
         <h2>flatten an array</h2>
         <p><strong>Question:</strong> How would you flatten an array in JavaScript?</p>
@@ -444,13 +430,7 @@ function flatten(array) {
 
       </div>
       <div id="insertSpace">
-        <h2>Insert Space</h2>
-        <p><strong>Question: </strong> Create a simple function that will log any message you are submitting</p>
-        <pre><code>
-function log(msg){
-  console.log(msg)
-}
-        </code></pre>
+        <h2>log function</h2>        
         <p><strong>Question:</strong> Problem with this one is, if you pass more than one arguments to the log function all arguments after the first one will not be logged. How could you fix it?</p>
         <pre><code>
 function log(){
@@ -573,23 +553,26 @@ Function.prototype.bind = Function.prototype.bind || function(context){
         <p>ref: <a href="http://stackoverflow.com/questions/588040/window-onload-vs-document-onload"> stackoverflow</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/document.readyState">MDN: readyState</a></p>
       </div>
       <div id="getElementByallAttribute">
+        <h2>getElementsByAttribute</h2>
         <p><strong>Question:</strong> If you need to implement getElementByAttributeValue, how would you implement it?</p>
         <p><strong></strong></p>
         <pre><code>
-function getElementByAttributeValue(attribute)
+function getElementsByAttribute(attribute)
     {
       var allElements = document.getElementsByTagName('*');
       for (var i = 0; i &lt; allElements.length; i++)
        {
         if (allElements[i].getAttribute(attribute))
         {
-          return allElements[i];
+          allElements[i];
         }
       }
+      return allElements;
     }
         </code></pre>
       </div>
       <div id="safeCoding">
+        <h2>Save hasOwnProperty</h2>
         <p><strong>Question:</strong> If you mistakenly overrirde some of the build in method like <code>hasOwnProperty</code> how you will make sure its works</p>
         <p><strong>Answer:</strong></p>
         <pre><code>
@@ -844,11 +827,10 @@ foo();//?
         <ul>          
           
           <li>if you have a function. inside it there is a for loop. i to 10 and you have settimeout. inside settimeout you have console.log(i). What will you get in the console and why. Explain why this happened</li>
-          <li>what are differences between host object and native object</li>          
-          <li>explain inheritance in JS</li>          
-          
+          <li>what are differences between host object and native object? <a href="http://stackoverflow.com/a/7614380/1535443">read answer here</a></li>          
+          <li>explain inheritance in JS</li>
           <li>why extending build in JavaScript object is a bad idea  </li>
-          <li>How will you get query string in a browsers URL</li>
+          <li>How will you get query string in a browsers URL? <a href="http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript?page=3&tab=votes#tab-top">detail answer</a> or <code>window.location.search;</code></li>
           <li>what is same origin policy with regards to JS</li>          
           <li>describe memoization in JS</li>
           <li>why is it called ternary statement. what does the word ternary indicate</li>
@@ -860,8 +842,7 @@ foo();//?
           <li>How would you go about implementing a spreadsheet in a browser. Google it. somebody did it couple of days ago</li>
           <li>“Write your own script that does a JSONP request, without using jQuery. Should work with multiple calls to the function and support async.”</li>
           <li>How would you create an accordion-style nav menu using css and javascript without using jQuery</li>
-          <li>Write a function in Javascript that takes Roman numerals (in String form) and convert it to decimal form. Assume the string is well-formed</li>
-          <li>If we wanted to implement a method of tracking every click that the user made on the site, how would we want to do this</li>
+          <li>Write a function in Javascript that takes Roman numerals (in String form) and convert it to decimal form. Assume the string is well-formed</li>          
           <li> asked at google... How would you extend Array in JavaScript so that it could add all the values stored in an array</li>
           <li>Google Maps allows you to zoom in and out of satellite maps, with terabytes of data accessible via a very fast interface. How would you go about implementing this functionality</li>
           <li>Design a webpage which can auto post new posts when you reach the bottom of the page by using javascript. So you may use AJAX and some javascript event listeners. But, they do not require you remember the functions names, it will be great as long as you can describe your thought and design</li>
@@ -889,17 +870,9 @@ foo();//?
           
           <li>passing by value or by ref <a href="http://snook.ca/archives/javascript/javascript_pass/">js pass</a></li>
           <li>How to achieve static variable in JS</li>
-          <li></li>
-          <li>How will you make a website response </li>
-          <li>If you want to make a website responsive, you will you start</li>
-          <li>how will you start when you have to make a site compatible to different browser</li>
           <li>what is html5 why you are using it</li>
-          <li>script tag defer vs async (refer to my presentation)</li>
-          <li>discuss scoping</li>
-          <li>closure</li>
           <li>garbage collection</li>
           <li>AJAX call in native JavaScript</li>
-          <li>event bubble</li>
           <li>DOM access API</li>
           <li>DOM node type</li>
           <li>page request status 200, 400, 500, etc</li>
