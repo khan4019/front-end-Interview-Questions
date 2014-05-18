@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="that js dude" content="">    
+    <title>JS: Advanced Interview Questions</title>
+
+    <link rel="shortcut icon" href="images/favicon.jpg">    
+    <link rel="stylesheet" href="css/bootstrap.min.css" >
+    <link rel="stylesheet" href="css/zenburn.css">
+    <!-- Custom styles for this template -->
+    <style>
+      /* Move down content because we have a fixed navbar that is 50px tall */
+      body {        
+        padding-bottom: 20px;
+      }
+      .purpleBold{
+        color:purple;        
+        font-weight: bold;
+      }
+      .gray{
+        color: gray;
+      }
+      .blueish{
+        color: rgba(151, 182, 209, 0.98);
+      }
+      .singInStuff{
+        margin-top: 9px;
+      }
+      #uName{
+        margin-top: -7px;
+      }
+      .skipListItem{
+        list-style-type: none;
+      }
+      .skipListItem a{
+        color: inherit;
+      }
+      a:visited
+      { 
+        color: rgba(218, 209, 149, 0.98);
+      }
+      /*style for demo*/
+      
+    </style>
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+ 
+  <body>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>JS: Interview Questions</h1>        
+        <h2>part -4: Data Structures and Algorithm</h2>
+        <p>August 26, 2014</p>
+<!--         <div id="fb-root"></div><div class="fb-like" data-href="http://www.thatjsdude.com/interview/js1.htmQuiz" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div> &nbsp;<div class="g-plusone"></div>
+      -->
+      </div> 
+    </div>
+    <div class="container">
+      <!-- Example row of columns -->
+
+      <div class="row center">        
+        <!-- <iframe width="853" height="480" src="//www.youtube.com/embed/Rx_JFOSxgpY" frameborder="0" allowfullscreen></iframe> -->
+      </div>
+           
+      <!-- <p class="gray">if you are little more comfortable or claim to be comfortable with javascript, these questions would not be enough for you. more coming</p>
+      <p class="gray"> <span class="purpleBold">More Questions</span> <a href="css.html">css interview questions</a>, <a href="html.html">html interview questions</a> </p> -->
+      <div>
+        <h2>Will cover</h2>
+        <ul>
+          <li>stack, queue</li>
+          <li>linked list</li>
+          <li>search</li>
+          <li>sorting</li>
+          <li>Tree</li>
+          <li>graphs</li>
+          <li>map</li>
+          <li>high level</li>
+          <li></li>
+        </ul>
+      </div>
+      <div id="stack">
+        <h2>Stack and Queue</h2>
+        <p><strong>Question:</strong> How will you implement stack and queue with JavaScript?</p>
+        <p>stack is already implemented with JavaScritp array. you can call <code>push</code> and <code>pop</code> method.</p>
+        <pre><code>
+var myStack = [];
+
+//push
+myStack.push(1);
+myStack.push(2);
+myStack.push(3);
+
+//pop
+myStack.pop(); //3
+myStack.pop(); //2
+myStack.pop(); //1
+        </code></pre>
+        <p>queue is pretty much same. other than calling <code>pop</code> you will use <code>shift</code> mehtod.</p>
+        <pre><code>
+var myQueue = [];
+
+//push
+myQueue.push(1);
+myQueue.push(2);
+myQueue.push(3);
+
+//pop
+myQueue.shift(); //1
+myQueue.shift(); //2
+myQueue.shift(); //3
+        </code></pre>
+      </div>
+
+      <div id="queue">
+        <h2>Linked list</h2>
+        <p><strong>Question: </strong> How will you create a linked list in JavaScript?</p>
+        <p>ref: <a href="http://www.nczonline.net/blog/2009/04/13/computer-science-in-javascript-linked-list/">Nicholas Zakas: linked list</a></p>
+      </div>      
+<div>
+  <!-- <h3 class="purpleBold">Express anger!</h3>
+  <p class="gray">Feel free to express your anger (sorry u have to use facebook). also find out mistakes ( technical, wrong answer, spelling, grammar, sentence, whatever), let ur dude learn and grow.</p>
+  <div class="fb-comments" data-href="http://www.thatjsdude.com/interview/js1.html" data-numposts="5" data-colorscheme="light"></div>
+-->
+</div> 
+      <hr>
+
+      <footer>
+        <p>&copy;thatJSDude 2014</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery-2.0.3.min.js"></script>    
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/highlight.pack.js"></script>    
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="js/toggleExample.js"></script>
+    <script type="text/javascript">
+      // //social plugins
+      // //g+
+      // (function() {
+      //   var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+      //   po.src = 'https://apis.google.com/js/platform.js';
+      //   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+      // })();
+      // //fb
+      // (function(d, s, id) {
+      //   var js, fjs = d.getElementsByTagName(s)[0];
+      //   if (d.getElementById(id)) return;
+      //   js = d.createElement(s); js.id = id;
+      //   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+      //   fjs.parentNode.insertBefore(js, fjs);
+      // }(document, 'script', 'facebook-jssdk'));
+    </script>
+  </body>
+</html>
