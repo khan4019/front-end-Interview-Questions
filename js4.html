@@ -84,7 +84,7 @@
           <li>stack, queue</li>
           <li>linked list</li>
           <li>search</li>
-          <li>sorting</li>
+          <li><a href="http://www.nczonline.net/blog/tag/computer-science/">sort</a></li>
           <li>Tree</li>
           <li>graphs</li>
           <li>map</li>
@@ -212,6 +212,55 @@ myLinkedList.remove(1);
         <h3 class="text-danger bg-info">remove last element doesnt work</h3>
         <p>read: <a href="http://en.wikipedia.org/wiki/Linked_list">Advantage and disadvantage of linked list</a></p>
         <p>copied from: <a href="http://www.nczonline.net/blog/2009/04/13/computer-science-in-javascript-linked-list/">Nicholas Zakas: linked list</a></p>
+        <h3>Doubly LinkedList</h3>
+        <p>for doubly linked list there will be a link backward to the previous element. Your node object will look like</p>
+        <pre><code>
+var node = {
+  value: val,
+  next: null,
+  previous: null  
+}
+        </code></pre>
+        <p>get most of it from: <a href="https://github.com/nzakas/computer-science-in-javascript/blob/master/data-structures/doubly-linked-list/doubly-linked-list.js">doubly linked list</a></p>
+      </div>
+      <div id="binarySearch">
+        <h2>binary search</h2>
+        <p><strong>Question:</strong> How to implement binary search algorithm?</p>
+        <p><strong>Answer:</strong> Here is the iterative way of implementing binary search in an array. Just think about what is the condition in the while loop. Why it is like that. You can figure out rest of it</p>
+        <pre><code>
+function binarySearchIterative(arr, val){
+   var start = 0,
+       end = arr.length-1, 
+       mid, 
+       midVal;
+    
+   while(end >= start){
+     mid = Math.floor((start+end)/2);
+
+     midVal = arr[mid];
+          
+     if(midVal==val)
+         return mid;
+     
+     if(val&lt;midVal)
+         end = mid - 1;
+     if(val&gt;midVal)
+         start = mid + 1;
+          
+  } 
+  return -1;
+}
+
+//try it now
+binarySearchIterative([1,2,3,4,5], 1); //0
+binarySearchIterative([1,2,3,4,5], 5); //4
+binarySearchIterative([1,2,3,4,5], 55); //-1
+        </code></pre>
+        <pstrong  Performance</p>
+        <p>Recusrive algo</p>
+        <pre><code>
+
+        </code></pre>
       </div>      
 <div>
   <!-- <h3 class="purpleBold">Express anger!</h3>
