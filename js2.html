@@ -144,6 +144,145 @@
           </div>    
         </div>
       </div>
+      <div id="trueLies">
+        <h2>True and False</h2>
+        <p><strong>Question:</strong> What are the truthy and falsy values in JavaScript</p>
+        <p><strong>Answer:</strong></p>
+        <h3>Falsy values</h3>  
+        <ul>
+          <li>false</li>
+          <li>null</li>
+          <li>undefined</li>
+          <li>''</li>
+          <li>0</li>
+          <li>NaN</li>
+        </ul>
+        <h3>truthy</h3>
+        <ul>
+          <li>true</li>
+          <li>Everything that is not false</li>
+        </ul>
+        <div>
+          <button id = "trueFalseRapid" type="button" class="toggleExample btn btn-primary">Show Rapid Fire Questions</button>
+          <div id="trueFalseRapidExample" class="hide bg-success toggleContent">
+            <h2>True False Rapid Fire</h2>
+            <p><strong>Question:</strong> is <code>'false'</code> is false?</p>
+            <p><strong>Answer:</strong> no. because, its a string with length greater than 0. Only empty string is false</p>
+            <p><strong>Question:</strong> is <code>' '</code> is false?</p>
+            <p><strong>Answer:</strong>no. because, its not an empty string. there is a white space in it. </p>
+            <p><strong>Question: </strong>what about <code>{}</code>?</p>
+            <p><strong>Answer: </strong>true. its an object. An object without any property is an object can't be falsy</p>
+            <p><strong>Question: </strong>tell me about <code>[]</code>?</p>
+            <p><strong>Answer: </strong> this is also truthy. its an array object (array is child of object) is truthy.</p>
+            <p><strong>Question: </strong>you talked bout <code>''</code> to be falsy. what about <code>new String('')</code>? </p>
+            <p><strong>Answer:</strong>Though you are passing empty string to the string constructor. it is creating an String object. or more precisely a instance of String object. It becomes an object. Hence, it is not false. so, it is truthy.</p>
+            <p><strong>Question:</strong> tell me about <code>new Boolean(false)</code></p>
+            <p><strong>Answer:</strong> truthy. as it creates an instance of the Boolean object. which is an object. and object is truthy</p>
+            <p><strong>Question: </strong><code>Boolean(function(){})</code></p>
+            <p><strong>Answer: </strong><code>true</code></p>
+            <p><strong>Question: </strong><code>Boolean(/foo/)</code></p>
+            <p><strong>Answer: </strong><code>true</code></p>
+          </div>
+        </div>
+        <br>
+        
+      </div>
+      <div id="doubleOrTripleEqual">
+        <h2>== or ===</h2>
+        <p><strong>Question:</strong>What are the difference between <code>==</code> and <code>===</code></p>
+        <p><strong>Answer: </strong> Talk about implicit and explicit coercion</p>
+        
+      </div>
+      <div id="truthyVsEqality">
+        <h2>Truthy Vs Equality</h2>
+        <p><strong>Question: </strong> For the code below, what will be logged?</p>
+          <pre><code>
+if([]){
+  console.log('empty array is true');
+}
+
+if([0]==true){
+  console.log('will not log this value.')
+}
+
+          </code></pre>
+          <p><strong>Answer:</strong> First one log. but second one will not log</p>
+          <p><strong>Question: </strong> Can you explain why second one will not be logged</p>
+          <p><strong>Answer:</strong> The first one is a truthy check. in that canse empty array is an object. and object is always truthy and it will go to inside of the if block and code will be executed</p>
+          <p>However, for the second part. it is an equality check with <code>==</code> (double equal). Hence there will be some implicit coercion. You have to understand core JavaScript implementation in a JavaScript engine like V8</p>
+          <p>what will happen. since they are two different types, JavaScript can't compare them directly . Hence, under the hood, JavaScript will convert them to compare. first right side of the equality will be cooereced to a number type by using <code>otNumber</code> (JavaScript doesnt have toNumber. this is toNumber of JavaScript implementation in C). and number of <code>true</code> would be 1.</p>
+          <p>after that, JavaScript implementation will try to convert [0] by using<code>toPrimitive</code> (of JavaScript implementation). since [0].valueOf is not primitive will use <code>toString</code> and will get <code>"0"</code></p>
+          <p>still left and right is not same type. hence left side will be converted again to a number. "0" will be 0.</p>
+          <p>finally, you are comparing <code>0==1</code> which will be false anyway</p>
+          <pre><code>
+//EQUALITY CHECK...
+[0] == true; 
+ 
+//HOW IT WORKS...
+//convert boolean using toNumber
+[0] == 1;
+//convert object using toPrimitive
+//[0].valueOf() is not a primitive so use...
+//[0].toString() -> "0"
+"0" == 1; 
+//convert string using toNumber
+0 == 1; //false!
+          </code></pre>
+          <div class="bg-danger">
+            <h4>Work on this and try to explain it better.</h4>
+        </div>
+      </div>
+      <div id="areYouAnExpert">
+        <h2>are you really an expert?</h2>
+        <p><strong>Question:</strong> Look at the code block below. why <code>'expert'</code> is true and false at the same time. is JavaScript on drug?</p>
+        <pre><code>
+'expert' == true; //false
+'expert' == false; //false
+        </code></pre>
+        <p><strong>Answer:</strong> This need to be explained how equality (==) or double equals works in JavaScript.</p>
+        <p>if you are using <code>==</code>. javascript does coercing. this means, it doesnt check the type of the object. while ignoring types of the two things you are comparing. JavaScript, under the hood actually convert them to complare if they are not same type. In this particular example</p>
+        <p>Since, both side is different, they get coerced to number using <code>toNumber</code> (JavaScript implementation: in V8, etc. ). right side get coerced first and then left side. </p>
+        <pre><code>
+//for
+"expert" == true;
+//convert boolean using toNumber will generate 1 for true
+"expert" == 1;
+//convert string using toNumber will generate NaN
+NaN == 1; //false
+        </code></pre>
+        <p>for <code>'expert'== false</code> the process is same</p>
+        <pre><code>
+//for
+"expert" == false;
+//convert boolean using toNumber
+"expert" == 0;
+//convert string using toNumber
+NaN == 0; //false!
+        </code></pre>
+                <div>
+                  <button id = "equalityRapidFire" type="button" class="toggleExample btn btn-primary">Show More Rapid Fire</button>
+                  <div id="equalityRapidFireExample" class="hide bg-success toggleContent">
+                    <h2>Equality Rapid Fire</h2>  
+                      <p>see them in the code block below</p>
+                      <pre><code>
+null == false; // false
+null == null; // true
+
+undefined == undefined; // true
+undefined == null; // true
+                      </code></pre>
+                      <pre><code>
+NaN == null; // false
+NaN == NaN; // false
+
+typeof(NaN); //number
+isNaN(NaN);//use it
+                      </code></pre>
+                  </div>
+                  <p>ref: <a href="http://www.sitepoint.com/javascript-truthy-falsy/">truthy and falsy</a></p>
+                </div>
+        <p>ref: <a href="http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/">angus croll: truth and eqality in JS</a></p>
+      </div>
       <div id="extension">
         <h2>Extend Core Object</h2>
         <p><strong>Question:</strong> How could you write a method on instance of a date which will give you next day.</p>
@@ -639,6 +778,7 @@ function getAllText(node){
         </code></pre>
       </div>
       <div id="partOfString">
+        <h2>Frist 100 characters</h2>
         <p><strong>Question:</strong>From a crazy long string get the first 100 character. by the way, don't slice the last word. I mean keep it full. </p>
         <p><strong>Answer:</strong></p>
         <pre><code>
@@ -654,6 +794,7 @@ function first100Char(str){
         </code></pre>
       </div>
       <div id="duplicateArray">
+        <h2>duplicate Array</h2>
         <p><strong>Question:</strong> how do u duplicate an array. for example if you have array like [1, 2, 3] the duplicate array would be [1, 2, 3, 1, 2, 3]</p>
         <p><strong>Answer:</strong> very simple. </p>
         <pre><code>
@@ -697,15 +838,6 @@ function replaceStr(str, match, replace){
       
       <h4>Avoiding the Reference Problem</h4>
       <p>In order to copy the value of the loop's index variable, it is best to use an anonymous wrapper.</p>
-<pre><code>
-for(var i = 0; i < 10; i++) {
-    (function(e) {
-        setTimeout(function() {
-            console.log(e);  
-        }, 1000);
-    })(i);
-}  
-</code></pre>
 
       <p>The anonymous outer function gets called immediately with i as its first argument and will receive a copy of the value of i as its parameter e.</p>
       <p>The anonymous function that gets passed to setTimeout now has a reference to e, whose value does not get changed by the loop.</p>
@@ -719,6 +851,8 @@ for(var i = 0; i < 10; i++) {
     })(i), 1000)
 }
 </code></pre>
+<p><strong>Question:</strong>How does IIFE works</p>
+<p><strong></strong></p>
 <p>There's yet another way to accomplish this by using .bind, which can bind a this context and arguments to function. It behaves identially to the code above</p>
 <pre><code>
 for(var i = 0; i < 10; i++) {
