@@ -85,9 +85,168 @@
     <div>
       <h2>Todo list</h2>
       <ul>
-        <li></li>
+        <li>ready</li>
+        <li>dom ready from js2</li>
       </ul>
     </div>  
+    <div id="QueryDOM">
+      <h2>DOM Query</h2>
+      <p><strong>Question: </strong> What are the different ways to query dom</p>
+      <p><strong>Answer: </strong> you can use the following method in <code>document</code></p>
+      <h4>mostly used by me</h4>
+      <ul>
+        <li><code>document.getElementById</code> you can get element by providing Id</li>
+        <li><code>document.getElementsByClassName</code> you will get a nodelist (nodelist is not an array, rather it is array-like object) by providing a class name.</li>
+        <li><code>document.getElementsByTagName</code> you will get a nodelist by providing a tag name</li>
+        <li><code>document.querySelector</code> you will pass css style selector (jquery style) and this will retrurn first match of the DOM by using a **** (depth first or breadth first) search</li>
+        <li><code>docuemnt.querySelectorAll</code> will return a nodelist of all the matched elements</li>        
+      </ul>
+      <h4>not use that frequently</h4>
+      <ul>
+        <li><code>document.getElementsByName</code></li>
+        <li><code>document.getElementsByTagNameNS</code></li>
+      </ul>
+      <p class="bg-warning text-danger"><strong>TODO:</strong> learn more about last two</p>
+    </div>
+    <div id="selectElement">
+              <p><strong>Question:</strong> What is the best way to select an element from DOM?</p>
+              <p><strong>Answer:</strong> It depends on what you are selecting. if you have an ID of an element <code>document.getElmentById</code> is the fastest way to select an element. However, you should not have so many ID in you document. then you have to repeat styles a lot. css class <code>document.getElementsByClassName</code> is the second quickest way to select an element</p>
+              <p>in terms of speed of selecting elements. here is the list. As we go downwards to the list, it takes more time to select elements </p>
+              <ul>
+                <li>ID (#myID)</li>
+                <li>Class (.myClass)</li>
+                <li>Tag (div, p)</li>
+                <li>Sibling (div+p, div~p)</li>
+                <li>child (div>p)</li>
+                <li>Descendant (div p)</li>
+                <li>Universal (*)</li>
+                <li>Attribute (input[type="checkbox"])</li>
+                <li>Pseudo (p:first-child)</li>       
+              </ul>
+            </div>
+    <div id="getElementByallAttribute">
+        <h2>getElementsByAttribute</h2>
+        <p><strong>Question:</strong> If you need to implement getElementByAttributeValue, how would you implement it?</p>
+        <p><strong></strong></p>
+        <pre><code>
+function getElementsByAttribute(attribute)
+    {
+      var allElements = document.getElementsByTagName('*');
+      for (var i = 0; i &lt; allElements.length; i++)
+       {
+        if (allElements[i].getAttribute(attribute))
+        {
+          allElements[i];
+        }
+      }
+      return allElements;
+    }
+        </code></pre>
+      </div>
+            
+      <div id="allText">
+        <h2>Get all text in a website</h2>
+        <p><strong>Question:</strong>How can you get all the texts in a website</p>
+        <p><strong>Answer:</strong></p>
+        <pre><code>
+document.getElementsByTagName('body')[0].innerText;
+        </code></pre>
+        <p><strong>QuestioN:</strong>Can you do by accessing DOM?</p>
+        <p><strong>Answer:</strong>Make it recursive. I used closure. there could be many implementation</p>
+        <pre><code>
+function getAllText(node){
+  var allText = [];
+
+  function getNodeText(node){
+      if(node && node.childNodes && node.childNodes.length){
+          for(var i = 0, len = node.childNodes.length; i&lt;len; i++){
+              getNodeText(node.childNodes[i]);
+          }
+      }
+      else{
+          allText.push(node.nodeValue);
+     }
+  }
+  getNodeText(node);
+  return allText.join('');
+}
+        </code></pre>
+      </div>
+    <div id="">
+      <h2></h2>
+      <p><strong>Question: </strong></p>
+      <p><strong>Answer: </strong></p>
+    </div>
+    <div id="">
+      <h2></h2>
+      <p><strong>Question: </strong></p>
+      <p><strong>Answer: </strong></p>
+    </div>
+    <div id="">
+      <h2></h2>
+      <p><strong>Question: </strong></p>
+      <p><strong>Answer: </strong></p>
+    </div>
+    <div id="">
+      <h2></h2>
+      <p><strong>Question: </strong></p>
+      <p><strong>Answer: </strong></p>
+    </div>
+    <div id="mythicalHydra">
+        <h2>destroy button</h2>
+        <p><strong>Question:</strong> create a button that is destroyed by clicking it, but two new buttons are created in it's place.</p>
+        <p><strong>Answer:</strong> One way of solving is to attach a event handler with the button to destroy itself and append two. However, we can leverage event delegate. If we attach the event hander to the parent div instead of the button itself. we dont have to add the event handler to each button we create. So, we will take advantage of event bubbling.</p>
+        <p><strong>you:</strong> If both the newly created button is identical to one we are destroying, why interviewer wants to destroy exactly similar one and then create one. why not just add one. And end result would be same, you will have two two buttons.</p>
+        <p><strong>interviewer:</strong> I just want to see whether you can destroy any element. Make sure when you are destroying, there is no reference to the element, otherwise, you will have memory leak. If interviewer, says ok, just create one more button on click, then use your brain to change the following code.</p>
+        <pre><code>
+&lt;div id=&quot;doubleHolder&quot;&gt;<br/>  &lt;button class=&quot;double&quot;&gt;double&lt;/button&gt;<br/>&lt;/div&gt;<br/>&lt;script type="text/javascript" &gt;<br/> document.getElementById('doubleHolder').addEventListener('click', function (e) {<br/>   <br/>   if(e.target.classList.contains('double')){<br/>     var btn = document.createElement('button');<br/>      btn.setAttribute('class', 'double');<br/>     btn.innerHTML = 'double';<br/><br/>     var btn2 = document.createElement('button');<br/>     btn2.setAttribute('class', 'double');<br/>      btn2.innerHTML = 'double';<br/>     <br/>     this.appendChild(btn);<br/>     this.appendChild(btn2);<br/>      this.removeChild(e.target);   <br/>   }<br/>  }); <br/>&lt;/script&gt;
+        </code></pre>
+        <div>
+          <button id = "destroyBtn" type="button" class="toggleExample btn btn-primary">show example</button>
+          <div id="destroyBtnExample" class="hide">
+            <div id="doubleHolder">
+              <button class="double">double</button>
+            </div>
+          </div>  
+        </div>
+        <p>ref: <a href="http://www.careercup.com/question?id=17328675">destroy button</a></p>
+      </div>
+      <div id="destroyList">
+        <h2>destroy list</h2>
+        <p><strong>Question:</strong>you have a list of items that has anchor. how would you destroy list item when someone click on a list item</p>
+        <p><strong>Answer:</strong></p>
+        <pre><code>
+&lt;ul id=&quot;listToDestroy&quot;&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;first item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;third item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;forth item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Fifth item&lt;/a&gt;&lt;/li&gt;<br/>&lt;/ul&gt;<br/>&lt;script type=&quot;text/javascript&quot;&gt; <br/> document.getElementById('listToDestroy').addEventListener('click', function (e) { <br/>    var elm = e.target.parentNode; <br/>    elm.parentNode.removeChild(elm);<br/>    e.preventDefault();<br/> });<br/>&lt;/script&gt;
+        </code></pre>
+        <div>
+          <button id = "destroyLst" type="button" class="toggleExample btn btn-primary">show example</button>
+          <div id="destroyLstExample" class="hide">
+            <ul id="listToDestroy">
+              <li><a href="#">first item</a></li>
+              <li><a href="#">second item</a></li>
+              <li><a href="#">third item</a></li>
+              <li><a href="#">forth item</a></li>
+              <li><a href="#">Fifth item</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+            <div id="allClick">
+                <h2>capture all click</h2>
+                <p><strong>Question:</strong> How could you capture all clicks in a page?</p>
+                <p><strong>Answer:</strong> </p>
+                <pre><code>
+      document.querySelector('body').addEventListener('click', function(e){
+        console.log('body clicked', e.target);
+      });
+
+      //or
+      window.onclick =function(e){
+        console.log('someone clicked', e.target)
+      }
+                </code></pre>
+                <p>However, if event bubbling is canceled by <code>stopPropagation()</code> your code will not work. think about it.</p>
+              </div>
     <div id="addClass">
         <h2>add class</h2>
         <p><strong>Question:</strong> How you could add a class to an element by query selector</p>
@@ -123,6 +282,24 @@ function isDescendant(parent, child){
   return false;
 }
         </code></pre>
+      </div>
+      <div id="onload">
+        <h2>window.onload vs document.onload</h2>
+        <p><strong>Question:</strong> What are the differences between document.onload and window.onload</p>
+        <p><strong>Answer:</strong> <code>window.onload</code> is fired when DOM is ready and all the contents including images, css, scripts, sub-frames, etc. finished loaded.</p>
+        <p><code>document.onload</code> is fired when DOM (DOM tree built from markup code within the document)is ready which can be prior to images and other external content is loaded.</p>
+        <p><strong>bonus:</strong><code>document.readyState</code> Returns "loading" while the Document is loading, "interactive" once it is finished parsing but still loading sub-resources, and "complete" once it has loaded. The <code>readystatechange</code> event fires on the Document object when this value changes.</p>
+        <p>ref: <a href="http://stackoverflow.com/questions/588040/window-onload-vs-document-onload"> stackoverflow</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/document.readyState">MDN: readyState</a></p>
+      </div>
+      <div id="deferAsync">
+        <h2>defer vs async</h2>
+        <p><strong>Question:</strong> what is defer and async keyword does in a script tag</p>
+        <p><strong>Answer:</strong> defer and async keyword is ignored for inline script (script that does not have a src attribute). When HTML parser find a script tag.</p>
+        <p><strong>normal</strong> when you have a plain script tag (no defer or async keyword), parser will pause parsing, script would be downloaded and exectuted. After that parsing resume.</p>
+        <p><strong>defer</strong> defer keyword in the script tag will defer the execution of the script. Hence script will be executed when DOM is available. Important point is, defer is not supported by all major major browsers.</p>
+        <p><strong>async</strong> if possible, set the execution of the script, asynchronously. <code>async</code> keyword has no effect on inline script.</p>
+        <p> try to get some idea fromt he image copied from <a href="http://peter.sh/experiments/asynchronous-and-deferred-javascript-execution-explained/">JS script execution</a></p>
+        <img src="images/asyncVsDefer.jpg" alt="">        
       </div>  
 <div>
   <!-- <h3 class="purpleBold">Express anger!</h3>
