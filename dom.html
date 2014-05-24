@@ -82,18 +82,14 @@
       <!-- <p class="gray">if you are little more comfortable or claim to be comfortable with javascript, these questions would not be enough for you. more coming</p>
       <p class="gray"> <span class="purpleBold">More Questions</span> <a href="css.html">css interview questions</a>, <a href="html.html">html interview questions</a> </p> -->
 
-    <div>
-      <h2>Todo list</h2>
-      <ul>
-        <li>ready</li>
-        <li>dom ready from js2</li>
-      </ul>
+    <div class="bg-danger text-warning">
+      <h2>Warning</h2>
+      <h4>this document is under construction. Read at your own risk!!!</h4>      
     </div>  
     <div id="QueryDOM">
       <h2>DOM Query</h2>
-      <p><strong>Question: </strong> What are the different ways to query dom</p>
-      <p><strong>Answer: </strong> you can use the following method in <code>document</code></p>
-      <h4>mostly used by me</h4>
+      <p><strong>Question: </strong> What are the different ways to get an element from DOM?</p>
+      <p><strong>Answer: </strong> you can use the following method in <code>document</code></p>      
       <ul>
         <li><code>document.getElementById</code> you can get element by providing Id</li>
         <li><code>document.getElementsByClassName</code> you will get a nodelist (nodelist is not an array, rather it is array-like object) by providing a class name.</li>
@@ -101,10 +97,10 @@
         <li><code>document.querySelector</code> you will pass css style selector (jquery style) and this will retrurn first match of the DOM</li>
         <li><code>docuemnt.querySelectorAll</code> will return a non-live nodelist  by using depth-first pre order traversal of all the matched elements. Non-live means, any changes after selecting the elements will not be reflected.</li>        
       </ul>
-      <h4>not use that frequently</h4>
+      <p>there are two more options, that i dont use frequently</p>
       <ul>
-        <li><code>document.getElementsByName</code></li>
-        <li><code>document.getElementsByTagNameNS</code></li>
+        <li><code>document.getElementsByName</code> returns the list of elements by the provided name of the html tag</li>
+        <li><code>document.getElementsByTagNameNS</code> returns elements with particular tag name within the provided namespace</li>
       </ul>
       <p class="bg-warning text-danger"><strong>TODO:</strong> learn more about last two</p>
     </div>
@@ -220,10 +216,26 @@ ul.appendChild(li);
       <p><strong>Question: </strong> what is createDocumentFragment and why you want to use it?</p>
       <p><strong>Answer: </strong></p>
     </div>
-    <div id="">
-      <h2></h2>
-      <p><strong>Question: </strong></p>
+    <div id="domReady">
+      <h2>DOM ready</h2>
+      <p><strong>Question: </strong> How could you make sure to run some javaScript when DOM is ready like <code>$(document).ready</code></p>
       <p><strong>Answer: </strong></p>
+      <p><strong>option-1: </strong> you just put your script in the last tag of html body element. DOM would be ready by the time browser hits the script tag</p>
+      <p><strong>option-2: </strong> you put your code inside a <code>DOMContentLoaded</code> handler. this event will be fired when DOM is completely loaded</p>
+      <pre><code>
+document.addEventListener('DOMContentLoaded', function(){   
+   //put your script here
+});
+      </code></pre>
+      <p><strong>option-3: </strong> you can watch changes in the readyState of the document. And the last state is "complete" state, you can put your code there.</p>
+      <pre><code>
+document.onreadystatechange = function () {  
+  if (document.readyState == "complete") {
+    //put your script here
+  }
+}
+      </code></pre>
+      <p><strong>option-4: </strong> go to the jquery source code and copy dom ready function</p>
     </div>
     <div id="">
       <h2></h2>
