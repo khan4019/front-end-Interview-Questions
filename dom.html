@@ -98,8 +98,8 @@
         <li><code>document.getElementById</code> you can get element by providing Id</li>
         <li><code>document.getElementsByClassName</code> you will get a nodelist (nodelist is not an array, rather it is array-like object) by providing a class name.</li>
         <li><code>document.getElementsByTagName</code> you will get a nodelist by providing a tag name</li>
-        <li><code>document.querySelector</code> you will pass css style selector (jquery style) and this will retrurn first match of the DOM by using a **** (depth first or breadth first) search</li>
-        <li><code>docuemnt.querySelectorAll</code> will return a nodelist of all the matched elements</li>        
+        <li><code>document.querySelector</code> you will pass css style selector (jquery style) and this will retrurn first match of the DOM</li>
+        <li><code>docuemnt.querySelectorAll</code> will return a non-live nodelist  by using depth-first pre order traversal of all the matched elements. Non-live means, any changes after selecting the elements will not be reflected.</li>        
       </ul>
       <h4>not use that frequently</h4>
       <ul>
@@ -108,22 +108,42 @@
       </ul>
       <p class="bg-warning text-danger"><strong>TODO:</strong> learn more about last two</p>
     </div>
+    <div id="nodeListVsArray">
+      <h2>use forEach on NodeList</h2>
+      <p><strong>Question: </strong>How come, I can't use forEach on a NodeList</p>
+      <p><strong>Answer: </strong> though array and nodelist seems similar. you can have length and loop through them. however, they are not exactly same. </p>
+      <p>both are inherited from Object. however array has different prototype object than nodelist. forEach, map, etc are on array.prototype which doenst exists in the NodeList.prototype object. Hence, you dont have forEach on a nodelist</p>
+      <pre><code>
+myArray --> Array.prototype --> Object.prototype --> null
+
+myNodeList --> NodeList.prototype --> Object.prototype --> null
+      </code></pre>
+      <p><strong>Question: </strong> How could you solve this problem? </p>
+      <p><strong>Answer: </strong> to solve this problem, you can simply loop through a nodeList and do whatever you wanted to inside forEach or you can call method on array to convert nodelist to an array. after that you will have access to all array.prototype methods</p>
+      <pre><code>
+//loop and put them in a array
+//or
+var nodesArray = Array.prototype.slice.call(myNodeList);
+      </code></pre>
+      <p>ref: <a href="https://developer.mozilla.org/en-US/docs/Web/API/NodeList">MDN: nodelist</a></p>
+    </div>
     <div id="selectElement">
-              <p><strong>Question:</strong> What is the best way to select an element from DOM?</p>
-              <p><strong>Answer:</strong> It depends on what you are selecting. if you have an ID of an element <code>document.getElmentById</code> is the fastest way to select an element. However, you should not have so many ID in you document. then you have to repeat styles a lot. css class <code>document.getElementsByClassName</code> is the second quickest way to select an element</p>
-              <p>in terms of speed of selecting elements. here is the list. As we go downwards to the list, it takes more time to select elements </p>
-              <ul>
-                <li>ID (#myID)</li>
-                <li>Class (.myClass)</li>
-                <li>Tag (div, p)</li>
-                <li>Sibling (div+p, div~p)</li>
-                <li>child (div>p)</li>
-                <li>Descendant (div p)</li>
-                <li>Universal (*)</li>
-                <li>Attribute (input[type="checkbox"])</li>
-                <li>Pseudo (p:first-child)</li>       
-              </ul>
-            </div>
+        <h2>Best way to select DOM</h2>
+        <p><strong>Question:</strong> What is the best way to select an element from DOM?</p>
+        <p><strong>Answer:</strong> It depends on what you are selecting. if you have an ID of an element <code>document.getElmentById</code> is the fastest way to select an element. However, you should not have so many ID in you document. then you have to repeat styles a lot. css class <code>document.getElementsByClassName</code> is the second quickest way to select an element</p>
+        <p>in terms of speed of selecting elements. here is the list. As we go downwards to the list, it takes more time to select elements </p>
+        <ul>
+          <li>ID (#myID)</li>
+          <li>Class (.myClass)</li>
+          <li>Tag (div, p)</li>
+          <li>Sibling (div+p, div~p)</li>
+          <li>child (div>p)</li>
+          <li>Descendant (div p)</li>
+          <li>Universal (*)</li>
+          <li>Attribute (input[type="checkbox"])</li>
+          <li>Pseudo (p:first-child)</li>       
+        </ul>
+      </div>
     <div id="getElementByallAttribute">
         <h2>getElementsByAttribute</h2>
         <p><strong>Question:</strong> If you need to implement getElementByAttributeValue, how would you implement it?</p>
@@ -172,14 +192,32 @@ function getAllText(node){
 }
         </code></pre>
       </div>
-    <div id="">
-      <h2></h2>
-      <p><strong>Question: </strong></p>
-      <p><strong>Answer: </strong></p>
+    <div id="innerHTMLVsAppendChild">
+      <h2>innerHTML vs appendChild </h2>
+      <p><strong>Question: </strong> How you create a DOM</p>
+      <p><strong>Answer: </strong> There are two options: setting the <code>innerHTML</code> of an element or <code>appendChild</code> to the element.</p>
+      <p>for example, if you want to add a list item to an unorderedList. your can get the element and set the innerHTML of the element like</p>
+      <pre><code>
+var ul = document.getElementById('myList');
+
+el.innerHTML = '&lt;li&gt;Only one item&lt;/li&gt;';              
+      </code></pre>
+      <p>when you set innerHTML property, browser removes all the children of the elements. parse the string and assign the parsed string to the element.</p>
+      <p><strong>Extra Credit: </strong> innerHTML could be slow. as you are passing a string. browser has to parse the string and if you have crappy html (invalid html), browser has to deal with it.</p>
+      <h4>appendChild</h4>
+      <p>on the other hand, while using appendChild, you create a new Element. since you are creating it, browser doesnt have to parse string and there is no invalid html. and you can pass the child to the parent and child will be appended to the parent.</p>
+      <pre><code>
+var li = document.createElement("li");
+var text = document.createTextNode('Only one Item');
+
+li.appendChild(text);
+ul.appendChild(li);
+      </code></pre>
+      <p><strong>Extra Credit: </strong> if you pass a reference to be appended as child other than creating a new element. the reference you are passing will be removed from the current parent and will be added to the new parent you are appending to.</p>
     </div>
-    <div id="">
-      <h2></h2>
-      <p><strong>Question: </strong></p>
+    <div id="createDocumentFragment">
+      <h2>CrateDocumentFragment</h2>
+      <p><strong>Question: </strong> what is createDocumentFragment and why you want to use it?</p>
       <p><strong>Answer: </strong></p>
     </div>
     <div id="">
