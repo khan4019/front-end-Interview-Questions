@@ -103,26 +103,7 @@
         <li><code>document.getElementsByTagNameNS</code> returns elements with particular tag name within the provided namespace</li>
       </ul>
       <p class="bg-warning text-danger"><strong>TODO:</strong> learn more about last two</p>
-    </div>
-    <div id="nodeListVsArray">
-      <h2>use forEach on NodeList</h2>
-      <p><strong>Question: </strong>How come, I can't use forEach on a NodeList</p>
-      <p><strong>Answer: </strong> though array and nodelist seems similar. you can have length and loop through them. however, they are not exactly same. </p>
-      <p>both are inherited from Object. however array has different prototype object than nodelist. forEach, map, etc are on array.prototype which doenst exists in the NodeList.prototype object. Hence, you dont have forEach on a nodelist</p>
-      <pre><code>
-myArray --> Array.prototype --> Object.prototype --> null
-
-myNodeList --> NodeList.prototype --> Object.prototype --> null
-      </code></pre>
-      <p><strong>Question: </strong> How could you solve this problem? </p>
-      <p><strong>Answer: </strong> to solve this problem, you can simply loop through a nodeList and do whatever you wanted to inside forEach or you can call method on array to convert nodelist to an array. after that you will have access to all array.prototype methods</p>
-      <pre><code>
-//loop and put them in a array
-//or
-var nodesArray = Array.prototype.slice.call(myNodeList);
-      </code></pre>
-      <p>ref: <a href="https://developer.mozilla.org/en-US/docs/Web/API/NodeList">MDN: nodelist</a></p>
-    </div>
+    </div>    
     <div id="selectElement">
         <h2>Best way to select DOM</h2>
         <p><strong>Question:</strong> What is the best way to select an element from DOM?</p>
@@ -159,11 +140,33 @@ function getElementsByAttribute(attribute)
     }
         </code></pre>
       </div>
-            
+      <div id="nodeListVsArray">
+      <h2>use forEach on NodeList</h2>
+      <p><strong>Question: </strong>How come, I can't use forEach on a NodeList</p>
+      <p><strong>Answer: </strong> though array and nodelist looks similar. you can have length and loop through them but they are not exactly same. </p>
+      <p>both are inherited from Object. however array has different prototype object than nodelist. forEach, map, etc are on array.prototype which doenst exists in the NodeList.prototype object. Hence, you dont have forEach on a nodelist</p>
+      <pre><code>
+myArray --> Array.prototype --> Object.prototype --> null
+
+myNodeList --> NodeList.prototype --> Object.prototype --> null
+      </code></pre>
+      <p><strong>Question: </strong> How could you solve this problem? </p>
+      <p><strong>Answer: </strong> to solve this problem, you can simply loop through a nodeList and do whatever you wanted to inside forEach or you can call method on array to convert nodelist to an array. after that you will have access to all array.prototype methods</p>
+      <pre><code>
+var myNodeList = document.querySelectorAll('.my-class');
+var nodesArray = Array.prototype.slice.call(myNodeList);
+
+//use array method on nodeList
+nodesArray.forEach(function(el, idx){
+  console.log(idx, el);
+});
+      </code></pre>
+      <p>ref: <a href="https://developer.mozilla.org/en-US/docs/Web/API/NodeList">MDN: nodelist</a></p>
+    </div>  
       <div id="allText">
         <h2>Get all text in a website</h2>
         <p><strong>Question:</strong>How can you get all the texts in a website</p>
-        <p><strong>Answer:</strong></p>
+        <p><strong>Answer:</strong> the easiest way to get all the text is to get the innerText of body tag.</p>
         <pre><code>
 document.getElementsByTagName('body')[0].innerText;
         </code></pre>
@@ -350,7 +353,14 @@ function isDescendant(parent, child){
         <p><strong>async</strong> if possible, set the execution of the script, asynchronously. <code>async</code> keyword has no effect on inline script.</p>
         <p> try to get some idea fromt he image copied from <a href="http://peter.sh/experiments/asynchronous-and-deferred-javascript-execution-explained/">JS script execution</a></p>
         <img src="images/asyncVsDefer.jpg" alt="">        
-      </div>  
+      </div> 
+      <div>
+        <h2>TODO questions</h2>
+        <ul>
+          <li>Write a function to find the nearest link on a webpage given the mouse x,y coordinates. <a href="http://www.careercup.com/question?id=3538036">career cup</a></li>
+          <li>difference between attribute and property</li>
+        </ul>
+      </div> 
 <div>
   <!-- <h3 class="purpleBold">Express anger!</h3>
   <p class="gray">Feel free to express your anger (sorry u have to use facebook). also find out mistakes ( technical, wrong answer, spelling, grammar, sentence, whatever), let ur dude learn and grow.</p>
