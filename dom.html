@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="that js dude" content="">    
+    <title>JS: interview Questions -3</title>
+
+    <link rel="shortcut icon" href="images/favicon.jpg">    
+    <link rel="stylesheet" href="css/bootstrap.min.css" >
+    <link rel="stylesheet" href="css/zenburn.css">
+    <!-- Custom styles for this template -->
+    <style>
+      /* Move down content because we have a fixed navbar that is 50px tall */
+      body {        
+        padding-bottom: 20px;
+      }
+      .purpleBold{
+        color:purple;        
+        font-weight: bold;
+      }
+      .gray{
+        color: gray;
+      }
+      .blueish{
+        color: rgba(151, 182, 209, 0.98);
+      }
+      .singInStuff{
+        margin-top: 9px;
+      }
+      #uName{
+        margin-top: -7px;
+      }
+      .skipListItem{
+        list-style-type: none;
+      }
+      .skipListItem a{
+        color: inherit;
+      }
+      a:visited
+      { 
+        color: rgba(218, 209, 149, 0.98);
+      }
+      .toggleContent{
+        padding: 10px;
+      }
+      /*style for demo*/
+      
+    </style>
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+ 
+  <body>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>JS: DOM Interview Questions</h1>        
+        <h2>part -3: intermediate</h2>
+        <p>May 26, 2014</p>
+<!--         <div id="fb-root"></div><div class="fb-like" data-href="http://www.thatjsdude.com/interview/js1.htmQuiz" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div> &nbsp;<div class="g-plusone"></div>
+      -->
+      </div> 
+    </div>
+    <div class="container container-fluid">
+      <!-- Example row of columns -->
+
+      <div class="row center">        
+        <!-- <iframe width="853" height="480" src="//www.youtube.com/embed/Rx_JFOSxgpY" frameborder="0" allowfullscreen></iframe> -->
+      </div>
+           
+      <!-- <p class="gray">if you are little more comfortable or claim to be comfortable with javascript, these questions would not be enough for you. more coming</p>
+      <p class="gray"> <span class="purpleBold">More Questions</span> <a href="css.html">css interview questions</a>, <a href="html.html">html interview questions</a> </p> -->
+
+    <div class="bg-danger text-warning">
+      <h2>Warning</h2>
+      <h4>this document is under construction. Read at your own risk!!!</h4>      
+    </div>  
+    <div id="QueryDOM">
+      <h2>DOM Query</h2>
+      <p><strong>Question: </strong> What are the different ways to get an element from DOM?</p>
+      <p><strong>Answer: </strong> you can use the following method in <code>document</code></p>      
+      <ul>
+        <li><code>document.getElementById</code> you can get element by providing Id</li>
+        <li><code>document.getElementsByClassName</code> you will get a nodelist (nodelist is not an array, rather it is array-like object) by providing a class name.</li>
+        <li><code>document.getElementsByTagName</code> you will get a nodelist by providing a tag name</li>
+        <li><code>document.querySelector</code> you will pass css style selector (jquery style) and this will retrurn first match of the DOM</li>
+        <li><code>docuemnt.querySelectorAll</code> will return a non-live nodelist  by using depth-first pre order traversal of all the matched elements. Non-live means, any changes after selecting the elements will not be reflected.</li>        
+      </ul>
+      <p>there are two more options, that i dont use frequently</p>
+      <ul>
+        <li><code>document.getElementsByName</code> returns the list of elements by the provided name of the html tag</li>
+        <li><code>document.getElementsByTagNameNS</code> returns elements with particular tag name within the provided namespace</li>
+      </ul>
+      <p class="bg-warning text-danger"><strong>TODO:</strong> learn more about last two</p>
+    </div>    
+    <div id="selectElement">
+        <h2>Best way to select DOM</h2>
+        <p><strong>Question:</strong> What is the best way to select an element from DOM?</p>
+        <p><strong>Answer:</strong> It depends on what you are selecting. if you have an ID of an element <code>document.getElmentById</code> is the fastest way to select an element. However, you should not have so many ID in you document. then you have to repeat styles a lot. css class <code>document.getElementsByClassName</code> is the second quickest way to select an element</p>
+        <p>in terms of speed of selecting elements. here is the list. As we go downwards to the list, it takes more time to select elements </p>
+        <ul>
+          <li>ID (#myID)</li>
+          <li>Class (.myClass)</li>
+          <li>Tag (div, p)</li>
+          <li>Sibling (div+p, div~p)</li>
+          <li>child (div>p)</li>
+          <li>Descendant (div p)</li>
+          <li>Universal (*)</li>
+          <li>Attribute (input[type="checkbox"])</li>
+          <li>Pseudo (p:first-child)</li>       
+        </ul>
+      </div>
+    <div id="getElementByallAttribute">
+        <h2>getElementsByAttribute</h2>
+        <p><strong>Question:</strong> If you need to implement getElementByAttributeValue, how would you implement it?</p>
+        <p><strong></strong></p>
+        <pre><code>
+function getElementsByAttribute(attribute)
+    {
+      var allElements = document.getElementsByTagName('*');
+      for (var i = 0; i &lt; allElements.length; i++)
+       {
+        if (allElements[i].getAttribute(attribute))
+        {
+          allElements[i];
+        }
+      }
+      return allElements;
+    }
+        </code></pre>
+      </div>
+      <div id="nodeListVsArray">
+      <h2>use forEach on NodeList</h2>
+      <p><strong>Question: </strong>How come, I can't use forEach on a NodeList</p>
+      <p><strong>Answer: </strong> though array and nodelist looks similar. you can have length and loop through them but they are not exactly same. </p>
+      <p>both are inherited from Object. however array has different prototype object than nodelist. forEach, map, etc are on array.prototype which doenst exists in the NodeList.prototype object. Hence, you dont have forEach on a nodelist</p>
+      <pre><code>
+myArray --> Array.prototype --> Object.prototype --> null
+
+myNodeList --> NodeList.prototype --> Object.prototype --> null
+      </code></pre>
+      <p><strong>Question: </strong> How could you solve this problem? </p>
+      <p><strong>Answer: </strong> to solve this problem, you can simply loop through a nodeList and do whatever you wanted to inside forEach or you can call method on array to convert nodelist to an array. after that you will have access to all array.prototype methods</p>
+      <pre><code>
+var myNodeList = document.querySelectorAll('.my-class');
+var nodesArray = Array.prototype.slice.call(myNodeList);
+
+//use array method on nodeList
+nodesArray.forEach(function(el, idx){
+  console.log(idx, el);
+});
+      </code></pre>
+      <p>ref: <a href="https://developer.mozilla.org/en-US/docs/Web/API/NodeList">MDN: nodelist</a></p>
+    </div>  
+      <div id="allText">
+        <h2>Get all text in a website</h2>
+        <p><strong>Question:</strong>How can you get all the texts in a website</p>
+        <p><strong>Answer:</strong> the easiest way to get all the text is to get the innerText of body tag.</p>
+        <pre><code>
+document.getElementsByTagName('body')[0].innerText;
+        </code></pre>
+        <p><strong>QuestioN:</strong>Can you do by accessing DOM?</p>
+        <p><strong>Answer:</strong>Make it recursive. I used closure. there could be many implementation</p>
+        <pre><code>
+function getAllText(node){
+  var allText = [];
+
+  function getNodeText(node){
+      if(node && node.childNodes && node.childNodes.length){
+          for(var i = 0, len = node.childNodes.length; i&lt;len; i++){
+              getNodeText(node.childNodes[i]);
+          }
+      }
+      else{
+          allText.push(node.nodeValue);
+     }
+  }
+  getNodeText(node);
+  return allText.join('');
+}
+        </code></pre>
+      </div>
+    <div id="innerHTMLVsAppendChild">
+      <h2>innerHTML vs appendChild </h2>
+      <p><strong>Question: </strong> How you create a DOM</p>
+      <p><strong>Answer: </strong> There are two options: setting the <code>innerHTML</code> of an element or <code>appendChild</code> to the element.</p>
+      <p>for example, if you want to add a list item to an unorderedList. your can get the element and set the innerHTML of the element like</p>
+      <pre><code>
+var ul = document.getElementById('myList');
+
+el.innerHTML = '&lt;li&gt;Only one item&lt;/li&gt;';              
+      </code></pre>
+      <p>when you set innerHTML property, browser removes all the children of the elements. parse the string and assign the parsed string to the element.</p>
+      <p><strong>Extra Credit: </strong> innerHTML could be slow. as you are passing a string. browser has to parse the string and if you have crappy html (invalid html), browser has to deal with it.</p>
+      <h4>appendChild</h4>
+      <p>on the other hand, while using appendChild, you create a new Element. since you are creating it, browser doesnt have to parse string and there is no invalid html. and you can pass the child to the parent and child will be appended to the parent.</p>
+      <pre><code>
+var li = document.createElement("li");
+var text = document.createTextNode('Only one Item');
+
+li.appendChild(text);
+ul.appendChild(li);
+      </code></pre>
+      <p><strong>Extra Credit: </strong> if you pass a reference to be appended as child other than creating a new element. the reference you are passing will be removed from the current parent and will be added to the new parent you are appending to.</p>
+    </div>
+    <div id="createDocumentFragment">
+      <h2>CrateDocumentFragment</h2>
+      <p><strong>Question: </strong> what is createDocumentFragment and why you want to use it?</p>
+      <p><strong>Answer: </strong> <code>documentFragment</code> a very lightweight or minimal part of DOM or a subtree of DOM tree. It is very helpful when you are manipulating a part of DOM for multiple times. It becomes expensive to hit a certain portion of DOM for hundreds time (imagine you are searching for an element and then appending ). Look at the code block below</p>
+      <p>If you are changing dom that cause reflow and expensive. On the other side, <code>documentFragment</code> is managed in the memory and dont cause reflow.</p>
+      <pre><code>
+//bad practice
+var list = ['foo', 'bar', 'baz', ... ],
+    el, text;
+for (var i = 0; i &lt; list.length; i++) {
+    el = document.createElement('li');
+    text = document.createTextNode(list[i]);
+    el.appendChild(text);
+    document.body.appendChild(el);
+}
+      </code></pre>
+      <pre><code>
+//good practice
+var fragment = document.createDocumentFragment(),
+    list = ['foo', 'bar', 'baz', ...],
+    el, text;
+for (var i = 0; i &lt; list.length; i++) {
+    el = document.createElement('li');
+    text = document.createTextNode(list[i]);
+    el.appendChild(text);
+    fragment.appendChild(el);
+}
+document.body.appendChild(fragment);
+      </code></pre>
+      <p>ref: <a href="http://www.w3.org/TR/REC-DOM-Level-1/level-one-core.html#ID-B63ED1A3">W3: spec</a></p>
+    </div>
+    <div id="reflow">
+      <h2>reflow</h2>
+      <p><strong>Question: </strong> what is reflow? what causes reflow? How could you reduce reflow?</p>
+      <p><strong>Answer: </strong> aha... so many questions at the same time. take a breathe MR. Interviewer.</p>
+      <p><strong>reflow: </strong> when you change size or position of an element in the page, all the elements after it has to change their position according to the changes you made. For example, if you change height on an element, all the elements after it has to move down in the page. Hence, flow of the elements in the page is changed and this is called reflow.</p>
+      <p><strong>Why reflow is bad: </strong> Reflows are very expensive as it has a performance hit specially in the smaller devices like phone. As it causes changes in the portion (or whole) layout of the page.</p>
+      <p><strong>what causes reflow:</strong> the following cases causes reflow</p>
+      <ul>
+        <li>change layout (geometry of the page)</li>
+        <li>resize the window</li>
+        <li>change height/width of any element</li>
+        <li>changing font</li>
+        <li>change font size</li>
+        <li>move DOM element</li>
+        <li>adding or removing stylesheet</li>
+        <li>calculating offset height or offset width</li>
+        <li><code>display: none;</code></li>        
+      </ul>
+      <p><strong>how to avoid</strong> to avoid reflow, try to avoid doing things in the above list. and some more in the below</p>
+      <ul>
+        <li>avoid setting multiple inline style</li>
+        <li>apply animation to the elements that are positioned fixed or absolute</li>
+        <li>avoid tables for layout</li>
+      </ul>
+      <div>
+          <button id = "reflowExplanation" type="button" class="toggleExample btn btn-primary">show more explanation</button>
+          <div id="reflowExplanationExample" class="hide bg-success toggleContent">
+            <p>in the images below, affect of reflow is shown in a yellow box. Reflow causes changes in the render tree which changes the layout of the page. and eventually browser has to paint the changes. after that you can see those.</p>
+            <img src="images/reFlow.png" alt="">
+            <p>image source: original image is taken from W3 site. but i added the yellow box (my contribution).</p>
+          </div>
+      </div>    
+      <p>ref: <a href="http://www.stubbornella.org/content/2009/03/27/reflows-repaints-css-performance-making-your-javascript-slow/">reflow and repaint: css performance makes ur JS slow</a></p>
+    </div>
+    <div id="repaint">
+      <h2>repaint</h2>
+      <p><strong>Question: </strong> what is repaint and when does this happen?</p>
+      <p><strong>Answer: </strong> repaint happens when you change look of an element without changing the size and shape. This doesnt cause reflow as geometry of the element didnt changed. </p>
+      <p><strong>How it happens: </strong></p>
+      <ul>
+        <li>change background color</li>
+        <li>change text color</li>
+        <li>visibility hidden</li>
+      </ul>
+      <div>
+          <button id = "repaintExplanation" type="button" class="toggleExample btn btn-primary">show more explanation</button>
+          <div id="repaintExplanationExample" class="hide bg-success toggleContent">
+            <p>in the image below, only the repaint and display part is changes due to repaint. doesnt have to change the render tree or layout of the page. Hence, this is less expensive than reflow.</p>
+            <img src="images/repaint.png" alt="">
+            <p>image source: original image is taken from W3 site. but i added the yellow box (my contribution).</p>
+          </div>
+      </div>    
+    </div>
+    <div id="domReady">
+      <h2>DOM ready</h2>
+      <p><strong>Question: </strong> How could you make sure to run some javaScript when DOM is ready like <code>$(document).ready</code></p>
+      <p><strong>Answer: </strong></p>
+      <p><strong>option-1: </strong> you just put your script in the last tag of html body element. DOM would be ready by the time browser hits the script tag</p>
+      <p><strong>option-2: </strong> you put your code inside a <code>DOMContentLoaded</code> handler. this event will be fired when DOM is completely loaded</p>
+      <pre><code>
+document.addEventListener('DOMContentLoaded', function(){   
+   //put your script here
+});
+      </code></pre>
+      <p><strong>option-3: </strong> you can watch changes in the readyState of the document. And the last state is "complete" state, you can put your code there.</p>
+      <pre><code>
+document.onreadystatechange = function () {  
+  if (document.readyState == "complete") {
+    //put your script here
+  }
+}
+      </code></pre>
+      <p><strong>option-4: </strong> go to the jquery source code and copy dom ready function</p>
+    </div>
+    <div id="">
+      <h2></h2>
+      <p><strong>Question: </strong></p>
+      <p><strong>Answer: </strong></p>
+    </div>
+    <div id="mythicalHydra">
+        <h2>destroy button</h2>
+        <p><strong>Question:</strong> create a button that is destroyed by clicking it, but two new buttons are created in it's place.</p>
+        <p><strong>Answer:</strong> One way of solving is to attach a event handler with the button to destroy itself and append two. However, we can leverage event delegate. If we attach the event hander to the parent div instead of the button itself. we dont have to add the event handler to each button we create. So, we will take advantage of event bubbling.</p>
+        <p><strong>you:</strong> If both the newly created button is identical to one we are destroying, why interviewer wants to destroy exactly similar one and then create one. why not just add one. And end result would be same, you will have two two buttons.</p>
+        <p><strong>interviewer:</strong> I just want to see whether you can destroy any element. Make sure when you are destroying, there is no reference to the element, otherwise, you will have memory leak. If interviewer, says ok, just create one more button on click, then use your brain to change the following code.</p>
+        <pre><code>
+&lt;div id=&quot;doubleHolder&quot;&gt;<br/>  &lt;button class=&quot;double&quot;&gt;double&lt;/button&gt;<br/>&lt;/div&gt;<br/>&lt;script type="text/javascript" &gt;<br/> document.getElementById('doubleHolder').addEventListener('click', function (e) {<br/>   <br/>   if(e.target.classList.contains('double')){<br/>     var btn = document.createElement('button');<br/>      btn.setAttribute('class', 'double');<br/>     btn.innerHTML = 'double';<br/><br/>     var btn2 = document.createElement('button');<br/>     btn2.setAttribute('class', 'double');<br/>      btn2.innerHTML = 'double';<br/>     <br/>     this.appendChild(btn);<br/>     this.appendChild(btn2);<br/>      this.removeChild(e.target);   <br/>   }<br/>  }); <br/>&lt;/script&gt;
+        </code></pre>
+        <div>
+          <button id = "destroyBtn" type="button" class="toggleExample btn btn-primary">show example</button>
+          <div id="destroyBtnExample" class="hide bg-success toggleContent">
+            <div id="doubleHolder">
+              <button class="double">double</button>
+            </div>
+          </div>  
+        </div>
+        <p>ref: <a href="http://www.careercup.com/question?id=17328675">destroy button</a></p>
+      </div>
+      <div id="destroyList">
+        <h2>destroy list</h2>
+        <p><strong>Question:</strong>you have a list of items that has anchor. how would you destroy list item when someone click on a list item</p>
+        <p><strong>Answer:</strong></p>
+        <pre><code>
+&lt;ul id=&quot;listToDestroy&quot;&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;first item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;third item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;forth item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Fifth item&lt;/a&gt;&lt;/li&gt;<br/>&lt;/ul&gt;<br/>&lt;script type=&quot;text/javascript&quot;&gt; <br/> document.getElementById('listToDestroy').addEventListener('click', function (e) { <br/>    var elm = e.target.parentNode; <br/>    elm.parentNode.removeChild(elm);<br/>    e.preventDefault();<br/> });<br/>&lt;/script&gt;
+        </code></pre>
+        <div>
+          <button id = "destroyLst" type="button" class="toggleExample btn btn-primary">show example</button>
+          <div id="destroyLstExample" class="hide bg-success toggleContent">
+            <ul id="listToDestroy">
+              <li><a href="#">first item</a></li>
+              <li><a href="#">second item</a></li>
+              <li><a href="#">third item</a></li>
+              <li><a href="#">forth item</a></li>
+              <li><a href="#">Fifth item</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+            <div id="allClick">
+                <h2>capture all click</h2>
+                <p><strong>Question:</strong> How could you capture all clicks in a page?</p>
+                <p><strong>Answer:</strong> </p>
+                <pre><code>
+      document.querySelector('body').addEventListener('click', function(e){
+        console.log('body clicked', e.target);
+      });
+
+      //or
+      window.onclick =function(e){
+        console.log('someone clicked', e.target)
+      }
+                </code></pre>
+                <p>However, if event bubbling is canceled by <code>stopPropagation()</code> your code will not work. think about it.</p>
+              </div>
+    <div id="addClass">
+        <h2>add class</h2>
+        <p><strong>Question:</strong> How you could add a class to an element by query selector</p>
+        <p><strong>Answer: </strong> just get the element and add the classname to the classlist</p>
+        <pre><code>
+function addClass(selector, className){
+   var elm = document.querySelector(selector);
+   if (elm){
+      elm.classList.add(className);
+   }
+}
+        </code></pre>
+        <p>similary you can implement removeClass, toggleClass and hasClass</p>
+        <pre><code>
+//IE9+
+el.classList.remove('my-class'); //removing a class
+el.classList.toggle('my-class');  // toggling a class
+el.classList.contains('my-class'); // checking whether class exists
+        </code></pre>
+      </div>
+      <div id="isDescendant">
+        <h2>is Descendant</h2>
+        <p><strong>Question:</strong> Check if one element child of another?</p>
+        <p><strong>Answer:</strong> check if the parent of the child is the node passed. if not keep checking</p>
+        <pre><code>
+function isDescendant(parent, child){ 
+  while(child.parentNode ){ 
+    if(child.parentNode == parent)
+      return true;
+    else
+      child = child.parentNode;
+  }
+  return false;
+}
+        </code></pre>
+      </div>
+      <div id="onload">
+        <h2>window.onload vs document.onload</h2>
+        <p><strong>Question:</strong> What are the differences between document.onload and window.onload</p>
+        <p><strong>Answer:</strong> <code>window.onload</code> is fired when DOM is ready and all the contents including images, css, scripts, sub-frames, etc. finished loaded.</p>
+        <p><code>document.onload</code> is fired when DOM (DOM tree built from markup code within the document)is ready which can be prior to images and other external content is loaded.</p>
+        <p><strong>bonus:</strong><code>document.readyState</code> Returns "loading" while the Document is loading, "interactive" once it is finished parsing but still loading sub-resources, and "complete" once it has loaded. The <code>readystatechange</code> event fires on the Document object when this value changes.</p>
+        <p>ref: <a href="http://stackoverflow.com/questions/588040/window-onload-vs-document-onload"> stackoverflow</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/document.readyState">MDN: readyState</a></p>
+      </div>
+      <div id="deferAsync">
+        <h2>defer vs async</h2>
+        <p><strong>Question:</strong> what is defer and async keyword does in a script tag</p>
+        <p><strong>Answer:</strong> defer and async keyword is ignored for inline script (script that does not have a src attribute). When HTML parser find a script tag.</p>
+        <p><strong>normal</strong> when you have a plain script tag (no defer or async keyword), parser will pause parsing, script would be downloaded and exectuted. After that parsing resume.</p>
+        <p><strong>defer</strong> defer keyword in the script tag will defer the execution of the script. Hence script will be executed when DOM is available. Important point is, defer is not supported by all major major browsers.</p>
+        <p><strong>async</strong> if possible, set the execution of the script, asynchronously. <code>async</code> keyword has no effect on inline script.</p>
+        <p> try to get some idea fromt he image copied from <a href="http://peter.sh/experiments/asynchronous-and-deferred-javascript-execution-explained/">JS script execution</a></p>
+        <img src="images/asyncVsDefer.jpg" alt="">        
+      </div> 
+      <div>
+        <h2>TODO questions</h2>
+        <ul>
+          <li>Write a function to find the nearest link on a webpage given the mouse x,y coordinates. <a href="http://www.careercup.com/question?id=3538036">career cup</a></li>
+          <li>difference between attribute and property</li>
+          <li><a href="http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-TreeWalker">DOM Traverse: NodeIterator, TreeWalker, NodeFilter</a></li>
+          <li>Find something about event loop, synchronous vs asynchronous event, default action & cancelable events: <a href="https://dvcs.w3.org/hg/dom3events/raw-file/tip/html/DOM3-Events.html">w3: DOM event</a></li>
+          <li>something related to custom events: <a href="https://dvcs.w3.org/hg/dom3events/raw-file/tip/html/DOM3-Events.html#extending-events-Custom_Events">w3 events</a></li>
+          <li>dom events: <a href="https://dvcs.w3.org/hg/domcore/raw-file/tip/Overview.html#introduction-to-dom-events">intro to dom events</a></li>
+          <li>event delegation could be part of this</li>
+        </ul>
+      </div> 
+<div>
+  <!-- <h3 class="purpleBold">Express anger!</h3>
+  <p class="gray">Feel free to express your anger (sorry u have to use facebook). also find out mistakes ( technical, wrong answer, spelling, grammar, sentence, whatever), let ur dude learn and grow.</p>
+  <div class="fb-comments" data-href="http://www.thatjsdude.com/interview/js1.html" data-numposts="5" data-colorscheme="light"></div>
+-->
+</div> 
+      <hr>
+
+      <footer>
+        <p>&copy;thatJSDude 2014</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery-2.0.3.min.js"></script>    
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/highlight.pack.js"></script>    
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="js/toggleExample.js"></script>
+    <script type="text/javascript">
+      // //social plugins
+      // //g+
+      // (function() {
+      //   var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+      //   po.src = 'https://apis.google.com/js/platform.js';
+      //   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+      // })();
+      // //fb
+      // (function(d, s, id) {
+      //   var js, fjs = d.getElementsByTagName(s)[0];
+      //   if (d.getElementById(id)) return;
+      //   js = d.createElement(s); js.id = id;
+      //   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+      //   fjs.parentNode.insertBefore(js, fjs);
+      // }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <script type="text/javascript">        
+        document.getElementById('listToDestroy').addEventListener('click', function (e) {
+          var elm = e.target.parentNode;
+          elm.parentNode.removeChild(elm);
+          e.preventDefault();
+        }); 
+
+        document.getElementById('doubleHolder').addEventListener('click', function (e) {
+   
+           if(e.target.classList.contains('double')){
+              var btn = document.createElement('button');
+              btn.setAttribute('class', 'double');
+              btn.innerHTML = 'double';
+
+              var btn2 = document.createElement('button');
+              btn2.setAttribute('class', 'double');
+              btn2.innerHTML = 'double';
+             
+              this.appendChild(btn);
+              this.appendChild(btn2);
+              this.removeChild(e.target);   
+           }
+        }); 
+    </script>
+  </body>
+</html>
