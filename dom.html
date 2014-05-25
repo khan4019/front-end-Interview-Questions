@@ -217,7 +217,86 @@ ul.appendChild(li);
     <div id="createDocumentFragment">
       <h2>CrateDocumentFragment</h2>
       <p><strong>Question: </strong> what is createDocumentFragment and why you want to use it?</p>
-      <p><strong>Answer: </strong></p>
+      <p><strong>Answer: </strong> <code>documentFragment</code> a very lightweight or minimal part of DOM or a subtree of DOM tree. It is very helpful when you are manipulating a part of DOM for multiple times. It becomes expensive to hit a certain portion of DOM for hundreds time (imagine you are searching for an element and then appending ). Look at the code block below</p>
+      <p>If you are changing dom that cause reflow and expensive. On the other side, <code>documentFragment</code> is managed in the memory and dont cause reflow.</p>
+      <pre><code>
+//bad practice
+var list = ['foo', 'bar', 'baz', ... ],
+    el, text;
+for (var i = 0; i &lt; list.length; i++) {
+    el = document.createElement('li');
+    text = document.createTextNode(list[i]);
+    el.appendChild(text);
+    document.body.appendChild(el);
+}
+      </code></pre>
+      <pre><code>
+//good practice
+var fragment = document.createDocumentFragment(),
+    list = ['foo', 'bar', 'baz', ...],
+    el, text;
+for (var i = 0; i &lt; list.length; i++) {
+    el = document.createElement('li');
+    text = document.createTextNode(list[i]);
+    el.appendChild(text);
+    fragment.appendChild(el);
+}
+document.body.appendChild(fragment);
+      </code></pre>
+      <p>ref: <a href="http://www.w3.org/TR/REC-DOM-Level-1/level-one-core.html#ID-B63ED1A3">W3: spec</a></p>
+    </div>
+    <div id="reflow">
+      <h2>reflow</h2>
+      <p><strong>Question: </strong> what is reflow? what causes reflow? How could you reduce reflow?</p>
+      <p><strong>Answer: </strong> aha... so many questions at the same time. take a breathe MR. Interviewer.</p>
+      <p><strong>reflow: </strong> when you change size or position of an element in the page, all the elements after it has to change their position according to the changes you made. For example, if you change height on an element, all the elements after it has to move down in the page. Hence, flow of the elements in the page is changed and this is called reflow.</p>
+      <p><strong>Why reflow is bad: </strong> Reflows are very expensive as it has a performance hit specially in the smaller devices like phone. As it causes changes in the portion (or whole) layout of the page.</p>
+      <p><strong>what causes reflow:</strong> the following cases causes reflow</p>
+      <ul>
+        <li>change layout (geometry of the page)</li>
+        <li>resize the window</li>
+        <li>change height/width of any element</li>
+        <li>changing font</li>
+        <li>change font size</li>
+        <li>move DOM element</li>
+        <li>adding or removing stylesheet</li>
+        <li>calculating offset height or offset width</li>
+        <li><code>display: none;</code></li>        
+      </ul>
+      <p><strong>how to avoid</strong> to avoid reflow, try to avoid doing things in the above list. and some more in the below</p>
+      <ul>
+        <li>avoid setting multiple inline style</li>
+        <li>apply animation to the elements that are positioned fixed or absolute</li>
+        <li>avoid tables for layout</li>
+      </ul>
+      <div>
+          <button id = "reflowExplanation" type="button" class="toggleExample btn btn-primary">show more explanation</button>
+          <div id="reflowExplanationExample" class="hide bg-success toggleContent">
+            <p>in the images below, affect of reflow is shown in a yellow box. Reflow causes changes in the render tree which changes the layout of the page. and eventually browser has to paint the changes. after that you can see those.</p>
+            <img src="images/reFlow.png" alt="">
+            <p>image source: original image is taken from W3 site. but i added the yellow box (my contribution).</p>
+          </div>
+      </div>    
+      <p>ref: <a href="http://www.stubbornella.org/content/2009/03/27/reflows-repaints-css-performance-making-your-javascript-slow/">reflow and repaint: css performance makes ur JS slow</a></p>
+    </div>
+    <div id="repaint">
+      <h2>repaint</h2>
+      <p><strong>Question: </strong> what is repaint and when does this happen?</p>
+      <p><strong>Answer: </strong> repaint happens when you change look of an element without changing the size and shape. This doesnt cause reflow as geometry of the element didnt changed. </p>
+      <p><strong>How it happens: </strong></p>
+      <ul>
+        <li>change background color</li>
+        <li>change text color</li>
+        <li>visibility hidden</li>
+      </ul>
+      <div>
+          <button id = "repaintExplanation" type="button" class="toggleExample btn btn-primary">show more explanation</button>
+          <div id="repaintExplanationExample" class="hide bg-success toggleContent">
+            <p>in the image below, only the repaint and display part is changes due to repaint. doesnt have to change the render tree or layout of the page. Hence, this is less expensive than reflow.</p>
+            <img src="images/repaint.png" alt="">
+            <p>image source: original image is taken from W3 site. but i added the yellow box (my contribution).</p>
+          </div>
+      </div>    
     </div>
     <div id="domReady">
       <h2>DOM ready</h2>
@@ -256,7 +335,7 @@ document.onreadystatechange = function () {
         </code></pre>
         <div>
           <button id = "destroyBtn" type="button" class="toggleExample btn btn-primary">show example</button>
-          <div id="destroyBtnExample" class="hide">
+          <div id="destroyBtnExample" class="hide bg-success toggleContent">
             <div id="doubleHolder">
               <button class="double">double</button>
             </div>
@@ -273,7 +352,7 @@ document.onreadystatechange = function () {
         </code></pre>
         <div>
           <button id = "destroyLst" type="button" class="toggleExample btn btn-primary">show example</button>
-          <div id="destroyLstExample" class="hide">
+          <div id="destroyLstExample" class="hide bg-success toggleContent">
             <ul id="listToDestroy">
               <li><a href="#">first item</a></li>
               <li><a href="#">second item</a></li>
@@ -359,6 +438,11 @@ function isDescendant(parent, child){
         <ul>
           <li>Write a function to find the nearest link on a webpage given the mouse x,y coordinates. <a href="http://www.careercup.com/question?id=3538036">career cup</a></li>
           <li>difference between attribute and property</li>
+          <li><a href="http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-TreeWalker">DOM Traverse: NodeIterator, TreeWalker, NodeFilter</a></li>
+          <li>Find something about event loop, synchronous vs asynchronous event, default action & cancelable events: <a href="https://dvcs.w3.org/hg/dom3events/raw-file/tip/html/DOM3-Events.html">w3: DOM event</a></li>
+          <li>something related to custom events: <a href="https://dvcs.w3.org/hg/dom3events/raw-file/tip/html/DOM3-Events.html#extending-events-Custom_Events">w3 events</a></li>
+          <li>dom events: <a href="https://dvcs.w3.org/hg/domcore/raw-file/tip/Overview.html#introduction-to-dom-events">intro to dom events</a></li>
+          <li>event delegation could be part of this</li>
         </ul>
       </div> 
 <div>
