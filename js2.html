@@ -895,6 +895,23 @@ foo();//?
         </ul>
         <p>ref: great place to learn JavaScript <a href="http://bonsaiden.github.io/JavaScript-Garden/">JS Garden</a></p>
       </div>
+      <div>
+        <h2>closure</h2>
+        <p>Why do the anchors, when clicked on, alert -1 instead of their respective counter inside of the loop? How can you fix the code so that it does alert the right number?</p>
+        <pre><code>
+&lt;a href=&quot;#&quot;&gt;text&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#&quot;&gt;link&lt;/a&gt;
+&lt;script&gt;
+    var as = document.getElementsByTagName('a');
+    for ( var i = as.length; i--; ) {
+        as[i].onclick = function() {
+            alert(i);
+            return false;
+        }
+    }
+&lt;/script&gt;
+        </code></pre>
+        <p>ref: <a href="http://stackoverflow.com/questions/1684917/what-questions-should-a-javascript-programmer-be-able-to-answer">stackoverflow</a></p>
+      </div>
       <h2>Question about JS</h2>
         <ul>
           <li>How to extend a javascript object (<a href="http://stackoverflow.com/questions/11197247/javascript-equivalent-of-jquerys-extend-method">extend</a>)</li>
@@ -924,8 +941,12 @@ foo();//?
           <li>get first 100 character long string from a big message but dont cut the last word (word break problem)</li>
           <li>dealing with Node api like Ethan asked</li>
           <li>notify any change</li>
-          <li> Function.prototype.bind</li>          
+          <li> Function.prototype.bind</li>
+          <li>Why does nearly every object have a toString method?</li>
+          <li>block scope</li>  
+          <li>how do you create static variable in JS</li>        
           <li> Recreate in html and css a linkedin page.</li>
+          <li>Can you give me a code snippet that uses the with statement? <a href="https://gist.github.com/addyosmani/d1f3ca715ac902788c2d">text editor Adday osmani</a></li>
           <li>detect useragent in css <a href="http://www.careercup.com/question?id=14410665">career cup</a></li>
           <li>Major difference between Forward and sendRedirect apart from browser calls sendRedirect and container process forward request? <a href="http://www.careercup.com/question?id=13961670">career cup</a></li>
           <li>how to flatten an array <a href="http://stackoverflow.com/a/7875151/1535443">stackoverflow</a> or look into <a href="https://github.com/lodash/lodash/blob/master/lodash.js">lo-dash flatten in linke 1440</a></li>
