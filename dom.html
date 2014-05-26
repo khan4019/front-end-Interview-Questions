@@ -136,42 +136,7 @@ myInput.value; //'my dude'
         <li><code>getElementsByTagNameNS</code> returns elements with particular tag name within the provided namespace</li>
       </ul>      
     </div>    
-    <div id="addClass">
-        <h2>add class</h2>
-        <p><strong>Question:</strong> How you could add a class to an element by query selector</p>
-        <p><strong>Answer: </strong> just get the element and add the classname to the classlist</p>
-        <pre><code>
-function addClass(selector, className){
-   var elm = document.querySelector(selector);
-   if (elm){
-      elm.classList.add(className);
-   }
-}
-        </code></pre>
-        <p>similary you can implement removeClass, toggleClass and hasClass</p>
-        <pre><code>
-//IE9+
-el.classList.remove('my-class'); //removing a class
-el.classList.toggle('my-class');  // toggling a class
-el.classList.contains('my-class'); // checking whether class exists
-        </code></pre>
-      </div>
-      <div id="isDescendant">
-        <h2>check Descendant</h2>
-        <p><strong>Question:</strong> Check if one element child of another?</p>
-        <p><strong>Answer:</strong> check if the parent of the child is the node passed. if not keep checking</p>
-        <pre><code>
-function isDescendant(parent, child){ 
-  while(child.parentNode ){ 
-    if(child.parentNode == parent)
-      return true;
-    else
-      child = child.parentNode;
-  }
-  return false;
-}
-        </code></pre>
-      </div>
+    
     <div id="selectElement">
         <h2>Fastest DOM Query</h2>
         <p><strong>Question:</strong> What is the fastest way to select elements by using css selectors?</p>
@@ -238,35 +203,42 @@ function getElementsByAttribute(attribute){
         <p><strong>Question: </strong> Can I add this <code>getElementsByAttribute</code> to <code>document</code>?</p>
         <p><strong>Answer: </strong> Mr. Interviewer, please read this article: <a href="http://perfectionkills.com/whats-wrong-with-extending-the-dom/">whats wrong with extending the dom</a></p>
       </div>
-      <div id="allText">
-        <h2>All text in a page</h2>
-        <p><strong>Question:</strong> How can you get all the texts in a web page?</p>
-        <p><strong>Answer:</strong> The easiest way to get all the text is to get the innerText of body tag.</p>
+      <div id="addClass">
+        <h2>add class</h2>
+        <p><strong>Question:</strong> How you could add a class to an element by query selector</p>
+        <p><strong>Answer: </strong> just get the element and add the classname to the classlist</p>
         <pre><code>
-document.body.innerText;
-        </code></pre>
-        <p><strong>Question:</strong> Can you do by accessing DOM?</p>
-        <p><strong>Answer:</strong> Make it recursive. I used closure. there could be many implementation</p>
-        <pre><code>
-function getAllText(node){
-  var allText = [];
-
-  function getNodeText(node){
-      if(node && node.childNodes && node.childNodes.length){
-          for(var i = 0, len = node.childNodes.length; i&lt;len; i++){
-              getNodeText(node.childNodes[i]);
-          }
-      }
-      else{
-          allText.push(node.nodeValue);
-     }
-  }
-  getNodeText(node);
-  return allText.join('');
+function addClass(selector, className){
+   var elm = document.querySelector(selector);
+   if (elm){
+      elm.classList.add(className);
+   }
 }
         </code></pre>
-        <p><strong>disclaimer:</strong> I didn't explicitly tested these two methods.</p>
+        <p>similary you can implement removeClass, toggleClass and hasClass</p>
+        <pre><code>
+//IE9+
+el.classList.remove('my-class'); //removing a class
+el.classList.toggle('my-class');  // toggling a class
+el.classList.contains('my-class'); // checking whether class exists
+        </code></pre>
       </div>
+      <div id="isDescendant">
+        <h2>check Descendant</h2>
+        <p><strong>Question:</strong> Check if one element child of another?</p>
+        <p><strong>Answer:</strong> check if the parent of the child is the node passed. if not keep checking</p>
+        <pre><code>
+function isDescendant(parent, child){ 
+  while(child.parentNode ){ 
+    if(child.parentNode == parent)
+      return true;
+    else
+      child = child.parentNode;
+  }
+  return false;
+}
+        </code></pre>
+      </div>      
     <div id="innerHTMLVsAppendChild">
       <h2>innerHTML vs appendChild </h2>
       <p><strong>Question: </strong> How would you create a DOM element? Set to innherHTML or createElement?</p>
@@ -492,6 +464,35 @@ document.getElementById('doubleHolder').addEventListener('click', function (e) {
           </div>  
         </div>
         <p>ref: <a href="http://www.careercup.com/question?id=17328675">destroy button</a></p>
+      </div>
+      <div id="allText">
+        <h2>All text in a page</h2>
+        <p><strong>Question:</strong> How can you get all the texts in a web page?</p>
+        <p><strong>Answer:</strong> The easiest way to get all the text is to get the innerText of body tag.</p>
+        <pre><code>
+document.body.innerText;
+        </code></pre>
+        <p><strong>Question:</strong> Can you do by accessing DOM?</p>
+        <p><strong>Answer:</strong> Make it recursive. I used closure. there could be many implementation</p>
+        <pre><code>
+function getAllText(node){
+  var allText = [];
+
+  function getNodeText(node){
+      if(node && node.childNodes && node.childNodes.length){
+          for(var i = 0, len = node.childNodes.length; i&lt;len; i++){
+              getNodeText(node.childNodes[i]);
+          }
+      }
+      else{
+          allText.push(node.nodeValue);
+     }
+  }
+  getNodeText(node);
+  return allText.join('');
+}
+        </code></pre>
+        <p><strong>disclaimer:</strong> I didn't explicitly tested these two methods.</p>
       </div>
             <div id="allClick">
                 <h2>capture all click</h2>
