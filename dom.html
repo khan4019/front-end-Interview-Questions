@@ -114,8 +114,8 @@ myInput.getAttribute('value'); //"Name:"
 myInput.value; //'my dude'
       </code></pre>
       <p>however, if you change the value of an attribute by using <code>myInput.setAttribute('value', 'that dude')</code> or <code>myInput.removeAttribute()</code>, then value of attribute will be changed.</p>
-      <p>ref: <a href="http://stackoverflow.com/questions/6003819/properties-and-attributes-in-html">stack overflow</a> <a href="http://jquery-howto.blogspot.com/2011/06/html-difference-between-attribute-and.html">attr vs property</a></p>
-    </div>
+      <p>ref: <a href="http://jquery-howto.blogspot.com/2011/06/html-difference-between-attribute-and.html">attr vs property</a></p>
+    </div>    
     <div id="QueryDOM">
       <h2>DOM Query</h2>
       <p><strong>Question: </strong> What are the different ways to get an element from DOM?</p>
@@ -150,29 +150,12 @@ myInput.value; //'my dude'
           <li>Attribute (input[type="checkbox"])</li>
           <li>Pseudo (p:first-child)</li>       
         </ul>
-      </div>
-    <div id="getElementByallAttribute">
-        <h2>getElementsByAttribute</h2>
-        <p><strong>Question:</strong> If you need to implement getElementByAttributeValue, how would you implement it?</p>
-        <p><strong></strong></p>
-        <pre><code>
-function getElementsByAttribute(attribute)
-    {
-      var allElements = document.getElementsByTagName('*');
-      for (var i = 0; i &lt; allElements.length; i++)
-       {
-        if (allElements[i].getAttribute(attribute))
-        {
-          allElements[i];
-        }
-      }
-      return allElements;
-    }
-        </code></pre>
-      </div>
+        <p><strong>Question: </strong> why <code>querySelectorAll('.my-class')</code> is slower than <code>getElementsByClassName('my-class')</code>?</p>
+        <p><strong>Answer: </strong> querySlectorAll is a generic purpose method. it is optimized for different kinds of selectors. hence it has to check whether you put a # or . in front of the parameter you are passing. whether its a valid selectors or not and then under the hood it uses <code>getElementsByClassName</code> if you only asking for elements with a class name only (depends on browser implements). whereas if you directly uses <code>getElementsByClassName</code> it directly uses this method and doesnt have to go through all the initial processing of <code>querySelectorAll</code>. hence to search elements with a particular class name, getElementsByClassName is faster than querySelectorAll.</p>
+      </div>    
       <div id="nodeListVsArray">
       <h2>use forEach on NodeList</h2>
-      <p><strong>Question: </strong>How come, I can't use forEach on a NodeList</p>
+      <p><strong>Question: </strong>How come, I can't use forEach or similar array methods on a NodeList?</p>
       <p><strong>Answer: </strong> though array and nodelist looks similar. you can have length and loop through them but they are not exactly same. </p>
       <p>both are inherited from Object. however array has different prototype object than nodelist. forEach, map, etc are on array.prototype which doenst exists in the NodeList.prototype object. Hence, you dont have forEach on a nodelist</p>
       <pre><code>
@@ -193,9 +176,28 @@ nodesArray.forEach(function(el, idx){
       </code></pre>
       <p>ref: <a href="https://developer.mozilla.org/en-US/docs/Web/API/NodeList">MDN: nodelist</a></p>
     </div>  
+    <div id="getElementByallAttribute">
+        <h2>getElementsByAttribute</h2>
+        <p><strong>Question:</strong> If you need to implement getElementByAttributeValue, how would you implement it?</p>
+        <p><strong></strong></p>
+        <pre><code>
+function getElementsByAttribute(attribute)
+    {
+      var allElements = document.getElementsByTagName('*');
+      for (var i = 0; i &lt; allElements.length; i++)
+       {
+        if (allElements[i].getAttribute(attribute))
+        {
+          allElements[i];
+        }
+      }
+      return allElements;
+    }
+        </code></pre>
+      </div>
       <div id="allText">
-        <h2>Get all text in a website</h2>
-        <p><strong>Question:</strong>How can you get all the texts in a website</p>
+        <h2>All text in a page</h2>
+        <p><strong>Question:</strong>How can you get all the texts in a web page?</p>
         <p><strong>Answer:</strong> the easiest way to get all the text is to get the innerText of body tag.</p>
         <pre><code>
 document.getElementsByTagName('body')[0].innerText;
@@ -223,7 +225,7 @@ function getAllText(node){
       </div>
     <div id="innerHTMLVsAppendChild">
       <h2>innerHTML vs appendChild </h2>
-      <p><strong>Question: </strong> How you create a DOM</p>
+      <p><strong>Question: </strong> How would you create a DOM element? directly set to innherHTML or createElement?</p>
       <p><strong>Answer: </strong> There are two options: setting the <code>innerHTML</code> of an element or <code>appendChild</code> to the element.</p>
       <p>for example, if you want to add a list item to an unorderedList. your can get the element and set the innerHTML of the element like</p>
       <pre><code>
@@ -243,10 +245,11 @@ li.appendChild(text);
 ul.appendChild(li);
       </code></pre>
       <p><strong>Extra Credit: </strong> if you pass a reference to be appended as child other than creating a new element. the reference you are passing will be removed from the current parent and will be added to the new parent you are appending to.</p>
+      <p>though you would be writing couple more lines of JavaScript. it makes browsers life easier and your page faster.</p>
     </div>
     <div id="createDocumentFragment">
       <h2>CrateDocumentFragment</h2>
-      <p><strong>Question: </strong> what is createDocumentFragment and why you want to use it?</p>
+      <p><strong>Question: </strong> what is createDocumentFragment and why you might use it?</p>
       <p><strong>Answer: </strong> <code>documentFragment</code> a very lightweight or minimal part of DOM or a subtree of DOM tree. It is very helpful when you are manipulating a part of DOM for multiple times. It becomes expensive to hit a certain portion of DOM for hundreds time (imagine you are searching for an element and then appending ). Look at the code block below</p>
       <p>If you are changing dom that cause reflow and expensive. On the other side, <code>documentFragment</code> is managed in the memory and dont cause reflow.</p>
       <pre><code>
@@ -300,7 +303,7 @@ document.body.appendChild(fragment);
         <li>avoid tables for layout</li>
       </ul>
       <div>
-          <button id = "reflowExplanation" type="button" class="toggleExample btn btn-primary">show more explanation</button>
+          <button id = "reflowExplanation" type="button" class="toggleExample btn btn-primary">Show more explanation</button>
           <div id="reflowExplanationExample" class="hide bg-success padding10Px">
             <p>in the images below, affect of reflow is shown in a yellow box. Reflow causes changes in the render tree which changes the layout of the page. and eventually browser has to paint the changes. after that you can see those.</p>
             <img src="images/reFlow.png" alt="">
@@ -320,17 +323,18 @@ document.body.appendChild(fragment);
         <li>visibility hidden</li>
       </ul>
       <div>
-          <button id = "repaintExplanation" type="button" class="toggleExample btn btn-primary">show more explanation</button>
+          <button id = "repaintExplanation" type="button" class="toggleExample btn btn-primary">Show more explanation</button>
           <div id="repaintExplanationExample" class="hide bg-success padding10Px">
             <p>in the image below, only the repaint and display part is changes due to repaint. doesnt have to change the render tree or layout of the page. Hence, this is less expensive than reflow.</p>
             <img src="images/repaint.png" alt="">
             <p>image source: original image is taken from W3 site. but i added the yellow box (my contribution).</p>
           </div>
+          <p>if possible, prefer repaint over reflow.</p>
       </div>    
     </div>
     <div id="domReady">
       <h2>DOM ready</h2>
-      <p><strong>Question: </strong> How could you make sure to run some javaScript when DOM is ready like <code>$(document).ready</code></p>
+      <p><strong>Question: </strong> How could you make sure to run some javaScript when DOM is ready like <code>$(document).ready</code>?</p>
       <p><strong>Answer: </strong></p>
       <p><strong>option-1: </strong> you just put your script in the last tag of html body element. DOM would be ready by the time browser hits the script tag</p>
       <p><strong>option-2: </strong> you put your code inside a <code>DOMContentLoaded</code> handler. this event will be fired when DOM is completely loaded</p>
@@ -364,7 +368,7 @@ document.onreadystatechange = function () {
 &lt;div id=&quot;doubleHolder&quot;&gt;<br/>  &lt;button class=&quot;double&quot;&gt;double&lt;/button&gt;<br/>&lt;/div&gt;<br/>&lt;script type="text/javascript" &gt;<br/> document.getElementById('doubleHolder').addEventListener('click', function (e) {<br/>   <br/>   if(e.target.classList.contains('double')){<br/>     var btn = document.createElement('button');<br/>      btn.setAttribute('class', 'double');<br/>     btn.innerHTML = 'double';<br/><br/>     var btn2 = document.createElement('button');<br/>     btn2.setAttribute('class', 'double');<br/>      btn2.innerHTML = 'double';<br/>     <br/>     this.appendChild(btn);<br/>     this.appendChild(btn2);<br/>      this.removeChild(e.target);   <br/>   }<br/>  }); <br/>&lt;/script&gt;
         </code></pre>
         <div>
-          <button id = "destroyBtn" type="button" class="toggleExample btn btn-primary">show example</button>
+          <button id = "destroyBtn" type="button" class="toggleExample btn btn-primary">Show clickable demo</button>
           <div id="destroyBtnExample" class="hide bg-success padding10Px">
             <div id="doubleHolder">
               <button class="double">double</button>
@@ -391,8 +395,8 @@ document.onreadystatechange = function () {
         <br>
         <p><strong>Flow chart:</strong> click on show example to view a flow chart for event bubble</p>
         <div>
-          <button id = "eventBubble" type="button" class="toggleExample btn btn-primary">show example</button>
-          <div id="eventBubbleExample" class="hide">
+          <button id = "eventBubble" type="button" class="toggleExample btn btn-primary">Show a picture of bubble</button>
+          <div id="eventBubbleExample" class="hide bg-success paddding10Px">
             <img src="images/eventBubble.png" alt="">
           </div>
         </div>
@@ -419,7 +423,7 @@ document.onreadystatechange = function () {
 &lt;ul id=&quot;listToDestroy&quot;&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;first item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;third item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;forth item&lt;/a&gt;&lt;/li&gt;<br/>    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Fifth item&lt;/a&gt;&lt;/li&gt;<br/>&lt;/ul&gt;<br/>&lt;script type=&quot;text/javascript&quot;&gt; <br/> document.getElementById('listToDestroy').addEventListener('click', function (e) { <br/>    var elm = e.target.parentNode; <br/>    elm.parentNode.removeChild(elm);<br/>    e.preventDefault();<br/> });<br/>&lt;/script&gt;
         </code></pre>
         <div>
-          <button id = "destroyLst" type="button" class="toggleExample btn btn-primary">show example</button>
+          <button id = "destroyLst" type="button" class="toggleExample btn btn-primary">Show demo</button>
           <div id="destroyLstExample" class="hide bg-success padding10Px">
             <ul id="listToDestroy">
               <li><a href="#">first item</a></li>
@@ -510,8 +514,7 @@ function isDescendant(parent, child){
           <li>something related to custom events: <a href="https://dvcs.w3.org/hg/dom3events/raw-file/tip/html/DOM3-Events.html#extending-events-Custom_Events">w3 events</a></li>
           <li>dom events: <a href="https://dvcs.w3.org/hg/domcore/raw-file/tip/Overview.html#introduction-to-dom-events">intro to dom events</a></li>
           <li>event delegation could be part of this</li>
-          <li>addEvent handler</li>
-          <li>difference between document and window</li>
+          <li>addEvent handler</li>          
           <li>click handler on dom element. closure problem</li>
           <li>what is the value of this while looping through dom elements or something similar to this</li>
         </ul>
