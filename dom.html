@@ -93,14 +93,28 @@
       <p>window provides functionalities like window.location, window.history, or the window.document. Besides, setTimeout, ajax call (XMLHttpRequest), console or localStorage are part of window. </p>
       <p> document is a property of the window which represents the DOM. all the nodes are part of document. Hence you can use getElementById or addEventListener on document which is not present in the window.</p>
       <pre><code>
-window.document === document; 
-//true
-window.getElementById
-//undefined
-document.getElementById
-//function getElementById() { [native code] }
+window.document === document; //true
+window.getElementById; //undefined
+document.getElementById; //function getElementById() { [native code] }
       </code></pre>
-      <p>ref: <a href="http://eligeske.com/jquery/what-is-the-difference-between-document-and-window-objects-2/">document and window</a>, <a href="http://stackoverflow.com/a/17227369/1535443">stack overflow answer</a></p>
+      <p>ref: <a href="http://eligeske.com/jquery/what-is-the-difference-between-document-and-window-objects-2/">document and window</a></p>
+    </div>
+        <div id="attrVSProperty">
+      <h2>attribute vs property</h2>
+      <p><strong>Question: </strong> what are the differences between attribute and property?</p>
+      <p><strong>Answer: </strong> attribute are just like attribute in your html tag (XML style attribute) inside the starting tag. html attributes are exposed to the DOM via property. hence, a property is created when DOM is parsed for each attribute in the html tag. if you change an attribute only the value of the property will change. however, the value of attribute will remain same.<p>
+      <p>For example, if you have a input and you have three attribute- id, type, value.</p>      
+      <pre><code>
+&lt;input id="my-input" type="text" value="Name:"&gt;
+      </code></pre>
+      <p>if you type "my dude" in the text box. the value property will be changed but value attribute will remain unchanged.</p>
+      <pre><code>
+var myInput = document.getElementById('my-input');
+myInput.getAttribute('value'); //"Name:"
+myInput.value; //'my dude'
+      </code></pre>
+      <p>however, if you change the value of an attribute by using <code>myInput.setAttribute('value', 'that dude')</code> or <code>myInput.removeAttribute()</code>, then value of attribute will be changed.</p>
+      <p>ref: <a href="http://stackoverflow.com/questions/6003819/properties-and-attributes-in-html">stack overflow</a> <a href="http://jquery-howto.blogspot.com/2011/06/html-difference-between-attribute-and.html">attr vs property</a></p>
     </div>
     <div id="QueryDOM">
       <h2>DOM Query</h2>
@@ -490,8 +504,7 @@ function isDescendant(parent, child){
       <div>
         <h2>TODO questions</h2>
         <ul>
-          <li>Write a function to find the nearest link on a webpage given the mouse x,y coordinates. <a href="http://www.careercup.com/question?id=3538036">career cup</a></li>
-          <li>difference between attribute and property: <a href="http://stackoverflow.com/questions/6003819/properties-and-attributes-in-html">stack overflow</a> <a href="http://jquery-howto.blogspot.com/2011/06/html-difference-between-attribute-and.html">attr vs property</a></li>
+          <li>Write a function to find the nearest link on a webpage given the mouse x,y coordinates. <a href="http://www.careercup.com/question?id=3538036">career cup</a></li>          
           <li><a href="http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-TreeWalker">DOM Traverse: NodeIterator, TreeWalker, NodeFilter</a></li>
           <li>Find something about event loop, synchronous vs asynchronous event, default action & cancelable events: <a href="https://dvcs.w3.org/hg/dom3events/raw-file/tip/html/DOM3-Events.html">w3: DOM event</a></li>
           <li>something related to custom events: <a href="https://dvcs.w3.org/hg/dom3events/raw-file/tip/html/DOM3-Events.html#extending-events-Custom_Events">w3 events</a></li>
