@@ -136,6 +136,42 @@ myInput.value; //'my dude'
         <li><code>getElementsByTagNameNS</code> returns elements with particular tag name within the provided namespace</li>
       </ul>      
     </div>    
+    <div id="addClass">
+        <h2>add class</h2>
+        <p><strong>Question:</strong> How you could add a class to an element by query selector</p>
+        <p><strong>Answer: </strong> just get the element and add the classname to the classlist</p>
+        <pre><code>
+function addClass(selector, className){
+   var elm = document.querySelector(selector);
+   if (elm){
+      elm.classList.add(className);
+   }
+}
+        </code></pre>
+        <p>similary you can implement removeClass, toggleClass and hasClass</p>
+        <pre><code>
+//IE9+
+el.classList.remove('my-class'); //removing a class
+el.classList.toggle('my-class');  // toggling a class
+el.classList.contains('my-class'); // checking whether class exists
+        </code></pre>
+      </div>
+      <div id="isDescendant">
+        <h2>check Descendant</h2>
+        <p><strong>Question:</strong> Check if one element child of another?</p>
+        <p><strong>Answer:</strong> check if the parent of the child is the node passed. if not keep checking</p>
+        <pre><code>
+function isDescendant(parent, child){ 
+  while(child.parentNode ){ 
+    if(child.parentNode == parent)
+      return true;
+    else
+      child = child.parentNode;
+  }
+  return false;
+}
+        </code></pre>
+      </div>
     <div id="selectElement">
         <h2>Fastest DOM Query</h2>
         <p><strong>Question:</strong> What is the fastest way to select elements by using css selectors?</p>
@@ -295,7 +331,7 @@ document.body.appendChild(fragment);
       <div>
           <button id = "reflowExplanation" type="button" class="toggleExample btn btn-primary">Show more explanation</button>
           <div id="reflowExplanationExample" class="hide bg-success padding10Px">
-            <p>in the images below, affect of reflow is shown in a yellow box. Reflow causes changes in the render tree which changes the layout of the page. and eventually browser has to paint the changes. after that you can see those.</p>
+            <p>In the images below, affect of reflow is shown in a yellow box. Reflow causes changes in the render tree which changes the layout of the page. Eventually browser has to paint the changes so that you can see your awesome changes.</p>
             <img src="images/reFlow.png" alt="">
             <p>image source: original image is taken from W3 site. but i added the yellow box (my contribution).</p>
           </div>
@@ -329,9 +365,9 @@ document.body.appendChild(fragment);
           <div id="repaintExplanationExample" class="hide bg-success padding10Px">
             <p>In the image below, only the painting and display part is changes due to repaint. Browser doesn't have to change the render tree or layout of the page. Hence, this is less expensive than reflow.</p>
             <img src="images/repaint.png" alt="">
-            <p>image source: original image is taken from W3 site. but i added the yellow box (my contribution).</p>
+            <p>image source: original image is taken from W3 site but i added the yellow box (my contribution).</p>
           </div>
-          <p>if possible, prefer repaint over reflow.</p>
+          <p>If possible, prefer repaint over reflow.</p>
       </div>    
       <p><strong>How it happens: </strong></p>
       <ul>
@@ -343,15 +379,15 @@ document.body.appendChild(fragment);
     <div id="domReady">
       <h2>DOM ready</h2>
       <p><strong>Question: </strong> How could you make sure to run some javaScript when DOM is ready like <code>$(document).ready</code>?</p>
-      <p><strong>Answer: </strong></p>
-      <p><strong>option-1: </strong> you just put your script in the last tag of html body element. DOM would be ready by the time browser hits the script tag</p>
-      <p><strong>option-2: </strong> you put your code inside a <code>DOMContentLoaded</code> handler. this event will be fired when DOM is completely loaded</p>
+      <p><strong>Answer: </strong> There are four different ways-</p>
+      <p><strong>option-1: </strong> Put your script in the last tag of html body element. DOM would be ready by the time browser hits the script tag.</p>
+      <p><strong>option-2: </strong> Place your code inside a <code>DOMContentLoaded</code> handler. This event will be fired when DOM is completely loaded</p>
       <pre><code>
 document.addEventListener('DOMContentLoaded', function(){   
    //put your script here
 });
       </code></pre>
-      <p><strong>option-3: </strong> you can watch changes in the readyState of the document. And the last state is "complete" state, you can put your code there.</p>
+      <p><strong>option-3: </strong> Watch changes in the readyState of the document. And the last state is "complete" state, you can put your code there.</p>
       <pre><code>
 document.onreadystatechange = function () {  
   if (document.readyState == "complete") {
@@ -359,32 +395,8 @@ document.onreadystatechange = function () {
   }
 }
       </code></pre>
-      <p><strong>option-4: </strong> go to the jquery source code and copy dom ready function</p>
-    </div>
-    <div id="">
-      <h2></h2>
-      <p><strong>Question: </strong></p>
-      <p><strong>Answer: </strong></p>
-    </div>
-    <div id="mythicalHydra">
-        <h2>destroy button</h2>
-        <p><strong>Question:</strong> create a button that is destroyed by clicking it, but two new buttons are created in it's place.</p>
-        <p><strong>Answer:</strong> One way of solving is to attach a event handler with the button to destroy itself and append two. However, we can leverage event delegate. If we attach the event hander to the parent div instead of the button itself. we dont have to add the event handler to each button we create. So, we will take advantage of event bubbling.</p>
-        <p><strong>you:</strong> If both the newly created button is identical to one we are destroying, why interviewer wants to destroy exactly similar one and then create one. why not just add one. And end result would be same, you will have two two buttons.</p>
-        <p><strong>interviewer:</strong> I just want to see whether you can destroy any element. Make sure when you are destroying, there is no reference to the element, otherwise, you will have memory leak. If interviewer, says ok, just create one more button on click, then use your brain to change the following code.</p>
-        <pre><code>
-&lt;div id=&quot;doubleHolder&quot;&gt;<br/>  &lt;button class=&quot;double&quot;&gt;double&lt;/button&gt;<br/>&lt;/div&gt;<br/>&lt;script type="text/javascript" &gt;<br/> document.getElementById('doubleHolder').addEventListener('click', function (e) {<br/>   <br/>   if(e.target.classList.contains('double')){<br/>     var btn = document.createElement('button');<br/>      btn.setAttribute('class', 'double');<br/>     btn.innerHTML = 'double';<br/><br/>     var btn2 = document.createElement('button');<br/>     btn2.setAttribute('class', 'double');<br/>      btn2.innerHTML = 'double';<br/>     <br/>     this.appendChild(btn);<br/>     this.appendChild(btn2);<br/>      this.removeChild(e.target);   <br/>   }<br/>  }); <br/>&lt;/script&gt;
-        </code></pre>
-        <div>
-          <button id = "destroyBtn" type="button" class="toggleExample btn btn-primary">Show clickable demo</button>
-          <div id="destroyBtnExample" class="hide bg-success padding10Px">
-            <div id="doubleHolder">
-              <button class="double">double</button>
-            </div>
-          </div>  
-        </div>
-        <p>ref: <a href="http://www.careercup.com/question?id=17328675">destroy button</a></p>
-      </div>
+      <p><strong>option-4: </strong> Search jquery source code and copy dom ready function. In that case you have a ready function that works in the older browsers as well without loading the whole jquery library.</p>
+    </div>        
       <div id="eventBubble">
         <h2>Event bubble</h2>
         <p><strong>Question:</strong> What is event bubble? Can you fire an event in the capturing stage</p>
@@ -443,6 +455,44 @@ document.onreadystatechange = function () {
           </div>
         </div>
       </div>
+      <div id="mythicalHydra">
+        <h2>destroy button</h2>
+        <p><strong>Question:</strong> Create a button that is destroyed by clicking it, but two new buttons are created in it's place.</p>
+        <p><strong>Answer:</strong> One way of solving is to attach a event handler with the button to destroy itself and append two. However, we can leverage event delegate. If we attach the event hander to the parent div instead of the button itself. we dont have to add the event handler to each button we create. So, we will take advantage of event bubbling.</p>
+        <p><strong>you:</strong> If both the newly created button is identical to one we are destroying, why interviewer wants to destroy exactly similar one and then create one. why not just add one. And end result would be same, you will have two two buttons.</p>
+        <p><strong>interviewer:</strong> I just want to see whether you can destroy any element. Make sure when you are destroying, there is no reference to the element, otherwise, you will have memory leak. If interviewer, says ok, just create one more button on click, then use your brain to change the following code.</p>
+        <pre><code>
+&lt;div id=&quot;doubleHolder&quot;&gt;
+  &lt;button class=&quot;double&quot;&gt;double&lt;/button&gt;
+&lt;/div&gt;
+        </code></pre>
+        <pre><code>
+document.getElementById('doubleHolder').addEventListener('click', function (e) {   
+   if(e.target.classList.contains('double')){
+      var btn = document.createElement('button');
+      btn.setAttribute('class', 'double');
+      btn.innerHTML = 'double';
+
+      var btn2 = document.createElement('button');
+      btn2.setAttribute('class', 'double');
+      btn2.innerHTML = 'double';
+     
+      this.appendChild(btn);
+      this.appendChild(btn2);
+      this.removeChild(e.target);   
+    }
+  }); 
+        </code></pre>
+        <div>
+          <button id = "destroyBtn" type="button" class="toggleExample btn btn-primary">Show clickable demo</button>
+          <div id="destroyBtnExample" class="hide bg-success padding10Px">
+            <div id="doubleHolder">
+              <button class="double">double</button>
+            </div>
+          </div>  
+        </div>
+        <p>ref: <a href="http://www.careercup.com/question?id=17328675">destroy button</a></p>
+      </div>
             <div id="allClick">
                 <h2>capture all click</h2>
                 <p><strong>Question:</strong> How could you capture all clicks in a page?</p>
@@ -458,43 +508,7 @@ document.onreadystatechange = function () {
       }
                 </code></pre>
                 <p>However, if event bubbling is canceled by <code>stopPropagation()</code> your code will not work. think about it.</p>
-              </div>
-    <div id="addClass">
-        <h2>add class</h2>
-        <p><strong>Question:</strong> How you could add a class to an element by query selector</p>
-        <p><strong>Answer: </strong> just get the element and add the classname to the classlist</p>
-        <pre><code>
-function addClass(selector, className){
-   var elm = document.querySelector(selector);
-   if (elm){
-      elm.classList.add(className);
-   }
-}
-        </code></pre>
-        <p>similary you can implement removeClass, toggleClass and hasClass</p>
-        <pre><code>
-//IE9+
-el.classList.remove('my-class'); //removing a class
-el.classList.toggle('my-class');  // toggling a class
-el.classList.contains('my-class'); // checking whether class exists
-        </code></pre>
-      </div>
-      <div id="isDescendant">
-        <h2>is Descendant</h2>
-        <p><strong>Question:</strong> Check if one element child of another?</p>
-        <p><strong>Answer:</strong> check if the parent of the child is the node passed. if not keep checking</p>
-        <pre><code>
-function isDescendant(parent, child){ 
-  while(child.parentNode ){ 
-    if(child.parentNode == parent)
-      return true;
-    else
-      child = child.parentNode;
-  }
-  return false;
-}
-        </code></pre>
-      </div>
+              </div>    
       <div id="onload">
         <h2>window.onload vs document.onload</h2>
         <p><strong>Question:</strong> What are the differences between document.onload and window.onload</p>
