@@ -82,9 +82,26 @@
       <!-- <p class="gray">if you are little more comfortable or claim to be comfortable with javascript, these questions would not be enough for you. more coming</p>
       <p class="gray"> <span class="purpleBold">More Questions</span> <a href="css.html">css interview questions</a>, <a href="html.html">html interview questions</a> </p> -->
 
-    <div class="bg-danger text-warning padding10Px">
-      <h5>DOM provides an API to access and modify structure, style and content of a web page through objects (nodes or elements), properties and methods ... <a href="https://developer.mozilla.org/en-US/docs/DOM/DOM_Reference/Introduction">learn more</a></h5>      
+    <div class="bg-success text-warning padding10Px">
+      <h5>DOM provides an API to access and modify structure, style and content of a web page through objects (nodes or elements), properties and methods. <a href="https://developer.mozilla.org/en-US/docs/DOM/DOM_Reference/Introduction">learn more...</a></h5>      
     </div>  
+    <div id="windwoVsDocument">
+      <h2>window vs document</h2>
+      <p><strong>Question: </strong> Is window and document same thing?</p>
+      <p><strong>Answer: </strong> no. they are not the same thing. window is the global context of javaScript execution. Whereas document is the HTML page inside it.</p>
+      
+      <p>window provides functionalities like window.location, window.history, or the window.document. Besides, setTimeout, ajax call (XMLHttpRequest), console or localStorage are part of window. </p>
+      <p> document is a property of the window which represents the DOM. all the nodes are part of document. Hence you can use getElementById or addEventListener on document which is not present in the window.</p>
+      <pre><code>
+window.document === document; 
+//true
+window.getElementById
+//undefined
+document.getElementById
+//function getElementById() { [native code] }
+      </code></pre>
+      <p>ref: <a href="http://eligeske.com/jquery/what-is-the-difference-between-document-and-window-objects-2/">document and window</a>, <a href="http://stackoverflow.com/a/17227369/1535443">stack overflow answer</a></p>
+    </div>
     <div id="QueryDOM">
       <h2>DOM Query</h2>
       <p><strong>Question: </strong> What are the different ways to get an element from DOM?</p>
@@ -482,6 +499,8 @@ function isDescendant(parent, child){
           <li>event delegation could be part of this</li>
           <li>addEvent handler</li>
           <li>difference between document and window</li>
+          <li>click handler on dom element. closure problem</li>
+          <li>what is the value of this while looping through dom elements or something similar to this</li>
         </ul>
       </div> 
 <div>
