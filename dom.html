@@ -43,7 +43,7 @@
       { 
         color: rgba(218, 209, 149, 0.98);
       }
-      .toggleContent{
+      .padding10Px{
         padding: 10px;
       }
       /*style for demo*/
@@ -82,9 +82,8 @@
       <!-- <p class="gray">if you are little more comfortable or claim to be comfortable with javascript, these questions would not be enough for you. more coming</p>
       <p class="gray"> <span class="purpleBold">More Questions</span> <a href="css.html">css interview questions</a>, <a href="html.html">html interview questions</a> </p> -->
 
-    <div class="bg-danger text-warning">
-      <h2>Warning</h2>
-      <h4>this document is under construction. Read at your own risk!!!</h4>      
+    <div class="bg-danger text-warning padding10Px">
+      <h5>DOM provides an API to access and modify structure, style and content of a web page through objects (nodes or elements), properties and methods ... <a href="https://developer.mozilla.org/en-US/docs/DOM/DOM_Reference/Introduction">learn more</a></h5>      
     </div>  
     <div id="QueryDOM">
       <h2>DOM Query</h2>
@@ -271,7 +270,7 @@ document.body.appendChild(fragment);
       </ul>
       <div>
           <button id = "reflowExplanation" type="button" class="toggleExample btn btn-primary">show more explanation</button>
-          <div id="reflowExplanationExample" class="hide bg-success toggleContent">
+          <div id="reflowExplanationExample" class="hide bg-success padding10Px">
             <p>in the images below, affect of reflow is shown in a yellow box. Reflow causes changes in the render tree which changes the layout of the page. and eventually browser has to paint the changes. after that you can see those.</p>
             <img src="images/reFlow.png" alt="">
             <p>image source: original image is taken from W3 site. but i added the yellow box (my contribution).</p>
@@ -291,7 +290,7 @@ document.body.appendChild(fragment);
       </ul>
       <div>
           <button id = "repaintExplanation" type="button" class="toggleExample btn btn-primary">show more explanation</button>
-          <div id="repaintExplanationExample" class="hide bg-success toggleContent">
+          <div id="repaintExplanationExample" class="hide bg-success padding10Px">
             <p>in the image below, only the repaint and display part is changes due to repaint. doesnt have to change the render tree or layout of the page. Hence, this is less expensive than reflow.</p>
             <img src="images/repaint.png" alt="">
             <p>image source: original image is taken from W3 site. but i added the yellow box (my contribution).</p>
@@ -335,7 +334,7 @@ document.onreadystatechange = function () {
         </code></pre>
         <div>
           <button id = "destroyBtn" type="button" class="toggleExample btn btn-primary">show example</button>
-          <div id="destroyBtnExample" class="hide bg-success toggleContent">
+          <div id="destroyBtnExample" class="hide bg-success padding10Px">
             <div id="doubleHolder">
               <button class="double">double</button>
             </div>
@@ -343,6 +342,44 @@ document.onreadystatechange = function () {
         </div>
         <p>ref: <a href="http://www.careercup.com/question?id=17328675">destroy button</a></p>
       </div>
+      <div id="eventBubble">
+        <h2>Event bubble</h2>
+        <p><strong>Question:</strong> What is event bubble? Can you fire an event in the capturing stage</p>
+        <p><strong>Answer:</strong> to understand event bubble, you have to understand what happen when u click on anything on a page</p>
+        <p><strong>where u clicked</strong> if you have a table with multiple rows and multiple columns and you click in one of the cell</p>
+        <ul>
+          <li>you will think that you clicked on the cell and browser will know that and if you have a click handler with the cell that will be fired immediately</li>
+          <li>you are wrong. right away, browser doesn't know where you clicked </li>         
+        </ul>
+        The way browser find out where u have clicked are as follows
+        <ol>
+          <li><strong>Capture:</strong>When you clicked, browser knows a click event occurred. it starts from the window (lowest level/root of your website), then goes to document, then html root tag, then body, then table... its trying to reach the as lowest level of elements it can go. This is called capturing stage</li>
+          <li><strong>Target:</strong> when browser reach the lowest level of element. in this case, you have clicked on a table cell (table data) hence target would be "td" tag. Then browser check whether there is any click handler attached to this element. if there is any, browser executes that click hander.</li>
+          <li><strong>Bubbling:</strong>After firing click hander attached to "td", browser walks toward root. one level upward and check whether there is any click handler attached with table row ("tr" element). if there is any it will execute that. then it goes to tbody, table, body, html, document, window. In this stage its moving upward hence this is called event bubbling. Please note that, u clicked on cell but all the event handler with parent elements will be fired. This is actually very powerful (check event delegation)</li>
+        </ol>
+        <br>
+        <p><strong>Flow chart:</strong> click on show example to view a flow chart for event bubble</p>
+        <div>
+          <button id = "eventBubble" type="button" class="toggleExample btn btn-primary">show example</button>
+          <div id="eventBubbleExample" class="hide">
+            <img src="images/eventBubble.png" alt="">
+          </div>
+        </div>
+      </div>
+      <div id="eventDelegate">
+        <h2>Event Delegate</h2>
+        <p><strong>Question:</strong> How you can use event delegate on a list of item</p>
+        <p><strong>Answer:</strong>Make sure u understand event bubble first. if you have hundreds of list item where u want to handle an event. First problem is you have to write (actually copy paste) same code in hundred different place. and if something changes, u r screwed. </p>
+        <p>second problem is if u want to add a new element, you have to make sure event handler is attached with the element</p>
+        <p><strong>solution:</strong> as events will be bubbled up. if u have the event handler attached to the parent element. for example, if event handler is attached with "ul" tag, event handler will be fired for clicking any of the child element</p>
+        <p>if you want to do anything specific to the element. for example, you want to log the text in the list item. by using target</p>
+        <pre><code>
+          //add code here.
+          //also add example
+        </code></pre>
+
+      </div>
+
       <div id="destroyList">
         <h2>destroy list</h2>
         <p><strong>Question:</strong>you have a list of items that has anchor. how would you destroy list item when someone click on a list item</p>
@@ -352,7 +389,7 @@ document.onreadystatechange = function () {
         </code></pre>
         <div>
           <button id = "destroyLst" type="button" class="toggleExample btn btn-primary">show example</button>
-          <div id="destroyLstExample" class="hide bg-success toggleContent">
+          <div id="destroyLstExample" class="hide bg-success padding10Px">
             <ul id="listToDestroy">
               <li><a href="#">first item</a></li>
               <li><a href="#">second item</a></li>
@@ -437,12 +474,14 @@ function isDescendant(parent, child){
         <h2>TODO questions</h2>
         <ul>
           <li>Write a function to find the nearest link on a webpage given the mouse x,y coordinates. <a href="http://www.careercup.com/question?id=3538036">career cup</a></li>
-          <li>difference between attribute and property</li>
+          <li>difference between attribute and property: <a href="http://stackoverflow.com/questions/6003819/properties-and-attributes-in-html">stack overflow</a> <a href="http://jquery-howto.blogspot.com/2011/06/html-difference-between-attribute-and.html">attr vs property</a></li>
           <li><a href="http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-TreeWalker">DOM Traverse: NodeIterator, TreeWalker, NodeFilter</a></li>
           <li>Find something about event loop, synchronous vs asynchronous event, default action & cancelable events: <a href="https://dvcs.w3.org/hg/dom3events/raw-file/tip/html/DOM3-Events.html">w3: DOM event</a></li>
           <li>something related to custom events: <a href="https://dvcs.w3.org/hg/dom3events/raw-file/tip/html/DOM3-Events.html#extending-events-Custom_Events">w3 events</a></li>
           <li>dom events: <a href="https://dvcs.w3.org/hg/domcore/raw-file/tip/Overview.html#introduction-to-dom-events">intro to dom events</a></li>
           <li>event delegation could be part of this</li>
+          <li>addEvent handler</li>
+          <li>difference between document and window</li>
         </ul>
       </div> 
 <div>
