@@ -88,8 +88,8 @@
     <div id="windwoVsDocument">
       <h2>window vs document</h2>
       <p><strong>Question: </strong> Is window and document same thing?</p>
-      <p><strong>Answer: </strong> No. They are not the same thing. window is the global context of javaScript execution. Whereas document is the HTML page inside it. window provides functionalities like window.location, window.history, or the window.document. Besides, setTimeout, ajax call (XMLHttpRequest), console or localStorage are part of window. </p>
-      <p> document is a property of the window which represents the DOM. All the nodes are part of document. Hence you can use getElementById or addEventListener on document which is not present in the window.</p>
+      <p><strong>Answer: </strong> No. JavaScript has a global object and everything runs under it and window is that global object. global variables, global functions, location, history everything is under it. Besides, setTimeout, ajax call (XMLHttpRequest), console or localStorage are part of window. </p>
+      <p> document is also under window. document is a property of the window which represents the DOM. All the nodes are part of document. Hence you can use getElementById or addEventListener on document which is not present in the window.</p>
       <pre><code>
 window.document === document; //true
 window.getElementById; //undefined
@@ -154,8 +154,13 @@ myInput.value; //'my dude'
           <li>Pseudo (p:first-child)</li>       
         </ul>
         <p>if you have crazy long selectors to select element, think about your selectors and see whether you can use a class for that case.</p>
-        <p><strong>Question: </strong> why <code>querySelectorAll('.my-class')</code> is slower than <code>getElementsByClassName('my-class')</code>?</p>
-        <p><strong>Answer: </strong> querySlectorAll is a generic purpose method. It is optimized for different kinds of selectors. Hence it has to check whether you put a "#" or "." in front of the parameter you are passing. If you are just passing a class name with ".", under the hood it uses <code>getElementsByClassName</code> (could vary based on browser implements). Whereas if you directly uses <code>getElementsByClassName</code> it directly uses this method and doesn't have to go through all the initial processing of <code>querySelectorAll</code>. Hence to search elements with a particular class name, getElementsByClassName is faster than querySelectorAll.</p>
+        <div>
+          <button id = "byClassVsSelectorAll" type="button" class="toggleExample btn btn-primary">Show deeper question</button>
+          <div id="byClassVsSelectorAllExample" class="hide bg-success padding10Px">
+            <p><strong>Question: </strong> why <code>querySelectorAll('.my-class')</code> is slower than <code>getElementsByClassName('my-class')</code>?</p>
+            <p><strong>Answer: </strong> querySlectorAll is a generic purpose method. It is optimized for different kinds of selectors. Hence it has to check whether you put a "#" or "." in front of the parameter you are passing. If you are just passing a class name with ".", under the hood it uses <code>getElementsByClassName</code> (could vary based on browser implements). Whereas if you directly uses <code>getElementsByClassName</code> it directly uses this method and doesn't have to go through all the initial processing of <code>querySelectorAll</code>. Hence to search elements with a particular class name, getElementsByClassName is faster than querySelectorAll.</p>
+          </div>
+        </div>
       </div>    
       <div id="nodeListVsArray">
       <h2>use forEach on NodeList</h2>
@@ -183,7 +188,7 @@ nodesArray.forEach(function(el, idx){
     <div id="getElementByallAttribute">
         <h2>getElementsByAttribute</h2>
         <p><strong>Question:</strong> If you need to implement getElementByAttributeValue, how would you implement it?</p>
-        <p><strong></strong></p>
+        <p><strong>Answer: </strong> Get all the elements. you can either get it by Tag Name '*' and then check whether they have the particular attribute. In this case, even if attribute is null that will be captured. If you need to check the value, you should be able to do it by passing one extra parameter and comparing it in the if block.</p>
         <pre><code>
 function getElementsByAttribute(attribute){
   var allElements = document.getElementsByTagName('*'), 
@@ -200,6 +205,39 @@ function getElementsByAttribute(attribute){
   return found;
 }
         </code></pre>
+        <div>
+          <button id = "betterByAttribute" type="button" class="toggleExample btn btn-primary">Show better algorithm</button>
+          <div id="betterByAttributeExample" class="hide bg-success padding10Px">
+            <p><strong>Question: </strong> Can you make it better?</p>
+            <p><strong>Answer: </strong> Yes. The example above, I am getting all the elements and then comparing the attribute. I can check the attribute while getting the elements.</p>
+            <pre><code>
+// todo: prettify this ugly code
+function getElementsByAttribute2(attr){
+  var found = [], 
+      child;
+
+  function getNodeText(node){
+      if(node && node.childNodes && node.childNodes.length){
+          for(var i = 0, len = node.childNodes.length; i&lt;len; i++){
+              child = node.childNodes[i];
+              if(child && child.getAttribute && child.getAttribute(attr)){
+                 found.push(child);
+              }
+              getNodeText(child);
+          }
+      }
+      else{
+          if(node.getAttribute && node.getAttribute(attr)){
+             found.push(node);
+          }
+     }
+  }
+  getNodeText(document.body);
+  return found;
+}
+            </code></pre>
+          </div>
+      </div>        
         <p><strong>Question: </strong> Can I add this <code>getElementsByAttribute</code> to <code>document</code>?</p>
         <p><strong>Answer: </strong> Mr. Interviewer, please read this article: <a href="http://perfectionkills.com/whats-wrong-with-extending-the-dom/">whats wrong with extending the dom</a></p>
       </div>
