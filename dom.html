@@ -88,10 +88,8 @@
     <div id="windwoVsDocument">
       <h2>window vs document</h2>
       <p><strong>Question: </strong> Is window and document same thing?</p>
-      <p><strong>Answer: </strong> no. they are not the same thing. window is the global context of javaScript execution. Whereas document is the HTML page inside it.</p>
-      
-      <p>window provides functionalities like window.location, window.history, or the window.document. Besides, setTimeout, ajax call (XMLHttpRequest), console or localStorage are part of window. </p>
-      <p> document is a property of the window which represents the DOM. all the nodes are part of document. Hence you can use getElementById or addEventListener on document which is not present in the window.</p>
+      <p><strong>Answer: </strong> No. They are not the same thing. window is the global context of javaScript execution. Whereas document is the HTML page inside it. window provides functionalities like window.location, window.history, or the window.document. Besides, setTimeout, ajax call (XMLHttpRequest), console or localStorage are part of window. </p>
+      <p> document is a property of the window which represents the DOM. All the nodes are part of document. Hence you can use getElementById or addEventListener on document which is not present in the window.</p>
       <pre><code>
 window.document === document; //true
 window.getElementById; //undefined
@@ -101,42 +99,46 @@ document.getElementById; //function getElementById() { [native code] }
     </div>
         <div id="attrVSProperty">
       <h2>attribute vs property</h2>
-      <p><strong>Question: </strong> what are the differences between attribute and property?</p>
-      <p><strong>Answer: </strong> attribute are just like attribute in your html tag (XML style attribute) inside the starting tag. html attributes are exposed to the DOM via property. hence, a property is created when DOM is parsed for each attribute in the html tag. if you change an attribute only the value of the property will change. however, the value of attribute will remain same.<p>
-      <p>For example, if you have a input and you have three attribute- id, type, value.</p>      
-      <pre><code>
+      <p><strong>Question: </strong> What are the differences between attribute and property?</p>
+      <p><strong>Answer: </strong> attributes are just like attribute in your html tag (XML style attribute) inside the starting tag. html attributes are exposed to the DOM via property. Hence, a property is created when DOM is parsed for each attribute in the html tag. If you change an attribute only the value of the property will change. However, the value of attribute will remain same.<p>
+      <div>
+          <button id = "attrVsProp" type="button" class="toggleExample btn btn-primary">Show more</button>
+          <div id="attrVsPropExample" class="hide bg-success padding10Px">
+                  <p>For example, if you have a input with three attribute- id, type, value.</p>      
+                  <pre><code>
 &lt;input id="my-input" type="text" value="Name:"&gt;
-      </code></pre>
-      <p>if you type "my dude" in the text box. the value property will be changed but value attribute will remain unchanged.</p>
-      <pre><code>
+                  </code></pre>
+                  <p>If you type "my dude" in the text box. the value property will be changed but value attribute will remain unchanged.</p>
+                  <pre><code>
 var myInput = document.getElementById('my-input');
 myInput.getAttribute('value'); //"Name:"
 myInput.value; //'my dude'
-      </code></pre>
-      <p>however, if you change the value of an attribute by using <code>myInput.setAttribute('value', 'that dude')</code> or <code>myInput.removeAttribute()</code>, then value of attribute will be changed.</p>
-      <p>ref: <a href="http://jquery-howto.blogspot.com/2011/06/html-difference-between-attribute-and.html">attr vs property</a></p>
+                  </code></pre>
+                  <p>However, if you change the value of an attribute by using <code>myInput.setAttribute('value', 'that dude')</code> or <code>myInput.removeAttribute()</code>, then value of attribute will be changed.</p>
+                  <p>ref: <a href="http://jquery-howto.blogspot.com/2011/06/html-difference-between-attribute-and.html">attr vs property</a></p>
+          </div>
+        </div>      
     </div>    
     <div id="QueryDOM">
       <h2>DOM Query</h2>
       <p><strong>Question: </strong> What are the different ways to get an element from DOM?</p>
-      <p><strong>Answer: </strong> you can use the following method in <code>document</code></p>      
+      <p><strong>Answer: </strong> You can use the following method in <code>document</code></p>      
       <ul>
-        <li><code>document.getElementById</code> you can get element by providing Id</li>
-        <li><code>document.getElementsByClassName</code> you will get a nodelist (nodelist is not an array, rather it is array-like object) by providing a class name.</li>
-        <li><code>document.getElementsByTagName</code> you will get a nodelist by providing a tag name</li>
-        <li><code>document.querySelector</code> you will pass css style selector (jquery style) and this will retrurn first match of the DOM</li>
-        <li><code>docuemnt.querySelectorAll</code> will return a non-live nodelist  by using depth-first pre order traversal of all the matched elements. Non-live means, any changes after selecting the elements will not be reflected.</li>        
+        <li><code>getElementById</code> to get a element with the provided Id</li>
+        <li><code>getElementsByClassName</code> to get a nodelist (nodelist is not an array, rather it is array-like object) by providing a class name.</li>
+        <li><code>getElementsByTagName</code> to get a nodelist with the provided tag name</li>
+        <li><code>querySelector</code> you will pass css style selector (jquery style) and this will retrurn first matched element in the DOM</li>
+        <li><code>querySelectorAll</code> will return a non-live nodelist  by using depth-first pre order traversal of all the matched elements. Non-live means, any changes after selecting the elements will not be reflected.</li>        
       </ul>
-      <p>there are two more options, that i dont use frequently</p>
+      <p>There are two more options but i dont use them frequently</p>
       <ul>
-        <li><code>document.getElementsByName</code> returns the list of elements by the provided name of the html tag</li>
-        <li><code>document.getElementsByTagNameNS</code> returns elements with particular tag name within the provided namespace</li>
-      </ul>
-      <p class="bg-warning text-danger"><strong>TODO:</strong> learn more about last two</p>
+        <li><code>getElementsByName</code> returns the list of elements by the provided name of the html tag</li>
+        <li><code>getElementsByTagNameNS</code> returns elements with particular tag name within the provided namespace</li>
+      </ul>      
     </div>    
     <div id="selectElement">
-        <h2>Best way to select DOM</h2>
-        <p><strong>Question:</strong> What is the best way to select an element from DOM?</p>
+        <h2>Fastest DOM Query</h2>
+        <p><strong>Question:</strong> What is the fastest way to select elements by using css selectors?</p>
         <p><strong>Answer:</strong> It depends on what you are selecting. if you have an ID of an element <code>document.getElmentById</code> is the fastest way to select an element. However, you should not have so many ID in you document. then you have to repeat styles a lot. css class <code>document.getElementsByClassName</code> is the second quickest way to select an element</p>
         <p>in terms of speed of selecting elements. here is the list. As we go downwards to the list, it takes more time to select elements </p>
         <ul>
@@ -396,7 +398,7 @@ document.onreadystatechange = function () {
         <p><strong>Flow chart:</strong> click on show example to view a flow chart for event bubble</p>
         <div>
           <button id = "eventBubble" type="button" class="toggleExample btn btn-primary">Show a picture of bubble</button>
-          <div id="eventBubbleExample" class="hide bg-success paddding10Px">
+          <div id="eventBubbleExample" class="hide bg-success padding10Px">
             <img src="images/eventBubble.png" alt="">
           </div>
         </div>
