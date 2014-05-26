@@ -139,8 +139,8 @@ myInput.value; //'my dude'
     <div id="selectElement">
         <h2>Fastest DOM Query</h2>
         <p><strong>Question:</strong> What is the fastest way to select elements by using css selectors?</p>
-        <p><strong>Answer:</strong> It depends on what you are selecting. if you have an ID of an element <code>document.getElmentById</code> is the fastest way to select an element. However, you should not have so many ID in you document. then you have to repeat styles a lot. css class <code>document.getElementsByClassName</code> is the second quickest way to select an element</p>
-        <p>in terms of speed of selecting elements. here is the list. As we go downwards to the list, it takes more time to select elements </p>
+        <p><strong>Answer:</strong> It depends on what you are selecting. if you have an ID of an element <code>getElmentById</code> is the fastest way to select an element. However, you should not have so many ID in you document. then you have to repeat styles a lot. css class <code>getElementsByClassName</code> is the second quickest way to select an element</p>
+        <p>Here is the list. As we go downwards through the list, it takes more time to select elements </p>
         <ul>
           <li>ID (#myID)</li>
           <li>Class (.myClass)</li>
@@ -152,21 +152,22 @@ myInput.value; //'my dude'
           <li>Attribute (input[type="checkbox"])</li>
           <li>Pseudo (p:first-child)</li>       
         </ul>
+        <p>if you have crazy long selectors to select element, think about your selectors and see whether you can use a class for that case.</p>
         <p><strong>Question: </strong> why <code>querySelectorAll('.my-class')</code> is slower than <code>getElementsByClassName('my-class')</code>?</p>
-        <p><strong>Answer: </strong> querySlectorAll is a generic purpose method. it is optimized for different kinds of selectors. hence it has to check whether you put a # or . in front of the parameter you are passing. whether its a valid selectors or not and then under the hood it uses <code>getElementsByClassName</code> if you only asking for elements with a class name only (depends on browser implements). whereas if you directly uses <code>getElementsByClassName</code> it directly uses this method and doesnt have to go through all the initial processing of <code>querySelectorAll</code>. hence to search elements with a particular class name, getElementsByClassName is faster than querySelectorAll.</p>
+        <p><strong>Answer: </strong> querySlectorAll is a generic purpose method. It is optimized for different kinds of selectors. Hence it has to check whether you put a "#" or "." in front of the parameter you are passing. If you are just passing a class name with ".", under the hood it uses <code>getElementsByClassName</code> (could vary based on browser implements). Whereas if you directly uses <code>getElementsByClassName</code> it directly uses this method and doesn't have to go through all the initial processing of <code>querySelectorAll</code>. Hence to search elements with a particular class name, getElementsByClassName is faster than querySelectorAll.</p>
       </div>    
       <div id="nodeListVsArray">
       <h2>use forEach on NodeList</h2>
       <p><strong>Question: </strong>How come, I can't use forEach or similar array methods on a NodeList?</p>
-      <p><strong>Answer: </strong> though array and nodelist looks similar. you can have length and loop through them but they are not exactly same. </p>
-      <p>both are inherited from Object. however array has different prototype object than nodelist. forEach, map, etc are on array.prototype which doenst exists in the NodeList.prototype object. Hence, you dont have forEach on a nodelist</p>
+      <p><strong>Answer: </strong> Yah. Both array and nodelist have length and you can loop through elements but they are not exactly same.</p>
+      <p>Both are inherited from Object. However array has different prototype object than nodelist. forEach, map, etc are on array.prototype which doesn't exists in the NodeList.prototype object. Hence, you don't have forEach on a nodelist</p>
       <pre><code>
 myArray --> Array.prototype --> Object.prototype --> null
 
 myNodeList --> NodeList.prototype --> Object.prototype --> null
       </code></pre>
       <p><strong>Question: </strong> How could you solve this problem? </p>
-      <p><strong>Answer: </strong> to solve this problem, you can simply loop through a nodeList and do whatever you wanted to inside forEach or you can call method on array to convert nodelist to an array. after that you will have access to all array.prototype methods</p>
+      <p><strong>Answer: </strong> To solve this problem, you can simply loop through a nodeList and do whatever you wanted to inside forEach or you can call method on array to convert nodelist to an array. After that you will have access to all array.prototype methods</p>
       <pre><code>
 var myNodeList = document.querySelectorAll('.my-class');
 var nodesArray = Array.prototype.slice.call(myNodeList);
@@ -183,29 +184,33 @@ nodesArray.forEach(function(el, idx){
         <p><strong>Question:</strong> If you need to implement getElementByAttributeValue, how would you implement it?</p>
         <p><strong></strong></p>
         <pre><code>
-function getElementsByAttribute(attribute)
+function getElementsByAttribute(attribute){
+  var allElements = document.getElementsByTagName('*'), 
+      elm,
+      found=[];
+  for (var i = 0; i &lt; allElements.length; i++)
+   {
+    elm = allElements[i];
+    if (elm.getAttribute(attribute))
     {
-      var allElements = document.getElementsByTagName('*');
-      for (var i = 0; i &lt; allElements.length; i++)
-       {
-        if (allElements[i].getAttribute(attribute))
-        {
-          allElements[i];
-        }
-      }
-      return allElements;
+      found.push(elm);
     }
+  }
+  return found;
+}
         </code></pre>
+        <p><strong>Question: </strong> Can I add this <code>getElementsByAttribute</code> to <code>document</code>?</p>
+        <p><strong>Answer: </strong> Mr. Interviewer, please read this article: <a href="http://perfectionkills.com/whats-wrong-with-extending-the-dom/">whats wrong with extending the dom</a></p>
       </div>
       <div id="allText">
         <h2>All text in a page</h2>
-        <p><strong>Question:</strong>How can you get all the texts in a web page?</p>
-        <p><strong>Answer:</strong> the easiest way to get all the text is to get the innerText of body tag.</p>
+        <p><strong>Question:</strong> How can you get all the texts in a web page?</p>
+        <p><strong>Answer:</strong> The easiest way to get all the text is to get the innerText of body tag.</p>
         <pre><code>
-document.getElementsByTagName('body')[0].innerText;
+document.body.innerText;
         </code></pre>
-        <p><strong>QuestioN:</strong>Can you do by accessing DOM?</p>
-        <p><strong>Answer:</strong>Make it recursive. I used closure. there could be many implementation</p>
+        <p><strong>Question:</strong> Can you do by accessing DOM?</p>
+        <p><strong>Answer:</strong> Make it recursive. I used closure. there could be many implementation</p>
         <pre><code>
 function getAllText(node){
   var allText = [];
@@ -224,21 +229,22 @@ function getAllText(node){
   return allText.join('');
 }
         </code></pre>
+        <p><strong>disclaimer:</strong> I didn't explicitly tested these two methods.</p>
       </div>
     <div id="innerHTMLVsAppendChild">
       <h2>innerHTML vs appendChild </h2>
-      <p><strong>Question: </strong> How would you create a DOM element? directly set to innherHTML or createElement?</p>
+      <p><strong>Question: </strong> How would you create a DOM element? Set to innherHTML or createElement?</p>
       <p><strong>Answer: </strong> There are two options: setting the <code>innerHTML</code> of an element or <code>appendChild</code> to the element.</p>
-      <p>for example, if you want to add a list item to an unorderedList. your can get the element and set the innerHTML of the element like</p>
+      <p>For example, if you want to add a list item to an unorderedList. your can get the element and set the innerHTML of the element like</p>
       <pre><code>
 var ul = document.getElementById('myList');
 
 el.innerHTML = '&lt;li&gt;Only one item&lt;/li&gt;';              
       </code></pre>
-      <p>when you set innerHTML property, browser removes all the children of the elements. parse the string and assign the parsed string to the element.</p>
-      <p><strong>Extra Credit: </strong> innerHTML could be slow. as you are passing a string. browser has to parse the string and if you have crappy html (invalid html), browser has to deal with it.</p>
+      <p>When you set innerHTML property, browser removes all the children of the elements. parse the string and assign the parsed string to the element.</p>
+      <p><strong>Extra Credit: </strong> innerHTML could be slow while passing a string. Browser has to parse the string and if you have crappy html (invalid html), browser has to deal with it.</p>
       <h4>appendChild</h4>
-      <p>on the other hand, while using appendChild, you create a new Element. since you are creating it, browser doesnt have to parse string and there is no invalid html. and you can pass the child to the parent and child will be appended to the parent.</p>
+      <p>On the other hand, while using appendChild, you create a new Element. Since you are creating it, browser doesnt have to parse string and there is no invalid html. and you can pass the child to the parent and child will be appended to the parent.</p>
       <pre><code>
 var li = document.createElement("li");
 var text = document.createTextNode('Only one Item');
@@ -246,16 +252,16 @@ var text = document.createTextNode('Only one Item');
 li.appendChild(text);
 ul.appendChild(li);
       </code></pre>
-      <p><strong>Extra Credit: </strong> if you pass a reference to be appended as child other than creating a new element. the reference you are passing will be removed from the current parent and will be added to the new parent you are appending to.</p>
-      <p>though you would be writing couple more lines of JavaScript. it makes browsers life easier and your page faster.</p>
+      <p><strong>Extra Credit: </strong> If you pass a reference to be appended as child other than creating a new element. The reference you are passing will be removed from the current parent and will be added to the new parent you are appending to.</p>
+      <p>Though you would be writing couple more lines of JavaScript, it makes browsers life easier and your page faster.</p>
     </div>
     <div id="createDocumentFragment">
       <h2>CrateDocumentFragment</h2>
-      <p><strong>Question: </strong> what is createDocumentFragment and why you might use it?</p>
-      <p><strong>Answer: </strong> <code>documentFragment</code> a very lightweight or minimal part of DOM or a subtree of DOM tree. It is very helpful when you are manipulating a part of DOM for multiple times. It becomes expensive to hit a certain portion of DOM for hundreds time (imagine you are searching for an element and then appending ). Look at the code block below</p>
-      <p>If you are changing dom that cause reflow and expensive. On the other side, <code>documentFragment</code> is managed in the memory and dont cause reflow.</p>
+      <p><strong>Question: </strong> What is createDocumentFragment and why you might use it?</p>
+      <p><strong>Answer: </strong> <code>documentFragment</code> a very lightweight or minimal part of DOM or a subtree of DOM tree. It is very helpful when you are manipulating a part of DOM for multiple times. It becomes expensive to hit a certain portion of DOM for hundreds time (imagine you are searching for an element and then appending ).</p>
+      <p>If you are changing dom that cause expensive reflow, you can avoid it by using <code>documentFragment</code> as it is managed in the memory.</p>
       <pre><code>
-//bad practice
+//bad practice. you are hitting the DOM every single time
 var list = ['foo', 'bar', 'baz', ... ],
     el, text;
 for (var i = 0; i &lt; list.length; i++) {
@@ -266,7 +272,7 @@ for (var i = 0; i &lt; list.length; i++) {
 }
       </code></pre>
       <pre><code>
-//good practice
+//good practice. you causing reflow one time
 var fragment = document.createDocumentFragment(),
     list = ['foo', 'bar', 'baz', ...],
     el, text;
@@ -282,11 +288,19 @@ document.body.appendChild(fragment);
     </div>
     <div id="reflow">
       <h2>reflow</h2>
-      <p><strong>Question: </strong> what is reflow? what causes reflow? How could you reduce reflow?</p>
+      <p><strong>Question: </strong> What is reflow? What causes reflow? How could you reduce reflow?</p>
       <p><strong>Answer: </strong> aha... so many questions at the same time. take a breathe MR. Interviewer.</p>
-      <p><strong>reflow: </strong> when you change size or position of an element in the page, all the elements after it has to change their position according to the changes you made. For example, if you change height on an element, all the elements after it has to move down in the page. Hence, flow of the elements in the page is changed and this is called reflow.</p>
+      <p><strong>reflow: </strong> When you change size or position of an element in the page, all the elements after it has to change their position according to the changes you made. For example, if you change height on an element, all the elements after it has to move down in the page. Hence, flow of the elements in the page is changed and this is called reflow.</p>
       <p><strong>Why reflow is bad: </strong> Reflows are very expensive as it has a performance hit specially in the smaller devices like phone. As it causes changes in the portion (or whole) layout of the page.</p>
-      <p><strong>what causes reflow:</strong> the following cases causes reflow</p>
+      <div>
+          <button id = "reflowExplanation" type="button" class="toggleExample btn btn-primary">Show more explanation</button>
+          <div id="reflowExplanationExample" class="hide bg-success padding10Px">
+            <p>in the images below, affect of reflow is shown in a yellow box. Reflow causes changes in the render tree which changes the layout of the page. and eventually browser has to paint the changes. after that you can see those.</p>
+            <img src="images/reFlow.png" alt="">
+            <p>image source: original image is taken from W3 site. but i added the yellow box (my contribution).</p>
+          </div>
+      </div>
+      <p><strong>Reasons to reflow:</strong> the following cases causes reflow</p>
       <ul>
         <li>change layout (geometry of the page)</li>
         <li>resize the window</li>
@@ -298,41 +312,33 @@ document.body.appendChild(fragment);
         <li>calculating offset height or offset width</li>
         <li><code>display: none;</code></li>        
       </ul>
-      <p><strong>how to avoid</strong> to avoid reflow, try to avoid doing things in the above list. and some more in the below</p>
+      <p><strong>How to avoid:</strong> To avoid reflow, try to avoid doing things in the above list. and some more in the below</p>
       <ul>
         <li>avoid setting multiple inline style</li>
         <li>apply animation to the elements that are positioned fixed or absolute</li>
         <li>avoid tables for layout</li>
-      </ul>
-      <div>
-          <button id = "reflowExplanation" type="button" class="toggleExample btn btn-primary">Show more explanation</button>
-          <div id="reflowExplanationExample" class="hide bg-success padding10Px">
-            <p>in the images below, affect of reflow is shown in a yellow box. Reflow causes changes in the render tree which changes the layout of the page. and eventually browser has to paint the changes. after that you can see those.</p>
-            <img src="images/reFlow.png" alt="">
-            <p>image source: original image is taken from W3 site. but i added the yellow box (my contribution).</p>
-          </div>
-      </div>    
+      </ul>          
       <p>ref: <a href="http://www.stubbornella.org/content/2009/03/27/reflows-repaints-css-performance-making-your-javascript-slow/">reflow and repaint: css performance makes ur JS slow</a></p>
     </div>
     <div id="repaint">
       <h2>repaint</h2>
-      <p><strong>Question: </strong> what is repaint and when does this happen?</p>
-      <p><strong>Answer: </strong> repaint happens when you change look of an element without changing the size and shape. This doesnt cause reflow as geometry of the element didnt changed. </p>
-      <p><strong>How it happens: </strong></p>
-      <ul>
-        <li>change background color</li>
-        <li>change text color</li>
-        <li>visibility hidden</li>
-      </ul>
+      <p><strong>Question: </strong> What is repaint and when does this happen?</p>
+      <p><strong>Answer: </strong> repaint happens when you change look of an element without changing the size and shape. This doesn't cause reflow as geometry of the element didn't changed. </p>
       <div>
           <button id = "repaintExplanation" type="button" class="toggleExample btn btn-primary">Show more explanation</button>
           <div id="repaintExplanationExample" class="hide bg-success padding10Px">
-            <p>in the image below, only the repaint and display part is changes due to repaint. doesnt have to change the render tree or layout of the page. Hence, this is less expensive than reflow.</p>
+            <p>In the image below, only the painting and display part is changes due to repaint. Browser doesn't have to change the render tree or layout of the page. Hence, this is less expensive than reflow.</p>
             <img src="images/repaint.png" alt="">
             <p>image source: original image is taken from W3 site. but i added the yellow box (my contribution).</p>
           </div>
           <p>if possible, prefer repaint over reflow.</p>
       </div>    
+      <p><strong>How it happens: </strong></p>
+      <ul>
+        <li>change background color</li>
+        <li>change text color</li>
+        <li>visibility hidden</li>
+      </ul>      
     </div>
     <div id="domReady">
       <h2>DOM ready</h2>
