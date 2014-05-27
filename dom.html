@@ -88,8 +88,8 @@
     <div id="windwoVsDocument">
       <h2>window vs document</h2>
       <p><strong>Question: </strong> Is window and document same thing?</p>
-      <p><strong>Answer: </strong> No. JavaScript has a global object and everything runs under it and window is that global object. global variables, global functions, location, history everything is under it. Besides, setTimeout, ajax call (XMLHttpRequest), console or localStorage are part of window. </p>
-      <p> document is also under window. document is a property of the window which represents the DOM. All the nodes are part of document. Hence you can use getElementById or addEventListener on document which is not present in the window.</p>
+      <p><strong>Answer: </strong> No. JavaScript has a global object and everything runs under it. window is that global object that holds global variables, global functions, location, history everything is under it. Besides, setTimeout, ajax call (XMLHttpRequest), console or localStorage are part of window. </p>
+      <p> document is also under window. document is a property of the window object. document represents the DOM and DOM is the object oriented representation of the html markup you have written. All the nodes are part of document. Hence you can use getElementById or addEventListener on document. These methods are not present in the window object.</p>
       <pre><code>
 window.document === document; //true
 window.getElementById; //undefined
@@ -157,7 +157,7 @@ myInput.value; //'my dude'
         <div>
           <button id = "byClassVsSelectorAll" type="button" class="toggleExample btn btn-primary">Show deeper question</button>
           <div id="byClassVsSelectorAllExample" class="hide bg-success padding10Px">
-            <p><strong>Question: </strong> why <code>querySelectorAll('.my-class')</code> is slower than <code>getElementsByClassName('my-class')</code>?</p>
+            <p><strong>Question: </strong> Why <code>querySelectorAll('.my-class')</code> is slower than <code>getElementsByClassName('my-class')</code>?</p>
             <p><strong>Answer: </strong> querySlectorAll is a generic purpose method. It is optimized for different kinds of selectors. Hence it has to check whether you put a "#" or "." in front of the parameter you are passing. If you are just passing a class name with ".", under the hood it uses <code>getElementsByClassName</code> (could vary based on browser implements). Whereas if you directly uses <code>getElementsByClassName</code> it directly uses this method and doesn't have to go through all the initial processing of <code>querySelectorAll</code>. Hence to search elements with a particular class name, getElementsByClassName is faster than querySelectorAll.</p>
           </div>
         </div>
@@ -243,8 +243,8 @@ function getElementsByAttribute2(attr){
       </div>
       <div id="addClass">
         <h2>add class</h2>
-        <p><strong>Question:</strong> How you could add a class to an element by query selector</p>
-        <p><strong>Answer: </strong> just get the element and add the classname to the classlist</p>
+        <p><strong>Question:</strong> How you could add a class to an element by query selector?</p>
+        <p><strong>Answer: </strong> Very simple. Just get the element and add the classname to the classlist.</p>
         <pre><code>
 function addClass(selector, className){
    var elm = document.querySelector(selector);
@@ -253,7 +253,7 @@ function addClass(selector, className){
    }
 }
         </code></pre>
-        <p>similary you can implement removeClass, toggleClass and hasClass</p>
+        <p>Similarly, you can implement removeClass, toggleClass and hasClass</p>
         <pre><code>
 //IE9+
 el.classList.remove('my-class'); //removing a class
@@ -262,9 +262,9 @@ el.classList.contains('my-class'); // checking whether class exists
         </code></pre>
       </div>
       <div id="isDescendant">
-        <h2>check Descendant</h2>
+        <h2>Check Descendant</h2>
         <p><strong>Question:</strong> Check if one element child of another?</p>
-        <p><strong>Answer:</strong> check if the parent of the child is the node passed. if not keep checking</p>
+        <p><strong>Answer:</strong> First check whether the passed parent is the direct parent of the child. If not, keep moving upward to the root of the tree.</p>
         <pre><code>
 function isDescendant(parent, child){ 
   while(child.parentNode ){ 
@@ -335,7 +335,7 @@ document.body.appendChild(fragment);
     <div id="reflow">
       <h2>reflow</h2>
       <p><strong>Question: </strong> What is reflow? What causes reflow? How could you reduce reflow?</p>
-      <p><strong>Answer: </strong> aha... so many questions at the same time. take a breathe MR. Interviewer.</p>
+      <p><strong>Answer: </strong> Aha... so many questions at the same time. take a breathe MR. Interviewer.</p>
       <p><strong>reflow: </strong> When you change size or position of an element in the page, all the elements after it has to change their position according to the changes you made. For example, if you change height on an element, all the elements after it has to move down in the page. Hence, flow of the elements in the page is changed and this is called reflow.</p>
       <p><strong>Why reflow is bad: </strong> Reflows are very expensive as it has a performance hit specially in the smaller devices like phone. As it causes changes in the portion (or whole) layout of the page.</p>
       <div>
@@ -343,10 +343,10 @@ document.body.appendChild(fragment);
           <div id="reflowExplanationExample" class="hide bg-success padding10Px">
             <p>In the images below, affect of reflow is shown in a yellow box. Reflow causes changes in the render tree which changes the layout of the page. Eventually browser has to paint the changes so that you can see your awesome changes.</p>
             <img src="images/reFlow.png" alt="">
-            <p>image source: original image is taken from W3 site. but i added the yellow box (my contribution).</p>
+            <p>Image source: original image is taken from W3 site. but i added the yellow box (my contribution).</p>
           </div>
       </div>
-      <p><strong>Reasons to reflow:</strong> the following cases causes reflow</p>
+      <p><strong>Reasons to reflow:</strong> The following cases causes reflow</p>
       <ul>
         <li>change layout (geometry of the page)</li>
         <li>resize the window</li>
@@ -409,34 +409,38 @@ document.onreadystatechange = function () {
     </div>        
       <div id="eventBubble">
         <h2>Event bubble</h2>
-        <p><strong>Question:</strong> What is event bubble? Can you fire an event in the capturing stage</p>
-        <p><strong>Answer:</strong> to understand event bubble, you have to understand what happen when u click on anything on a page</p>
-        <p><strong>where u clicked</strong> if you have a table with multiple rows and multiple columns and you click in one of the cell</p>
+        <p><strong>Question:</strong> What is event bubble? Can you fire an event in the capturing stage?</p>
+        <p><strong>Answer:</strong> To understand event bubble, you have to understand what happen when you click on anything on a page.</p>
+        <p><strong>where you clicked</strong> If you have a table with multiple rows and multiple columns and you click in one of the cell</p>
         <ul>
-          <li>you will think that you clicked on the cell and browser will know that and if you have a click handler with the cell that will be fired immediately</li>
-          <li>you are wrong. right away, browser doesn't know where you clicked </li>         
+          <li>You will think that you clicked on the cell and browser will know that and if you have a click handler with the cell that will be fired immediately.</li>
+          <li>You are wrong. right away, browser doesn't know where you have clicked.</li>         
         </ul>
-        The way browser find out where u have clicked are as follows
+        The way browser find out where you have clicked are as follows
         <ol>
-          <li><strong>Capture:</strong>When you clicked, browser knows a click event occurred. it starts from the window (lowest level/root of your website), then goes to document, then html root tag, then body, then table... its trying to reach the as lowest level of elements it can go. This is called capturing stage</li>
-          <li><strong>Target:</strong> when browser reach the lowest level of element. in this case, you have clicked on a table cell (table data) hence target would be "td" tag. Then browser check whether there is any click handler attached to this element. if there is any, browser executes that click hander.</li>
-          <li><strong>Bubbling:</strong>After firing click hander attached to "td", browser walks toward root. one level upward and check whether there is any click handler attached with table row ("tr" element). if there is any it will execute that. then it goes to tbody, table, body, html, document, window. In this stage its moving upward hence this is called event bubbling. Please note that, u clicked on cell but all the event handler with parent elements will be fired. This is actually very powerful (check event delegation)</li>
+          <li><strong>Capture: </strong>When you clicked, browser knows a click event occurred. It starts from the window (lowest level/root of your website), then goes to document, then html root tag, then body, then table... its trying to reach the as lowest level of elements it can go. This is called capturing stage</li>
+          <li><strong>Target:</strong> When browser reach the lowest level of element. In this case, you have clicked on a table cell (table data) hence target would be "td" tag. Then browser checks whether there is any click handler attached to this element. If there is any, browser executes that click hander.</li>
+          <li><strong>Bubbling: </strong>After firing click hander attached to "td", browser walks toward root. One level upward and check whether there is any click handler attached with table row ("tr" element). If there is any it will execute that. Then it goes to tbody, table, body, html, document, window. In this stage its moving upward hence this is called event bubbling. Please note that, you clicked on cell but all the event handler with parent elements will be fired. This is actually very powerful (check event delegation)</li>
         </ol>
-        <br>
-        <p><strong>Flow chart:</strong> click on show example to view a flow chart for event bubble</p>
+        <p></p>
+        <br>        
         <div>
           <button id = "eventBubble" type="button" class="toggleExample btn btn-primary">Show a picture of bubble</button>
           <div id="eventBubbleExample" class="hide bg-success padding10Px">
+            <p>Stare at the image for 5 min. Have a look at the left hand side where red arrows starts that is phase 1. The capture stage goes downward and found the target. This is phase-2, blue color. After that the bubbling phase starts (phase-3) in green arrows. Bubble stage goes all the way up to the root (window).</p>
             <img src="images/eventBubble.png" alt="">
+            <p>Image source: w3 spec.</p>
+            <p>If you want to stop the bubbling you have to explicitly call stopPropagation or stopImmediatePropagation</p>
           </div>
         </div>
+        <p><strong>Show live demo:</strong> <a href="http://www.thatjsdude.com/jsConcepts/concepts/eventPropagation.html">Go to this link</a> and click any layer to see event propagation.</p>
       </div>
       <div id="eventDelegate">
         <h2>Event Delegate</h2>
         <p><strong>Question:</strong> How you can use event delegate on a list of item</p>
-        <p><strong>Answer:</strong>Make sure u understand event bubble first. if you have hundreds of list item where u want to handle an event. First problem is you have to write (actually copy paste) same code in hundred different place. and if something changes, u r screwed. </p>
-        <p>second problem is if u want to add a new element, you have to make sure event handler is attached with the element</p>
-        <p><strong>solution:</strong> as events will be bubbled up. if u have the event handler attached to the parent element. for example, if event handler is attached with "ul" tag, event handler will be fired for clicking any of the child element</p>
+        <p><strong>Answer:</strong>Make sure you understand event bubble first. if you have hundreds of list item where you want to handle an event. First problem is you have to write (actually copy paste) same code in hundred different place. and if something changes, you r screwed. </p>
+        <p>second problem is if you want to add a new element, you have to make sure event handler is attached with the element</p>
+        <p><strong>solution:</strong> as events will be bubbled up. if you have the event handler attached to the parent element. for example, if event handler is attached with "ul" tag, event handler will be fired for clicking any of the child element</p>
         <p>if you want to do anything specific to the element. for example, you want to log the text in the list item. by using target</p>
         <pre><code>
           //add code here.
@@ -564,7 +568,8 @@ function getAllText(node){
         <p><strong>defer</strong> defer keyword in the script tag will defer the execution of the script. Hence script will be executed when DOM is available. Important point is, defer is not supported by all major major browsers.</p>
         <p><strong>async</strong> if possible, set the execution of the script, asynchronously. <code>async</code> keyword has no effect on inline script.</p>
         <p> try to get some idea fromt he image copied from <a href="http://peter.sh/experiments/asynchronous-and-deferred-javascript-execution-explained/">JS script execution</a></p>
-        <img src="images/asyncVsDefer.jpg" alt="">        
+        <img src="images/asyncVsDefer.jpg" alt="">
+        <p><strong>Extra: </strong><a href="https://www.igvita.com/2014/05/20/script-injected-async-scripts-considered-harmful/">async injected scripts are considered harmful</a></p>        
       </div> 
       <div>
         <h2>TODO questions</h2>
@@ -582,7 +587,7 @@ function getAllText(node){
       </div> 
 <div>
   <!-- <h3 class="purpleBold">Express anger!</h3>
-  <p class="gray">Feel free to express your anger (sorry u have to use facebook). also find out mistakes ( technical, wrong answer, spelling, grammar, sentence, whatever), let ur dude learn and grow.</p>
+  <p class="gray">Feel free to express your anger (sorry you have to use facebook). also find out mistakes ( technical, wrong answer, spelling, grammar, sentence, whatever), let ur dude learn and grow.</p>
   <div class="fb-comments" data-href="http://www.thatjsdude.com/interview/js1.html" data-numposts="5" data-colorscheme="light"></div>
 -->
 </div> 
