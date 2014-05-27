@@ -116,7 +116,7 @@ document.getElementById; //function getElementById() { [native code] }
                   <pre><code>
 &lt;input id="my-input" type="text" value="Name:"&gt;
                   </code></pre>
-                  <p>If you type "my dude" in the text box. the value property will be changed but value attribute will remain unchanged.</p>
+                  <p>If you type "my dude" in the text box. The value property will be changed but value attribute will remain unchanged.</p>
                   <pre><code>
 var myInput = document.getElementById('my-input');
 myInput.getAttribute('value'); //"Name:"
@@ -148,7 +148,7 @@ myInput.value; //'my dude'
     <div id="selectElement">
         <h2>Fastest DOM Query</h2>
         <p><strong>Question:</strong> What is the fastest way to select elements by using css selectors?</p>
-        <p><strong>Answer:</strong> It depends on what you are selecting. if you have an ID of an element <code>getElmentById</code> is the fastest way to select an element. However, you should not have so many ID in you document. then you have to repeat styles a lot. css class <code>getElementsByClassName</code> is the second quickest way to select an element</p>
+        <p><strong>Answer:</strong> It depends on what you are selecting. If you have an ID of an element <code>getElmentById</code> is the fastest way to select an element. However, you should not have so many ID in you document to avoid style repetition. css class <code>getElementsByClassName</code> is the second quickest way to select an element</p>
         <p>Here is the list. As we go downwards through the list, it takes more time to select elements </p>
         <ul>
           <li>ID (#myID)</li>
@@ -161,7 +161,7 @@ myInput.value; //'my dude'
           <li>Attribute (input[type="checkbox"])</li>
           <li>Pseudo (p:first-child)</li>       
         </ul>
-        <p>if you have crazy long selectors to select element, think about your selectors and see whether you can use a class for that case.</p>
+        <p>If you have crazy long selectors to select element, think about your selectors and see whether you can use a class for that case.</p>
         <div>
           <button id = "byClassVsSelectorAll" type="button" class="toggleExample btn btn-primary">Show deeper question</button>
           <div id="byClassVsSelectorAllExample" class="hide bg-success padding10Px">
@@ -196,7 +196,7 @@ nodesArray.forEach(function(el, idx){
     <div id="getElementByallAttribute">
         <h2>getElementsByAttribute</h2>
         <p><strong>Question:</strong> If you need to implement getElementByAttributeValue, how would you implement it?</p>
-        <p><strong>Answer: </strong> Get all the elements. you can either get it by Tag Name '*' and then check whether they have the particular attribute. In this case, even if attribute is null that will be captured. If you need to check the value, you should be able to do it by passing one extra parameter and comparing it in the if block.</p>
+        <p><strong>Answer: </strong> Get all the elements. You can either get it by Tag Name '*' and then check whether they have the particular attribute. In this case, even if attribute is null that will be captured. If you need to check the value, you should be able to do it by passing one extra parameter and comparing it in the if block.</p>
         <pre><code>
 function getElementsByAttribute(attribute){
   var allElements = document.getElementsByTagName('*'), 
@@ -271,7 +271,7 @@ el.classList.contains('my-class'); // checking whether class exists
       </div>
       <div id="isDescendant">
         <h2>Check Descendant</h2>
-        <p><strong>Question:</strong> Check if one element child of another?</p>
+        <p><strong>Question:</strong> How could I verify whether one element child of another?</p>
         <p><strong>Answer:</strong> First check whether the passed parent is the direct parent of the child. If not, keep moving upward to the root of the tree.</p>
         <pre><code>
 function isDescendant(parent, child){ 
@@ -289,16 +289,16 @@ function isDescendant(parent, child){
       <h2>innerHTML vs appendChild </h2>
       <p><strong>Question: </strong> How would you create a DOM element? Set to innherHTML or createElement?</p>
       <p><strong>Answer: </strong> There are two options: setting the <code>innerHTML</code> of an element or <code>appendChild</code> to the element.</p>
-      <p>For example, if you want to add a list item to an unorderedList. your can get the element and set the innerHTML of the element like</p>
+      <p>For example, if you want to add a list item to an unorderedList. You can get the element and set the innerHTML of the element like</p>
       <pre><code>
 var ul = document.getElementById('myList');
 
 el.innerHTML = '&lt;li&gt;Only one item&lt;/li&gt;';              
       </code></pre>
-      <p>When you set innerHTML property, browser removes all the children of the elements. parse the string and assign the parsed string to the element.</p>
+      <p>When you set innerHTML property, browser removes all the children of the elements. Parse the string and assign the parsed string to the element.</p>
       <p><strong>Extra Credit: </strong> innerHTML could be slow while passing a string. Browser has to parse the string and if you have crappy html (invalid html), browser has to deal with it.</p>
       <h4>appendChild</h4>
-      <p>On the other hand, while using appendChild, you create a new Element. Since you are creating it, browser doesnt have to parse string and there is no invalid html. and you can pass the child to the parent and child will be appended to the parent.</p>
+      <p>On the other hand, while using appendChild, you create a new Element. Since you are creating it, browser doesnt have to parse string and there is no invalid html. And you can pass the child to the parent and child will be appended to the parent.</p>
       <pre><code>
 var li = document.createElement("li");
 var text = document.createTextNode('Only one Item');
@@ -343,7 +343,7 @@ document.body.appendChild(fragment);
     <div id="reflow">
       <h2>reflow</h2>
       <p><strong>Question: </strong> What is reflow? What causes reflow? How could you reduce reflow?</p>
-      <p><strong>Answer: </strong> Aha... so many questions at the same time. take a breathe MR. Interviewer.</p>
+      <p><strong>Answer: </strong> Aha... so many questions at the same time. Take a breathe MR. Interviewer.</p>
       <p><strong>reflow: </strong> When you change size or position of an element in the page, all the elements after it has to change their position according to the changes you made. For example, if you change height on an element, all the elements after it has to move down in the page. Hence, flow of the elements in the page is changed and this is called reflow.</p>
       <p><strong>Why reflow is bad: </strong> Reflows are very expensive as it has a performance hit specially in the smaller devices like phone. As it causes changes in the portion (or whole) layout of the page.</p>
       <div>
@@ -351,7 +351,7 @@ document.body.appendChild(fragment);
           <div id="reflowExplanationExample" class="hide bg-success padding10Px">
             <p>In the images below, affect of reflow is shown in a yellow box. Reflow causes changes in the render tree which changes the layout of the page. Eventually browser has to paint the changes so that you can see your awesome changes.</p>
             <img src="images/reFlow.png" alt="">
-            <p>Image source: original image is taken from W3 site. but i added the yellow box (my contribution).</p>
+            <p>Image source: original image is taken from W3 site but i added the yellow box (my contribution).</p>
           </div>
       </div>
       <p><strong>Reasons to reflow:</strong> The following cases causes reflow</p>
@@ -366,7 +366,7 @@ document.body.appendChild(fragment);
         <li>calculating offset height or offset width</li>
         <li><code>display: none;</code></li>        
       </ul>
-      <p><strong>How to avoid:</strong> To avoid reflow, try to avoid doing things in the above list. and some more in the below</p>
+      <p><strong>How to avoid:</strong> To avoid reflow, try to avoid doing things in the above list and some more in the below</p>
       <ul>
         <li>avoid setting multiple inline style</li>
         <li>apply animation to the elements that are positioned fixed or absolute</li>
@@ -437,7 +437,7 @@ document.onreadystatechange = function () {
           <div id="eventBubbleExample" class="hide bg-success padding10Px">
             <p>Stare at the image for 5 min. Have a look at the left hand side where red arrows starts that is phase 1. The capture stage goes downward and found the target. This is phase-2, blue color. After that the bubbling phase starts (phase-3) in green arrows. Bubble stage goes all the way up to the root (window).</p>
             <img src="images/eventBubble.png" alt="">
-            <p>Image source: w3 spec.</p>
+            <p>Image source: <a href="https://dvcs.w3.org/hg/dom3events/raw-file/tip/html/DOM3-Events.html#event-order-and-loops">event order and loop</a>.</p>
             <p>If you want to stop the bubbling you have to explicitly call stopPropagation or stopImmediatePropagation</p>
           </div>
         </div>
@@ -531,7 +531,7 @@ document.getElementById('doubleHolder').addEventListener('click', function (e) {
 document.body.innerText;
         </code></pre>
         <p><strong>Question:</strong> Can you do by accessing DOM?</p>
-        <p><strong>Answer:</strong> Make it recursive. I used closure. there could be many implementation</p>
+        <p><strong>Answer:</strong> Make it recursive. I used closure. There could be many other ways to implement.</p>
         <pre><code>
 function getAllText(node){
   var allText = [];
@@ -579,16 +579,39 @@ function getAllText(node){
         <p> Image copied from <a href="http://peter.sh/experiments/asynchronous-and-deferred-javascript-execution-explained/">JS script execution</a></p>
         <p><strong>Extra: </strong><a href="https://www.igvita.com/2014/05/20/script-injected-async-scripts-considered-harmful/">async injected scripts are considered harmful</a></p>        
       </div> 
+      <div id="domRapidFire">
+        <h2>Rapid fire</h2>
+        <p><strong>Question: </strong> How could you prevent a click on an anchor from going to the link?</p>
+        <p><strong>Answer: </strong><code>preventDefault()</code> inside event handler. However, this doesnt stop further propagation.</p>
+        <p><strong>Question: </strong> How could you stop further propagation of an event?</p>
+        <p><strong>Answer: </strong> call <code>event.stopPropagation();</code></p>
+        <p><strong>Question: </strong> Can you remove an event handler from an element.</p>
+        <p><strong>Answer: </strong>Yes. <code>target.removeEventListener('click', handler)</code></p>
+        <p><strong>Question: </strong> How could you run event handler in the capturing phase not in bubble phase?</p>
+        <p><strong>Answer: </strong> There is a third (optional) parameter in addEventListener and removeEventLister. you can pass true or false to useCapture phase.</p>
+        <p><strong>Question: </strong> How could you prevent multiple event handler to be fired for an event?</p>
+        <p><strong>Answer: </strong>If event listeners are attached for the same type event (click, keydown, etc.) of an element for the same event type, you can call <code>event.stopImmediatePropagation()</code> in the first event handler. No other event handler will be executed.</p>                
+        <p><strong>Question: </strong> What are the cancelable events?</p>
+        <p><strong>Answer: </strong> Go to <a href="http://en.wikipedia.org/wiki/DOM_events#HTML_events">wiki</a> find the right most column cancelable.</p>
+        <p><strong>Question: </strong> How could i check whether an event is cancelable or not?</p>
+        <p><strong>Answer: </strong> use <code>event.cancelable</code> to get true or false return. However, you have to <code>preventDefault()</code></p>
+        <p><strong>Question: </strong></p>
+        <p><strong>Answer: </strong></p>
+        <p><strong>Question: </strong></p>
+        <p><strong>Answer: </strong></p>
+        <p><strong>Question: </strong></p>
+        <p><strong>Answer: </strong></p>
+      </div>
       <div>
-        <h2>TODO questions</h2>
+        <h2>Deleted questions</h2>
         <ul>
-          <li>Write a function to find the nearest link on a webpage given the mouse x,y coordinates. <a href="http://www.careercup.com/question?id=3538036">career cup</a></li>          
-          <li><a href="http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-TreeWalker">DOM Traverse: NodeIterator, TreeWalker, NodeFilter</a></li>
+          <li>Write a function to find the nearest link on a webpage given the mouse x,y coordinates. <a href="http://www.careercup.com/question?id=3538036">career cup</a></li>
+          <li>How could you create Custom events? Answer: <a href="http://davidwalsh.name/customevent">customEvents</a></li> 
+          <li>Explain Event loop. Answer: <a href="http://blog.carbonfive.com/2013/10/27/the-javascript-event-loop-explained/">event loop explained</a></li>         
+          <li>asynchronous vs synchronous events: answer: <a href="http://javascript.info/tutorial/events-and-timing-depth#asynchronous-events">events and timing</a></li>
+          <li>DOM traverse<a href="http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-TreeWalker">NodeIterator, TreeWalker, NodeFilter</a> or find them in MDN.</li>
           <li>Find something about event loop, synchronous vs asynchronous event, default action & cancelable events: <a href="https://dvcs.w3.org/hg/dom3events/raw-file/tip/html/DOM3-Events.html">w3: DOM event</a></li>
-          <li>something related to custom events: <a href="https://dvcs.w3.org/hg/dom3events/raw-file/tip/html/DOM3-Events.html#extending-events-Custom_Events">w3 events</a></li>
-          <li>dom events: <a href="https://dvcs.w3.org/hg/domcore/raw-file/tip/Overview.html#introduction-to-dom-events">intro to dom events</a></li>
-          <li>event delegation could be part of this</li>
-          <li>addEvent handler</li>          
+          <li>something related to custom events: <a href="https://dvcs.w3.org/hg/dom3events/raw-file/tip/html/DOM3-Events.html#extending-events-Custom_Events">w3 events</a></li>                   
           <li>click handler on dom element. closure problem</li>
           <li>what is the value of this while looping through dom elements or something similar to this</li>
         </ul>
