@@ -445,17 +445,10 @@ document.onreadystatechange = function () {
       </div>
       <div id="eventDelegate">
         <h2>Event Delegate</h2>
-        <p><strong>Question:</strong> How you can use event delegate on a list of item?</p>
-        <p><strong>Answer:</strong> Make sure you understand event bubble first. If you have one hundred of list item that has similar event to handle. You can write one hundred event handler (actually copy paste) same code in 99 places. This works but if something changes in the event handler, you have to change one hundred places. This doesn't call job security, this is called you are screwed. </p>
-        <p>Second problem is if you want to dynamically add a new element, you have to make sure event handler is attached with the element. More JavaScript code.</p>
-        <p><strong>Solution:</strong> If you know that event will be bubbled up. You can have only one event handler attached to the parent element of the one hundred list item. In this case, you can attach the event handler in the "ul" tag. After you click on the list item (list item does not have an event), event will bubble and "ul" has a handler. That handler will be fired.</p>
-        <p>If the interviewer insists for an example, give him the <a href="#destroyList">next answer</a>.</p>
-      </div>
-
-      <div id="destroyList">
-        <h2>destroy list</h2>
         <p><strong>Question:</strong> You have a list of items that has anchor. How would you destroy list item when someone click on a list item? </p>
-        <p><strong>Answer:</strong></p>
+        <p><strong>Easy Solution:</strong> If you have one hundred of list items that have similar event to handle. You can write one hundred event handler (actually copy paste) same code in 99 places. This works but if something changes in the event handler, you have to change one hundred places. This doesn't call job security. This is called you are screwed up.</p>
+        <p>Second problem is if you want to dynamically add a new element, you have to make sure event handler is attached with the element. More JavaScript code.</p>
+        <p><strong>Answer:</strong> We can actually leverage event bubbling. You can have only one event handler attached to the parent element of the one hundred list item. In this case, you can attach the event handler in the "ul" tag. After you click on the list item (list item does not have an event), event will bubble and "ul" has a handler. That handler will be fired.</p>        
         <pre><code>
 &lt;ul id=&quot;listToDestroy&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;#&quot;&gt;first item&lt;/a&gt;&lt;/li&gt;
@@ -552,25 +545,25 @@ function getAllText(node){
         </code></pre>
         <p><strong>disclaimer:</strong> I didn't explicitly tested these two methods.</p>
       </div>
-            <div id="allClick">
-                <h2>capture all click</h2>
-                <p><strong>Question:</strong> How could you capture all clicks in a page?</p>
-                <p><strong>Answer:</strong> </p>
-                <pre><code>
-      document.querySelector('body').addEventListener('click', function(e){
-        console.log('body clicked', e.target);
-      });
+      <div id="allClick">
+          <h2>capture all click</h2>
+          <p><strong>Question:</strong> How could you capture all clicks in a page?</p>
+          <p><strong>Answer:</strong> You can leverage, event bubble to capture all the clicks.</p>
+          <pre><code>
+document.querySelector('body').addEventListener('click', function(e){
+  console.log('body clicked', e.target);
+});
 
-      //or
-      window.onclick =function(e){
-        console.log('someone clicked', e.target)
-      }
-                </code></pre>
-                <p>However, if event bubbling is canceled by <code>stopPropagation()</code> your code will not work. think about it.</p>
+//or
+window.onclick =function(e){
+  console.log('someone clicked', e.target)
+}
+          </code></pre>
+          <p>However, if event bubbling is canceled by <code>stopPropagation()</code> your code will not work. think about it.</p>
       </div>
       <div id="deferAsync">
         <h2>defer vs async</h2>
-        <p><strong>Question:</strong> What is defer and async keyword does in a script tag</p>
+        <p><strong>Question:</strong> What is defer and async keyword does in a script tag?</p>
         <p><strong>Answer:</strong> HTML parser will ignore defer and async keyword for inline script (script that does not have a src attribute). </p>
         <p><strong>normal</strong> When you have a plain script tag (no defer or async keyword), parser will pause parsing, script would be downloaded and exectuted. After that parsing resume.</p>
         <p><strong>defer</strong> defer keyword in the script tag will defer the execution of the script. Hence script will be executed when DOM is available. Important point is, defer is not supported by all major major browsers.</p>
@@ -584,20 +577,20 @@ function getAllText(node){
         <p><strong>Question: </strong> How could you prevent a click on an anchor from going to the link?</p>
         <p><strong>Answer: </strong><code>preventDefault()</code> inside event handler. However, this doesnt stop further propagation.</p>
         <p><strong>Question: </strong> How could you stop further propagation of an event?</p>
-        <p><strong>Answer: </strong> call <code>event.stopPropagation();</code></p>
+        <p><strong>Answer: </strong> Call <code>event.stopPropagation();</code></p>
         <p><strong>Question: </strong> Can you remove an event handler from an element.</p>
         <p><strong>Answer: </strong>Yes. <code>target.removeEventListener('click', handler)</code></p>
         <p><strong>Question: </strong> How could you run event handler in the capturing phase not in bubble phase?</p>
-        <p><strong>Answer: </strong> There is a third (optional) parameter in addEventListener and removeEventLister. you can pass true or false to useCapture phase.</p>
+        <p><strong>Answer: </strong> There is a third (optional) parameter in addEventListener and removeEventLister. You can pass true or false to useCapture phase.</p>
         <p><strong>Question: </strong> How could you prevent multiple event handler to be fired for an event?</p>
         <p><strong>Answer: </strong>If event listeners are attached for the same type event (click, keydown, etc.) of an element for the same event type, you can call <code>event.stopImmediatePropagation()</code> in the first event handler. No other event handler will be executed.</p>                
         <p><strong>Question: </strong> What are the cancelable events?</p>
         <p><strong>Answer: </strong> Go to <a href="http://en.wikipedia.org/wiki/DOM_events#HTML_events">wiki</a> find the right most column cancelable.</p>
-        <p><strong>Question: </strong> How could i check whether an event is cancelable or not?</p>
-        <p><strong>Answer: </strong> use <code>event.cancelable</code> to get true or false return. However, you have to <code>preventDefault()</code></p>
+        <p><strong>Question: </strong> How could I check whether an event is cancelable or not?</p>
+        <p><strong>Answer: </strong> Use <code>event.cancelable</code> to get true or false return. However, you have to <code>preventDefault()</code> to prevent the event.</p>
         <p><strong>Question: </strong> Is there anything you have to be careful when using <code>node.cloneNode()</code>?</p>
-        <p><strong>Answer: </strong> While cloning, make sure you didnt duplicate ID</p>
-        <p><strong>Question: </strong>What are different nodeType?</p>
+        <p><strong>Answer: </strong> While cloning, make sure you didnt duplicate ID.</p>
+        <p><strong>Question: </strong>What are different nodeTypes?</p>
         <p><strong>Answer: </strong> ELEMENT_NODE (1), TEXT_NODE (3), COMMENT_NODE(8), DOCUMENT_NODE(9), DOCUMENT_TYPE_NODE(10), DOCUMENT_FRAGMENT_NODE(11), etc.</p>
         <p><strong>Question: </strong>What are the differences between node and element?</p>
         <p><strong>Answer: </strong> read <a href="http://stackoverflow.com/a/9979779/1535443">here</a>.</p>
@@ -610,7 +603,7 @@ function getAllText(node){
           <li>asynchronous vs synchronous events: <a href="http://javascript.info/tutorial/events-and-timing-depth#asynchronous-events">events and timing</a></li>
           <li>When you click on an element, what is the value of "this" inside click handler?</li>
           <li>How could you create Custom events? <a href="http://davidwalsh.name/customevent">customEvents</a></li>
-          <li>DOM traverse<a href="http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-TreeWalker">NodeIterator, TreeWalker, NodeFilter</a> or find them in MDN.</li>
+          <li>DOM traverse by using <a href="https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker">TreeWalker</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator">NodeIterator</a>,  <a href="https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter">NodeFilter</a> or <a href="http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-TreeWalker">find them in spec</a> .</li>
           <li>Write a function to find the nearest link on a webpage given the mouse x,y coordinates. <a href="http://www.careercup.com/question?id=3538036">career cup</a></li>          
         </ul>        
       </div> 
