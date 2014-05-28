@@ -104,3 +104,31 @@ __________________
 2. Get permutaitons of a string
 
 ####[JS: Algorithm (part-1) Answers](http://www.thatjsdude.com/interview/js1.html)
+
+
+##[JavaScript: DOM (part -3)](http://www.thatjsdude.com/interview/dom.html)
+21+ questions and answers (for intermediate JS Developers)
+__________________
+1. Is there any difference between window and document?
+1. Does document.onload and window.onload fire at the same time?
+1. Is attribute similar to property?
+1. What are the different ways to get an element from DOM?
+1. What is the fastest way to select elements by using css selectors?
+1. How come, I can't use forEach or similar array methods on a NodeList?
+1. If you need to implement getElementByAttribute, how would you implement it?
+1. How would you add a class to an element by query selector?
+1. How could I verify whether one element is child of another?
+1. What is the best way to create a DOM element? Set innherHTML or use createElement?
+1. What is createDocumentFragment and why you might use it?
+1. What is reflow? What causes reflow? How could you reduce reflow?
+1. What is repaint and when does this happen?
+1. How could you make sure to run some JavaScript when DOM is ready like $(document).ready?
+1. What is event bubble? How does event flows in DOM?
+1. How would you destroy multiple list items with one click handler?
+1. Create a button that is destroyed by clicking in it but two new buttons are created in it's place.
+1. How could you capture all clicks in a page?
+1. How can you get all the texts in a web page?
+1. What is defer and async keyword does in a script tag?
+1. 10 rapid fire questions
+
+####[JS: DOM (part-3) Answers](http://www.thatjsdude.com/interview/dom.html)
