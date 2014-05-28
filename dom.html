@@ -101,8 +101,8 @@
         <li><a href="#eventBubble">What is event bubble? How does event flows in DOM?</a></li>
         <li><a href="#eventDelegate">How would you destroy multiple list items with one click handler?</a></li>
         <li><a href="#mythicalHydra">Create a button that is destroyed by clicking in it but two new buttons are created in it's place.</a></li>
-        <li><a href="#allTextInAPage">How can you get all the texts in a web page?</a></li>
         <li><a href="#captureAllClick">How could you capture all clicks in a page?</a></li>
+        <li><a href="#allTextInAPage">How can you get all the texts in a web page?</a></li>        
         <li><a href="#deferAsync">What is defer and async keyword does in a script tag?</a></li>
         <li><a href="#domRapidFire">10 rapid fire questions</a></li>
       </ol>
@@ -295,6 +295,7 @@ el.classList.remove('my-class'); //removing a class
 el.classList.toggle('my-class');  // toggling a class
 el.classList.contains('my-class'); // checking whether class exists
         </code></pre>
+        <p>ref: <a href="http://youmightnotneedjquery.com/">you might not need jquery</a>.</p>
       </div>
       <div id="isDescendant">
         <h2>9. Check Descendant</h2>
@@ -315,15 +316,14 @@ function isDescendant(parent, child){
     <div id="innerHTMLVsAppendChild">
       <h2>10. innerHTML vs appendChild </h2>
       <p><strong>Question: </strong> What is the best way to create a DOM element? Set innherHTML or use createElement?</p>
-      <p><strong>Answer: </strong> There are two options: setting the <code>innerHTML</code> of an element or <code>appendChild</code> to the element.</p>
+      <p><strong>Answer: </strong> When you set innerHTML property, browser removes all the current children of the elements. Parse the string and assign the parsed string to the element as children.</p>
       <p>For example, if you want to add a list item to an unorderedList. You can get the element and set the innerHTML of the element like</p>
       <pre><code>
 var ul = document.getElementById('myList');
 
 el.innerHTML = '&lt;li&gt;Only one item&lt;/li&gt;';              
-      </code></pre>
-      <p>When you set innerHTML property, browser removes all the children of the elements. Parse the string and assign the parsed string to the element.</p>
-      <p><strong>Extra Credit: </strong> innerHTML could be slow while passing a string. Browser has to parse the string and if you have crappy html (invalid html), browser has to deal with it.</p>
+      </code></pre>      
+      <p><strong>Extra Credit: </strong> innerHTML could be slow while parsing a string. Browser has to deal with the string and if you have crappy html (invalid html).</p>
       <h4>appendChild</h4>
       <p>On the other hand, while using appendChild, you create a new Element. Since you are creating it, browser doesnt have to parse string and there is no invalid html. And you can pass the child to the parent and child will be appended to the parent.</p>
       <pre><code>
@@ -339,7 +339,7 @@ ul.appendChild(li);
     <div id="createDocumentFragment">
       <h2>11. CrateDocumentFragment</h2>
       <p><strong>Question: </strong> What is createDocumentFragment and why you might use it?</p>
-      <p><strong>Answer: </strong> <code>documentFragment</code> a very lightweight or minimal part of DOM or a subtree of DOM tree. It is very helpful when you are manipulating a part of DOM for multiple times. It becomes expensive to hit a certain portion of DOM for hundreds time (imagine you are searching for an element and then appending ).</p>
+      <p><strong>Answer: </strong> <code>documentFragment</code> a very lightweight or minimal part of a DOM or a subtree of a DOM tree. It is very helpful when you are manipulating a part of DOM for multiple times. It becomes expensive to hit a certain portion of DOM for hundreds time. You might cause reflow for hundred times. Stay tuned for reflow.</p>
       <p>If you are changing dom that cause expensive reflow, you can avoid it by using <code>documentFragment</code> as it is managed in the memory.</p>
       <pre><code>
 //bad practice. you are hitting the DOM every single time
@@ -370,15 +370,15 @@ document.body.appendChild(fragment);
     <div id="reflow">
       <h2>12. reflow</h2>
       <p><strong>Question: </strong> What is reflow? What causes reflow? How could you reduce reflow?</p>
-      <p><strong>Answer: </strong> Aha... so many questions at the same time. Take a breathe MR. Interviewer.</p>
-      <p><strong>reflow: </strong> When you change size or position of an element in the page, all the elements after it has to change their position according to the changes you made. For example, if you change height on an element, all the elements after it has to move down in the page. Hence, flow of the elements in the page is changed and this is called reflow.</p>
-      <p><strong>Why reflow is bad: </strong> Reflows are very expensive as it has a performance hit specially in the smaller devices like phone. As it causes changes in the portion (or whole) layout of the page.</p>
+      <p><strong>Answer: </strong> Aha... so many questions at the same time. Take a breathe Mr. Interviewer.</p>
+      <p><strong>reflow: </strong> When you change size or position of an element in the page, all the elements after it has to change their position according to the changes you made. For example, if you change height on an element, all the elements under it has to move down in the page to accomodate a change in height. Hence, flow of the elements in the page is changed and this is called reflow.</p>
+      <p><strong>Why reflow is bad: </strong> Reflows could be very expensive and it might have a performance hit specially in the smaller devices like phone. As it might causes changes in the portion (or whole) layout of the page.</p>
       <div>
           <button id = "reflowExplanation" type="button" class="toggleExample btn btn-primary">Show more explanation</button>
           <div id="reflowExplanationExample" class="hide bg-success padding10Px">
-            <p>In the images below, affect of reflow is shown in a yellow box. Reflow causes changes in the render tree which changes the layout of the page. Eventually browser has to paint the changes so that you can see your awesome changes.</p>
+            <p>In the images below, effect of reflow is shown in a yellow box. Reflow causes changes in the render tree which changes the layout of the page. Eventually browser has to paint the changes so that you can see your awesome changes.</p>
             <img src="images/reFlow.png" alt="">
-            <p>Image source: original image is taken from W3 site but i added the yellow box (my contribution).</p>
+            <p>Image source: original image is taken from W3 site but I added the yellow box (my contribution).</p>
           </div>
       </div>
       <p><strong>Reasons to reflow:</strong> The following cases causes reflow</p>
@@ -388,7 +388,7 @@ document.body.appendChild(fragment);
         <li>change height/width of any element</li>
         <li>changing font</li>
         <li>change font size</li>
-        <li>move DOM element</li>
+        <li>move DOM element (animation)</li>
         <li>adding or removing stylesheet</li>
         <li>calculating offset height or offset width</li>
         <li><code>display: none;</code></li>        
@@ -399,12 +399,18 @@ document.body.appendChild(fragment);
         <li>apply animation to the elements that are positioned fixed or absolute</li>
         <li>avoid tables for layout</li>
       </ul>          
-      <p>ref: <a href="http://www.stubbornella.org/content/2009/03/27/reflows-repaints-css-performance-making-your-javascript-slow/">reflow and repaint: css performance makes ur JS slow</a></p>
+      <p>ref: <a href="http://www.stubbornella.org/content/2009/03/27/reflows-repaints-css-performance-making-your-javascript-slow/">reflow and repaint: css performance makes your JS slow</a></p>
     </div>
     <div id="repaint">
       <h2>13. repaint</h2>
       <p><strong>Question: </strong> What is repaint and when does this happen?</p>
-      <p><strong>Answer: </strong> repaint happens when you change look of an element without changing the size and shape. This doesn't cause reflow as geometry of the element didn't changed. </p>
+      <p><strong>Answer: </strong> repaint happens when you change the look of an element without changing the size and shape. This doesn't cause reflow as geometry of the element didn't changed. </p>
+      <p><strong>How it happens: </strong></p>
+      <ul>
+        <li>change background color</li>
+        <li>change text color</li>
+        <li>visibility hidden</li>
+      </ul>
       <div>
           <button id = "repaintExplanation" type="button" class="toggleExample btn btn-primary">Show more explanation</button>
           <div id="repaintExplanationExample" class="hide bg-success padding10Px">
@@ -413,20 +419,14 @@ document.body.appendChild(fragment);
             <p>image source: original image is taken from W3 site but i added the yellow box (my contribution).</p>
           </div>
           <p>If possible, prefer repaint over reflow.</p>
-      </div>    
-      <p><strong>How it happens: </strong></p>
-      <ul>
-        <li>change background color</li>
-        <li>change text color</li>
-        <li>visibility hidden</li>
-      </ul>      
+      </div>                
     </div>
     <div id="domReady">
       <h2>14. DOM ready</h2>
       <p><strong>Question: </strong> How could you make sure to run some javaScript when DOM is ready like <code>$(document).ready</code>?</p>
       <p><strong>Answer: </strong> There are four different ways-</p>
       <p><strong>option-1: </strong> Put your script in the last tag of html body element. DOM would be ready by the time browser hits the script tag.</p>
-      <p><strong>option-2: </strong> Place your code inside a <code>DOMContentLoaded</code> handler. This event will be fired when DOM is completely loaded</p>
+      <p><strong>option-2: </strong> Place your code inside a <code>DOMContentLoaded</code> handler. This event will be fired when DOM is completely loaded.</p>
       <pre><code>
 document.addEventListener('DOMContentLoaded', function(){   
    //put your script here
@@ -446,23 +446,23 @@ document.onreadystatechange = function () {
         <h2>15. Event bubble</h2>
         <p><strong>Question:</strong> What is event bubble? How does event flows?</p>
         <p><strong>Answer:</strong> To understand event bubble, you have to understand what happen when you click on anything on a page.</p>
-        <p><strong>where you clicked</strong> If you have a table with multiple rows and multiple columns and you click in one of the cell</p>
+        <p><strong>Where you clicked:</strong> If you have a table with multiple rows and multiple columns and you click in one of the cell</p>
         <ul>
-          <li>You will think that you clicked on the cell and browser will know that and if you have a click handler with the cell that will be fired immediately.</li>
-          <li>You are wrong. right away, browser doesn't know where you have clicked.</li>         
+          <li>You will think that you have clicked on the cell and browser will know that you have a click handler with the cell that will be fired immediately.</li>
+          <li>You are completely wrong. Right away, browser doesn't know where you have clicked.</li>         
         </ul>
-        The way browser find out where you have clicked are as follows
+        <p>The way browser find out where you have clicked are as follows-</p>
         <ol>
-          <li><strong>Capture: </strong>When you clicked, browser knows a click event occurred. It starts from the window (lowest level/root of your website), then goes to document, then html root tag, then body, then table... its trying to reach the as lowest level of elements it can go. This is called capturing stage</li>
-          <li><strong>Target:</strong> When browser reach the lowest level of element. In this case, you have clicked on a table cell (table data) hence target would be "td" tag. Then browser checks whether there is any click handler attached to this element. If there is any, browser executes that click hander.</li>
-          <li><strong>Bubbling: </strong>After firing click hander attached to "td", browser walks toward root. One level upward and check whether there is any click handler attached with table row ("tr" element). If there is any it will execute that. Then it goes to tbody, table, body, html, document, window. In this stage its moving upward hence this is called event bubbling. Please note that, you clicked on cell but all the event handler with parent elements will be fired. This is actually very powerful (check event delegation)</li>
+          <li><strong>Capture: </strong>When you clicked, browser knows a click event occurred. It starts from the window (lowest level/root of your website), then goes to document, then html root tag, then body, then table... its trying to reach the the as lowest level of element as possible. This is called capture phase (phase -1).</li>
+          <li><strong>Target:</strong> When browser reach the lowest level of element. In this case, you have clicked on a table cell (table data) hence target would be "td" tag. Then browser checks whether you have any click handler attached to this element. If there is any, browser executes that click hander. This is called target phase (phase -2).</li>
+          <li><strong>Bubbling: </strong>After firing click hander attached to "td", browser walks toward root. One level upward and check whether there is any click handler attached with table row ("tr" element). If there is any it will execute that. Then it goes to tbody, table, body, html, document, window. In this stage its moving upward and this is called event bubbling or bubbling phase (phase-3). Please note that, you clicked on cell but all the event handler with parent elements will be fired. This is actually very powerful (check event delegation)</li>
         </ol>
         <p></p>
         <br>        
         <div>
           <button id = "eventBubble" type="button" class="toggleExample btn btn-primary">Show a picture of bubble</button>
           <div id="eventBubbleExample" class="hide bg-success padding10Px">
-            <p>Stare at the image for 5 min. Have a look at the left hand side where red arrows starts that is phase 1. The capture stage goes downward and found the target. This is phase-2, blue color. After that the bubbling phase starts (phase-3) in green arrows. Bubble stage goes all the way up to the root (window).</p>
+            <p>Stare at the image for 5 min. Have a look at the left hand side where red arrows starts that is phase 1. The capture phase goes downward and found the target. This is target phase (phase-2), blue color. After that the bubbling phase starts (phase-3) in green arrows. Bubble stage goes all the way up to the root (window).</p>
             <img src="images/eventBubble.png" alt="">
             <p>Image source: <a href="https://dvcs.w3.org/hg/dom3events/raw-file/tip/html/DOM3-Events.html#event-order-and-loops">event order and loop</a>.</p>
             <p>If you want to stop the bubbling you have to explicitly call stopPropagation or stopImmediatePropagation</p>
@@ -472,10 +472,10 @@ document.onreadystatechange = function () {
       </div>
       <div id="eventDelegate">
         <h2>16. Event Delegate</h2>
-        <p><strong>Question:</strong> You have a list of items that has anchor. How would you destroy multiple list items with one click handler? </p>
-        <p><strong>Easy Solution:</strong> If you have one hundred of list items that have similar event to handle. You can write one hundred event handler (actually copy paste) same code in 99 places. This works but if something changes in the event handler, you have to change one hundred places. This doesn't call job security. This is called you are screwed up.</p>
-        <p>Second problem is if you want to dynamically add a new element, you have to make sure event handler is attached with the element. More JavaScript code.</p>
-        <p><strong>Answer:</strong> We can actually leverage event bubbling. You can have only one event handler attached to the parent element of the one hundred list item. In this case, you can attach the event handler in the "ul" tag. After you click on the list item (list item does not have an event), event will bubble and "ul" has a handler. That handler will be fired.</p>        
+        <p><strong>Question:</strong> How would you destroy multiple list items with one click handler? </p>
+        <p><strong>Easy Solution:</strong> If you have one hundred list items that have similar event to handle. You can write one hundred event handler (actually copy paste) same code in 99 places. This works but if something changes in the event handler, you have to change in one hundred places. This doesn't call job security. This is called screwed up.</p>
+        <p>Second problem is if you want to dynamically add a new element, you have to make sure event handler is attached with the new element. More JavaScript code!</p>
+        <p><strong>Answer:</strong> We can actually leverage event bubbling. You can have only one event handler attached to the parent element of one hundred list items. In this case, you can attach the event handler to the "ul" tag. After you click on a list item (list item does not have an event), event will bubble and "ul" has a handler. That handler will be fired.</p>        
         <pre><code>
 &lt;ul id=&quot;listToDestroy&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;#&quot;&gt;first item&lt;/a&gt;&lt;/li&gt;
@@ -507,9 +507,9 @@ document.getElementById('listToDestroy').addEventListener('click', function (e) 
       </div>
       <div id="mythicalHydra">
         <h2>17. destroy button</h2>
-        <p><strong>Question:</strong> Create a button that is destroyed by clicking it but two new buttons are created in it's place.</p>
+        <p><strong>Question:</strong> Create a button that is destroyed by clicking on it but two new buttons are created in it's place.</p>
         <p><strong>Answer:</strong> One way of solving is to attach a event handler with the button to destroy itself and append two. However, we can leverage event delegate. If we attach the event hander to the parent div instead of the button itself. We don't have to add the event handler to each button we create. So, we will take advantage of event bubbling.</p>
-        <p><strong>You:</strong> If both the newly created button is identical to one we are destroying, why interviewer wants to destroy exactly similar one and then create one. Why not just add one. And end result would be same, you will have two two buttons.</p>
+        <p><strong>Try to be Smart:</strong> If both the newly created button is identical to one we are destroying, why interviewer wants to destroy exactly similar one and then create one. Why not just add one. And end result would be same, you will have two two buttons.</p>
         <p><strong>Interviewer:</strong> I just want to see whether you can destroy any element. Make sure when you are destroying, there is no reference to the element, otherwise, you will have memory leak. If interviewer, says ok, just create one more button on click, then use your brain to change the following code.</p>
         <pre><code>
 &lt;div id=&quot;doubleHolder&quot;&gt;
@@ -543,8 +543,24 @@ document.getElementById('doubleHolder').addEventListener('click', function (e) {
         </div>
         <p>ref: <a href="http://www.careercup.com/question?id=17328675">destroy button</a></p>
       </div>
+      <div id="captureAllClick">
+          <h2>18. Capture all click</h2>
+          <p><strong>Question:</strong> How could you capture all clicks in a page?</p>
+          <p><strong>Answer:</strong> You can leverage, event bubble to capture all the clicks. As all the clicks will be bubbled up to the body.</p>
+          <pre><code>
+document.querySelector('body').addEventListener('click', function(e){
+  console.log('body clicked', e.target);
+});
+
+//or
+window.onclick =function(e){
+  console.log('someone clicked', e.target)
+}
+          </code></pre>
+          <p>However, if event bubbling is canceled by <code>stopPropagation()</code> your code will not work. Think about it.</p>
+      </div>
       <div id="allTextInAPage">
-        <h2>18. All text in a page</h2>
+        <h2>19. All text in a page</h2>
         <p><strong>Question:</strong> How can you get all the texts in a web page?</p>
         <p><strong>Answer:</strong> The easiest way to get all the text is to get the innerText of body tag.</p>
         <pre><code>
@@ -571,30 +587,14 @@ function getAllText(node){
 }
         </code></pre>
         <p><strong>disclaimer:</strong> I didn't explicitly tested these two methods.</p>
-      </div>
-      <div id="captureAllClick">
-          <h2>19. Capture all click</h2>
-          <p><strong>Question:</strong> How could you capture all clicks in a page?</p>
-          <p><strong>Answer:</strong> You can leverage, event bubble to capture all the clicks.</p>
-          <pre><code>
-document.querySelector('body').addEventListener('click', function(e){
-  console.log('body clicked', e.target);
-});
-
-//or
-window.onclick =function(e){
-  console.log('someone clicked', e.target)
-}
-          </code></pre>
-          <p>However, if event bubbling is canceled by <code>stopPropagation()</code> your code will not work. think about it.</p>
-      </div>
+      </div>      
       <div id="deferAsync">
         <h2>20. defer vs async</h2>
         <p><strong>Question:</strong> What is defer and async keyword does in a script tag?</p>
         <p><strong>Answer:</strong> HTML parser will ignore defer and async keyword for inline script (script that does not have a src attribute). </p>
-        <p><strong>normal</strong> When you have a plain script tag (no defer or async keyword), parser will pause parsing, script would be downloaded and exectuted. After that parsing resume.</p>
-        <p><strong>defer</strong> defer keyword in the script tag will defer the execution of the script. Hence script will be executed when DOM is available. Important point is, defer is not supported by all major major browsers.</p>
-        <p><strong>async</strong> if possible, set the execution of the script, asynchronously. <code>async</code> keyword has no effect on inline script.</p>
+        <p><strong>normal:</strong> When you have a plain script tag (no defer or async keyword), parser will pause parsing, script would be downloaded and exectuted. After that parsing resume.</p>
+        <p><strong>defer:</strong> defer keyword in the script tag will defer the execution of the script. Hence script will be executed when DOM is available. Important point is, defer is not supported by all major major browsers.</p>
+        <p><strong>async:</strong> If possible, set the execution of the script, asynchronously. <code>async</code> keyword has no effect on inline script.</p>
         <img src="images/asyncVsDefer.jpg" alt="">
         <p> Image copied from <a href="http://peter.sh/experiments/asynchronous-and-deferred-javascript-execution-explained/">JS script execution</a></p>
         <p><strong>Extra: </strong><a href="https://www.igvita.com/2014/05/20/script-injected-async-scripts-considered-harmful/">async injected scripts are considered harmful</a></p>        
@@ -605,7 +605,7 @@ window.onclick =function(e){
         <p><strong>Answer: </strong><code>preventDefault()</code> inside event handler. However, this doesnt stop further propagation.</p>
         <p><strong>Question: </strong> How could you stop further propagation of an event?</p>
         <p><strong>Answer: </strong> Call <code>event.stopPropagation();</code></p>
-        <p><strong>Question: </strong> Can you remove an event handler from an element.</p>
+        <p><strong>Question: </strong> Can you remove an event handler from an element?</p>
         <p><strong>Answer: </strong>Yes. <code>target.removeEventListener('click', handler)</code></p>
         <p><strong>Question: </strong> How could you run event handler in the capturing phase not in bubble phase?</p>
         <p><strong>Answer: </strong> There is a third (optional) parameter in addEventListener and removeEventLister. You can pass true or false to useCapture phase.</p>
@@ -628,7 +628,7 @@ window.onclick =function(e){
         <ul>           
           <li>Explain Event loop. <a href="http://blog.carbonfive.com/2013/10/27/the-javascript-event-loop-explained/">event loop explained</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/EventLoop">concurrency model and event loop</a></li>         
           <li>asynchronous vs synchronous events: <a href="http://javascript.info/tutorial/events-and-timing-depth#asynchronous-events">events and timing</a></li>
-          <li>When you click on an element, what is the value of "this" inside click handler?</li>
+          <li>When you click on an element, what is the value of "this" inside the click handler?</li>
           <li>How could you create Custom events? <a href="http://davidwalsh.name/customevent">customEvents</a></li>
           <li>Write a function to find the nearest link on a webpage given the mouse x,y coordinates. <a href="http://www.careercup.com/question?id=3538036">career cup</a></li>          
         </ul>        
