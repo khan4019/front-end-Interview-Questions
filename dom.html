@@ -81,12 +81,36 @@
            
       <!-- <p class="gray">if you are little more comfortable or claim to be comfortable with javascript, these questions would not be enough for you. more coming</p>
       <p class="gray"> <span class="purpleBold">More Questions</span> <a href="css.html">css interview questions</a>, <a href="html.html">html interview questions</a> </p> -->
-
+    <div id="questionList">
+      <ol>
+        <li><a href="#windwoVsDocument">Are window and document same thing?</a></li>
+        <li><a href="#compareTwoOnload">Does document.onload and window.onload fire at the same time?</a></li>
+        <li><a href="#attrVSProperty">Is attribute similar to property?</a></li>
+        <li><a href="#queryDOM">What are the different ways to get an element from DOM?</a></li>
+        <li><a href="#fastestDOMQuery">What is the fastest way to select elements by using css selectors?</a></li>
+        <li><a href="#nodeListVsArray">How come, I can't use forEach or similar array methods on a NodeList?</a></li>
+        <li><a href="#getElementByallAttribute">If you need to implement getElementByAttributeValue, how would you implement it?</a></li>
+        <li><a href="#addClass">How would you add a class to an element by query selector?</a></li>
+        <li><a href="#isDescendant">How could I verify whether one element child of another?</a></li>
+        <li><a href="#innerHTMLVsAppendChild">What is the best way to create a DOM element? Set to innherHTML or createElement?</a></li>
+        <li><a href="#createDocumentFragment">What is createDocumentFragment and why you might use it?</a></li>
+        <li><a href="#reflow">What is reflow? What causes reflow? How could you reduce reflow?</a></li>
+        <li><a href="#repaint">What is repaint and when does this happen?</a></li>
+        <li><a href="#domReady">How could you make sure to run some javaScript when DOM is ready like <code>$(document).ready</code>?</a></li>
+        <li><a href="#eventBubble">What is event bubble? How does event flows?</a></li>
+        <li><a href="#eventDelegate">How would you destroy multiple list items with one click handler?</a></li>
+        <li><a href="#mythicalHydra">Create a button that is destroyed by clicking it but two new buttons are created in it's place.</a></li>
+        <li><a href="#allTextInAPage">How can you get all the texts in a web page?</a></li>
+        <li><a href="#captureAllClick">How could you capture all clicks in a page?</a></li>
+        <li><a href="#deferAsync">What is defer and async keyword does in a script tag?</a></li>
+        <li><a href="#domRapidFire">10 quick questions</a></li>
+      </ol>
+    </div>
     <div class="bg-success text-warning padding10Px">
       <h5>DOM provides an API to access and modify structure, style and content of a web page through objects (nodes or elements), properties and methods. <a href="https://developer.mozilla.org/en-US/docs/DOM/DOM_Reference/Introduction">learn more...</a></h5>      
     </div>  
     <div id="windwoVsDocument">
-      <h2>window vs document</h2>
+      <h2>1. window vs document</h2>
       <p><strong>Question: </strong> Is window and document same thing?</p>
       <p><strong>Answer: </strong> No. JavaScript has a global object and everything runs under it. window is that global object that holds global variables, global functions, location, history everything is under it. Besides, setTimeout, ajax call (XMLHttpRequest), console or localStorage are part of window. </p>
       <p> document is also under window. document is a property of the window object. document represents the DOM and DOM is the object oriented representation of the html markup you have written. All the nodes are part of document. Hence you can use getElementById or addEventListener on document. These methods are not present in the window object.</p>
@@ -97,17 +121,17 @@ document.getElementById; //function getElementById() { [native code] }
       </code></pre>
       <p>ref: <a href="http://eligeske.com/jquery/what-is-the-difference-between-document-and-window-objects-2/">document and window</a></p>
     </div>
-    <div id="onload">
-        <h2>window.onload vs document.onload</h2>
-        <p><strong>Question:</strong> What are the differences between document.onload and window.onload</p>
+    <div id="compareTwoOnload">
+        <h2>2. window.onload vs document.onload</h2>
+        <p><strong>Question:</strong> Does document.onload and window.onload fire at the same time?</p>
         <p><strong>Answer:</strong> If you understand difference between window and document, this would be easier for you. <code>window.onload</code> is fired when DOM is ready and all the contents including images, css, scripts, sub-frames, etc. finished loaded. This means everything is loaded.</p>
         <p><code>document.onload</code> is fired when DOM (DOM tree built from markup code within the document)is ready which can be prior to images and other external content is loaded.</p>
         <p><strong>bonus:</strong><code>document.readyState</code> Returns "loading" while the Document is loading, "interactive" once it is finished parsing but still loading sub-resources, and "complete" once it has loaded. The <code>readystatechange</code> event fires on the Document object when this value changes.</p>
         <p>ref: <a href="https://developer.mozilla.org/en-US/docs/Web/API/document.readyState">MDN: readyState</a></p>
       </div>
     <div id="attrVSProperty">
-      <h2>attribute vs property</h2>
-      <p><strong>Question: </strong> What are the differences between attribute and property?</p>
+      <h2>3. attribute vs property</h2>
+      <p><strong>Question: </strong> Is attribute similar to property?</p>
       <p><strong>Answer: </strong> attributes are just like attribute in your html tag (XML style attribute) inside the starting tag. html attributes are exposed to the DOM via property. Hence, a property is created when DOM is parsed for each attribute in the html tag. If you change an attribute only the value of the property will change. However, the value of attribute will remain same.<p>
       <div>
           <button id = "attrVsProp" type="button" class="toggleExample btn btn-primary">Show more</button>
@@ -127,8 +151,8 @@ myInput.value; //'my dude'
           </div>
         </div>      
     </div>    
-    <div id="QueryDOM">
-      <h2>DOM Query</h2>
+    <div id="queryDOM">
+      <h2>4. DOM Query</h2>
       <p><strong>Question: </strong> What are the different ways to get an element from DOM?</p>
       <p><strong>Answer: </strong> You can use the following method in <code>document</code></p>      
       <ul>
@@ -145,8 +169,8 @@ myInput.value; //'my dude'
       </ul>      
     </div>    
     
-    <div id="selectElement">
-        <h2>Fastest DOM Query</h2>
+    <div id="fastestDOMQuery">
+        <h2>5. Fastest way to Query DOM</h2>
         <p><strong>Question:</strong> What is the fastest way to select elements by using css selectors?</p>
         <p><strong>Answer:</strong> It depends on what you are selecting. If you have an ID of an element <code>getElmentById</code> is the fastest way to select an element. However, you should not have so many ID in you document to avoid style repetition. css class <code>getElementsByClassName</code> is the second quickest way to select an element</p>
         <p>Here is the list. As we go downwards through the list, it takes more time to select elements </p>
@@ -171,7 +195,7 @@ myInput.value; //'my dude'
         </div>
       </div>    
       <div id="nodeListVsArray">
-      <h2>use forEach on NodeList</h2>
+      <h2>6. Use forEach on NodeList</h2>
       <p><strong>Question: </strong>How come, I can't use forEach or similar array methods on a NodeList?</p>
       <p><strong>Answer: </strong> Yah. Both array and nodelist have length and you can loop through elements but they are not exactly same.</p>
       <p>Both are inherited from Object. However array has different prototype object than nodelist. forEach, map, etc are on array.prototype which doesn't exists in the NodeList.prototype object. Hence, you don't have forEach on a nodelist</p>
@@ -194,7 +218,7 @@ nodesArray.forEach(function(el, idx){
       <p>ref: <a href="https://developer.mozilla.org/en-US/docs/Web/API/NodeList">MDN: nodelist</a></p>
     </div>  
     <div id="getElementByallAttribute">
-        <h2>getElementsByAttribute</h2>
+        <h2>7. getElementsByAttribute</h2>
         <p><strong>Question:</strong> If you need to implement getElementByAttributeValue, how would you implement it?</p>
         <p><strong>Answer: </strong> Get all the elements. You can either get it by Tag Name '*' and then check whether they have the particular attribute. In this case, even if attribute is null that will be captured. If you need to check the value, you should be able to do it by passing one extra parameter and comparing it in the if block.</p>
         <pre><code>
@@ -250,8 +274,8 @@ function getElementsByAttribute2(attr){
         <p><strong>Answer: </strong> Mr. Interviewer, please read this article: <a href="http://perfectionkills.com/whats-wrong-with-extending-the-dom/">whats wrong with extending the dom</a></p>
       </div>
       <div id="addClass">
-        <h2>add class</h2>
-        <p><strong>Question:</strong> How you could add a class to an element by query selector?</p>
+        <h2>8. add class</h2>
+        <p><strong>Question:</strong> How would you add a class to an element by query selector?</p>
         <p><strong>Answer: </strong> Very simple. Just get the element and add the classname to the classlist.</p>
         <pre><code>
 function addClass(selector, className){
@@ -270,7 +294,7 @@ el.classList.contains('my-class'); // checking whether class exists
         </code></pre>
       </div>
       <div id="isDescendant">
-        <h2>Check Descendant</h2>
+        <h2>9. Check Descendant</h2>
         <p><strong>Question:</strong> How could I verify whether one element child of another?</p>
         <p><strong>Answer:</strong> First check whether the passed parent is the direct parent of the child. If not, keep moving upward to the root of the tree.</p>
         <pre><code>
@@ -286,8 +310,8 @@ function isDescendant(parent, child){
         </code></pre>
       </div>      
     <div id="innerHTMLVsAppendChild">
-      <h2>innerHTML vs appendChild </h2>
-      <p><strong>Question: </strong> How would you create a DOM element? Set to innherHTML or createElement?</p>
+      <h2>10. innerHTML vs appendChild </h2>
+      <p><strong>Question: </strong> What is the best way to create a DOM element? Set to innherHTML or createElement?</p>
       <p><strong>Answer: </strong> There are two options: setting the <code>innerHTML</code> of an element or <code>appendChild</code> to the element.</p>
       <p>For example, if you want to add a list item to an unorderedList. You can get the element and set the innerHTML of the element like</p>
       <pre><code>
@@ -310,7 +334,7 @@ ul.appendChild(li);
       <p>Though you would be writing couple more lines of JavaScript, it makes browsers life easier and your page faster.</p>
     </div>
     <div id="createDocumentFragment">
-      <h2>CrateDocumentFragment</h2>
+      <h2>11. CrateDocumentFragment</h2>
       <p><strong>Question: </strong> What is createDocumentFragment and why you might use it?</p>
       <p><strong>Answer: </strong> <code>documentFragment</code> a very lightweight or minimal part of DOM or a subtree of DOM tree. It is very helpful when you are manipulating a part of DOM for multiple times. It becomes expensive to hit a certain portion of DOM for hundreds time (imagine you are searching for an element and then appending ).</p>
       <p>If you are changing dom that cause expensive reflow, you can avoid it by using <code>documentFragment</code> as it is managed in the memory.</p>
@@ -341,7 +365,7 @@ document.body.appendChild(fragment);
       <p>ref: <a href="http://www.w3.org/TR/REC-DOM-Level-1/level-one-core.html#ID-B63ED1A3">W3: spec</a></p>
     </div>
     <div id="reflow">
-      <h2>reflow</h2>
+      <h2>12. reflow</h2>
       <p><strong>Question: </strong> What is reflow? What causes reflow? How could you reduce reflow?</p>
       <p><strong>Answer: </strong> Aha... so many questions at the same time. Take a breathe MR. Interviewer.</p>
       <p><strong>reflow: </strong> When you change size or position of an element in the page, all the elements after it has to change their position according to the changes you made. For example, if you change height on an element, all the elements after it has to move down in the page. Hence, flow of the elements in the page is changed and this is called reflow.</p>
@@ -375,7 +399,7 @@ document.body.appendChild(fragment);
       <p>ref: <a href="http://www.stubbornella.org/content/2009/03/27/reflows-repaints-css-performance-making-your-javascript-slow/">reflow and repaint: css performance makes ur JS slow</a></p>
     </div>
     <div id="repaint">
-      <h2>repaint</h2>
+      <h2>13. repaint</h2>
       <p><strong>Question: </strong> What is repaint and when does this happen?</p>
       <p><strong>Answer: </strong> repaint happens when you change look of an element without changing the size and shape. This doesn't cause reflow as geometry of the element didn't changed. </p>
       <div>
@@ -395,7 +419,7 @@ document.body.appendChild(fragment);
       </ul>      
     </div>
     <div id="domReady">
-      <h2>DOM ready</h2>
+      <h2>14. DOM ready</h2>
       <p><strong>Question: </strong> How could you make sure to run some javaScript when DOM is ready like <code>$(document).ready</code>?</p>
       <p><strong>Answer: </strong> There are four different ways-</p>
       <p><strong>option-1: </strong> Put your script in the last tag of html body element. DOM would be ready by the time browser hits the script tag.</p>
@@ -416,8 +440,8 @@ document.onreadystatechange = function () {
       <p><strong>option-4: </strong> Search jquery source code and copy dom ready function. In that case you have a ready function that works in the older browsers as well without loading the whole jquery library.</p>
     </div>        
       <div id="eventBubble">
-        <h2>Event bubble</h2>
-        <p><strong>Question:</strong> What is event bubble? Can you fire an event in the capturing stage?</p>
+        <h2>15. Event bubble</h2>
+        <p><strong>Question:</strong> What is event bubble? How does event flows?</p>
         <p><strong>Answer:</strong> To understand event bubble, you have to understand what happen when you click on anything on a page.</p>
         <p><strong>where you clicked</strong> If you have a table with multiple rows and multiple columns and you click in one of the cell</p>
         <ul>
@@ -444,8 +468,8 @@ document.onreadystatechange = function () {
         <p><strong>Show live demo:</strong> <a href="http://www.thatjsdude.com/jsConcepts/concepts/eventPropagation.html">Go to this link</a> and click any layer to see event propagation.</p>
       </div>
       <div id="eventDelegate">
-        <h2>Event Delegate</h2>
-        <p><strong>Question:</strong> You have a list of items that has anchor. How would you destroy list item when someone click on a list item? </p>
+        <h2>16. Event Delegate</h2>
+        <p><strong>Question:</strong> You have a list of items that has anchor. How would you destroy multiple list items with one click handler? </p>
         <p><strong>Easy Solution:</strong> If you have one hundred of list items that have similar event to handle. You can write one hundred event handler (actually copy paste) same code in 99 places. This works but if something changes in the event handler, you have to change one hundred places. This doesn't call job security. This is called you are screwed up.</p>
         <p>Second problem is if you want to dynamically add a new element, you have to make sure event handler is attached with the element. More JavaScript code.</p>
         <p><strong>Answer:</strong> We can actually leverage event bubbling. You can have only one event handler attached to the parent element of the one hundred list item. In this case, you can attach the event handler in the "ul" tag. After you click on the list item (list item does not have an event), event will bubble and "ul" has a handler. That handler will be fired.</p>        
@@ -479,7 +503,7 @@ document.getElementById('listToDestroy').addEventListener('click', function (e) 
         </div>
       </div>
       <div id="mythicalHydra">
-        <h2>destroy button</h2>
+        <h2>17. destroy button</h2>
         <p><strong>Question:</strong> Create a button that is destroyed by clicking it but two new buttons are created in it's place.</p>
         <p><strong>Answer:</strong> One way of solving is to attach a event handler with the button to destroy itself and append two. However, we can leverage event delegate. If we attach the event hander to the parent div instead of the button itself. We don't have to add the event handler to each button we create. So, we will take advantage of event bubbling.</p>
         <p><strong>You:</strong> If both the newly created button is identical to one we are destroying, why interviewer wants to destroy exactly similar one and then create one. Why not just add one. And end result would be same, you will have two two buttons.</p>
@@ -516,8 +540,8 @@ document.getElementById('doubleHolder').addEventListener('click', function (e) {
         </div>
         <p>ref: <a href="http://www.careercup.com/question?id=17328675">destroy button</a></p>
       </div>
-      <div id="allText">
-        <h2>All text in a page</h2>
+      <div id="allTextInAPage">
+        <h2>18. All text in a page</h2>
         <p><strong>Question:</strong> How can you get all the texts in a web page?</p>
         <p><strong>Answer:</strong> The easiest way to get all the text is to get the innerText of body tag.</p>
         <pre><code>
@@ -545,8 +569,8 @@ function getAllText(node){
         </code></pre>
         <p><strong>disclaimer:</strong> I didn't explicitly tested these two methods.</p>
       </div>
-      <div id="allClick">
-          <h2>capture all click</h2>
+      <div id="captureAllClick">
+          <h2>19. Capture all click</h2>
           <p><strong>Question:</strong> How could you capture all clicks in a page?</p>
           <p><strong>Answer:</strong> You can leverage, event bubble to capture all the clicks.</p>
           <pre><code>
@@ -562,7 +586,7 @@ window.onclick =function(e){
           <p>However, if event bubbling is canceled by <code>stopPropagation()</code> your code will not work. think about it.</p>
       </div>
       <div id="deferAsync">
-        <h2>defer vs async</h2>
+        <h2>20. defer vs async</h2>
         <p><strong>Question:</strong> What is defer and async keyword does in a script tag?</p>
         <p><strong>Answer:</strong> HTML parser will ignore defer and async keyword for inline script (script that does not have a src attribute). </p>
         <p><strong>normal</strong> When you have a plain script tag (no defer or async keyword), parser will pause parsing, script would be downloaded and exectuted. After that parsing resume.</p>
@@ -573,7 +597,7 @@ window.onclick =function(e){
         <p><strong>Extra: </strong><a href="https://www.igvita.com/2014/05/20/script-injected-async-scripts-considered-harmful/">async injected scripts are considered harmful</a></p>        
       </div> 
       <div id="domRapidFire">
-        <h2>Rapid fire</h2>
+        <h2>21. Rapid fire</h2>
         <p><strong>Question: </strong> How could you prevent a click on an anchor from going to the link?</p>
         <p><strong>Answer: </strong><code>preventDefault()</code> inside event handler. However, this doesnt stop further propagation.</p>
         <p><strong>Question: </strong> How could you stop further propagation of an event?</p>
