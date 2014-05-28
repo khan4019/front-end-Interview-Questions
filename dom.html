@@ -65,9 +65,10 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>JS: DOM Interview Questions</h1>        
-        <h2>part -3: intermediate</h2>
-        <p>May 26, 2014</p>
+        <h1>JS: Interview Questions</h1>        
+        <h4>21+ DOM related interview questions for intermediate JavaScript developers</h4>
+        <h2>part-3: intermediate</h2>
+        <p>May 29, 2014</p>
 <!--         <div id="fb-root"></div><div class="fb-like" data-href="http://www.thatjsdude.com/interview/js1.htmQuiz" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div> &nbsp;<div class="g-plusone"></div>
       -->
       </div> 
@@ -83,27 +84,27 @@
       <p class="gray"> <span class="purpleBold">More Questions</span> <a href="css.html">css interview questions</a>, <a href="html.html">html interview questions</a> </p> -->
     <div id="questionList">
       <ol>
-        <li><a href="#windwoVsDocument">Are window and document same thing?</a></li>
+        <li><a href="#windwoVsDocument">Is there any difference between window and document?</a></li>
         <li><a href="#compareTwoOnload">Does document.onload and window.onload fire at the same time?</a></li>
         <li><a href="#attrVSProperty">Is attribute similar to property?</a></li>
         <li><a href="#queryDOM">What are the different ways to get an element from DOM?</a></li>
         <li><a href="#fastestDOMQuery">What is the fastest way to select elements by using css selectors?</a></li>
         <li><a href="#nodeListVsArray">How come, I can't use forEach or similar array methods on a NodeList?</a></li>
-        <li><a href="#getElementByallAttribute">If you need to implement getElementByAttributeValue, how would you implement it?</a></li>
+        <li><a href="#getElementByallAttribute">If you need to implement getElementByAttribute, how would you implement it?</a></li>
         <li><a href="#addClass">How would you add a class to an element by query selector?</a></li>
-        <li><a href="#isDescendant">How could I verify whether one element child of another?</a></li>
-        <li><a href="#innerHTMLVsAppendChild">What is the best way to create a DOM element? Set to innherHTML or createElement?</a></li>
+        <li><a href="#isDescendant">How could I verify whether one element is child of another?</a></li>
+        <li><a href="#innerHTMLVsAppendChild">What is the best way to create a DOM element? Set innherHTML or use createElement?</a></li>
         <li><a href="#createDocumentFragment">What is createDocumentFragment and why you might use it?</a></li>
         <li><a href="#reflow">What is reflow? What causes reflow? How could you reduce reflow?</a></li>
         <li><a href="#repaint">What is repaint and when does this happen?</a></li>
-        <li><a href="#domReady">How could you make sure to run some javaScript when DOM is ready like <code>$(document).ready</code>?</a></li>
-        <li><a href="#eventBubble">What is event bubble? How does event flows?</a></li>
+        <li><a href="#domReady">How could you make sure to run some JavaScript when DOM is ready like <code>$(document).ready</code>?</a></li>
+        <li><a href="#eventBubble">What is event bubble? How does event flows in DOM?</a></li>
         <li><a href="#eventDelegate">How would you destroy multiple list items with one click handler?</a></li>
-        <li><a href="#mythicalHydra">Create a button that is destroyed by clicking it but two new buttons are created in it's place.</a></li>
+        <li><a href="#mythicalHydra">Create a button that is destroyed by clicking in it but two new buttons are created in it's place.</a></li>
         <li><a href="#allTextInAPage">How can you get all the texts in a web page?</a></li>
         <li><a href="#captureAllClick">How could you capture all clicks in a page?</a></li>
         <li><a href="#deferAsync">What is defer and async keyword does in a script tag?</a></li>
-        <li><a href="#domRapidFire">10 quick questions</a></li>
+        <li><a href="#domRapidFire">10 rapid fire questions</a></li>
       </ol>
     </div>
     <div class="bg-success text-warning padding10Px">
@@ -111,8 +112,8 @@
     </div>  
     <div id="windwoVsDocument">
       <h2>1. window vs document</h2>
-      <p><strong>Question: </strong> Is window and document same thing?</p>
-      <p><strong>Answer: </strong> No. JavaScript has a global object and everything runs under it. window is that global object that holds global variables, global functions, location, history everything is under it. Besides, setTimeout, ajax call (XMLHttpRequest), console or localStorage are part of window. </p>
+      <p><strong>Question: </strong> Is there any difference between window and document?</p>
+      <p><strong>Answer: </strong> Yes. JavaScript has a global object and everything runs under it. window is that global object that holds global variables, global functions, location, history everything is under it. Besides, setTimeout, ajax call (XMLHttpRequest), console or localStorage are part of window. </p>
       <p> document is also under window. document is a property of the window object. document represents the DOM and DOM is the object oriented representation of the html markup you have written. All the nodes are part of document. Hence you can use getElementById or addEventListener on document. These methods are not present in the window object.</p>
       <pre><code>
 window.document === document; //true
@@ -124,9 +125,10 @@ document.getElementById; //function getElementById() { [native code] }
     <div id="compareTwoOnload">
         <h2>2. window.onload vs document.onload</h2>
         <p><strong>Question:</strong> Does document.onload and window.onload fire at the same time?</p>
-        <p><strong>Answer:</strong> If you understand difference between window and document, this would be easier for you. <code>window.onload</code> is fired when DOM is ready and all the contents including images, css, scripts, sub-frames, etc. finished loaded. This means everything is loaded.</p>
+        <p><strong>Answer:</strong> <code>window.onload</code> is fired when DOM is ready and all the contents including images, css, scripts, sub-frames, etc. finished loaded. This means everything is loaded.</p>
         <p><code>document.onload</code> is fired when DOM (DOM tree built from markup code within the document)is ready which can be prior to images and other external content is loaded.</p>
-        <p><strong>bonus:</strong><code>document.readyState</code> Returns "loading" while the Document is loading, "interactive" once it is finished parsing but still loading sub-resources, and "complete" once it has loaded. The <code>readystatechange</code> event fires on the Document object when this value changes.</p>
+        <p>Think about the differences between <code>window</code> and <code>document</code>, this would be easier for you.</p>
+        <p><strong>Bonus:</strong><code>document.readyState</code> Returns "loading" while the Document is loading, "interactive" once it is finished parsing but still loading sub-resources, and "complete" once it has loaded. The <code>readystatechange</code> event fires on the Document object when this value changes.</p>
         <p>ref: <a href="https://developer.mozilla.org/en-US/docs/Web/API/document.readyState">MDN: readyState</a></p>
       </div>
     <div id="attrVSProperty">
@@ -154,15 +156,15 @@ myInput.value; //'my dude'
     <div id="queryDOM">
       <h2>4. DOM Query</h2>
       <p><strong>Question: </strong> What are the different ways to get an element from DOM?</p>
-      <p><strong>Answer: </strong> You can use the following method in <code>document</code></p>      
+      <p><strong>Answer: </strong> You can use the following methods in <code>document</code></p>      
       <ul>
-        <li><code>getElementById</code> to get a element with the provided Id</li>
+        <li><code>getElementById</code> to get a element that has the provided Id.</li>
         <li><code>getElementsByClassName</code> to get a nodelist (nodelist is not an array, rather it is array-like object) by providing a class name.</li>
-        <li><code>getElementsByTagName</code> to get a nodelist with the provided tag name</li>
-        <li><code>querySelector</code> you will pass css style selector (jquery style) and this will retrurn first matched element in the DOM</li>
+        <li><code>getElementsByTagName</code> to get a nodelist by the provided tag name.</li>
+        <li><code>querySelector</code> you will pass css style selector (jquery style) and this will retrurn first matched element in the DOM.</li>
         <li><code>querySelectorAll</code> will return a non-live nodelist  by using depth-first pre order traversal of all the matched elements. Non-live means, any changes after selecting the elements will not be reflected.</li>        
       </ul>
-      <p>There are two more options but i dont use them frequently</p>
+      <p>There are two more options but I dont use them frequently-</p>
       <ul>
         <li><code>getElementsByName</code> returns the list of elements by the provided name of the html tag</li>
         <li><code>getElementsByTagNameNS</code> returns elements with particular tag name within the provided namespace</li>
@@ -173,7 +175,7 @@ myInput.value; //'my dude'
         <h2>5. Fastest way to Query DOM</h2>
         <p><strong>Question:</strong> What is the fastest way to select elements by using css selectors?</p>
         <p><strong>Answer:</strong> It depends on what you are selecting. If you have an ID of an element <code>getElmentById</code> is the fastest way to select an element. However, you should not have so many ID in you document to avoid style repetition. css class <code>getElementsByClassName</code> is the second quickest way to select an element</p>
-        <p>Here is the list. As we go downwards through the list, it takes more time to select elements </p>
+        <p>Here is the list. As we go downwards through the list, it takes more time to select elements. </p>
         <ul>
           <li>ID (#myID)</li>
           <li>Class (.myClass)</li>
@@ -185,7 +187,7 @@ myInput.value; //'my dude'
           <li>Attribute (input[type="checkbox"])</li>
           <li>Pseudo (p:first-child)</li>       
         </ul>
-        <p>If you have crazy long selectors to select element, think about your selectors and see whether you can use a class for that case.</p>
+        <p>If you have crazy long selectors to select element, think about your selectors and check whether you can use a class instead.</p>
         <div>
           <button id = "byClassVsSelectorAll" type="button" class="toggleExample btn btn-primary">Show deeper question</button>
           <div id="byClassVsSelectorAllExample" class="hide bg-success padding10Px">
@@ -197,8 +199,8 @@ myInput.value; //'my dude'
       <div id="nodeListVsArray">
       <h2>6. Use forEach on NodeList</h2>
       <p><strong>Question: </strong>How come, I can't use forEach or similar array methods on a NodeList?</p>
-      <p><strong>Answer: </strong> Yah. Both array and nodelist have length and you can loop through elements but they are not exactly same.</p>
-      <p>Both are inherited from Object. However array has different prototype object than nodelist. forEach, map, etc are on array.prototype which doesn't exists in the NodeList.prototype object. Hence, you don't have forEach on a nodelist</p>
+      <p><strong>Answer: </strong> Yeah. Both array and nodeList have length and you can loop through elements but they are not same object.</p>
+      <p>Both are inherited from Object. However array has different prototype object than nodeList. forEach, map, etc are on array.prototype which doesn't exist in the NodeList.prototype object. Hence, you don't have forEach on a nodeList</p>
       <pre><code>
 myArray --> Array.prototype --> Object.prototype --> null
 
@@ -219,8 +221,8 @@ nodesArray.forEach(function(el, idx){
     </div>  
     <div id="getElementByallAttribute">
         <h2>7. getElementsByAttribute</h2>
-        <p><strong>Question:</strong> If you need to implement getElementByAttributeValue, how would you implement it?</p>
-        <p><strong>Answer: </strong> Get all the elements. You can either get it by Tag Name '*' and then check whether they have the particular attribute. In this case, even if attribute is null that will be captured. If you need to check the value, you should be able to do it by passing one extra parameter and comparing it in the if block.</p>
+        <p><strong>Question:</strong> If you need to implement getElementByAttribute, how would you implement it?</p>
+        <p><strong>Answer: </strong> First, get all the elements in the DOM. You can either get it by Tag Name '*' and then check whether they have the particular attribute. In this case, even if attribute is null that will be captured. If you need to check the value, you should be able to do it by passing one extra parameter and comparing it in the if block.</p>
         <pre><code>
 function getElementsByAttribute(attribute){
   var allElements = document.getElementsByTagName('*'), 
@@ -268,6 +270,7 @@ function getElementsByAttribute2(attr){
   return found;
 }
             </code></pre>
+            <p>If you want to make it even faster, you could try DOM traverse by using <a href="https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker">TreeWalker</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator">NodeIterator</a>,  <a href="https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter">NodeFilter</a> or <a href="http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-TreeWalker">find them in spec</a> . Unfortunately, I have no idea what I am talking about.</li></p>
           </div>
       </div>        
         <p><strong>Question: </strong> Can I add this <code>getElementsByAttribute</code> to <code>document</code>?</p>
@@ -295,7 +298,7 @@ el.classList.contains('my-class'); // checking whether class exists
       </div>
       <div id="isDescendant">
         <h2>9. Check Descendant</h2>
-        <p><strong>Question:</strong> How could I verify whether one element child of another?</p>
+        <p><strong>Question:</strong> How could I verify whether one element is child of another?</p>
         <p><strong>Answer:</strong> First check whether the passed parent is the direct parent of the child. If not, keep moving upward to the root of the tree.</p>
         <pre><code>
 function isDescendant(parent, child){ 
@@ -311,7 +314,7 @@ function isDescendant(parent, child){
       </div>      
     <div id="innerHTMLVsAppendChild">
       <h2>10. innerHTML vs appendChild </h2>
-      <p><strong>Question: </strong> What is the best way to create a DOM element? Set to innherHTML or createElement?</p>
+      <p><strong>Question: </strong> What is the best way to create a DOM element? Set innherHTML or use createElement?</p>
       <p><strong>Answer: </strong> There are two options: setting the <code>innerHTML</code> of an element or <code>appendChild</code> to the element.</p>
       <p>For example, if you want to add a list item to an unorderedList. You can get the element and set the innerHTML of the element like</p>
       <pre><code>
@@ -627,7 +630,6 @@ window.onclick =function(e){
           <li>asynchronous vs synchronous events: <a href="http://javascript.info/tutorial/events-and-timing-depth#asynchronous-events">events and timing</a></li>
           <li>When you click on an element, what is the value of "this" inside click handler?</li>
           <li>How could you create Custom events? <a href="http://davidwalsh.name/customevent">customEvents</a></li>
-          <li>DOM traverse by using <a href="https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker">TreeWalker</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator">NodeIterator</a>,  <a href="https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter">NodeFilter</a> or <a href="http://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html#Traversal-TreeWalker">find them in spec</a> .</li>
           <li>Write a function to find the nearest link on a webpage given the mouse x,y coordinates. <a href="http://www.careercup.com/question?id=3538036">career cup</a></li>          
         </ul>        
       </div> 
