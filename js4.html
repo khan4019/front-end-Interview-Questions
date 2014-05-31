@@ -285,7 +285,10 @@ binarySearchRecursive([1,2,3,4,5], 22, 0, 4); //-1
       </div>  
       <div id="bubbleSort">
         <h2>bubble sort</h2>
-        <p>add explanation</p>
+        <p><strong>how does it works:</strong> In the code block below, you see two loops. one is inside another. the inner one starts with 1 and checks whether whether the previous value is greater than the current value. if previous one is bigger it swaps it. hence the smaller one goes to left and bigger one right. now the right one is compared again with the next. hence the bigger the biggest one taken to the right.</p>
+        <p>look at the upper limit of the loop value is "i". hence it will run full length first time. second time value of i gets one less of the full length.</p>
+        <p>the looping again starts from the the second element and compare the second one with the first item. if the first one is bigger than the second one, it is swapped. and goes upto the second to the last. Hence the second highest number goes to the second to the last position</p>
+        <p>same thing is going on....</p>
         <pre><code>
 function bubbleSort(arr){
    var len = arr.length;
@@ -304,7 +307,30 @@ bubbleSort([7,5,2,4,3,9]); //[2, 3, 4, 5, 7, 9]
 bubbleSort([9,7,5,4,3,1]); //[1, 3, 4, 5, 7, 9]
 bubbleSort([1,2,3,4,5,6]); //[1, 2, 3, 4, 5, 6]
         </code></pre>
-      </div>    
+      </div>   
+      <div id="selectionSort">
+        <h2>Selection Sort</h2>
+        <p><strong>how does it works:</strong> It selects the lowest element in the array for a particular position. Here, for the first position of the array it goes through the whole array and find the index of the lowest element. After getting the index of the lowest element. it swaps the lowest element with the element in the first position. Hence the lowest in the array comes to the first position.</p>
+        <p>now looks for the second lowest for the second position element. by comparing rest of the elements and keep going</p>
+        <pre><code>
+function selectionSort(arr){
+  var minIdx, temp;
+  for(var i =0, len = arr.length; i&lt;len; i++){
+    minIdx = i;
+    for(var  j = i+1; j&lt;len; j++){
+       if(arr[j]&lt;arr[minIdx]){
+          minIdx = j;
+       }
+    }
+    temp = arr[i];
+    arr[i] = arr[minIdx];
+    arr[minIdx] = temp;
+  }
+  return arr;
+}
+        </code></pre>
+      </div>
+
 <div>
   <div>
     <h2>References</h2>
@@ -312,7 +338,7 @@ bubbleSort([1,2,3,4,5,6]); //[1, 2, 3, 4, 5, 6]
       <li><a href="http://bigocheatsheet.com/">big o cheat sheet</a></li>
       <li><a href="http://en.wikipedia.org/wiki/List_of_algorithms">list of algorithms</a></li>
       <li><a href="http://www.sorting-algorithms.com/">sort algorith animation</a></li>
-      <li><a href=""></a></li>
+      <li><a href="https://www.cs.cmu.edu/~adamchik/15-121/lectures/Sorting%20Algorithms/sorting.html">some sorting algorithm</a></li>
       <li><a href=""></a></li>
     </ul>
   </div>
