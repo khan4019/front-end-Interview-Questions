@@ -307,6 +307,7 @@ bubbleSort([7,5,2,4,3,9]); //[2, 3, 4, 5, 7, 9]
 bubbleSort([9,7,5,4,3,1]); //[1, 3, 4, 5, 7, 9]
 bubbleSort([1,2,3,4,5,6]); //[1, 2, 3, 4, 5, 6]
         </code></pre>
+        <p><strong>complexity:</strong></p>
       </div>   
       <div id="selectionSort">
         <h2>Selection Sort</h2>
@@ -329,8 +330,36 @@ function selectionSort(arr){
   return arr;
 }
         </code></pre>
+        <p><strong>complexity:</strong></p>
       </div>
-
+      <div id="insertionSort">
+        <h2>Insertion sort</h2>
+        <p><strong>how does it works</strong>: It starts with the second element. pick the second element to be inserted and put it in a temp variable toInsert. if the first one is bigger than the item to be inserted, we move the first.</p>
+        <p>Now first and second item is sorted.</p>
+        <p>Then, pick the third element and check whether the second element is bigger than the third (toInsert). if smaller, move the second to the third position. Now, check with first element whether first is smaller than toInsert, move first one to the second position. Now insert toInsert in the first position.</p>
+        <p>now first three elements are sorted.</p>
+        <pre><code>
+function insertionSort(arr){
+  for(var i =1, len = arr.length; i&lt;len; i++){
+    var toInsert = arr[i];
+    var j = i;
+    while(j>0 && arr[j-1]>toInsert){
+      arr[j] = arr[j-1];
+      j--;   
+   }
+   arr[j] = toInsert;
+  }
+  return arr;
+}
+        </code></pre>
+        <p><strong>complexity:</strong> the worst case O(n2) and best case O(n)</p>
+      </div>
+      <div id="mergeSort">
+        <h2>Merge Sort</h2>
+      </div>
+      <div id="bucketSort">
+        <h2>Bucket Sort</h2>
+      </div>
 <div>
   <div>
     <h2>References</h2>
