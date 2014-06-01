@@ -357,6 +357,7 @@ function insertionSort(arr){
       <div id="mergeSort">
         <h2>Merge Sort</h2>
         <p>its a divide and conquer type algorithm. </p>
+        <p>just break down your array into small and small pieces and until you have one items in each pieces. then merge together by comparing them. If you still have hard time to figure out what i am talking about, look at <a href="http://upload.wikimedia.org/wikipedia/commons/c/cc/Merge-sort-example-300px.gif">wiki merge sort gif</a></p>
         <pre><code>
 function mergeSort(arr){
    var len = arr.length;
@@ -396,6 +397,51 @@ function merge(left, right){
       </div>
       <div id="quickSort">
         <h2>Quick sort</h2>
+        <p><strong>how does it works:</strong></p>
+        <p>try to understand this one. in depth</p>
+        <pre><code>
+function swap(arr, i, j){
+   var temp = arr[i];
+   arr[i] = arr[j];
+   arr[j] = temp;
+}
+        </code></pre>
+        <pre><code>
+function partition(arr, pivot, left, right){
+   var storeIndex = left,
+       pivotValue = arr[pivot];
+
+   swap(arr, pivot, right);
+   
+   for(var i = left; i&lt;right;i++){
+    if(arr[i]&lt;pivotValue){
+      swap(arr, i, storeIndex);
+      storeIndex++;
+    }
+  }
+  swap(arr, right, storeIndex);
+  return storeIndex;
+}
+        </code></pre>
+        <pre><code>
+function quickSort(arr, left, right){
+   var len = arr.length, 
+   pivot,
+   newPivot;
+
+
+  if(left &lt; right){
+    pivot = left + Math.ceil((right - left)*0.5);
+    newPivot = partition(arr, pivot, left, right);
+    
+   //sort left and right
+   quickSort(arr, left, newPivot-1);
+   quickSort(arr, newPivot +1, right);
+  }
+  return arr;
+}
+        </code></pre>
+        <p>ref: <a href="https://gist.github.com/paullewis/1981455">quick sort</a></p>
       </div>
       <div id="bucketSort">
         <h2>Bucket Sort</h2>
