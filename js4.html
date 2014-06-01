@@ -392,9 +392,6 @@ function merge(left, right){
         </code></pre>
         <p>ref: <a href="http://www.nczonline.net/blog/2012/10/02/computer-science-and-javascript-merge-sort/">merge sort</a></p>
       </div>
-      <div id="heapSort">
-        <h2>Heap sort</h2>
-      </div>
       <div id="quickSort">
         <h2>Quick sort</h2>
         <p><strong>how does it works:</strong></p>
@@ -442,6 +439,61 @@ function quickSort(arr, left, right){
 }
         </code></pre>
         <p>ref: <a href="https://gist.github.com/paullewis/1981455">quick sort</a></p>
+      </div>
+      <div id="heapSort">
+        <h2>Heap sort</h2>
+        <pre><code>
+function swap(arr, i, j){
+  var temp = arr[i];
+  arr[i] = arr[j];
+  arr[j] = temp;
+}
+        </code></pre>
+        <pre><code>
+function heapSort(arr, len){
+  heapify(arr, len);
+  var end = len-1;
+  while(end > 0){
+   swap(arr, end--, 0);
+   siftDown(arr, 0, end);
+  }
+  return arr;
+}
+        </code></pre>
+        <pre><code>
+function heapify(arr, len){
+   var start = Math.floor((len-2)/2);
+   while(start >=0){
+    siftDown(arr, start--, len-1);    
+  }
+}
+        </code></pre>
+        <pre><code>
+function siftDown(arr, start, end){
+   var root = start,
+       child = root*2+1,
+       toSwap = root;
+   while(child <=end){
+      if(arr[toSwap]&lt;arr[child]){
+        swap(arr, toSwap, child);
+      }
+      if(child+1<=end && a[toSwap]&lt;a[child+1]){
+        swap(arr, swap, child+1)
+      }
+      if(toSwap != root){
+         swap(arr, root, toSwap);
+         root = toSwap;
+      }
+      else{
+         return; 
+      }
+      toSwap = root;
+      child = root*2+1
+  }
+}
+        </code></pre>
+        <p><strong>Question:</strong> Between merge and heap sort, which one you will choose?</p>
+        <p><strong>compare with other:</strong><a href="http://en.wikipedia.org/wiki/Heapsort#Comparison_with_other_sorts">compare heap sort with others</a></p>        
       </div>
       <div id="bucketSort">
         <h2>Bucket Sort</h2>
