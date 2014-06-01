@@ -356,6 +356,46 @@ function insertionSort(arr){
       </div>
       <div id="mergeSort">
         <h2>Merge Sort</h2>
+        <p>its a divide and conquer type algorithm. </p>
+        <pre><code>
+function mergeSort(arr){
+   var len = arr.length;
+   if(len &lt;2)
+      return arr;
+   var mid = Math.floor(len/2),
+       left = arr.slice(0,mid),
+       right =arr.slice(mid);
+   //send left and right to the mergeSort to broke it down into pieces
+   //then merge those
+   return merge(mergeSort(left),mergeSort(right));
+}
+        </code></pre>
+        <pre><code>
+function merge(left, right){
+  var result = [],
+      lLen = left.length,
+      rLen = right.length,
+      l = 0,
+      r = 0;
+  while(l&lt; lLen && r&lt;rLen){
+     if(left[l]&lt;right[r]){
+       result.push(left[l++]);
+     }
+     else{
+       result.push(right[r++]);
+    }
+  }  
+  //remaining part needs to be addred to the result
+  return result.concat(left.slice(l)).concat(right.slice(r));
+}
+        </code></pre>
+        <p>ref: <a href="http://www.nczonline.net/blog/2012/10/02/computer-science-and-javascript-merge-sort/">merge sort</a></p>
+      </div>
+      <div id="heapSort">
+        <h2>Heap sort</h2>
+      </div>
+      <div id="quickSort">
+        <h2>Quick sort</h2>
       </div>
       <div id="bucketSort">
         <h2>Bucket Sort</h2>
