@@ -78,6 +78,11 @@
            
       <!-- <p class="gray">if you are little more comfortable or claim to be comfortable with javascript, these questions would not be enough for you. more coming</p>
       <p class="gray"> <span class="purpleBold">More Questions</span> <a href="css.html">css interview questions</a>, <a href="html.html">html interview questions</a> </p> -->
+      <div class="bg-info">
+        <h2>Nothing Invented here</h2>
+        <p>this a collection of algorithms in JavaScript</p>
+        <p>for my personal use. Most of the things are collected from other authors works (ref provided)</p>
+      </div>
       <div>
         <h2>Will cover</h2>
         <ul>
@@ -85,11 +90,7 @@
           <li>linked list</li>
           <li>search</li>
           <li><a href="http://www.nczonline.net/blog/tag/computer-science/">sort</a></li>
-          <li>Tree</li>
-          <li>graphs</li>
-          <li>map</li>
-          <li>high level</li>
-          <li></li>
+          <li><a href="http://en.wikipedia.org/wiki/Sorting_algorithm">wiki sorting algorithms</a></li>
         </ul>
       </div>
       <div id="stack">
@@ -441,14 +442,9 @@ function quickSort(arr, left, right){
         <p>ref: <a href="https://gist.github.com/paullewis/1981455">quick sort</a></p>
       </div>
       <div id="heapSort">
-        <h2>Heap sort</h2>
-        <pre><code>
-function swap(arr, i, j){
-  var temp = arr[i];
-  arr[i] = arr[j];
-  arr[j] = temp;
-}
-        </code></pre>
+        <h2>Heap sort</h2>        
+        <p><strong>how does it works: </strong> first step is to build an heap. That is done in the heapify function. Hepaify put the largest element at the root.</p>
+        <h2 class="bg-danger">Don't understand a single bit of it</h2>
         <pre><code>
 function heapSort(arr, len){
   heapify(arr, len);
@@ -492,11 +488,27 @@ function siftDown(arr, start, end){
   }
 }
         </code></pre>
+        <pre><code>
+function swap(arr, i, j){
+  var temp = arr[i];
+  arr[i] = arr[j];
+  arr[j] = temp;
+}
+        </code></pre>
         <p><strong>Question:</strong> Between merge and heap sort, which one you will choose?</p>
         <p><strong>compare with other:</strong><a href="http://en.wikipedia.org/wiki/Heapsort#Comparison_with_other_sorts">compare heap sort with others</a></p>        
       </div>
       <div id="bucketSort">
         <h2>Bucket Sort</h2>
+      </div>
+      <div id="shellSort">
+        <h2>Shell Sort</h2>
+      </div>
+      <div id="pigenholeSort">
+        <h2>Pigeonhole Sort</h2>
+      </div>
+      <div id="binaryTreeSort">
+        <h2>Binary Tree sort</h2>
       </div>
 <div>
   <div>
