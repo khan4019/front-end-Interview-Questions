@@ -250,6 +250,7 @@ var node = {
         <h2>Reverse Single Linked List</h2>
         <p><strong>Question: </strong> How would you reverse a single LL (no loop)?</p>
         <p><strong>Answer: </strong> Just walk through the LL and put the nodes in an array. This would be easier other than using remove function (if LL have one), because to remove a single item from the end of the SLL you have to walk all way to the end of the SLL every single time. Here you are just walking once.</p>
+        <h4>Iterative</h4>
         <pre><code>
 function reverseSingleLL(sll){
   
@@ -294,6 +295,48 @@ singleLL.push(5);
 //test it
 reverseSingleLL(singleLL);
 head: {value:5, next:{value: 4, next: {value: 3, next: {value:2, next:{value:1, next: null}}}}}
+        </code></pre>
+        <h4>Recursive</h4>
+        <pre><code>
+//search it and implement it
+        </code></pre>
+      </div>
+      <div id="kthNodeFromEnd">
+        <h2> kth node from End</h2>
+        <p><strong>Question: </strong> How could you get the Kth node from the end (no loop)</p>
+        <p><strong>Answer: </strong></p>
+        <pre><code>
+function kthFromEnd(sll, k){
+   var node = sll.head,
+       i = 1,
+       kthNode;
+   //handle, 0 or negative value of k
+   if(k<=0) return;
+
+    while(node){
+      if(i == k) kthNode = sll.head;
+      else if(i-k>0){
+       kthNode = kthNode.next;
+      }
+      i++;
+
+      node = node.next;
+    }
+   return kthNode;
+}
+        </code></pre>
+        <pre><code>
+//create the LL
+var singleLL = new LinkedList();
+singleLL.push(1);
+singleLL.push(2);
+singleLL.push(3);
+singleLL.push(4);
+singleLL.push(5);
+
+//test at least once
+kthFromEnd(singleLL, 1); //Object {value: 5, next: null}
+kthFromEnd(singleLL, 3); //Object {value: 3, next: Object}
         </code></pre>
       </div>
       <div id="circularLinkedList">
