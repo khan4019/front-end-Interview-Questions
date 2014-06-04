@@ -85,7 +85,7 @@
         <p>If you find this useful dont forget to provide feedback.</p>
       </div>
       <div>
-        <h2>Will cover</h2>
+        <h2>Basic Concept (beginners level)</h2>
         <ol>
           <li>stack</li>
           <li>queue</li>
@@ -99,6 +99,14 @@
           <li>search</li>
           <li><a href="http://www.nczonline.net/blog/tag/computer-science/">sort</a></li>
           <li><a href="http://en.wikipedia.org/wiki/Sorting_algorithm">wiki sorting algorithms</a></li>
+        </ol>
+        <h2>Questions (intermediate Level)</h2>
+        <ol>
+          <li></li>
+        </ol>
+        <h2>Questions (expert level)</h2>
+        <ol>
+          <li></li>
         </ol>
       </div>
       <div id="stack">
@@ -238,12 +246,70 @@ var node = {
         </code></pre>
         <p>get most of it from: <a href="https://github.com/nzakas/computer-science-in-javascript/blob/master/data-structures/doubly-linked-list/doubly-linked-list.js">doubly linked list</a></p>
       </div>
+      <div id="reverseSingleLinkedList">
+        <h2>Reverse Single Linked List</h2>
+        <p><strong>Question: </strong> How would you reverse a single LL (no loop)?</p>
+        <p><strong>Answer: </strong> Just walk through the LL and put the nodes in an array. This would be easier other than using remove function (if LL have one), because to remove a single item from the end of the SLL you have to walk all way to the end of the SLL every single time. Here you are just walking once.</p>
+        <pre><code>
+function reverseSingleLL(sll){
+  
+  if(!sll.head || !sll.head.next) return sll;
+
+  var nodes=[], 
+    current = sll.head;
+  //storing all the nodes in an array
+  while(current){
+    nodes.push(current);
+    current = current.next;
+  }
+    
+  var reversedLL = new LinkedList();
+  
+  reversedLL.head = nodes.pop();
+  current = reversedLL.head;
+  
+  var node = nodes.pop();  
+  //make sure to make next of the newly inserted node to be null
+  //other wise the last node of your SLL will retain its old next.
+  while(node){
+     node.next = null;
+     current.next = node;
+     
+     current = current.next;
+     node = nodes.pop();
+  }
+  return reversedLL;
+}
+        </code></pre>
+        <p>test at least once.</p>
+        <pre><code>
+//create the LL
+var singleLL = new LinkedList();
+singleLL.push(1);
+singleLL.push(2);
+singleLL.push(3);
+singleLL.push(4);
+singleLL.push(5);
+
+//test it
+reverseSingleLL(singleLL);
+head: {value:5, next:{value: 4, next: {value: 3, next: {value:2, next:{value:1, next: null}}}}}
+        </code></pre>
+      </div>
       <div id="circularLinkedList">
         <h2>circular Linked List</h2>
         <p>Know about it and write</p>
-      </div>
+      </div>      
       <div>
         <h2>Questions</h2>
+        <h3>stack queue related</h3>
+        <ul>
+          <li>implement queue by using stack</li>
+          <li><a href="http://codercareer.blogspot.com/2011/10/no-17-queue-implemented-with-two-stacks.html">queue implement with two stack</a></li>
+          <li><a href="http://www.techfaq360.com/viewFreshers.jsp?tutorialId=1568">some minor easy type questions</a></li>
+          <li><a href="http://datastructureandalgoritms.blogspot.com/2012/01/interview-questions-3-stack-queue-list.html">implement circular queue</a></li>
+        </ul>
+        <h3>Linked list related</h3>
         <ul>
           <li><a href="http://crackinterviewtoday.wordpress.com/tag/linked-lists/">reverse SSL (recursive, iterative)</a></li>
           <li>find the kth node from the end or <a href="http://www.crazyforcode.com/c-program-return-nth-node-linked-list/">nth node from end</a></li>
