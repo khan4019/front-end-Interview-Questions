@@ -294,7 +294,7 @@ singleLL.push(5);
 
 //test it
 reverseSingleLL(singleLL);
-head: {value:5, next:{value: 4, next: {value: 3, next: {value:2, next:{value:1, next: null}}}}}
+//{head: {value:5, next:{value: 4, next: {value: 3, next: {value:2, next:{value:1, next: null}}}}}}
         </code></pre>
         <h4>Recursive</h4>
         <pre><code>
@@ -337,6 +337,51 @@ singleLL.push(5);
 //test at least once
 kthFromEnd(singleLL, 1); //Object {value: 5, next: null}
 kthFromEnd(singleLL, 3); //Object {value: 3, next: Object}
+        </code></pre>
+      </div>
+      <div id="deleteKthFromEnd">
+        <h2>delete kth node from the end</h2>
+        <p><strong>Question: </strong> How could you delete kth node from the end of a single LL (no loop)</p>
+        <p><strong></strong></p>
+        <pre><code>
+function deleteKthFromEnd(sll, k){
+   var node = sll.head,
+       i = 1,
+       kthNode,
+       previous;
+   if(k<=0) return sll;
+
+    while(node){
+      if(i == k) kthNode = sll.head;
+      else if(i-k>0){
+       previous = kthNode;
+       kthNode = kthNode.next;
+      }
+      i++;
+
+      node = node.next;
+    }
+    //kth node is the head
+    if(!previous)
+       sll.head = sll.head.next;
+    else{
+     previous.next = kthNode.next;
+   }
+   return sll;
+}
+        </code></pre>
+        <p>test at least once</p>
+        <pre><code>
+//test at least once
+var singleLL = new LinkedList();
+singleLL.push(1);
+singleLL.push(2);
+singleLL.push(3);
+singleLL.push(4);
+singleLL.push(5);
+
+deleteKthFromEnd(singleLL, 2);
+//{head: {value:1, next:{value: 2, next: {value: 3, next: {value:1, next:null}}}}}
         </code></pre>
       </div>
       <div id="circularLinkedList">
