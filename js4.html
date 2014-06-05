@@ -79,10 +79,9 @@
       <!-- <p class="gray">if you are little more comfortable or claim to be comfortable with javascript, these questions would not be enough for you. more coming</p>
       <p class="gray"> <span class="purpleBold">More Questions</span> <a href="css.html">css interview questions</a>, <a href="html.html">html interview questions</a> </p> -->
       <div class="bg-info">
-        <h2>Nothing Invented here</h2>
-        <h4>Could be useful if you are a front end developer.</h4>
-        <p>Just finding things in internet (ref provided) and solving them in JavaScript</p>
-        <p>If you find this useful dont forget to provide feedback.</p>
+        <h2 class="text-warning">Nothing Invented here!</h2>
+        <h4>Rather wheel in c are reinvented in JavaScript.</h4>
+        <p>Just finding things in internet (ref provided) and solving them in JavaScript</p>        
       </div>
       <div>
         <h2>Basic Concept (beginners level)</h2>
@@ -95,19 +94,8 @@
           <li>linked list</li>
           <li class="skipListItem">singly</li>
           <li class="skipListItem">doubly</li>
-          <li class="skipListItem">circular</li>
-          <li>search</li>
-          <li><a href="http://www.nczonline.net/blog/tag/computer-science/">sort</a></li>
-          <li><a href="http://en.wikipedia.org/wiki/Sorting_algorithm">wiki sorting algorithms</a></li>
-        </ol>
-        <h2>Questions (intermediate Level)</h2>
-        <ol>
-          <li></li>
-        </ol>
-        <h2>Questions (expert level)</h2>
-        <ol>
-          <li></li>
-        </ol>
+          <li class="skipListItem">circular</li>          
+        </ol>        
       </div>
       <div id="stack">
         <h2>Stack and Queue</h2>
@@ -302,6 +290,12 @@ reverseSingleLL(singleLL);
         </code></pre>
         <p><strong>question</strong>Given number k, for Single linked list, skip k nodes and then reverse k nodes, till the end.</p>
       </div>
+      <div id="reverseDoubleLL">
+        <h2>Reverse Double LL</h2>
+        <p><strong>Question:</strong> reverse the doubly linked list without using extra space</p>
+        <p><strong>Answer:</strong></p>
+        <p>ref: <a href="http://www.careercup.com/question?id=5313007689138176">career cup</a></p>
+      </div>
       <div id="kthNodeFromEnd">
         <h2> kth node from End</h2>
         <p><strong>Question: </strong> How could you get the Kth node from the end (no loop)</p>
@@ -428,6 +422,12 @@ singleLL.head.next.next.next.next.next = singleLL.head.next.next
 detectLoop(singleLL); //true
         </code></pre>
       </div>
+      <div id="LoopStart">
+        <h2>Detect where loop started</h2>
+        <p><strong>Question:</strong></p>
+        <p><strong>Answer:</strong></p>
+        <p>ref: <a href="http://www.careercup.com/question?id=14491999">detect where loop started</a></p>
+      </div>
       <div id="findMiddle">
         <h2>Find middle</h2>
         <p><strong>Question:</strong> How could you detect middle of a LL?</p>
@@ -507,6 +507,12 @@ pushSorted(singleLL, 9);
 //{head: {value: 5, next: {value: 7, next: {value: 9, next: {value: 10, next: {value: 14, next: null}}}}}}
         </code></pre>
       </div>
+      <div id="intersectOfTwoLL">
+        <h2>Intersect of two LL</h2>
+        <p><strong>Question:</strong> How could you find intersect of two SLL in single iteration?</p>
+        <p><strong>Answer:</strong></p>
+        <p>ref: <a href="http://www.crazyforcode.com/write-function-intersection-point-linked-lists-y-shape-2/">intersection of two LL</a> or <a href="http://www.careercup.com/question?id=14952616">career cup</a></p>
+      </div>
       <div id="sortLinkedList">
         <h2>sort Linked list</h2>
         <p><strong>Question:</strong> How would you sort a linked list?</p>
@@ -532,53 +538,52 @@ pushSorted(singleLL, 9);
       <div id="circularLinkedList">
         <h2>circular Linked List</h2>
         <p>Know about it and write</p>
-      </div>      
+      </div>
+      <div id="circularWithDuplicate">
+        <h2>Loop with duplicate</h2>
+        <p>ref: <a href="http://www.careercup.com/question?id=15026777">Write a function that will return true if a circular singly linked list has duplicate values</a></p>
+      </div>
+      <div id="mergeUnsorted">
+        <h2>merge unsorted</h2>
+        <p>ref: <a href="http://www.careercup.com/question?id=15421981">merge two unsorted linked list to one sorted LL</a></p>
+        <p>easier question: <a href="http://www.crazyforcode.com/merge-linked-list-linked-list-alternate-positions/">merge two LL in alternate position</a></p>
+      </div> 
+      <div id="lengthWithLoop">
+        <h2>Find length which has loop</h2>
+        <p>ref: <a href="http://www.careercup.com/question?id=68277">Find the length of a linked list which contains cycle.</a></p>
+      </div>     
       <div>
         <h2>Questions</h2>
         <h3>stack queue related</h3>
         <ul>
           <li>implement queue by using stack</li>
-          <li><a href="http://codercareer.blogspot.com/2011/10/no-17-queue-implemented-with-two-stacks.html">queue implement with two stack</a></li>
-          <li><a href="http://www.techfaq360.com/viewFreshers.jsp?tutorialId=1568">some minor easy type questions</a></li>
+          <li><a href="http://codercareer.blogspot.com/2011/10/no-17-queue-implemented-with-two-stacks.html">queue implement with two stack</a></li>          
           <li><a href="http://datastructureandalgoritms.blogspot.com/2012/01/interview-questions-3-stack-queue-list.html">implement circular queue</a></li>
         </ul>
         <h3>Linked list related</h3>
         <ul>
-          <li><a href="http://crackinterviewtoday.wordpress.com/tag/linked-lists/">reverse SSL (recursive, iterative)</a></li>
-          <li>find the kth node from the end or <a href="http://www.crazyforcode.com/c-program-return-nth-node-linked-list/">nth node from end</a></li>
-          <li>kth node from end that has loop</li>
-          <li>calculate length of LL that has loop</li>
-          <li>detect loop in a LL or <a href="http://www.crazyforcode.com/write-program-detect-loop-linked-list/">detect loop</a></li>
-          <li><a href="http://www.careercup.com/question?id=5073177579356160">delete nth node from last</a></li>
           <li><a href="http://stackoverflow.com/questions/4542600/interview-question-remove-duplicates-from-an-unsorted-linked-list">remove duplicate from unsorted LL</a></li>
-          <li><a href="http://www.programminginterviews.info/2011/05/linked-lists-sorting-searching-finding.html">finding max min in a LL</a></li>
           <li><a href="http://www.programmerinterview.com/index.php/data-structures/reverse-a-linked-list/">reverse a linked list (recursive and iterative)</a> or <a href="http://www.crazyforcode.com/reverse-singly-linked-list/">crazy for codes</a></li>
           <li>sort a linked list</li>
-          <li>find the middle node of a LL</li>
-          <li><a href="https://sites.google.com/site/vijaytechi/interview">a collection of LL questions</a></li>
           <li><a href="http://www.glassdoor.com/Interview/Given-a-binary-tree-convert-it-into-a-doubly-circular-linked-list-The-structure-of-the-tree-was-given-by-the-interviewer-QTN_290306.htm">Given a binary tree, convert it into a doubly circular linked list. The structure of the tree was given by the interviewer and also the structure of the doubly circular linked list.</a></li>
-          <li><a href="http://www.crazyforcode.com/rotate-linked-list-k-nodes/">rotate LL by k nodes</a></li>
           <li><a href="http://www.crazyforcode.com/frequency-number-linked-list/">frequencey of given number in LL</a></li>
-          <li><a href="http://www.crazyforcode.com/delete-alternate-nodes-linked-list/">delete alternative nodes</a></li>
-          <li><a href="http://www.crazyforcode.com/swap-alternate-nodes-linked-list/">swap evetey two nodes </a></li>
+          <li><a href="http://www.crazyforcode.com/delete-alternate-nodes-linked-list/">delete alternative nodes</a></li>          
           <li><a href="http://www.crazyforcode.com/move-node-front-linked-list/">move last node to the front</a></li>
-          <li><a href="http://www.crazyforcode.com/merge-linked-list-linked-list-alternate-positions/">merge two LL in alternate position</a></li>
-          <li><a href="http://www.crazyforcode.com/insert-nodes-linked-list-sorted-fashion/">insert node in a sorted LL</a></li>
-          <li><a href="http://www.crazyforcode.com/write-function-intersection-point-linked-lists-y-shape-2/">intersection of two LL</a></li>
+          <li></li>          
           <li><a href="http://www.youtube.com/playlist?list=PL3D11462114F778D7">youtube have stuff as well</a></li>          
         </ul>
-        <h2>real world questions are not for kids</h2>
+        <h2>Real world questions</h2>
         <ul>
-          <li><a href="http://www.careercup.com/page?pid=linked-lists-interview-questions">find those in Career cup</a></li>
+          <li><a href="http://www.careercup.com/question?id=15072737">ternary tree to LL</a></li>          
+          <li><a href="http://www.careercup.com/question?id=5724466092965888">Given an integer linked list of which both first half and second half are sorted independently. Write a function to merge the two parts to create one single sorted linked list in place [do not use any extra space].</a></li>
+          <li><a href="http://www.careercup.com/question?id=24819662">Delete a node from SLL, in which the last node points to the middle node( in case of even no of nodes, it points to the first middle node) and update the SLL.</a></li>
+          <li><a href="http://www.careercup.com/question?id=14801886">how to sort a single linked list with out using an additional node?</a></li>
+          <li><a href="http://www.careercup.com/question?id=14911668">swap the consecutive elements of the list and return the head node. </a> or <a href="http://www.crazyforcode.com/swap-alternate-nodes-linked-list/">swap every two nodes </a></li>                    
+          <li><a href="http://www.careercup.com/question?id=11561969">Given a doubly linked list containing only three integers 1,2,3. Sort the list without exchanging the values.</a></li>
+          <li><a href="http://www.careercup.com/question?id=12267020">You are given two numbers in the form of linked list.Add them without reversing the linked lists</a></li>
+          <li><a href="http://www.careercup.com/question?id=12657669">Write a program to reverse every K elements of a linked list. </a></li>
+          <li><a href="http://www.careercup.com/question?id=11395723">Input: 1->2->3->4->a->b->c->d->5->6->e->f Output:1->a->2->b->3->c->4->d->5->e->6->f</a></li>
           <li><a href="http://www.careercup.com/question?id=5988415816335360">Given a linked list with next and high pointers, populate high pointers to the next higher node, inplace and O(n).</a></li>
-          <li><a href=""></a></li>
-          <li><a href=""></a></li>
-          <li><a href=""></a></li>
-          <li><a href=""></a></li>
-          <li><a href=""></a></li>
-          <li><a href=""></a></li>
-          <li><a href=""></a></li>
-          <li><a href=""></a></li>
         </ul>
       </div>
 <div>  
