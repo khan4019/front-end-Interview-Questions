@@ -300,6 +300,7 @@ reverseSingleLL(singleLL);
         <pre><code>
 //search it and implement it
         </code></pre>
+        <p><strong>question</strong>Given number k, for Single linked list, skip k nodes and then reverse k nodes, till the end.</p>
       </div>
       <div id="kthNodeFromEnd">
         <h2> kth node from End</h2>
@@ -384,6 +385,14 @@ deleteKthFromEnd(singleLL, 2);
 //{head: {value:1, next:{value: 2, next: {value: 3, next: {value:1, next:null}}}}}
         </code></pre>
       </div>
+      <div id="deleteDoubleLL">
+        <h2>delete node from double LL</h2>
+        <p><strong>Question:</strong> How could you delete a node from a doubly linked list?</p>
+        <p><strong>Answer: </strong></p>
+        <pre><code>
+//delete node
+        </code></pre>
+      </div>
       <div id="detectLoop">
         <h2>detect a loop in Single Linked List</h2>
         <pre><code>
@@ -419,9 +428,19 @@ singleLL.head.next.next.next.next.next = singleLL.head.next.next
 detectLoop(singleLL); //true
         </code></pre>
       </div>
+      <div id="findMiddle">
+        <h2>Find middle</h2>
+        <p><strong>Question:</strong> How could you detect middle of a LL?</p>
+        <p><strong>Answer: </strong> need two pointer one will move two step another one. when two step will hit null. you will get middle for the single. think about it.</p>
+        <pre><code>
+//write some simple code
+        </code></pre>
+      </div>
       <div id="rotateByKthNode">
         <h2>Rotate by Kth Node</h2>
         <p><strong>Question:</strong> How could you rotate a Linked List by Kth Node?</p>
+        <p>or</p>
+        <p><strong>Question:</strong><a href="http://www.careercup.com/question?id=15434720">Append the last n nodes of a linked list to the beginning of the list </a></p>
         <p><strong>Answer: </strong>  if the given linked list is: 1->2->3->4->5 and k is 3,the list should be modified to: 4->5->1->2->3.</p>
         <pre><code>
 //will not work for k &lt; length-1
@@ -449,6 +468,45 @@ rotateByKthNode(singleLL,3);
         </code></pre>
         <p>ref: <a href="http://www.crazyforcode.com/rotate-linked-list-k-nodes/">rotate by kth Node</a></p>
       </div>
+      <div id="insertSortedLL">
+        <h2>insert Node to Sorted LL</h2>
+        <p><strong>Question:</strong> Insert node in a sorted LL</p>
+        <p><strong>Answer:</strong></p>
+        <pre><code>
+function pushSorted(sll, val){
+   var head = sll.head,
+       current = head,
+       previous;
+   //value lower than head value
+   if(val &lt; sll.head.value){
+      sll.head = {value: val, next: head};
+      return sll;
+   }
+
+   while(current){
+      if(current.value > val){
+         previous.next = {value: val, next: current};
+         return sll;
+      }
+      previous = current;
+      current = current.next;
+   } 
+   //value higher than the last node value
+   previous.next = {value:val, next: null};
+   return sll;
+}
+        </code></pre>
+        <pre><code>
+var singleLL = new LinkedList();
+singleLL.push(5);
+singleLL.push(7);
+singleLL.push(10);
+singleLL.push(14);
+
+pushSorted(singleLL, 9);
+//{head: {value: 5, next: {value: 7, next: {value: 9, next: {value: 10, next: {value: 14, next: null}}}}}}
+        </code></pre>
+      </div>
       <div id="sortLinkedList">
         <h2>sort Linked list</h2>
         <p><strong>Question:</strong> How would you sort a linked list?</p>
@@ -457,6 +515,19 @@ rotateByKthNode(singleLL,3);
 
         </code></pre>
         <p>ref: <a href="http://vijayinterviewquestions.blogspot.com/2007/05/sorting-linked-list.html">sort LL</a></p>
+      </div>
+      <div>
+        <h2>special sort</h2>
+        <p>ref:  <a href="http://www.careercup.com/question?id=5724466092965888">career cup</a></p>
+      </div>
+      <div id="revmoveDuplicate">
+        <h2>Remove duplicate from unsorted LL</h2>
+        <p><strong>Question:</strong></p>
+        <p><strong>Answer:</strong></p>
+        <pre><code>
+//get a crystal clear concept about space complexity
+        </code></pre>
+        <p>ref: <a href="http://www.careercup.com/question?id=5740629665513472">Delete the repeated elements in a singly linked list in O(n) time complexity without using extra space. Linked list contains elements in unsorted order P.S. - Sorting is not allowed</a></p>
       </div>
       <div id="circularLinkedList">
         <h2>circular Linked List</h2>
@@ -499,7 +570,7 @@ rotateByKthNode(singleLL,3);
         <h2>real world questions are not for kids</h2>
         <ul>
           <li><a href="http://www.careercup.com/page?pid=linked-lists-interview-questions">find those in Career cup</a></li>
-          <li><a href=""></a></li>
+          <li><a href="http://www.careercup.com/question?id=5988415816335360">Given a linked list with next and high pointers, populate high pointers to the next higher node, inplace and O(n).</a></li>
           <li><a href=""></a></li>
           <li><a href=""></a></li>
           <li><a href=""></a></li>
