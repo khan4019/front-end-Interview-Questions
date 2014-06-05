@@ -384,6 +384,80 @@ deleteKthFromEnd(singleLL, 2);
 //{head: {value:1, next:{value: 2, next: {value: 3, next: {value:1, next:null}}}}}
         </code></pre>
       </div>
+      <div id="detectLoop">
+        <h2>detect a loop in Single Linked List</h2>
+        <pre><code>
+function detectLoop(sll){
+   var slowPointer = sll.head, 
+       fastPointer = sll.head;
+
+   while(slowPointer && fastPointer && fastPointer.next){
+     slowPointer = slowPointer.next;
+     fastPointer = fastPointer.next.next;
+
+     if(slowPointer == fastPointer){
+        return true;
+     }
+   }
+   return false;
+}
+        </code></pre>
+        <pre><code>
+//test at least once
+var singleLL = new LinkedList();
+singleLL.push(1);
+singleLL.push(2);
+singleLL.push(3);
+singleLL.push(4);
+singleLL.push(5);
+
+detectLoop(singleLL); //false
+
+//create a loop manually. point next of 5 to point 3
+singleLL.head.next.next.next.next.next = singleLL.head.next.next
+
+detectLoop(singleLL); //true
+        </code></pre>
+      </div>
+      <div id="rotateByKthNode">
+        <h2>Rotate by Kth Node</h2>
+        <p><strong>Question:</strong> How could you rotate a Linked List by Kth Node?</p>
+        <p><strong>Answer: </strong>  if the given linked list is: 1->2->3->4->5 and k is 3,the list should be modified to: 4->5->1->2->3.</p>
+        <pre><code>
+//will not work for k &lt; length-1
+function rotateByKthNode(sll, k){
+   var prevHead = sll.head,
+       previous = sll.head, 
+       current = sll.head,
+       i = 1;
+   while(current.next){
+     if(i==k+1){
+       sll.head = current;
+       previous.next = null;
+     }
+     previous = current;
+     current = current.next;
+     i++;
+  }
+  current.next = prevHead;
+  return sll;
+}
+        </code></pre>
+        <pre><code>
+rotateByKthNode(singleLL,3);
+//{head: {value:4, next:{value: 5, next: {value: 1, next: {value:2, next:{value:3, next: null}}}}}}
+        </code></pre>
+        <p>ref: <a href="http://www.crazyforcode.com/rotate-linked-list-k-nodes/">rotate by kth Node</a></p>
+      </div>
+      <div id="sortLinkedList">
+        <h2>sort Linked list</h2>
+        <p><strong>Question:</strong> How would you sort a linked list?</p>
+        <p><strong>Answer:</strong> you can use bubble, merge or similar sort</p>
+        <pre><code>
+
+        </code></pre>
+        <p>ref: <a href="http://vijayinterviewquestions.blogspot.com/2007/05/sorting-linked-list.html">sort LL</a></p>
+      </div>
       <div id="circularLinkedList">
         <h2>circular Linked List</h2>
         <p>Know about it and write</p>
