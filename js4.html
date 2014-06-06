@@ -131,8 +131,9 @@ myQueue.shift(); //3
       </div>
       <div id="priorityQueue">
         <h2>Priority Queue</h2>
+        <p>you have to use a maximizing heap to manage a priority queue. Hence while extracting, you just get the one on the top and while inserting you will do it at the bottom</p>
         <pre><code>
-
+//for now read the link.
         </code></pre>
         <p>ref: i have implemented simplified version of <a href="https://github.com/janogonzalez/priorityqueuejs/blob/master/index.js">priorityQueueJS</a></p>
       </div>
@@ -232,6 +233,37 @@ var node = {
   previous: null  
 }
         </code></pre>
+        <pre><code>
+function DoublyLinkedList(){
+   this.head = null;
+}
+
+DoublyLinkedList.prototype.push = function(val){
+   var head = this.head,
+       current = head,
+       previous = head;
+  if(!head){
+      this.head = {value: val, previous:null, next:null };
+  }
+  else{
+      while(current && current.next){
+         previous = current;
+         current = current.next;
+      }
+     console.log(previous, current);
+     current.next = {value: val, previous:current, next:null}
+  }  
+}
+        </code></pre>
+        <pre><code>
+//test at least once
+var dll = new DoublyLinkedList();
+dll.push(2);
+dll.push(3);
+dll.push(4);
+dll.push(5);
+//trust me it works
+        </code></pre>
         <p>get most of it from: <a href="https://github.com/nzakas/computer-science-in-javascript/blob/master/data-structures/doubly-linked-list/doubly-linked-list.js">doubly linked list</a></p>
       </div>
       <div id="reverseSingleLinkedList">
@@ -294,6 +326,23 @@ reverseSingleLL(singleLL);
         <h2>Reverse Double LL</h2>
         <p><strong>Question:</strong> reverse the doubly linked list without using extra space</p>
         <p><strong>Answer:</strong></p>
+        <pre><code>
+//incomplete code
+function reverseDoublyLL(dll){
+   var head = dll.head,
+       current = dll.head,
+       tmp;
+   while(current){
+      tmp = current.next;
+      current.next = current.previous;
+      current.previous = tmp;
+      if(!tmp){
+          
+      }
+      current = tmp;
+   }
+}
+        </code></pre>
         <p>ref: <a href="http://www.careercup.com/question?id=5313007689138176">career cup</a></p>
       </div>
       <div id="kthNodeFromEnd">
