@@ -106,6 +106,12 @@ __________________
 ####[JS: Algorithm (part-1) Answers](http://www.thatjsdude.com/interview/js1.html)
 
 
+
+##[JavaScript: JS related (part -2: work in porcess)](http://khan4019.github.io/front-end-Interview-Questions/js2.html)
+Very rough stage..need to finish (for intermediate)
+__________________
+
+
 ##[JavaScript: DOM (part -3)](http://www.thatjsdude.com/interview/dom.html)
 21+ questions and answers (for intermediate JS Developers)
 __________________
@@ -132,3 +138,11 @@ __________________
 1. 10 rapid fire questions
 
 ####[JS: DOM (part-3) Answers](http://www.thatjsdude.com/interview/dom.html)
+
+
+##[JavaScript: LinkedList (part -4: work in porcess)](http://khan4019.github.io/front-end-Interview-Questions/js4.html)
+Very rough stage..need to finish (for intermediate)
+
+##[JavaScript: search and Sort (part -5: work in porcess)](http://khan4019.github.io/front-end-Interview-Questions/js4.html)
+Very rough stage..need to finish (for expert)
+__________________
