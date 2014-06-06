@@ -509,8 +509,35 @@ detectLoop(singleLL); //true
       <div id="LoopStart">
         <h2>Detect where loop started</h2>
         <p><strong>Question:</strong></p>
-        <p><strong>Answer:</strong></p>
-        <p>ref: <a href="http://www.careercup.com/question?id=14491999">detect where loop started</a></p>
+        <p><strong>Answer:</strong> you will have two pointer slow and fast  like you had to detect loop and they will meet somewhere. if fast one hit null (if thee is a way to hit null, fast one should hit if before the slower. because fast one moves fast (recally physics theories!)), there is no loop and returns null.</p>
+        <p>if there is a null and whenever both pointers meet, set slow pointer as head. Move both the pointer move by one step at a time</p>
+        <p>At the time of meet, fast one moved twice as much as slow one.</p>
+        <p><strong>think about it and find a way to explain it</strong></p>
+        <pre><code>
+function findLoopStart(sll){
+    var slow = sll.head,
+        fast = sll.head;
+    while(slow && fast){
+       slow = slow.next;
+ 
+       //if hits null, then there is no loop
+       if(!fast.next){
+          return null;
+       }
+ 
+       fast = fast.next.next;
+       if(slow == fast){
+           slow = sll.head;
+           while(slow != fast){
+              slow = slow.next;
+              fast = fast.next;
+           }
+           return slow;
+       }
+   }
+}
+        </code></pre>
+        <p>ref: <a href="http://umairsaeed.com/2011/06/23/finding-the-start-of-a-loop-in-a-circular-linked-list/">detect where loop started</a></p>
       </div>
       <div id="findMiddle">
         <h2>Find middle</h2>
