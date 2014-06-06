@@ -131,8 +131,9 @@ myQueue.shift(); //3
       </div>
       <div id="priorityQueue">
         <h2>Priority Queue</h2>
+        <p>you have to use a maximizing heap to manage a priority queue. Hence while extracting, you just get the one on the top and while inserting you will do it at the bottom</p>
         <pre><code>
-
+//for now read the link.
         </code></pre>
         <p>ref: i have implemented simplified version of <a href="https://github.com/janogonzalez/priorityqueuejs/blob/master/index.js">priorityQueueJS</a></p>
       </div>
@@ -232,6 +233,36 @@ var node = {
   previous: null  
 }
         </code></pre>
+        <pre><code>
+function DoublyLinkedList(){
+   this.head = null;
+}
+
+DoublyLinkedList.prototype.push = function(val){
+   var head = this.head,
+       current = head,
+       previous = head;
+  if(!head){
+      this.head = {value: val, previous:null, next:null };
+  }
+  else{
+      while(current && current.next){
+         previous = current;
+         current = current.next;
+      }     
+     current.next = {value: val, previous:current, next:null}
+  }  
+}
+        </code></pre>
+        <pre><code>
+//test at least once
+var dll = new DoublyLinkedList();
+dll.push(2);
+dll.push(3);
+dll.push(4);
+dll.push(5);
+//trust me it works
+        </code></pre>
         <p>get most of it from: <a href="https://github.com/nzakas/computer-science-in-javascript/blob/master/data-structures/doubly-linked-list/doubly-linked-list.js">doubly linked list</a></p>
       </div>
       <div id="reverseSingleLinkedList">
@@ -294,6 +325,28 @@ reverseSingleLL(singleLL);
         <h2>Reverse Double LL</h2>
         <p><strong>Question:</strong> reverse the doubly linked list without using extra space</p>
         <p><strong>Answer:</strong></p>
+        <pre><code>
+function reverseDoublyLL(dll){
+   var head = dll.head,
+       current = dll.head,
+       tmp;
+   while(current){
+      tmp = current.next;
+      current.next = current.previous;
+      current.previous = tmp;
+      if(!tmp){
+         //set the last node as header
+         dll.head = current;
+      }
+      current = tmp;
+   }
+  return dll;
+}
+        </code></pre>
+        <pre><code>
+//test it at least once
+//or trust me it works
+        </code></pre>
         <p>ref: <a href="http://www.careercup.com/question?id=5313007689138176">career cup</a></p>
       </div>
       <div id="kthNodeFromEnd">
@@ -382,9 +435,40 @@ deleteKthFromEnd(singleLL, 2);
       <div id="deleteDoubleLL">
         <h2>delete node from double LL</h2>
         <p><strong>Question:</strong> How could you delete a node from a doubly linked list?</p>
-        <p><strong>Answer: </strong></p>
+        <p><strong>Answer: </strong> there could be four cases</p>
+        <p><strong>delete head:</strong> very simple, make the second node as head. and dont forget to set previous of new head to null.</p>
+        <p><strong>node in the middle: </strong> skip break the chain, skip current node. hence next of previous node would be the next of the current node. Besides, previous of the next node would be previous node</p>
+        <p><strong>delete tail: </strong> its also simple, make the next of previous as null. </p>
+        <p><strong>didn't find:</strong> dont do anything</p>
         <pre><code>
-//delete node
+function deleteNodeDLL(val){
+   var current = dll.head,
+       previous;
+   
+   //delete head
+   if(current.value == val){
+      dll.head = current.next;
+      //if there is only one node, then dll.head is null
+      if(dll.head) dll.head.previous = null;
+      return dll;
+   }
+
+   while(current.next){
+      if(current.value == val){
+         previous.next = current.next;
+         current.next.previous = previous;
+         return dll;
+     }
+     previous = current;
+     current = current.next;
+   }
+   
+   //delete last node
+   if(current.value == val){
+     previous.next = null;
+   }
+   return dll;
+}
         </code></pre>
       </div>
       <div id="detectLoop">
@@ -425,8 +509,35 @@ detectLoop(singleLL); //true
       <div id="LoopStart">
         <h2>Detect where loop started</h2>
         <p><strong>Question:</strong></p>
-        <p><strong>Answer:</strong></p>
-        <p>ref: <a href="http://www.careercup.com/question?id=14491999">detect where loop started</a></p>
+        <p><strong>Answer:</strong> you will have two pointer slow and fast  like you had to detect loop and they will meet somewhere. if fast one hit null (if thee is a way to hit null, fast one should hit if before the slower. because fast one moves fast (recally physics theories!)), there is no loop and returns null.</p>
+        <p>if there is a null and whenever both pointers meet, set slow pointer as head. Move both the pointer move by one step at a time</p>
+        <p>At the time of meet, fast one moved twice as much as slow one.</p>
+        <p><strong>think about it and find a way to explain it</strong></p>
+        <pre><code>
+function findLoopStart(sll){
+    var slow = sll.head,
+        fast = sll.head;
+    while(slow && fast){
+       slow = slow.next;
+ 
+       //if hits null, then there is no loop
+       if(!fast.next){
+          return null;
+       }
+ 
+       fast = fast.next.next;
+       if(slow == fast){
+           slow = sll.head;
+           while(slow != fast){
+              slow = slow.next;
+              fast = fast.next;
+           }
+           return slow;
+       }
+   }
+}
+        </code></pre>
+        <p>ref: <a href="http://umairsaeed.com/2011/06/23/finding-the-start-of-a-loop-in-a-circular-linked-list/">detect where loop started</a></p>
       </div>
       <div id="findMiddle">
         <h2>Find middle</h2>
