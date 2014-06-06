@@ -249,8 +249,7 @@ DoublyLinkedList.prototype.push = function(val){
       while(current && current.next){
          previous = current;
          current = current.next;
-      }
-     console.log(previous, current);
+      }     
      current.next = {value: val, previous:current, next:null}
   }  
 }
@@ -327,7 +326,6 @@ reverseSingleLL(singleLL);
         <p><strong>Question:</strong> reverse the doubly linked list without using extra space</p>
         <p><strong>Answer:</strong></p>
         <pre><code>
-//incomplete code
 function reverseDoublyLL(dll){
    var head = dll.head,
        current = dll.head,
@@ -337,11 +335,17 @@ function reverseDoublyLL(dll){
       current.next = current.previous;
       current.previous = tmp;
       if(!tmp){
-          
+         //set the last node as header
+         dll.head = current;
       }
       current = tmp;
    }
+  return dll;
 }
+        </code></pre>
+        <pre><code>
+//test it at least once
+//or trust me it works
         </code></pre>
         <p>ref: <a href="http://www.careercup.com/question?id=5313007689138176">career cup</a></p>
       </div>
@@ -431,9 +435,40 @@ deleteKthFromEnd(singleLL, 2);
       <div id="deleteDoubleLL">
         <h2>delete node from double LL</h2>
         <p><strong>Question:</strong> How could you delete a node from a doubly linked list?</p>
-        <p><strong>Answer: </strong></p>
+        <p><strong>Answer: </strong> there could be four cases</p>
+        <p><strong>delete head:</strong> very simple, make the second node as head. and dont forget to set previous of new head to null.</p>
+        <p><strong>node in the middle: </strong> skip break the chain, skip current node. hence next of previous node would be the next of the current node. Besides, previous of the next node would be previous node</p>
+        <p><strong>delete tail: </strong> its also simple, make the next of previous as null. </p>
+        <p><strong>didn't find:</strong> dont do anything</p>
         <pre><code>
-//delete node
+function deleteNodeDLL(val){
+   var current = dll.head,
+       previous;
+   
+   //delete head
+   if(current.value == val){
+      dll.head = current.next;
+      //if there is only one node, then dll.head is null
+      if(dll.head) dll.head.previous = null;
+      return dll;
+   }
+
+   while(current.next){
+      if(current.value == val){
+         previous.next = current.next;
+         current.next.previous = previous;
+         return dll;
+     }
+     previous = current;
+     current = current.next;
+   }
+   
+   //delete last node
+   if(current.value == val){
+     previous.next = null;
+   }
+   return dll;
+}
         </code></pre>
       </div>
       <div id="detectLoop">
