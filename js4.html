@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="that js dude" content="">    
-    <title>JS: Advanced Interview Questions</title>
+    <title>JS: Linked List Interview Questions</title>
 
     <link rel="shortcut icon" href="images/favicon.jpg">    
     <link rel="stylesheet" href="css/bootstrap.min.css" >
@@ -66,7 +66,7 @@
     <div class="jumbotron">
       <div class="container">
         <h1>JS: Interview Questions</h1>        
-        <h2>part -4: Primary Data Algorithm</h2>
+        <h2>part -4: Stack, Queue, Linked List</h2>
         <p>June 7, 2014</p>
 <!--         <div id="fb-root"></div><div class="fb-like" data-href="http://www.thatjsdude.com/interview/js1.htmQuiz" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div> &nbsp;<div class="g-plusone"></div>
       -->
@@ -83,7 +83,7 @@
       <p class="gray"> <span class="purpleBold">More Questions</span> <a href="css.html">css interview questions</a>, <a href="html.html">html interview questions</a> </p> -->
       <div class="bg-info padding10Px">
         <h2 class="text-warning">Nothing Invented here!</h2>
-        <h4>Rather wheel in c are reinvented in JavaScript.</h4>
+        <h4>Rather wheels in c/c++/java are reinvented in JavaScript.</h4>
         <p>Just finding things in internet (ref provided) and solving them in JavaScript</p>        
       </div>
       <div>
@@ -103,7 +103,7 @@
       <div id="stack">
         <h2>Stack and Queue</h2>
         <p><strong>Question:</strong> How will you implement stack and queue with JavaScript?</p>
-        <p>stack is already implemented with JavaScritp array. you can call <code>push</code> and <code>pop</code> method.</p>
+        <p><strong>Answer: </strong>stack is already implemented in JavaScritp array. you can simply call <code>push</code> and <code>pop</code> method.</p>
         <pre><code>
 var myStack = [];
 
@@ -117,7 +117,8 @@ myStack.pop(); //3
 myStack.pop(); //2
 myStack.pop(); //1
         </code></pre>
-        <p>queue is pretty much same. other than calling <code>pop</code> you will use <code>shift</code> mehtod.</p>
+        <h4>Queue</h4>
+        <p>Queue is pretty much same. other than calling <code>pop</code> you will use <code>shift</code> method to get the element in the front side of your array.</p>
         <pre><code>
 var myQueue = [];
 
@@ -141,10 +142,9 @@ myQueue.shift(); //3
         <p>ref: i have implemented simplified version of <a href="https://github.com/janogonzalez/priorityqueuejs/blob/master/index.js">priorityQueueJS</a></p>
       </div>
       <div id="linkedList">
-        <h2>Linked list</h2>
+        <h2>Singly Linked List</h2>
         <p><strong>Question: </strong> How will you create a linked list in JavaScript?</p>
-        <p>if you don't have any idea about linked list. read: <a href="http://en.wikipedia.org/wiki/Linked_list">wiki: linked list</a></p>
-        <h3>singly linked list</h3>
+        <p><strong>Answer: </strong>if you don't have any idea about linked list. read: <a href="http://en.wikipedia.org/wiki/Linked_list">wiki: linked list</a></p>
         <p>to have linked list, you need a node object that will point to the next. you need one pointers (head) to point the first node of your linked list. Besides, you need methods to add and remove node from your linked list</p>
         <p>let's get started. We have an object LinkedList and that has one property head (a pointer)</p>
         <pre><code>
@@ -187,7 +187,9 @@ sll.head.next.next; //Object {data: 4, next: null}
         </code></pre>        
         <p>read: <a href="http://en.wikipedia.org/wiki/Linked_list">Advantage and disadvantage of linked list</a></p>
         <p>copied from: <a href="http://www.nczonline.net/blog/2009/04/13/computer-science-in-javascript-linked-list/">Nicholas Zakas: linked list</a></p>
-        <h3>Doubly LinkedList</h3>
+      </div>
+      <div id="doublyLL">
+        <h2>Doubly Linked List</h2>
         <p>for doubly linked list there will be a link backward to the previous element. Your node object will look like</p>
         <pre><code>
 var node = {
@@ -229,7 +231,9 @@ dll.push(5);
         <p>get most of it from: <a href="https://github.com/nzakas/computer-science-in-javascript/blob/master/data-structures/doubly-linked-list/doubly-linked-list.js">doubly linked list</a></p>
       </div>
       <div id="deleteNode">
-        <h2>Remove node</h2>
+        <h2>Remove Node</h2>
+        <p><strong>Question:</strong> How could you write an extension to remove a node from a LL</p>
+        <p><strong></strong></p>
         <p>If you want to remove a node from your linked list you have to find the node. There are three conditions here</p>
         <ul>
           <li>case -1: your targeted node is in the head. you have to replace the head with the next node</li>
@@ -394,7 +398,7 @@ kthFromEnd(sll, 3); //Object {value: 3, next: Object}
         </code></pre>
       </div>
       <div id="deleteKthFromEnd">
-        <h2>delete kth node from the end</h2>
+        <h2>Delete kth node from the end</h2>
         <p><strong>Question: </strong> How could you delete kth node from the end of a singly LL (no loop)</p>
         <p><strong></strong></p>
         <pre><code>
@@ -439,7 +443,7 @@ deleteKthFromEnd(sll, 2);
         </code></pre>
       </div>
       <div id="deleteDoublyLL">
-        <h2>delete node from doubly LL</h2>
+        <h2>Delete node from doubly LL</h2>
         <p><strong>Question:</strong> How could you delete a node from a doubly linked list?</p>
         <p><strong>Answer: </strong> there could be four cases</p>
         <p><strong>delete head:</strong> very simple, make the second node as head. and dont forget to set previous of new head to null.</p>
@@ -478,7 +482,7 @@ function deleteNodeDLL(val){
         </code></pre>
       </div>
       <div id="detectLoop">
-        <h2>detect a loop in Singly Linked List</h2>
+        <h2>Detect a loop in Singly Linked List</h2>
         <pre><code>
 function detectLoop(sll){
    var slowPointer = sll.head, 
@@ -586,7 +590,7 @@ rotateByKthNode(sll,3);
         <p>ref: <a href="http://www.crazyforcode.com/rotate-linked-list-k-nodes/">rotate by kth Node</a></p>
       </div>
       <div id="insertSortedLL">
-        <h2>insert Node to Sorted LL</h2>
+        <h2>Insert Node to Sorted LL</h2>
         <p><strong>Question:</strong> Insert node in a sorted LL</p>
         <p><strong>Answer:</strong></p>
         <pre><code>
@@ -657,7 +661,46 @@ pushSorted(sll, 9);
       </div>
       <div id="circularLinkedList">
         <h2>circular Linked List</h2>
-        <p>Know about it and write</p>
+        <p>If the next pointer of the last node points to the head node, it becomes circular linked list. On Singly or Doubly Linked List, you will know you hit the tail when you hit null. For circular linked list, you will know you hit the tail when you hit the head (the next of last one pointed to head).</p>
+        <pre><code>
+
+function CircularLinkedList(){  
+  this.head = null;
+}
+
+
+CircularLinkedList.prototype.push = function(val){
+   var head = this.head,
+       current = head,
+       node = {value: val, next: null, previous: null};
+
+   if(!head){
+      node.next = node;
+      node.previous = node;
+      this.head = node;
+   }
+   else{
+      while(current.next != head){
+         current = current.next;
+      }
+      
+      node.next = head;
+      node.previous = current;
+   
+      head.previous = node;
+      current.next = node;
+   }   
+}
+        </code></pre>
+        <pre><code>
+var cll = new CircularLinkedList();
+cll.push(3);
+cll.push(4);
+cll.push(5);
+//trust me dude, it works
+        </code></pre>
+        <p>Now you can play with it to remove, sort, or insert into sorted or remove duplicate, blah blah blah</p>
+        <p>ref: <a href="http://www.martinbroadhurst.com/articles/circular-linked-list.html">circular linked list</a></p>
       </div>
       <div id="lengthSinglyLL">
         <h2>Length of a Singly LL</h2>
@@ -739,6 +782,7 @@ function getLength(sll){
           <li><a href="http://www.careercup.com/question?id=12657669">Write a program to reverse every K elements of a linked list. </a></li>
           <li><a href="http://www.careercup.com/question?id=11395723">Input: 1->2->3->4->a->b->c->d->5->6->e->f Output:1->a->2->b->3->c->4->d->5->e->6->f</a></li>
           <li><a href="http://www.careercup.com/question?id=5988415816335360">Given a linked list with next and high pointers, populate high pointers to the next higher node, inplace and O(n).</a></li>
+          <li><a href="http://www.geeksforgeeks.org/sorted-insert-for-circular-linked-list/">Insert node to a sorted circular Linked List</a></li>
         </ul>
       </div>
 <div>  
