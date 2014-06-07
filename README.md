@@ -140,7 +140,7 @@ __________________
 ####[JS: DOM (part-3) Answers](http://www.thatjsdude.com/interview/dom.html)
 
 
-##[JavaScript: LinkedList (part -4: work in porcess)](http://khan4019.github.io/front-end-Interview-Questions/js4.html)
+##[JavaScript: LinkedList (part -4: work in porcess)](http://www.thatjsdude.com/interview/linkedList.html)
 Very rough stage..need to finish (for intermediate)
 
 ##[JavaScript: search and Sort (part -5: work in porcess)](http://khan4019.github.io/front-end-Interview-Questions/js4.html)
