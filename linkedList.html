@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="that js dude" content="">    
-    <title>JS: Advanced Interview Questions</title>
+    <title>JS: Linked List Interview Questions</title>
 
     <link rel="shortcut icon" href="images/favicon.jpg">    
     <link rel="stylesheet" href="css/bootstrap.min.css" >
@@ -43,6 +43,9 @@
       { 
         color: rgba(218, 209, 149, 0.98);
       }
+      .padding10Px{
+        padding: 10px;
+      }
       /*style for demo*/
       
     </style>
@@ -63,10 +66,10 @@
     <div class="jumbotron">
       <div class="container">
         <h1>JS: Interview Questions</h1>        
-        <h2>part -4: Primary Data Algorithm</h2>
+        <h2>part -4: Stack, Queue, Linked List</h2>
         <p>June 7, 2014</p>
-<!--         <div id="fb-root"></div><div class="fb-like" data-href="http://www.thatjsdude.com/interview/js1.htmQuiz" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div> &nbsp;<div class="g-plusone"></div>
-      -->
+        <div id="fb-root"></div><div class="fb-like" data-href="http://www.thatjsdude.com/interview/linkedList.html" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div><div class="g-plusone"></div>
+     
       </div> 
     </div>
     <div class="container">
@@ -78,29 +81,46 @@
            
       <!-- <p class="gray">if you are little more comfortable or claim to be comfortable with javascript, these questions would not be enough for you. more coming</p>
       <p class="gray"> <span class="purpleBold">More Questions</span> <a href="css.html">css interview questions</a>, <a href="html.html">html interview questions</a> </p> -->
-      <div class="bg-info">
-        <h2 class="text-warning">Nothing Invented here!</h2>
-        <h4>Rather wheel in c are reinvented in JavaScript.</h4>
+      <div class="bg-info padding10Px">
+        <h2 class="text-danger">This page is Under Constructions</h2>
+        <h3>Read at your own risks</h3>
+        <h4 class="text-warning">Nothing Invented here!</h4>
+        <h4>Rather wheels in c/c++/java are reinvented in JavaScript.</h4>
         <p>Just finding things in internet (ref provided) and solving them in JavaScript</p>        
       </div>
       <div>
         <h2>Basic Concept (beginners level)</h2>
         <ol>
-          <li>stack</li>
-          <li>queue</li>
-          <li>dictionary, hash table</li>
-          <li><a href="http://en.wikipedia.org/wiki/Priority_queue">priority queue</a></li>
-          <li><a href="http://en.wikipedia.org/wiki/Circular_buffer">circular buffer</a></li>
-          <li>linked list</li>
-          <li class="skipListItem">singly</li>
-          <li class="skipListItem">doubly</li>
-          <li class="skipListItem">circular</li>          
+          <li><a href="#stackAndQuue">Stack and Queue in JavaScript</a></li>
+          <li><a href="#priorityQueue">Priority Queue</a></li>
+          <li><a href="#singlyLinkedList">Singly Linked List</a></li>
+          <li><a href="#doublyLinkedList">Doubly Linked List</a></li>
+          <li><a href="#deleteNodeSLL">Remove a node from Singly Linked List</a></li>
+          <li><a href="#reverseSinglyLinkedList">Reverse a Singly Linked List</a></li>
+          <li><a href="#reverseDoublyLL">Reverse a Doubly Linked List</a></li>
+          <li><a href="#kthNodeFromEnd">Find Kth Node from End</a></li>
+          <li><a href="#deleteKthFromEnd">Delete Kth Node from End</a></li>
+          <li><a href="#deleteNodeDoublyLL">Delete a node from Doubly Linked List</a></li>
+          <li><a href="#detectLoop">Detect loop in a Singly Linked List</a></li>
+          <li><a href="#LoopStart">Detect the node where loop started</a></li>
+          <li class="skipListItem"><a href="#findMiddle">Find the middle node of a Singly LL</a></li>
+          <li><a href="#lengthSinglyLL">Find length of a Singly Linked List</a></li>
+          <li><a href="#loopWithDuplicate">Check duplicate value in a Singly with loop</a></li>
+          <li><a href="#rotateByKthNode">Rotate a Linked list by Kth Node</a></li>
+          <li><a href="#insertSortedLL">Insert node into a sorted LL</a></li>
+          <li><a href="#mergeUnsorted">Merge two unsorted Linked Lists</a></li>
+          <li><a href="#intersectOfTwoLL">Find intersect of two Linked List</a></li>
+          <li><a href="#sortLinkedList">sort Linked List</a></li>
+          <li><a href="#revmoveDuplicate">remove duplicate from unsorted LL</a></li>
+          <li><a href="#circularLinkedList">Create a Circular Linked List</a></li>
+          <li><a href="#checkPalindrome">Check Palindrome in Linked List</a></li>
+          <li><a href="#deletedQuestions">Deleted Questions</a></li>
         </ol>        
       </div>
-      <div id="stack">
+      <div id="stackAndQuue">
         <h2>Stack and Queue</h2>
         <p><strong>Question:</strong> How will you implement stack and queue with JavaScript?</p>
-        <p>stack is already implemented with JavaScritp array. you can call <code>push</code> and <code>pop</code> method.</p>
+        <p><strong>Answer: </strong>stack is already implemented in JavaScritp array. you can simply call <code>push</code> and <code>pop</code> method.</p>
         <pre><code>
 var myStack = [];
 
@@ -114,7 +134,8 @@ myStack.pop(); //3
 myStack.pop(); //2
 myStack.pop(); //1
         </code></pre>
-        <p>queue is pretty much same. other than calling <code>pop</code> you will use <code>shift</code> mehtod.</p>
+        <h4>Queue</h4>
+        <p>Queue is pretty much same. other than calling <code>pop</code> you will use <code>shift</code> method to get the element in the front side of your array.</p>
         <pre><code>
 var myQueue = [];
 
@@ -137,11 +158,10 @@ myQueue.shift(); //3
         </code></pre>
         <p>ref: i have implemented simplified version of <a href="https://github.com/janogonzalez/priorityqueuejs/blob/master/index.js">priorityQueueJS</a></p>
       </div>
-      <div id="linkedList">
-        <h2>Linked list</h2>
+      <div id="singlyLinkedList">
+        <h2>Singly Linked List</h2>
         <p><strong>Question: </strong> How will you create a linked list in JavaScript?</p>
-        <p>if you don't have any idea about linked list. read: <a href="http://en.wikipedia.org/wiki/Linked_list">wiki: linked list</a></p>
-        <h3>singly linked list</h3>
+        <p><strong>Answer: </strong>if you don't have any idea about linked list. read: <a href="http://en.wikipedia.org/wiki/Linked_list">wiki: linked list</a></p>
         <p>to have linked list, you need a node object that will point to the next. you need one pointers (head) to point the first node of your linked list. Besides, you need methods to add and remove node from your linked list</p>
         <p>let's get started. We have an object LinkedList and that has one property head (a pointer)</p>
         <pre><code>
@@ -170,61 +190,23 @@ LinkedList.prototype.push = function(val){
         </code></pre>
         <p>Now. create a linked list and push values in it. </p>
         <pre><code>
-var myLinkedList = new LinkedList();
+var sll = new LinkedList();
 
 //push node
-myLinkedList.push(2);
-myLinkedList.push(3);
-myLinkedList.push(4);
+sll.push(2);
+sll.push(3);
+sll.push(4);
 
 //check values by traversing LinkedList 
-myLinkedList.head; //Object {data: 2, next: Object}
-myLinkedList.head.next; //Object {data: 3, next: Object}
-myLinkedList.head.next.next; //Object {data: 4, next: null}
-        </code></pre>
-        <p>If you want to remove a node from your linked list you have to find the node. There are three conditions here</p>
-        <ul>
-          <li>case -1: your targeted node is in the head. you have to replace the head with the next node</li>
-          <li>case -2: your targeted node is in the tail. you just have to remove it from the tail. Hence next of the node before the tail will be null. </li>
-          <li>case-3: your targeted node is in the middle of the LinkedList, you have to make the node after your targeted node to be the next node of the node before your targeted node.</li>
-        </ul>
-        <p>let's do it</p>
-        <pre><code>
-LinkedList.prototype.remove = function(val){
-    var current = this.head;
-    //case-1
-    if(current.value == val){
-       this.head = current.next;     
-    }
-    else{
-      var previous = current;
-      
-      while(current.next){
-        //case-3
-        if(current.value == val){
-          previous.next = current.next;          
-          break;
-        }
-        previous = current;
-        current = current.next;
-      }
-      //case -2
-      if(current.value == val){
-        previous.next == null;
-      }
-    }
-  }  
-
-        </code></pre>
-        <p>Now if you want to remove you can just pass the value</p>
-        <pre><code>
-myLinkedList.remove(3); 
-myLinkedList.remove(1); 
-        </code></pre>
-        <h3 class="text-danger bg-info">remove last element doesnt work</h3>
+sll.head; //Object {data: 2, next: Object}
+sll.head.next; //Object {data: 3, next: Object}
+sll.head.next.next; //Object {data: 4, next: null}
+        </code></pre>        
         <p>read: <a href="http://en.wikipedia.org/wiki/Linked_list">Advantage and disadvantage of linked list</a></p>
         <p>copied from: <a href="http://www.nczonline.net/blog/2009/04/13/computer-science-in-javascript-linked-list/">Nicholas Zakas: linked list</a></p>
-        <h3>Doubly LinkedList</h3>
+      </div>
+      <div id="doublyLinkedList">
+        <h2>Doubly Linked List</h2>
         <p>for doubly linked list there will be a link backward to the previous element. Your node object will look like</p>
         <pre><code>
 var node = {
@@ -265,13 +247,58 @@ dll.push(5);
         </code></pre>
         <p>get most of it from: <a href="https://github.com/nzakas/computer-science-in-javascript/blob/master/data-structures/doubly-linked-list/doubly-linked-list.js">doubly linked list</a></p>
       </div>
-      <div id="reverseSingleLinkedList">
-        <h2>Reverse Single Linked List</h2>
-        <p><strong>Question: </strong> How would you reverse a single LL (no loop)?</p>
+      <div id="deleteNodeSLL">
+        <h2>Remove Node from Singly LL</h2>
+        <p><strong>Question:</strong> How could you write an extension to remove a node from a LL</p>
+        <p><strong></strong></p>
+        <p>If you want to remove a node from your linked list you have to find the node. There are three conditions here</p>
+        <ul>
+          <li>case -1: your targeted node is in the head. you have to replace the head with the next node</li>
+          <li>case -2: your targeted node is in the tail. you just have to remove it from the tail. Hence next of the node before the tail will be null. </li>
+          <li>case-3: your targeted node is in the middle of the LinkedList, you have to make the node after your targeted node to be the next node of the node before your targeted node.</li>
+        </ul>
+        <p>let's do it</p>
+        <pre><code>
+LinkedList.prototype.remove = function(val){
+    var current = this.head;
+    //case-1
+    if(current.value == val){
+       this.head = current.next;     
+    }
+    else{
+      var previous = current;
+      
+      while(current.next){
+        //case-3
+        if(current.value == val){
+          previous.next = current.next;          
+          break;
+        }
+        previous = current;
+        current = current.next;
+      }
+      //case -2
+      if(current.value == val){
+        previous.next == null;
+      }
+    }
+  }  
+
+        </code></pre>
+        <p>Now if you want to remove you can just pass the value</p>
+        <pre><code>
+sll.remove(3); 
+sll.remove(1); 
+        </code></pre>
+        <h5 class="text-danger bg-info padding10Px">remove last element doesnt work</h5> 
+      </div>
+      <div id="reverseSinglyLinkedList">
+        <h2>Reverse Singly Linked List</h2>
+        <p><strong>Question: </strong> How would you reverse a singly LL (no loop)?</p>
         <p><strong>Answer: </strong> Just walk through the LL and put the nodes in an array. This would be easier other than using remove function (if LL have one), because to remove a single item from the end of the SLL you have to walk all way to the end of the SLL every single time. Here you are just walking once.</p>
         <h4>Iterative</h4>
         <pre><code>
-function reverseSingleLL(sll){
+function reversesll(sll){
   
   if(!sll.head || !sll.head.next) return sll;
 
@@ -304,25 +331,25 @@ function reverseSingleLL(sll){
         <p>test at least once.</p>
         <pre><code>
 //create the LL
-var singleLL = new LinkedList();
-singleLL.push(1);
-singleLL.push(2);
-singleLL.push(3);
-singleLL.push(4);
-singleLL.push(5);
+var sll = new LinkedList();
+sll.push(1);
+sll.push(2);
+sll.push(3);
+sll.push(4);
+sll.push(5);
 
 //test it
-reverseSingleLL(singleLL);
+reversesll(sll);
 //{head: {value:5, next:{value: 4, next: {value: 3, next: {value:2, next:{value:1, next: null}}}}}}
         </code></pre>
         <h4>Recursive</h4>
         <pre><code>
 //search it and implement it
         </code></pre>
-        <p><strong>question</strong>Given number k, for Single linked list, skip k nodes and then reverse k nodes, till the end.</p>
+        <p><strong>question</strong>Given number k, for Singly linked list, skip k nodes and then reverse k nodes, till the end.</p>
       </div>
-      <div id="reverseDoubleLL">
-        <h2>Reverse Double LL</h2>
+      <div id="reverseDoublyLL">
+        <h2>Reverse Doubly LL</h2>
         <p><strong>Question:</strong> reverse the doubly linked list without using extra space</p>
         <p><strong>Answer:</strong></p>
         <pre><code>
@@ -375,21 +402,21 @@ function kthFromEnd(sll, k){
         </code></pre>
         <pre><code>
 //create the LL
-var singleLL = new LinkedList();
-singleLL.push(1);
-singleLL.push(2);
-singleLL.push(3);
-singleLL.push(4);
-singleLL.push(5);
+var sll = new LinkedList();
+sll.push(1);
+sll.push(2);
+sll.push(3);
+sll.push(4);
+sll.push(5);
 
 //test at least once
-kthFromEnd(singleLL, 1); //Object {value: 5, next: null}
-kthFromEnd(singleLL, 3); //Object {value: 3, next: Object}
+kthFromEnd(sll, 1); //Object {value: 5, next: null}
+kthFromEnd(sll, 3); //Object {value: 3, next: Object}
         </code></pre>
       </div>
       <div id="deleteKthFromEnd">
-        <h2>delete kth node from the end</h2>
-        <p><strong>Question: </strong> How could you delete kth node from the end of a single LL (no loop)</p>
+        <h2>Delete kth node from the end</h2>
+        <p><strong>Question: </strong> How could you delete kth node from the end of a singly LL (no loop)</p>
         <p><strong></strong></p>
         <pre><code>
 function deleteKthFromEnd(sll, k){
@@ -421,19 +448,19 @@ function deleteKthFromEnd(sll, k){
         <p>test at least once</p>
         <pre><code>
 //test at least once
-var singleLL = new LinkedList();
-singleLL.push(1);
-singleLL.push(2);
-singleLL.push(3);
-singleLL.push(4);
-singleLL.push(5);
+var sll = new LinkedList();
+sll.push(1);
+sll.push(2);
+sll.push(3);
+sll.push(4);
+sll.push(5);
 
-deleteKthFromEnd(singleLL, 2);
+deleteKthFromEnd(sll, 2);
 //{head: {value:1, next:{value: 2, next: {value: 3, next: {value:1, next:null}}}}}
         </code></pre>
       </div>
-      <div id="deleteDoubleLL">
-        <h2>delete node from double LL</h2>
+      <div id="deleteNodeDoublyLL">
+        <h2>Delete a node from doubly LL</h2>
         <p><strong>Question:</strong> How could you delete a node from a doubly linked list?</p>
         <p><strong>Answer: </strong> there could be four cases</p>
         <p><strong>delete head:</strong> very simple, make the second node as head. and dont forget to set previous of new head to null.</p>
@@ -472,7 +499,7 @@ function deleteNodeDLL(val){
         </code></pre>
       </div>
       <div id="detectLoop">
-        <h2>detect a loop in Single Linked List</h2>
+        <h2>Detect a loop in Singly Linked List</h2>
         <pre><code>
 function detectLoop(sll){
    var slowPointer = sll.head, 
@@ -491,23 +518,23 @@ function detectLoop(sll){
         </code></pre>
         <pre><code>
 //test at least once
-var singleLL = new LinkedList();
-singleLL.push(1);
-singleLL.push(2);
-singleLL.push(3);
-singleLL.push(4);
-singleLL.push(5);
+var sll = new LinkedList();
+sll.push(1);
+sll.push(2);
+sll.push(3);
+sll.push(4);
+sll.push(5);
 
-detectLoop(singleLL); //false
+detectLoop(sll); //false
 
 //create a loop manually. point next of 5 to point 3
-singleLL.head.next.next.next.next.next = singleLL.head.next.next
+sll.head.next.next.next.next.next = sll.head.next.next
 
-detectLoop(singleLL); //true
+detectLoop(sll); //true
         </code></pre>
       </div>
       <div id="LoopStart">
-        <h2>Detect where loop started</h2>
+        <h2>Detect Node where loop started</h2>
         <p><strong>Question:</strong></p>
         <p><strong>Answer:</strong> you will have two pointer slow and fast  like you had to detect loop and they will meet somewhere. if fast one hit null (if thee is a way to hit null, fast one should hit if before the slower. because fast one moves fast (recally physics theories!)), there is no loop and returns null.</p>
         <p>if there is a null and whenever both pointers meet, set slow pointer as head. Move both the pointer move by one step at a time</p>
@@ -542,10 +569,57 @@ function findLoopStart(sll){
       <div id="findMiddle">
         <h2>Find middle</h2>
         <p><strong>Question:</strong> How could you detect middle of a LL?</p>
-        <p><strong>Answer: </strong> need two pointer one will move two step another one. when two step will hit null. you will get middle for the single. think about it.</p>
+        <p><strong>Answer: </strong> need two pointer one will move two step another one. when two step will hit null. you will get middle for the singly. think about it.</p>
         <pre><code>
 //If you cant figure it out ourself. don't read further, do something else
         </code></pre>
+      </div>
+      <div id="lengthSinglyLL">
+        <h2>Length of a Singly LL</h2>
+        <p><strong>Question:</strong> there could be loop in the singly LL</p>
+        <p><strong>Answer:</strong></p>
+        <pre><code>
+//doesnt work.. somewhere gets stack overflow
+//debug and find fix it
+function getLength(sll){
+   var head = sll.head,
+       current = head,
+       pointer = head,
+       anotherPtr,
+       len = 0;
+    //use the previously written function
+    var loopStartNode = findLoopStart(sll);
+    if(!loopStartNode){
+       while(current){
+          current= current.next;
+          len++;
+       }
+       return len;
+    }
+    else{       
+       anotherPtr = loopStartNode;
+       while(pointer != anotherPtr){
+          len += 2;
+          pointer = pointer.next;
+          anotherPtr = anotherPtr.next;          
+       }
+       return len;
+    }
+}
+        </code></pre>
+      </div>
+      <div id="loopWithDuplicate">
+        <h2>Loop with duplicate</h2>
+        <p><strong>Question:</strong> Write a function that will return true if a circular singly linked list has duplicate values</p>
+        <p><strong>Answer:</strong></p>
+        <pre><code>
+//code it man! dont be lazy
+        </code></pre>
+        <p>Similar question: <a href="http://www.careercup.com/question?id=68277">Find the length of a linked list which contains cycle.</a></p>
+        <pre><code>
+//just start a counter instead of checking duplicate
+        </code></pre>
+        <p>ref: <a href="http://www.careercup.com/question?id=15026777">career cup</a></p>
       </div>
       <div id="rotateByKthNode">
         <h2>Rotate by Kth Node</h2>
@@ -554,7 +628,7 @@ function findLoopStart(sll){
         <p><strong>Question:</strong><a href="http://www.careercup.com/question?id=15434720">Append the last n nodes of a linked list to the beginning of the list </a></p>
         <p><strong>Answer: </strong>  if the given linked list is: 1->2->3->4->5 and k is 3,the list should be modified to: 4->5->1->2->3.</p>
         <pre><code>
-//will not work for k &lt; length-1
+//will not work for k less than length-1
 function rotateByKthNode(sll, k){
    var prevHead = sll.head,
        previous = sll.head, 
@@ -574,13 +648,13 @@ function rotateByKthNode(sll, k){
 }
         </code></pre>
         <pre><code>
-rotateByKthNode(singleLL,3);
+rotateByKthNode(sll,3);
 //{head: {value:4, next:{value: 5, next: {value: 1, next: {value:2, next:{value:3, next: null}}}}}}
         </code></pre>
         <p>ref: <a href="http://www.crazyforcode.com/rotate-linked-list-k-nodes/">rotate by kth Node</a></p>
       </div>
       <div id="insertSortedLL">
-        <h2>insert Node to Sorted LL</h2>
+        <h2>Insert Node to Sorted LL</h2>
         <p><strong>Question:</strong> Insert node in a sorted LL</p>
         <p><strong>Answer:</strong></p>
         <pre><code>
@@ -608,16 +682,23 @@ function pushSorted(sll, val){
 }
         </code></pre>
         <pre><code>
-var singleLL = new LinkedList();
-singleLL.push(5);
-singleLL.push(7);
-singleLL.push(10);
-singleLL.push(14);
+var sll = new LinkedList();
+sll.push(5);
+sll.push(7);
+sll.push(10);
+sll.push(14);
 
-pushSorted(singleLL, 9);
+pushSorted(sll, 9);
 //{head: {value: 5, next: {value: 7, next: {value: 9, next: {value: 10, next: {value: 14, next: null}}}}}}
         </code></pre>
       </div>
+      <div id="mergeUnsorted">
+        <h2>merge two unsorted array</h2>
+        <p><strong>Question:</strong> How would you merge two unsorted linked list?</p>
+        <p><strong>Answer:</strong></p>
+        <p>ref: <a href="http://www.careercup.com/question?id=15421981">merge two unsorted linked list to one sorted LL</a></p>
+        <p>easier question: <a href="http://www.crazyforcode.com/merge-linked-list-linked-list-alternate-positions/">merge two LL in alternate position</a></p>
+      </div>            
       <div id="intersectOfTwoLL">
         <h2>Intersect of two LL</h2>
         <p><strong>Question:</strong> How could you find intersect of two SLL in single iteration?</p>
@@ -632,8 +713,7 @@ pushSorted(singleLL, 9);
 
         </code></pre>
         <p>ref: <a href="http://vijayinterviewquestions.blogspot.com/2007/05/sorting-linked-list.html">sort LL</a></p>
-      </div>
-      <div>
+        <h4>toggle as hard questions</h4>
         <h2>special sort</h2>
         <p><strong>Question:</strong> Given an integer linked list of which both first half and second half are sorted independently. Write a function to merge the two parts to create one single sorted linked list in place [do not use any extra space].</p>
         <p><strong>Answer:</strong></p>
@@ -651,23 +731,47 @@ pushSorted(singleLL, 9);
       </div>
       <div id="circularLinkedList">
         <h2>circular Linked List</h2>
-        <p>Know about it and write</p>
-      </div>
-      <div id="circularWithDuplicate">
-        <h2>Loop with duplicate</h2>
-        <p><strong>Question:</strong> Write a function that will return true if a circular singly linked list has duplicate values</p>
-        <p><strong></strong></p>
-        <p>ref: <a href="http://www.careercup.com/question?id=15026777">career cup</a></p>
-      </div>
-      <div id="mergeUnsorted">
-        <h2>merge unsorted</h2>
-        <p>ref: <a href="http://www.careercup.com/question?id=15421981">merge two unsorted linked list to one sorted LL</a></p>
-        <p>easier question: <a href="http://www.crazyforcode.com/merge-linked-list-linked-list-alternate-positions/">merge two LL in alternate position</a></p>
-      </div> 
-      <div id="lengthWithLoop">
-        <h2>Find length which has loop</h2>
-        <p>ref: <a href="http://www.careercup.com/question?id=68277">Find the length of a linked list which contains cycle.</a></p>
-      </div>     
+        <p>If the next pointer of the last node points to the head node, it becomes circular linked list. On Singly or Doubly Linked List, you will know you hit the tail when you hit null. For circular linked list, you will know you hit the tail when you hit the head (the next of last one pointed to head).</p>
+        <pre><code>
+
+function CircularLinkedList(){  
+  this.head = null;
+}
+
+
+CircularLinkedList.prototype.push = function(val){
+   var head = this.head,
+       current = head,
+       node = {value: val, next: null, previous: null};
+
+   if(!head){
+      node.next = node;
+      node.previous = node;
+      this.head = node;
+   }
+   else{
+      while(current.next != head){
+         current = current.next;
+      }
+      
+      node.next = head;
+      node.previous = current;
+   
+      head.previous = node;
+      current.next = node;
+   }   
+}
+        </code></pre>
+        <pre><code>
+var cll = new CircularLinkedList();
+cll.push(3);
+cll.push(4);
+cll.push(5);
+//trust me dude, it works
+        </code></pre>
+        <p>Now you can play with it to remove, sort, or insert into sorted or remove duplicate, blah blah blah</p>
+        <p>ref: <a href="http://www.martinbroadhurst.com/articles/circular-linked-list.html">circular linked list</a></p>
+      </div>                  
       <div id="checkPalindrome">
         <h2>Check whether a linked list is a palindrome</h2>
         <p><strong>Question:</strong></p>
@@ -677,7 +781,7 @@ pushSorted(singleLL, 9);
 //or ggl it
         </code></pre>
       </div>
-      <div>
+      <div id="deletedQuestions">
         <h2>Deleted Questions</h2>        
         <ul>
           <li>implement queue by using stack</li>
@@ -696,14 +800,20 @@ pushSorted(singleLL, 9);
           <li><a href="http://www.careercup.com/question?id=12657669">Write a program to reverse every K elements of a linked list. </a></li>
           <li><a href="http://www.careercup.com/question?id=11395723">Input: 1->2->3->4->a->b->c->d->5->6->e->f Output:1->a->2->b->3->c->4->d->5->e->6->f</a></li>
           <li><a href="http://www.careercup.com/question?id=5988415816335360">Given a linked list with next and high pointers, populate high pointers to the next higher node, inplace and O(n).</a></li>
+          <li><a href="http://www.geeksforgeeks.org/sorted-insert-for-circular-linked-list/">Insert node to a sorted circular Linked List</a></li>
         </ul>
       </div>
-<div>  
-  <!-- <h3 class="purpleBold">Express anger!</h3>
-  <p class="gray">Feel free to express your anger (sorry u have to use facebook). also find out mistakes ( technical, wrong answer, spelling, grammar, sentence, whatever), let ur dude learn and grow.</p>
-  <div class="fb-comments" data-href="http://www.thatjsdude.com/interview/js1.html" data-numposts="5" data-colorscheme="light"></div>
--->
-</div> 
+<div>
+        <h3 class="purpleBold">Express anger!</h3>        
+        <p class="gray">Feel free to express your anger (sorry folks, you have to use g+.). Also point out my mistakes ( technical, wrong answer, spelling, grammar, sentence..., whatever), let your dude learn and grow.</p>
+        <script src="https://apis.google.com/js/plusone.js"></script>
+        <div class="g-comments"
+            data-href="http://www.thatjsdude.com/interview/linkedList.html"
+            data-width="642"
+            data-first_party_property="BLOGGER"
+            data-view_type="FILTERED_POSTMOD">
+        </div>        
+      </div>
       <hr>
 
       <footer>
@@ -721,21 +831,21 @@ pushSorted(singleLL, 9);
     <script>hljs.initHighlightingOnLoad();</script>
     <script src="js/toggleExample.js"></script>
     <script type="text/javascript">
-      // //social plugins
-      // //g+
-      // (function() {
-      //   var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-      //   po.src = 'https://apis.google.com/js/platform.js';
-      //   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-      // })();
-      // //fb
-      // (function(d, s, id) {
-      //   var js, fjs = d.getElementsByTagName(s)[0];
-      //   if (d.getElementById(id)) return;
-      //   js = d.createElement(s); js.id = id;
-      //   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-      //   fjs.parentNode.insertBefore(js, fjs);
-      // }(document, 'script', 'facebook-jssdk'));
+      //social plugins
+      //g+
+      (function() {
+        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+        po.src = 'https://apis.google.com/js/platform.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+      })();
+      //fb
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
     </script>
   </body>
 </html>
