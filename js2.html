@@ -91,10 +91,7 @@
       <p>and then sorting, tree, graph and very very high level</p>
       <p>high level quesstions</p>
       <ul>
-        <li><a href="http://khan4019.github.io/JSconfusingParts/#/3/1">arithmatic in JS</a></li>
-        <li>unary + - <a href="http://khan4019.github.io/JSconfusingParts/#/3/3"></a></li>
-        <li>NaN <a href="http://ariya.ofilabs.com/2014/05/the-curious-case-of-javascript-nan.htm"></a> or <a href="http://khan4019.github.io/JSconfusingParts/#/3/6">js confusing parts</a></li>
-        <li>!!</li>
+        <li><a href="http://ariya.ofilabs.com/2014/05/the-curious-case-of-javascript-nan.htm">NaN </a> or <a href="http://khan4019.github.io/JSconfusingParts/#/3/6">js confusing parts</a></li>
         <li>parseInt related</li>
         <li><a href="http://khan4019.github.io/JSconfusingParts/#/9/1">sum?</a></li>
         <li><a href="http://khan4019.github.io/JSconfusingParts/#/10/2">arguments</a></li>
@@ -321,6 +318,22 @@ isNaN(NaN);//use it
                   <p>ref: <a href="http://www.sitepoint.com/javascript-truthy-falsy/">truthy and falsy</a></p>
                 </div>
         <p>ref: <a href="http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/">angus croll: truth and eqality in JS</a></p>
+      </div>
+      <div>
+        <h2>what is sum for the following code?</h2>
+        <pre><code>
+var numbers = [10, 20, 30];
+var sum = 0;
+for(var num in numbers){
+  sum+=num; 
+}
+
+console.log(sum);
+        </code></pre>
+        <p><strong>Answer:</strong> 0012</p>
+        <p><strong>Basic:</strong> for in always loop over keys. JavaScript array is inherited from object and all the elements in the array is like key value pair in the object<code>{0:10, 1:20, 2:30}</code> where key is 0, 1, 2 etc. When you are accessing values by passing index, you are actully accessing by key.</p>
+        <p>thats why when an index doesnt exist, Javascript returns undefined not array out of index. As the index(key) doesnt exists in the object.</p>
+        <p><strong>Explanation:</strong> as for in looping over keys and keys are always string type, its concatenating <code>0+'0'</code> which becomes <code>'00'</code> and then u add '1' and '2'. Which eventually results '0012'. Quite unexpected, isnt it?</p>
       </div>
       <div id="extension">
         <h2>Extend Core Object</h2>
@@ -569,6 +582,16 @@ function flatten(array) {
         <p><strong>Answer:</strong> undefined</p>
         <p><strong>Question:</strong> what is <code>-5%2</code></p>
         <p><strong>Answer:</strong>-1. the result of remainder always get the symbol of first operand</p>
+        <p><strong>Question:</strong> why <code>.1+.2 != .3</code> </p>
+        <p><strong>Answer:</strong> </p>
+        <p><strong>Question:</strong></p>
+        <p><strong>Anwser:</strong></p>
+        <p><strong>Question:</strong></p>
+        <p><strong>Anwser:</strong></p>
+        <p><strong>Question:</strong></p>
+        <p><strong>Anwser:</strong></p>
+        <p><strong>Question:</strong></p>
+        <p><strong>Anwser:</strong></p>
       </div>            
       <div id="insertSpace">
         <h2>log function</h2>        
