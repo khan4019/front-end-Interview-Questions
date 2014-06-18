@@ -488,43 +488,9 @@ num == ~~num; //'1' will give you true
 num == num + 0 && num == ~~num;
         </code></pre>
       </div>        
-      <div id="flattenArray">
-        <h2>flatten an array</h2>
-        <p><strong>Question:</strong> How would you flatten an array in JavaScript?</p>
-        <p><strong>Answer:</strong> flatten of an array means, if one or more array elements are also array, you will took out those elements and you will have a plain array. For example, if you if array is like [1, 2, [3, 4], [5, [6, 7]], 8] your flatten array would be [1, 2, 3, 4,5, 6, 7, 8]</p>
-        <pre><code>
-function flatten(array) {
-      var i = - 1,
-          j = 0, 
-          length = array ? array.length : 0,
-          elm,
-          elmLength = 0,
-          output = [];
-
-      while (++i &lt; length) {
-        elm = array[i];
-        //if elm is an array faltten it and then insert each item into output
-        if (elm && (Array.isArray(elm))) {
-          
-          elm = flatten(elm);
-
-          for(j =0, elmLength = elm.length; j &lt;elmLength; j++)
-             output.push(elm[j]);
-
-        } 
-        else {
-          output.push(elm);
-        }
-      }
-      return output;
-    }
-
-        </code></pre>
-        <p>ref: <a href="https://gist.github.com/penguinboy/762197">look at this one</a></p>
-      </div>
-          
       <div>
         <h2>rapid fire</h2>
+        <h4>could break it down into areas with some explanation</h4>
         <p><strong>Question:</strong> What is <code>typeof []</code></p>
         <p><strong>Answer:</strong> Object. Actually Array is derived from Object.</p>
         <p><strong>Question:</strong> What is <code>typeof arguments</code></p>
@@ -654,49 +620,6 @@ Object.prototype.hasOwnProperty.call(foo, 'bar'); // true
         </code></pre>
         <p>ref: Javascript garden</p>
       </div>
-      
-      <div id="partOfString">
-        <h2>Frist 100 characters</h2>
-        <p><strong>Question:</strong>From a crazy long string get the first 100 character. by the way, don't slice the last word. I mean keep it full. </p>
-        <p><strong>Answer:</strong></p>
-        <pre><code>
-function first100Char(str){
-   var len = str.length;
-   if (len &lt; 100) return str;
-   var i =100; 
-   while (i&lt;len && str[i]!=' '){
-     i++;
-  }
-  return str.substr(0, i);
-}          
-        </code></pre>
-      </div>
-      <div id="duplicateArray">
-        <h2>duplicate Array</h2>
-        <p><strong>Question:</strong> how do u duplicate an array. for example if you have array like [1, 2, 3] the duplicate array would be [1, 2, 3, 1, 2, 3]</p>
-        <p><strong>Answer:</strong> very simple. </p>
-        <pre><code>
-function arrayDuplicator(arr){
-
-  for (var i =0, len = arr.length, j = len; i&lt;len; i++){
-      arr[j++] = arr[i];
-  }
-  
-  return arr;
-}
-        </code></pre>
-      </div>
-      <div id="replaceSubstring">
-        <p><strong>Question:</strong> replace every "bb" in a given string like "aaabbc" by "ee" and output should be "aaaeec"</p>
-        <p><strong>Answer: </strong></p>
-        <pre><code>
-function replaceStr(str, match, replace){
- var toreplace = '/'+match+'/g';
- return str.replace(toreplace, replace) 
-  
-}
-        </code></pre>
-      </div>
       <div id="closureInsideLoop">
         <h2>Closures Inside Loops</h2>
 
@@ -737,6 +660,41 @@ for(var i = 0; i < 10; i++) {
     setTimeout(console.log.bind(console, i), 1000);
 }
 </code></pre>
+      </div>
+      <div id="byValueByRef">
+        <h2>pass by Value </h2>
+        <p><strong>Question:</strong> Does JavaScript pass parameter by value or by reference</p>
+        <p><strong>Answer:</strong> </p>
+        <pre><code>
+   var num = 10,
+        name = "Jane Austen",
+ 
+        obj1 = {
+          state: "unchanged"
+        },
+ 
+        obj2 = {
+          state: "unchanged"
+        },
+      
+        obj3 = obj2;
+ 
+    function change(num, name, obj1, obj2) {
+      num = num * 10;
+      name = "Nathaniel Hawthorne";
+      obj1 = obj2;
+      obj2.state = "changed";
+    }
+ 
+    change(num, name, obj1, obj2);
+ 
+    console.log("num = " + num); // 10
+    console.log("name = " + name);// "jane Austen"
+    console.log("obj1.state = " + obj1.state);//"unchanged"
+    console.log("obj2.state = " + obj2.state);//"changed"
+    console.log("obj3.state = " + obj3.state);//"changed"        
+        </code></pre>
+        <p>ref: <a href="http://stackoverflow.com/a/3638034/1535443">stackoverflow</a>, more detailed: <a href="http://snook.ca/archives/javascript/javascript_pass">Jonathan Snook</a></p>
       </div>
       <div id="ajaxCall">
         <h2>Ajax in Native call</h2>
@@ -1049,7 +1007,6 @@ obj.first().second().third();
         <p>ref: great place to learn JavaScript <a href="http://bonsaiden.github.io/JavaScript-Garden/">JS Garden</a></p>
         <h3>algorithm related Question (will some future blog)</h3>
         <ul>
-          <li>replace every "bb" in a given string like "aaabbc" by "ee" and output should be "aaaeec"</li>
           <li>From two sorted array how would you find common number?</li>
           <li>From web page, how would u find similar words like rat, cat, bat and broom, groom etc.</li>
           <li>pagination problem by Tony. [1] 2 3 4 5, ... 2 3 [4] 5 6 ..., 6 [7] 8 9 10 </li>
