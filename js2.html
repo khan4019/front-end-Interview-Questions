@@ -84,19 +84,6 @@
            
       <!-- <p class="gray">if you are little more comfortable or claim to be comfortable with javascript, these questions would not be enough for you. more coming</p>
       <p class="gray"> <span class="purpleBold">More Questions</span> <a href="css.html">css interview questions</a>, <a href="html.html">html interview questions</a> </p> -->
-
-      <h2>Todo list</h2>
-      <p>this would be js related question part-1 and then part2</p>
-      <p>Question specific to the programming language</p>
-      <ul>
-        <li><a href="http://ariya.ofilabs.com/2014/05/the-curious-case-of-javascript-nan.htm">NaN </a> or <a href="http://khan4019.github.io/JSconfusingParts/#/3/6">js confusing parts</a></li>
-        <li>typeof</li>
-        <li>instance of</li>
-        <li><a href="http://khan4019.github.io/JSconfusingParts/#/20/5">dot</a></li>
-        <li><a href="http://stackoverflow.com/questions/1684917/what-questions-should-a-javascript-programmer-be-able-to-answer">very good list of questions</a></li>        
-        <li>add one scope related question and give link to the blog</li>
-        <li>explain timer related question or at least one animation in the high perf js</li>        
-      </ul>
       <div>
         <h2>null vs undefined</h2>
         <p><strong>Question:</strong>What is the difference between null and undefined.</p>
@@ -584,12 +571,12 @@ function flatten(array) {
         <p><strong>Answer:</strong>-1. the result of remainder always get the symbol of first operand</p>
         <p><strong>Question:</strong> why <code>.1+.2 != .3</code> </p>
         <p><strong>Answer:</strong> </p>
-        <p><strong>Question:</strong></p>
-        <p><strong>Anwser:</strong></p>
-        <p><strong>Question:</strong></p>
-        <p><strong>Anwser:</strong></p>
-        <p><strong>Question:</strong></p>
-        <p><strong>Anwser:</strong></p>
+        <p><strong>Question: <code>42..toString()</code></strong></p>
+        <p><strong>Anwser:</strong> <code>"42"</code></p>
+        <p><strong>Question:</strong> <code>4.2..toString</code></p>
+        <p><strong>Anwser:</strong> //SyntaxError: Unexpected token .</p>
+        <p><strong>Question:</strong><code>42   .     toString()</code></p>
+        <p><strong>Anwser:</strong> <code>"42"</code></p>        
         <p><strong>Question:</strong></p>
         <p><strong>Anwser:</strong></p>
       </div>            
@@ -1041,74 +1028,70 @@ var obj = {   // every method returns obj---------v
 
 obj.first().second().third();
         </code></pre>        
-        <p>ref: <a href="http://stackoverflow.com/questions/7475336/how-does-jquery-chaining-work">jquery like chaining</a></p>
+        <p>ref: <a href="http://blog.buymeasoda.com/creating-a-jquery-like-chaining-api/">jquery like chaining</a> or <a href="http://stackoverflow.com/questions/7475336/how-does-jquery-chaining-work">jquery like chaining</a></p>
       </div>
       <div>
-        <h2>must read</h2>
-        <h4><a href="http://blog.buymeasoda.com/creating-a-jquery-like-chaining-api/">Very good JS question</a></h4>
+        <h2>Question bank</h2>
         <ul>          
-          
-          <li>if you have a function. inside it there is a for loop. i to 10 and you have settimeout. inside settimeout you have console.log(i). What will you get in the console and why. Explain why this happened</li>
-          <li>what are differences between host object and native object? <a href="http://stackoverflow.com/a/7614380/1535443">read answer here</a></li>          
-          <li>explain inheritance in JS</li>
-          <li>why extending build in JavaScript object is a bad idea  </li>
-          <li>How will you get query string in a browsers URL? <a href="http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript?page=3&tab=votes#tab-top">detail answer</a> or <code>window.location.search;</code></li>
-          <li>what is same origin policy with regards to JS</li>          
-          <li>describe memoization in JS</li>
-          <li>why is it called ternary statement. what does the word ternary indicate</li>
+          <li>add one scope related question and give link to the blog</li>
+          <li>explain timer related question or at least one animation in the high perf js</li>          
+          <li>what is the typical use of anonymous function</li>
+          <li>what are the difference between function expression and function declaration</li> 
+          <li>passing by value or by ref <a href="http://snook.ca/archives/javascript/javascript_pass/">js pass</a></li>
+          <li> Use Function as object</li>  
+          <li>Why does nearly every object have a toString method?</li>        
+          <li>How to achieve static variable in JS</li>         
+        </ul>
+        <h3>Facts</h3>
+        <ul>
+          <li>Everything in JavaScript acts like an object, with the only two exceptions being null and undefined.</li>          
+        </ul>
+        <p>ref: great place to learn JavaScript <a href="http://bonsaiden.github.io/JavaScript-Garden/">JS Garden</a></p>
+        <h3>algorithm related Question (will some future blog)</h3>
+        <ul>
+          <li>replace every "bb" in a given string like "aaabbc" by "ee" and output should be "aaaeec"</li>
+          <li>From two sorted array how would you find common number?</li>
+          <li>From web page, how would u find similar words like rat, cat, bat and broom, groom etc.</li>
+          <li>pagination problem by Tony. [1] 2 3 4 5, ... 2 3 [4] 5 6 ..., 6 [7] 8 9 10 </li>
+          <li>notify any change</li>
+          <li>Write a function in Javascript that takes Roman numerals (in String form) and convert it to decimal form. Assume the string is well-formed</li>          
+          <li> asked at google... How would you extend Array in JavaScript so that it could add all the values stored in an array</li>
+          <li>Google Maps allows you to zoom in and out of satellite maps, with terabytes of data accessible via a very fast interface. How would you go about implementing this functionality</li>          
+          <li>Find the max difference of elements from two sorted array with non duplicate integer elements</li>
+          <li>find a rotation point of a sorted array.</li>          
+          <li> gilt: describe integer into text input: 3216 output: three thousand 2 hundred sixteen</li>
+          <li><a href="http://blogs.msdn.com/b/oldnewthing/archive/2014/05/26/10528351.aspx">best way to get the samallest number in a array</a></li>
+          <li><a href="http://stackoverflow.com/questions/1684917/what-questions-should-a-javascript-programmer-be-able-to-answer">very good list of questions</a></li>
+        </ul>
+        <h3>Medium level question for js3</h3>
+        <ul>
+          <li>what is same origin policy with regards to JS</li>                    
           <li>~~3.14 ?? what and why. <a href="http://stackoverflow.com/questions/5971645/what-is-the-double-tilde-operator-in-javascript">answer here</a> or <a href="http://www.joezimjs.com/javascript/great-mystery-of-the-tilde/">great mystery of tilde</a></li>
           <li>difference between cookies, sessionStorage and local storage</li>
-          <li>what is the typical use of anonymous function</li>
-          <li>Expalin JS module pattern</li>
-          <li>sort in Javascript: <a href="http://www.nczonline.net/blog/tag/computer-science/">computer sci in JS</a></li>
           <li>How would you go about implementing a spreadsheet in a browser. Google it. somebody did it couple of days ago</li>
           <li>“Write your own script that does a JSONP request, without using jQuery. Should work with multiple calls to the function and support async.”</li>
           <li>How would you create an accordion-style nav menu using css and javascript without using jQuery</li>
-          <li>Write a function in Javascript that takes Roman numerals (in String form) and convert it to decimal form. Assume the string is well-formed</li>          
-          <li> asked at google... How would you extend Array in JavaScript so that it could add all the values stored in an array</li>
-          <li>Google Maps allows you to zoom in and out of satellite maps, with terabytes of data accessible via a very fast interface. How would you go about implementing this functionality</li>
           <li>Design a webpage which can auto post new posts when you reach the bottom of the page by using javascript. So you may use AJAX and some javascript event listeners. But, they do not require you remember the functions names, it will be great as long as you can describe your thought and design</li>
-          <li>what are the difference between function expression and function declaration</li>
+          <li><a href="http://stackoverflow.com/questions/2070359/finding-three-elements-in-an-array-whose-sum-is-closest-to-an-given-number">Finding three elements in an array whose sum is closest to an given number</a></li>
+          <li>what is alternative of call back function</li>
           <li>Implement curring arguments</li>
-          <li>AMD, common JS module. what are the differences</li>
+          <li>Second symbol starting index <a href="http://programmingpraxis.com/2013/03/12/an-array-of-two-symbols/#comments">Array of two symbol</a></li>
+          <li><a href="http://programmingpraxis.com/2012/11/09/taxicab-numbers/">Determine if a positive number can be expressed as a sum of two cubes?</a></li>
+          <li><a href="http://programmingpraxis.com/2012/08/14/4sum/">4SUM</a></li>
+          <li>from an array of integers find 10 numbers closest to a given number <a href="http://programmingpraxis.com/2012/11/27/amazon-interview-question/">amazon</a></li>
+          <li> Recreate in html and css a linkedin page.</li>
+          <li>Can you give me a code snippet that uses the with statement? <a href="https://gist.github.com/addyosmani/d1f3ca715ac902788c2d">text editor Adday osmani</a></li>
+          <li>detect useragent in css <a href="http://www.careercup.com/question?id=14410665">career cup</a></li>
+          <li>Major difference between Forward and sendRedirect apart from browser calls sendRedirect and container process forward request? <a href="http://www.careercup.com/question?id=13961670">career cup</a></li>
+          <li>Expalin JS module pattern. AMD, common JS module. what are the differences</li>
           <li>HTML5 API. </li>
           <li>constructors</li>
           <li>what is monkey patching (used by prototype library). why is it bad</li>
+          <li>How would u write a emitter. How could u make it distributed</li>
         </ul>
-        <h2>Facts</h2>
+        <h3>areas to generate question</h3>
         <ul>
-          <li>Everything in JavaScript acts like an object, with the only two exceptions being null and undefined.</li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-        <p>ref: great place to learn JavaScript <a href="http://bonsaiden.github.io/JavaScript-Garden/">JS Garden</a></p>
-      </div>
-      <div>
-        <h2>closure</h2>
-        <p>Why do the anchors, when clicked on, alert -1 instead of their respective counter inside of the loop? How can you fix the code so that it does alert the right number?</p>
-        <pre><code>
-&lt;a href=&quot;#&quot;&gt;text&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;#&quot;&gt;link&lt;/a&gt;
-&lt;script&gt;
-    var as = document.getElementsByTagName('a');
-    for ( var i = as.length; i--; ) {
-        as[i].onclick = function() {
-            alert(i);
-            return false;
-        }
-    }
-&lt;/script&gt;
-        </code></pre>
-        <p>ref: <a href="http://stackoverflow.com/questions/1684917/what-questions-should-a-javascript-programmer-be-able-to-answer">stackoverflow</a></p>
-      </div>
-      <h2>Question about JS</h2>
-        <ul>
-          <li>How to extend a javascript object (<a href="http://stackoverflow.com/questions/11197247/javascript-equivalent-of-jquerys-extend-method">extend</a>)</li>
-          <li>Function as object</li>
-          
-          <li>passing by value or by ref <a href="http://snook.ca/archives/javascript/javascript_pass/">js pass</a></li>
-          <li>How to achieve static variable in JS</li>
+          <li>Write the HTML/CSS for a mockup</li>
           <li>what is html5 why you are using it</li>
           <li>garbage collection</li>
           <li>AJAX call in native JavaScript</li>
@@ -1117,54 +1100,20 @@ obj.first().second().third();
           <li>page request status 200, 400, 500, etc</li>
           <li>request animation frame</li>
           <li>document fragment</li>
+          <li>frame rates</li>
           <li>how to check a form is empty</li>
         </ul>
-        <h2>medium level</h2>
+        <h3>Deleted Questions</h3>  
         <ul>
-          <li>replace every "bb" in a given string like "aaabbc" by "ee" and output should be "aaaeec"</li>
-          <li>From two sorted array how would you find common number?</li>
-          <li>Write the HTML/CSS for a mockup</li>
-          <li>How would u write a emitter. How could u make it distributed</li>
-          <li>From web page, how would u find similar words like rat, cat, bat and broom, groom etc.</li>
-          <li>pagination problem by Tony. [1] 2 3 4 5, ... 2 3 [4] 5 6 ..., 6 [7] 8 9 10 </li>
-          <li>permutation <a href="http://stackoverflow.com/a/21064332/1535443">stack overflow</a></li>
-          <li>get first 100 character long string from a big message but dont cut the last word (word break problem)</li>
-          <li>dealing with Node api like Ethan asked</li>
-          <li>notify any change</li>
-          <li> Function.prototype.bind</li>
-          <li>Why does nearly every object have a toString method?</li>
-          <li>block scope</li>  
-          <li>how do you create static variable in JS</li>        
-          <li> Recreate in html and css a linkedin page.</li>
-          <li>Can you give me a code snippet that uses the with statement? <a href="https://gist.github.com/addyosmani/d1f3ca715ac902788c2d">text editor Adday osmani</a></li>
-          <li>detect useragent in css <a href="http://www.careercup.com/question?id=14410665">career cup</a></li>
-          <li>what exaclty is <code>window</code></li>
-          <li>Major difference between Forward and sendRedirect apart from browser calls sendRedirect and container process forward request? <a href="http://www.careercup.com/question?id=13961670">career cup</a></li>
-          <li>how to flatten an array <a href="http://stackoverflow.com/a/7875151/1535443">stackoverflow</a> or look into <a href="https://github.com/lodash/lodash/blob/master/lodash.js">lo-dash flatten in linke 1440</a></li>
-          <li>Find the max difference of elements from two sorted array with non duplicate integer elements</li>
-          <li>Second symbol starting index <a href="http://programmingpraxis.com/2013/03/12/an-array-of-two-symbols/#comments">Array of two symbol</a></li>
-          <li><a href="http://programmingpraxis.com/2012/11/09/taxicab-numbers/">Determine if a positive number can be expressed as a sum of two cubes?</a></li>
-          <li><a href="http://programmingpraxis.com/2012/08/14/4sum/">4SUM</a></li>
-          <li>from an array of integers find 10 numbers closest to a given number <a href="http://programmingpraxis.com/2012/11/27/amazon-interview-question/">amazon</a></li>
-          <li>find a rotation point of a sorted array.</li>
-          <li><a href="http://stackoverflow.com/questions/2070359/finding-three-elements-in-an-array-whose-sum-is-closest-to-an-given-number">Finding three elements in an array whose sum is closest to an given number</a></li>
-          <li>better way of creating inheritance in javaScript</li>
-          <li>what is alternative of call back function</li>
-          <li> gilt: describe integer into text input: 3216 output: three thousand 2 hundred sixteen</li>
-          <li>frame rates</li>          
-          <li>Scope in JavaScript</li>
-        </ul>  
-      <p>ref: <a href="http://www.w3.org/TR/REC-DOM-Level-1/level-one-core.html">DOM object</a></p>      
-      <div>
-        <h3>More Questions</h3>
-        <ul>
-          <li><a href="http://programmingpraxis.com/">Programming Praxis</a></li>
-          <li><a href="http://blogs.msdn.com/b/oldnewthing/archive/2014/05/26/10528351.aspx">best way to get the samallest number ina array</a></li>
-          <li><a href=""></a></li>
-          <li><a href=""></a></li>
-          <li><a href=""></a></li>
+          <li><a href="http://khan4019.github.io/JSconfusingParts/#/3/6">In JavaScript <code>isNaN(undefined)</code> returns true. how could you fix it?</a></li>
+          <li>what are differences between host object and native object? <a href="http://stackoverflow.com/a/7614380/1535443">read answer here</a></li>          
+          <li>why extending build in JavaScript object is a bad idea  </li>
+          <li>How will you get query string in a browsers URL? <a href="http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript?page=3&tab=votes#tab-top">detail answer</a> or <code>window.location.search;</code></li>
         </ul>
+      <p>ref: <a href="http://www.w3.org/TR/REC-DOM-Level-1/level-one-core.html">DOM object</a></p> 
       </div>
+
+      
 <div>
   <!-- <h3 class="purpleBold">Express anger!</h3>
   <p class="gray">Feel free to express your anger (sorry u have to use facebook). also find out mistakes ( technical, wrong answer, spelling, grammar, sentence, whatever), let ur dude learn and grow.</p>
