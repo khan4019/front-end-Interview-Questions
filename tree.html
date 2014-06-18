@@ -84,7 +84,7 @@
       <div id="questionList">
         <h2>todo list</h2>
         <ul>
-          <li>binary, binary search tree</li>
+          <li>binary, binary search tree <a href="http://blog.yojimbocorp.com/2012/08/21/introduction-to-data-structures-and-algorithms-in-javascript-binary-search-tree/">js bst</a> or <a href="https://gist.github.com/trevmex/821973">bst</a></li>
           <li>balanced, unbalanced tree</li>
           <li>full, complete tree</li>
           <li>red black tree, AVL tree</li>
@@ -101,6 +101,15 @@
           <li><a href="http://en.wikipedia.org/wiki/Minimal_spanning_tree">minimal spanning tree</a></li>
           <li>heap</li>          
         </ul>
+        <h4>tree library</h4>
+        <ul>
+          <li><a href="https://www.npmjs.org/package/node-tree-data">node tree data</a></li>
+          <li><a href="http://jnuno.com/tree-model-js/">tree model</a></li>
+          <li><a href="https://github.com/mauriciosantos/buckets/">bucket</a></li>
+          <li><a href="https://github.com/aaronj1335/t-js">t.js</a></li>
+          <li><a href="https://github.com/stephen-james/DataStructures.Tree">data structure.Tree</a></li>
+          <li><a href="https://github.com/afiore/arboreal">arboreal</a></li>
+        </ul>
         <h4>graph</h4>
         <ul>
           <li><a href="http://en.wikipedia.org/wiki/Directed_graph">directed graph</a></li>
@@ -110,6 +119,37 @@
           <li><a href="http://en.wikipedia.org/wiki/Maximal_flow">maximum flow problem</a></li>
           <li><a href="http://en.wikipedia.org/wiki/Graph_colouring">graph coloring</a></li>
         </ul>
+      </div>
+      <div id="bst">
+        <h2>Binary Search Tree</h2>
+        <p><strong>Question:</strong> How would you create a binary search tree?</p>
+        <p><strong>Answer:</strong></p>
+        <p>to create a tree you need a node. a node in a tree looks like</p>
+        <pre><code>
+var node = {
+  value: 17, 
+  left: null,
+  right: null
+}
+        </code></pre>
+        <p>Create a constructor for binary search tree</p>
+        <pre><code>
+function BinarySearchTree(){
+  this.root = null;
+}
+        </code></pre>
+        <p>Now you need to understand the structure of a binary search tree. For every node value in the left is smaller than the value of the node and value at the right is higher than the value of the root.</p>
+        <p>so while inserting a value you have to find the appropriate location</p>
+        <pre><code>
+BinarySearchTree.prototype.push = function(val){
+  var root = this.root;
+  if(!root){
+    this.root = {value: val, left: null, right: null}
+    return;   
+  }
+  //if root exists
+}
+        </code></pre>
       </div>
       <div>
         <h2>Questions list</h2>
@@ -160,20 +200,20 @@
     <script src="js/toggleExample.js"></script>
     <script type="text/javascript">
       //social plugins
-      //g+
-      (function() {
-        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-        po.src = 'https://apis.google.com/js/platform.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-      })();
-      //fb
-      (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
+      // //g+
+      // (function() {
+      //   var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+      //   po.src = 'https://apis.google.com/js/platform.js';
+      //   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+      // })();
+      // //fb
+      // (function(d, s, id) {
+      //   var js, fjs = d.getElementsByTagName(s)[0];
+      //   if (d.getElementById(id)) return;
+      //   js = d.createElement(s); js.id = id;
+      //   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+      //   fjs.parentNode.insertBefore(js, fjs);
+      // }(document, 'script', 'facebook-jssdk'));
     </script>
     <script type="text/javascript">        
         document.getElementById('listToDestroy').addEventListener('click', function (e) {

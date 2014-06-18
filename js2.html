@@ -46,6 +46,9 @@
       .toggleContent{
         padding: 10px;
       }
+      .item{
+        margin-left: 2em;
+      }
       /*style for demo*/
       
     </style>
@@ -821,6 +824,70 @@ foo();//?
         <p>ref: <a href="http://designpepper.com/blog/drips/object-equality-in-javascript.html">object equality in JS</a></p>
       </div>
       <div>
+        <h2>click hander</h2>
+        <p><strong>Question:</strong> What will happen if you click on the item?</p>
+        <pre><code>
+&lt;div class='item'&gt;Item1&lt;/div&gt;
+&lt;div class='item'&gt;Item2&lt;/div&gt;
+&lt;div class='item'&gt;Item3&lt;/div&gt;
+&lt;div class='item'&gt;Item4&lt;/div&gt;
+        </code></pre>
+        <pre><code>
+var elems = document.getElementsByClassName("item"), i;
+
+for (i = 0; elems.length > i; i++) {
+    elems[i].addEventListener("click", function () {
+        this.innerHTML = "Item" + i + " Clicked";
+    });
+}
+        </code></pre>
+        <div>
+          <button id = "clickClosure" type="button" class="toggleExample btn btn-primary">Show Demo to Click</button>
+          <div id="clickClosureExample" class="hide bg-success toggleContent">
+            <div>
+              <div class='item'>Item1</div>
+              <div class='item'>Item2</div>
+              <div class='item'>Item3</div>
+              <div class='item'>Item4</div>
+            </div>            
+            <p>is that what you have expected?</p>
+          <p><strong>how could you fix it?</strong></p>
+          </div>          
+        </div>
+        <p><strong>Answer:</strong> there could be two different ways to solve it. first one is to execute it immediatey</p>
+        <p><strong>explanation:</strong> as you are looping through a closure is created for the event handler. look <code>i</code> is encapsulated. Now, after loop is over, value of i = 4. and whenever you are clicking on the element it uses the value of i. which is currently 4. Hence doesnt matter which one you are clicking, you will see item4 clicked</p>
+        
+        <pre><code>
+var elems = document.getElementsByClassName("item"), i;
+
+for (i = 0; elems.length > i; i++) {
+  var el= elems[i];
+    (function(elem, idx){
+        elem.addEventListener("click", function () {
+        
+        elem.innerHTML = "Item" + idx + " Clicked";
+     });
+    })(el, i+1);    
+}
+        </code></pre>
+        <p><strong>Solution: </strong> to solve this problem, you can use IIFe (immediate invoking functios expression) this will exectute the function immediately in the loop before going to the next step. Hence current value of <code>i</code> will be used. and in the next one the new value of <code>i</code> would be used.</p> 
+        <div>
+          <button id = "clickClosureFixed" type="button" class="toggleExample btn btn-primary">Show Fixed Demo to Click</button>
+          <div id="clickClosureFixedExample" class="hide bg-success toggleContent">
+            <div>
+              <div class='itemFixed'>Item1</div>
+              <div class='itemFixed'>Item2</div>
+              <div class='itemFixed'>Item3</div>
+              <div class='itemFixed'>Item4</div>
+            </div>            
+            
+          <p><strong>Good job</strong></p>
+          </div>          
+        </div>
+        <p><strong>question:</strong> how could you solve this by using event delegate</p>
+        <p><strong>Answer:</strong> look at previous question</p>
+      </div>
+      <div>
         <h2>must read</h2>
         <h4><a href="http://www.toptal.com/javascript#hiring-guide">Very good JS question</a></h4>
         <ul>          
@@ -982,28 +1049,50 @@ foo();//?
       // }(document, 'script', 'facebook-jssdk'));
     </script>
     <script type="text/javascript">        
-        document.getElementById('listToDestroy').addEventListener('click', function (e) {
-          var elm = e.target.parentNode;
-          elm.parentNode.removeChild(elm);
-          e.preventDefault();
-        }); 
+        // document.getElementById('listToDestroy').addEventListener('click', function (e) {
+        //   var elm = e.target.parentNode;
+        //   elm.parentNode.removeChild(elm);
+        //   e.preventDefault();
+        // }); 
 
-        document.getElementById('doubleHolder').addEventListener('click', function (e) {
+        // document.getElementById('doubleHolder').addEventListener('click', function (e) {
    
-           if(e.target.classList.contains('double')){
-              var btn = document.createElement('button');
-              btn.setAttribute('class', 'double');
-              btn.innerHTML = 'double';
+        //    if(e.target.classList.contains('double')){
+        //       var btn = document.createElement('button');
+        //       btn.setAttribute('class', 'double');
+        //       btn.innerHTML = 'double';
 
-              var btn2 = document.createElement('button');
-              btn2.setAttribute('class', 'double');
-              btn2.innerHTML = 'double';
+        //       var btn2 = document.createElement('button');
+        //       btn2.setAttribute('class', 'double');
+        //       btn2.innerHTML = 'double';
              
-              this.appendChild(btn);
-              this.appendChild(btn2);
-              this.removeChild(e.target);   
-           }
-        }); 
+        //       this.appendChild(btn);
+        //       this.appendChild(btn2);
+        //       this.removeChild(e.target);   
+        //    }
+        // });
+
+        //for item click that doesn't work
+        var elems = document.getElementsByClassName("item"), i;
+        console.log(elems);
+        for (i = 0; elems.length > i; i++) {
+            elems[i].addEventListener("click", function () {
+                this.innerHTML = "Item" + i + " Clicked";
+            });
+        }
+
+        //for item click that works
+        var elemsFixed = document.getElementsByClassName("itemFixed"), i;
+        for (i = 0; elemsFixed.length > i; i++) {
+          var el= elemsFixed[i];
+            (function(elem, idx){
+                elem.addEventListener("click", function () {
+                
+                elem.innerHTML = "Item" + idx + " Clicked";
+             });
+            })(el, i+1);    
+        }
+
     </script>
   </body>
 </html>
