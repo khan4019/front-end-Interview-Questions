@@ -824,7 +824,7 @@ foo();//?
         <p>ref: <a href="http://designpepper.com/blog/drips/object-equality-in-javascript.html">object equality in JS</a></p>
       </div>
       <div>
-        <h2>click hander</h2>
+        <h2>click hander unintended closure</h2>
         <p><strong>Question:</strong> What will happen if you click on the item?</p>
         <pre><code>
 &lt;div class='item'&gt;Item1&lt;/div&gt;
@@ -886,6 +886,27 @@ for (i = 0; elems.length > i; i++) {
         </div>
         <p><strong>question:</strong> how could you solve this by using event delegate</p>
         <p><strong>Answer:</strong> look at previous question</p>
+      </div>
+      <div>
+        <h2>delete can delete but</h2>
+        <pre><code>
+(function() {
+    var myObject = {
+        price: 20.99,
+        get_price : function() {
+            return this.price;
+        }
+    };
+    var customObject = Object.create(myObject);
+    customObject.price = 19.99;
+    
+    delete customObject.price;
+    console.log(customObject.get_price());
+})();
+        </code></pre>
+        <p><strong>Question:</strong> What will you see in console?</p>
+        <p><strong>Answer:</strong> you will see 20.99</p>
+        <p><strong>Explanation:</strong> This is actually interesting problem. </p>
       </div>
       <div>
         <h2>must read</h2>
