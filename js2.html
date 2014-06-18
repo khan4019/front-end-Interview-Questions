@@ -965,13 +965,16 @@ function cacheFn(fn) {
         <pre><code>
 //two tricky part here.
 //1. the key you are putting in the cache = {} object
-//javascript object comparision is tricky
+//javascript object comparision is tricky.
+//Hence, we will create a key/hash which is simply concatenating all the arguments
+//however in arguments, you cant apply join as its not array...
+//hence ... use ur brain
 //2. you have to use apply while executing function
 //2.a. 
 //     the return function will be 
 return function(){
   var args = arguments;  
-  var key = args.join('');
+  var key = [].slice.call(args).join('');
   if(cache[key]){
       return cache[key];
   }
@@ -1006,11 +1009,20 @@ exec(slow).done(function(data){
 })
         </code></pre>
         <p>Too much sleepy now. will try to put it up tomorrow.</p>
-        <h4>i completely forgot it. so, shame</h4>
+        <pre><code>
+var obj = {   // every method returns obj---------v
+    first: function() { console.log('first');   return obj; },
+    second: function() { console.log('second'); return obj; },
+    third: function() { console.log('third');   return obj; }
+}
+
+obj.first().second().third();
+        </code></pre>        
+        <p>ref: <a href="http://stackoverflow.com/questions/7475336/how-does-jquery-chaining-work">jquery like chaining</a></p>
       </div>
       <div>
         <h2>must read</h2>
-        <h4><a href="http://www.toptal.com/javascript#hiring-guide">Very good JS question</a></h4>
+        <h4><a href="http://blog.buymeasoda.com/creating-a-jquery-like-chaining-api/">Very good JS question</a></h4>
         <ul>          
           
           <li>if you have a function. inside it there is a for loop. i to 10 and you have settimeout. inside settimeout you have console.log(i). What will you get in the console and why. Explain why this happened</li>
