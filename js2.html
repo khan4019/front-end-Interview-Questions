@@ -87,33 +87,16 @@
 
       <h2>Todo list</h2>
       <p>this would be js related question part-1 and then part2</p>
-      <p>you could have seperate dom related qustion</p>
-      <p>and then sorting, tree, graph and very very high level</p>
-      <p>high level quesstions</p>
+      <p>Question specific to the programming language</p>
       <ul>
         <li><a href="http://ariya.ofilabs.com/2014/05/the-curious-case-of-javascript-nan.htm">NaN </a> or <a href="http://khan4019.github.io/JSconfusingParts/#/3/6">js confusing parts</a></li>
-        <li>parseInt related</li>
-        <li><a href="http://khan4019.github.io/JSconfusingParts/#/9/1">sum?</a></li>
-        <li><a href="http://khan4019.github.io/JSconfusingParts/#/10/2">arguments</a></li>
-        <li>next argumants: couple slide below</li>
-        <li>local varaibles get priory</li>
         <li>typeof</li>
         <li>instance of</li>
         <li><a href="http://khan4019.github.io/JSconfusingParts/#/20/5">dot</a></li>
-        <li><a href="http://stackoverflow.com/questions/1684917/what-questions-should-a-javascript-programmer-be-able-to-answer">very good list of questions</a></li>
-        <li></li>
+        <li><a href="http://stackoverflow.com/questions/1684917/what-questions-should-a-javascript-programmer-be-able-to-answer">very good list of questions</a></li>        
+        <li>add one scope related question and give link to the blog</li>
+        <li>explain timer related question or at least one animation in the high perf js</li>        
       </ul>
-      <p>in the next part for JS specific qustions</p>
-      <p>talk about</p>
-      <ul>
-        <li>closure</li>
-        <li>hoisting</li>
-        <li>scope</li>
-        <li>prototype</li>
-        <li>timer</li>
-        <li>etc</li>
-      </ul>
-      
       <div>
         <h2>null vs undefined</h2>
         <p><strong>Question:</strong>What is the difference between null and undefined.</p>
@@ -334,6 +317,23 @@ console.log(sum);
         <p><strong>Basic:</strong> for in always loop over keys. JavaScript array is inherited from object and all the elements in the array is like key value pair in the object<code>{0:10, 1:20, 2:30}</code> where key is 0, 1, 2 etc. When you are accessing values by passing index, you are actully accessing by key.</p>
         <p>thats why when an index doesnt exist, Javascript returns undefined not array out of index. As the index(key) doesnt exists in the object.</p>
         <p><strong>Explanation:</strong> as for in looping over keys and keys are always string type, its concatenating <code>0+'0'</code> which becomes <code>'00'</code> and then u add '1' and '2'. Which eventually results '0012'. Quite unexpected, isnt it?</p>
+      </div>
+      <div>
+        <h2>arguments</h2>
+        <p><strong>Question:</strong> Write a simple function, that will tell you whether 2 is as parameter?</p>
+        <p><strong>Answer:</strong> I know JavaScript function has an argument array. i can check whether indexOf 2 is != -1. if it is -1 its not passed otherwise, it is passed.</p>
+        <pre><code>
+//check whether 2 is passed as argument
+function isTwoPassed(){
+  return arguments.indexOf(2)!=-1;
+}
+isTwoPassed(1,4) //?
+        </code></pre>
+        <p><strong>Very Unfortunate:</strong> when you said arguments is an array, you made a mistake. arguments is an illusion of an array. More precisely, its array like but not array</p>
+        <p><strong>Are you drunk?</strong> I can use length of arguments, loop over it, i can access by index. What are you talking about?</p>
+        <li>how to use methods on array in arguments. more specifically foreach</li>
+        <li>dont mess up with names</li>
+        <p>ref: <a href="http://khan4019.github.io/JSconfusingParts/#/10/2">get more from here</a></p>
       </div>
       <div id="extension">
         <h2>Extend Core Object</h2>
