@@ -983,6 +983,32 @@ return function(){
         </code></pre>
       </div>
       <div>
+        <h2>implement jquery style chaining</h2>
+        <p><strong>Question:</strong> If you need to implement the following chaining with call back, how will you implement it?</p>
+        <pre><code>
+function slow(callback) {
+    setTimeout(function(){
+        if (Math.random() > 0.5) {
+            return callback("Error 417",null)
+        }
+        callback(null, {id:123})
+    },500);
+}
+
+function exec(fn){
+//write your code here
+}
+
+exec(slow).done(function(data){
+    console.log(data);
+}).fail(function(err){
+    console.log("Error: " + err);
+})
+        </code></pre>
+        <p>Too much sleepy now. will try to put it up tomorrow.</p>
+        <h4>i completely forgot it. so, shame</h4>
+      </div>
+      <div>
         <h2>must read</h2>
         <h4><a href="http://www.toptal.com/javascript#hiring-guide">Very good JS question</a></h4>
         <ul>          
