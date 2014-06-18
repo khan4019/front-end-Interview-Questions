@@ -906,7 +906,81 @@ for (i = 0; elems.length > i; i++) {
         </code></pre>
         <p><strong>Question:</strong> What will you see in console?</p>
         <p><strong>Answer:</strong> you will see 20.99</p>
-        <p><strong>Explanation:</strong> This is actually interesting problem. </p>
+        <p><strong>Explanation:</strong> This is actually interesting problem. when you create <code>object.create(myObject)</code> you are creating new object where the <code>myObject</code> will be the parent of the newly created object.</p>
+        <p>when you <code>delete customObject.price</code> it deletes the <code>price</code> property in the customObject. However, when you call the method getprice. it looks for <code>this.price</code> since the customObject doesnt have price property, JavaScript executor walks through the prototype chain towards the parent. since customObject was inherited from myObject and myObject has a <code>price</code> property. the get_price method returns the price</p>
+      </div>
+      <div>
+        <h2>memoization</h2>
+        <p><strong>Question:</strong> How could you implement cache to save calculation time for the following code</p>
+        <pre><code>
+function _fibonacci(n) {
+   if (n &lt; 2){
+     return 1;
+   }else{
+     fibonacci(n-2) + fibonacci(n-1);
+   }
+}
+        </code></pre>
+        <p><strong>Answer:</strong> You could use poor man's memoization like</p>
+        <pre><code>
+var memo = [];
+function _fibonacci(n) {
+   if (n &lt; 2){
+     return 1;
+   }else{
+       if(memo[n]){
+           alert('never');
+          return memo[n];
+       }
+       else{
+           memo[n] = fibonacci(n-2) + fibonacci(n-1);    
+           return memo[n];
+       }
+   }
+}
+        </code></pre>
+        <p><strong>Don't be happy:</strong> This will not actually work if you look into the code. it is going from n to 1. Hence you are calculating for higher numbers and storing it and next time, you are looking for a lower number. lower number doesnt exists, you calculate and cache it. and this is going on and on. you are calculating and caching towards 1. and never use cached one.</p>
+        <p>so what is the solution?</p>
+        <pre><code>
+//stay tuned. its not tough at all.
+        </code></pre>
+        <p><strong>Question:</strong> write a method that you can cache any function</p>
+        <pre><code>
+function cacheFn(fn) {
+    var cache={};
+    
+    return function(arg){
+        if (cache[arg]){
+           return cache[arg];
+        }
+        else{
+           cache[arg] = fn(arg);
+            return cache[arg];
+        }
+    }
+    
+}
+        </code></pre>
+        <p><strong>Question:</strong> what if you are apssing more than one argument?</p>
+        <pre><code>
+//two tricky part here.
+//1. the key you are putting in the cache = {} object
+//javascript object comparision is tricky
+//2. you have to use apply while executing function
+//2.a. 
+//     the return function will be 
+return function(){
+  var args = arguments;  
+  var key = args.join('');
+  if(cache[key]){
+      return cache[key];
+  }
+  else{
+      cache[key] = fn.apply(thi, args);
+      return cache[key];
+  }
+}
+        </code></pre>
       </div>
       <div>
         <h2>must read</h2>
