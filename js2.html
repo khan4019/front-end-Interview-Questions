@@ -43,6 +43,30 @@
       { 
         color: rgba(218, 209, 149, 0.98);
       }
+      .imageContainer{
+        overflow: hidden;
+        margin: 1% 0 1% 0;
+      }
+      .imageHolder{
+        float: left;
+        padding: 1%;
+        margin: 0 1%;
+        border: 10px solid #f5f5f5;
+        border-radius: 8px;
+      }
+      .imageHolder img{
+        max-height: 180px;
+        height: 180px;
+        width: 280px;
+        float: left;        
+      }
+      .imgTitleHolder{
+        margin: 0 0 0 8%;
+      }
+      .imageHolder .imageTitle{
+        font-weight: bold;
+        font-size: 1.2em;
+      }
       .toggleContent{
         padding: 10px;
       }
@@ -326,8 +350,8 @@ date; //Fri May 16 2014 20:47:14 GMT-0500 (Central Daylight Time)
 date.addOneDay;//Sat May 17 2014 20:47:14 GMT-0500 (Central Daylight Time)
         </code></pre>
         <div>
-          <button id = "eventBubble" type="button" class="toggleExample btn btn-primary">Show Similar Question</button>
-          <div id="eventBubbleExample" class="hide bg-success toggleContent">
+          <button id = "extendCoreObjectMore" type="button" class="toggleExample btn btn-primary">Show Similar Question</button>
+          <div id="extendCoreObjectMoreExample" class="hide bg-success toggleContent">
             <p><strong>Question: </strong> if i have a <code>var str = 'hello world'</code>, how could i get <code>str.reverse()</code> return 'dlrow olleh'</p>
             <p><strong>Answer:</strong> you have to extend the core String Object</p>
             <pre><code>
@@ -395,23 +419,17 @@ rossFeeDeductor(); //"Ross Geller remaining balance is 200"
 Array.prototype.slice.call(arguments);
         </code></pre>
         <p>what are we doing here? we are calling the slice method of an array and use it on arguments. The value of this would be arguments. The first parameter of call function is always be treated as value of this.</p>
-        <p>this will convert an array like object to an array and then use methods of array in it. For example, arguments don't have a <code>.reverse()</code> you will get a TypeError</p>
+        <p>this will convert an array like object to an array and then use methods of array in it.</p>
+        <p><strong>How:</strong> How does it work? it actually calling the slice method of an array (array has slice method) and then the first parameter passed in the call function will be the value of this. Here, arguments (array like object) will be this.</p>
+        <p><strong>Question:</strong> Math.max takes a collection of arguments to find the max. How could you pass an array to find the max?</p>
         <pre><code>
-function myFunc(){
-  return arguments.reverse();  
+function getMax(arr){
+  return Math.max.apply(null, arr);  
 }
-
-myFunc(1,2,3); //TypeError: undefined is not a function
         </code></pre>
-        <p>to solve this problem, you can call a slice method of Array and convert arguments to an array.</p>
-        <pre><code>
-function myFunc(){
-  var args = Array.prototype.slice.call(arguments);
-  return args.reverse();  
-}
-
-myFunc(1,2,3); //[3, 2, 1]
-        </code></pre>
+        <p><strong>Explanation: </strong> Here we are using apply method.</p>
+        <p>For the both cases (call and apply), the first argument is the value of this. the difference is, call use a collection of arguments. whereas apply use an array of arguments. Hence, apply has two arguments, first one is this and second one array of arguments.</p>
+        <p>if you have weaker memory like i have, you can remember apply starts with "a" and array starts with "a"</p>
         <div>
           <button id = "callApplyDetail" type="button" class="toggleExample btn btn-primary">Show Detail Example</button>
           <div id="callApplyDetailExample" class="hide bg-success toggleContent">
@@ -464,22 +482,28 @@ shelod.isExpertOf.call(raj, 'ember'); //false
         <p></p>
       </div>    
       <div id="checkInteger">
+        <h2>Check Integer</h2>
         <p><strong>Question:</strong> How you can check integer in JavaScript</p>
-        <p><strong>Answer: </strong>5 ways</p>
+        <p><strong>Answer: </strong> There are 5 ways to check integer</p>
         <pre><code>
+//1
 Number.IsInteger(num); 
+//2
 num === parseInt(num);
 !isNaN(num) && num== parseInt(num);
+//3
 num%1 === 0; 
 typeof num == 'number' && num%1===0
+//4
 Math.round(num)===num;
+//5
 num == ~~num; //'1' will give you true
 num == num + 0 && num == ~~num;
         </code></pre>
+        <p>try to understand first 4 by yourself and don't ask me to explain number 5.</p>
       </div>        
       <div>
         <h2>rapid fire</h2>
-        <h4>could break it down into areas with some explanation</h4>
         <p><strong>Question:</strong> What is <code>typeof []</code></p>
         <p><strong>Answer:</strong> Object. Actually Array is derived from Object.</p>
         <p><strong>Question:</strong> What is <code>typeof arguments</code></p>
@@ -536,7 +560,14 @@ num == num + 0 && num == ~~num;
         <p><strong>Anwser:</strong></p>
       </div>            
       <div id="insertSpace">
-        <h2>log function</h2>        
+        <h2>log function</h2>
+        <p><strong>Question:</strong> Write a function that can log anything in the console.</p>
+        <p><strong>Answer: </strong>It's very simple</p>
+        <pre><code>
+function log(toLog){
+  console.log(toLog);
+}
+        </code></pre>        
         <p><strong>Question:</strong> Problem with this one is, if you pass more than one arguments to the log function all arguments after the first one will not be logged. How could you fix it?</p>
         <pre><code>
 function log(){
@@ -552,7 +583,7 @@ function log(){
   console.log.apply(console, args);
 }
         </code></pre>
-        <p>this will take all the arguments you are p</p>
+        <p>This will take all the arguments you are passing</p>
         <p><strong>Question:</strong> If an older browser dont have bind function, how will you shim it</p>
         <p><strong>Answer:</strong></p>
         <pre><code>
@@ -576,19 +607,101 @@ Function.prototype.bind = Function.prototype.bind || function(context){
 //put something here
         </code></pre>
       </div>      
-      <div id="equality">
-        <p><strong>Question:</strong> What are the difference between == and ===</p>
-        <p><strong>Answer:</strong> <a href="http://stackoverflow.com/a/1813267/1535443">stack overflow</a></p>
-      </div>
-      
       <div id="inheritance">
         <h2>inheritance</h2>
         <p><strong>Question:</strong> How would you perform inhertiance in JavaScript?</p>
         <p><strong>Answer:</strong> ddddd</p>
       </div>
+      <div>
+        <h2>Scope and hoisting</h2>
+        <p><strong>Question:</strong> what will you see in the console for the following example?</p>
+        <pre><code>
+var a = 1; 
+  function b() { 
+     a = 10; 
+     return; 
+     function a() {} 
+  } 
+ b(); 
+ console.log(a);          
+        </code></pre>
+        <p><strong>Answer:</strong>   </p>
+        <h4>Explanation:</h4>
+        <ul>
+          <li>function declaration <code>function a(){}</code> is hoisted first and it behaves like <code>var a = function () {};</code>, hence in local scope a is created.</li>
+          <li>If you have two variable with same name (one in global another in local), local variable always get precedence over global variable.</li>
+          <li>When you set <code>a = 10;</code>, you are setting the local variable <code>a</code> , not the global one. Hence, the value of global variable remain same and you get, 1 in the log. ref: js hoisting/scope</li>
+        </ul>
+        <p>ref: <a href="https://www.youtube.com/watch?v=7INtYcr8QIY">watch this video</a> <a href="http://www.thatjsdude.com/jsConcepts/concepts/scope.html">learn more about scope and hoisting</a></p>
+      </div>
+      <div>
+        <h2>Closure</h2>
+         <p>If you have a function within a function, execution of the inner function will create a scope inside of the outer function- a nested scope. Because the inside function scope is enclosed by the outer function scope, the inner function scope is called a closure (I invented this definition). Remember, to be a closure, you dont have to return a function, you just have to call a function inside a function.</p>
+         <pre><code>
+function a(){
+  function b(){
+     console.log('closure');
+  }
+  b(); //creates closure
+}
+         </code></pre>
+         <div>
+          <button id = "clsoureExplanation" type="button" class="toggleExample btn btn-primary">Show More Explanation</button>
+          <div id="clsoureExplanationExample" class="hide bg-success toggleContent">
+            <p><strong>Closure Explanation:: </strong>Closure is a powerful feature of JavaScript. Let's have a look into the following example. We have a outer function called "counter" that has a local/private variable "i" and it returns a function (the returning function doesn't have a name and is known as the anonymous function). Inside the returning function (the inner function) returns the value of i and increases it by 1. Aha, very simple!</p>
+         <pre><code>
+function counter(){
+    var i = 0;
+    
+    return function(){
+       return i++;
+    }
+}
+         </code></pre>
+         <p> <strong>Step-1: </strong>In the following code, we execute a counter function and assign the result of the counter to a variable "a". Hence, the value of "a" will be the inner function (returning function). Just remember the inner function returns the value of "i" and also increase the value of "i". Hence, when you execute the function "a", you will get the value of "i".</p>
+         <p><strong>Step-2: </strong> Now if you execute function "a" (execute inner function), it will return 0 (value of i)  and will increase it by 1. If you execute function "a" again it will return 1 (current value of i)  and will increase the value of "i" by 1. Hence, in your subsequent call you will get 2, 3, 4, 5 ....</p>
+         <p>This means, closure holds the state of the local/private variable in the outer scope. And every time, you call it you get the value of "i" increased by 1. Have a look at Image-22 and try to understand it. If you don't get it the time around .... try, try again!</p>
+         
+         <pre><code>
+var a = counter();
+a(); //0
+a(); //1
+a(); //2
+a(); //3
+a(); //4
+a(); //5
+         </code></pre>
+         <p>Now you can have another variable "b" and assign the execution result of the function counter. If you execute "b" (the inner function of the counter), you will get 0. If you execute "b" again, you will get 1. followed by 2, 3, 4, ...</p>
+         <pre><code>
+var b = counter();
+b(); //0
+b(); //1
+b(); //2
+b(); //3
+         </code></pre>
+          <p>This means, each closure maintains separate private variables of the outer function. This is a very powerful feature of JavaScript. Have a look at Image-23</p>   
+          <div class="imageContainer">            
+            <div class="imageHolder">
+              <img src="images/scope/closureOneFunc.png" alt="">             
+              <p class="imgTitleHolder"><span>Image-22: </span><span class="imageTitle">Scope inside Scope</span></p>
+            </div>
+            <div class="imageHolder">
+               <img src="images/scope/closureTwoFunc.png" alt="">              
+              <p class="imgTitleHolder"><span>Image-23: </span><span class="imageTitle">Separate Privacy</span></p>
+            </div>             
+            <div class="imageHolder">
+              <img src="images/scope/closure.jpg" alt="">             
+              <p class="imgTitleHolder"><span>Image-24: </span><span class="imageTitle">Closure is Fun</span></p>
+            </div>
+          </div>
+          <p><strong>Encapsulation:: </strong>You would not be able to access (get or set) the value of "i" from outside. Hence the privacy of the value of "i" is maintained secretly. This is called encapsulation in object oriented programming.</p>
+          </div>
+        </div>
+         
+      </div>
       <div id="safeCoding">
         <h2>Save hasOwnProperty</h2>
-        <p><strong>Question:</strong> If you mistakenly overrirde some of the build in method like <code>hasOwnProperty</code> how you will make sure its works</p>
+        <p><strong>Question:</strong> If you mistakenly override some of the build in method like <code>hasOwnProperty</code> how you will make sure its works</p>
         <p><strong>Answer:</strong></p>
         <pre><code>
 var foo = {
@@ -979,10 +1092,9 @@ obj.first().second().third();
       </div>
       <div>
         <h2>Question bank</h2>
-        <ul>          
-          <li>add one scope related question and give link to the blog</li>
+        <ul>
           <li>explain timer related question or at least one animation in the high perf js</li>          
-          <li>How to achieve static variable in JS</li>   
+          <li><a href="http://www.thatjsdude.com/jsConcepts/concepts/scope.html#closure">closure</a></li>   
           <li>curring in JS</li>
           <li>what is the typical use of anonymous function</li>
           <li>what are the difference between function expression and function declaration</li>           
