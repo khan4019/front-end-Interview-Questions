@@ -86,7 +86,7 @@
       <p class="gray"> <span class="purpleBold">More Questions</span> <a href="css.html">css interview questions</a>, <a href="html.html">html interview questions</a> </p> -->
       <div>
         <h2>null vs undefined</h2>
-        <p><strong>Question:</strong>What is the difference between null and undefined.</p>
+        <p><strong>Question: </strong> <code>null == undefined</code> why they there are two things when they are equal?</p>
         <p><strong>Answer:</strong> <code>undefined</code> means, value of the variable is not defined. More specifically, you declared a variable but no value has been assigned to that variable.</p>
         <p><code>null</code> means empty or non-existent value. null is a primitive value and you can assign null to any variable.</p>
         <p>Where as undefined is a primitive type, null is a type of object. you can set variable to undefined but it is recommended to set it to null (if required) so that you can distinguish between null and undefined. though <code>null == undefined</code></p>
@@ -119,21 +119,21 @@
             <p>Still, in order to compare something against the value of undefined, it is necessary to retrieve the value of undefined first.</p>
             <p>To protect code against a possible overwritten undefined variable, a common technique used is to add an additional parameter to an anonymous wrapper that gets no argument passed to it.</p>
             <pre><code>
-      var undefined = 123;
-    (function(something, foo, undefined) {
-        // undefined in the local scope does 
-        // now again refer to the value `undefined`
+var undefined = 123;
+(function(something, foo, undefined) {
+    // undefined in the local scope does 
+    // now again refer to the value `undefined`
 
-    })('Hello World', 42);
+})('Hello World', 42);
             </code></pre>
             <p>Another way to achieve the same effect would be to use a declaration inside the wrapper.</p>
             <pre><code>
-    var undefined = 123;
-    (function(something, foo) {
-        var undefined;
-        ...
+var undefined = 123;
+(function(something, foo) {
+    var undefined;
+    ...
 
-    })('Hello World', 42);
+})('Hello World', 42);
             </code></pre>
             <p>The only difference here is that this version results in 4 more bytes being used in case it is minified, and there is no other var statement inside the anonymous wrapper.</p>
             
@@ -149,8 +149,7 @@
       <div id="trueLies">
         <h2>True and False</h2>
         <p><strong>Question:</strong> What are the truthy and falsy values in JavaScript</p>
-        <p><strong>Answer:</strong></p>
-        <h3>Falsy values</h3>  
+        <p><strong>Answer:</strong> In javascript 6 things are falsy and they are-</p>
         <ul>
           <li>false</li>
           <li>null</li>
@@ -159,7 +158,7 @@
           <li>0</li>
           <li>NaN</li>
         </ul>
-        <h3>truthy</h3>
+        <p><strong>truthy:</strong> is very simple. there is only two truthy things-</p>
         <ul>
           <li>true</li>
           <li>Everything that is not false</li>
@@ -171,72 +170,53 @@
             <p><strong>Question:</strong> is <code>'false'</code> is false?</p>
             <p><strong>Answer:</strong> no. because, its a string with length greater than 0. Only empty string is false</p>
             <p><strong>Question:</strong> is <code>' '</code> is false?</p>
-            <p><strong>Answer:</strong>no. because, its not an empty string. there is a white space in it. </p>
+            <p><strong>Answer:</strong> no. because, its not an empty string. there is a white space in it. </p>
             <p><strong>Question: </strong>what about <code>{}</code>?</p>
-            <p><strong>Answer: </strong>true. its an object. An object without any property is an object can't be falsy</p>
+            <p><strong>Answer: </strong>true. its an object. An object without any property is an object can't be falsy.</p>
             <p><strong>Question: </strong>tell me about <code>[]</code>?</p>
             <p><strong>Answer: </strong> this is also truthy. its an array object (array is child of object) is truthy.</p>
             <p><strong>Question: </strong>you talked bout <code>''</code> to be falsy. what about <code>new String('')</code>? </p>
             <p><strong>Answer:</strong>Though you are passing empty string to the string constructor. it is creating an String object. or more precisely a instance of String object. It becomes an object. Hence, it is not false. so, it is truthy.</p>
             <p><strong>Question:</strong> tell me about <code>new Boolean(false)</code></p>
             <p><strong>Answer:</strong> truthy. as it creates an instance of the Boolean object. which is an object. and object is truthy</p>
-            <p><strong>Question: </strong><code>Boolean(function(){})</code></p>
-            <p><strong>Answer: </strong><code>true</code></p>
-            <p><strong>Question: </strong><code>Boolean(/foo/)</code></p>
-            <p><strong>Answer: </strong><code>true</code></p>
-            <P><strong>Question:</strong><code>true%1</code></P>
-            <P><strong>Answer:</strong>0</P>
-            <P><strong>Question:</strong><code>''%1</code></P>
-            <P><strong>Answer:</strong>0</P>
+            <p><strong>Question: </strong> <code>Boolean(function(){})</code></p>
+            <p><strong>Answer: </strong> <code>true</code></p>
+            <p><strong>Question: </strong> <code>Boolean(/foo/)</code></p>
+            <p><strong>Answer: </strong> <code>true</code></p>
+            <P><strong>Question:</strong> <code>true%1</code></P>
+            <P><strong>Answer:</strong> 0</P>
+            <P><strong>Question:</strong> <code>''%1</code></P>
+            <P><strong>Answer:</strong> 0</P>
           </div>
         </div>
         <br>
-        
-      </div>
-      <div id="doubleOrTripleEqual">
-        <h2>== or ===</h2>
-        <p><strong>Question:</strong>What are the difference between <code>==</code> and <code>===</code></p>
-        <p><strong>Answer: </strong> Talk about implicit and explicit coercion</p>
-        
-      </div>
+        <div id="doubleOrTripleEqual">
+          <h2>== or ===</h2>
+          <p><strong>Question:</strong>What are the difference between <code>==</code> and <code>===</code></p>
+          <p><strong>Answer: </strong> <a href="http://stackoverflow.com/a/359509/1535443">read answer here</a></p>
+          
+        </div>
       <div id="truthyVsEqality">
         <h2>Truthy Vs Equality</h2>
         <p><strong>Question: </strong> For the code below, what will be logged?</p>
           <pre><code>
 if([]){
-  console.log('empty array is true');
+  console.log('is empty array is true?');
 }
 
 if([0]==true){
-  console.log('will not log this value.')
+  console.log('will this be looged?')
 }
 
           </code></pre>
           <p><strong>Answer:</strong> First one log. but second one will not log</p>
-          <p><strong>Question: </strong> Can you explain why second one will not be logged</p>
-          <p><strong>Answer:</strong> The first one is a truthy check. in that canse empty array is an object. and object is always truthy and it will go to inside of the if block and code will be executed</p>
-          <p>However, for the second part. it is an equality check with <code>==</code> (double equal). Hence there will be some implicit coercion. You have to understand core JavaScript implementation in a JavaScript engine like V8</p>
-          <p>what will happen. since they are two different types, JavaScript can't compare them directly . Hence, under the hood, JavaScript will convert them to compare. first right side of the equality will be cooereced to a number type by using <code>otNumber</code> (JavaScript doesnt have toNumber. this is toNumber of JavaScript implementation in C). and number of <code>true</code> would be 1.</p>
+          <p><strong>Question: </strong> Can you explain why second one will not be logged?</p>
+          <p><strong>Answer:</strong> The first one is a truthy check. in that case empty array is an object. and object is always truthy and it will go to inside of the if block and code will be executed.</p>
+          <p>However, for the second part. it is an equality check with <code>==</code> (double equal). Hence there will be some implicit coercion.</p>
+          <p>Since they are two different types, JavaScript can't compare them directly . Hence, under the hood, JavaScript will convert them to compare. first right side of the equality will be cooereced to a number type by using <code>toNumber</code> (JavaScript doesnt have toNumber. this is toNumber of JavaScript implementation in C. for example V8 has implementation of JavaScript). and number of <code>true</code> would be 1.</p>
           <p>after that, JavaScript implementation will try to convert [0] by using<code>toPrimitive</code> (of JavaScript implementation). since [0].valueOf is not primitive will use <code>toString</code> and will get <code>"0"</code></p>
           <p>still left and right is not same type. hence left side will be converted again to a number. "0" will be 0.</p>
           <p>finally, you are comparing <code>0==1</code> which will be false anyway</p>
-          <pre><code>
-//EQUALITY CHECK...
-[0] == true; 
- 
-//HOW IT WORKS...
-//convert boolean using toNumber
-[0] == 1;
-//convert object using toPrimitive
-//[0].valueOf() is not a primitive so use...
-//[0].toString() -> "0"
-"0" == 1; 
-//convert string using toNumber
-0 == 1; //false!
-          </code></pre>
-          <div class="bg-danger">
-            <h4>Work on this and try to explain it better.</h4>
-        </div>
       </div>
       <div id="areYouAnExpert">
         <h2>are you really an expert?</h2>
@@ -246,7 +226,7 @@ if([0]==true){
 'expert' == false; //false
         </code></pre>
         <p><strong>Answer:</strong> This need to be explained how equality (==) or double equals works in JavaScript.</p>
-        <p>if you are using <code>==</code>. javascript does coercing. this means, it doesnt check the type of the object. while ignoring types of the two things you are comparing. JavaScript, under the hood actually convert them to complare if they are not same type. In this particular example</p>
+        <p>If you are using <code>==</code>. javascript does coercing. this means, it doesnt check the type of the object. while ignoring types of the two things you are comparing. JavaScript, under the hood actually convert them to complare if they are not same type. In this particular example</p>
         <p>Since, both side is different, they get coerced to number using <code>toNumber</code> (JavaScript implementation: in V8, etc. ). right side get coerced first and then left side. </p>
         <pre><code>
 //for
@@ -284,13 +264,15 @@ NaN == NaN; // false
 typeof(NaN); //number
 isNaN(NaN);//use it
                       </code></pre>
-                  </div>
-                  <p>ref: <a href="http://www.sitepoint.com/javascript-truthy-falsy/">truthy and falsy</a></p>
+                  </div>                  
                 </div>
-        <p>ref: <a href="http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/">angus croll: truth and eqality in JS</a></p>
+        <p>ref: <a href="http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/">angus croll: truth and eqality in JS</a>, ref: <a href="http://www.sitepoint.com/javascript-truthy-falsy/">truthy and falsy</a></p>
       </div>
+
+      </div>      
       <div>
-        <h2>what is sum for the following code?</h2>
+        <h2>for in looping</h2>
+        <p><strong>Question: </strong> What is sum for the following code?</p>
         <pre><code>
 var numbers = [10, 20, 30];
 var sum = 0;
@@ -307,8 +289,8 @@ console.log(sum);
       </div>
       <div>
         <h2>arguments</h2>
-        <p><strong>Question:</strong> Write a simple function, that will tell you whether 2 is as parameter?</p>
-        <p><strong>Answer:</strong> I know JavaScript function has an argument array. i can check whether indexOf 2 is != -1. if it is -1 its not passed otherwise, it is passed.</p>
+        <p><strong>Question:</strong> Write a simple function, that will tell you whether 2 is passed as parameter or not?</p>
+        <p><strong>Answer:</strong> I know JavaScript function has an argument array. i can check whether indexOf(2) is != -1. if it is -1 its not passed otherwise, it is passed.</p>
         <pre><code>
 //check whether 2 is passed as argument
 function isTwoPassed(){
@@ -318,13 +300,20 @@ isTwoPassed(1,4) //?
         </code></pre>
         <p><strong>Very Unfortunate:</strong> when you said arguments is an array, you made a mistake. arguments is an illusion of an array. More precisely, its array like but not array</p>
         <p><strong>Are you drunk?</strong> I can use length of arguments, loop over it, i can access by index. What are you talking about?</p>
-        <li>how to use methods on array in arguments. more specifically foreach</li>
-        <li>dont mess up with names</li>
-        <p>ref: <a href="http://khan4019.github.io/JSconfusingParts/#/10/2">get more from here</a></p>
+        <p>arguments is an array like object that has length but doesnt have the methods like forEach, indexOf, etc. to use all these methods on array you can easily do it by using the following code</p>
+        <pre><code>
+//check whether 2 is passed as argument
+function isTwoPassed(){
+  var args = Array.prototype.slice.call(arguments);
+  return args.indexOf(2) != -1;
+}
+isTwoPassed(1,4) //false
+isTowPassed(5,3,1,2) //true
+        </code></pre>                 
       </div>
       <div id="extension">
         <h2>Extend Core Object</h2>
-        <p><strong>Question:</strong> How could you write a method on instance of a date which will give you next day.</p>
+        <p><strong>Question:</strong> How could you write a method on instance of a date which will give you next day?</p>
         <p><strong>Answer:</strong> I have to declare a method on the prototype of Date object. To get access to the current value of the instance of the date, i will use this</p>
         <pre><code>
 Date.prototype.addOneDay = function(){
@@ -362,13 +351,13 @@ Array.prototype.duplicator=function(){
 
 [1,2,3,4,5].duplicator(); // [1,2,3,4,5,1,2,3,4,5]
             </code></pre>
-            <p>If you dont understand, how this works. take a nap and dont come back.</p>
+            <p>If you don't understand, how this works. take a nap and don't come back.</p>
           </div>
         </div>
       </div>
       <div id="bindthis">
         <h2>bind this</h2>
-        <p><strong>Question: </strong>if you want to use an arbitary object as value of this, how will you do that?</p>
+        <p><strong>Question: </strong>If you want to use an arbitrary object as value of this, how will you do that?</p>
         <p><strong>Answer:</strong> There are at least three different ways to doing this by using bind, call and apply </p>
         <p>For example, i have a function name deductMontlyFee</p>
         <pre><code>
@@ -377,7 +366,7 @@ function deductMonthlyFee (fee){
   return this.name + ' remaining balance is '+ this.total; 
 }
         </code></pre>
-        <p>i can totally use this function with a object <code>rachel</code> where rachel would be the value of this</p>
+        <p>I can totally use this function with a object <code>rachel</code> where rachel would be the value of this</p>
         <pre><code>
 var rachel = {name: 'Rachel Green', total: 1500};
 //bind
@@ -993,18 +982,14 @@ obj.first().second().third();
         <ul>          
           <li>add one scope related question and give link to the blog</li>
           <li>explain timer related question or at least one animation in the high perf js</li>          
+          <li>How to achieve static variable in JS</li>   
+          <li>curring in JS</li>
           <li>what is the typical use of anonymous function</li>
-          <li>what are the difference between function expression and function declaration</li> 
-          <li>passing by value or by ref <a href="http://snook.ca/archives/javascript/javascript_pass/">js pass</a></li>
-          <li> Use Function as object</li>  
-          <li>Why does nearly every object have a toString method?</li>        
-          <li>How to achieve static variable in JS</li>         
+          <li>what are the difference between function expression and function declaration</li>           
+          <li>Use Function as object</li>  
+          <li>Why does nearly every object have a toString method?</li>
+          <li>Everything in JavaScript acts like an object, with the only two exceptions being null and undefined.</li>      
         </ul>
-        <h3>Facts</h3>
-        <ul>
-          <li>Everything in JavaScript acts like an object, with the only two exceptions being null and undefined.</li>          
-        </ul>
-        <p>ref: great place to learn JavaScript <a href="http://bonsaiden.github.io/JavaScript-Garden/">JS Garden</a></p>        
         <h3>Deleted Questions</h3>  
         <ul>
           <li><a href="http://khan4019.github.io/JSconfusingParts/#/3/6">In JavaScript <code>isNaN(undefined)</code> returns true. how could you fix it?</a></li>
@@ -1013,6 +998,10 @@ obj.first().second().third();
           <li>How will you get query string in a browsers URL? <a href="http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript?page=3&tab=votes#tab-top">detail answer</a> or <code>window.location.search;</code></li>
         </ul>
       <p>ref: <a href="http://www.w3.org/TR/REC-DOM-Level-1/level-one-core.html">DOM object</a></p> 
+      </div>
+      <div>
+        <h3>Need more</h3>
+        <p>ref: great place to learn JavaScript <a href="http://bonsaiden.github.io/JavaScript-Garden/">JS Garden</a></p>        
       </div>
 
       
