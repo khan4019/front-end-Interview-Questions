@@ -221,6 +221,42 @@ a === c //true
           <p>Special note:  NaN, null and undefined will never === another type. NaN does not even === itself.</p>          
           <p>ref: <a href="http://stackoverflow.com/a/359509/1535443">read answer here</a>, <a href="http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/">truth equality in JavaScript</a></p>
         </div>
+        <div id="javaScriptEquality">
+        <h2>JavaScript Equality</h2> 
+        <p><strong>Question: </strong> How would you compare two objects in JavaScript whether they have same properties?</p>
+        <p><strong>Answer:</strong> internally JavaScript actually has two different approaches for testing equality. Primitives like strings and numbers are compared by their value, while objects like arrays, dates, and plain objects are compared by their reference. That comparison by reference basically checks to see if the objects given refer to the same location in memory. </p>
+        <pre><code>
+function isEquivalent(a, b) {
+    var aProps = Object.getOwnPropertyNames(a),
+        bProps = Object.getOwnPropertyNames(b);
+
+    //check property number of properties
+    if (aProps.length != bProps.length) {
+        return false;
+    }
+
+    for (var i = 0; i &lt; aProps.length; i++) {
+        var propName = aProps[i];
+        //If values of same property are not equal, they are not equivalent
+        if (a[propName] !== b[propName]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+        </code></pre>
+        <p><strong>Limitation:</strong> 
+          <ul>
+            <li>if one of the property values is itself an object</li>
+            <li> if one of the property values is NaN (the only value in JavaScript that is not equal to itself?)</li>
+            <li>if a has a property with value undefined, while b doesn't have this property (which thus evaluates to undefined?)</li>
+          </ul>
+
+          for better result use, underscore or lo-dash _.isEqual
+        </p>
+        <p>ref: <a href="http://designpepper.com/blog/drips/object-equality-in-javascript.html">object equality in JS</a></p>
+      </div>
       <div id="truthyVsEqality">
         <h2>Truthy Vs Equality</h2>
         <p><strong>Question: </strong> As <code>[]</code> is true, <code>[]==true</code> should also be true. right?</p>
@@ -519,6 +555,7 @@ Function.prototype.bind = Function.prototype.bind || function(context){
         <p>Read: what is the overlay app in the last section of this link</p>
       </div>      
       <div>
+        <h2>slice, substr, substring</h2>
         <p><strong>Question:</strong> What is the difference between slice, substr, substring</p>
         <p><strong>Answer:</strong> <a href="http://www.tvids.net/watch69/The-Big-Bang-Theory/season-01-episode-01-Pilot">slice, substr, substring</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substr?redirectlocale=en-US&redirectslug=JavaScript%2FReference%2FGlobal_Objects%2FString%2Fsubstr">MDN: substr</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring?redirectlocale=en-US&redirectslug=JavaScript%2FReference%2FGlobal_Objects%2FString%2Fsubstring">substring</a></p>
         <pre><code>
@@ -574,19 +611,8 @@ foo();//?
       </div>
       <div>
         <h2>Closure</h2>
-         <p>If you have a function within a function, execution of the inner function will create a scope inside of the outer function- a nested scope. Because the inside function scope is enclosed by the outer function scope, the inner function scope is called a closure (I invented this definition). Remember, to be a closure, you dont have to return a function, you just have to call a function inside a function.</p>
-         <pre><code>
-function a(){
-  function b(){
-     console.log('closure');
-  }
-  b(); //creates closure
-}
-         </code></pre>
-         <div>
-          <button id = "clsoureExplanation" type="button" class="toggleExample btn btn-primary">Show More Explanation</button>
-          <div id="clsoureExplanationExample" class="hide bg-success toggleContent">
-            <p><strong>Closure Explanation:: </strong>Closure is a powerful feature of JavaScript. Let's have a look into the following example. We have a outer function called "counter" that has a local/private variable "i" and it returns a function (the returning function doesn't have a name and is known as the anonymous function). Inside the returning function (the inner function) returns the value of i and increases it by 1. Aha, very simple!</p>
+        <p><strong>Question:</strong> What is closure? How closure creates encapsulation?</p>
+         <p> <strong>Answer:</strong> If you have a function within a function, execution of the inner function will create a scope inside of the outer function- a nested scope. Because the inside function scope is enclosed by the outer function scope, the inner function scope is called a closure (I invented this definition). Remember, to be a closure, you dont have to return a function, you just have to call a function inside a function.</p>
          <pre><code>
 function counter(){
     var i = 0;
@@ -596,10 +622,6 @@ function counter(){
     }
 }
          </code></pre>
-         <p> <strong>Step-1: </strong>In the following code, we execute a counter function and assign the result of the counter to a variable "a". Hence, the value of "a" will be the inner function (returning function). Just remember the inner function returns the value of "i" and also increase the value of "i". Hence, when you execute the function "a", you will get the value of "i".</p>
-         <p><strong>Step-2: </strong> Now if you execute function "a" (execute inner function), it will return 0 (value of i)  and will increase it by 1. If you execute function "a" again it will return 1 (current value of i)  and will increase the value of "i" by 1. Hence, in your subsequent call you will get 2, 3, 4, 5 ....</p>
-         <p>This means, closure holds the state of the local/private variable in the outer scope. And every time, you call it you get the value of "i" increased by 1. Have a look at Image-22 and try to understand it. If you don't get it the time around .... try, try again!</p>
-         
          <pre><code>
 var a = counter();
 a(); //0
@@ -609,39 +631,11 @@ a(); //3
 a(); //4
 a(); //5
          </code></pre>
-         <p>Now you can have another variable "b" and assign the execution result of the function counter. If you execute "b" (the inner function of the counter), you will get 0. If you execute "b" again, you will get 1. followed by 2, 3, 4, ...</p>
-         <pre><code>
-var b = counter();
-b(); //0
-b(); //1
-b(); //2
-b(); //3
-         </code></pre>
-          <p>This means, each closure maintains separate private variables of the outer function. This is a very powerful feature of JavaScript. Have a look at Image-23</p>   
-          <div class="imageContainer">            
-            <div class="imageHolder">
-              <img src="images/scope/closureOneFunc.png" alt="">             
-              <p class="imgTitleHolder"><span>Image-22: </span><span class="imageTitle">Scope inside Scope</span></p>
-            </div>
-            <div class="imageHolder">
-               <img src="images/scope/closureTwoFunc.png" alt="">              
-              <p class="imgTitleHolder"><span>Image-23: </span><span class="imageTitle">Separate Privacy</span></p>
-            </div>             
-            <div class="imageHolder">
-              <img src="images/scope/closure.jpg" alt="">             
-              <p class="imgTitleHolder"><span>Image-24: </span><span class="imageTitle">Closure is Fun</span></p>
-            </div>
-          </div>
-          <p><strong>Encapsulation:: </strong>You would not be able to access (get or set) the value of "i" from outside. Hence the privacy of the value of "i" is maintained secretly. This is called encapsulation in object oriented programming.</p>
-          </div>
-        </div>
-         
+        <p><strong>Encapsulation:: </strong>You would not be able to access (get or set) the value of "i" from outside. Hence the privacy of the value of "i" is maintained secretly. This is called encapsulation in object oriented programming.</p> 
       </div>      
       <div id="closureInsideLoop">
         <h2>Closures Inside Loops</h2>
-
-        <p>What will you see in your console</p>
-
+        <p><strong>Question:</strong> Look at the code below, you have a for loop if you have setTimeout inside it. If log the loop counter inside setTimeout, what will be logged?</p>
 <pre><code>
   for(var i = 0; i < 10; i++) {
     setTimeout(function() {
@@ -680,7 +674,7 @@ for(var i = 0; i < 10; i++) {
       </div>
       <div>
         <h2>click hander unintended closure</h2>
-        <p><strong>Question:</strong> What will happen if you click on the item?</p>
+        <p><strong>Question:</strong> If you are looping through a collection of dom and adding a click handler like the example below. What will happen if you click on the item?</p>
         <pre><code>
 &lt;div class='item'&gt;Item1&lt;/div&gt;
 &lt;div class='item'&gt;Item2&lt;/div&gt;
@@ -769,34 +763,32 @@ for (i = 0; elems.length > i; i++) {
         <p><strong>Question:</strong> Does JavaScript pass parameter by value or by reference</p>
         <p><strong>Answer:</strong> </p>
         <pre><code>
-   var num = 10,
-        name = "Jane Austen",
+var num = 10,
+    name = "Addy Osmani",
+    obj1 = {
+      value: "first value"
+    },
+   obj2 = {
+     value: "second value"
+   },
+   obj3 = obj2;
  
-        obj1 = {
-          state: "unchanged"
-        },
+function change(num, name, obj1, obj2) {
+    num = num * 10;
+    name = "Paul Irish";
+    obj1 = obj2;
+    obj2.value = "new value";
+}
  
-        obj2 = {
-          state: "unchanged"
-        },
-      
-        obj3 = obj2;
+change(num, name, obj1, obj2);
  
-    function change(num, name, obj1, obj2) {
-      num = num * 10;
-      name = "Nathaniel Hawthorne";
-      obj1 = obj2;
-      obj2.state = "changed";
-    }
- 
-    change(num, name, obj1, obj2);
- 
-    console.log("num = " + num); // 10
-    console.log("name = " + name);// "jane Austen"
-    console.log("obj1.state = " + obj1.state);//"unchanged"
-    console.log("obj2.state = " + obj2.state);//"changed"
-    console.log("obj3.state = " + obj3.state);//"changed"        
-        </code></pre>
+console.log(num); // 10
+console.log(name);// "<ABBR></ABBR>ddy Osmani"
+console.log(obj1.value);//"first value"
+console.log(obj2.valuee);//"new value"
+console.log(obj3.valuee);//"new value"        
+     </code></pre>
+     <p><strong>Explanation:</strong></p>
         <p>ref: <a href="http://stackoverflow.com/a/3638034/1535443">stackoverflow</a>, more detailed: <a href="http://snook.ca/archives/javascript/javascript_pass">Jonathan Snook</a></p>
       </div>
       <div id="ajaxCall">
@@ -808,53 +800,6 @@ for (i = 0; elems.length > i; i++) {
         <p><strong>Question:</strong>How would you apply asynchronous call without any help of library</p>
         <p><strong>Answer:</strong> google it and learn it</p>
         
-      </div>            
-      <div>
-        <h2>Floats and computed height</h2>
-        <h4>will help in interview</h4>
-        <p>A parent element that has only floated content will have a computed height: 0;. Add a clearfix to the parent to force browsers to compute a height.</p>
-        <p>ref: <a href="http://wtfhtmlcss.com/"> wtf css (get others)</a></p>
-      </div>
-      <div id="javaScriptEquality">
-        <h2>JavaScript Equality</h2> 
-        <p> internally JavaScript actually has two different approaches for testing equality. Primitives like strings and numbers are compared by their value, while objects like arrays, dates, and plain objects are compared by their reference. That comparison by reference basically checks to see if the objects given refer to the same location in memory. </p>
-        <pre><code>
-function isEquivalent(a, b) {
-    // Create arrays of property names
-    var aProps = Object.getOwnPropertyNames(a);
-    var bProps = Object.getOwnPropertyNames(b);
-
-    // If number of properties is different,
-    // objects are not equivalent
-    if (aProps.length != bProps.length) {
-        return false;
-    }
-
-    for (var i = 0; i &lt; aProps.length; i++) {
-        var propName = aProps[i];
-
-        // If values of same property are not equal,
-        // objects are not equivalent
-        if (a[propName] !== b[propName]) {
-            return false;
-        }
-    }
-
-    // If we made it this far, objects
-    // are considered equivalent
-    return true;
-}
-        </code></pre>
-        <p><strong>Limitation:</strong> 
-          <ul>
-            <li>if one of the property values is itself an object</li>
-            <li> if one of the property values is NaN (the only value in JavaScript that is not equal to itself?)</li>
-            <li>if a has a property with value undefined, while b doesn't have this property (which thus evaluates to undefined?)</li>
-          </ul>
-
-          for better result use, underscore or lo-dash _.isEqual
-        </p>
-        <p>ref: <a href="http://designpepper.com/blog/drips/object-equality-in-javascript.html">object equality in JS</a></p>
       </div>
       <div id="safeCoding">
         <h2>Save hasOwnProperty</h2>
@@ -1007,7 +952,7 @@ obj.first().second().third();
       <div>
         <h2>ToDo questions</h2>
         <ul>
-          <li>how would u create an object in JavaScript</li>
+          <li>how would u create class in JavaScript</li>
           <li></li>
         </ul>
       </div>
