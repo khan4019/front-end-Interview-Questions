@@ -218,7 +218,7 @@ a === c //true
           <p>ref: <a href="http://stackoverflow.com/a/359509/1535443">read answer here</a>, <a href="http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/">truth equality in JavaScript</a></p>
         </div>
         <div id="javaScriptEquality">
-        <h2>JavaScript Equality</h2> 
+        <h2>Object Equality</h2> 
         <p><strong>Question: </strong> How would you compare two objects in JavaScript whether they have same properties?</p>
         <p><strong>Answer:</strong> internally JavaScript actually has two different approaches for testing equality. Primitives like strings and numbers are compared by their value, while objects like arrays, dates, and plain objects are compared by their reference. That comparison by reference basically checks to see if the objects given refer to the same location in memory. </p>
         <pre><code>
@@ -254,7 +254,7 @@ function isEquivalent(a, b) {
         <p>ref: <a href="http://designpepper.com/blog/drips/object-equality-in-javascript.html">object equality in JS</a></p>
       </div>
       <div id="truthyVsEqality">
-        <h2>Truthy Vs Equality</h2>
+        <h2>True isn't Equality to true</h2>
         <p><strong>Question: </strong> As <code>[]</code> is true, <code>[]==true</code> should also be true. right?</p>
           <p><strong>Answer:</strong> First think of <code>[]</code>, empty array is an object and object is always truthy. Hence, if you use <code>if([]){console.log('its true')}</code> you will see the log.</p>
           <p>Now, <code>==</code> (double equal) will do some implicit coercion.</p>
@@ -705,30 +705,28 @@ function _fibonacci(n) {
    }
 }
         </code></pre>
-        <p><strong>Answer:</strong> You could use poor man's memoization like</p>
+        <p><strong>Answer:</strong> You could use poor man's memoization with a global varibale and </p>
         <pre><code>
 var memo = [];
+
 function _fibonacci(n) {
-   if (n &lt; 2){
+   if(memo[n]){    
+    return memo[n];
+   }
+   else if (n &lt; 2){
      return 1;
    }else{
-       if(memo[n]){
-           alert('never');
-          return memo[n];
-       }
-       else{
-           memo[n] = fibonacci(n-2) + fibonacci(n-1);    
-           return memo[n];
-       }
+     fibonacci(n-2) + fibonacci(n-1);
    }
 }
         </code></pre>
-        <p><strong>Don't be happy:</strong> This will not actually work if you look into the code. it is going from n to 1. Hence you are calculating for higher numbers and storing it and next time, you are looking for a lower number. lower number doesnt exists, you calculate and cache it. and this is going on and on. you are calculating and caching towards 1. and never use cached one.</p>
-        <p>so what is the solution?</p>
-        <pre><code>
-//stay tuned. its not tough at all.
-        </code></pre>
-        <p><strong>Question:</strong> write a method that you can cache any function</p>
+        <p><strong>Explanation:</strong> If fibonacci is already calculated it is served from the global memo array otherwise it is calculated.</p>
+        <p>see better implementation <a href="http://www.sitepoint.com/implementing-memoization-in-javascript/">implement memoization in JavaScript</a></p>        
+      </div>
+      <div>
+        <h2>Cache function execution</h2>
+        <p><strong>Question:</strong> How could you cache execution of any function?</p>
+        <p><strong>Answer:</strong> You could have a method where you will pass a function and it will internally maintain a cache object where calculated value will be cached. when you will call the function with same argument, then the cached value will be served.</p>
         <pre><code>
 function cacheFn(fn) {
     var cache={};
@@ -745,17 +743,9 @@ function cacheFn(fn) {
     
 }
         </code></pre>
-        <p><strong>Question:</strong> what if you are apssing more than one argument?</p>
+        <p><strong>Question:</strong> what if you are passing more than one argument?</p>
+        <p><strong>Answer: </strong> First we have to use arguments to get all the parameters passed to the function. and then we can generate key for the cache object. generating key for the cache object could be tricky and one solution could be just get the all the parameters and concatenate those. Look at the code below</p>
         <pre><code>
-//two tricky part here.
-//1. the key you are putting in the cache = {} object
-//javascript object comparision is tricky.
-//Hence, we will create a key/hash which is simply concatenating all the arguments
-//however in arguments, you cant apply join as its not array...
-//hence ... use ur brain
-//2. you have to use apply while executing function
-//2.a. 
-//     the return function will be 
 return function(){
   var args = arguments;  
   var key = [].slice.call(args).join('');
@@ -770,7 +760,7 @@ return function(){
         </code></pre>
       </div>
       <div>
-        <h2>implement jquery style chaining</h2>
+        <h2>JQuery style chaining</h2>
         <p><strong>Question:</strong> If you need to implement the following chaining with call back, how will you implement it?</p>
         <pre><code>
 function slow(callback) {
