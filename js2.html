@@ -172,8 +172,8 @@ var undefined = 123;
       </div>
       <div id="trueLies">
         <h2>True and False</h2>
-        <p><strong>Question:</strong> What are the truthy and falsy values in JavaScript</p>
-        <p><strong>Answer:</strong> In javascript 6 things are falsy and they are- false, null, undefined, '', 0, NaN</p>
+        <p><strong>Question:</strong> True and false realted 11+ quick questions.</p>
+        <p><strong>Concept:</strong> In javascript 6 things are falsy and they are- false, null, undefined, '', 0, NaN</p>
         <p><strong>truthy:</strong> is very simple. there is only two truthy things- true and everything that is not false</p>
         <div>
           <button id = "trueFalseRapid" type="button" class="toggleExample btn btn-primary">Show Rapid Fire Questions</button>
@@ -223,8 +223,8 @@ a === c //true
         </div>
       <div id="truthyVsEqality">
         <h2>Truthy Vs Equality</h2>
-        <p><strong>Question: </strong> As [] is true, <code>[]==true</code> should also be true. right?</p>
-          <p><strong>Answer:</strong> First think of [], empty array is an object and object is always truthy. Hence, if you use <code>if([]){console.log('its true')}</code> you will see the log.</p>
+        <p><strong>Question: </strong> As <code>[]</code> is true, <code>[]==true</code> should also be true. right?</p>
+          <p><strong>Answer:</strong> First think of <code>[]</code>, empty array is an object and object is always truthy. Hence, if you use <code>if([]){console.log('its true')}</code> you will see the log.</p>
           <p>Now, <code>==</code> (double equal) will do some implicit coercion.</p>
           <p>Since left and right side of the equality are two different types, JavaScript can't compare them directly . Hence, under the hood, JavaScript will convert them to compare. first right side of the equality will be cooereced to a number type by using <code>toNumber</code> (JavaScript doesnt have toNumber. this is toNumber of JavaScript implementation in C. for example V8 has implementation of JavaScript). and number of <code>true</code> would be 1.</p>
           <p>after that, JavaScript implementation will try to convert [] by using<code>toPrimitive</code> (of JavaScript implementation). since [].valueOf is not primitive will use <code>toString</code> and will get <code>"0"</code></p>
@@ -256,12 +256,12 @@ isNaN(NaN);//use it
       </div>      
       <div>
         <h2>for in looping</h2>
-        <p><strong>Question: </strong> What is sum for the following code?</p>
+        <p><strong>Question: </strong> If you loop through [10, 20, 30] by using for-in loop and want to get the sum of all the elements, how will you do it?</p>
         <pre><code>
 var numbers = [10, 20, 30];
 var sum = 0;
 for(var num in numbers){
-  sum+=num; 
+  sum += num; 
 }
 
 console.log(sum);
@@ -270,31 +270,17 @@ console.log(sum);
         <p><strong>Basic:</strong> for in always loop over keys. JavaScript array is inherited from object and all the elements in the array is like key value pair in the object<code>{0:10, 1:20, 2:30}</code> where key is 0, 1, 2 etc. When you are accessing values by passing index, you are actully accessing by key.</p>
         <p>thats why when an index doesnt exist, Javascript returns undefined not array out of index. As the index(key) doesnt exists in the object.</p>
         <p><strong>Explanation:</strong> as for in looping over keys and keys are always string type, its concatenating <code>0+'0'</code> which becomes <code>'00'</code> and then u add '1' and '2'. Which eventually results '0012'. Quite unexpected, isnt it?</p>
-      </div>
-      <div>
-        <h2>arguments</h2>
-        <p><strong>Question:</strong> Write a simple function, that will tell you whether 2 is passed as parameter or not?</p>
-        <p><strong>Answer:</strong> I know JavaScript function has an argument array. i can check whether indexOf(2) is != -1. if it is -1 its not passed otherwise, it is passed.</p>
+        <p><strong>solution:</strong> the solution of this problem is to use <code>num</code> as index to access the value or use a simple for loop</p>
         <pre><code>
-//check whether 2 is passed as argument
-function isTwoPassed(){
-  return arguments.indexOf(2)!=-1;
+var numbers = [10, 20, 30];
+var sum = 0;
+for(var num in numbers){
+  sum += numbers[num]; 
 }
-isTwoPassed(1,4) //?
+
+console.log(sum);
         </code></pre>
-        <p><strong>Very Unfortunate:</strong> when you said arguments is an array, you made a mistake. arguments is an illusion of an array. More precisely, its array like but not array</p>
-        <p><strong>Are you drunk?</strong> I can use length of arguments, loop over it, i can access by index. What are you talking about?</p>
-        <p>arguments is an array like object that has length but doesnt have the methods like forEach, indexOf, etc. to use all these methods on array you can easily do it by using the following code</p>
-        <pre><code>
-//check whether 2 is passed as argument
-function isTwoPassed(){
-  var args = Array.prototype.slice.call(arguments);
-  return args.indexOf(2) != -1;
-}
-isTwoPassed(1,4) //false
-isTowPassed(5,3,1,2) //true
-        </code></pre>                 
-      </div>
+      </div>      
       <div id="extension">
         <h2>Extend Core Object</h2>
         <p><strong>Question:</strong> How could you write a method on instance of a date which will give you next day?</p>
@@ -371,16 +357,32 @@ rossFeeDeductor(); //"Ross Geller remaining balance is 200"
         </code></pre>
         <p>bind allows you to borrow a method and determines what the value of <code>this</code> would be, but it does not call the function but returns an exact copy of the function.</p>
       </div>
-      <div id="borrowMethod">
-        <h2>Call and Apply</h2>
-        <p><strong>Question:</strong> How could you borrow method from an object and use it somewhere else?</p>
-        <p><strong>Answer:</strong>.call() and .apply() method will allow you to do that. for example, <code>arguments</code> is an array-like object doesnt have methods of array. If you want to use methods of array you can call that method of array. One  of the popular use of call is</p>
+      <div>
+        <h2>arguments</h2>
+        <p><strong>Question:</strong> Write a simple function, that will tell you whether 2 is passed as parameter or not?</p>
+        <p><strong>Answer:</strong> I know JavaScript function has an argument array. i can check whether indexOf(2) is != -1. if it is -1 its not passed otherwise, it is passed.</p>
         <pre><code>
-Array.prototype.slice.call(arguments);
+//check whether 2 is passed as argument
+function isTwoPassed(){
+  return arguments.indexOf(2)!=-1;
+}
+isTwoPassed(1,4) //?
         </code></pre>
-        <p>what are we doing here? we are calling the slice method of an array and use it on arguments. The value of this would be arguments. The first parameter of call function is always be treated as value of this.</p>
-        <p>this will convert an array like object to an array and then use methods of array in it.</p>
-        <p><strong>How:</strong> How does it work? it actually calling the slice method of an array (array has slice method) and then the first parameter passed in the call function will be the value of this. Here, arguments (array like object) will be this.</p>
+        <p><strong>Very Unfortunate:</strong> when you said arguments is an array, you made a mistake. arguments is an illusion of an array. More precisely, its array like but not array</p>
+        <p><strong>Are you drunk?</strong> I can use length of arguments, loop over it, i can access by index. What are you talking about?</p>
+        <p>arguments is an array like object that has length but doesnt have the methods like forEach, indexOf, etc. to use all these methods on array you can easily do it by using the following code</p>
+        <pre><code>
+//check whether 2 is passed as argument
+function isTwoPassed(){
+  var args = Array.prototype.slice.call(arguments);
+  return args.indexOf(2) != -1;
+}
+isTwoPassed(1,4) //false
+isTowPassed(5,3,1,2) //true
+        </code></pre>                 
+      </div>
+      <div id="apply">
+        <h2>Apply</h2>        
         <p><strong>Question:</strong> Math.max takes a collection of arguments to find the max. How could you pass an array to find the max?</p>
         <pre><code>
 function getMax(arr){
@@ -389,66 +391,23 @@ function getMax(arr){
         </code></pre>
         <p><strong>Explanation: </strong> Here we are using apply method.</p>
         <p>For the both cases (call and apply), the first argument is the value of this. the difference is, call use a collection of arguments. whereas apply use an array of arguments. Hence, apply has two arguments, first one is this and second one array of arguments.</p>
-        <p>if you have weaker memory like i have, you can remember apply starts with "a" and array starts with "a"</p>
-        <div>
-          <button id = "callApplyDetail" type="button" class="toggleExample btn btn-primary">Show Detail Example</button>
-          <div id="callApplyDetailExample" class="hide bg-success toggleContent">
-            <h3>call and apply Detail Example</h3>
-            <p>If i have a class Friend. It has two properties- name and libraries. and has two methods- addLib and isExpertOf. </p>
-            <pre><code>
-function Friend(name){
-  return {
-    name: name,
-    libraries:[],
-
-    addLib:function(lib){
-      this.libraries.push(lib);
-    },
-
-    isExpertOf:function(lib){
-      return this.libraries.indexOf(lib) > -1;
-    }
-  }
-}
-            </code></pre>
-            <p>I can create friend by using above function</p>
-            <pre><code>
-var sheldon = new Friend('Shelodn Cooper');
-sheldon.addLib('angular');
-sheldon.addLib('backbone');
-sheldon.addLib('ember');
-            </code></pre>
-            <p>Now, Sheldon knows angular, backbone and ember. You can use isExpertOf to check whether he knows particular library</p>
-            <pre><code>
-sheldon.isExpertOf('ember'); //true
-sheldon.isExpertOf('react'); //false
-            </code></pre>
-            <p>Now the beauty of call is, you can call <code>isExpertOf</code> method in Sheldon to check whether another friend is an expert of some library. Have a look into the code below</p>
-            <pre><code>
-var raj = {
-  name:'Raj Koothrappali', 
-  libraries:['prototype', 'jquery']
-}
-
-//call method on sheldon
-shelod.isExpertOf.call(raj, 'jquery'); //true
-shelod.isExpertOf.call(raj, 'ember'); //false
-            </code></pre>
-            <p>What are we doing here? we are calling <code>isExpertOf</code> method in sheldon object. and then using it on raj object. If you look at the method <code>isExpetOf</code>, you will see <code>this.libraries.indexOf(lib)</code>. this means, whatever is the libraries in the object "this".</p>
-            <p>the first parameter of the call function is assigned to be the value of "this". when you use <code>shelod.inisExpertOf.call(raj, 'jquery'); </code> the first parameter of call (in this case, raj) become the value of this. Hence we are looking for 'jquery' in raj's libraries not in sheldon libraries.</p>
-            <p>.apply() is very similar. the only difference here is </p>
-          </div>
-        </div>
-        <p></p>
+        <p>if you have weaker memory like i have, you can remember apply starts with "a" and array starts with "a"</p>        
       </div>    
       <div id="checkInteger">
         <h2>Check Integer</h2>
-        <p><strong>Question:</strong> How you can check integer in JavaScript</p>
+        <p><strong>Question:</strong> How you can verify integer in JavaScript?</p>
         <p><strong>Answer: </strong> There are 5 ways to check integer</p>
+        <ol>
+          <li>use build in <code>isInteger</code> method</li>
+          <li>parse the number as integer and compare parsed one with the original number. if both are equal, then the provided number is integer. optionally you can do a whether the provided number is Number or not by is <code>isNaN</code></li>
+          <li>if you divide by 1 and remainder is 0, then its integer. you can additionally check whether typeof of the provided number is 'number' or not</li>
+          <li>use <code>Math.round</code> if rounded number is equal to the provided number, then it is integer</li>
+          <li>I can't explain this one. sorry dude :p</li>
+        </ol>
         <pre><code>
-//1
+//1. 
 Number.IsInteger(num); 
-//2
+//2. 
 num === parseInt(num);
 !isNaN(num) && num== parseInt(num);
 //3
@@ -459,8 +418,7 @@ Math.round(num)===num;
 //5
 num == ~~num; //'1' will give you true
 num == num + 0 && num == ~~num;
-        </code></pre>
-        <p>try to understand first 4 by yourself and don't ask me to explain number 5.</p>
+        </code></pre>        
       </div>        
       <div>
         <h2>rapid fire</h2>
