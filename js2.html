@@ -110,18 +110,18 @@
       <p class="gray"> <span class="purpleBold">More Questions</span> <a href="css.html">css interview questions</a>, <a href="html.html">html interview questions</a> </p> -->
       <div>
         <h2>null vs undefined</h2>
-        <p><strong>Question: </strong> <code>null == undefined</code> why they there are two things when they are equal?</p>
-        <p><strong>Answer:</strong> <code>undefined</code> means, value of the variable is not defined. More specifically, you declared a variable but no value has been assigned to that variable.</p>
+        <p><strong>Question: </strong> What are differences between null an undefined?</p>
+        <p><strong>Answer:</strong> JavaScript has two distinct values for nothing, null and undefined.</p>
+        <p><code>undefined</code> means, value of the variable is not defined. More specifically, you declared a variable but no value has been assigned to that variable.</p>
         <p><code>null</code> means empty or non-existent value. null is a primitive value and you can assign null to any variable.</p>
         <p>Where as undefined is a primitive type, null is a type of object. you can set variable to undefined but it is recommended to set it to null (if required) so that you can distinguish between null and undefined. though <code>null == undefined</code></p>
         <p>if you delete any object property, that will become undefined.</p>        
       </div>
       <div>
-        <button id = "nullVsUndefinedDetail" type="button" class="toggleExample btn btn-primary">Show Much More Details</button>
+        <button id = "nullVsUndefinedDetail" type="button" class="toggleExample btn btn-primary">Show Unnecessary Details</button>
         <div id="nullVsUndefinedDetailExample" class="hide">
           <div id="nullVsUndefined" class="bg-success toggleContent">
-          <h3>Crazy detail</h3>
-          <p>JavaScript has two distinct values for nothing, null and undefined, with the latter being more useful.</p>  
+          <h3>I told you its, unnecessary!!!</h3>            
           <h4>undefined</h4>
           <p>JavaScript has a global variable <code>undefined</code> whose value is "undefined". And <code>typeof undefined</code> is also "undefined". Remember, undefined is not a constant or a keyword.</p>
             undefined is a type with exactly one value: undefined.
@@ -172,25 +172,12 @@ var undefined = 123;
       </div>
       <div id="trueLies">
         <h2>True and False</h2>
-        <p><strong>Question:</strong> What are the truthy and falsy values in JavaScript</p>
-        <p><strong>Answer:</strong> In javascript 6 things are falsy and they are-</p>
-        <ul>
-          <li>false</li>
-          <li>null</li>
-          <li>undefined</li>
-          <li>''</li>
-          <li>0</li>
-          <li>NaN</li>
-        </ul>
-        <p><strong>truthy:</strong> is very simple. there is only two truthy things-</p>
-        <ul>
-          <li>true</li>
-          <li>Everything that is not false</li>
-        </ul>
+        <p><strong>Question:</strong> 11+ truth false related questions that will trick you.</p>
+        <p><strong>falsy:</strong> In javascript 6 things are falsy and they are- false, null, undefined, '', 0, NaN</p>
+        <p><strong>truthy:</strong> is very simple. there is only two truthy things- true and everything that is not false</p>
         <div>
-          <button id = "trueFalseRapid" type="button" class="toggleExample btn btn-primary">Show Rapid Fire Questions</button>
-          <div id="trueFalseRapidExample" class="hide bg-success toggleContent">
-            <h2>True False Rapid Fire</h2>
+          <h3>True False Rapid Fire</h3>
+          <div id="trueFalseRapidExample" class="bg-success toggleContent">            
             <p><strong>Question:</strong> is <code>'false'</code> is false?</p>
             <p><strong>Answer:</strong> no. because, its a string with length greater than 0. Only empty string is false</p>
             <p><strong>Question:</strong> is <code>' '</code> is false?</p>
@@ -216,65 +203,73 @@ var undefined = 123;
         <br>
         <div id="doubleOrTripleEqual">
           <h2>== or ===</h2>
-          <p><strong>Question:</strong>What are the difference between <code>==</code> and <code>===</code></p>
-          <p><strong>Answer: </strong> <a href="http://stackoverflow.com/a/359509/1535443">read answer here</a></p>
-          
+          <p><strong>Question:</strong> What are the difference between <code>==</code> and <code>===</code>?</p>
+          <p><strong>Answer: </strong> The simplest way of saying that, == will not check types and === will check whether both sides are of same type. So, == is tolerant. But under the hood it converts to its convenient type to have both in same type and then do the comparison.</p>
+          <p>=== compares the types and values. Hence, if both sides are not same type, answer is always false. For example, if you are comparing two strings, they must have identical character sets. For other primitives (number, boolean) must share the same value.</p>
+          <p> be careful while comparing objects, identifiers must reference the same objects or same array.</p>
+          <pre><code>
+var a = {a: 1};
+var b = {a: 1};
+a == b //false
+a === b //false
+
+var c = a;
+a == c//true
+a === c //true
+          </code></pre>          
+          <p>Special note:  NaN, null and undefined will never === another type. NaN does not even === itself.</p>          
+          <p>ref: <a href="http://stackoverflow.com/a/359509/1535443">read answer here</a>, <a href="http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/">truth equality in JavaScript</a></p>
         </div>
+        <div id="javaScriptEquality">
+        <h2>JavaScript Equality</h2> 
+        <p><strong>Question: </strong> How would you compare two objects in JavaScript whether they have same properties?</p>
+        <p><strong>Answer:</strong> internally JavaScript actually has two different approaches for testing equality. Primitives like strings and numbers are compared by their value, while objects like arrays, dates, and plain objects are compared by their reference. That comparison by reference basically checks to see if the objects given refer to the same location in memory. </p>
+        <pre><code>
+function isEquivalent(a, b) {
+    var aProps = Object.getOwnPropertyNames(a),
+        bProps = Object.getOwnPropertyNames(b);
+
+    //check property number of properties
+    if (aProps.length != bProps.length) {
+        return false;
+    }
+
+    for (var i = 0; i &lt; aProps.length; i++) {
+        var propName = aProps[i];
+        //If values of same property are not equal, they are not equivalent
+        if (a[propName] !== b[propName]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+        </code></pre>
+        <p><strong>Limitation:</strong> 
+          <ul>
+            <li>if one of the property values is itself an object</li>
+            <li> if one of the property values is NaN (the only value in JavaScript that is not equal to itself?)</li>
+            <li>if a has a property with value undefined, while b doesn't have this property (which thus evaluates to undefined?)</li>
+          </ul>
+
+          for better result use, underscore or lo-dash _.isEqual
+        </p>
+        <p>ref: <a href="http://designpepper.com/blog/drips/object-equality-in-javascript.html">object equality in JS</a></p>
+      </div>
       <div id="truthyVsEqality">
         <h2>Truthy Vs Equality</h2>
-        <p><strong>Question: </strong> For the code below, what will be logged?</p>
-          <pre><code>
-if([]){
-  console.log('is empty array is true?');
-}
-
-if([0]==true){
-  console.log('will this be looged?')
-}
-
-          </code></pre>
-          <p><strong>Answer:</strong> First one log. but second one will not log</p>
-          <p><strong>Question: </strong> Can you explain why second one will not be logged?</p>
-          <p><strong>Answer:</strong> The first one is a truthy check. in that case empty array is an object. and object is always truthy and it will go to inside of the if block and code will be executed.</p>
-          <p>However, for the second part. it is an equality check with <code>==</code> (double equal). Hence there will be some implicit coercion.</p>
-          <p>Since they are two different types, JavaScript can't compare them directly . Hence, under the hood, JavaScript will convert them to compare. first right side of the equality will be cooereced to a number type by using <code>toNumber</code> (JavaScript doesnt have toNumber. this is toNumber of JavaScript implementation in C. for example V8 has implementation of JavaScript). and number of <code>true</code> would be 1.</p>
-          <p>after that, JavaScript implementation will try to convert [0] by using<code>toPrimitive</code> (of JavaScript implementation). since [0].valueOf is not primitive will use <code>toString</code> and will get <code>"0"</code></p>
+        <p><strong>Question: </strong> As <code>[]</code> is true, <code>[]==true</code> should also be true. right?</p>
+          <p><strong>Answer:</strong> First think of <code>[]</code>, empty array is an object and object is always truthy. Hence, if you use <code>if([]){console.log('its true')}</code> you will see the log.</p>
+          <p>Now, <code>==</code> (double equal) will do some implicit coercion.</p>
+          <p>Since left and right side of the equality are two different types, JavaScript can't compare them directly . Hence, under the hood, JavaScript will convert them to compare. first right side of the equality will be cooereced to a number type by using <code>toNumber</code> (JavaScript doesnt have toNumber. this is toNumber of JavaScript implementation in C. for example V8 has implementation of JavaScript). and number of <code>true</code> would be 1.</p>
+          <p>after that, JavaScript implementation will try to convert [] by using<code>toPrimitive</code> (of JavaScript implementation). since [].valueOf is not primitive will use <code>toString</code> and will get <code>"0"</code></p>
           <p>still left and right is not same type. hence left side will be converted again to a number. "0" will be 0.</p>
           <p>finally, you are comparing <code>0==1</code> which will be false anyway</p>
-      </div>
-      <div id="areYouAnExpert">
-        <h2>are you really an expert?</h2>
-        <p><strong>Question:</strong> Look at the code block below. why <code>'expert'</code> is true and false at the same time. is JavaScript on drug?</p>
-        <pre><code>
-'expert' == true; //false
-'expert' == false; //false
-        </code></pre>
-        <p><strong>Answer:</strong> This need to be explained how equality (==) or double equals works in JavaScript.</p>
-        <p>If you are using <code>==</code>. javascript does coercing. this means, it doesnt check the type of the object. while ignoring types of the two things you are comparing. JavaScript, under the hood actually convert them to complare if they are not same type. In this particular example</p>
-        <p>Since, both side is different, they get coerced to number using <code>toNumber</code> (JavaScript implementation: in V8, etc. ). right side get coerced first and then left side. </p>
-        <pre><code>
-//for
-"expert" == true;
-//convert boolean using toNumber will generate 1 for true
-"expert" == 1;
-//convert string using toNumber will generate NaN
-NaN == 1; //false
-        </code></pre>
-        <p>for <code>'expert'== false</code> the process is same</p>
-        <pre><code>
-//for
-"expert" == false;
-//convert boolean using toNumber
-"expert" == 0;
-//convert string using toNumber
-NaN == 0; //false!
-        </code></pre>
-                <div>
-                  <button id = "equalityRapidFire" type="button" class="toggleExample btn btn-primary">Show More Rapid Fire</button>
-                  <div id="equalityRapidFireExample" class="hide bg-success toggleContent">
-                    <h2>Equality Rapid Fire</h2>  
-                      <p>see them in the code block below</p>
-                      <pre><code>
+          <div>
+            <button id = "equalityRapidFire" type="button" class="toggleExample btn btn-primary">Show More Cases</button>
+            <div id="equalityRapidFireExample" class="hide bg-success toggleContent">
+               <p>see them in the code block below</p>
+                <pre><code>
 null == false; // false
 null == null; // true
 
@@ -293,48 +288,7 @@ isNaN(NaN);//use it
         <p>ref: <a href="http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/">angus croll: truth and eqality in JS</a>, ref: <a href="http://www.sitepoint.com/javascript-truthy-falsy/">truthy and falsy</a></p>
       </div>
 
-      </div>      
-      <div>
-        <h2>for in looping</h2>
-        <p><strong>Question: </strong> What is sum for the following code?</p>
-        <pre><code>
-var numbers = [10, 20, 30];
-var sum = 0;
-for(var num in numbers){
-  sum+=num; 
-}
-
-console.log(sum);
-        </code></pre>
-        <p><strong>Answer:</strong> 0012</p>
-        <p><strong>Basic:</strong> for in always loop over keys. JavaScript array is inherited from object and all the elements in the array is like key value pair in the object<code>{0:10, 1:20, 2:30}</code> where key is 0, 1, 2 etc. When you are accessing values by passing index, you are actully accessing by key.</p>
-        <p>thats why when an index doesnt exist, Javascript returns undefined not array out of index. As the index(key) doesnt exists in the object.</p>
-        <p><strong>Explanation:</strong> as for in looping over keys and keys are always string type, its concatenating <code>0+'0'</code> which becomes <code>'00'</code> and then u add '1' and '2'. Which eventually results '0012'. Quite unexpected, isnt it?</p>
-      </div>
-      <div>
-        <h2>arguments</h2>
-        <p><strong>Question:</strong> Write a simple function, that will tell you whether 2 is passed as parameter or not?</p>
-        <p><strong>Answer:</strong> I know JavaScript function has an argument array. i can check whether indexOf(2) is != -1. if it is -1 its not passed otherwise, it is passed.</p>
-        <pre><code>
-//check whether 2 is passed as argument
-function isTwoPassed(){
-  return arguments.indexOf(2)!=-1;
-}
-isTwoPassed(1,4) //?
-        </code></pre>
-        <p><strong>Very Unfortunate:</strong> when you said arguments is an array, you made a mistake. arguments is an illusion of an array. More precisely, its array like but not array</p>
-        <p><strong>Are you drunk?</strong> I can use length of arguments, loop over it, i can access by index. What are you talking about?</p>
-        <p>arguments is an array like object that has length but doesnt have the methods like forEach, indexOf, etc. to use all these methods on array you can easily do it by using the following code</p>
-        <pre><code>
-//check whether 2 is passed as argument
-function isTwoPassed(){
-  var args = Array.prototype.slice.call(arguments);
-  return args.indexOf(2) != -1;
-}
-isTwoPassed(1,4) //false
-isTowPassed(5,3,1,2) //true
-        </code></pre>                 
-      </div>
+      </div>                  
       <div id="extension">
         <h2>Extend Core Object</h2>
         <p><strong>Question:</strong> How could you write a method on instance of a date which will give you next day?</p>
@@ -411,16 +365,32 @@ rossFeeDeductor(); //"Ross Geller remaining balance is 200"
         </code></pre>
         <p>bind allows you to borrow a method and determines what the value of <code>this</code> would be, but it does not call the function but returns an exact copy of the function.</p>
       </div>
-      <div id="borrowMethod">
-        <h2>Call and Apply</h2>
-        <p><strong>Question:</strong> How could you borrow method from an object and use it somewhere else?</p>
-        <p><strong>Answer:</strong>.call() and .apply() method will allow you to do that. for example, <code>arguments</code> is an array-like object doesnt have methods of array. If you want to use methods of array you can call that method of array. One  of the popular use of call is</p>
+      <div>
+        <h2>arguments</h2>
+        <p><strong>Question:</strong> Write a simple function, that will tell you whether 2 is passed as parameter or not?</p>
+        <p><strong>Answer:</strong> I know JavaScript function has an argument array. i can check whether indexOf(2) is != -1. if it is -1 its not passed otherwise, it is passed.</p>
         <pre><code>
-Array.prototype.slice.call(arguments);
+//check whether 2 is passed as argument
+function isTwoPassed(){
+  return arguments.indexOf(2)!=-1;
+}
+isTwoPassed(1,4) //?
         </code></pre>
-        <p>what are we doing here? we are calling the slice method of an array and use it on arguments. The value of this would be arguments. The first parameter of call function is always be treated as value of this.</p>
-        <p>this will convert an array like object to an array and then use methods of array in it.</p>
-        <p><strong>How:</strong> How does it work? it actually calling the slice method of an array (array has slice method) and then the first parameter passed in the call function will be the value of this. Here, arguments (array like object) will be this.</p>
+        <p><strong>Very Unfortunate:</strong> when you said arguments is an array, you made a mistake. arguments is an illusion of an array. More precisely, its array like but not array</p>
+        <p><strong>Are you drunk?</strong> I can use length of arguments, loop over it, i can access by index. What are you talking about?</p>
+        <p>arguments is an array like object that has length but doesnt have the methods like forEach, indexOf, etc. to use all these methods on array you can easily do it by using the following code</p>
+        <pre><code>
+//check whether 2 is passed as argument
+function isTwoPassed(){
+  var args = Array.prototype.slice.call(arguments);
+  return args.indexOf(2) != -1;
+}
+isTwoPassed(1,4) //false
+isTowPassed(5,3,1,2) //true
+        </code></pre>                 
+      </div>
+      <div id="apply">
+        <h2>Apply</h2>        
         <p><strong>Question:</strong> Math.max takes a collection of arguments to find the max. How could you pass an array to find the max?</p>
         <pre><code>
 function getMax(arr){
@@ -429,66 +399,23 @@ function getMax(arr){
         </code></pre>
         <p><strong>Explanation: </strong> Here we are using apply method.</p>
         <p>For the both cases (call and apply), the first argument is the value of this. the difference is, call use a collection of arguments. whereas apply use an array of arguments. Hence, apply has two arguments, first one is this and second one array of arguments.</p>
-        <p>if you have weaker memory like i have, you can remember apply starts with "a" and array starts with "a"</p>
-        <div>
-          <button id = "callApplyDetail" type="button" class="toggleExample btn btn-primary">Show Detail Example</button>
-          <div id="callApplyDetailExample" class="hide bg-success toggleContent">
-            <h3>call and apply Detail Example</h3>
-            <p>If i have a class Friend. It has two properties- name and libraries. and has two methods- addLib and isExpertOf. </p>
-            <pre><code>
-function Friend(name){
-  return {
-    name: name,
-    libraries:[],
-
-    addLib:function(lib){
-      this.libraries.push(lib);
-    },
-
-    isExpertOf:function(lib){
-      return this.libraries.indexOf(lib) > -1;
-    }
-  }
-}
-            </code></pre>
-            <p>I can create friend by using above function</p>
-            <pre><code>
-var sheldon = new Friend('Shelodn Cooper');
-sheldon.addLib('angular');
-sheldon.addLib('backbone');
-sheldon.addLib('ember');
-            </code></pre>
-            <p>Now, Sheldon knows angular, backbone and ember. You can use isExpertOf to check whether he knows particular library</p>
-            <pre><code>
-sheldon.isExpertOf('ember'); //true
-sheldon.isExpertOf('react'); //false
-            </code></pre>
-            <p>Now the beauty of call is, you can call <code>isExpertOf</code> method in Sheldon to check whether another friend is an expert of some library. Have a look into the code below</p>
-            <pre><code>
-var raj = {
-  name:'Raj Koothrappali', 
-  libraries:['prototype', 'jquery']
-}
-
-//call method on sheldon
-shelod.isExpertOf.call(raj, 'jquery'); //true
-shelod.isExpertOf.call(raj, 'ember'); //false
-            </code></pre>
-            <p>What are we doing here? we are calling <code>isExpertOf</code> method in sheldon object. and then using it on raj object. If you look at the method <code>isExpetOf</code>, you will see <code>this.libraries.indexOf(lib)</code>. this means, whatever is the libraries in the object "this".</p>
-            <p>the first parameter of the call function is assigned to be the value of "this". when you use <code>shelod.inisExpertOf.call(raj, 'jquery'); </code> the first parameter of call (in this case, raj) become the value of this. Hence we are looking for 'jquery' in raj's libraries not in sheldon libraries.</p>
-            <p>.apply() is very similar. the only difference here is </p>
-          </div>
-        </div>
-        <p></p>
+        <p>if you have weaker memory like i have, you can remember apply starts with "a" and array starts with "a"</p>        
       </div>    
       <div id="checkInteger">
         <h2>Check Integer</h2>
-        <p><strong>Question:</strong> How you can check integer in JavaScript</p>
+        <p><strong>Question:</strong> How you can verify integer in JavaScript?</p>
         <p><strong>Answer: </strong> There are 5 ways to check integer</p>
+        <ol>
+          <li>use build in <code>isInteger</code> method</li>
+          <li>parse the number as integer and compare parsed one with the original number. if both are equal, then the provided number is integer. optionally you can do a whether the provided number is Number or not by is <code>isNaN</code></li>
+          <li>if you divide by 1 and remainder is 0, then its integer. you can additionally check whether typeof of the provided number is 'number' or not</li>
+          <li>use <code>Math.round</code> if rounded number is equal to the provided number, then it is integer</li>
+          <li>I can't explain this one. sorry dude :p</li>
+        </ol>
         <pre><code>
-//1
+//1. 
 Number.IsInteger(num); 
-//2
+//2. 
 num === parseInt(num);
 !isNaN(num) && num== parseInt(num);
 //3
@@ -499,8 +426,7 @@ Math.round(num)===num;
 //5
 num == ~~num; //'1' will give you true
 num == num + 0 && num == ~~num;
-        </code></pre>
-        <p>try to understand first 4 by yourself and don't ask me to explain number 5.</p>
+        </code></pre>        
       </div>        
       <div>
         <h2>rapid fire</h2>
@@ -560,20 +486,7 @@ num == num + 0 && num == ~~num;
         <p><strong>Anwser:</strong></p>
       </div>            
       <div id="insertSpace">
-        <h2>log function</h2>
-        <p><strong>Question:</strong> Write a function that can log anything in the console.</p>
-        <p><strong>Answer: </strong>It's very simple</p>
-        <pre><code>
-function log(toLog){
-  console.log(toLog);
-}
-        </code></pre>        
-        <p><strong>Question:</strong> Problem with this one is, if you pass more than one arguments to the log function all arguments after the first one will not be logged. How could you fix it?</p>
-        <pre><code>
-function log(){
-  console.log.apply(console, arguments);
-}
-        </code></pre>
+        <h2>log prefix</h2>        
         <p><strong>Question: </strong> Prefix a word before every log. for example, if you <code>log('my message')</code> it will log: "(app)my message"</p>
         <p><strong>Answer:</strong> There are several solution of it. Add more text here to explain what going on</p>
         <pre><code>
@@ -599,239 +512,31 @@ Function.prototype.bind = Function.prototype.bind || function(context){
         </code></pre>
         <p>ref: <a href="http://blog.sourcing.io/interview-questions">This is a really good materials, walks you through an interview process.</a></p>
         <p>Read: what is the overlay app in the last section of this link</p>
-      </div>      
-      <div>
-        <p><strong>Question:</strong> What is the difference between slice, substr, substring</p>
-        <p><strong>Answer:</strong> <a href="http://www.tvids.net/watch69/The-Big-Bang-Theory/season-01-episode-01-Pilot">slice, substr, substring</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substr?redirectlocale=en-US&redirectslug=JavaScript%2FReference%2FGlobal_Objects%2FString%2Fsubstr">MDN: substr</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring?redirectlocale=en-US&redirectslug=JavaScript%2FReference%2FGlobal_Objects%2FString%2Fsubstring">substring</a></p>
-        <pre><code>
-//put something here
-        </code></pre>
-      </div>      
-      <div id="inheritance">
-        <h2>inheritance</h2>
-        <p><strong>Question:</strong> How would you perform inhertiance in JavaScript?</p>
-        <p><strong>Answer:</strong> ddddd</p>
       </div>
       <div>
         <h2>Scope and hoisting</h2>
-        <p><strong>Question:</strong> what will you see in the console for the following example?</p>
+        <p><strong>Question:</strong> What will you see in the console for the following example?</p>
         <pre><code>
 var a = 1; 
-  function b() { 
-     a = 10; 
-     return; 
-     function a() {} 
-  } 
- b(); 
- console.log(a);          
+function b() { 
+    a = 10; 
+    return; 
+    function a() {} 
+} 
+b(); 
+console.log(a);          
         </code></pre>
-        <p><strong>Answer:</strong>   </p>
+        <p><strong>Answer:</strong> 1</p>
         <h4>Explanation:</h4>
         <ul>
           <li>function declaration <code>function a(){}</code> is hoisted first and it behaves like <code>var a = function () {};</code>, hence in local scope a is created.</li>
           <li>If you have two variable with same name (one in global another in local), local variable always get precedence over global variable.</li>
           <li>When you set <code>a = 10;</code>, you are setting the local variable <code>a</code> , not the global one. Hence, the value of global variable remain same and you get, 1 in the log. ref: js hoisting/scope</li>
         </ul>
-        <p>ref: <a href="https://www.youtube.com/watch?v=7INtYcr8QIY">watch this video</a> <a href="http://www.thatjsdude.com/jsConcepts/concepts/scope.html">learn more about scope and hoisting</a></p>
-      </div>
-      <div>
-        <h2>Closure</h2>
-         <p>If you have a function within a function, execution of the inner function will create a scope inside of the outer function- a nested scope. Because the inside function scope is enclosed by the outer function scope, the inner function scope is called a closure (I invented this definition). Remember, to be a closure, you dont have to return a function, you just have to call a function inside a function.</p>
-         <pre><code>
-function a(){
-  function b(){
-     console.log('closure');
-  }
-  b(); //creates closure
-}
-         </code></pre>
-         <div>
-          <button id = "clsoureExplanation" type="button" class="toggleExample btn btn-primary">Show More Explanation</button>
-          <div id="clsoureExplanationExample" class="hide bg-success toggleContent">
-            <p><strong>Closure Explanation:: </strong>Closure is a powerful feature of JavaScript. Let's have a look into the following example. We have a outer function called "counter" that has a local/private variable "i" and it returns a function (the returning function doesn't have a name and is known as the anonymous function). Inside the returning function (the inner function) returns the value of i and increases it by 1. Aha, very simple!</p>
-         <pre><code>
-function counter(){
-    var i = 0;
-    
-    return function(){
-       return i++;
-    }
-}
-         </code></pre>
-         <p> <strong>Step-1: </strong>In the following code, we execute a counter function and assign the result of the counter to a variable "a". Hence, the value of "a" will be the inner function (returning function). Just remember the inner function returns the value of "i" and also increase the value of "i". Hence, when you execute the function "a", you will get the value of "i".</p>
-         <p><strong>Step-2: </strong> Now if you execute function "a" (execute inner function), it will return 0 (value of i)  and will increase it by 1. If you execute function "a" again it will return 1 (current value of i)  and will increase the value of "i" by 1. Hence, in your subsequent call you will get 2, 3, 4, 5 ....</p>
-         <p>This means, closure holds the state of the local/private variable in the outer scope. And every time, you call it you get the value of "i" increased by 1. Have a look at Image-22 and try to understand it. If you don't get it the time around .... try, try again!</p>
-         
-         <pre><code>
-var a = counter();
-a(); //0
-a(); //1
-a(); //2
-a(); //3
-a(); //4
-a(); //5
-         </code></pre>
-         <p>Now you can have another variable "b" and assign the execution result of the function counter. If you execute "b" (the inner function of the counter), you will get 0. If you execute "b" again, you will get 1. followed by 2, 3, 4, ...</p>
-         <pre><code>
-var b = counter();
-b(); //0
-b(); //1
-b(); //2
-b(); //3
-         </code></pre>
-          <p>This means, each closure maintains separate private variables of the outer function. This is a very powerful feature of JavaScript. Have a look at Image-23</p>   
-          <div class="imageContainer">            
-            <div class="imageHolder">
-              <img src="images/scope/closureOneFunc.png" alt="">             
-              <p class="imgTitleHolder"><span>Image-22: </span><span class="imageTitle">Scope inside Scope</span></p>
-            </div>
-            <div class="imageHolder">
-               <img src="images/scope/closureTwoFunc.png" alt="">              
-              <p class="imgTitleHolder"><span>Image-23: </span><span class="imageTitle">Separate Privacy</span></p>
-            </div>             
-            <div class="imageHolder">
-              <img src="images/scope/closure.jpg" alt="">             
-              <p class="imgTitleHolder"><span>Image-24: </span><span class="imageTitle">Closure is Fun</span></p>
-            </div>
-          </div>
-          <p><strong>Encapsulation:: </strong>You would not be able to access (get or set) the value of "i" from outside. Hence the privacy of the value of "i" is maintained secretly. This is called encapsulation in object oriented programming.</p>
-          </div>
-        </div>
-         
-      </div>
-      <div id="safeCoding">
-        <h2>Save hasOwnProperty</h2>
-        <p><strong>Question:</strong> If you mistakenly override some of the build in method like <code>hasOwnProperty</code> how you will make sure its works</p>
-        <p><strong>Answer:</strong></p>
-        <pre><code>
-var foo = {
-    hasOwnProperty: function() {
-        return false;
-    },
-    bar: 'Here be dragons'
-};
-
-foo.hasOwnProperty('bar'); // always returns false
-
-// Use another Object's hasOwnProperty and call it with 'this' set to foo
-({}).hasOwnProperty.call(foo, 'bar'); // true
-
-// It's also possible to use hasOwnProperty from the Object
-// prototype for this purpose
-Object.prototype.hasOwnProperty.call(foo, 'bar'); // true
-        </code></pre>
-        <p>ref: Javascript garden</p>
-      </div>
-      <div id="closureInsideLoop">
-        <h2>Closures Inside Loops</h2>
-
-        <p>What will you see in your console</p>
-
-<pre><code>
-  for(var i = 0; i < 10; i++) {
-    setTimeout(function() {
-        console.log(i);  
-    }, 1000);
-}
-</code></pre>
-      <p><strong>Answer:</strong> The above will not output the numbers 0 through 9, but will simply print the number 10 ten times.</p>
-      <p><strong>Question:</strong> How will you fix it?</p>
-      <p>The anonymous function keeps a reference to i. At the time console.log gets called, the for loop has already finished, and the value of i has been set to 10.</p>
-      <p>In order to get the desired behavior, it is necessary to create a copy of the value of i.</p>
-      
-      <h4>Avoiding the Reference Problem</h4>
-      <p>In order to copy the value of the loop's index variable, it is best to use an anonymous wrapper.</p>
-
-      <p>The anonymous outer function gets called immediately with i as its first argument and will receive a copy of the value of i as its parameter e.</p>
-      <p>The anonymous function that gets passed to setTimeout now has a reference to e, whose value does not get changed by the loop.</p>
-      <p>There is another possible way of achieving this, which is to return a function from the anonymous wrapper that will then have the same behavior as the code above.</p>
-<pre><code>
-for(var i = 0; i < 10; i++) {
-    setTimeout((function(e) {
-        return function() {
-            console.log(e);
-        }
-    })(i), 1000)
-}
-</code></pre>
-<p><strong>Question:</strong>How does IIFE works</p>
-<p><strong></strong></p>
-<p>There's yet another way to accomplish this by using .bind, which can bind a this context and arguments to function. It behaves identially to the code above</p>
-<pre><code>
-for(var i = 0; i < 10; i++) {
-    setTimeout(console.log.bind(console, i), 1000);
-}
-</code></pre>
-      </div>
-      <div id="byValueByRef">
-        <h2>pass by Value </h2>
-        <p><strong>Question:</strong> Does JavaScript pass parameter by value or by reference</p>
-        <p><strong>Answer:</strong> </p>
-        <pre><code>
-   var num = 10,
-        name = "Jane Austen",
- 
-        obj1 = {
-          state: "unchanged"
-        },
- 
-        obj2 = {
-          state: "unchanged"
-        },
-      
-        obj3 = obj2;
- 
-    function change(num, name, obj1, obj2) {
-      num = num * 10;
-      name = "Nathaniel Hawthorne";
-      obj1 = obj2;
-      obj2.state = "changed";
-    }
- 
-    change(num, name, obj1, obj2);
- 
-    console.log("num = " + num); // 10
-    console.log("name = " + name);// "jane Austen"
-    console.log("obj1.state = " + obj1.state);//"unchanged"
-    console.log("obj2.state = " + obj2.state);//"changed"
-    console.log("obj3.state = " + obj3.state);//"changed"        
-        </code></pre>
-        <p>ref: <a href="http://stackoverflow.com/a/3638034/1535443">stackoverflow</a>, more detailed: <a href="http://snook.ca/archives/javascript/javascript_pass">Jonathan Snook</a></p>
-      </div>
-      <div id="ajaxCall">
-        <h2>Ajax in Native call</h2>
-        <p><strong>Question:</strong> JavaScript is single threaded how it makes ajax call while it is doing something else?</p>
-        <p><strong>Answer: </strong> By using event queue. When you make an ajax call, an event will be added to the event queue. Besides, you will have some code to handle/ do something when ajax call is done. When server is done executing the request and it returns some data/status. when you receive data/status and if you have new event to be performed on data received, you have event handlers. these event handers will also be added in the event queue. </p>
-        <p>could talk about promise pattern. </p>        
-        <p>ref: <a href="http://stackoverflow.com/a/7575649/1535443">Handling of Ajax in the background</a></p>
-        <p><strong>Question:</strong>How would you apply asynchronous call without any help of library</p>
-        <p><strong>Answer:</strong> google it and put it here</p>
-        
-      </div>
-      <div id="jsonP">
-        <p><strong>Question:</strong> What do you know about JSONP?</p>
-        <p><strong></strong></p>
-        <pre><code>
-&lt;div id = 'twitterFeed'&gt;&lt;/div&gt;
-        &lt;script&gt;
-        function myCallback(dataWeGotViaJsonp){
-            var text = '';
-            var len = dataWeGotViaJsonp.length;
-            for(var i=0;i&lt;len;i++){
-                twitterEntry = dataWeGotViaJsonp[i];
-                text += '&lt;p&gt;&lt;img src = &quot;' + twitterEntry.user.profile_image_url_https +'&quot;/&gt;' + twitterEntry['text'] + '&lt;/p&gt;'
-            }
-            document.getElementById('twitterFeed').innerHTML = text;
-        }
-        &lt;/script&gt;
-        &lt;script type=&quot;text/javascript&quot; src=&quot;http://twitter.com/status/user_timeline/padraicb.json?count=10&amp;callback=myCallback&quot;&gt;&lt;/script&gt;
-        </code></pre>
-        <p>ref: <a href="http://stackoverflow.com/questions/2067472/what-is-jsonp-all-about">all about JSONP</a></p>
-      </div>
-      <div id="showAndTell">
-        <h2>show and tell</h2>
-        <p><strong>Question:</strong> for the following code</p>
-        <p><strong></strong></p>
+        <div>
+          <button id = "hoistingExtra" type="button" class="toggleExample btn btn-primary">Show More Example</button>
+          <div id="hoistingExtraExample" class="hide bg-success toggleContent">
+            <p><strong>Question:</strong> for the following code, what will be returned for executing foo</p>        
         <pre><code>
 function foo(){
     function bar() {
@@ -844,58 +549,39 @@ function foo(){
 }
 foo();//?
         </code></pre>
-        <p><strong>Answer:</strong> 8</p>
+          <p><strong>Answer:</strong> 8</p>
+          <p><strong>Explanation:</strong> As function declaration is get hoisted. the first bar is at the top and second bar after the return will also be hoisted. Since there is already a bar (first function declaration), the second one will replace the first one. As there could be one function for a single name and the last one stays. Hence, when you executing bar, you are executed the second one (after hoisting) and you get.</p>
+          </div>          
+        </div>
+        <p>ref: <a href="https://www.youtube.com/watch?v=7INtYcr8QIY">watch this video</a> <a href="http://www.thatjsdude.com/jsConcepts/concepts/scope.html">learn more about scope and hoisting</a></p>
       </div>
       <div>
-        <h2>Floats and computed height</h2>
-        <h4>will help in interview</h4>
-        <p>A parent element that has only floated content will have a computed height: 0;. Add a clearfix to the parent to force browsers to compute a height.</p>
-        <p>ref: <a href="http://wtfhtmlcss.com/"> wtf css (get others)</a></p>
-      </div>
-      <div id="javaScriptEquality">
-        <h2>JavaScript Equality</h2> 
-        <p> internally JavaScript actually has two different approaches for testing equality. Primitives like strings and numbers are compared by their value, while objects like arrays, dates, and plain objects are compared by their reference. That comparison by reference basically checks to see if the objects given refer to the same location in memory. </p>
-        <pre><code>
-          function isEquivalent(a, b) {
-    // Create arrays of property names
-    var aProps = Object.getOwnPropertyNames(a);
-    var bProps = Object.getOwnPropertyNames(b);
-
-    // If number of properties is different,
-    // objects are not equivalent
-    if (aProps.length != bProps.length) {
-        return false;
+        <h2>Closure</h2>
+        <p><strong>Question:</strong> What is closure? How closure creates encapsulation?</p>
+         <p> <strong>Answer:</strong> If you have a function within a function, execution of the inner function will create a scope inside of the outer function- a nested scope. Because the inside function scope is enclosed by the outer function scope, the inner function scope is called a closure (I invented this definition). Remember, to be a closure, you dont have to return a function, you just have to call a function inside a function.</p>
+         <pre><code>
+function counter(){
+    var i = 0;
+    
+    return function(){
+       return i++;
     }
-
-    for (var i = 0; i &lt; aProps.length; i++) {
-        var propName = aProps[i];
-
-        // If values of same property are not equal,
-        // objects are not equivalent
-        if (a[propName] !== b[propName]) {
-            return false;
-        }
-    }
-
-    // If we made it this far, objects
-    // are considered equivalent
-    return true;
 }
-        </code></pre>
-        <p><strong>Limitation:</strong> 
-          <ul>
-            <li>if one of the property values is itself an object</li>
-            <li> if one of the property values is NaN (the only value in JavaScript that is not equal to itself?)</li>
-            <li>if a has a property with value undefined, while b doesn't have this property (which thus evaluates to undefined?)</li>
-          </ul>
-
-          for better result use, underscore or lo-dash _.isEqual
-        </p>
-        <p>ref: <a href="http://designpepper.com/blog/drips/object-equality-in-javascript.html">object equality in JS</a></p>
+         </code></pre>
+         <pre><code>
+var a = counter();
+a(); //0
+a(); //1
+a(); //2
+a(); //3
+a(); //4
+a(); //5
+         </code></pre>
+        <p><strong>Encapsulation:: </strong>You would not be able to access (get or set) the value of "i" from outside. Hence the privacy of the value of "i" is maintained secretly. This is called encapsulation in object oriented programming.</p> 
       </div>
       <div>
         <h2>click hander unintended closure</h2>
-        <p><strong>Question:</strong> What will happen if you click on the item?</p>
+        <p><strong>Question:</strong> If you are looping through a collection of dom and adding a click handler like the example below. What will happen if you click on the item?</p>
         <pre><code>
 &lt;div class='item'&gt;Item1&lt;/div&gt;
 &lt;div class='item'&gt;Item2&lt;/div&gt;
@@ -955,8 +641,52 @@ for (i = 0; elems.length > i; i++) {
           </div>          
         </div>
         <p><strong>question:</strong> how could you solve this by using event delegate</p>
-        <p><strong>Answer:</strong> look at previous question</p>
+        <p><strong>Answer:</strong> Use your brain to extract answer from <a href="http://www.thatjsdude.com/interview/dom.html#eventDelegate">this answer</a></p>
+        <div>
+          <button id = "closureExtraExample" type="button" class="toggleExample btn btn-primary">Show Similar Question</button>
+          <div id="closureExtraExampleExample" class="hide bg-success toggleContent">
+            <div id="closureInsideLoop">
+        <h2>Closures Inside Loops</h2>
+        <p><strong>Question:</strong> Look at the code below, you have a for loop if you have setTimeout inside it. If log the loop counter inside setTimeout, what will be logged?</p>
+<pre><code>
+  for(var i = 0; i < 10; i++) {
+    setTimeout(function() {
+        console.log(i);  
+    }, 1000);
+}
+</code></pre>
+      <p><strong>Answer:</strong> The above will not output the numbers 0 through 9, but will simply print the number 10 ten times.</p>
+      <p><strong>Question:</strong> How will you fix it?</p>
+      <p>The anonymous function keeps a reference to i. At the time console.log gets called, the for loop has already finished, and the value of i has been set to 10.</p>
+      <p>In order to get the desired behavior, it is necessary to create a copy of the value of i.</p>
+      
+      <h4>Avoiding the Reference Problem</h4>
+      <p>In order to copy the value of the loop's index variable, it is best to use an anonymous wrapper.</p>
+
+      <p>The anonymous outer function gets called immediately with i as its first argument and will receive a copy of the value of i as its parameter e.</p>
+      <p>The anonymous function that gets passed to setTimeout now has a reference to e, whose value does not get changed by the loop.</p>
+      <p>There is another possible way of achieving this, which is to return a function from the anonymous wrapper that will then have the same behavior as the code above.</p>
+<pre><code>
+for(var i = 0; i < 10; i++) {
+    setTimeout((function(e) {
+        return function() {
+            console.log(e);
+        }
+    })(i), 1000)
+}
+</code></pre>
+<p><strong>Question:</strong>How does IIFE works</p>
+<p><strong></strong></p>
+<p>There's yet another way to accomplish this by using .bind, which can bind a this context and arguments to function. It behaves identially to the code above</p>
+<pre><code>
+for(var i = 0; i < 10; i++) {
+    setTimeout(console.log.bind(console, i), 1000);
+}
+</code></pre>
       </div>
+          </div>          
+        </div>
+      </div>      
       <div>
         <h2>delete can delete but</h2>
         <pre><code>
@@ -978,6 +708,62 @@ for (i = 0; elems.length > i; i++) {
         <p><strong>Answer:</strong> you will see 20.99</p>
         <p><strong>Explanation:</strong> This is actually interesting problem. when you create <code>object.create(myObject)</code> you are creating new object where the <code>myObject</code> will be the parent of the newly created object.</p>
         <p>when you <code>delete customObject.price</code> it deletes the <code>price</code> property in the customObject. However, when you call the method getprice. it looks for <code>this.price</code> since the customObject doesnt have price property, JavaScript executor walks through the prototype chain towards the parent. since customObject was inherited from myObject and myObject has a <code>price</code> property. the get_price method returns the price</p>
+      </div>
+            <div id="byValueByRef">
+        <h2>pass by Value </h2>
+        <p><strong>Question:</strong> Does JavaScript pass parameter by value or by reference</p>
+        <p><strong>Answer:</strong> </p>
+        <pre><code>
+var num = 10,
+    name = "Addy Osmani",
+    obj1 = {
+      value: "first value"
+    },
+   obj2 = {
+     value: "second value"
+   },
+   obj3 = obj2;
+ 
+function change(num, name, obj1, obj2) {
+    num = num * 10;
+    name = "Paul Irish";
+    obj1 = obj2;
+    obj2.value = "new value";
+}
+ 
+change(num, name, obj1, obj2);
+ 
+console.log(num); // 10
+console.log(name);// "<ABBR></ABBR>ddy Osmani"
+console.log(obj1.value);//"first value"
+console.log(obj2.valuee);//"new value"
+console.log(obj3.valuee);//"new value"        
+     </code></pre>
+     <p><strong>Explanation:</strong></p>
+        <p>ref: <a href="http://stackoverflow.com/a/3638034/1535443">stackoverflow</a>, more detailed: <a href="http://snook.ca/archives/javascript/javascript_pass">Jonathan Snook</a></p>
+      </div>      
+      <div id="safeCoding">
+        <h2>Save hasOwnProperty</h2>
+        <p><strong>Question:</strong> If you mistakenly override some of the build in method like <code>hasOwnProperty</code> how you will make sure its works</p>
+        <p><strong>Answer:</strong></p>
+        <pre><code>
+var foo = {
+    hasOwnProperty: function() {
+        return false;
+    },
+    bar: 'Here be dragons'
+};
+
+foo.hasOwnProperty('bar'); // always returns false
+
+// Use another Object's hasOwnProperty and call it with 'this' set to foo
+({}).hasOwnProperty.call(foo, 'bar'); // true
+
+// It's also possible to use hasOwnProperty from the Object
+// prototype for this purpose
+Object.prototype.hasOwnProperty.call(foo, 'bar'); // true
+        </code></pre>
+        <p>ref: Javascript garden</p>
       </div>
       <div>
         <h2>memoization</h2>
@@ -1103,9 +889,52 @@ obj.first().second().third();
       <div>
         <h2>Curry in JS</h2>
         <p><strong>Question:</strong> How would you implement curry in JavaScript?</p>
+      </div>      
+      <div>
+        <h2>Deleted Questions</h2>
+        <div>
+          <button id = "deletedQuestionCollection" type="button" class="toggleExample btn btn-primary">Show Deleted Questions</button>
+          <div id="deletedQuestionCollectionExample" class="hide bg-success toggleContent">
+            <div>
+              <h2>for in looping</h2>
+              <p><strong>Question: </strong> If you loop through [10, 20, 30] by using for-in loop and want to get the sum of all the elements, how will you do it?</p>
+              <pre><code>
+var numbers = [10, 20, 30];
+var sum = 0;
+for(var num in numbers){
+  sum += num; 
+}
+
+console.log(sum);
+        </code></pre>
+              <p><strong>Answer:</strong> 0012</p>
+              <p><strong>Basic:</strong> for in always loop over keys. JavaScript array is inherited from object and all the elements in the array is like key value pair in the object<code>{0:10, 1:20, 2:30}</code> where key is 0, 1, 2 etc. When you are accessing values by passing index, you are actully accessing by key.</p>
+              <p>thats why when an index doesnt exist, Javascript returns undefined not array out of index. As the index(key) doesnt exists in the object.</p>
+              <p><strong>Explanation:</strong> as for in looping over keys and keys are always string type, its concatenating <code>0+'0'</code> which becomes <code>'00'</code> and then u add '1' and '2'. Which eventually results '0012'. Quite unexpected, isnt it?</p>
+              <p><strong>solution:</strong> the solution of this problem is to use <code>num</code> as index to access the value or use a simple for loop</p>
+              <pre><code>
+var numbers = [10, 20, 30];
+var sum = 0;
+for(var num in numbers){
+  sum += numbers[num]; 
+}
+
+console.log(sum);//60
+              </code></pre>
+            </div>
+            <div id="ajaxCall">
+              <h2>Ajax in Native call</h2>
+              <p><strong>Question:</strong> JavaScript is single threaded how it makes ajax call while it is doing something else?</p>
+              <p><strong>Answer: </strong> By using event queue. When you make an ajax call, an event will be added to the event queue. Besides, you will have some code to handle/ do something when ajax call is done. When server is done executing the request and it returns some data/status. when you receive data/status and if you have new event to be performed on data received, you have event handlers. these event handers will also be added in the event queue. </p>
+              <p>could talk about promise pattern. </p>        
+              <p>ref: <a href="http://stackoverflow.com/a/7575649/1535443">Handling of Ajax in the background</a></p>
+            </div>
+            <!-- add new one here -->
+          </div>
+        </div>    
       </div>
       <div>
-        <h3>Deleted Questions</h3>  
+        <h3>Discarded Questions</h3>
         <ul>
           <li><a href="http://khan4019.github.io/JSconfusingParts/#/3/6">In JavaScript <code>isNaN(undefined)</code> returns true. how could you fix it?</a></li>
           <li>what are differences between host object and native object? <a href="http://stackoverflow.com/a/7614380/1535443">read answer here</a></li>          
@@ -1116,6 +945,10 @@ obj.first().second().third();
           <li>Use Function as object</li>  
           <li>Why does nearly every object have a toString method?</li>
           <li>Why Everything in JavaScript acts like an object, with the only two exceptions being null and undefined.</li>
+          <li>how would u create class in JavaScript</li>
+          <li>How would you perform inheritance in JavaScript?</li>
+          <li>How would you apply asynchronous call without any help of library</li>
+          <li>What is the difference between slice, substr, substring? Answer:</strong> <a href="http://www.tvids.net/watch69/The-Big-Bang-Theory/season-01-episode-01-Pilot">slice, substr, substring</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substr?redirectlocale=en-US&redirectslug=JavaScript%2FReference%2FGlobal_Objects%2FString%2Fsubstr">MDN: substr</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring?redirectlocale=en-US&redirectslug=JavaScript%2FReference%2FGlobal_Objects%2FString%2Fsubstring">substring</a></li>
         </ul>
       </div>
       <div>
