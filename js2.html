@@ -198,8 +198,8 @@ var undefined = 123;
           </div>
         </div>
         <br>
-        <div id="doubleOrTripleEqual">
-          <h2>== or ===</h2>
+        <div id="doubleVsTripleEqual">
+          <h2>== Vs ===</h2>
           <p><strong>Question:</strong> What are the difference between <code>==</code> and <code>===</code>?</p>
           <p><strong>Answer: </strong> The simplest way of saying that, == will not check types and === will check whether both sides are of same type. So, == is tolerant. But under the hood it converts to its convenient type to have both in same type and then do the comparison.</p>
           <p>=== compares the types and values. Hence, if both sides are not same type, answer is always false. For example, if you are comparing two strings, they must have identical character sets. For other primitives (number, boolean) must share the same value.</p>
@@ -254,7 +254,7 @@ function isEquivalent(a, b) {
         <p>ref: <a href="http://designpepper.com/blog/drips/object-equality-in-javascript.html">object equality in JS</a></p>
       </div>
       <div id="truthyVsEqality">
-        <h2>True isn't Equality to true</h2>
+        <h2>Truthy isn't Equal to true</h2>
         <p><strong>Question: </strong> As <code>[]</code> is true, <code>[]==true</code> should also be true. right?</p>
           <p><strong>Answer:</strong> First think of <code>[]</code>, empty array is an object and object is always truthy. Hence, if you use <code>if([]){console.log('its true')}</code> you will see the log.</p>
           <p>Now, <code>==</code> (double equal) will do some implicit coercion.</p>
@@ -331,7 +331,7 @@ Array.prototype.duplicator=function(){
         </div>
       </div>
       <div id="bindthis">
-        <h2>bind this</h2>
+        <h2>Reuse Method</h2>
         <p><strong>Question: </strong>If you want to use an arbitrary object as value of this, how will you do that?</p>
         <p><strong>Answer:</strong> There are at least three different ways to doing this by using bind, call and apply </p>
         <p>For example, i have a function name deductMontlyFee</p>
@@ -363,7 +363,7 @@ rossFeeDeductor(); //"Ross Geller remaining balance is 200"
         <p>bind allows you to borrow a method and determines what the value of <code>this</code> would be, but it does not call the function but returns an exact copy of the function.</p>
       </div>
       <div>
-        <h2>arguments</h2>
+        <h2>arguments and call</h2>
         <p><strong>Question:</strong> Write a simple function, that will tell you whether 2 is passed as parameter or not?</p>
         <p><strong>Answer:</strong> I know JavaScript function has an argument array. i can check whether indexOf(2) is != -1. if it is -1 its not passed otherwise, it is passed.</p>
         <pre><code>
@@ -669,29 +669,6 @@ console.log(obj3.valuee);//"new value"
      </code></pre>
      <p><strong>Explanation:</strong></p>
         <p>ref: <a href="http://stackoverflow.com/a/3638034/1535443">stackoverflow</a>, more detailed: <a href="http://snook.ca/archives/javascript/javascript_pass">Jonathan Snook</a></p>
-      </div>      
-      <div id="safeCoding">
-        <h2>Save hasOwnProperty</h2>
-        <p><strong>Question:</strong> If you mistakenly override some of the build in method like <code>hasOwnProperty</code> how you will make sure its works</p>
-        <p><strong>Answer:</strong></p>
-        <pre><code>
-var foo = {
-    hasOwnProperty: function() {
-        return false;
-    },
-    bar: 'Here be dragons'
-};
-
-foo.hasOwnProperty('bar'); // always returns false
-
-// Use another Object's hasOwnProperty and call it with 'this' set to foo
-({}).hasOwnProperty.call(foo, 'bar'); // true
-
-// It's also possible to use hasOwnProperty from the Object
-// prototype for this purpose
-Object.prototype.hasOwnProperty.call(foo, 'bar'); // true
-        </code></pre>
-        <p>ref: Javascript garden</p>
       </div>
       <div>
         <h2>memoization</h2>
@@ -795,18 +772,31 @@ obj.first().second().third();
         <p>ref: <a href="http://blog.buymeasoda.com/creating-a-jquery-like-chaining-api/">jquery like chaining</a> or <a href="http://stackoverflow.com/questions/7475336/how-does-jquery-chaining-work">jquery like chaining</a></p>
       </div>
       <div>
-        <h2>timer</h2>
-        <p><strong>Question:</strong> How would you stop a a function that is called in </p>
-      </div>
-      <div>
         <h2>animation</h2>
         <p><strong>Question: </strong> How would you implement the animation of moving one div to another</p>
         <p><strong>Answer:</strong></p>
+        <pre><code>
+function moveLeft(elem, distance) {
+  var left = 0;
+
+  function frame() {
+    left++;
+    elem.style.left = left + 'px';
+
+    if (left == distance)
+      clearInterval(timeId)
+  }
+
+  var timeId = setInterval(frame, 10); // draw every 10ms
+}
+        </code></pre>
+        <p>Test this one</p>
         <p>ref: <a href="http://khan4019.github.io/HighPerfJS/#/23/1">how things are animated?</a></p>
       </div>      
       <div>
         <h2>Curry in JS</h2>
         <p><strong>Question:</strong> How would you implement curry in JavaScript?</p>
+        <p><strong>Can move it to higher set of questions</strong></p>
       </div>      
       <div>
         <h2>Deleted Questions</h2>
@@ -840,6 +830,29 @@ for(var num in numbers){
 console.log(sum);//60
               </code></pre>
             </div>
+            <div id="safeCoding">
+        <h2>Save hasOwnProperty</h2>
+        <p><strong>Question:</strong> If you mistakenly override some of the build in method like <code>hasOwnProperty</code> how you will make sure its works</p>
+        <p><strong>Answer:</strong></p>
+        <pre><code>
+var foo = {
+    hasOwnProperty: function() {
+        return false;
+    },
+    bar: 'Here be dragons'
+};
+
+foo.hasOwnProperty('bar'); // always returns false
+
+// Use another Object's hasOwnProperty and call it with 'this' set to foo
+({}).hasOwnProperty.call(foo, 'bar'); // true
+
+// It's also possible to use hasOwnProperty from the Object
+// prototype for this purpose
+Object.prototype.hasOwnProperty.call(foo, 'bar'); // true
+        </code></pre>
+        <p>ref: Javascript garden</p>
+      </div>
             <div id="ajaxCall">
               <h2>Ajax in Native call</h2>
               <p><strong>Question:</strong> JavaScript is single threaded how it makes ajax call while it is doing something else?</p>
