@@ -110,18 +110,18 @@
       <p class="gray"> <span class="purpleBold">More Questions</span> <a href="css.html">css interview questions</a>, <a href="html.html">html interview questions</a> </p> -->
       <div>
         <h2>null vs undefined</h2>
-        <p><strong>Question: </strong> <code>null == undefined</code> why they there are two things when they are equal?</p>
-        <p><strong>Answer:</strong> <code>undefined</code> means, value of the variable is not defined. More specifically, you declared a variable but no value has been assigned to that variable.</p>
+        <p><strong>Question: </strong> What are differences between null an undefined?</p>
+        <p><strong>Answer:</strong> JavaScript has two distinct values for nothing, null and undefined.</p>
+        <p><code>undefined</code> means, value of the variable is not defined. More specifically, you declared a variable but no value has been assigned to that variable.</p>
         <p><code>null</code> means empty or non-existent value. null is a primitive value and you can assign null to any variable.</p>
         <p>Where as undefined is a primitive type, null is a type of object. you can set variable to undefined but it is recommended to set it to null (if required) so that you can distinguish between null and undefined. though <code>null == undefined</code></p>
         <p>if you delete any object property, that will become undefined.</p>        
       </div>
       <div>
-        <button id = "nullVsUndefinedDetail" type="button" class="toggleExample btn btn-primary">Show Much More Details</button>
+        <button id = "nullVsUndefinedDetail" type="button" class="toggleExample btn btn-primary">Show Unnecessary Details</button>
         <div id="nullVsUndefinedDetailExample" class="hide">
           <div id="nullVsUndefined" class="bg-success toggleContent">
-          <h3>Crazy detail</h3>
-          <p>JavaScript has two distinct values for nothing, null and undefined, with the latter being more useful.</p>  
+          <h3>I told you its, unnecessary!!!</h3>            
           <h4>undefined</h4>
           <p>JavaScript has a global variable <code>undefined</code> whose value is "undefined". And <code>typeof undefined</code> is also "undefined". Remember, undefined is not a constant or a keyword.</p>
             undefined is a type with exactly one value: undefined.
@@ -173,20 +173,8 @@ var undefined = 123;
       <div id="trueLies">
         <h2>True and False</h2>
         <p><strong>Question:</strong> What are the truthy and falsy values in JavaScript</p>
-        <p><strong>Answer:</strong> In javascript 6 things are falsy and they are-</p>
-        <ul>
-          <li>false</li>
-          <li>null</li>
-          <li>undefined</li>
-          <li>''</li>
-          <li>0</li>
-          <li>NaN</li>
-        </ul>
-        <p><strong>truthy:</strong> is very simple. there is only two truthy things-</p>
-        <ul>
-          <li>true</li>
-          <li>Everything that is not false</li>
-        </ul>
+        <p><strong>Answer:</strong> In javascript 6 things are falsy and they are- false, null, undefined, '', 0, NaN</p>
+        <p><strong>truthy:</strong> is very simple. there is only two truthy things- true and everything that is not false</p>
         <div>
           <button id = "trueFalseRapid" type="button" class="toggleExample btn btn-primary">Show Rapid Fire Questions</button>
           <div id="trueFalseRapidExample" class="hide bg-success toggleContent">
@@ -216,65 +204,74 @@ var undefined = 123;
         <br>
         <div id="doubleOrTripleEqual">
           <h2>== or ===</h2>
-          <p><strong>Question:</strong>What are the difference between <code>==</code> and <code>===</code></p>
-          <p><strong>Answer: </strong> <a href="http://stackoverflow.com/a/359509/1535443">read answer here</a></p>
-          
+          <p><strong>Question:</strong> What are the difference between <code>==</code> and <code>===</code></p>
+          <p><strong>Answer: </strong> The simplest way of saying that, == will not check types and === will check whether both sides are of same type. So, == is tolerant. But under the hood it converts to its convenient type to have both in same type and then do the comparison.</p>
+          <p>=== compares the types and values. Hence, if both sides are not same type, answer is always false. For example, if you are comparing two strings, they must have identical character sets. For other primitives (number, boolean) must share the same value.</p>
+          <p> be careful while comparing objects, identifiers must reference the same object</p>
+          <pre><code>
+var a = {a: 1};
+var b = {a: 1};
+a == b //false
+a === b //false
+
+var c = a;
+a == c//true
+a === c //true
+          </code></pre>
+          <pre><code>
+var a = [1,2,3];
+var b = [1,2,3];
+a == b //false
+a === b //false
+
+var c = a;
+a == c//true
+a === c //true
+          </code></pre>
+          <p>Special note:  NaN, null and undefined will never === another type. NaN does not even === itself.</p>
+          <p>ref: <a href="http://stackoverflow.com/a/359509/1535443">read answer here</a>, <a href="http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/">truth equality in JavaScript</a></p>
         </div>
       <div id="truthyVsEqality">
         <h2>Truthy Vs Equality</h2>
-        <p><strong>Question: </strong> For the code below, what will be logged?</p>
-          <pre><code>
-if([]){
-  console.log('is empty array is true?');
-}
-
-if([0]==true){
-  console.log('will this be looged?')
-}
-
-          </code></pre>
-          <p><strong>Answer:</strong> First one log. but second one will not log</p>
-          <p><strong>Question: </strong> Can you explain why second one will not be logged?</p>
-          <p><strong>Answer:</strong> The first one is a truthy check. in that case empty array is an object. and object is always truthy and it will go to inside of the if block and code will be executed.</p>
-          <p>However, for the second part. it is an equality check with <code>==</code> (double equal). Hence there will be some implicit coercion.</p>
-          <p>Since they are two different types, JavaScript can't compare them directly . Hence, under the hood, JavaScript will convert them to compare. first right side of the equality will be cooereced to a number type by using <code>toNumber</code> (JavaScript doesnt have toNumber. this is toNumber of JavaScript implementation in C. for example V8 has implementation of JavaScript). and number of <code>true</code> would be 1.</p>
+        <p><strong>Question: </strong> Is <code>[0]==true</code> is true or false?</p>
+          <p><strong>Answer:</strong> First think of [], empty array is an object and object is always truthy.</p>
+          <p>Now, <code>==</code> (double equal) will do some implicit coercion.</p>
+          <p>Since left and right side of the equality are two different types, JavaScript can't compare them directly . Hence, under the hood, JavaScript will convert them to compare. first right side of the equality will be cooereced to a number type by using <code>toNumber</code> (JavaScript doesnt have toNumber. this is toNumber of JavaScript implementation in C. for example V8 has implementation of JavaScript). and number of <code>true</code> would be 1.</p>
           <p>after that, JavaScript implementation will try to convert [0] by using<code>toPrimitive</code> (of JavaScript implementation). since [0].valueOf is not primitive will use <code>toString</code> and will get <code>"0"</code></p>
           <p>still left and right is not same type. hence left side will be converted again to a number. "0" will be 0.</p>
           <p>finally, you are comparing <code>0==1</code> which will be false anyway</p>
-      </div>
-      <div id="areYouAnExpert">
-        <h2>are you really an expert?</h2>
-        <p><strong>Question:</strong> Look at the code block below. why <code>'expert'</code> is true and false at the same time. is JavaScript on drug?</p>
-        <pre><code>
+          <div>
+            <button id = "equalityRapidFire" type="button" class="toggleExample btn btn-primary">Show More Questions</button>
+            <div id="equalityRapidFireExample" class="hide bg-success toggleContent">
+              <h2>are you really an expert?</h2>
+              <p><strong>Question:</strong> Look at the code block below. why <code>'expert'</code> is true and false at the same time. is JavaScript on drug?</p>
+              <pre><code>
 'expert' == true; //false
 'expert' == false; //false
-        </code></pre>
-        <p><strong>Answer:</strong> This need to be explained how equality (==) or double equals works in JavaScript.</p>
-        <p>If you are using <code>==</code>. javascript does coercing. this means, it doesnt check the type of the object. while ignoring types of the two things you are comparing. JavaScript, under the hood actually convert them to complare if they are not same type. In this particular example</p>
-        <p>Since, both side is different, they get coerced to number using <code>toNumber</code> (JavaScript implementation: in V8, etc. ). right side get coerced first and then left side. </p>
-        <pre><code>
+              </code></pre>
+              <p><strong>Answer:</strong> This need to be explained how equality (==) or double equals works in JavaScript.</p>
+              <p>If you are using <code>==</code>. javascript does coercing. this means, it doesnt check the type of the object. while ignoring types of the two things you are comparing. JavaScript, under the hood actually convert them to complare if they are not same type. In this particular example</p>
+              <p>Since, both side is different, they get coerced to number using <code>toNumber</code> (JavaScript implementation: in V8, etc. ). right side get coerced first and then left side. </p>
+              <pre><code>
 //for
 "expert" == true;
 //convert boolean using toNumber will generate 1 for true
 "expert" == 1;
 //convert string using toNumber will generate NaN
 NaN == 1; //false
-        </code></pre>
-        <p>for <code>'expert'== false</code> the process is same</p>
-        <pre><code>
+              </code></pre>
+              <p>for <code>'expert'== false</code> the process is same</p>
+              <pre><code>
 //for
 "expert" == false;
 //convert boolean using toNumber
 "expert" == 0;
 //convert string using toNumber
 NaN == 0; //false!
-        </code></pre>
-                <div>
-                  <button id = "equalityRapidFire" type="button" class="toggleExample btn btn-primary">Show More Rapid Fire</button>
-                  <div id="equalityRapidFireExample" class="hide bg-success toggleContent">
-                    <h2>Equality Rapid Fire</h2>  
-                      <p>see them in the code block below</p>
-                      <pre><code>
+              </code></pre>
+              <h2>Equality Rapid Fire</h2>  
+                <p>see them in the code block below</p>
+                <pre><code>
 null == false; // false
 null == null; // true
 
@@ -1103,6 +1100,13 @@ obj.first().second().third();
       <div>
         <h2>Curry in JS</h2>
         <p><strong>Question:</strong> How would you implement curry in JavaScript?</p>
+      </div>
+      <div>
+        <h2>ToDo questions</h2>
+        <ul>
+          <li>how would u create an object in JavaScript</li>
+          <li></li>
+        </ul>
       </div>
       <div>
         <h3>Deleted Questions</h3>  
