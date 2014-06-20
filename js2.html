@@ -207,7 +207,7 @@ var undefined = 123;
           <p><strong>Question:</strong> What are the difference between <code>==</code> and <code>===</code></p>
           <p><strong>Answer: </strong> The simplest way of saying that, == will not check types and === will check whether both sides are of same type. So, == is tolerant. But under the hood it converts to its convenient type to have both in same type and then do the comparison.</p>
           <p>=== compares the types and values. Hence, if both sides are not same type, answer is always false. For example, if you are comparing two strings, they must have identical character sets. For other primitives (number, boolean) must share the same value.</p>
-          <p> be careful while comparing objects, identifiers must reference the same object</p>
+          <p> be careful while comparing objects, identifiers must reference the same objects or same array.</p>
           <pre><code>
 var a = {a: 1};
 var b = {a: 1};
@@ -217,60 +217,23 @@ a === b //false
 var c = a;
 a == c//true
 a === c //true
-          </code></pre>
-          <pre><code>
-var a = [1,2,3];
-var b = [1,2,3];
-a == b //false
-a === b //false
-
-var c = a;
-a == c//true
-a === c //true
-          </code></pre>
-          <p>Special note:  NaN, null and undefined will never === another type. NaN does not even === itself.</p>
+          </code></pre>          
+          <p>Special note:  NaN, null and undefined will never === another type. NaN does not even === itself.</p>          
           <p>ref: <a href="http://stackoverflow.com/a/359509/1535443">read answer here</a>, <a href="http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/">truth equality in JavaScript</a></p>
         </div>
       <div id="truthyVsEqality">
         <h2>Truthy Vs Equality</h2>
-        <p><strong>Question: </strong> Is <code>[0]==true</code> is true or false?</p>
-          <p><strong>Answer:</strong> First think of [], empty array is an object and object is always truthy.</p>
+        <p><strong>Question: </strong> As [] is true, <code>[]==true</code> should also be true. right?</p>
+          <p><strong>Answer:</strong> First think of [], empty array is an object and object is always truthy. Hence, if you use <code>if([]){console.log('its true')}</code> you will see the log.</p>
           <p>Now, <code>==</code> (double equal) will do some implicit coercion.</p>
           <p>Since left and right side of the equality are two different types, JavaScript can't compare them directly . Hence, under the hood, JavaScript will convert them to compare. first right side of the equality will be cooereced to a number type by using <code>toNumber</code> (JavaScript doesnt have toNumber. this is toNumber of JavaScript implementation in C. for example V8 has implementation of JavaScript). and number of <code>true</code> would be 1.</p>
-          <p>after that, JavaScript implementation will try to convert [0] by using<code>toPrimitive</code> (of JavaScript implementation). since [0].valueOf is not primitive will use <code>toString</code> and will get <code>"0"</code></p>
+          <p>after that, JavaScript implementation will try to convert [] by using<code>toPrimitive</code> (of JavaScript implementation). since [].valueOf is not primitive will use <code>toString</code> and will get <code>"0"</code></p>
           <p>still left and right is not same type. hence left side will be converted again to a number. "0" will be 0.</p>
           <p>finally, you are comparing <code>0==1</code> which will be false anyway</p>
           <div>
-            <button id = "equalityRapidFire" type="button" class="toggleExample btn btn-primary">Show More Questions</button>
+            <button id = "equalityRapidFire" type="button" class="toggleExample btn btn-primary">Show More Cases</button>
             <div id="equalityRapidFireExample" class="hide bg-success toggleContent">
-              <h2>are you really an expert?</h2>
-              <p><strong>Question:</strong> Look at the code block below. why <code>'expert'</code> is true and false at the same time. is JavaScript on drug?</p>
-              <pre><code>
-'expert' == true; //false
-'expert' == false; //false
-              </code></pre>
-              <p><strong>Answer:</strong> This need to be explained how equality (==) or double equals works in JavaScript.</p>
-              <p>If you are using <code>==</code>. javascript does coercing. this means, it doesnt check the type of the object. while ignoring types of the two things you are comparing. JavaScript, under the hood actually convert them to complare if they are not same type. In this particular example</p>
-              <p>Since, both side is different, they get coerced to number using <code>toNumber</code> (JavaScript implementation: in V8, etc. ). right side get coerced first and then left side. </p>
-              <pre><code>
-//for
-"expert" == true;
-//convert boolean using toNumber will generate 1 for true
-"expert" == 1;
-//convert string using toNumber will generate NaN
-NaN == 1; //false
-              </code></pre>
-              <p>for <code>'expert'== false</code> the process is same</p>
-              <pre><code>
-//for
-"expert" == false;
-//convert boolean using toNumber
-"expert" == 0;
-//convert string using toNumber
-NaN == 0; //false!
-              </code></pre>
-              <h2>Equality Rapid Fire</h2>  
-                <p>see them in the code block below</p>
+               <p>see them in the code block below</p>
                 <pre><code>
 null == false; // false
 null == null; // true
@@ -629,6 +592,26 @@ var a = 1;
           <li>If you have two variable with same name (one in global another in local), local variable always get precedence over global variable.</li>
           <li>When you set <code>a = 10;</code>, you are setting the local variable <code>a</code> , not the global one. Hence, the value of global variable remain same and you get, 1 in the log. ref: js hoisting/scope</li>
         </ul>
+        <div>
+          <button id = "hoistingExtra" type="button" class="toggleExample btn btn-primary">Show More Example</button>
+          <div id="hoistingExtraExample" class="hide bg-success toggleContent">
+            <p><strong>Question:</strong> for the following code, what will be returned for executing foo</p>        
+        <pre><code>
+function foo(){
+    function bar() {
+        return 3;
+    }
+    return bar();
+    function bar() {
+        return 8;
+    }
+}
+foo();//?
+        </code></pre>
+          <p><strong>Answer:</strong> 8</p>
+          <p><strong>Explanation:</strong> As function declaration is get hoisted. the first bar is at the top and second bar after the return will also be hoisted. Since there is already a bar (first function declaration), the second one will replace the first one. As there could be one function for a single name and the last one stays. Hence, when you executing bar, you are executed the second one (after hoisting) and you get.</p>
+          </div>          
+        </div>
         <p>ref: <a href="https://www.youtube.com/watch?v=7INtYcr8QIY">watch this video</a> <a href="http://www.thatjsdude.com/jsConcepts/concepts/scope.html">learn more about scope and hoisting</a></p>
       </div>
       <div>
@@ -695,30 +678,7 @@ b(); //3
           </div>
         </div>
          
-      </div>
-      <div id="safeCoding">
-        <h2>Save hasOwnProperty</h2>
-        <p><strong>Question:</strong> If you mistakenly override some of the build in method like <code>hasOwnProperty</code> how you will make sure its works</p>
-        <p><strong>Answer:</strong></p>
-        <pre><code>
-var foo = {
-    hasOwnProperty: function() {
-        return false;
-    },
-    bar: 'Here be dragons'
-};
-
-foo.hasOwnProperty('bar'); // always returns false
-
-// Use another Object's hasOwnProperty and call it with 'this' set to foo
-({}).hasOwnProperty.call(foo, 'bar'); // true
-
-// It's also possible to use hasOwnProperty from the Object
-// prototype for this purpose
-Object.prototype.hasOwnProperty.call(foo, 'bar'); // true
-        </code></pre>
-        <p>ref: Javascript garden</p>
-      </div>
+      </div>      
       <div id="closureInsideLoop">
         <h2>Closures Inside Loops</h2>
 
@@ -759,136 +719,6 @@ for(var i = 0; i < 10; i++) {
     setTimeout(console.log.bind(console, i), 1000);
 }
 </code></pre>
-      </div>
-      <div id="byValueByRef">
-        <h2>pass by Value </h2>
-        <p><strong>Question:</strong> Does JavaScript pass parameter by value or by reference</p>
-        <p><strong>Answer:</strong> </p>
-        <pre><code>
-   var num = 10,
-        name = "Jane Austen",
- 
-        obj1 = {
-          state: "unchanged"
-        },
- 
-        obj2 = {
-          state: "unchanged"
-        },
-      
-        obj3 = obj2;
- 
-    function change(num, name, obj1, obj2) {
-      num = num * 10;
-      name = "Nathaniel Hawthorne";
-      obj1 = obj2;
-      obj2.state = "changed";
-    }
- 
-    change(num, name, obj1, obj2);
- 
-    console.log("num = " + num); // 10
-    console.log("name = " + name);// "jane Austen"
-    console.log("obj1.state = " + obj1.state);//"unchanged"
-    console.log("obj2.state = " + obj2.state);//"changed"
-    console.log("obj3.state = " + obj3.state);//"changed"        
-        </code></pre>
-        <p>ref: <a href="http://stackoverflow.com/a/3638034/1535443">stackoverflow</a>, more detailed: <a href="http://snook.ca/archives/javascript/javascript_pass">Jonathan Snook</a></p>
-      </div>
-      <div id="ajaxCall">
-        <h2>Ajax in Native call</h2>
-        <p><strong>Question:</strong> JavaScript is single threaded how it makes ajax call while it is doing something else?</p>
-        <p><strong>Answer: </strong> By using event queue. When you make an ajax call, an event will be added to the event queue. Besides, you will have some code to handle/ do something when ajax call is done. When server is done executing the request and it returns some data/status. when you receive data/status and if you have new event to be performed on data received, you have event handlers. these event handers will also be added in the event queue. </p>
-        <p>could talk about promise pattern. </p>        
-        <p>ref: <a href="http://stackoverflow.com/a/7575649/1535443">Handling of Ajax in the background</a></p>
-        <p><strong>Question:</strong>How would you apply asynchronous call without any help of library</p>
-        <p><strong>Answer:</strong> google it and put it here</p>
-        
-      </div>
-      <div id="jsonP">
-        <p><strong>Question:</strong> What do you know about JSONP?</p>
-        <p><strong></strong></p>
-        <pre><code>
-&lt;div id = 'twitterFeed'&gt;&lt;/div&gt;
-        &lt;script&gt;
-        function myCallback(dataWeGotViaJsonp){
-            var text = '';
-            var len = dataWeGotViaJsonp.length;
-            for(var i=0;i&lt;len;i++){
-                twitterEntry = dataWeGotViaJsonp[i];
-                text += '&lt;p&gt;&lt;img src = &quot;' + twitterEntry.user.profile_image_url_https +'&quot;/&gt;' + twitterEntry['text'] + '&lt;/p&gt;'
-            }
-            document.getElementById('twitterFeed').innerHTML = text;
-        }
-        &lt;/script&gt;
-        &lt;script type=&quot;text/javascript&quot; src=&quot;http://twitter.com/status/user_timeline/padraicb.json?count=10&amp;callback=myCallback&quot;&gt;&lt;/script&gt;
-        </code></pre>
-        <p>ref: <a href="http://stackoverflow.com/questions/2067472/what-is-jsonp-all-about">all about JSONP</a></p>
-      </div>
-      <div id="showAndTell">
-        <h2>show and tell</h2>
-        <p><strong>Question:</strong> for the following code</p>
-        <p><strong></strong></p>
-        <pre><code>
-function foo(){
-    function bar() {
-        return 3;
-    }
-    return bar();
-    function bar() {
-        return 8;
-    }
-}
-foo();//?
-        </code></pre>
-        <p><strong>Answer:</strong> 8</p>
-      </div>
-      <div>
-        <h2>Floats and computed height</h2>
-        <h4>will help in interview</h4>
-        <p>A parent element that has only floated content will have a computed height: 0;. Add a clearfix to the parent to force browsers to compute a height.</p>
-        <p>ref: <a href="http://wtfhtmlcss.com/"> wtf css (get others)</a></p>
-      </div>
-      <div id="javaScriptEquality">
-        <h2>JavaScript Equality</h2> 
-        <p> internally JavaScript actually has two different approaches for testing equality. Primitives like strings and numbers are compared by their value, while objects like arrays, dates, and plain objects are compared by their reference. That comparison by reference basically checks to see if the objects given refer to the same location in memory. </p>
-        <pre><code>
-          function isEquivalent(a, b) {
-    // Create arrays of property names
-    var aProps = Object.getOwnPropertyNames(a);
-    var bProps = Object.getOwnPropertyNames(b);
-
-    // If number of properties is different,
-    // objects are not equivalent
-    if (aProps.length != bProps.length) {
-        return false;
-    }
-
-    for (var i = 0; i &lt; aProps.length; i++) {
-        var propName = aProps[i];
-
-        // If values of same property are not equal,
-        // objects are not equivalent
-        if (a[propName] !== b[propName]) {
-            return false;
-        }
-    }
-
-    // If we made it this far, objects
-    // are considered equivalent
-    return true;
-}
-        </code></pre>
-        <p><strong>Limitation:</strong> 
-          <ul>
-            <li>if one of the property values is itself an object</li>
-            <li> if one of the property values is NaN (the only value in JavaScript that is not equal to itself?)</li>
-            <li>if a has a property with value undefined, while b doesn't have this property (which thus evaluates to undefined?)</li>
-          </ul>
-
-          for better result use, underscore or lo-dash _.isEqual
-        </p>
-        <p>ref: <a href="http://designpepper.com/blog/drips/object-equality-in-javascript.html">object equality in JS</a></p>
       </div>
       <div>
         <h2>click hander unintended closure</h2>
@@ -975,6 +805,121 @@ for (i = 0; elems.length > i; i++) {
         <p><strong>Answer:</strong> you will see 20.99</p>
         <p><strong>Explanation:</strong> This is actually interesting problem. when you create <code>object.create(myObject)</code> you are creating new object where the <code>myObject</code> will be the parent of the newly created object.</p>
         <p>when you <code>delete customObject.price</code> it deletes the <code>price</code> property in the customObject. However, when you call the method getprice. it looks for <code>this.price</code> since the customObject doesnt have price property, JavaScript executor walks through the prototype chain towards the parent. since customObject was inherited from myObject and myObject has a <code>price</code> property. the get_price method returns the price</p>
+      </div>
+            <div id="byValueByRef">
+        <h2>pass by Value </h2>
+        <p><strong>Question:</strong> Does JavaScript pass parameter by value or by reference</p>
+        <p><strong>Answer:</strong> </p>
+        <pre><code>
+   var num = 10,
+        name = "Jane Austen",
+ 
+        obj1 = {
+          state: "unchanged"
+        },
+ 
+        obj2 = {
+          state: "unchanged"
+        },
+      
+        obj3 = obj2;
+ 
+    function change(num, name, obj1, obj2) {
+      num = num * 10;
+      name = "Nathaniel Hawthorne";
+      obj1 = obj2;
+      obj2.state = "changed";
+    }
+ 
+    change(num, name, obj1, obj2);
+ 
+    console.log("num = " + num); // 10
+    console.log("name = " + name);// "jane Austen"
+    console.log("obj1.state = " + obj1.state);//"unchanged"
+    console.log("obj2.state = " + obj2.state);//"changed"
+    console.log("obj3.state = " + obj3.state);//"changed"        
+        </code></pre>
+        <p>ref: <a href="http://stackoverflow.com/a/3638034/1535443">stackoverflow</a>, more detailed: <a href="http://snook.ca/archives/javascript/javascript_pass">Jonathan Snook</a></p>
+      </div>
+      <div id="ajaxCall">
+        <h2>Ajax in Native call</h2>
+        <p><strong>Question:</strong> JavaScript is single threaded how it makes ajax call while it is doing something else?</p>
+        <p><strong>Answer: </strong> By using event queue. When you make an ajax call, an event will be added to the event queue. Besides, you will have some code to handle/ do something when ajax call is done. When server is done executing the request and it returns some data/status. when you receive data/status and if you have new event to be performed on data received, you have event handlers. these event handers will also be added in the event queue. </p>
+        <p>could talk about promise pattern. </p>        
+        <p>ref: <a href="http://stackoverflow.com/a/7575649/1535443">Handling of Ajax in the background</a></p>
+        <p><strong>Question:</strong>How would you apply asynchronous call without any help of library</p>
+        <p><strong>Answer:</strong> google it and learn it</p>
+        
+      </div>            
+      <div>
+        <h2>Floats and computed height</h2>
+        <h4>will help in interview</h4>
+        <p>A parent element that has only floated content will have a computed height: 0;. Add a clearfix to the parent to force browsers to compute a height.</p>
+        <p>ref: <a href="http://wtfhtmlcss.com/"> wtf css (get others)</a></p>
+      </div>
+      <div id="javaScriptEquality">
+        <h2>JavaScript Equality</h2> 
+        <p> internally JavaScript actually has two different approaches for testing equality. Primitives like strings and numbers are compared by their value, while objects like arrays, dates, and plain objects are compared by their reference. That comparison by reference basically checks to see if the objects given refer to the same location in memory. </p>
+        <pre><code>
+function isEquivalent(a, b) {
+    // Create arrays of property names
+    var aProps = Object.getOwnPropertyNames(a);
+    var bProps = Object.getOwnPropertyNames(b);
+
+    // If number of properties is different,
+    // objects are not equivalent
+    if (aProps.length != bProps.length) {
+        return false;
+    }
+
+    for (var i = 0; i &lt; aProps.length; i++) {
+        var propName = aProps[i];
+
+        // If values of same property are not equal,
+        // objects are not equivalent
+        if (a[propName] !== b[propName]) {
+            return false;
+        }
+    }
+
+    // If we made it this far, objects
+    // are considered equivalent
+    return true;
+}
+        </code></pre>
+        <p><strong>Limitation:</strong> 
+          <ul>
+            <li>if one of the property values is itself an object</li>
+            <li> if one of the property values is NaN (the only value in JavaScript that is not equal to itself?)</li>
+            <li>if a has a property with value undefined, while b doesn't have this property (which thus evaluates to undefined?)</li>
+          </ul>
+
+          for better result use, underscore or lo-dash _.isEqual
+        </p>
+        <p>ref: <a href="http://designpepper.com/blog/drips/object-equality-in-javascript.html">object equality in JS</a></p>
+      </div>
+      <div id="safeCoding">
+        <h2>Save hasOwnProperty</h2>
+        <p><strong>Question:</strong> If you mistakenly override some of the build in method like <code>hasOwnProperty</code> how you will make sure its works</p>
+        <p><strong>Answer:</strong></p>
+        <pre><code>
+var foo = {
+    hasOwnProperty: function() {
+        return false;
+    },
+    bar: 'Here be dragons'
+};
+
+foo.hasOwnProperty('bar'); // always returns false
+
+// Use another Object's hasOwnProperty and call it with 'this' set to foo
+({}).hasOwnProperty.call(foo, 'bar'); // true
+
+// It's also possible to use hasOwnProperty from the Object
+// prototype for this purpose
+Object.prototype.hasOwnProperty.call(foo, 'bar'); // true
+        </code></pre>
+        <p>ref: Javascript garden</p>
       </div>
       <div>
         <h2>memoization</h2>
