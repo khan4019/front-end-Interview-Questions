@@ -172,13 +172,12 @@ var undefined = 123;
       </div>
       <div id="trueLies">
         <h2>True and False</h2>
-        <p><strong>Question:</strong> True and false realted 11+ quick questions.</p>
-        <p><strong>Concept:</strong> In javascript 6 things are falsy and they are- false, null, undefined, '', 0, NaN</p>
+        <p><strong>Question:</strong> 11+ truth false related questions that will trick you.</p>
+        <p><strong>falsy:</strong> In javascript 6 things are falsy and they are- false, null, undefined, '', 0, NaN</p>
         <p><strong>truthy:</strong> is very simple. there is only two truthy things- true and everything that is not false</p>
         <div>
-          <button id = "trueFalseRapid" type="button" class="toggleExample btn btn-primary">Show Rapid Fire Questions</button>
-          <div id="trueFalseRapidExample" class="hide bg-success toggleContent">
-            <h2>True False Rapid Fire</h2>
+          <h3>True False Rapid Fire</h3>
+          <div id="trueFalseRapidExample" class="bg-success toggleContent">            
             <p><strong>Question:</strong> is <code>'false'</code> is false?</p>
             <p><strong>Answer:</strong> no. because, its a string with length greater than 0. Only empty string is false</p>
             <p><strong>Question:</strong> is <code>' '</code> is false?</p>
@@ -204,7 +203,7 @@ var undefined = 123;
         <br>
         <div id="doubleOrTripleEqual">
           <h2>== or ===</h2>
-          <p><strong>Question:</strong> What are the difference between <code>==</code> and <code>===</code></p>
+          <p><strong>Question:</strong> What are the difference between <code>==</code> and <code>===</code>?</p>
           <p><strong>Answer: </strong> The simplest way of saying that, == will not check types and === will check whether both sides are of same type. So, == is tolerant. But under the hood it converts to its convenient type to have both in same type and then do the comparison.</p>
           <p>=== compares the types and values. Hence, if both sides are not same type, answer is always false. For example, if you are comparing two strings, they must have identical character sets. For other primitives (number, boolean) must share the same value.</p>
           <p> be careful while comparing objects, identifiers must reference the same objects or same array.</p>
@@ -289,34 +288,7 @@ isNaN(NaN);//use it
         <p>ref: <a href="http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/">angus croll: truth and eqality in JS</a>, ref: <a href="http://www.sitepoint.com/javascript-truthy-falsy/">truthy and falsy</a></p>
       </div>
 
-      </div>      
-      <div>
-        <h2>for in looping</h2>
-        <p><strong>Question: </strong> If you loop through [10, 20, 30] by using for-in loop and want to get the sum of all the elements, how will you do it?</p>
-        <pre><code>
-var numbers = [10, 20, 30];
-var sum = 0;
-for(var num in numbers){
-  sum += num; 
-}
-
-console.log(sum);
-        </code></pre>
-        <p><strong>Answer:</strong> 0012</p>
-        <p><strong>Basic:</strong> for in always loop over keys. JavaScript array is inherited from object and all the elements in the array is like key value pair in the object<code>{0:10, 1:20, 2:30}</code> where key is 0, 1, 2 etc. When you are accessing values by passing index, you are actully accessing by key.</p>
-        <p>thats why when an index doesnt exist, Javascript returns undefined not array out of index. As the index(key) doesnt exists in the object.</p>
-        <p><strong>Explanation:</strong> as for in looping over keys and keys are always string type, its concatenating <code>0+'0'</code> which becomes <code>'00'</code> and then u add '1' and '2'. Which eventually results '0012'. Quite unexpected, isnt it?</p>
-        <p><strong>solution:</strong> the solution of this problem is to use <code>num</code> as index to access the value or use a simple for loop</p>
-        <pre><code>
-var numbers = [10, 20, 30];
-var sum = 0;
-for(var num in numbers){
-  sum += numbers[num]; 
-}
-
-console.log(sum);
-        </code></pre>
-      </div>      
+      </div>                  
       <div id="extension">
         <h2>Extend Core Object</h2>
         <p><strong>Question:</strong> How could you write a method on instance of a date which will give you next day?</p>
@@ -514,20 +486,7 @@ num == num + 0 && num == ~~num;
         <p><strong>Anwser:</strong></p>
       </div>            
       <div id="insertSpace">
-        <h2>log function</h2>
-        <p><strong>Question:</strong> Write a function that can log anything in the console.</p>
-        <p><strong>Answer: </strong>It's very simple</p>
-        <pre><code>
-function log(toLog){
-  console.log(toLog);
-}
-        </code></pre>        
-        <p><strong>Question:</strong> Problem with this one is, if you pass more than one arguments to the log function all arguments after the first one will not be logged. How could you fix it?</p>
-        <pre><code>
-function log(){
-  console.log.apply(console, arguments);
-}
-        </code></pre>
+        <h2>log prefix</h2>        
         <p><strong>Question: </strong> Prefix a word before every log. for example, if you <code>log('my message')</code> it will log: "(app)my message"</p>
         <p><strong>Answer:</strong> There are several solution of it. Add more text here to explain what going on</p>
         <pre><code>
@@ -553,34 +512,21 @@ Function.prototype.bind = Function.prototype.bind || function(context){
         </code></pre>
         <p>ref: <a href="http://blog.sourcing.io/interview-questions">This is a really good materials, walks you through an interview process.</a></p>
         <p>Read: what is the overlay app in the last section of this link</p>
-      </div>      
-      <div>
-        <h2>slice, substr, substring</h2>
-        <p><strong>Question:</strong> What is the difference between slice, substr, substring</p>
-        <p><strong>Answer:</strong> <a href="http://www.tvids.net/watch69/The-Big-Bang-Theory/season-01-episode-01-Pilot">slice, substr, substring</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substr?redirectlocale=en-US&redirectslug=JavaScript%2FReference%2FGlobal_Objects%2FString%2Fsubstr">MDN: substr</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring?redirectlocale=en-US&redirectslug=JavaScript%2FReference%2FGlobal_Objects%2FString%2Fsubstring">substring</a></p>
-        <pre><code>
-//put something here
-        </code></pre>
-      </div>      
-      <div id="inheritance">
-        <h2>inheritance</h2>
-        <p><strong>Question:</strong> How would you perform inhertiance in JavaScript?</p>
-        <p><strong>Answer:</strong> ddddd</p>
       </div>
       <div>
         <h2>Scope and hoisting</h2>
-        <p><strong>Question:</strong> what will you see in the console for the following example?</p>
+        <p><strong>Question:</strong> What will you see in the console for the following example?</p>
         <pre><code>
 var a = 1; 
-  function b() { 
-     a = 10; 
-     return; 
-     function a() {} 
-  } 
- b(); 
- console.log(a);          
+function b() { 
+    a = 10; 
+    return; 
+    function a() {} 
+} 
+b(); 
+console.log(a);          
         </code></pre>
-        <p><strong>Answer:</strong>   </p>
+        <p><strong>Answer:</strong> 1</p>
         <h4>Explanation:</h4>
         <ul>
           <li>function declaration <code>function a(){}</code> is hoisted first and it behaves like <code>var a = function () {};</code>, hence in local scope a is created.</li>
@@ -632,45 +578,6 @@ a(); //4
 a(); //5
          </code></pre>
         <p><strong>Encapsulation:: </strong>You would not be able to access (get or set) the value of "i" from outside. Hence the privacy of the value of "i" is maintained secretly. This is called encapsulation in object oriented programming.</p> 
-      </div>      
-      <div id="closureInsideLoop">
-        <h2>Closures Inside Loops</h2>
-        <p><strong>Question:</strong> Look at the code below, you have a for loop if you have setTimeout inside it. If log the loop counter inside setTimeout, what will be logged?</p>
-<pre><code>
-  for(var i = 0; i < 10; i++) {
-    setTimeout(function() {
-        console.log(i);  
-    }, 1000);
-}
-</code></pre>
-      <p><strong>Answer:</strong> The above will not output the numbers 0 through 9, but will simply print the number 10 ten times.</p>
-      <p><strong>Question:</strong> How will you fix it?</p>
-      <p>The anonymous function keeps a reference to i. At the time console.log gets called, the for loop has already finished, and the value of i has been set to 10.</p>
-      <p>In order to get the desired behavior, it is necessary to create a copy of the value of i.</p>
-      
-      <h4>Avoiding the Reference Problem</h4>
-      <p>In order to copy the value of the loop's index variable, it is best to use an anonymous wrapper.</p>
-
-      <p>The anonymous outer function gets called immediately with i as its first argument and will receive a copy of the value of i as its parameter e.</p>
-      <p>The anonymous function that gets passed to setTimeout now has a reference to e, whose value does not get changed by the loop.</p>
-      <p>There is another possible way of achieving this, which is to return a function from the anonymous wrapper that will then have the same behavior as the code above.</p>
-<pre><code>
-for(var i = 0; i < 10; i++) {
-    setTimeout((function(e) {
-        return function() {
-            console.log(e);
-        }
-    })(i), 1000)
-}
-</code></pre>
-<p><strong>Question:</strong>How does IIFE works</p>
-<p><strong></strong></p>
-<p>There's yet another way to accomplish this by using .bind, which can bind a this context and arguments to function. It behaves identially to the code above</p>
-<pre><code>
-for(var i = 0; i < 10; i++) {
-    setTimeout(console.log.bind(console, i), 1000);
-}
-</code></pre>
       </div>
       <div>
         <h2>click hander unintended closure</h2>
@@ -734,8 +641,52 @@ for (i = 0; elems.length > i; i++) {
           </div>          
         </div>
         <p><strong>question:</strong> how could you solve this by using event delegate</p>
-        <p><strong>Answer:</strong> look at previous question</p>
+        <p><strong>Answer:</strong> Use your brain to extract answer from <a href="http://www.thatjsdude.com/interview/dom.html#eventDelegate">this answer</a></p>
+        <div>
+          <button id = "closureExtraExample" type="button" class="toggleExample btn btn-primary">Show Similar Question</button>
+          <div id="closureExtraExampleExample" class="hide bg-success toggleContent">
+            <div id="closureInsideLoop">
+        <h2>Closures Inside Loops</h2>
+        <p><strong>Question:</strong> Look at the code below, you have a for loop if you have setTimeout inside it. If log the loop counter inside setTimeout, what will be logged?</p>
+<pre><code>
+  for(var i = 0; i < 10; i++) {
+    setTimeout(function() {
+        console.log(i);  
+    }, 1000);
+}
+</code></pre>
+      <p><strong>Answer:</strong> The above will not output the numbers 0 through 9, but will simply print the number 10 ten times.</p>
+      <p><strong>Question:</strong> How will you fix it?</p>
+      <p>The anonymous function keeps a reference to i. At the time console.log gets called, the for loop has already finished, and the value of i has been set to 10.</p>
+      <p>In order to get the desired behavior, it is necessary to create a copy of the value of i.</p>
+      
+      <h4>Avoiding the Reference Problem</h4>
+      <p>In order to copy the value of the loop's index variable, it is best to use an anonymous wrapper.</p>
+
+      <p>The anonymous outer function gets called immediately with i as its first argument and will receive a copy of the value of i as its parameter e.</p>
+      <p>The anonymous function that gets passed to setTimeout now has a reference to e, whose value does not get changed by the loop.</p>
+      <p>There is another possible way of achieving this, which is to return a function from the anonymous wrapper that will then have the same behavior as the code above.</p>
+<pre><code>
+for(var i = 0; i < 10; i++) {
+    setTimeout((function(e) {
+        return function() {
+            console.log(e);
+        }
+    })(i), 1000)
+}
+</code></pre>
+<p><strong>Question:</strong>How does IIFE works</p>
+<p><strong></strong></p>
+<p>There's yet another way to accomplish this by using .bind, which can bind a this context and arguments to function. It behaves identially to the code above</p>
+<pre><code>
+for(var i = 0; i < 10; i++) {
+    setTimeout(console.log.bind(console, i), 1000);
+}
+</code></pre>
       </div>
+          </div>          
+        </div>
+      </div>      
       <div>
         <h2>delete can delete but</h2>
         <pre><code>
@@ -790,17 +741,7 @@ console.log(obj3.valuee);//"new value"
      </code></pre>
      <p><strong>Explanation:</strong></p>
         <p>ref: <a href="http://stackoverflow.com/a/3638034/1535443">stackoverflow</a>, more detailed: <a href="http://snook.ca/archives/javascript/javascript_pass">Jonathan Snook</a></p>
-      </div>
-      <div id="ajaxCall">
-        <h2>Ajax in Native call</h2>
-        <p><strong>Question:</strong> JavaScript is single threaded how it makes ajax call while it is doing something else?</p>
-        <p><strong>Answer: </strong> By using event queue. When you make an ajax call, an event will be added to the event queue. Besides, you will have some code to handle/ do something when ajax call is done. When server is done executing the request and it returns some data/status. when you receive data/status and if you have new event to be performed on data received, you have event handlers. these event handers will also be added in the event queue. </p>
-        <p>could talk about promise pattern. </p>        
-        <p>ref: <a href="http://stackoverflow.com/a/7575649/1535443">Handling of Ajax in the background</a></p>
-        <p><strong>Question:</strong>How would you apply asynchronous call without any help of library</p>
-        <p><strong>Answer:</strong> google it and learn it</p>
-        
-      </div>
+      </div>      
       <div id="safeCoding">
         <h2>Save hasOwnProperty</h2>
         <p><strong>Question:</strong> If you mistakenly override some of the build in method like <code>hasOwnProperty</code> how you will make sure its works</p>
@@ -948,16 +889,52 @@ obj.first().second().third();
       <div>
         <h2>Curry in JS</h2>
         <p><strong>Question:</strong> How would you implement curry in JavaScript?</p>
+      </div>      
+      <div>
+        <h2>Deleted Questions</h2>
+        <div>
+          <button id = "deletedQuestionCollection" type="button" class="toggleExample btn btn-primary">Show Deleted Questions</button>
+          <div id="deletedQuestionCollectionExample" class="hide bg-success toggleContent">
+            <div>
+              <h2>for in looping</h2>
+              <p><strong>Question: </strong> If you loop through [10, 20, 30] by using for-in loop and want to get the sum of all the elements, how will you do it?</p>
+              <pre><code>
+var numbers = [10, 20, 30];
+var sum = 0;
+for(var num in numbers){
+  sum += num; 
+}
+
+console.log(sum);
+        </code></pre>
+              <p><strong>Answer:</strong> 0012</p>
+              <p><strong>Basic:</strong> for in always loop over keys. JavaScript array is inherited from object and all the elements in the array is like key value pair in the object<code>{0:10, 1:20, 2:30}</code> where key is 0, 1, 2 etc. When you are accessing values by passing index, you are actully accessing by key.</p>
+              <p>thats why when an index doesnt exist, Javascript returns undefined not array out of index. As the index(key) doesnt exists in the object.</p>
+              <p><strong>Explanation:</strong> as for in looping over keys and keys are always string type, its concatenating <code>0+'0'</code> which becomes <code>'00'</code> and then u add '1' and '2'. Which eventually results '0012'. Quite unexpected, isnt it?</p>
+              <p><strong>solution:</strong> the solution of this problem is to use <code>num</code> as index to access the value or use a simple for loop</p>
+              <pre><code>
+var numbers = [10, 20, 30];
+var sum = 0;
+for(var num in numbers){
+  sum += numbers[num]; 
+}
+
+console.log(sum);//60
+              </code></pre>
+            </div>
+            <div id="ajaxCall">
+              <h2>Ajax in Native call</h2>
+              <p><strong>Question:</strong> JavaScript is single threaded how it makes ajax call while it is doing something else?</p>
+              <p><strong>Answer: </strong> By using event queue. When you make an ajax call, an event will be added to the event queue. Besides, you will have some code to handle/ do something when ajax call is done. When server is done executing the request and it returns some data/status. when you receive data/status and if you have new event to be performed on data received, you have event handlers. these event handers will also be added in the event queue. </p>
+              <p>could talk about promise pattern. </p>        
+              <p>ref: <a href="http://stackoverflow.com/a/7575649/1535443">Handling of Ajax in the background</a></p>
+            </div>
+            <!-- add new one here -->
+          </div>
+        </div>    
       </div>
       <div>
-        <h2>ToDo questions</h2>
-        <ul>
-          <li>how would u create class in JavaScript</li>
-          <li></li>
-        </ul>
-      </div>
-      <div>
-        <h3>Deleted Questions</h3>  
+        <h3>Discarded Questions</h3>
         <ul>
           <li><a href="http://khan4019.github.io/JSconfusingParts/#/3/6">In JavaScript <code>isNaN(undefined)</code> returns true. how could you fix it?</a></li>
           <li>what are differences between host object and native object? <a href="http://stackoverflow.com/a/7614380/1535443">read answer here</a></li>          
@@ -968,6 +945,10 @@ obj.first().second().third();
           <li>Use Function as object</li>  
           <li>Why does nearly every object have a toString method?</li>
           <li>Why Everything in JavaScript acts like an object, with the only two exceptions being null and undefined.</li>
+          <li>how would u create class in JavaScript</li>
+          <li>How would you perform inheritance in JavaScript?</li>
+          <li>How would you apply asynchronous call without any help of library</li>
+          <li>What is the difference between slice, substr, substring? Answer:</strong> <a href="http://www.tvids.net/watch69/The-Big-Bang-Theory/season-01-episode-01-Pilot">slice, substr, substring</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substr?redirectlocale=en-US&redirectslug=JavaScript%2FReference%2FGlobal_Objects%2FString%2Fsubstr">MDN: substr</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring?redirectlocale=en-US&redirectslug=JavaScript%2FReference%2FGlobal_Objects%2FString%2Fsubstring">substring</a></li>
         </ul>
       </div>
       <div>
