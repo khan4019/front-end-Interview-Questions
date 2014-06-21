@@ -170,7 +170,15 @@
           <p><strong>Question:</strong> What are the difference between <code>==</code> and <code>===</code>?</p>
           <p><strong>Answer: </strong> The simplest way of saying that, == will not check types and === will check whether both sides are of same type. So, == is tolerant. But under the hood it converts to its convenient type to have both in same type and then do the comparison.</p>
           <p>=== compares the types and values. Hence, if both sides are not same type, answer is always false. For example, if you are comparing two strings, they must have identical character sets. For other primitives (number, boolean) must share the same value.</p>
-          <p> be careful while comparing objects, identifiers must reference the same objects or same array.</p>
+          <p><strong>Rule for implicit coercion:</strong> Comparison by using == does implicit type conversion under the hood. And rules for implicit coercion are as follows-</p>
+          <ul>
+            <li>If both operands are same type use ===</li>
+            <li>undefined == null</li>
+            <li>If one operands is string another is number, convert string to number</li>
+            <li>If one is boolean and another is non-boolean, convert boolean to number and then perform comparison</li>
+            <li>While comparing a string or number to an object, try to convert the object to a primitive type and then try to compare</li>
+          </ul>
+          <p>Be careful while comparing objects, identifiers must reference the same objects or same array.</p>
           <pre><code>
 var a = {a: 1};
 var b = {a: 1};
@@ -227,8 +235,8 @@ function isEqual(a, b) {
           <p>still left and right is not same type. hence left side will be converted again to a number. "0" will be 0.</p>
           <p>finally, you are comparing <code>0==1</code> which will be false anyway</p>
           <div>
-            <button id = "equalityRapidFire" type="button" class="toggleExample btn btn-primary">Show More Cases</button>
-            <div id="equalityRapidFireExample" class="hide bg-success toggleContent">
+            <button id = "equalityMore" type="button" class="toggleExample btn btn-primary">Show More Cases</button>
+            <div id="equalityMoreExample" class="hide bg-success toggleContent">
                <p>see them in the code block below</p>
                 <pre><code>
 null == false; // false
@@ -330,7 +338,7 @@ rossFeeDeductor(); //"Ross Geller remaining balance is 200"
         <h2>arguments and call</h2>
         <p><strong>Question:</strong> Write a simple function, that will tell you whether 2 is passed as parameter or not?</p>
         <p><strong>arguments:</strong> arguments is a local variable, available inside all functions that provides a collection of all the arguments passed to the function. <code>arguments</code> is not an array.</p>
-        <p>arguments is an array like object that has length but doesnt have the methods like forEach, indexOf, etc. You can convert arguments to an array by calling slice method on an array and push arguments to it. After that you can use any method on array like indexOf in this case.</p>
+        <p>arguments is an array like object that has length but doesnt have the methods like forEach, indexOf, etc. You can convert arguments to an array by calling slice method on an array and push arguments to it. After that you can use any method on array like indexOf in this case.  </p>
         <pre><code>
 function isTwoPassed(){
   var args = Array.prototype.slice.call(arguments);
@@ -340,56 +348,32 @@ function isTwoPassed(){
 isTwoPassed(1,4) //false
 isTowPassed(5,3,1,2) //true
         </code></pre>                 
+        <p><strong>Danger:</strong> Don't name any argument as "arguments" or dont create any local variable named as "arguments", this will override build in arguments.</p>
       </div>
       <div id="apply">
         <h2>Apply</h2>        
-        <p><strong>Question:</strong> Math.max takes a collection of arguments to find the max. How could you pass an array to find the max?</p>
+        <p><strong>Question:</strong> How could you use Math.max to find the max value in an array?</p>
+        <p><strong>Answer:</strong> Just use apply method on max and pass the array</p>
         <pre><code>
 function getMax(arr){
   return Math.max.apply(null, arr);  
 }
         </code></pre>
-        <p><strong>Explanation: </strong> Here we are using apply method.</p>
-        <p>For the both cases (call and apply), the first argument is the value of this. the difference is, call use a collection of arguments. whereas apply use an array of arguments. Hence, apply has two arguments, first one is this and second one array of arguments.</p>
+        <p><strong>Explanation: </strong></p>
+        <p>For the both cases (call and apply), the first argument is the value of this. The difference is, call use a collection of arguments whereas apply use an array of arguments. Hence, apply has two arguments, first one is this and second one array of arguments.</p>
+        <p>Since we are not reading anything from this or using it at all. We can simply pass null as first parameter and second one is an array of arguments which is an array of numbers in this case.</p>
         <p>if you have weaker memory like i have, you can remember apply starts with "a" and array starts with "a"</p>        
-      </div>    
-      <div id="checkInteger">
-        <h2>Check Integer</h2>
-        <p><strong>Question:</strong> How you can verify integer in JavaScript?</p>
-        <p><strong>Answer: </strong> There are 5 ways to check integer</p>
-        <ol>
-          <li>use build in <code>isInteger</code> method</li>
-          <li>parse the number as integer and compare parsed one with the original number. if both are equal, then the provided number is integer. optionally you can do a whether the provided number is Number or not by is <code>isNaN</code></li>
-          <li>if you divide by 1 and remainder is 0, then its integer. you can additionally check whether typeof of the provided number is 'number' or not</li>
-          <li>use <code>Math.round</code> if rounded number is equal to the provided number, then it is integer</li>
-          <li>I can't explain this one. sorry dude :p</li>
-        </ol>
-        <pre><code>
-//1. 
-Number.IsInteger(num); 
-//2. 
-num === parseInt(num);
-!isNaN(num) && num== parseInt(num);
-//3
-num%1 === 0; 
-typeof num == 'number' && num%1===0
-//4
-Math.round(num)===num;
-//5
-num == ~~num; //'1' will give you true
-num == num + 0 && num == ~~num;
-        </code></pre>        
-      </div>        
+      </div>  
       <div>
         <h2>rapid fire</h2>
         <p><strong>Question:</strong> What is <code>typeof []</code></p>
-        <p><strong>Answer:</strong> Object. Actually Array is derived from Object.</p>
+        <p><strong>Answer:</strong> Object. Actually Array is derived from Object. If you want to check array use <code>Array.isArray(arr)</code></p>
         <p><strong>Question:</strong> What is <code>typeof arguments</code></p>
         <p><strong>Answer:</strong> Object. arguments are array like but not array. it has length, can access by index but can't push pop, etc.</p>
-        <p><strong>Question:</strong>What is <code>2+true</code></p>
-        <p><strong>Answer:</strong> 3</p>
-        <p><strong>Question:</strong>what is <code>'6'+9</code></p>
-        <p><strong>Answer:</strong> 69</p>
+        <p><strong>Question:</strong> What is <code>2+true</code></p>
+        <p><strong>Answer:</strong> 3. The plus operator between a number and a boolean or two boolean will convert boolean to number. Hence, true converts to 1 and you get result of 2+1 </p>
+        <p><strong>Question:</strong> What is <code>'6'+9</code></p>
+        <p><strong>Answer:</strong> 69. If one of the operands of the plus (+) operator is string it will convert other number or boolean to string and perform a concatenation. For the same reason, <code>"2"+true</code> will return "2true"</p>
         <p><strong>Question:</strong> what is the value of <code>4+3+2+"1"</code></p>
         <p><strong>Answer:</strong> 91</p>
         <p><strong>Question:</strong> what is the value of <code>"1"+2+4</code></p>
@@ -436,6 +420,8 @@ num == num + 0 && num == ~~num;
         <p><strong>Anwser:</strong> <code>"42"</code></p>        
         <p><strong>Question:</strong> <code>typeof(NaN)</code></p>
         <p><strong>Anwser:</strong>"number"</p>
+        <p><strong>Question:</strong> <code>2 in [1,2]</code></p>
+        <p><strong>Anwser:</strong> false. Because "in" returns whether a particular property/index available in the Object. In this case object has index 0 and 1 but don't have 2. Hence you get false.</p>
       </div>            
       <div id="insertSpace">
         <h2>log prefix</h2>        
@@ -758,6 +744,33 @@ function moveLeft(elem, distance) {
         <div>
           <button id = "deletedQuestionCollection" type="button" class="toggleExample btn btn-primary">Show Deleted Questions</button>
           <div id="deletedQuestionCollectionExample" class="hide bg-success toggleContent">
+            <div id="checkInteger">
+              <h2>Check Integer</h2>
+              <p><strong>Question:</strong> How you can verify integer in JavaScript?</p>
+              <p><strong>Answer: </strong> There are 5 ways to check integer</p>
+              <ol>
+                <li>Use build in <code>isInteger</code> method</li>
+                <li>parse the number as integer and compare parsed one with the original number. If both are equal, then the provided number is integer. Optionally you can do a whether the provided number is Number or not by is <code>isNaN</code></li>
+                <li>If you divide by 1 and remainder is 0, then its integer. You can additionally check whether typeof of the provided number is 'number' or not</li>
+                <li>Use <code>Math.round</code> if rounded number is equal to the provided number, then it is integer</li>
+                <li>I can't explain this one. sorry dude :p</li>
+              </ol>
+              <pre><code>
+//1. 
+Number.IsInteger(num); 
+//2. 
+num === parseInt(num);
+!isNaN(num) && num== parseInt(num);
+//3
+num%1 === 0; 
+typeof num == 'number' && num%1===0
+//4
+Math.round(num)===num;
+//5
+num == ~~num; //'1' will give you true
+num == num + 0 && num == ~~num;
+              </code></pre>        
+            </div>
             <div>
               <h2>for in looping</h2>
               <p><strong>Question: </strong> If you loop through [10, 20, 30] by using for-in loop and want to get the sum of all the elements, how will you do it?</p>
