@@ -142,26 +142,26 @@
         <div>
           <h3>True False Rapid Fire</h3>
           <div id="trueFalseRapidExample" class="bg-success toggleContent">            
-            <p><strong>Question:</strong> is <code>'false'</code> is false?</p>
-            <p><strong>Answer:</strong> no. because, its a string with length greater than 0. Only empty string is false</p>
-            <p><strong>Question:</strong> is <code>' '</code> is false?</p>
-            <p><strong>Answer:</strong> no. because, its not an empty string. there is a white space in it. </p>
-            <p><strong>Question: </strong>what about <code>{}</code>?</p>
-            <p><strong>Answer: </strong>true. its an object. An object without any property is an object can't be falsy.</p>
-            <p><strong>Question: </strong>tell me about <code>[]</code>?</p>
-            <p><strong>Answer: </strong> this is also truthy. its an array object (array is child of object) is truthy.</p>
-            <p><strong>Question: </strong>you talked bout <code>''</code> to be falsy. what about <code>new String('')</code>? </p>
-            <p><strong>Answer:</strong>Though you are passing empty string to the string constructor. it is creating an String object. or more precisely a instance of String object. It becomes an object. Hence, it is not false. so, it is truthy.</p>
-            <p><strong>Question:</strong> tell me about <code>new Boolean(false)</code></p>
-            <p><strong>Answer:</strong> truthy. as it creates an instance of the Boolean object. which is an object. and object is truthy</p>
+            <p><strong>Question:</strong> Is <code>'false'</code> is false?</p>
+            <p><strong>Answer:</strong> No. Because, it's a string with length greater than 0. Only empty string is false</p>
+            <p><strong>Question:</strong> Is <code>' '</code> is false?</p>
+            <p><strong>Answer:</strong> No. Because, it's not an empty string. There is a white space in it. </p>
+            <p><strong>Question: </strong>What about <code>{}</code>?</p>
+            <p><strong>Answer: </strong>true. It's an object. An object without any property is an object can't be falsy.</p>
+            <p><strong>Question: </strong>tTell me about <code>[]</code>?</p>
+            <p><strong>Answer: </strong> This is also truthy. It's an array object (array is child of object) is truthy.</p>
+            <p><strong>Question: </strong>You talked bout <code>''</code> to be falsy. What about <code>new String('')</code>? </p>
+            <p><strong>Answer:</strong>Though you are passing empty string to the string constructor. it is creating an String object. More precisely a instance of String object. It becomes an object. Hence, it is not false. so, it is truthy.</p>
+            <p><strong>Question:</strong> Tell me about <code>new Boolean(false)</code></p>
+            <p><strong>Answer:</strong> truthy. As it creates an instance of the Boolean object which is an object. Object is truthy</p>
             <p><strong>Question: </strong> <code>Boolean(function(){})</code></p>
-            <p><strong>Answer: </strong> <code>true</code></p>
+            <p><strong>Answer: </strong> <code>true</code> if you pass a truthy value to Boolean, it will be true</p>
             <p><strong>Question: </strong> <code>Boolean(/foo/)</code></p>
             <p><strong>Answer: </strong> <code>true</code></p>
             <P><strong>Question:</strong> <code>true%1</code></P>
-            <P><strong>Answer:</strong> 0</P>
+            <P><strong>Answer:</strong> 0. When you are trying to find reminder of true, true becomes 1 and reminder of 1 while dividing by 1 is 0. you will get same result if you doe <code>false%1</code></P>
             <P><strong>Question:</strong> <code>''%1</code></P>
-            <P><strong>Answer:</strong> 0</P>
+            <P><strong>Answer:</strong> 0.  <code>' '</code></P>
           </div>
         </div>
         <br>
@@ -186,38 +186,35 @@ a === c //true
         </div>
         <div id="javaScriptEquality">
         <h2>Object Equality</h2> 
-        <p><strong>Question: </strong> How would you compare two objects in JavaScript whether they have same properties?</p>
-        <p><strong>Answer:</strong> internally JavaScript actually has two different approaches for testing equality. Primitives like strings and numbers are compared by their value, while objects like arrays, dates, and plain objects are compared by their reference. That comparison by reference basically checks to see if the objects given refer to the same location in memory. </p>
+        <p><strong>Question: </strong> How would you compare two objects in JavaScript?</p>
+        <p><strong>Basics:</strong> JavaScript has two different approaches for testing equality. Primitives like strings and numbers are compared by their value, while objects like arrays, dates, and plain objects are compared by their reference. That comparison by reference basically checks to see if the objects given refer to the same location in memory.</p>
+        <p><strong>Answer:</strong> Equality check will check whether two objects have same value for same property. To check that, you can get the keys for both the objects. If the number of properties doesn't match, these two objects are not equal. Secondly, you will check each property whether they have the same value. If all the properties have same value, they are equal.</p>
         <pre><code>
-function isEquivalent(a, b) {
+function isEqual(a, b) {
     var aProps = Object.getOwnPropertyNames(a),
         bProps = Object.getOwnPropertyNames(b);
 
-    //check property number of properties
     if (aProps.length != bProps.length) {
         return false;
     }
 
     for (var i = 0; i &lt; aProps.length; i++) {
         var propName = aProps[i];
-        //If values of same property are not equal, they are not equivalent
+        
         if (a[propName] !== b[propName]) {
             return false;
         }
     }
-
     return true;
 }
         </code></pre>
-        <p><strong>Limitation:</strong> 
+        <strong>Limitation:</strong> 
           <ul>
             <li>if one of the property values is itself an object</li>
             <li> if one of the property values is NaN (the only value in JavaScript that is not equal to itself?)</li>
-            <li>if a has a property with value undefined, while b doesn't have this property (which thus evaluates to undefined?)</li>
+            <li>if a has a property with value undefined, while b doesn't have this property (which thus evaluates as undefined). You can solve this problem by using hasOwnProperty</li>
           </ul>
-
-          for better result use, underscore or lo-dash _.isEqual
-        </p>
+        <p>Check _.isEqual or lo-dash</p>
         <p>ref: <a href="http://designpepper.com/blog/drips/object-equality-in-javascript.html">object equality in JS</a></p>
       </div>
       <div id="truthyVsEqality">
@@ -226,7 +223,7 @@ function isEquivalent(a, b) {
           <p><strong>Answer:</strong> First think of <code>[]</code>, empty array is an object and object is always truthy. Hence, if you use <code>if([]){console.log('its true')}</code> you will see the log.</p>
           <p>Now, <code>==</code> (double equal) will do some implicit coercion.</p>
           <p>Since left and right side of the equality are two different types, JavaScript can't compare them directly . Hence, under the hood, JavaScript will convert them to compare. first right side of the equality will be cooereced to a number type by using <code>toNumber</code> (JavaScript doesnt have toNumber. this is toNumber of JavaScript implementation in C. for example V8 has implementation of JavaScript). and number of <code>true</code> would be 1.</p>
-          <p>after that, JavaScript implementation will try to convert [] by using<code>toPrimitive</code> (of JavaScript implementation). since [].valueOf is not primitive will use <code>toString</code> and will get <code>"0"</code></p>
+          <p>after that, JavaScript implementation will try to convert <code>[]</code> by using<code>toPrimitive</code> (of JavaScript implementation). since <code>[].valueOf</code> is not primitive will use <code>toString</code> and will get <code>"0"</code></p>
           <p>still left and right is not same type. hence left side will be converted again to a number. "0" will be 0.</p>
           <p>finally, you are comparing <code>0==1</code> which will be false anyway</p>
           <div>
@@ -239,14 +236,10 @@ null == null; // true
 
 undefined == undefined; // true
 undefined == null; // true
-                      </code></pre>
-                      <pre><code>
+
 NaN == null; // false
 NaN == NaN; // false
-
-typeof(NaN); //number
-isNaN(NaN);//use it
-                      </code></pre>
+                      </code></pre>                      
                   </div>                  
                 </div>
         <p>ref: <a href="http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/">angus croll: truth and eqality in JS</a>, ref: <a href="http://www.sitepoint.com/javascript-truthy-falsy/">truthy and falsy</a></p>
@@ -258,20 +251,20 @@ isNaN(NaN);//use it
         <p><strong>Question:</strong> How could you write a method on instance of a date which will give you next day?</p>
         <p><strong>Answer:</strong> I have to declare a method on the prototype of Date object. To get access to the current value of the instance of the date, i will use this</p>
         <pre><code>
-Date.prototype.addOneDay = function(){
+Date.prototype.nextDay = function(){
   var currentDate = this.getDate();
   return new Date(this.setDate(currentDate +1));
 }
 
 var date = new Date(); 
 date; //Fri May 16 2014 20:47:14 GMT-0500 (Central Daylight Time)
-date.addOneDay;//Sat May 17 2014 20:47:14 GMT-0500 (Central Daylight Time)
+date.nextDay();//Sat May 17 2014 20:47:14 GMT-0500 (Central Daylight Time)
         </code></pre>
         <div>
           <button id = "extendCoreObjectMore" type="button" class="toggleExample btn btn-primary">Show Similar Question</button>
           <div id="extendCoreObjectMoreExample" class="hide bg-success toggleContent">
-            <p><strong>Question: </strong> if i have a <code>var str = 'hello world'</code>, how could i get <code>str.reverse()</code> return 'dlrow olleh'</p>
-            <p><strong>Answer:</strong> you have to extend the core String Object</p>
+            <p><strong>Question: </strong> If i have a <code>var str = 'hello world'</code>, how could i get <code>str.reverse()</code> return 'dlrow olleh'</p>
+            <p><strong>Answer:</strong> You have to extend the core String Object</p>
             <pre><code>
 String.prototype.reverse = function(){
 return this.split('').reverse().join('');
@@ -280,8 +273,8 @@ return this.split('').reverse().join('');
 var str = 'hello world';
 str.reverse();//"dlrow olleh"
             </code></pre>
-            <p><strong>Question: </strong> make this work [1,2,3,4,5].duplicator(); // [1,2,3,4,5,1,2,3,4,5]</p>
-            <p><strong>Answer:</strong></p>
+            <p><strong>Question: </strong> How could you make this work [1,2,3,4,5].duplicator(); // [1,2,3,4,5,1,2,3,4,5]</p>
+            <p><strong>Answer:</strong> We need to add a method in the prototype of Array object.</p>
             <pre><code>
 Array.prototype.duplicator=function(){
    var arr = this;
@@ -298,57 +291,52 @@ Array.prototype.duplicator=function(){
         </div>
       </div>
       <div id="bindthis">
-        <h2>Reuse Method</h2>
+        <h2>bind</h2>
         <p><strong>Question: </strong>If you want to use an arbitrary object as value of this, how will you do that?</p>
         <p><strong>Answer:</strong> There are at least three different ways to doing this by using bind, call and apply </p>
-        <p>For example, i have a function name deductMontlyFee</p>
+        <p>For example, I have a function name deductMontlyFee</p>
         <pre><code>
-function deductMonthlyFee (fee){
-  this.total = this.total - fee; 
-  return this.name + ' remaining balance is '+ this.total; 
+var monica = {
+  name: 'Monica Geller',
+  total: 400,
+  deductMontlyFee: function(fee){
+     this.total = this.total - fee;
+     return this.name + ' remaining balance is '+ this.total; 
+  }
 }
         </code></pre>
         <p>I can totally use this function with a object <code>rachel</code> where rachel would be the value of this</p>
         <pre><code>
 var rachel = {name: 'Rachel Green', total: 1500};
 //bind
-var rachelFeeDeductor = deductMonthlyFee.bind(rachel, 200);
-//after execution
+var rachelFeeDeductor = monica.deductMonthlyFee.bind(rachel, 200);
+//execute
 rachelFeeDeductor(); //"Rachel Green remaining balance is 1300"
 rachelFeeDeductor(); //"Rachel Green remaining balance is 1100"
 rachelFeeDeductor(); //"Rachel Green remaining balance is 900"
         </code></pre>
-        <p>you can reuse the same function with new value of this</p>
+        <p>You can reuse the same function with new value of this</p>
         <pre><code>
 var ross = {name:'Ross Geller', total:250};
-//bind
-var rossFeeDeductor = deductMonthlyFee.bind(ross, 25);
-//after execution
+
+var rossFeeDeductor = monica.deductMonthlyFee.bind(ross, 25);
+
 rossFeeDeductor(); //"Ross Geller remaining balance is 225"
 rossFeeDeductor(); //"Ross Geller remaining balance is 200"
         </code></pre>
-        <p>bind allows you to borrow a method and determines what the value of <code>this</code> would be, but it does not call the function but returns an exact copy of the function.</p>
+        <p>bind allows you to borrow a method and determines what the value of <code>this</code> would be, but it does not call the function but returns an exact copy of the function with new value of <code>this</code>.</p>
       </div>
       <div>
         <h2>arguments and call</h2>
         <p><strong>Question:</strong> Write a simple function, that will tell you whether 2 is passed as parameter or not?</p>
-        <p><strong>Answer:</strong> I know JavaScript function has an argument array. i can check whether indexOf(2) is != -1. if it is -1 its not passed otherwise, it is passed.</p>
+        <p><strong>arguments:</strong> arguments is a local variable, available inside all functions that provides a collection of all the arguments passed to the function. <code>arguments</code> is not an array.</p>
+        <p>arguments is an array like object that has length but doesnt have the methods like forEach, indexOf, etc. You can convert arguments to an array by calling slice method on an array and push arguments to it. After that you can use any method on array like indexOf in this case.</p>
         <pre><code>
-//check whether 2 is passed as argument
-function isTwoPassed(){
-  return arguments.indexOf(2)!=-1;
-}
-isTwoPassed(1,4) //?
-        </code></pre>
-        <p><strong>Very Unfortunate:</strong> when you said arguments is an array, you made a mistake. arguments is an illusion of an array. More precisely, its array like but not array</p>
-        <p><strong>Are you drunk?</strong> I can use length of arguments, loop over it, i can access by index. What are you talking about?</p>
-        <p>arguments is an array like object that has length but doesnt have the methods like forEach, indexOf, etc. to use all these methods on array you can easily do it by using the following code</p>
-        <pre><code>
-//check whether 2 is passed as argument
 function isTwoPassed(){
   var args = Array.prototype.slice.call(arguments);
   return args.indexOf(2) != -1;
 }
+
 isTwoPassed(1,4) //false
 isTowPassed(5,3,1,2) //true
         </code></pre>                 
@@ -446,8 +434,8 @@ num == num + 0 && num == ~~num;
         <p><strong>Anwser:</strong> //SyntaxError: Unexpected token .</p>
         <p><strong>Question:</strong><code>42   .     toString()</code></p>
         <p><strong>Anwser:</strong> <code>"42"</code></p>        
-        <p><strong>Question:</strong></p>
-        <p><strong>Anwser:</strong></p>
+        <p><strong>Question:</strong> <code>typeof(NaN)</code></p>
+        <p><strong>Anwser:</strong>"number"</p>
       </div>            
       <div id="insertSpace">
         <h2>log prefix</h2>        
