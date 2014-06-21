@@ -333,6 +333,16 @@ rossFeeDeductor(); //"Ross Geller remaining balance is 225"
 rossFeeDeductor(); //"Ross Geller remaining balance is 200"
         </code></pre>
         <p>bind allows you to borrow a method and determines what the value of <code>this</code> would be, but it does not call the function but returns an exact copy of the function with new value of <code>this</code>.</p>
+        <p><strong>Question:</strong> If an older browser dont have bind function, how will you shim it</p>
+        <p><strong>Answer:</strong> Look at the code below and use your brain.</p>
+        <pre><code>
+Function.prototype.bind = Function.prototype.bind || function(context){
+  var self = this;
+  return function(){
+    return self.apply(context, arguments);
+  };
+}
+        </code></pre>
       </div>
       <div>
         <h2>arguments and call</h2>
@@ -374,43 +384,43 @@ function getMax(arr){
         <p><strong>Answer:</strong> 3. The plus operator between a number and a boolean or two boolean will convert boolean to number. Hence, true converts to 1 and you get result of 2+1 </p>
         <p><strong>Question:</strong> What is <code>'6'+9</code></p>
         <p><strong>Answer:</strong> 69. If one of the operands of the plus (+) operator is string it will convert other number or boolean to string and perform a concatenation. For the same reason, <code>"2"+true</code> will return "2true"</p>
-        <p><strong>Question:</strong> what is the value of <code>4+3+2+"1"</code></p>
-        <p><strong>Answer:</strong> 91</p>
-        <p><strong>Question:</strong> what is the value of <code>"1"+2+4</code></p>
-        <p><strong>Answer:</strong> 124</p>
-        <p><strong>Question:</strong> what is the value of <code>-'34'+10</code></p>
-        <p><strong>Answer:</strong> -24</p>
-        <p><strong>Question:</strong> what is the value of <code>+'dude'</code></p>
-        <p><strong>Answer:</strong> NaN</p>
-        <p><strong>Question:</strong> for <code>var y = 1, x = y = typeof x;</code> what is the value of x?</p>
+        <p><strong>Question:</strong> What is the value of <code>4+3+2+"1"</code></p>
+        <p><strong>Answer:</strong> 91 . The addition starts from the left, 4+3 results 7 and 7+2 is 9. so far, the plus operator is performing addition as both the operands are number. after that 9 + "1" where one of the operands is string and plus operator will perform concatenation.</p>
+        <p><strong>Question:</strong> What is the value of <code>"1"+2+4</code></p>
+        <p><strong>Answer:</strong> "124". For this one "1" + 2 will produce "12" and "12"+4 will generates "124"</p>
+        <p><strong>Question:</strong> What is the value of <code>-'34'+10</code></p>
+        <p><strong>Answer:</strong> -24. minus(-) in front of a string is an unary operator that will convert the string to a number and will make it negative. Hence, -'34' becomes, -34 and then plus (+) will perform simple addition as both the operands are number.</p>
+        <p><strong>Question:</strong> What is the value of <code>+'dude'</code></p>
+        <p><strong>Answer:</strong> NaN. The plus (+) operator in front of a string is an unary operator that will try to convert the string to number. Here, JavaScript will fail to convert the "dude" to a number and will produce NaN.</p>
+        <p><strong>Question:</strong> If you have <code>var y = 1, x = y = typeof x;</code> What is the value of x?</p>
         <p><strong>Answer:</strong> "undefined"</p>
         <p><strong>Question:</strong> for <code>var a = (2, 3, 5);</code> what is the value of a?</p>
         <p><strong>Answer:</strong> 5</p>
         <p><strong>Question:</strong> for <code>var a = (1,5 - 1) * 2</code> what is the value of a?</p>
         <p><strong>Answer:</strong> 8</p>
-        <p><strong>Question:</strong> what is the value of <code>!'bang'</code></p>
-        <p><strong>Answer:</strong> false</p>
-        <p><strong>Question:</strong> what is the value of <code>parseFloat('12.3.4')</code></p>
+        <p><strong>Question:</strong> What is the value of <code>!'bang'</code></p>
+        <p><strong>Answer:</strong> false. </p>
+        <p><strong>Question:</strong> What is the value of <code>parseFloat('12.3.4')</code></p>
         <p><strong>Answer:</strong> 12.3</p>
-        <p><strong>Question:</strong> what is the value of <code>Math.max([2,3,4,5]);</code></p>
+        <p><strong>Question:</strong> What is the value of <code>Math.max([2,3,4,5]);</code></p>
         <p><strong>Answer:</strong> NaN</p>
         <p><strong>Question:</strong> <code>3 instanceof Number</code></p>
         <p><strong>Answer:</strong> false</p>
         <p><strong>Question:</strong><code>null == undefined</code></p>
         <p><strong>Answer:</strong> true</p>
-        <p><strong>Question:</strong>what is the value of <code>!!function(){};</code></p>
+        <p><strong>Question:</strong>What is the value of <code>!!function(){};</code></p>
         <p><strong>Answer:</strong> true</p>
-        <p><strong>Question:</strong> what is the value of <code>typeof bar</code></p>
+        <p><strong>Question:</strong> What is the value of <code>typeof bar</code></p>
         <p><strong>Answer:</strong> "undefined"</p>
-        <p><strong>Question:</strong> what is the value of <code>typeof null</code></p>
+        <p><strong>Question:</strong> What is the value of <code>typeof null</code></p>
         <p><strong>Answer:</strong> "object"</p>
-        <p><strong>Question:</strong> if <code> var a = 2, b =3</code> what would be value of <code>a && b</code></p>
+        <p><strong>Question:</strong> If <code> var a = 2, b =3</code> what would be value of <code>a && b</code></p>
         <p><strong>Answer:</strong> 3</p>
-        <p><strong>Question:</strong> what would be consoled <code>var foo = 'outside'; function logIt(){console.log(foo); var foo = 'inside';} logIt();</code></p>
+        <p><strong>Question:</strong> What would be consoled <code>var foo = 'outside'; function logIt(){console.log(foo); var foo = 'inside';} logIt();</code></p>
         <p><strong>Answer:</strong> undefined</p>
-        <p><strong>Question:</strong> what is <code>-5%2</code></p>
+        <p><strong>Question:</strong> What is <code>-5%2</code></p>
         <p><strong>Answer:</strong>-1. the result of remainder always get the symbol of first operand</p>
-        <p><strong>Question:</strong> why <code>.1+.2 != .3</code> </p>
+        <p><strong>Question:</strong> Why <code>.1+.2 != .3</code> </p>
         <p><strong>Answer:</strong> </p>
         <p><strong>Question: <code>42..toString()</code></strong></p>
         <p><strong>Anwser:</strong> <code>"42"</code></p>
@@ -426,30 +436,18 @@ function getMax(arr){
       <div id="insertSpace">
         <h2>log prefix</h2>        
         <p><strong>Question: </strong> Prefix a word before every log. for example, if you <code>log('my message')</code> it will log: "(app)my message"</p>
-        <p><strong>Answer:</strong> There are several solution of it. Add more text here to explain what going on</p>
+        <p><strong>Answer:</strong> One of the solutions for this problem is to use build in console function of the browsers. To get all the arguments you can use, provided arguments objects. However, as arguments is not an array you can convert arguments to an array and then unshift whatever prefix you want to put at the front. Finally, use apply to pass the args to console.</p>
         <pre><code>
 function log(){
   var args = Array.prototype.slice.call(arguments);
+  
   args.unshift('(app)');
+
   console.log.apply(console, args);
 }
         </code></pre>
-        <p>This will take all the arguments you are passing</p>
-        <p><strong>Question:</strong> If an older browser dont have bind function, how will you shim it</p>
-        <p><strong>Answer:</strong></p>
-        <pre><code>
-//try to understand this
-//don't forget to use build in bind function, if available
-Function.prototype.bind = Function.prototype.bind || function(context){
-  var self = this;
-
-  return function(){
-    return self.apply(context, arguments);
-  };
-}
-        </code></pre>
         <p>ref: <a href="http://blog.sourcing.io/interview-questions">This is a really good materials, walks you through an interview process.</a></p>
-        <p>Read: what is the overlay app in the last section of this link</p>
+        
       </div>
       <div>
         <h2>Scope and hoisting</h2>
@@ -470,6 +468,7 @@ console.log(a);
           <li>function declaration <code>function a(){}</code> is hoisted first and it behaves like <code>var a = function () {};</code>, hence in local scope a is created.</li>
           <li>If you have two variable with same name (one in global another in local), local variable always get precedence over global variable.</li>
           <li>When you set <code>a = 10;</code>, you are setting the local variable <code>a</code> , not the global one. Hence, the value of global variable remain same and you get, 1 in the log. ref: js hoisting/scope</li>
+          <li><strong>Extra:</strong> If you didnt have a function named as "a", you will see 10 in the log.</li>
         </ul>
         <div>
           <button id = "hoistingExtra" type="button" class="toggleExample btn btn-primary">Show Tough Example</button>
@@ -499,8 +498,7 @@ foo();//?
          <p> <strong>Answer:</strong> If you have a function within a function, execution of the inner function will create a scope inside of the outer function- a nested scope. Because the inside function scope is enclosed by the outer function scope, the inner function scope is called a closure (I invented this definition). Remember, to be a closure, you dont have to return a function, you just have to call a function inside a function.</p>
          <pre><code>
 function counter(){
-    var i = 0;
-    
+    var i = 0;    
     return function(){
        return i++;
     }
@@ -513,9 +511,8 @@ a(); //1
 a(); //2
 a(); //3
 a(); //4
-a(); //5
          </code></pre>
-        <p><strong>Encapsulation:: </strong>You would not be able to access (get or set) the value of "i" from outside. Hence the privacy of the value of "i" is maintained secretly. This is called encapsulation in object oriented programming.</p> 
+        <p><strong>Encapsulation:: </strong>You would not be able to access (get or set) the value of "i" from outside. Hence the privacy of the value of "i" is maintained secretly. However, you execute a(), the value of "i" will be increased by one. This is called encapsulation in object oriented programming.</p> 
       </div>
       <div>
         <h2>Closures Inside Loops</h2>
