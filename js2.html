@@ -533,20 +533,18 @@ a(); //4
       <p>In order to copy the value of the loop's index variable, it is best to use an anonymous wrapper.</p>
 
       <p>The anonymous outer function gets called immediately with i as its first argument and will receive a copy of the value of i as its parameter e.</p>
-      <p>The anonymous function that gets passed to setTimeout now has a reference to e, whose value does not get changed by the loop.</p>
-      <p>There is another possible way of achieving this, which is to return a function from the anonymous wrapper that will then have the same behavior as the code above.</p>
+      <p>The anonymous function that gets passed to setTimeout now has a reference to e, whose value does not get changed by the loop.</p>      
 <pre><code>
 for(var i = 0; i < 10; i++) {
-    setTimeout((function(e) {
+    setTimeout((function(idx) {
         return function() {
-            console.log(e);
+            console.log(idx);
         }
     })(i), 1000)
 }
 </code></pre>
-<p><strong>Question:</strong>How does IIFE works</p>
-<p><strong></strong></p>
-<p>There's yet another way to accomplish this by using .bind, which can bind a this context and arguments to function. It behaves identially to the code above</p>
+<p><strong>Extra:</p>
+<p>There's yet another way to accomplish this by using .bind, which can bind a this context and arguments to function. It behaves identically to the code above</p>
 <pre><code>
 for(var i = 0; i < 10; i++) {
     setTimeout(console.log.bind(console, i), 1000);
@@ -555,30 +553,28 @@ for(var i = 0; i < 10; i++) {
       </div>      
       <div>
         <h2>delete can delete but</h2>
+        <p><strong>Question:</strong> Look at the code below, I have a property in a object and I am creating a new object where I am setting it to a new value. If I delete that property what will i get if I try to access that property?</p>
         <pre><code>
-(function() {
-    var myObject = {
-        price: 20.99,
-        get_price : function() {
-            return this.price;
-        }
-    };
-    var customObject = Object.create(myObject);
-    customObject.price = 19.99;
-    
-    delete customObject.price;
-    console.log(customObject.get_price());
-})();
+var myObject = {
+    price: 20.99,
+    get_price : function() {
+        return this.price;
+    }
+};
+var customObject = Object.create(myObject);
+customObject.price = 19.99;
+
+delete customObject.price;
+console.log(customObject.get_price());
         </code></pre>
-        <p><strong>Question:</strong> What will you see in console?</p>
-        <p><strong>Answer:</strong> you will see 20.99</p>
-        <p><strong>Explanation:</strong> This is actually interesting problem. when you create <code>object.create(myObject)</code> you are creating new object where the <code>myObject</code> will be the parent of the newly created object.</p>
-        <p>when you <code>delete customObject.price</code> it deletes the <code>price</code> property in the customObject. However, when you call the method getprice. it looks for <code>this.price</code> since the customObject doesnt have price property, JavaScript executor walks through the prototype chain towards the parent. since customObject was inherited from myObject and myObject has a <code>price</code> property. the get_price method returns the price</p>
+        <p><strong>Answer:</strong> You will see 20.99</p>
+        <p><strong>Explanation:</strong> This is actually interesting problem. When you create <code>object.create(myObject)</code> you are creating new object where the <code>myObject</code> will be the parent of the newly created object. Hence the price property will be at the parent.</p>
+        <p>When you are assigning some value to "price", you are creating a new property on the child. And when you <code>delete customObject.price</code> it deletes the <code>price</code> property in the customObject (in the child). However, when you call the method getprice, first it looks for <code>this.price</code> in the child since the customObject doesn't have price property, JavaScript executor walks through the prototype chain towards the parent. Since customObject was inherited from myObject and myObject has a <code>price</code> property, the get_price method returns the price from parent. Hence, you are getting 20.99</p>
       </div>
-            <div id="byValueByRef">
+      <div id="byValueByRef"> 
         <h2>pass by Value </h2>
         <p><strong>Question:</strong> Does JavaScript pass parameter by value or by reference</p>
-        <p><strong>Answer:</strong> </p>
+        <p><strong>Answer:</strong> Add explanation</p>
         <pre><code>
 var num = 10,
     name = "Addy Osmani",
@@ -600,7 +596,7 @@ function change(num, name, obj1, obj2) {
 change(num, name, obj1, obj2);
  
 console.log(num); // 10
-console.log(name);// "<ABBR></ABBR>ddy Osmani"
+console.log(name);// "Addy Osmani"
 console.log(obj1.value);//"first value"
 console.log(obj2.valuee);//"new value"
 console.log(obj3.valuee);//"new value"        
@@ -610,7 +606,7 @@ console.log(obj3.valuee);//"new value"
       </div>
       <div>
         <h2>memoization</h2>
-        <p><strong>Question:</strong> How could you implement cache to save calculation time for the following code</p>
+        <p><strong>Question:</strong> How could you implement cache to save calculation time for the following code?</p>
         <pre><code>
 function _fibonacci(n) {
    if (n &lt; 2){
@@ -620,7 +616,7 @@ function _fibonacci(n) {
    }
 }
         </code></pre>
-        <p><strong>Answer:</strong> You could use poor man's memoization with a global varibale and </p>
+        <p><strong>Answer:</strong> You could use poor man's memoization with a global variable and </p>
         <pre><code>
 var memo = [];
 
@@ -641,7 +637,7 @@ function _fibonacci(n) {
       <div>
         <h2>Cache function execution</h2>
         <p><strong>Question:</strong> How could you cache execution of any function?</p>
-        <p><strong>Answer:</strong> You could have a method where you will pass a function and it will internally maintain a cache object where calculated value will be cached. when you will call the function with same argument, then the cached value will be served.</p>
+        <p><strong>Answer:</strong> You could have a method where you will pass a function and it will internally maintain a cache object where calculated value will be cached. When you will call the function with same argument, the cached value will be served.</p>
         <pre><code>
 function cacheFn(fn) {
     var cache={};
@@ -658,8 +654,8 @@ function cacheFn(fn) {
     
 }
         </code></pre>
-        <p><strong>Question:</strong> what if you are passing more than one argument?</p>
-        <p><strong>Answer: </strong> First we have to use arguments to get all the parameters passed to the function. and then we can generate key for the cache object. generating key for the cache object could be tricky and one solution could be just get the all the parameters and concatenate those. Look at the code below</p>
+        <p><strong>Question:</strong> What if you are passing more than one argument?</p>
+        <p><strong>Answer: </strong> First we have to use arguments to get all the parameters passed to the function and then we can generate key for the cache object. Generating key for the cache object could be tricky and one solution could be just get the all the parameters and concatenate those. Look at the code below</p>
         <pre><code>
 return function(){
   var args = arguments;  
@@ -712,7 +708,7 @@ obj.first().second().third();
       <div>
         <h2>animation</h2>
         <p><strong>Question: </strong> How would you implement the animation of moving one div to another</p>
-        <p><strong>Answer:</strong></p>
+        <p><strong>Answer:</strong> You to use setInterval that will place the div to the left position by some pixels in every 10ms. Hence, you will see the element moving towards the desired position. When you call setInterval, it returns a timeId. After reaching the desired location, you have to clear the time interval so that function will not be called again and again in every 10ms.</p>
         <pre><code>
 function moveLeft(elem, distance) {
   var left = 0;
@@ -728,9 +724,14 @@ function moveLeft(elem, distance) {
   var timeId = setInterval(frame, 10); // draw every 10ms
 }
         </code></pre>
-        <p>Test this one</p>
+        <p>Test this one and create a demo</p>
         <p>ref: <a href="http://khan4019.github.io/HighPerfJS/#/23/1">how things are animated?</a></p>
       </div>      
+      <div>
+        <h2>this</h2>
+        <p><strong>Question:</strong> How the value of <code>this</code> keyword is set in JavaScript?</p>
+        <p><strong>Answer:</strong> There are </p>
+      </div>
       <div>
         <h2>Curry in JS</h2>
         <p><strong>Question:</strong> How would you implement curry in JavaScript?</p>
