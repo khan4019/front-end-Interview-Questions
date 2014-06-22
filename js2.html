@@ -722,8 +722,52 @@ function moveLeft(elem, distance) {
       </div>
       <div>
         <h2>Curry in JS</h2>
-        <p><strong>Question:</strong> How would you implement curry in JavaScript?</p>
-        <p><strong>Can move it to higher set of questions</strong></p>
+        <p><strong>Question:</strong> How would you implement curry for any functions?</p>
+        <p><strong>Answer:</strong> Curring is partial invocation of a function. Currying means first few arguments of a function is pre-processed and a function is return. The returning function can add more arguments to it. It's like if you have given one or two spice to the curry, still you can add any spice to it. A simple example will look like-</p>
+        <pre><code>
+function addBase(base){
+  return function(num){
+    return base + num;
+  }
+}
+
+var addTen = addBase(10);
+addTen(5); //15
+addTen(80); //90
+addTen(-5); //5
+        </code></pre>
+        <p><strong>Explanation:</strong> You are creating a closure that return a function. When you are curring with a new number, new number is added to the base you have provided.</p>
+        <p><strong>Question:</strong> How could you apply curring to any function</p>
+        <p><strong>Answer: </strong></p>
+        <pre><code>
+function toArray(args) {
+    return Array.prototype.slice.call(args);
+}
+ 
+Function.prototype.curry = function() {
+    if (arguments.length&lt;1) {
+        return this; //nothing to curry. return function
+    }
+    var self = this;
+    var args = toArray(arguments);
+    return function() {
+        return self.apply(this, args.concat(toArray(arguments)));
+    }
+}
+        </code></pre>
+        <p><strong>To use it:</strong> Just pass the argument to the function.curry method and a function will be returned. Use returned function for further currying</p>
+        <pre><code>
+function converter = function(factor, symbol, input){
+  return input * factor + symbol;
+}
+
+var milesToKm = converter.curry(1.62, 'km');
+mileToKm(3); //result here
+
+var kgToLb = converter.curry(2.2, 'lb');
+kgToLb(3); //result here 
+        </code></pre>
+        <p>ref: <a href="http://javascriptweblog.wordpress.com/2010/04/05/curry-cooking-up-tastier-functions/"></a></p>
       </div>      
       <div>
         <h2>Deleted Questions</h2>
