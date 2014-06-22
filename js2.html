@@ -463,8 +463,8 @@ console.log(a);
         <p><strong>Answer:</strong> 1</p>
         <h4>Explanation:</h4>
         <ul>
-          <li>function declaration <code>function a(){}</code> is hoisted first and it behaves like <code>var a = function () {};</code>, hence in local scope a is created.</li>
-          <li>If you have two variable with same name (one in global another in local), local variable always get precedence over global variable.</li>
+          <li>function declaration <code>function a(){}</code> is hoisted first and it behaves like <code>var a = function () {};</code>. Hence in local scope variable <code>a</code> is created.</li>
+          <li>If you have two variables with same name (one in global another in local), local variable always get precedence over global variable.</li>
           <li>When you set <code>a = 10;</code>, you are setting the local variable <code>a</code> , not the global one. Hence, the value of global variable remain same and you get, 1 in the log. ref: js hoisting/scope</li>
           <li><strong>Extra:</strong> If you didnt have a function named as "a", you will see 10 in the log.</li>
         </ul>
@@ -496,34 +496,24 @@ foo();//?
 <pre><code>
   for(var i = 0; i < 10; i++) {
     setTimeout(function() {
-        console.log(i);  
-    }, 1000);
+      console.log(i);  
+    }, 10);
 }
 </code></pre>
       <p><strong>Answer:</strong> The above will not output the numbers 0 through 9, but will simply print the number 10 ten times.</p>
-      <p><strong>Question:</strong> How will you fix it?</p>
-      <p>The anonymous function keeps a reference to i. At the time console.log gets called, the for loop has already finished, and the value of i has been set to 10.</p>
-      <p>In order to get the desired behavior, it is necessary to create a copy of the value of i.</p>
-      
-      <h4>Avoiding the Reference Problem</h4>
-      <p>In order to copy the value of the loop's index variable, it is best to use an anonymous wrapper.</p>
-
-      <p>The anonymous outer function gets called immediately with i as its first argument and will receive a copy of the value of i as its parameter e.</p>
-      <p>The anonymous function that gets passed to setTimeout now has a reference to e, whose value does not get changed by the loop.</p>      
+      <p><strong>Explanation:</strong> The console log is inside the anonymous function of setTimeout and setTimeout is executed when current call stack is over. So, the loop finishes and before setTimeout get the chance to execute. However, anonymous functions keep a reference to i by creating a closure. Since, the loop is already finished, the value i has been set to 10. When setTimeout use the value of i by reference, it gets the value of i as 10. Hence, you see 10 ten times.</p>
+      <p><strong>Solution: </strong> You can fix it by avoiding closure. Just create a IIFE (Immediately Invoked Function Expression), it will create its own scope and you can pass i to the function. In that case i will be a local variable (will not refer to i in the closure) and value of the i in every loop will be preserved.</p>      
 <pre><code>
 for(var i = 0; i < 10; i++) {
-    setTimeout((function(idx) {
-        return function() {
-            console.log(idx);
-        }
-    })(i), 1000)
+    setTimeout((function(i) {
+      console.log(i);
+    })(i), 10)
 }
 </code></pre>
-<p><strong>Extra:</strong></p>
-<p>There's yet another way to accomplish this by using .bind, which can bind a this context and arguments to function. It behaves identically to the code above</p>
+<p><strong>Alternative Solution:</strong> Look at the code below and use your brain (if any).</p>
 <pre><code>
 for(var i = 0; i < 10; i++) {
-    setTimeout(console.log.bind(console, i), 1000);
+  setTimeout(console.log.bind(console, i), 10);
 }
 </code></pre>
       </div>      
@@ -544,23 +534,23 @@ delete customObject.price;
 console.log(customObject.get_price());
         </code></pre>
         <p><strong>Answer:</strong> You will see 20.99</p>
-        <p><strong>Explanation:</strong> This is actually interesting problem. When you create <code>object.create(myObject)</code> you are creating new object where the <code>myObject</code> will be the parent of the newly created object. Hence the price property will be at the parent.</p>
-        <p>When you are assigning some value to "price", you are creating a new property on the child. And when you <code>delete customObject.price</code> it deletes the <code>price</code> property in the customObject (in the child). However, when you call the method getprice, first it looks for <code>this.price</code> in the child since the customObject doesn't have price property, JavaScript executor walks through the prototype chain towards the parent. Since customObject was inherited from myObject and myObject has a <code>price</code> property, the get_price method returns the price from parent. Hence, you are getting 20.99</p>
+        <p><strong>Explanation:</strong> This is very interesting question. When you create <code>object.create(myObject)</code> you are creating new object where the <code>myObject</code> will be the parent of the newly created object. Hence the price property will be at the parent.</p>
+        <p>When you are assigning some value to <code>customObject.price</code>, you are creating a new property on the child. This means, when you <code>delete customObject.price</code> it deletes the <code>price</code> property in the customObject (in the child). However, when you call the method getprice, first it looks for <code>this.price</code> in the child since the customObject doesn't have price property, JavaScript executor walks through the prototype chain towards the parent. Since customObject was inherited from myObject and myObject has a <code>price</code> property, the get_price method returns the price from parent. Hence, you are getting 20.99</p>
       </div>
       <div id="byValueByRef"> 
-        <h2>pass by Value </h2>
-        <p><strong>Question:</strong> Does JavaScript pass parameter by value or by reference</p>
-        <p><strong>Answer:</strong> Add explanation</p>
+        <h2>pass by value or by reference</h2>
+        <p><strong>Question:</strong> Does JavaScript pass parameter by value or by reference?</p>
+        <p><strong>Answer:</strong> Primitive type (string, number, etc.) are passed by value and objects are passed by reference. If you change a property of the passed object, the change will be affected. However, you assign a new object to the passed object, the changes will not be reflected.</p>
         <pre><code>
 var num = 10,
     name = "Addy Osmani",
     obj1 = {
       value: "first value"
     },
-   obj2 = {
+    obj2 = {
      value: "second value"
-   },
-   obj3 = obj2;
+    },
+    obj3 = obj2;
  
 function change(num, name, obj1, obj2) {
     num = num * 10;
@@ -577,22 +567,12 @@ console.log(obj1.value);//"first value"
 console.log(obj2.valuee);//"new value"
 console.log(obj3.valuee);//"new value"        
      </code></pre>
-     <p><strong>Explanation:</strong></p>
-        <p>ref: <a href="http://stackoverflow.com/a/3638034/1535443">stackoverflow</a>, more detailed: <a href="http://snook.ca/archives/javascript/javascript_pass">Jonathan Snook</a></p>
+        <p>ref: <a href="http://snook.ca/archives/javascript/javascript_pass">Snook: passing by value or reference</a></p>
       </div>
       <div>
         <h2>memoization</h2>
-        <p><strong>Question:</strong> How could you implement cache to save calculation time for the following code?</p>
-        <pre><code>
-function _fibonacci(n) {
-   if (n &lt; 2){
-     return 1;
-   }else{
-     fibonacci(n-2) + fibonacci(n-1);
-   }
-}
-        </code></pre>
-        <p><strong>Answer:</strong> You could use poor man's memoization with a global variable and </p>
+        <p><strong>Question:</strong> How could you implement cache to save calculation time for a recursive fibonacci function?</p>
+        <p><strong>Answer:</strong> You could use poor man's memoization with a global variable. If fibonacci is already calculated it is served from the global memo array otherwise it is calculated.</p>
         <pre><code>
 var memo = [];
 
@@ -606,9 +586,8 @@ function _fibonacci(n) {
      fibonacci(n-2) + fibonacci(n-1);
    }
 }
-        </code></pre>
-        <p><strong>Explanation:</strong> If fibonacci is already calculated it is served from the global memo array otherwise it is calculated.</p>
-        <p>see better implementation <a href="http://www.sitepoint.com/implementing-memoization-in-javascript/">implement memoization in JavaScript</a></p>        
+        </code></pre>        
+        <p><strong>Better Implementation: </strong><a href="http://www.sitepoint.com/implementing-memoization-in-javascript/">implement memoization in JavaScript</a></p>        
       </div>
       <div>
         <h2>Cache function execution</h2>
@@ -627,11 +606,10 @@ function cacheFn(fn) {
             return cache[arg];
         }
     }
-    
 }
         </code></pre>
         <p><strong>Question:</strong> What if you are passing more than one argument?</p>
-        <p><strong>Answer: </strong> First we have to use arguments to get all the parameters passed to the function and then we can generate key for the cache object. Generating key for the cache object could be tricky and one solution could be just get the all the parameters and concatenate those. Look at the code below</p>
+        <p><strong>Answer: </strong> First we have to use arguments to get all the parameters passed to the function and then we can generate key for the cache object. Generating key for the cache object could be tricky and one solution could be just get the all the parameters and concatenate those. Look at the code below.</p>
         <pre><code>
 return function(){
   var args = arguments;  
@@ -683,8 +661,8 @@ obj.first().second().third();
       </div>
       <div>
         <h2>animation</h2>
-        <p><strong>Question: </strong> How would you implement the animation of moving one div to another</p>
-        <p><strong>Answer:</strong> You to use setInterval that will place the div to the left position by some pixels in every 10ms. Hence, you will see the element moving towards the desired position. When you call setInterval, it returns a timeId. After reaching the desired location, you have to clear the time interval so that function will not be called again and again in every 10ms.</p>
+        <p><strong>Question: </strong>How could you implement moveLeft animation?</p>
+        <p><strong>Answer:</strong> Use setInterval that will place the element to the left position by some pixels in every 10ms. Hence, you will see the element moving towards the desired position. When you call setInterval, it returns a timeId. After reaching the desired location, you have to clear the time interval so that function will not be called again and again in every 10ms.</p>
         <pre><code>
 function moveLeft(elem, distance) {
   var left = 0;
@@ -699,14 +677,12 @@ function moveLeft(elem, distance) {
 
   var timeId = setInterval(frame, 10); // draw every 10ms
 }
-        </code></pre>
-        <p>Test this one and create a demo</p>
-        <p>ref: <a href="http://khan4019.github.io/HighPerfJS/#/23/1">how things are animated?</a></p>
+        </code></pre>        
       </div>
       <div>
         <h2>Currying</h2>
-        <p><strong>Question:</strong> How would you implement curry for any functions?</p>
-        <p><strong>Answer:</strong> Curring is partial invocation of a function. Currying means first few arguments of a function is pre-processed and a function is returned. The returning function can add more arguments to the curried function. It's like if you have given one or two spice to the curry and cooked little bit, still you can add further spice to it. A simple example will look like-</p>
+        <p><strong>Question:</strong> How would you implement currying for any functions?</p>
+        <p><strong>What is curring:</strong> Curring is partial invocation of a function. Currying means first few arguments of a function is pre-processed and a function is returned. The returning function can add more arguments to the curried function. It's like if you have given one or two spice to the curry and cooked little bit, still you can add further spice to it. A simple example will look like-</p>
         <pre><code>
 function addBase(base){
   return function(num){
@@ -720,7 +696,6 @@ addTen(80); //90
 addTen(-5); //5
         </code></pre>
         <p><strong>Explanation:</strong> You are creating a closure that return a function. When you are curring with a new number, new number is added to the base you have provided.</p>
-        <p><strong>Question:</strong> How could you apply curring to any function?</p>
         <p><strong>Answer: </strong> You can add a curry method to the prototype of Function. If now parameters is passed to curry, you simply return the current function. If you have provided arguments to curry there are two steps</p>
         <ul>
           <li><strong>Step-1:</strong> Concatenate old arguments (provided while creating curry), with new arguments (added after cooking little bit) by using <code> args.concat(toArray(arguments))</code></li>
@@ -755,7 +730,7 @@ mileToKm(3); //result here
 var kgToLb = converter.curry(2.2, 'lb');
 kgToLb(3); //result here 
         </code></pre>
-        <p>ref: <a href="http://javascriptweblog.wordpress.com/2010/04/05/curry-cooking-up-tastier-functions/"></a></p>
+        <p>ref: <a href="http://javascriptweblog.wordpress.com/2010/04/05/curry-cooking-up-tastier-functions/">curry: cooking up tastier functions</a></p>
       </div>      
       <div>
         <h2>Deleted Questions</h2>
