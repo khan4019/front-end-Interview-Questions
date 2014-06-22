@@ -224,22 +224,7 @@ function isEqual(a, b) {
           <p>After that, JavaScript implementation will try to convert <code>[]</code> by using<code>toPrimitive</code> (of JavaScript implementation). since <code>[].valueOf</code> is not primitive will use <code>toString</code> and will get <code>""</code></p>
           <p> Now you are comparing "" == 1 and still left and right is not same type. Hence left side will be converted again to a number and empty string will be 0.</p>
           <p>Finally, they are of same type, you are comparing <code>0 === 1</code> which will be false.</p>
-          <div>
-            <button id = "equalityMore" type="button" class="toggleExample btn btn-primary">Show More Cases</button>
-            <div id="equalityMoreExample" class="hide bg-success toggleContent">
-                <pre><code>
-null == false; // false
-null == null; // true
-
-undefined == undefined; // true
-undefined == null; // true
-
-NaN == null; // false
-NaN == NaN; // false
-                      </code></pre>                      
-                  </div>                  
-                </div>
-        <p>ref: <a href="http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/">angus croll: truth and eqality in JS</a>, ref: <a href="http://www.sitepoint.com/javascript-truthy-falsy/">truthy and falsy</a></p>
+          <p>ref: <a href="http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/">angus croll: truth and eqality in JS</a>, ref: <a href="http://www.sitepoint.com/javascript-truthy-falsy/">truthy and falsy</a></p>
       </div>
 
       </div>                  
@@ -273,12 +258,8 @@ str.reverse();//"dlrow olleh"
             <p><strong>Question: </strong> How could you make this work [1,2,3,4,5].duplicator(); // [1,2,3,4,5,1,2,3,4,5] ?</p>
             <p><strong>Answer:</strong> We need to add a method in the prototype of Array object.</p>
             <pre><code>
-Array.prototype.duplicator=function(){
-   var arr = this;
-  for(var i=0, len = this.length; i&lt;len; i++){
-    arr.push(this[i]);
- }
- return arr;
+Array.prototype.duplicator = function(){
+  return this.concat(this);  
 }
 
 [1,2,3,4,5].duplicator(); // [1,2,3,4,5,1,2,3,4,5]
@@ -733,173 +714,22 @@ kgToLb(3); //result here
         <p>ref: <a href="http://javascriptweblog.wordpress.com/2010/04/05/curry-cooking-up-tastier-functions/">curry: cooking up tastier functions</a></p>
       </div>      
       <div>
-        <h2>Deleted Questions</h2>
-        <div>
-          <button id = "deletedQuestionCollection" type="button" class="toggleExample btn btn-primary">Show Deleted Questions</button>
-          <div id="deletedQuestionCollectionExample" class="hide bg-success toggleContent">
-            <div>
-              <h2>Closure</h2>
-              <p><strong>Question:</strong> What is closure? How closure creates encapsulation?</p>
-               <p> <strong>Answer:</strong> If you have a function within a function, execution of the inner function will create a scope inside of the outer function- a nested scope. Because the inside function scope is enclosed by the outer function scope, the inner function scope is called a closure (I invented this definition). Remember, to be a closure, you dont have to return a function, you just have to call a function inside a function.</p>
-               <pre><code>
-function counter(){
-    var i = 0;    
-    return function(){
-       return i++;
-    }
-}
-               </code></pre>
-               <pre><code>
-var a = counter();
-a(); //0
-a(); //1
-a(); //2
-a(); //3
-a(); //4
-               </code></pre>
-              <p><strong>Encapsulation:: </strong>You would not be able to access (get or set) the value of "i" from outside. Hence the privacy of the value of "i" is maintained secretly. However, you execute a(), the value of "i" will be increased by one. This is called encapsulation in object oriented programming.</p> 
-            </div>
-            <div id="checkInteger">
-              <h2>Check Integer</h2>
-              <p><strong>Question:</strong> How you can verify integer in JavaScript?</p>
-              <p><strong>Answer: </strong> There are 5 ways to check integer</p>
-              <ol>
-                <li>Use build in <code>isInteger</code> method</li>
-                <li>parse the number as integer and compare parsed one with the original number. If both are equal, then the provided number is integer. Optionally you can do a whether the provided number is Number or not by is <code>isNaN</code></li>
-                <li>If you divide by 1 and remainder is 0, then its integer. You can additionally check whether typeof of the provided number is 'number' or not</li>
-                <li>Use <code>Math.round</code> if rounded number is equal to the provided number, then it is integer</li>
-                <li>I can't explain this one. sorry dude :p</li>
-              </ol>
-              <pre><code>
-//1. 
-Number.IsInteger(num); 
-//2. 
-num === parseInt(num);
-!isNaN(num) && num== parseInt(num);
-//3
-num%1 === 0; 
-typeof num == 'number' && num%1===0
-//4
-Math.round(num)===num;
-//5
-num == ~~num; //'1' will give you true
-num == num + 0 && num == ~~num;
-              </code></pre>        
-            </div>
-            <div>
-              <h2>string to integer</h2>
-              <p><strong>Question:</strong> What is the best way to convert string to number in JavaScript?</p>
-              <p><strong>Answer:</strong> There are nine different ways to convert a string to number</p>
-              <ol>
-                <li>Use the Number constructor and pass the number</li>
-                <li>use parseInt</li>
-                <li>use unary plus (+)</li>
-                <li>use parseInt with a base</li>
-                <li>use bitwise right shift</li>
-                <li>multiply by one will cause force cast</li>
-                <li>bitwise NOT</li>
-                <li>bitwise OR</li>
-                <li>just deduct 0 from the string (number in string type)</li>
-              </ol>
-              <pre><code>
-Number("13268"); //constructor
-
-parseInt("13268"); //parseInt
-
-+"13268"; //unary +
-
-parseInt("13268", 10); //parseInt with base
-
-"13268" >> 0; //bitwise >> (right shift)
-"13268" * 1; //multiply by 1
-~~"13268"; // bitwise NOT
-"13268" | 0 //bitwise OR
-"13268" - 0; // minus 0
-              </code></pre>
-              <p>ref: <a href="http://jsperf.com/number-vs-parseint-vs-plus/26">js perf</a></p>
-            </div>
-            <div>
-              <h2>for in looping</h2>
-              <p><strong>Question: </strong> If you loop through [10, 20, 30] by using for-in loop and want to get the sum of all the elements, how will you do it?</p>
-              <pre><code>
-var numbers = [10, 20, 30];
-var sum = 0;
-for(var num in numbers){
-  sum += num; 
-}
-
-console.log(sum);
-        </code></pre>
-              <p><strong>Answer:</strong> 0012</p>
-              <p><strong>Basic:</strong> for in always loop over keys. JavaScript array is inherited from object and all the elements in the array is like key value pair in the object<code>{0:10, 1:20, 2:30}</code> where key is 0, 1, 2 etc. When you are accessing values by passing index, you are actully accessing by key.</p>
-              <p>thats why when an index doesnt exist, Javascript returns undefined not array out of index. As the index(key) doesnt exists in the object.</p>
-              <p><strong>Explanation:</strong> as for in looping over keys and keys are always string type, its concatenating <code>0+'0'</code> which becomes <code>'00'</code> and then u add '1' and '2'. Which eventually results '0012'. Quite unexpected, isnt it?</p>
-              <p><strong>solution:</strong> the solution of this problem is to use <code>num</code> as index to access the value or use a simple for loop</p>
-              <pre><code>
-var numbers = [10, 20, 30];
-var sum = 0;
-for(var num in numbers){
-  sum += numbers[num]; 
-}
-
-console.log(sum);//60
-              </code></pre>
-            </div>
-            <div id="safeCoding">
-        <h2>Save hasOwnProperty</h2>
-        <p><strong>Question:</strong> If you mistakenly override some of the build in method like <code>hasOwnProperty</code> how you will make sure its works</p>
-        <p><strong>Answer:</strong></p>
-        <pre><code>
-var foo = {
-    hasOwnProperty: function() {
-        return false;
-    },
-    bar: 'Here be dragons'
-};
-
-foo.hasOwnProperty('bar'); // always returns false
-
-// Use another Object's hasOwnProperty and call it with 'this' set to foo
-({}).hasOwnProperty.call(foo, 'bar'); // true
-
-// It's also possible to use hasOwnProperty from the Object
-// prototype for this purpose
-Object.prototype.hasOwnProperty.call(foo, 'bar'); // true
-        </code></pre>
-        <p>ref: Javascript garden</p>
-      </div>
-            <div id="ajaxCall">
-              <h2>Ajax in Native call</h2>
-              <p><strong>Question:</strong> JavaScript is single threaded how it makes ajax call while it is doing something else?</p>
-              <p><strong>Answer: </strong> By using event queue. When you make an ajax call, an event will be added to the event queue. Besides, you will have some code to handle/ do something when ajax call is done. When server is done executing the request and it returns some data/status. when you receive data/status and if you have new event to be performed on data received, you have event handlers. these event handers will also be added in the event queue. </p>
-              <p>could talk about promise pattern. </p>        
-              <p>ref: <a href="http://stackoverflow.com/a/7575649/1535443">Handling of Ajax in the background</a></p>
-            </div>
-            <!-- add new one here -->
-          </div>
-        </div>    
-      </div>
-      <div>
-        <h3>Discarded Questions</h3>
+        <h3>Deleted Questions</h3>
         <ul>
-          <li><a href="http://khan4019.github.io/JSconfusingParts/#/3/6">In JavaScript <code>isNaN(undefined)</code> returns true. how could you fix it?</a></li>
+          <li>In JavaScript <code>isNaN(undefined)</code> returns true. how could you fix it? Answer: use <code>function isReallyNaN (x){return x!==x;}</code></li>
           <li>What are differences between host object and native object? <a href="http://stackoverflow.com/a/7614380/1535443">read answer here</a></li>          
-          <li>Why extending build in JavaScript object is a bad idea  </li>
+          <li>Why extending build in JavaScript object is a bad idea? Answer: google it</li>
           <li>How will you get query string in a browsers URL? <a href="http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript?page=3&tab=votes#tab-top">detail answer</a> or <code>window.location.search;</code></li>
-          <li>What is the typical use of anonymous function</li>
-          <li>What are the difference between function expression and function declaration</li>          
-          <li>Use Function as object</li>  
           <li>Why does nearly every object have a toString method?</li>
-          <li>Why Everything in JavaScript acts like an object, with the only two exceptions being null and undefined.</li>
-          <li>How would u create class in JavaScript</li>
+          <li>Why Everything in JavaScript acts like an object, with the only two exceptions being null and undefined?</li>
           <li>How would you perform inheritance in JavaScript?</li>
           <li>How would you apply asynchronous call without any help of library</li>
-          <li>What is the difference between slice, substr, substring? Answer:</strong> <a href="http://www.tvids.net/watch69/The-Big-Bang-Theory/season-01-episode-01-Pilot">slice, substr, substring</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substr?redirectlocale=en-US&redirectslug=JavaScript%2FReference%2FGlobal_Objects%2FString%2Fsubstr">MDN: substr</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring?redirectlocale=en-US&redirectslug=JavaScript%2FReference%2FGlobal_Objects%2FString%2Fsubstring">substring</a></li>
+          <li>What is the difference between slice, substr, substring?</li>
         </ul>
       </div>
       <div>
         <h3>Need more</h3>
-        <p>ref: great place to learn JavaScript <a href="http://bonsaiden.github.io/JavaScript-Garden/">JS Garden</a></p>        
+        <p>ref: great place to learn JavaScript <a href="http://bonsaiden.github.io/JavaScript-Garden/">JS Garden</a></p>
       </div>
 
       
