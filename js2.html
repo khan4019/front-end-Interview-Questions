@@ -107,67 +107,59 @@
       <p class="gray"> <span class="purpleBold">More Questions</span> <a href="css.html">css interview questions</a>, <a href="html.html">html interview questions</a> </p> -->
       <div>
         <h2>null vs undefined</h2>
-        <p><strong>Question: </strong> What are the differences between null an undefined?</p>
+        <p><strong>Question: </strong> What are the differences between <code>null</code> and <code>undefined</code>?</p>
         <p><strong>Answer:</strong> JavaScript has two distinct values for nothing, null and undefined.</p>
         <h4>undefined</h4>
-        <p><code>undefined</code> means, value of the variable is not defined. More specifically, you declared a variable but no value has been assigned to that variable.</p>
-        <p>JavaScript has a global variable <code>undefined</code> whose value is "undefined". And <code>typeof undefined</code> is also "undefined". Remember, undefined is not a constant or a keyword. undefined is a type with exactly one value: undefined.</p>
+        <p><code>undefined</code> means, value of the variable is not defined. JavaScript has a global variable <code>undefined</code> whose value is "undefined" and <code>typeof undefined</code> is also "undefined". Remember, undefined is not a constant or a keyword. undefined is a type with exactly one value: undefined. Assigning a new value to it does not change the value of the type undefined.</p>
         <strong>8 Ways to get Undefined:</strong>
         <ul>
           <li>A declared variable without assigning any value to it.</li>
           <li>Implicit returns of functions due to missing return statements.</li>
           <li>return statements that do not explicitly return anything.</li>
-          <li>Lookups of non-existent properties.</li>
-          <li>Function parameters that do not have any explicit value passed.</li>
+          <li>Lookups of non-existent properties in an object.</li>
+          <li>Function parameters that have not passed.</li>
           <li>Anything that has been set to the value of undefined.</li>
           <li>Any expression in the form of void(expression)</li>
-          <li>If you don't modify the global variable <code>undefined</code>, it's value would be undefined.</li>          
+          <li>The value of the global variable <code>undefined</code></li>          
         </ul>
-        <p>Since the global variable undefined only holds a copy of the actual value of undefined, assigning a new value to it does not change the value of the type undefined.</p>
         <h4>null</h4>
-        <p><code>null</code> means empty or non-existent value. null is a primitive value and you can assign null to any variable.</p>
-        <h4>null</h4>
-        <p>null is not an object, it is a primitive value. For example, you cannot add properties to it. Sometimes people wrongly assume that it is an object, because typeof null returns "object". But that is actually a bug (that might even be fixed in ECMAScript 6).</p>
-        <p>null: used by programmers to indicate “no value”.</p>
-        <p>While undefined in the context of the JavaScript language is mostly used in the sense of a traditional null, the actual null (both a literal and a type) is more or less just another data type.</p>
-        <p>It is used in some JavaScript internals (like declaring the end of the prototype chain by setting Foo.prototype = null), but in almost all cases, it can be replaced by undefined.</p>
-        <p>Btw, <code>null == undefined</code></p>
-        <p>ref: <a href="http://www.2ality.com/2013/10/typeof-null.html">history of typeof null</a></p>
+        <p><code>null</code> means empty or non-existent value which is used by programmers to indicate “no value”. null is a primitive value and you can assign null to any variable. null is not an object, it is a primitive value. For example, you cannot add properties to it. Sometimes people wrongly assume that it is an object, because typeof null returns "object".</p>
+        <p>Btw, <code>null == undefined</code> ref: <a href="http://www.2ality.com/2013/10/typeof-null.html">history of typeof null</a></p>
       </div>      
       <div id="trueLies">
-        <h2>True and False</h2>
-        <p><strong>Question:</strong> 11+ truth false related questions that will trick you.</p>
+        <h2>True Lies</h2>
+        <p><strong>Question:</strong> 11+ true false related questions that will trick you.</p>
         <p><strong>falsy:</strong> In javascript 6 things are falsy and they are- false, null, undefined, '', 0, NaN</p>
-        <p><strong>truthy:</strong> is very simple. There are only two truthy things- true and everything that is not false</p>
+        <p><strong>truthy:</strong> There are only two truthy things- true and everything that is not false</p>
         <div>
           <h3>True False Rapid Fire</h3>
           <div id="trueFalseRapidExample" class="bg-success toggleContent">            
             <p><strong>Question:</strong> Is <code>'false'</code> is false?</p>
-            <p><strong>Answer:</strong> No. Because, it's a string with length greater than 0. Only empty string is false</p>
+            <p><strong>Answer:</strong> No. Because, it's a string with length greater than 0. Only empty string is false.</p>
             <p><strong>Question:</strong> Is <code>' '</code> is false?</p>
             <p><strong>Answer:</strong> No. Because, it's not an empty string. There is a white space in it. </p>
             <p><strong>Question: </strong>What about <code>{}</code>?</p>
             <p><strong>Answer: </strong>true. It's an object. An object without any property is an object can't be falsy.</p>
-            <p><strong>Question: </strong>tTell me about <code>[]</code>?</p>
+            <p><strong>Question: </strong>Tell me about <code>[]</code>?</p>
             <p><strong>Answer: </strong> This is also truthy. It's an array object (array is child of object) is truthy.</p>
             <p><strong>Question: </strong>You talked bout <code>''</code> to be falsy. What about <code>new String('')</code>? </p>
-            <p><strong>Answer:</strong>Though you are passing empty string to the string constructor. it is creating an String object. More precisely a instance of String object. It becomes an object. Hence, it is not false. so, it is truthy.</p>
+            <p><strong>Answer:</strong> Though you are passing empty string to the string constructor, it is creating an String object. More precisely a instance of String object. It becomes an object. Hence, it is not false. so, it is truthy.</p>
             <p><strong>Question:</strong> Tell me about <code>new Boolean(false)</code></p>
-            <p><strong>Answer:</strong> truthy. As it creates an instance of the Boolean object which is an object. Object is truthy</p>
+            <p><strong>Answer:</strong> truthy. As it creates an instance of the Boolean object which is an object. Object is truthy.</p>
             <p><strong>Question: </strong> <code>Boolean(function(){})</code></p>
-            <p><strong>Answer: </strong> <code>true</code> if you pass a truthy value to Boolean, it will be true</p>
+            <p><strong>Answer: </strong> <code>true</code> if you pass a truthy value to Boolean, it will be true.</p>
             <p><strong>Question: </strong> <code>Boolean(/foo/)</code></p>
             <p><strong>Answer: </strong> <code>true</code></p>
             <P><strong>Question:</strong> <code>true%1</code></P>
             <P><strong>Answer:</strong> 0. When you are trying to find reminder of true, true becomes 1 and reminder of 1 while dividing by 1 is 0. you will get same result if you doe <code>false%1</code></P>
             <P><strong>Question:</strong> <code>''%1</code></P>
-            <P><strong>Answer:</strong> 0.  <code>' '</code></P>
+            <P><strong>Answer:</strong> 0</P>
           </div>
         </div>
         <br>
         <div id="doubleVsTripleEqual">
           <h2>== Vs ===</h2>
-          <p><strong>Question:</strong> What are the difference between <code>==</code> and <code>===</code>?</p>
+          <p><strong>Question:</strong> What are the differences between <code>==</code> and <code>===</code>?</p>
           <p><strong>Answer: </strong> The simplest way of saying that, == will not check types and === will check whether both sides are of same type. So, == is tolerant. But under the hood it converts to its convenient type to have both in same type and then do the comparison.</p>
           <p>=== compares the types and values. Hence, if both sides are not same type, answer is always false. For example, if you are comparing two strings, they must have identical character sets. For other primitives (number, boolean) must share the same value.</p>
           <p><strong>Rule for implicit coercion:</strong> Comparison by using == does implicit type conversion under the hood. And rules for implicit coercion are as follows-</p>
@@ -190,12 +182,12 @@ a == c//true
 a === c //true
           </code></pre>          
           <p>Special note:  NaN, null and undefined will never === another type. NaN does not even === itself.</p>          
-          <p>ref: <a href="http://stackoverflow.com/a/359509/1535443">read answer here</a>, <a href="http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/">truth equality in JavaScript</a></p>
+          <p><strong>Homework:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isNaN"> Read confusing special cases of NaN</a></p>
         </div>
         <div id="javaScriptEquality">
         <h2>Object Equality</h2> 
         <p><strong>Question: </strong> How would you compare two objects in JavaScript?</p>
-        <p><strong>Basics:</strong> JavaScript has two different approaches for testing equality. Primitives like strings and numbers are compared by their value, while objects like arrays, dates, and plain objects are compared by their reference. That comparison by reference basically checks to see if the objects given refer to the same location in memory.</p>
+        <p><strong>Basics:</strong> JavaScript has two different approaches for testing equality. Primitives like strings and numbers are compared by their value, while objects like arrays, dates, and user defined objects are compared by their reference. This means it compares whether two objects are referring to the same location in memory.</p>
         <p><strong>Answer:</strong> Equality check will check whether two objects have same value for same property. To check that, you can get the keys for both the objects. If the number of properties doesn't match, these two objects are not equal. Secondly, you will check each property whether they have the same value. If all the properties have same value, they are equal.</p>
         <pre><code>
 function isEqual(a, b) {
@@ -218,12 +210,11 @@ function isEqual(a, b) {
         </code></pre>
         <strong>Limitation:</strong> 
           <ul>
-            <li>if one of the property values is itself an object</li>
-            <li> if one of the property values is NaN (the only value in JavaScript that is not equal to itself?)</li>
-            <li>if a has a property with value undefined, while b doesn't have this property (which thus evaluates as undefined). You can solve this problem by using hasOwnProperty</li>
+            <li>If one of the property values is itself an object</li>
+            <li>If one of the property values is NaN (the only value in JavaScript that is not equal to itself?)</li>
+            <li>If one object has a property with value undefined, while another object doesn't have the property (which thus evaluates as undefined). Btw, you can solve this problem by using hasOwnProperty</li>
           </ul>
-        <p>Check _.isEqual or lo-dash</p>
-        <p>ref: <a href="http://designpepper.com/blog/drips/object-equality-in-javascript.html">object equality in JS</a></p>
+        <p>ref: <a href="http://designpepper.com/blog/drips/object-equality-in-javascript.html">object equality in JS</a>, <a href="http://underscorejs.org/docs/underscore.html#section-90">Underscore.js isEqual function</a></p>
       </div>
       <div id="truthyVsEqality">
         <h2>Truthy isn't Equal to true</h2>
@@ -721,9 +712,9 @@ function moveLeft(elem, distance) {
         <p>ref: <a href="http://khan4019.github.io/HighPerfJS/#/23/1">how things are animated?</a></p>
       </div>
       <div>
-        <h2>Curry in JS</h2>
+        <h2>Currying</h2>
         <p><strong>Question:</strong> How would you implement curry for any functions?</p>
-        <p><strong>Answer:</strong> Curring is partial invocation of a function. Currying means first few arguments of a function is pre-processed and a function is return. The returning function can add more arguments to it. It's like if you have given one or two spice to the curry, still you can add any spice to it. A simple example will look like-</p>
+        <p><strong>Answer:</strong> Curring is partial invocation of a function. Currying means first few arguments of a function is pre-processed and a function is returned. The returning function can add more arguments to the curried function. It's like if you have given one or two spice to the curry and cooked little bit, still you can add further spice to it. A simple example will look like-</p>
         <pre><code>
 function addBase(base){
   return function(num){
@@ -737,13 +728,14 @@ addTen(80); //90
 addTen(-5); //5
         </code></pre>
         <p><strong>Explanation:</strong> You are creating a closure that return a function. When you are curring with a new number, new number is added to the base you have provided.</p>
-        <p><strong>Question:</strong> How could you apply curring to any function</p>
-        <p><strong>Answer: </strong></p>
+        <p><strong>Question:</strong> How could you apply curring to any function?</p>
+        <p><strong>Answer: </strong> You can add a curry method to the prototype of Function. If now parameters is passed to curry, you simply return the current function. If you have provided arguments to curry there are two steps</p>
+        <ul>
+          <li><strong>Step-1:</strong> Concatenate old arguments (provided while creating curry), with new arguments (added after cooking little bit) by using <code> args.concat(toArray(arguments))</code></li>
+          <li><strong>Step-2:</strong> Pass all the arguments to the function by using apply.</li>
+          <li><strong>Extra:</strong> Just be careful to retain the value of this.</li>
+        </ul>
         <pre><code>
-function toArray(args) {
-    return Array.prototype.slice.call(args);
-}
- 
 Function.prototype.curry = function() {
     if (arguments.length&lt;1) {
         return this; //nothing to curry. return function
@@ -753,6 +745,10 @@ Function.prototype.curry = function() {
     return function() {
         return self.apply(this, args.concat(toArray(arguments)));
     }
+}
+
+function toArray(args) {
+    return Array.prototype.slice.call(args);
 }
         </code></pre>
         <p><strong>To use it:</strong> Just pass the argument to the function.curry method and a function will be returned. Use returned function for further currying</p>
