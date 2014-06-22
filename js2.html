@@ -543,7 +543,7 @@ for(var i = 0; i < 10; i++) {
     })(i), 1000)
 }
 </code></pre>
-<p><strong>Extra:</p>
+<p><strong>Extra:</strong></p>
 <p>There's yet another way to accomplish this by using .bind, which can bind a this context and arguments to function. It behaves identically to the code above</p>
 <pre><code>
 for(var i = 0; i < 10; i++) {
@@ -730,7 +730,17 @@ function moveLeft(elem, distance) {
       <div>
         <h2>this</h2>
         <p><strong>Question:</strong> How the value of <code>this</code> keyword is set in JavaScript?</p>
-        <p><strong>Answer:</strong> There are </p>
+        <p><strong>Answer:</strong> There are 7 different values of <code>this</code></p>
+        <ol>
+          <li>In the global context or inside a function this refers to window object</li>
+          <li>Inside, IIFE (immediate invoking function) if you use "use strict", value of this is undefined</li>
+          <li>While executing a function in the context of an object, the object becomes value of this</li>
+          <li>this becomes window, inside setTimeout function</li>
+          <li>If you use a constructor (by using new keyword) to create an object, the value of this will refer to the newly created object</li>
+          <li>You can set the value of this to any arbitrary object by passing the object as the first parameter of bind, call or apply</li>
+          <li>For dom event handler, value of this would be the element that fired the event</li>
+        </ol>
+        <p>ref: <a href="https://www.youtube.com/watch?v=yuo8YqKDQ-M">Understand JavaScript this in a crystal clear way</a></p>
       </div>
       <div>
         <h2>Curry in JS</h2>
@@ -834,15 +844,15 @@ Object.prototype.hasOwnProperty.call(foo, 'bar'); // true
         <h3>Discarded Questions</h3>
         <ul>
           <li><a href="http://khan4019.github.io/JSconfusingParts/#/3/6">In JavaScript <code>isNaN(undefined)</code> returns true. how could you fix it?</a></li>
-          <li>what are differences between host object and native object? <a href="http://stackoverflow.com/a/7614380/1535443">read answer here</a></li>          
-          <li>why extending build in JavaScript object is a bad idea  </li>
+          <li>What are differences between host object and native object? <a href="http://stackoverflow.com/a/7614380/1535443">read answer here</a></li>          
+          <li>Why extending build in JavaScript object is a bad idea  </li>
           <li>How will you get query string in a browsers URL? <a href="http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript?page=3&tab=votes#tab-top">detail answer</a> or <code>window.location.search;</code></li>
-          <li>what is the typical use of anonymous function</li>
-          <li>what are the difference between function expression and function declaration</li>          
+          <li>What is the typical use of anonymous function</li>
+          <li>What are the difference between function expression and function declaration</li>          
           <li>Use Function as object</li>  
           <li>Why does nearly every object have a toString method?</li>
           <li>Why Everything in JavaScript acts like an object, with the only two exceptions being null and undefined.</li>
-          <li>how would u create class in JavaScript</li>
+          <li>How would u create class in JavaScript</li>
           <li>How would you perform inheritance in JavaScript?</li>
           <li>How would you apply asynchronous call without any help of library</li>
           <li>What is the difference between slice, substr, substring? Answer:</strong> <a href="http://www.tvids.net/watch69/The-Big-Bang-Theory/season-01-episode-01-Pilot">slice, substr, substring</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substr?redirectlocale=en-US&redirectslug=JavaScript%2FReference%2FGlobal_Objects%2FString%2Fsubstr">MDN: substr</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring?redirectlocale=en-US&redirectslug=JavaScript%2FReference%2FGlobal_Objects%2FString%2Fsubstring">substring</a></li>
