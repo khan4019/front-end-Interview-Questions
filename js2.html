@@ -126,37 +126,6 @@
         <p><code>null</code> means empty or non-existent value which is used by programmers to indicate “no value”. null is a primitive value and you can assign null to any variable. null is not an object, it is a primitive value. For example, you cannot add properties to it. Sometimes people wrongly assume that it is an object, because typeof null returns "object".</p>
         <p>Btw, <code>null == undefined</code> ref: <a href="http://www.2ality.com/2013/10/typeof-null.html">history of typeof null</a></p>
       </div>      
-      <div id="trueLies">
-        <h2>True Lies</h2>
-        <p><strong>Question:</strong> 11+ true false related questions that will trick you.</p>
-        <p><strong>falsy:</strong> In javascript 6 things are falsy and they are- false, null, undefined, '', 0, NaN</p>
-        <p><strong>truthy:</strong> There are only two truthy things- true and everything that is not false</p>
-        <div>
-          <h3>True False Rapid Fire</h3>
-          <div id="trueFalseRapidExample" class="bg-success toggleContent">            
-            <p><strong>Question:</strong> Is <code>'false'</code> is false?</p>
-            <p><strong>Answer:</strong> No. Because, it's a string with length greater than 0. Only empty string is false.</p>
-            <p><strong>Question:</strong> Is <code>' '</code> is false?</p>
-            <p><strong>Answer:</strong> No. Because, it's not an empty string. There is a white space in it. </p>
-            <p><strong>Question: </strong>What about <code>{}</code>?</p>
-            <p><strong>Answer: </strong>true. It's an object. An object without any property is an object can't be falsy.</p>
-            <p><strong>Question: </strong>Tell me about <code>[]</code>?</p>
-            <p><strong>Answer: </strong> This is also truthy. It's an array object (array is child of object) is truthy.</p>
-            <p><strong>Question: </strong>You talked bout <code>''</code> to be falsy. What about <code>new String('')</code>? </p>
-            <p><strong>Answer:</strong> Though you are passing empty string to the string constructor, it is creating an String object. More precisely a instance of String object. It becomes an object. Hence, it is not false. so, it is truthy.</p>
-            <p><strong>Question:</strong> Tell me about <code>new Boolean(false)</code></p>
-            <p><strong>Answer:</strong> truthy. As it creates an instance of the Boolean object which is an object. Object is truthy.</p>
-            <p><strong>Question: </strong> <code>Boolean(function(){})</code></p>
-            <p><strong>Answer: </strong> <code>true</code> if you pass a truthy value to Boolean, it will be true.</p>
-            <p><strong>Question: </strong> <code>Boolean(/foo/)</code></p>
-            <p><strong>Answer: </strong> <code>true</code></p>
-            <P><strong>Question:</strong> <code>true%1</code></P>
-            <P><strong>Answer:</strong> 0. When you are trying to find reminder of true, true becomes 1 and reminder of 1 while dividing by 1 is 0. you will get same result if you doe <code>false%1</code></P>
-            <P><strong>Question:</strong> <code>''%1</code></P>
-            <P><strong>Answer:</strong> 0</P>
-          </div>
-        </div>
-        <br>
         <div id="doubleVsTripleEqual">
           <h2>== Vs ===</h2>
           <p><strong>Question:</strong> What are the differences between <code>==</code> and <code>===</code>?</p>
@@ -216,19 +185,48 @@ function isEqual(a, b) {
           </ul>
         <p>ref: <a href="http://designpepper.com/blog/drips/object-equality-in-javascript.html">object equality in JS</a>, <a href="http://underscorejs.org/docs/underscore.html#section-90">Underscore.js isEqual function</a></p>
       </div>
-      <div id="truthyVsEqality">
-        <h2>Truthy isn't Equal to true</h2>
+      <div id="trueLies">
+        <h2>True Lies</h2>
+        <p><strong>Question:</strong> 11+ true false related questions that will trick you.</p>
+        <p><strong>falsy:</strong> In javascript 6 things are falsy and they are- false, null, undefined, '', 0, NaN</p>
+        <p><strong>truthy:</strong> There are only two truthy things- true and everything that is not false</p>
+        <div>
+          <h3>True False Rapid Fire</h3>
+          <div id="trueFalseRapidExample" class="bg-success toggleContent">            
+            <p><strong>Question:</strong> Is <code>'false'</code> is false?</p>
+            <p><strong>Answer:</strong> No. Because, it's a string with length greater than 0. Only empty string is false.</p>
+            <p><strong>Question:</strong> Is <code>' '</code> is false?</p>
+            <p><strong>Answer:</strong> No. Because, it's not an empty string. There is a white space in it. </p>
+            <p><strong>Question: </strong>What about <code>{}</code>?</p>
+            <p><strong>Answer: </strong>true. It's an object. An object without any property is an object can't be falsy.</p>
+            <p><strong>Question: </strong>Tell me about <code>[]</code>?</p>
+            <p><strong>Answer: </strong> This is also truthy. It's an array object (array is child of object) is truthy.</p>
+            <p><strong>Question: </strong>You talked bout <code>''</code> to be falsy. What about <code>new String('')</code>? </p>
+            <p><strong>Answer:</strong> Though you are passing empty string to the string constructor, it is creating an String object. More precisely a instance of String object. It becomes an object. Hence, it is not false. so, it is truthy.</p>
+            <p><strong>Question:</strong> Tell me about <code>new Boolean(false)</code></p>
+            <p><strong>Answer:</strong> truthy. As it creates an instance of the Boolean object which is an object. Object is truthy.</p>
+            <p><strong>Question: </strong> <code>Boolean(function(){})</code></p>
+            <p><strong>Answer: </strong> <code>true</code> if you pass a truthy value to Boolean, it will be true.</p>
+            <p><strong>Question: </strong> <code>Boolean(/foo/)</code></p>
+            <p><strong>Answer: </strong> <code>true</code></p>
+            <P><strong>Question:</strong> <code>true%1</code></P>
+            <P><strong>Answer:</strong> 0. When you are trying to find reminder of true, true becomes 1 and reminder of 1 while dividing by 1 is 0. you will get same result if you doe <code>false%1</code></P>
+            <P><strong>Question:</strong> <code>''%1</code></P>
+            <P><strong>Answer:</strong> 0</P>
+          </div>
+        </div>
+        <div id="truthyVsEqality">
+          <h2>Truthy isn't Equal to true</h2>
         <p><strong>Question: </strong> As <code>[]</code> is true, <code>[]==true</code> should also be true. right?</p>
-          <p><strong>Answer:</strong> First think of <code>[]</code>, empty array is an object and object is always truthy. Hence, if you use <code>if([]){console.log('its true')}</code> you will see the log.</p>
-          <p>Now, <code>==</code> (double equal) will do some implicit coercion.</p>
-          <p>Since left and right side of the equality are two different types, JavaScript can't compare them directly . Hence, under the hood, JavaScript will convert them to compare. first right side of the equality will be cooereced to a number type by using <code>toNumber</code> (JavaScript doesnt have toNumber. this is toNumber of JavaScript implementation in C. for example V8 has implementation of JavaScript). and number of <code>true</code> would be 1.</p>
-          <p>after that, JavaScript implementation will try to convert <code>[]</code> by using<code>toPrimitive</code> (of JavaScript implementation). since <code>[].valueOf</code> is not primitive will use <code>toString</code> and will get <code>"0"</code></p>
-          <p>still left and right is not same type. hence left side will be converted again to a number. "0" will be 0.</p>
-          <p>finally, you are comparing <code>0==1</code> which will be false anyway</p>
+          <p><strong>Answer:</strong> You are right about first part, <code>[]</code>, empty array is an object and object is always truthy. Hence, if you use <code>if([]){console.log('its true')}</code> you will see the log.</p>
+          <p>However, special case about <code>==</code> (double equal) is that it will do some implicit coercion.</p>
+          <p>Since left and right side of the equality are two different types, JavaScript can't compare them directly . Hence, under the hood, JavaScript will convert them to compare. first right side of the equality will be cooereced to a number and number of <code>true</code> would be 1.</p>
+          <p>After that, JavaScript implementation will try to convert <code>[]</code> by using<code>toPrimitive</code> (of JavaScript implementation). since <code>[].valueOf</code> is not primitive will use <code>toString</code> and will get <code>""</code></p>
+          <p> Now you are comparing "" == 1 and still left and right is not same type. Hence left side will be converted again to a number and empty string will be 0.</p>
+          <p>Finally, they are of same type, you are comparing <code>0 === 1</code> which will be false.</p>
           <div>
             <button id = "equalityMore" type="button" class="toggleExample btn btn-primary">Show More Cases</button>
             <div id="equalityMoreExample" class="hide bg-success toggleContent">
-               <p>see them in the code block below</p>
                 <pre><code>
 null == false; // false
 null == null; // true
