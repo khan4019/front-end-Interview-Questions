@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
+    <meta name="description" content="javascript interview question, front end interview, front end interview preparation, front end interview questions">
     <meta name="that js dude" content="">    
-    <title>JS: interview Questions -2</title>
+    <title>JS: Interview Questions -2</title>
 
     <link rel="shortcut icon" href="images/favicon.jpg">    
     <link rel="stylesheet" href="css/bootstrap.min.css" >
@@ -91,7 +91,7 @@
       <div class="container">
         <h1>JS: Tricky Interview Questions</h1>        
         <h2>part -2: intermediate</h2>
-        <p>January 26, 2014</p>
+        <p>June 22, 2014</p>
 <!--         <div id="fb-root"></div><div class="fb-like" data-href="http://www.thatjsdude.com/interview/js1.htmQuiz" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div> &nbsp;<div class="g-plusone"></div>
       -->
       </div> 
@@ -102,11 +102,38 @@
       <div class="row center">        
         <!-- <iframe width="853" height="480" src="//www.youtube.com/embed/Rx_JFOSxgpY" frameborder="0" allowfullscreen></iframe> -->
       </div>
-           
-      <!-- <p class="gray">if you are little more comfortable or claim to be comfortable with javascript, these questions would not be enough for you. more coming</p>
-      <p class="gray"> <span class="purpleBold">More Questions</span> <a href="css.html">css interview questions</a>, <a href="html.html">html interview questions</a> </p> -->
       <div>
-        <h2>null vs undefined</h2>
+        <ol>
+          <li><a href="#nullVsUndefined">What are the differences between null and undefined?</a></li>
+          <li><a href="#doubleVsTripleEqual">What are the differences between == and ===?</a></li>
+          <li><a href="#objectEquality">How would you compare two objects in JavaScript?</a></li>
+          <li><a href="#trueLies">11+ true false related questions that will trick you.</a></li>
+          <li><a href="#truthyVsEqality">As [] is true, []==true should also be true. right?</a></li>
+          <li><a href="#extendObject">How could you write a method on instance of a date which will give you next day?</a></li>
+          <li class="skipListItem"><a href="#extendObject">If i have a <code>var str = 'hello world'</code>, how could i get <code>str.reverse()</code> return 'dlrow olleh'?</a></li>
+          <li class="skipListItem"><a href="#extendObject">How could you make this work [1,2,3,4,5].duplicator(); // [1,2,3,4,5,1,2,3,4,5] ?</a></li>
+          <li value="7"><a href="#bindthis">If you want to use an arbitrary object as value of this, how will you do that?</a></li>          
+          <li class="skipListItem"><a href="#bindthis"> If an older browser dont have bind function, how will you shim it</a></li>
+          <li value="8"><a href="#call">Write a simple function to tell whether 2 is passed as parameter or not?</a></li>
+          <li><a href="#apply">How could you use Math.max to find the max value in an array?</a></li>
+          <li><a href="#this">What the heck is this in JavaScript?</a></li>
+          <li><a href="#rapidFire">21+ small but tricky questions</a></li>
+          <li><a href="#insertSpace">How could you set a prefix before everything you log? for example, if you log('my message') it will log: "(app) my message"</a></li>
+          <li><a href="#scopeAndHoisting">What will you see in the console for the following example?</a></li>
+          <li><a href="#closure">Look at the code below, you have a for loop if you have setTimeout inside it. If log the loop counter inside setTimeout, what will be logged?</a></li>
+          <li><a href="#deleteProperty">Look at the code below, I have a property in a object and I am creating a new object where I am setting it to a new value. If I delete that property what will i get if I try to access that property?</a></li>
+          <li><a href="#byValueByRef">Does JavaScript pass parameter by value or by reference?</a></li>
+          <li><a href="#memoization">How could you implement cache to save calculation time for a recursive fibonacci function?</a></li>
+          <li><a href="#cacheFunction">How could you cache execution of any function?</a></li>
+          <li><a href="#chianing">If you need to implement the following chaining with call back, how will you implement it?</a></li>
+          <li><a href="#animation">How could you implement moveLeft animation?</a></li>
+          <li><a href="#currying">How would you implement currying for any functions?</a></li> 
+        </ol>
+      </div>     
+      <!-- <p class="gray">if you are little more comfortable or claim to be comfortable with javascript, these questions would not be enough for you. more coming</p>-->
+      <p class="gray"> <span class="purpleBold">More Questions: </span><a href="js1.html">Algorithm related questions</a>, <a href="dom.html">dom related</a>, <a href="css.html">css related</a>, <a href="html.html">html related</a> </p> 
+      <div id="nullVsUndefined">
+        <h2>1. null vs undefined</h2>
         <p><strong>Question: </strong> What are the differences between <code>null</code> and <code>undefined</code>?</p>
         <p><strong>Answer:</strong> JavaScript has two distinct values for nothing, null and undefined.</p>
         <h4>undefined</h4>
@@ -127,7 +154,7 @@
         <p>Btw, <code>null == undefined</code> ref: <a href="http://www.2ality.com/2013/10/typeof-null.html">history of typeof null</a></p>
       </div>      
         <div id="doubleVsTripleEqual">
-          <h2>== Vs ===</h2>
+          <h2>2. == Vs ===</h2>
           <p><strong>Question:</strong> What are the differences between <code>==</code> and <code>===</code>?</p>
           <p><strong>Answer: </strong> The simplest way of saying that, == will not check types and === will check whether both sides are of same type. So, == is tolerant. But under the hood it converts to its convenient type to have both in same type and then do the comparison.</p>
           <p>=== compares the types and values. Hence, if both sides are not same type, answer is always false. For example, if you are comparing two strings, they must have identical character sets. For other primitives (number, boolean) must share the same value.</p>
@@ -153,8 +180,8 @@ a === c //true
           <p>Special note:  NaN, null and undefined will never === another type. NaN does not even === itself.</p>          
           <p><strong>Homework:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isNaN"> Read confusing special cases of NaN</a></p>
         </div>
-        <div id="javaScriptEquality">
-        <h2>Object Equality</h2> 
+        <div id="objectEquality">
+        <h2>3. Object Equality</h2> 
         <p><strong>Question: </strong> How would you compare two objects in JavaScript?</p>
         <p><strong>Basics:</strong> JavaScript has two different approaches for testing equality. Primitives like strings and numbers are compared by their value, while objects like arrays, dates, and user defined objects are compared by their reference. This means it compares whether two objects are referring to the same location in memory.</p>
         <p><strong>Answer:</strong> Equality check will check whether two objects have same value for same property. To check that, you can get the keys for both the objects. If the number of properties doesn't match, these two objects are not equal. Secondly, you will check each property whether they have the same value. If all the properties have same value, they are equal.</p>
@@ -186,12 +213,12 @@ function isEqual(a, b) {
         <p>ref: <a href="http://designpepper.com/blog/drips/object-equality-in-javascript.html">object equality in JS</a>, <a href="http://underscorejs.org/docs/underscore.html#section-90">Underscore.js isEqual function</a></p>
       </div>
       <div id="trueLies">
-        <h2>True Lies</h2>
+        <h2>4. True Lies</h2>
         <p><strong>Question:</strong> 11+ true false related questions that will trick you.</p>
         <p><strong>falsy:</strong> In javascript 6 things are falsy and they are- false, null, undefined, '', 0, NaN</p>
         <p><strong>truthy:</strong> There are only two truthy things- true and everything that is not false</p>
         <div>
-          <h3>True False Rapid Fire</h3>
+          <h3>11. True False Rapid Fire</h3>
           <div id="trueFalseRapidExample" class="bg-success toggleContent">            
             <p><strong>Question:</strong> Is <code>'false'</code> is false?</p>
             <p><strong>Answer:</strong> No. Because, it's a string with length greater than 0. Only empty string is false.</p>
@@ -216,7 +243,7 @@ function isEqual(a, b) {
           </div>
         </div>
         <div id="truthyVsEqality">
-          <h2>Truthy isn't Equal to true</h2>
+          <h2>5. Truthy isn't Equal to true</h2>
         <p><strong>Question: </strong> As <code>[]</code> is true, <code>[]==true</code> should also be true. right?</p>
           <p><strong>Answer:</strong> You are right about first part, <code>[]</code>, empty array is an object and object is always truthy. Hence, if you use <code>if([]){console.log('its true')}</code> you will see the log.</p>
           <p>However, special case about <code>==</code> (double equal) is that it will do some implicit coercion.</p>
@@ -228,8 +255,8 @@ function isEqual(a, b) {
       </div>
 
       </div>                  
-      <div id="extension">
-        <h2>Extend Core Object</h2>
+      <div id="extendObject">
+        <h2>6. Extend Core Object</h2>
         <p><strong>Question:</strong> How could you write a method on instance of a date which will give you next day?</p>
         <p><strong>Answer:</strong> I have to declare a method on the prototype of Date object. To get access to the current value of the instance of the date, i will use <code>this</code></p>
         <pre><code>
@@ -269,7 +296,7 @@ Array.prototype.duplicator = function(){
         </div>
       </div>
       <div id="bindthis">
-        <h2>bind</h2>
+        <h2>7. bind</h2>
         <p><strong>Question: </strong>If you want to use an arbitrary object as value of <code>this</code>, how will you do that?</p>
         <p><strong>Answer:</strong> There are at least three different ways to doing this by using bind, call and apply. For example, I have a method named deductMontlyFee in the object monica and by default value of this would be monica inside the method.</p>
         <pre><code>
@@ -310,8 +337,8 @@ Function.prototype.bind = Function.prototype.bind || function(context){
 }
         </code></pre>
       </div>
-      <div>
-        <h2>arguments and call</h2>
+      <div id="call">
+        <h2>8. arguments and call</h2>
         <p><strong>Question:</strong> Write a simple function to tell whether 2 is passed as parameter or not?</p>
         <p><strong>Basics:</strong> arguments is a local variable, available inside all functions that provides a collection of all the arguments passed to the function. <code>arguments</code> is not an array rather an array like object. It has length but doesn't have the methods like forEach, indexOf, etc. </p>
         <p><strong>Answer: </strong>First convert arguments to an array by calling slice method on an array and pass arguments. After that simply use indexOf.</p>
@@ -327,7 +354,7 @@ isTowPassed(5,3,1,2) //true
         <p><strong>Danger:</strong> Don't name any argument as "arguments" or dont create any local variable named as "arguments", this will override build in arguments object.</p>
       </div>
       <div id="apply">
-        <h2>apply</h2>
+        <h2>9. apply</h2>
         <p><strong>Question:</strong> How could you use Math.max to find the max value in an array?</p>
         <p><strong>Answer:</strong> Use apply on Math.max and pass the array as apply takes an array of arguments. Since we are not reading anything from this or using it at all. We can simply pass null as first parameter.</p>
         <pre><code>
@@ -338,8 +365,8 @@ function getMax(arr){
         <p><strong>Extra: </strong> call and apply, both takes the value of this as first parameter. However, call takes a collection of arguments after first parameter whereas apply use an array of arguments as second parameter.</p>        
         <p> <strong>Tip: </strong>If you have weaker memory like me, you can remember apply starts with "a" and array starts with "a"</p>
       </div>
-      <div>
-        <h2>this</h2>
+      <div id="this">
+        <h2>10. this</h2>
         <p><strong>Question:</strong> What the heck is <code>this</code> in JavaScript?</p>
         <p><strong>Answer:</strong> At the time of execution of every function, JavaScript engine sets a property to the function called <code>this</code> which refer to the current execution context. <code>this</code> is always refer to an object and depends on how function is called. There are 7 different cases where the value of <code>this</code> varies.</p>
         <ol>
@@ -353,7 +380,7 @@ function getMax(arr){
         </ol>
         <p>ref: <a href="https://www.youtube.com/watch?v=yuo8YqKDQ-M">Understand JavaScript this in a crystal clear way</a></p>
       </div>  
-      <div>
+      <div id="rapidFire">
         <h2>rapid fire</h2>
         <p><strong>Question:</strong> What is <code>typeof []</code></p>
         <p><strong>Answer:</strong> Object. Actually Array is derived from Object. If you want to check array use <code>Array.isArray(arr)</code></p>
@@ -413,7 +440,7 @@ function getMax(arr){
         <p><strong>Anwser:</strong> false. Because "in" returns whether a particular property/index available in the Object. In this case object has index 0 and 1 but don't have 2. Hence you get false.</p>
       </div>            
       <div id="insertSpace">
-        <h2>log prefix</h2>        
+        <h2>12. log prefix</h2>        
         <p><strong>Question: </strong> How could you set a prefix before everything you log? for example, if you <code>log('my message')</code> it will log: "(app) my message"</p>
         <p><strong>Answer:</strong> Just get the arguments, convert it to an array and unshift whatever prefix you want to set. Finally, use apply to pass all the arguments to console.</p>
         <pre><code>
@@ -428,8 +455,8 @@ log('my message', 'your message'); //(app) my message your message
         </code></pre>
         <p>ref: <a href="http://blog.sourcing.io/interview-questions">This is a really good materials, walks you through an interview process.</a></p>
       </div>
-      <div>
-        <h2>Scope and hoisting</h2>
+      <div id="scopeAndHoisting">
+        <h2>13. Scope and hoisting</h2>
         <p><strong>Question:</strong> What will you see in the console for the following example?</p>
         <pre><code>
 var a = 1; 
@@ -471,8 +498,8 @@ foo();//?
         </div>
         <p>ref: <a href="https://www.youtube.com/watch?v=7INtYcr8QIY">watch this video</a> or <a href="http://www.thatjsdude.com/jsConcepts/concepts/scope.html">learn more about scope and hoisting</a></p>
       </div>
-      <div>
-        <h2>Closures Inside Loops</h2>
+      <div id="closure">
+        <h2>14. Closures Inside Loops</h2>
         <p><strong>Question:</strong> Look at the code below, you have a for loop if you have setTimeout inside it. If log the loop counter inside setTimeout, what will be logged?</p>
 <pre><code>
   for(var i = 0; i < 10; i++) {
@@ -498,8 +525,8 @@ for(var i = 0; i < 10; i++) {
 }
 </code></pre>
       </div>      
-      <div>
-        <h2>delete can delete but</h2>
+      <div id="deleteProperty">
+        <h2>15. delete can delete but</h2>
         <p><strong>Question:</strong> Look at the code below, I have a property in a object and I am creating a new object where I am setting it to a new value. If I delete that property what will i get if I try to access that property?</p>
         <pre><code>
 var myObject = {
@@ -519,7 +546,7 @@ console.log(customObject.get_price());
         <p>When you are assigning some value to <code>customObject.price</code>, you are creating a new property on the child. This means, when you <code>delete customObject.price</code> it deletes the <code>price</code> property in the customObject (in the child). However, when you call the method getprice, first it looks for <code>this.price</code> in the child since the customObject doesn't have price property, JavaScript executor walks through the prototype chain towards the parent. Since customObject was inherited from myObject and myObject has a <code>price</code> property, the get_price method returns the price from parent. Hence, you are getting 20.99</p>
       </div>
       <div id="byValueByRef"> 
-        <h2>pass by value or by reference</h2>
+        <h2>16. pass by value or by reference</h2>
         <p><strong>Question:</strong> Does JavaScript pass parameter by value or by reference?</p>
         <p><strong>Answer:</strong> Primitive type (string, number, etc.) are passed by value and objects are passed by reference. If you change a property of the passed object, the change will be affected. However, you assign a new object to the passed object, the changes will not be reflected.</p>
         <pre><code>
@@ -550,8 +577,8 @@ console.log(obj3.valuee);//"new value"
      </code></pre>
         <p>ref: <a href="http://snook.ca/archives/javascript/javascript_pass">Snook: passing by value or reference</a></p>
       </div>
-      <div>
-        <h2>memoization</h2>
+      <div id="memoization">
+        <h2>17. memoization</h2>
         <p><strong>Question:</strong> How could you implement cache to save calculation time for a recursive fibonacci function?</p>
         <p><strong>Answer:</strong> You could use poor man's memoization with a global variable. If fibonacci is already calculated it is served from the global memo array otherwise it is calculated.</p>
         <pre><code>
@@ -570,8 +597,8 @@ function _fibonacci(n) {
         </code></pre>        
         <p><strong>Better Implementation: </strong><a href="http://www.sitepoint.com/implementing-memoization-in-javascript/">implement memoization in JavaScript</a></p>        
       </div>
-      <div>
-        <h2>Cache function execution</h2>
+      <div id="cacheFunction">
+        <h2>18. Cache function execution</h2>
         <p><strong>Question:</strong> How could you cache execution of any function?</p>
         <p><strong>Answer:</strong> You could have a method where you will pass a function and it will internally maintain a cache object where calculated value will be cached. When you will call the function with same argument, the cached value will be served.</p>
         <pre><code>
@@ -605,8 +632,8 @@ return function(){
 }
         </code></pre>
       </div>
-      <div>
-        <h2>JQuery style chaining</h2>
+      <div id="chianing">
+        <h2>19. JQuery style chaining</h2>
         <p><strong>Question:</strong> If you need to implement the following chaining with call back, how will you implement it?</p>
         <pre><code>
 function slow(callback) {
@@ -640,8 +667,8 @@ obj.first().second().third();
         </code></pre>        
         <p>ref: <a href="http://blog.buymeasoda.com/creating-a-jquery-like-chaining-api/">jquery like chaining</a> or <a href="http://stackoverflow.com/questions/7475336/how-does-jquery-chaining-work">jquery like chaining</a></p>
       </div>
-      <div>
-        <h2>animation</h2>
+      <div id="animation">
+        <h2>20. animation</h2>
         <p><strong>Question: </strong>How could you implement moveLeft animation?</p>
         <p><strong>Answer:</strong> Use setInterval that will place the element to the left position by some pixels in every 10ms. Hence, you will see the element moving towards the desired position. When you call setInterval, it returns a timeId. After reaching the desired location, you have to clear the time interval so that function will not be called again and again in every 10ms.</p>
         <pre><code>
@@ -660,8 +687,8 @@ function moveLeft(elem, distance) {
 }
         </code></pre>        
       </div>
-      <div>
-        <h2>Currying</h2>
+      <div id ="currying">
+        <h2>21. Currying</h2>
         <p><strong>Question:</strong> How would you implement currying for any functions?</p>
         <p><strong>What is curring:</strong> Curring is partial invocation of a function. Currying means first few arguments of a function is pre-processed and a function is returned. The returning function can add more arguments to the curried function. It's like if you have given one or two spice to the curry and cooked little bit, still you can add further spice to it. A simple example will look like-</p>
         <pre><code>
