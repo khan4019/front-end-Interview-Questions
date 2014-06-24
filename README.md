@@ -142,11 +142,11 @@ __________________
 1. What is defer and async keyword does in a script tag?
 1. 10 rapid fire questions
 
-####[JS: Answer ofr DOM related Questions](http://www.thatjsdude.com/interview/dom.html)
+####[JS: Answers for DOM related Questions](http://www.thatjsdude.com/interview/dom.html)
 
 
 
-##[html](http://www.thatjsdude.com/interview/html.html)
+##[html: Basic Questions for Begginers](http://www.thatjsdude.com/interview/html.html)
 15 basic questions and asnwers
 ______
 1. Why do u need doctype?
@@ -165,7 +165,7 @@ ______
 14. Explain standard and quirks mode.
 15. What is semantic tag?
 
-####[HTML Answers](http://www.thatjsdude.com/interview/html.html)
+####[HTML: Answers for Basic Questions](http://www.thatjsdude.com/interview/html.html)
 
 
 ##[JavaScript: LinkedList (part -4: work in porcess)](http://www.thatjsdude.com/interview/linkedList.html)
@@ -175,5 +175,22 @@ Very rough stage..need to finish (for intermediate)
 Very rough stage..need to finish (for expert)
 __________________
 
+##ToDO list
+1. CSS: Generate mock up from provided layout
+2. JavaScript: Programming challenges for expert
+3. HR related questions like
+  1. What is your weakness
+  2. Why are you leaving your current job
+  3. Tell me about a project that you werent able to finish on time
+  4. How you resolve conflict among team members
+  5. How will you introduce a new technology to the team
+  6. Do you prefere to work individually or in a team
+  7. Sell this pen/coke/something to me
+  8. How much salary do you want
+  3. What you dont like you current job
+  4. What you like least in your current job
+3. Tree Data Structure in JavaScript
+4. Graph and high order data structure in JavaScript
+___________________
 
 Inpsired by, [darcyclarke](https://github.com/darcyclarke/Front-end-Developer-Interview-Questions), [css-tricks](http://css-tricks.com/interview-questions-css/), [david shariff](http://davidshariff.com/quiz/) and some google results. If you want to add any question to this let me know.
