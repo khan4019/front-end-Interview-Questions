@@ -1,10 +1,7 @@
 front end Interview Questions
 =============================
-Warning!, if you have couple of tattoos in your body, this is not the right place. You certainly have more in depth knowledge, fancy portfolio and you have to express that. These questions are for lazy intermediate JS developers to get the job by creating an illusion of familiarity with css---
-
 -------
-There would be 4/5 parts in this series. still working on it. Inspired by [darcyclarke](https://github.com/darcyclarke/Front-end-Developer-Interview-Questions), [css-tricks](http://css-tricks.com/interview-questions-css/), [david shariff](http://davidshariff.com/quiz/) and some google results. If you want to add any question to this let me know.
-
+To rock the interview to achieve what you deserve and to improve your concepts about front end technologies, I have consolidated a list of questions and answers. It's a one stop solution for front end interview process.
 
 
 
@@ -177,3 +174,6 @@ Very rough stage..need to finish (for intermediate)
 ##[JavaScript: search and Sort (part -5: work in porcess)](http://khan4019.github.io/front-end-Interview-Questions/js4.html)
 Very rough stage..need to finish (for expert)
 __________________
+
+
+Inpsired by, [darcyclarke](https://github.com/darcyclarke/Front-end-Developer-Interview-Questions), [css-tricks](http://css-tricks.com/interview-questions-css/), [david shariff](http://davidshariff.com/quiz/) and some google results. If you want to add any question to this let me know.
