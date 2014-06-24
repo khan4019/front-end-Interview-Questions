@@ -5,28 +5,39 @@ Warning!, if you have couple of tattoos in your body, this is not the right plac
 -------
 There would be 4/5 parts in this series. still working on it. Inspired by [darcyclarke](https://github.com/darcyclarke/Front-end-Developer-Interview-Questions), [css-tricks](http://css-tricks.com/interview-questions-css/), [david shariff](http://davidshariff.com/quiz/) and some google results. If you want to add any question to this let me know.
 
-##[html](http://www.thatjsdude.com/interview/html.html)
-15 basic questions and asnwers
-______
-1. Why do u need doctype?
-2. What is the use of data-* attribute?
-3. How can you generate public key in html?
-4. How do you change direction of html text?
-5. How can you highlight text in html?
-6. Can you apply css to a part of html document only?
-7. Will browser make http request for the following cases?
-8. Which resource would be downloaded first?
-9. What is optional tag?
-10. What are the differences between div and span?
-11. How would you differentiate div, section and article?
-12. How to select svg or canvas for your site?
-13. How to serve html in multiple languages?
-14. Explain standard and quirks mode.
-15. What is semantic tag?
 
-####[HTML Answers](http://www.thatjsdude.com/interview/html.html)
 
-##[css](http://www.thatjsdude.com/interview/css.html)
+
+##[JavaScript: Basics and Tricky Questions](http://www.thatjsdude.com/interview/js2.html)
+21+ questions and answers (for intermediate)
+__________________
+1. What are the differences between null and undefined?
+2. What are the differences between == and ===?
+3. How would you compare two objects in JavaScript?
+4. 11+ true false related questions that will trick you.
+5. As [] is true, []==true should also be true. right?
+6. How could you write a method on instance of a date which will give you next day?
+7. If you want to use an arbitrary object as value of this, how will you do that?
+8. Write a simple function to tell whether 2 is passed as parameter or not?
+9. How could you use Math.max to find the max value in an array?
+10. What the heck is this in JavaScript?
+11. 21 quick questions that will trick you.
+12. How could you set a prefix before everything you log? for example, if you log('my message') it will log: "(app) my message"
+13. What will you see in the console for the following example?
+14. Look at the code below, you have a for loop if you have setTimeout inside it. If log the loop counter inside setTimeout, what will be logged?
+15. Look at the code below, I have a property in a object and I am creating a new object where I am setting it to a new value. If I delete that property what will i get if I try to access that property?
+16. Does JavaScript pass parameter by value or by reference?
+17. How could you implement cache to save calculation time for a recursive fibonacci function?
+18. How could you cache execution of any function?
+19. If you need to implement the following chaining with call back, how will you implement it?
+20. How could you implement moveLeft animation?
+21. How would you implement currying for any functions? 
+
+####[JS: Answer for Basics and Tricky Questions](http://www.thatjsdude.com/interview/js2.html)
+
+
+
+##[css: Basics and Tricky Questions](http://www.thatjsdude.com/interview/css.html)
 21+ questions and answers
 ____________
 1. What does float do?
@@ -63,7 +74,7 @@ ____________
 1. What are the reasons to use preprocessor?
 1. [Show you couple of style example and you have to tell what does it do](http://www.thatjsdude.com/interview/css.html#seeAndTell).
 
-####[CSS Answers](http://www.thatjsdude.com/interview/css.html)
+####[CSS: Answer for Basics and Tricky Questions](http://www.thatjsdude.com/interview/css.html)
 
 ###css Deleted questions!
 Looks like these are for hardcore designer. Hence, didn't make for developers.
@@ -79,7 +90,9 @@ ______
 1. What do you know about text shadows, box shadows?
 
 
-##[JavaScript: Algorithm (part -1)](http://www.thatjsdude.com/interview/js1.html)
+
+
+##[JavaScript: Algorithm Beginners Level](http://www.thatjsdude.com/interview/js1.html)
 20 questions and answers (for beginners)
 __________________
 1. Verify a prime number?
@@ -103,40 +116,11 @@ __________________
 1. Check whether a given string is a substring of bigger string
 2. Get permutaitons of a string
 
-####[JS: Algorithm (part-1) Answers](http://www.thatjsdude.com/interview/js1.html)
+####[JS: Answer for Algorithm Beginners Level](http://www.thatjsdude.com/interview/js1.html)
 
 
 
-##[JavaScript: JS related (part -2)](http://www.thatjsdude.com/interview/js2.html)
-21+ questions and answers (for intermediate)
-__________________
-1. What are the differences between null and undefined?
-2. What are the differences between == and ===?
-3. How would you compare two objects in JavaScript?
-4. 11+ true false related questions that will trick you.
-5. As [] is true, []==true should also be true. right?
-6. How could you write a method on instance of a date which will give you next day?
-7. If you want to use an arbitrary object as value of this, how will you do that?
-8. Write a simple function to tell whether 2 is passed as parameter or not?
-9. How could you use Math.max to find the max value in an array?
-10. What the heck is this in JavaScript?
-11. 21 quick questions that will trick you.
-12. How could you set a prefix before everything you log? for example, if you log('my message') it will log: "(app) my message"
-13. What will you see in the console for the following example?
-14. Look at the code below, you have a for loop if you have setTimeout inside it. If log the loop counter inside setTimeout, what will be logged?
-15. Look at the code below, I have a property in a object and I am creating a new object where I am setting it to a new value. If I delete that property what will i get if I try to access that property?
-16. Does JavaScript pass parameter by value or by reference?
-17. How could you implement cache to save calculation time for a recursive fibonacci function?
-18. How could you cache execution of any function?
-19. If you need to implement the following chaining with call back, how will you implement it?
-20. How could you implement moveLeft animation?
-21. How would you implement currying for any functions? 
-
-####[JS: Basics related (part-2) Answers](http://www.thatjsdude.com/interview/js2.html)
-
-
-
-##[JavaScript: DOM (part -3)](http://www.thatjsdude.com/interview/dom.html)
+##[JavaScript: DOM related Questions](http://www.thatjsdude.com/interview/dom.html)
 21+ questions and answers (for intermediate JS Developers)
 __________________
 1. Is there any difference between window and document?
@@ -161,7 +145,30 @@ __________________
 1. What is defer and async keyword does in a script tag?
 1. 10 rapid fire questions
 
-####[JS: DOM (part-3) Answers](http://www.thatjsdude.com/interview/dom.html)
+####[JS: Answer ofr DOM related Questions](http://www.thatjsdude.com/interview/dom.html)
+
+
+
+##[html](http://www.thatjsdude.com/interview/html.html)
+15 basic questions and asnwers
+______
+1. Why do u need doctype?
+2. What is the use of data-* attribute?
+3. How can you generate public key in html?
+4. How do you change direction of html text?
+5. How can you highlight text in html?
+6. Can you apply css to a part of html document only?
+7. Will browser make http request for the following cases?
+8. Which resource would be downloaded first?
+9. What is optional tag?
+10. What are the differences between div and span?
+11. How would you differentiate div, section and article?
+12. How to select svg or canvas for your site?
+13. How to serve html in multiple languages?
+14. Explain standard and quirks mode.
+15. What is semantic tag?
+
+####[HTML Answers](http://www.thatjsdude.com/interview/html.html)
 
 
 ##[JavaScript: LinkedList (part -4: work in porcess)](http://www.thatjsdude.com/interview/linkedList.html)
