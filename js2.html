@@ -104,11 +104,11 @@
       </div>
       <div>
         <ol>
-          <li><a href="#nullVsUndefined">What are the differences between null and undefined?</a></li>
-          <li><a href="#doubleVsTripleEqual">What are the differences between == and ===?</a></li>
+          <li><a href="#nullVsUndefined">What are the differences between <code>null</code> and <code>undefined</code>?</a></li>
+          <li><a href="#doubleVsTripleEqual">What are the differences between <code>==</code> and <code>===</code>?</a></li>
           <li><a href="#objectEquality">How would you compare two objects in JavaScript?</a></li>
           <li><a href="#trueLies">11+ true false related questions that will trick you.</a></li>
-          <li><a href="#truthyVsEqality">As [] is true, []==true should also be true. right?</a></li>
+          <li><a href="#truthyVsEqality">As <code>[]</code> is true, <code>[]==true</code> should also be true. right?</a></li>
           <li><a href="#extendObject">How could you write a method on instance of a date which will give you next day?</a></li>
           <li class="skipListItem"><a href="#extendObject">If i have a <code>var str = 'hello world'</code>, how could i get <code>str.reverse()</code> return 'dlrow olleh'?</a></li>
           <li class="skipListItem"><a href="#extendObject">How could you make this work [1,2,3,4,5].duplicator(); // [1,2,3,4,5,1,2,3,4,5] ?</a></li>
@@ -218,7 +218,7 @@ function isEqual(a, b) {
         <p><strong>falsy:</strong> In javascript 6 things are falsy and they are- false, null, undefined, '', 0, NaN</p>
         <p><strong>truthy:</strong> There are only two truthy things- true and everything that is not false</p>
         <div>
-          <h3>11. True False Rapid Fire</h3>
+          <h3>True False Rapid Fire</h3>
           <div id="trueFalseRapidExample" class="bg-success toggleContent">            
             <p><strong>Question:</strong> Is <code>'false'</code> is false?</p>
             <p><strong>Answer:</strong> No. Because, it's a string with length greater than 0. Only empty string is false.</p>
@@ -381,7 +381,7 @@ function getMax(arr){
         <p>ref: <a href="https://www.youtube.com/watch?v=yuo8YqKDQ-M">Understand JavaScript this in a crystal clear way</a></p>
       </div>  
       <div id="rapidFire">
-        <h2>rapid fire</h2>
+        <h2>11. Rapid Fire</h2>
         <p><strong>Question:</strong> What is <code>typeof []</code></p>
         <p><strong>Answer:</strong> Object. Actually Array is derived from Object. If you want to check array use <code>Array.isArray(arr)</code></p>
         <p><strong>Question:</strong> What is <code>typeof arguments</code></p>
@@ -546,7 +546,7 @@ console.log(customObject.get_price());
         <p>When you are assigning some value to <code>customObject.price</code>, you are creating a new property on the child. This means, when you <code>delete customObject.price</code> it deletes the <code>price</code> property in the customObject (in the child). However, when you call the method getprice, first it looks for <code>this.price</code> in the child since the customObject doesn't have price property, JavaScript executor walks through the prototype chain towards the parent. Since customObject was inherited from myObject and myObject has a <code>price</code> property, the get_price method returns the price from parent. Hence, you are getting 20.99</p>
       </div>
       <div id="byValueByRef"> 
-        <h2>16. pass by value or by reference</h2>
+        <h2>16. Pass by value or by reference</h2>
         <p><strong>Question:</strong> Does JavaScript pass parameter by value or by reference?</p>
         <p><strong>Answer:</strong> Primitive type (string, number, etc.) are passed by value and objects are passed by reference. If you change a property of the passed object, the change will be affected. However, you assign a new object to the passed object, the changes will not be reflected.</p>
         <pre><code>
@@ -668,7 +668,7 @@ obj.first().second().third();
         <p>ref: <a href="http://blog.buymeasoda.com/creating-a-jquery-like-chaining-api/">jquery like chaining</a> or <a href="http://stackoverflow.com/questions/7475336/how-does-jquery-chaining-work">jquery like chaining</a></p>
       </div>
       <div id="animation">
-        <h2>20. animation</h2>
+        <h2>20. Animation</h2>
         <p><strong>Question: </strong>How could you implement moveLeft animation?</p>
         <p><strong>Answer:</strong> Use setInterval that will place the element to the left position by some pixels in every 10ms. Hence, you will see the element moving towards the desired position. When you call setInterval, it returns a timeId. After reaching the desired location, you have to clear the time interval so that function will not be called again and again in every 10ms.</p>
         <pre><code>
@@ -738,7 +738,7 @@ mileToKm(3); //result here
 var kgToLb = converter.curry(2.2, 'lb');
 kgToLb(3); //result here 
         </code></pre>
-        <p>ref: <a href="http://javascriptweblog.wordpress.com/2010/04/05/curry-cooking-up-tastier-functions/">curry: cooking up tastier functions</a></p>
+        <p>ref: <a href="http://fr.umio.us/favoring-curry/">Favoring Curry</a>, <a href="http://javascriptweblog.wordpress.com/2010/04/05/curry-cooking-up-tastier-functions/">curry: cooking up tastier functions</a></p>
       </div>      
       <div>
         <h3>Deleted Questions</h3>
