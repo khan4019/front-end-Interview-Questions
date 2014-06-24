@@ -42,142 +42,7 @@
       a:visited
       { 
         color: rgba(218, 209, 149, 0.98);
-      }
-      /*style for demo*/
-      .demoContainer{
-        width: 200px;
-        border: 2px solid purple;
-      }
-      .floatContainer{
-         height: 100px;
-       }
-       .clearContainer{
-         height: 150px;
-       }
-       .clearLeft{
-         clear:left;
-       }
-       .clearBoth{
-        clear: both;
-       }       
-       .box{
-        float: left;
-        width:50px;
-        height: 30px;
-        border: 2px solid gray;
-        margin:5px;
-       }
-       .element{
-        height: 50px;
-        width: 50px;
-        transition: width  2s linear 0.5s, background-color 2s linear 0.5s;
-        background-color: purple;
-       }       
-       .element:hover {
-          width: 100px;
-          background-color: red;
-       }
-       .overflowContainer{
-        height: 280px;
-        border: 2px solid gray;
-        padding: 5px;
-        overflow-y: scroll;
-        overflow-x: hidden;
-       }
-       .overflowBox{
-        padding: 5px;
-        margin: 5px;
-        float: left;
-        border: 2px solid gray;
-       }
-       .overflowBox p{
-        width: 150px;
-        height: 150px;
-       }
-       .overflowVisible{
-        overflow: visible;
-       }
-       .overflowHidden{
-        overflow: hidden;
-       }
-       .overflowScroll{
-        overflow: scroll;
-       }
-       .overflowAuto{
-        overflow: auto;
-       }
-       .imageContainer{
-        height: 165px;
-        border: 2px solid gray;
-        overflow-y:scroll; 
-       }
-       .imageHolder{
-        float: left;
-       }
-       .imageContainer img{
-        width: 120px;
-        height: 120px;
-        margin: 5px;        
-       }
-       .imageHolder p{
-        text-align: center;
-       }
-       .imgGray{
-        filter:grayscale(100%);
-        -webkit-filter:grayscale(100%);
-        -moz-filter:grayscale(100%);
-        -ms-filter:grayscale(100%);
-        -o-filter:grayscale(100%);
-       }
-       .imgInvert{
-        filter:invert(100%);
-        -webkit-filter:invert(100%);
-        -moz-filter:invert(100%);
-        -ms-filter:invert(100%);
-        -o-filter:invert(100%);
-       }
-       .imgBlur{
-        filter:blur(3px);
-        -webkit-filter:blur(3px);
-        -moz-filter:blur(3px);
-        -ms-filter:blur(3px);
-        -o-filter:blur(3px);
-       }
-       .imgBright{
-        filter:brightness(200%);
-        -webkit-filter:brightness(200%);
-        -moz-filter:brightness(200%);
-        -ms-filter:brightness(200%);
-        -o-filter:brightness(200%);
-       }
-       .imgOpacity{
-        filter:opacity(30%);
-        -webkit-filter:opacity(30%);
-        -moz-filter:opacity(30%);
-        -ms-filter:opacity(30%);
-        -o-filter:opacity(30%);
-       }
-       #pseudoElementExample p:before{
-        content: "Starting of Paragraph: ";
-        font-weight: bolder;
-        color: purple;
-       }
-       #alignExample div{
-        height: 100px;
-        border: 2px solid gray;
-        text-align: center;
-        position: relative;
-       }
-       #alignExample div p{        
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        width: 50%;
-        height: 30%;
-        margin: auto;
-       }
+      }       
     </style>
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
@@ -199,8 +64,8 @@
         <h2> (part-2)</h2>    
         <h2>21+ questions for intermediate JS developer</h2>
         <p>June 05, 2014</p>
-        <!-- <div id="fb-root"></div><div class="fb-like" data-href="http://www.thatjsdude.com/interview/css.html" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div> &nbsp;<div class="g-plusone"></div>
-      </div> -->
+        <!-- <div id="fb-root"></div><div class="fb-like" data-href="http://www.thatjsdude.com/interview/css.html" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div> &nbsp;<div class="g-plusone"></div> -->
+      </div>
     </div>
     <div class="container">
       <!-- Example row of columns -->
@@ -258,15 +123,17 @@
        </ol>
        <div>
          <h2>other questions</h2>
-         <li>how quirks mode changes css box model</li>
-         <li>why quirks mode is used</li>
-         <li>what are the problem of quirk mode in old browser. may be FOUC (flash of unstyled content). most likely happens with old IE</li>
-         <li>why inline elementd dont have width</li>
-         <li>How you increase performance of your css</li>
-         <li></li>
-         <li>How will you make a website response </li>
-         <li>If you want to make a website responsive, you will you start</li>
-         <li>how will you start when you have to make a site compatible to different browser</li>
+         <ol>
+           <li>how quirks mode changes css box model</li>
+           <li>why quirks mode is used</li>
+           <li>what are the problem of quirk mode in old browser. may be FOUC (flash of unstyled content). most likely happens with old IE</li>
+           <li>why inline elementd dont have width</li>
+           <li>How you increase performance of your css</li>
+           <li></li>
+           <li>How will you make a website response </li>
+           <li>If you want to make a website responsive, you will you start</li>
+           <li>how will you start when you have to make a site compatible to different browser</li>
+         </ol>
        </div>
        <div>
         <h2>Floats and computed height</h2>
