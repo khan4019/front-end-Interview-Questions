@@ -42,7 +42,56 @@
       a:visited
       { 
         color: rgba(218, 209, 149, 0.98);
-      }       
+      }    
+      /*for pure css navigation drop down*/   
+      .myNav ul{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        position: relative;
+        display: block;
+      }
+      .myNav ul li{
+        float: left;
+        display: list-item;
+        list-style: none;
+        background-color: #64abfb;
+        border-bottom: 5px solid #2ecc71;
+      }
+      .myNav ul li a{
+        display: block;
+        padding: 15px 10px;
+        color: #FFF;
+        font-size: 20px;
+        text-decoration: none;
+        font-family: 'Bree Serif', 'serif';
+      }
+      .myNav li a:hover {background-color: #2ecc71;}
+
+      /*drop down style*/
+      /* Hide drop down by default*/
+      .myNav ul ul{
+        display: none;
+        position: absolute;
+        top: 58px;
+      }
+      /*display drop down on hover*/
+      .myNav ul li:hover > ul{
+        display: list-item;
+      }
+      /*first tier dropdown*/
+      .myNav ul ul li{
+        width: 170px;
+        float: none;
+        position: relative;
+        border-bottom: none;
+      }
+      /*second, third and more tiers*/
+      .myNav ul ul ul li{
+        position: absolute relative;
+        top: -58px;
+        left: -170px;
+      }
     </style>
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
@@ -77,6 +126,89 @@
       <p class="gray"> <span class="purpleBold">Warning!</span>, if you have couple of tattoos in your body, this is not the right place. You certainly have more in depth knowledge, fancy portfolio and you have to express that. These questions are for lazy intermediate JS developers to get the job by creating an illusion of familiarity with css---</p> -->
         <div>
           <h2>Pure css navigation</h2>
+          <h4>Step-1: Create html</h4>
+          <pre><code>
+&lt;nav class = &quot;myNav&quot;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;JavaScript&lt;/a&gt;&lt;/li&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Basic JavaScript&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Beginners Algorithm&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Dom related&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;CSS&lt;/a&gt;&lt;/li&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Basic CSS questions&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Pure CSS mockup&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;HTML&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Web technologies&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Higher Level Data Structure&lt;/a&gt;&lt;/li&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Linked List&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Search and Sort&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Tree&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Graph, map, vector&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+          </code></pre>
+          <strong>output:</strong>
+          <nav>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">JavaScript</a></li>
+              <ul>
+                <li><a href="#">Basic JavaScript</a></li>
+                <li><a href="#">Beginners Algorithm</a></li>
+                <li><a href="#">Dom related</a></li>
+              </ul>
+              <li><a href="#">CSS</a></li>
+              <ul>
+                <li><a href="#">Basic CSS questions</a></li>
+                <li><a href="#">Pure CSS mockup</a></li>
+              </ul>
+              <li><a href="#">HTML</a></li>
+              <li><a href="#">Web technologies</a></li>
+              <li><a href="#">Higher Level Data Structure</a></li>
+              <ul>
+                <li><a href="#">Linked List</a></li>
+                <li><a href="#">Search and Sort</a></li>
+                <li><a href="#">Tree</a></li>
+                <li><a href="#">Graph, map, vector</a></li>
+              </ul>
+            </ul>
+          </nav>
+          <h4>Step -2: add style</h4>
+          <strong>output:</strong>
+          <nav class="myNav">
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">JavaScript</a></li>
+              <ul>
+                <li><a href="#">Basic JavaScript</a></li>
+                <li><a href="#">Beginners Algorithm</a></li>
+                <li><a href="#">Dom related</a></li>
+              </ul>
+              <li><a href="#">CSS</a></li>
+              <ul>
+                <li><a href="#">Basic CSS questions</a></li>
+                <li><a href="#">Pure CSS mockup</a></li>
+              </ul>
+              <li><a href="#">HTML</a></li>
+              <li><a href="#">Web technologies</a></li>
+              <li><a href="#">Higher Level Data Structure</a></li>
+              <ul>
+                <li><a href="#">Linked List</a></li>
+                <li><a href="#">Search and Sort</a></li>
+                <li><a href="#">Tree</a></li>
+                <li><a href="#">Graph, map, vector</a></li>
+              </ul>
+            </ul>
+          </nav>
+          
+          <p>ref: <a href="http://www.delimited.io/blog/2014/6/17/force-directed-graphs-in-d3">Force directed graph in d3</a></p>
           <li>try this: <a href="http://andornagy.com/css-dropdown-menu/">css drop down menu</a> with styled like <a href="http://line25.com/tutorials/how-to-create-a-pure-css-dropdown-menu">create pure css</a></li>
           <li>option-2: <a href="http://jsfiddle.net/XPE3w/7/">js fiddle</a></li>
           <li>another option:<a href="http://www.paulund.co.uk/creating-a-pure-css-horizontal-navigation-with-drop-downs">this one</a> combined with <a href="http://cssdeck.com/labs/pure-css3-smooth-drop-down-menu">this one</a></li>
