@@ -8,11 +8,11 @@ To rock the interview to achieve what you deserve and to improve your concepts a
 ##[JavaScript: Basics and Tricky Questions](http://www.thatjsdude.com/interview/js2.html)
 21+ questions and answers (for intermediate)
 __________________
-1. What are the differences between null and undefined?
-2. What are the differences between == and ===?
+1. What are the differences between ` null ` and ` undefined `?
+2. What are the differences between `==` and `===`?
 3. How would you compare two objects in JavaScript?
 4. 11+ true false related questions that will trick you.
-5. As [] is true, []==true should also be true. right?
+5. As `[]` is true, `[] == true` should also be true. right?
 6. How could you write a method on instance of a date which will give you next day?
 7. If you want to use an arbitrary object as value of this, how will you do that?
 8. Write a simple function to tell whether 2 is passed as parameter or not?
