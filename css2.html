@@ -44,53 +44,27 @@
         color: rgba(218, 209, 149, 0.98);
       }    
       /*for pure css navigation drop down*/   
-      .myNav ul{
-        padding: 0;
-        margin: 0;
-        list-style: none;
-        position: relative;
-        display: block;
-      }
-      .myNav ul li{
-        float: left;
-        display: list-item;
-        list-style: none;
-        background-color: #64abfb;
-        border-bottom: 5px solid #2ecc71;
-      }
-      .myNav ul li a{
-        display: block;
-        padding: 15px 10px;
-        color: #FFF;
-        font-size: 20px;
-        text-decoration: none;
-        font-family: 'Bree Serif', 'serif';
-      }
-      .myNav li a:hover {background-color: #2ecc71;}
-
-      /*drop down style*/
-      /* Hide drop down by default*/
-      .myNav ul ul{
+      .myNav1 ul ul{
         display: none;
-        position: absolute;
-        top: 58px;
       }
-      /*display drop down on hover*/
-      ul li:hover ul{
-        display: list-item;
+      .myNav1 ul li:hover >ul{
+        display: block;
       }
-      /*first tier dropdown*/
-      .myNav ul ul li{
+      .myNav1 ul{
+        list-style: none;
+      }
+      .myNav2 ul{
+        padding: 0;
+      }
+      .myNav2 ul li{
+        float: left;
+      }
+      .myNav3 ul ul li{
         float: none;
-        position: relative;
-        border-bottom: none;
       }
-      /*second, third and more tiers*/
-      .myNav ul ul ul li{
-        position: absolute relative;
-        top: -58px;
-        left: -170px;
-      }
+      .myNav3 ul li a{
+        padding: 20px 40px;        
+      }      
     </style>
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
@@ -126,10 +100,10 @@
         <div>
           <h2>Pure css navigation</h2>
           <h4>Step-1: Create html</h4>
+          <p>Just create an unordered list <code>&lt;ul&gt;&lt;/ul&gt;</code> and all the menu options will be list item <code>&lt;li&gt;&lt;/li&gt;</code>. And to navigate to somewhere we will use an anchor tag <code>&lt;a&gt;&lt;/a&gt;</code>. If you have a drop down menu, then create unordered list list the list item.</p>
           <pre><code>
 &lt;nav class = &quot;myNav&quot;&gt;
   &lt;ul&gt;
-    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;#&quot;&gt;JavaScript&lt;/a&gt;
       &lt;ul&gt;
         &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Basic JavaScript&lt;/a&gt;&lt;/li&gt;
@@ -144,8 +118,8 @@
       &lt;/ul&gt;
     &lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;#&quot;&gt;HTML&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Web technologies&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Higher Level Data Structure&lt;/a&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Web&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Data Structure&lt;/a&gt;
       &lt;ul&gt;
         &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Linked List&lt;/a&gt;&lt;/li&gt;
         &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Search and Sort&lt;/a&gt;&lt;/li&gt;
@@ -156,10 +130,9 @@
   &lt;/ul&gt;
 &lt;/nav&gt;
           </code></pre>
-          <strong>output:</strong>
+          <p><strong>output:</strong> will look like this</p>
           <nav>
             <ul>
-              <li><a href="#">Home</a></li>
               <li><a href="#">JavaScript</a></li>
               <ul>
                 <li><a href="#">Basic JavaScript</a></li>
@@ -172,8 +145,8 @@
                 <li><a href="#">Pure CSS mockup</a></li>
               </ul>
               <li><a href="#">HTML</a></li>
-              <li><a href="#">Web technologies</a></li>
-              <li><a href="#">Higher Level Data Structure</a></li>
+              <li><a href="#">Web</a></li>
+              <li><a href="#">Data Structure</a></li>
               <ul>
                 <li><a href="#">Linked List</a></li>
                 <li><a href="#">Search and Sort</a></li>
@@ -183,10 +156,23 @@
             </ul>
           </nav>
           <h4>Step -2: add style</h4>
+          <p>We will add three style. first, take off the list style. Here we will remove the unordered list under nav. Secondly, we will hide the child content of the menu. to do this, we will call display: none for ul under ul. Third, if you hover over a list item, then display the ul under it</p>
+          <pre><code>
+nav ul{
+  list-style:none;
+}
+
+nav ul ul{
+  display: none;
+}
+
+nav ul li:hover > ul{
+  display: block;
+}
+          </code></pre>
           <strong>output:</strong>
-          <nav class="myNav">
-            <ul>
-              <li><a href="#">Home</a></li>
+          <nav class="myNav1">
+            <ul>              
               <li><a href="#">JavaScript</a>
                 <ul>
                   <li><a href="#">Basic JavaScript</a></li>
@@ -201,8 +187,8 @@
                 </ul>
               </li>
               <li><a href="#">HTML</a></li>
-              <li><a href="#">Web technologies</a></li>
-              <li><a href="#">Higher Level Data Structure</a>
+              <li><a href="#">Web</a></li>
+              <li><a href="#">Data Structure</a>
                 <ul>
                   <li><a href="#">Linked List</a></li>
                   <li><a href="#">Search and Sort</a></li>
@@ -212,7 +198,131 @@
               </li>              
             </ul>
           </nav>
-          
+          <h4>Step -3: add more style</h4>
+          <p>The first problem, we have there is things are offset from the left. So, we will add padding 0 for ul. In a menu items at the root of the menu are styled side by side in a horizontal level. Hence, we will add float left for all the list item under unordered list.</p>
+          <pre><code>
+nav ul{  
+  padding: 0;
+}
+nav ul li{
+  float: left;
+}
+          </code></pre>
+          <strong>output:</strong>
+          <div>
+            <nav class="myNav1 myNav2">
+            <ul>              
+              <li><a href="#">JavaScript</a>
+                <ul>
+                  <li><a href="#">Basic JavaScript</a></li>
+                  <li><a href="#">Beginners Algorithm</a></li>
+                  <li><a href="#">Dom related</a></li>
+                </ul>
+              </li>              
+              <li><a href="#">CSS</a>
+                <ul>
+                  <li><a href="#">Basic CSS questions</a></li>
+                  <li><a href="#">Pure CSS mockup</a></li>
+                </ul>
+              </li>
+              <li><a href="#">HTML</a></li>
+              <li><a href="#">Web</a></li>
+              <li><a href="#">Data Structure</a>
+                <ul>
+                  <li><a href="#">Linked List</a></li>
+                  <li><a href="#">Search and Sort</a></li>
+                  <li><a href="#">Tree</a></li>
+                  <li><a href="#">Graph, map, vector</a></li>
+                </ul>
+              </li>              
+            </ul>
+          </nav>
+          </div>
+          <h4>Step -4: add more style</h4>
+          <p></p>
+          <pre><code>
+nav ul ul li{
+  float: none;
+}
+
+nav ul li a{
+  padding: 20px 40px;        
+}
+          </code></pre>
+          <strong>output:</strong>
+          <div>
+            <nav class="myNav1 myNav2 myNav3">
+              <ul>              
+                <li><a href="#">JavaScript</a>
+                  <ul>
+                    <li><a href="#">Basic JavaScript</a></li>
+                    <li><a href="#">Beginners Algorithm</a></li>
+                    <li><a href="#">Dom related</a></li>
+                  </ul>
+                </li>              
+                <li><a href="#">CSS</a>
+                  <ul>
+                    <li><a href="#">Basic CSS questions</a></li>
+                    <li><a href="#">Pure CSS mockup</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">HTML</a></li>
+                <li><a href="#">Web</a></li>
+                <li><a href="#">Data Structure</a>
+                  <ul>
+                    <li><a href="#">Linked List</a></li>
+                    <li><a href="#">Search and Sort</a></li>
+                    <li><a href="#">Tree</a></li>
+                    <li><a href="#">Graph, map, vector</a></li>
+                  </ul>
+                </li>              
+              </ul>
+            </nav>
+          </div>
+          <div>
+            <h4>Step -5: add more style</h4>
+          <p></p>
+          <pre><code>
+nav ul ul li{
+  float: none;
+}
+
+nav ul li a{
+  padding: 20px 40px;        
+}
+          </code></pre>
+          <strong>output:</strong>
+          <div>
+            <nav class="myNav1 myNav2 myNav3 myNav4">
+              <ul>              
+                <li><a href="#">JavaScript</a>
+                  <ul>
+                    <li><a href="#">Basic JavaScript</a></li>
+                    <li><a href="#">Beginners Algorithm</a></li>
+                    <li><a href="#">Dom related</a></li>
+                  </ul>
+                </li>              
+                <li><a href="#">CSS</a>
+                  <ul>
+                    <li><a href="#">Basic CSS questions</a></li>
+                    <li><a href="#">Pure CSS mockup</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">HTML</a></li>
+                <li><a href="#">Web</a></li>
+                <li><a href="#">Data Structure</a>
+                  <ul>
+                    <li><a href="#">Linked List</a></li>
+                    <li><a href="#">Search and Sort</a></li>
+                    <li><a href="#">Tree</a></li>
+                    <li><a href="#">Graph, map, vector</a></li>
+                  </ul>
+                </li>              
+              </ul>
+            </nav>
+          </div>
+          </div>
+          <h4>End</h4>
           <p>ref: <a href="http://www.delimited.io/blog/2014/6/17/force-directed-graphs-in-d3">Force directed graph in d3</a></p>
           <li>try this: <a href="http://andornagy.com/css-dropdown-menu/">css drop down menu</a> with styled like <a href="http://line25.com/tutorials/how-to-create-a-pure-css-dropdown-menu">create pure css</a></li>
           <li>option-2: <a href="http://jsfiddle.net/XPE3w/7/">js fiddle</a></li>
