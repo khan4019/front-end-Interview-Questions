@@ -42,7 +42,10 @@
       a:visited
       { 
         color: rgba(218, 209, 149, 0.98);
-      }    
+      }   
+      .invisibleElement{
+        color: white;
+      } 
       /*for pure css navigation drop down*/   
       .myNav1 ul ul{
         display: none;
@@ -102,7 +105,7 @@
           <h4>Step-1: Create html</h4>
           <p>Just create an unordered list <code>&lt;ul&gt;&lt;/ul&gt;</code> and all the menu options will be list item <code>&lt;li&gt;&lt;/li&gt;</code>. And to navigate to somewhere we will use an anchor tag <code>&lt;a&gt;&lt;/a&gt;</code>. If you have a drop down menu, then create unordered list list the list item.</p>
           <pre><code>
-&lt;nav class = &quot;myNav&quot;&gt;
+&lt;nav&gt;
   &lt;ul&gt;
     &lt;li&gt;&lt;a href=&quot;#&quot;&gt;JavaScript&lt;/a&gt;
       &lt;ul&gt;
@@ -238,8 +241,10 @@ nav ul li{
             </ul>
           </nav>
           </div>
+          <p class="">Content Below 1</p>
+          <p class="">Content Below 2</p>
           <h4>Step -4: add more style</h4>
-          <p></p>
+          <p>Now will solve two problem. Most important problem is, As the menu item is sitting next to each other </p>
           <pre><code>
 nav ul ul li{
   float: none;
@@ -279,6 +284,10 @@ nav ul li a{
               </ul>
             </nav>
           </div>
+          <p class="">Content Below 1</p>
+          <p class="">Content Below 2</p>
+          <p class="">Content Below 3</p>
+          <p class="">Content Below 4</p>
           <div>
             <h4>Step -5: add more style</h4>
           <p></p>
@@ -322,6 +331,10 @@ nav ul li a{
             </nav>
           </div>
           </div>
+          <p>Content Below 1</p>
+          <p>Content Below 2</p>
+          <p>Content Below 3</p>
+          <p>Content Below 4</p>
           <h4>End</h4>
           <p>ref: <a href="http://www.delimited.io/blog/2014/6/17/force-directed-graphs-in-d3">Force directed graph in d3</a></p>
           <li>try this: <a href="http://andornagy.com/css-dropdown-menu/">css drop down menu</a> with styled like <a href="http://line25.com/tutorials/how-to-create-a-pure-css-dropdown-menu">create pure css</a></li>
