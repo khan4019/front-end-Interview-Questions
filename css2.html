@@ -67,7 +67,13 @@
       }
       .myNav3 ul li a{
         padding: 20px 40px;        
-      }      
+      }
+      .myNav4 ul{
+        position: relative;
+      }     
+      .myNav4 ul ul {
+        position: absolute;
+      } 
     </style>
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
@@ -102,6 +108,8 @@
       <p class="gray"> <span class="purpleBold">Warning!</span>, if you have couple of tattoos in your body, this is not the right place. You certainly have more in depth knowledge, fancy portfolio and you have to express that. These questions are for lazy intermediate JS developers to get the job by creating an illusion of familiarity with css---</p> -->
         <div>
           <h2>Pure css navigation</h2>
+          <p><strong>Question: </strong> Can you create a navigation like the image below? Doesnt have to pretty. Don't spend more than 10min.</p>
+          <img src="images/layout.png">
           <h4>Step-1: Create html</h4>
           <p>Just create an unordered list <code>&lt;ul&gt;&lt;/ul&gt;</code> and all the menu options will be list item <code>&lt;li&gt;&lt;/li&gt;</code>. And to navigate to somewhere we will use an anchor tag <code>&lt;a&gt;&lt;/a&gt;</code>. If you have a drop down menu, then create unordered list list the list item.</p>
           <pre><code>
@@ -290,14 +298,14 @@ nav ul li a{
           <p class="">Content Below 4</p>
           <div>
             <h4>Step -5: add more style</h4>
-          <p></p>
+          <p>To avoid forcing content below. you have to apply two rules. First, make ul under nav to be positioned as relative. second, make ul under ul (which contains sub menu items), to be positioned relative</p>
+          <p>Now, sub menu will not be forced below.</p>
           <pre><code>
-nav ul ul li{
-  float: none;
-}
-
-nav ul li a{
-  padding: 20px 40px;        
+nav ul{
+  position: relative;
+}     
+nav ul ul {
+  position: absolute;
 }
           </code></pre>
           <strong>output:</strong>
@@ -339,9 +347,7 @@ nav ul li a{
           <p>ref: <a href="http://www.delimited.io/blog/2014/6/17/force-directed-graphs-in-d3">Force directed graph in d3</a></p>
           <li>try this: <a href="http://andornagy.com/css-dropdown-menu/">css drop down menu</a> with styled like <a href="http://line25.com/tutorials/how-to-create-a-pure-css-dropdown-menu">create pure css</a></li>
           <li>option-2: <a href="http://jsfiddle.net/XPE3w/7/">js fiddle</a></li>
-          <li>another option:<a href="http://www.paulund.co.uk/creating-a-pure-css-horizontal-navigation-with-drop-downs">this one</a> combined with <a href="http://cssdeck.com/labs/pure-css3-smooth-drop-down-menu">this one</a></li>
-          <h4>or at least make something like this</h4>
-          <img src="images/layout.png">
+          <li>another option:<a href="http://www.paulund.co.uk/creating-a-pure-css-horizontal-navigation-with-drop-downs">this one</a> combined with <a href="http://cssdeck.com/labs/pure-css3-smooth-drop-down-menu">this one</a></li>          
         </div>
         <div>
           <h2>psd to mockup</h2>
