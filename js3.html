@@ -330,6 +330,43 @@ function replaceStr(str, match, replace){
         <p><strong>Answer:</strong> It becomes tiresome to test all the different browser and versions available. I can check current market share of the browsers and create short list to test. and then i can use lools like <a href="http://browsershots.org/">browsershots</a>, <a href="http://www.browserstack.com/screenshots">browserStack</a>, etc.</p>
         <p>ref: <a href="http://www.hongkiat.com/blog/complete-guide-to-cross-browser-compatibility-check/">compatibility checking tools</a>, <a href="http://www.1stwebdesigner.com/design/tools-browser-compatibility-check/">10 tools</a></p>
       </div>
+      <div>
+        <h2>Yahoo interview with </h2>
+        <p><strong>Question:</strong> Create a function to determine a lotter winner. An object will be passed with person name and number of ticket they purchased</p>
+        <p><strong>Answer:</strong> We need to use Math.random</p>
+        <pre><code>
+// ticketMap = {"John": 15, "Bob": 5}
+function LotteryPicker(ticketMap) {
+    this.ticketMap = ticketMap;
+    this.generateNumber = Math.random;
+}
+
+LotteryPicker.prototype.pick = function() {
+    var participants = Object.keys(this.ticketMap), 
+        len = participants.length,
+        total = 0;
+   
+    for(var i = 0; i&lt;len; i++){
+      total += this.ticketMap[participants[i]];
+    }
+    
+    var raminingNumber = this.generateNumber()*total;
+ 
+    
+    for(var j =0; j&lt;len; j++){
+        if (raminingNumber &lt; this.ticketMap[participants[j]]){
+            return participants[j];
+        }
+        raminingNumber -= this.ticketMap[participants[j]];
+    }
+};
+
+
+var picker = new LotteryPicker({"John": 15, "Bob": 5});
+picker.generateNumber = function() { return 0.5 };
+console.log(picker.pick());
+        </code></pre>
+      </div>
       <div id="createLayout">
         <h2>Create layout</h2>
         <p><strong>Question:</strong> How would you create layout like below.</p>
