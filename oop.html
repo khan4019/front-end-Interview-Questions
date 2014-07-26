@@ -80,37 +80,54 @@
       <p class="gray"> <span class="purpleBold">More Questions</span> <a href="css.html">css interview questions</a>, <a href="html.html">html interview questions</a> </p> -->
       <div>
         <h2>OOP</h2>
-        <p><strong>Question:</strong> What are the concepts of OOP?</p>
-         <p> <strong>Answer:</strong> </p>
-         <pre><code>
-
-       </code></pre>
-       <pre><code>
-
-       </code></pre>
-      <p><strong>Encapsulation: </strong>You would not be able to access (get or set) the value of "i" from outside. Hence the privacy of the value of "i" is maintained secretly. However, you execute a(), the value of "i" will be increased by one. This is called encapsulation in object oriented programming.</p> 
-    </div>
-    <div>
-      <h2>class</h2>
-      <p>JavaScript doesnt have a implemenation keyword untill es5. However</p>
-      <pre><code>
+        <p>Object oriented programming (OOP) has the following key parts</p>
+        <ul>
+           <li>class</li>
+           <li>inheritance</li>
+           <li>polymorphism</li>
+           <li>encapsulation</li>
+           <li>Abstraction</li>
+         </ul> 
+      </div>
+      <div>
+        <h2>class</h2>
+        <p>a function is a class in javascript. you can use either function declaration or function expression, either one will work.</p>
+        <pre><code>
 function Person(){}
 //or
 var Person = function(){}
-      </code></pre>
-      <p>if you want to have a property, u have to the porperty to <code>this</code> </p>
-      <pre><code>
+        </code></pre>
+        <p>if you want to have a property, u have to add the property to <code>this</code>. Similarly, if you want to have a method on the object, you will add that to <code>this</code> object as well. In the following code, we have a property called <code>name</code> and a method <code>sayHi</code></p>
+        <pre><code>
 function Person(name){
-  this.name = name;  
+  this.name = name;
+  this.sayHi = function(){
+      return 'Hi from ' + this.name;
+  }
 }
-      </code></pre>
-      <p>to create an instance of the object, you need to use <code>new</code></p>
-      <pre><code>
-var person1 = new Person('Sheldon Cooper');
-var person2 = new Person('Amy Farrah Fowler');
-      </code></pre>
-    </div>
-            
+        </code></pre>
+        <p>to create an instance of the object, you need to use <code>new</code></p>
+        <pre><code>
+var shelly = new Person('Sheldon Cooper');
+var amy = new Person('Amy Farrah Fowler');
+
+shelly.sayHi(); //"Hi from Sheldon Cooper"
+amy.sayHi(); //"Hi from Amy Farrah Fowler"
+        </code></pre>
+        <p>This works if you create five objects. However, every single object has it's own sayHi method which is not memory efficient if you create one hundred object. We have to use inheritance in similar case</p>
+      </div>
+      <div>
+        <h2>Inheritance</h2>
+        <p></p>
+        <pre><code>
+
+        </code></pre>
+      </div>
+      <div>
+        <h2>encapsulation</h2>
+        <p></p>
+        <pre><code></code></pre>
+      </div>      
             
             
       
