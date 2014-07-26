@@ -90,7 +90,26 @@
        </code></pre>
       <p><strong>Encapsulation: </strong>You would not be able to access (get or set) the value of "i" from outside. Hence the privacy of the value of "i" is maintained secretly. However, you execute a(), the value of "i" will be increased by one. This is called encapsulation in object oriented programming.</p> 
     </div>
-            
+    <div>
+      <h2>class</h2>
+      <p>JavaScript doesnt have a implemenation keyword untill es5. However</p>
+      <pre><code>
+function Person(){}
+//or
+var Person = function(){}
+      </code></pre>
+      <p>if you want to have a property, u have to the porperty to <code>this</code> </p>
+      <pre><code>
+function Person(name){
+  this.name = name;  
+}
+      </code></pre>
+      <p>to create an instance of the object, you need to use <code>new</code></p>
+      <pre><code>
+var person1 = new Person('Sheldon Cooper');
+var person2 = new Person('Amy Farrah Fowler');
+      </code></pre>
+    </div>
             
             
             
