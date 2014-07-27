@@ -87,6 +87,10 @@
            <li>polymorphism</li>
            <li>encapsulation</li>
            <li>Abstraction</li>
+           <li>prototype chain</li>
+           <li>super</li>
+           <li></li>
+           <li></li>
          </ul> 
       </div>
       <div>
@@ -117,20 +121,100 @@ amy.sayHi(); //"Hi from Amy Farrah Fowler"
         <p>This works if you create five objects. However, every single object has it's own sayHi method which is not memory efficient if you create one hundred object. We have to use inheritance in similar case</p>
       </div>
       <div>
-        <h2>Inheritance</h2>
-        <p></p>
+        <h2>prototype Inheritance</h2>
+        <p><strong>prototype</strong> if you add the method to the prototype object of your class, then the method will be maintained at a higher level of the inheritance.</p>
         <pre><code>
+function Person(name){
+  this.name = name;  
+}
 
+Person.prototype.sayHi = function(){
+  return 'Hi from '+ this.name;
+}
+        </code></pre>
+        <p>You can test that sayHi is not a method on the constructed object by using <code>hasOwnProperty</code></p>
+        <pre><code>
+var shelly = new Person('Sheldon Cooper');
+
+shelly.hasOwnProperty('sayHi'); //false
+        </code></pre>
+        <p>Even if you add a method to the prototype object after creating the object, it will also be inherited.</p>
+        <pre><code>
+Person.prototype.sayBye = function(){
+  return 'Good bye from '+ this.name;
+}
+
+shelly.sayBye(); //"Good bye from Sheldon Cooper"
+        </code></pre>
+      </div>
+      <div>
+        <h2>Inherit Object</h2>
+        <p>If you want to inherit directly from an object, you can use <code>object.create</code></p>
+        <pre><code>
+function Dad(name){
+  this.name = name;
+  this.whoIsYourDad = function(){
+     return this.name;
+  }
+}
+
+var son = 
+
+
+        </code></pre>
+        <pre><code>
+//internally it works 
+Object.create = function(o) {
+  function F() {}
+  F.prototype = o;
+  return new F();
+};
         </code></pre>
       </div>
       <div>
         <h2>encapsulation</h2>
         <p></p>
         <pre><code></code></pre>
-      </div>      
-            
-            
-      
+      </div>
+      <div>
+        <h2>Abstract</h2>
+        <p>The abstract modifier indicates that the thing being modified has a missing or incomplete implementation. The abstract modifier can be used with classes, methods, properties, indexers, and events. Use the abstract modifier in a class declaration to indicate that a class is intended only to be a base class of other classes. Members marked as abstract, or included in an abstract class, must be implemented by classes that derive from the abstract class.</p>
+        <ul>
+          <li>An abstract class cannot be instantiated.</li>
+          <li>An abstract class may contain abstract methods and accessors.</li>
+          <li>It is not possible to modify an abstract class with the sealed (C# Reference) modifier because the two modifers have opposite meanings. The sealed modifier prevents a class from being inherited and the abstract modifier requires a class to be inherited.</li>
+          <li>A non-abstract class derived from an abstract class must include actual implementations of all inherited abstract methods and accessors.</li>
+        </ul>
+        <pre><code>
+          
+        </code></pre>
+        <p>ref: <a href="http://msdn.microsoft.com/en-us/library/sf985hc5.aspx">C# abstract</a></p>
+      </div> 
+      <div>
+        <h2>virtual</h2>
+        <p>how to achieve virtual in javascript</p>        
+        <pre><code>
+          
+        </code></pre>
+        <p>ref: <a href="http://msdn.microsoft.com/en-us/library/9fkccyh4.aspx">C# virtual</a></p>
+      </div>
+      <div>
+        <h2>base</h2>
+        <p>how to achieve base in JavaScript</p>
+        <pre><code>
+          
+        </code></pre>
+        <p>ref: <a href="http://msdn.microsoft.com/en-us/library/hfw7t1ce.aspx">C# base</a></p>
+      </div>
+      <div>
+        <h2>namespace</h2>
+        <p>how to achieve namespace in JavaScript</p>
+      </div>
+      <div>
+        <h2>static</h2>
+        <p>ref: <a href="http://msdn.microsoft.com/en-us/library/98f28cdx.aspx">how to achieve static in JS</a></p>
+      </div>
+
 <div>
   <!-- <h3 class="purpleBold">Express anger!</h3>
   <p class="gray">Feel free to express your anger (sorry u have to use facebook). also find out mistakes ( technical, wrong answer, spelling, grammar, sentence, whatever), let ur dude learn and grow.</p>
