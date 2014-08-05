@@ -309,6 +309,24 @@ function replaceStr(str, match, replace){
         </ul>
         <p>ref: <a href="http://www.1stwebdesigner.com/css/responsive-website-tutorial/">responsive tutorial</a>, <a href="http://readwrite.com/2013/04/16/10-developer-tips-to-build-a-responsive-website-infographic#awesm=~ou5vLQZqqXIubV">Read best practices</a></p>
       </div>
+      <div>
+        <h2>broken links</h2>
+        <pre><code>
+//same origin
+function UrlExists(url) {
+  var http = new XMLHttpRequest();
+  http.open('HEAD', url, false);
+  http.send();
+  return http.status != 404;
+}
+        </code></pre>
+      </div>
+      <div>
+        <h2>Tic tac toe logic</h2>
+        <pre><code>
+//make an efficient algorithm for this
+        </code></pre>
+      </div>
       <div id="browserCompatible">
         <h2>browser compatibility</h2>
         <p><strong>Question:</strong> How will you make a website compatible to multiple browsers?</p>
