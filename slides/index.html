@@ -54,7 +54,7 @@
 				</section>
 				<section>
 					<section>
-						<h1>Front End Developer</h1>
+						<h1>Web Developer</h1>
 					</section>
 					<section>
 						<img src="images/developer.jpg" alt="">
@@ -72,7 +72,9 @@
 						<ul class="stretch">
 							<li class="fragment"><h3>Always worth more to other emoployer</h3></li>
 							<li class="fragment"><h3>Getting on board isnt staying on board</h3></li>
-							<li class="fragment">Recruiter isn't your manager</li>
+							<li class="fragment">
+								<h3>Unless you say, you got another offer</h3>
+							</li>
 							<li class="fragment">HR works for the company not for you</li>
 							<li class="fragment">All employees are NOT treated equally</li>
 							<li class="fragment">Get things in written</li>
@@ -129,7 +131,7 @@
 						<h2>2. Apply</h2>
 						<ul>
 							<li class="fragment">
-								<h3>dice, career builder, moster is polluted</h3>
+								<h3>dice, indeed, moster is polluted</h3>
 							</li>
 							<li class="fragment">
 								<h3>linkedin/jobs is also poluted</h3>
@@ -139,6 +141,9 @@
 							</li>
 							<li class="fragment">
 								<h3>Groups/ meetups/ Conferences</h3>
+							</li>
+							<li class="fragment">
+								<h3>Weekly/ Javascript weekly/ jobety weekly</h3>
 							</li>
 							<li class="fragment">
 								<h3>Referral</h3>
@@ -156,6 +161,9 @@
 							</li>
 							<li class="fragment">
 								<h3>They are paid by their agent</h3>
+							</li>
+							<li class="fragment">
+								<h3>They are NOT your manager</h3>
 							</li>
 							<li class="fragment">
 								<h3>Use them wisely</h3>
@@ -232,6 +240,9 @@
 								<h3>Know your responsibility</h3>
 							</li>
 							<li class="fragment">
+								<h3>Do your homework</h3>
+							</li>
+							<li class="fragment">
 								<h3>Learn framework</h3>
 							</li>
 							<li class="fragment">
@@ -293,9 +304,6 @@
 						<img src="images/html.jpg" alt="">
 					</section>
 					<section>
-						<img src="images/html1.jpg" alt="">
-					</section>
-					<section>
 						<h2>HTML</h2>
 						<ul>
 							<li class="fragment"><h3>doctype</h3></li>
@@ -332,7 +340,36 @@
 						<img class="stretch" src="images/css1.jpg" alt="">
 					</section> -->
 					<section>
-						<h2>CSS</h2>
+						<h2>CSS - beginner</h2>
+						<ul>
+							<li class="fragment">
+								<h3>px, em, %, pt</h3>
+							</li>
+							<li class="fragment">
+								<h3>visibility hidden vs display none</h3>
+							</li>
+							<li class="fragment">
+								<h3>absolute, relative, fixed, static position</h3>
+							</li>
+							<li class="fragment">
+								<h3>inline, block, inline-block</h3>
+							</li>
+							<li class="fragment">
+								<h3>float, clear</h3>
+							</li>
+							<li class="fragment">
+								<h3>pseudo classes</h3>
+							</li>
+							<li class="fragment">
+								<h3>align center-center p in a div</h3>
+							</li>
+						</ul>
+						<br>
+						<br>
+						<a href="http://www.thatjsdude.com/interview/css.html">CSS Questions Answer</a>
+					</section>
+					<section>
+						<h2>CSS - intermediate</h2>
 						<ul>
 							<li class="fragment">
 								<h3>Responsive</h3>
@@ -347,41 +384,12 @@
 								<h3>media query</h3>
 							</li>
 							<li class="fragment">
+								<h3>Specificity</h3>
+							</li>
+							<li class="fragment">
 								<h3>download conditional css files</h3>
 							</li>
 						</ul>
-					</section>
-					<section>
-						<h2></h2>
-						<ul>
-							<li class="fragment">
-								<h3>float</h3>
-							</li>
-							<li class="fragment">
-								<h3>px, em, %, pt</h3>
-							</li>
-							<li class="fragment">
-								<h3>visibility hidden vs display none</h3>
-							</li>
-							<li class="fragment">
-								<h3>absolute, relative, fixed, static position</h3>
-							</li>
-							<li class="fragment">
-								<h3>inline, block, inline-block</h3>
-							</li>
-							<li class="fragment">
-								<h3>pseudo classes</h3>
-							</li>
-							<li class="fragment">
-								<h3>align center-center p in a div</h3>
-							</li>
-							<li class="fragment">
-								<h3>Specificity</h3>
-							</li>
-						</ul>
-						<br>
-						<br>
-						<a href="http://www.thatjsdude.com/interview/css.html">CSS Questions Answer</a>
 					</section>
 					<section>
 						<img src="images/webDesigner.jpg" alt="">
@@ -456,6 +464,59 @@
 						<br>
 						<br>
 						<a href="http://www.thatjsdude.com/interview/js1.html">JS: algorithm</a>
+					</section>
+					<section>
+						<h2>String Reverse</h2>
+						<pre><code>
+function reverse(str){
+  var rtnStr = '';
+
+  for(var i = str.length-1; i>=0;i--){
+    rtnStr +=str[i];
+  }
+  return rtnStr;
+}
+
+
+> reverse('you are a nice dude');
+  = "edud ecin a era uoy"
+						</code></pre>
+					</section>
+					<section>
+						<h2>recursive</h2>
+						<pre><code>
+function reverse (str) {
+    if (str === "") {
+        return "";
+    } else {
+        return reverse(str.substr(1)) + str.charAt(0);
+    }
+}
+						</code></pre>
+					</section>
+					<section>
+						<h2>use build in method</h2>
+						<pre><code>
+function reverse(str){
+
+  return str.split('').reverse().join('');
+
+}
+						</code></pre>
+					</section>
+					<section>
+						<h2>Extension of native String</h2>
+						<pre><code>
+String.prototype.reverse = function (){
+  return this.split('').reverse().join('');
+}
+
+						</code></pre>
+						<pre class="fragment"><code>
+
+> 'js dude'.reverse();
+  = "edud sj"
+						</code></pre>
 					</section>
 					<section>
 						<h2>JavaScript - intermediate</h2>
@@ -578,6 +639,14 @@
 							<li class="fragment">Always leave a extra jacket on your chair</li>
 							<li class="fragment">Compose email during office hours, send it midnight or weekends</li>
 						</ol>
+					</section>
+				</section>
+				<section>
+					<section>
+						<img src="images/html1.jpg" alt="">
+					</section>
+					<section>
+						<img src="images/foundJob.jpg" alt="">
 					</section>
 				</section>
 				<section>
