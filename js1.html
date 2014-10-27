@@ -128,17 +128,16 @@ function isPrime(n){
         <p><strong>You: </strong> yes. the divisor are increased 1 at a time. after 3 i can increase by 2. if a number is divisible by any even number, it will be divisible by 2.</p>
         <p><strong>Extra:</strong> if you dont have to increase the divisor up to the number. you can stop much earlier. let me explain it in the following steps (just seat back and read as many times as needed)</p>
         <div>
-          <button id = "primeExtra" type="button" class="toggleExample btn btn-primary">show example</button>
+          <button id = "primeExtra" type="button" class="toggleExample btn btn-primary">Show Explanation</button>
           <div id="primeExtraExample" class="hide">
-        
-        <ul>
-          <li><strong>step-1:</strong> Any number will not be divisible by a number bigger than half of it. for example, 13 will never be divisible by 7, 8, 9 .. it could be as big as half of it for even number. for example, 16 will be divisible by 8 but will never be by 9, 10, 11, 12...</li>
-          <li><strong>Decision:</strong> a number will never be divisible by a number bigger than half of its values. So, we dont have to loop 50%</li>
-          <li><strong>step-2:</strong> Now, if a number is not divisible by 3. (if it is divisible by 3, then it wouldn't be a prime number). then it would be divisible any number bigger than the 1/3 of its value. for example, 35 is not divisible by 3. hence it will be never divisible by any number bigger than 35/3 will never be divisible by 12, 13, 14 ... if you take an even number like 36 it will never be divisible by 13, 14, 15 </li>
-          <li><strong>Decision:</strong> a number could be divisible by numbers 1/3 of its value.</li>
-          <li><strong>step-3:</strong> For example u have the number 127. 127 is not divisible by 2 hence you should check upto 63.5. Secondly, 127 is not divisible by 3. So, you will check up to 127/3 approximately 42. It is not divisible by 5, divisor should be less than 127/5 approximately 25  not by 7. So, where should we stop?</li>
-          <li><strong>Decision:</strong> divisor would be less than Math.sqrt (n)</li>
-        </ul>
+            <ul>
+              <li><strong>step-1:</strong> Any number will not be divisible by a number bigger than half of it. for example, 13 will never be divisible by 7, 8, 9 .. it could be as big as half of it for even number. for example, 16 will be divisible by 8 but will never be by 9, 10, 11, 12...</li>
+              <li><strong>Decision:</strong> a number will never be divisible by a number bigger than half of its values. So, we dont have to loop 50%</li>
+              <li><strong>step-2:</strong> Now, if a number is not divisible by 3. (if it is divisible by 3, then it wouldn't be a prime number). then it would be divisible any number bigger than the 1/3 of its value. for example, 35 is not divisible by 3. hence it will be never divisible by any number bigger than 35/3 will never be divisible by 12, 13, 14 ... if you take an even number like 36 it will never be divisible by 13, 14, 15 </li>
+              <li><strong>Decision:</strong> a number could be divisible by numbers 1/3 of its value.</li>
+              <li><strong>step-3:</strong> For example u have the number 127. 127 is not divisible by 2 hence you should check upto 63.5. Secondly, 127 is not divisible by 3. So, you will check up to 127/3 approximately 42. It is not divisible by 5, divisor should be less than 127/5 approximately 25  not by 7. So, where should we stop?</li>
+              <li><strong>Decision:</strong> divisor would be less than Math.sqrt (n)</li>
+            </ul>
         <h3>try 2</h3>
         <p><strong>Don't worry!</strong> if you didnt get it. just leave it. If you are not applying for a Research post, you would be alright.</p>
         <pre><code>
@@ -629,7 +628,8 @@ function rand7(){
       </div>
       <div id="missingNumber">
         <h2>15. missing number</h2>
-        <p><strong>Question:</strong> from a unsorted array of numbers 1 to 100 except one number. how will you find that number. </p>
+        <p><strong>Question:</strong> from a unsorted array of numbers 1 to 100 excluding one number, how will you find that number.</p>
+        <p><strong>Explanation:</strong> You have an array of numbers 1 to 100 in an array. Only one number is missing in the array. The array is unsorted. Find the missing number.</p>
         <p><strong>Answer:</strong> You have to act like you are thinking a lot. and then talk about the sum of a linear series  of n numbers = n*(n+1)/2</p>
         <pre><code>
 function missingNumber(arr){
@@ -811,33 +811,34 @@ var arr = str.split(''),
     restPerms,
     next;
 
-    //for one or less item there is only one permutation 
     if (len == 0)
         return [str];
 
     for (var i=0; i&lt;len; i++)
     {
-        //copy original array to avoid changing it while picking elements
         rest = Object.create(arr);
-
-        //splice removed element change array original array(copied array)
-        //[1,2,3,4].splice(2,1) will return [3] and remaining array = [1,2,4]
         picked = rest.splice(i, 1);
 
-        //get the permutation of the rest of the elements by passing array as string
         restPerms = permutations(rest.join(''));
 
-       // Now concat like a+permute(bc) for each
-       for (var j=0; j&lt;restPerms.length; j++)
+       for (var j=0, jLen = restPerms.length; j&lt; jLen; j++)
        {
            next = picked.concat(restPerms[j]);
            perms.push(next.join(''));
        }
     }
-
    return perms;
 }
         </code></pre>
+        <p><strong>Explanation: </strong></p>
+        <ul>
+          <li><strong>Idea: </strong> Idea is very simple. We will convert the string to an array. from the array we will pick one character and then permute rest of it. After getting the permutation of the rest of the characters, we will concatenate each of them with the character we have picked. </li>
+          <li><strong>step-1</strong> First copy original array to avoid changing it while picking elements</li>
+          <li><strong>step-2</strong> Use splice to removed element from the copied array. We copied the array because splice will remove the item from the array. We will need the picked item in the next iteration.</li>
+          <li><strong>step-3</strong> [1,2,3,4].splice(2,1) will return [3] and remaining array = [1,2,4]</li>
+          <li><strong>step-4</strong> Use recursive method to get the permutation of the rest of the elements by passing array as string</li>
+          <li><strong>step-5</strong> Finally, concat like a+permute(bc) for each</li>
+        </ul>
       </div>            
       <div>
         <h2>similar question</h2>        

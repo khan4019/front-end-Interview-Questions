@@ -42,7 +42,10 @@
       a:visited
       { 
         color: rgba(218, 209, 149, 0.98);
-      }    
+      }   
+      .invisibleElement{
+        color: white;
+      } 
       /*for pure css navigation drop down*/   
       .myNav1 ul ul{
         display: none;
@@ -63,8 +66,27 @@
         float: none;
       }
       .myNav3 ul li a{
+        text-decoration: none;
         padding: 20px 40px;        
-      }      
+      }
+      .myNav4 ul{
+        position: relative;
+      }     
+      .myNav4 ul ul {
+        position: absolute;
+      } 
+      .myNav5 ul{
+        background: #efefef; 
+      }
+      .myNav5 ul li:hover{
+        background: #4b545f;
+      }
+      .myNav ul li a{
+        color: #757575;
+      }
+      .myNav5 ul li:hover a{
+        color:#fff;
+      }
     </style>
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
@@ -99,10 +121,12 @@
       <p class="gray"> <span class="purpleBold">Warning!</span>, if you have couple of tattoos in your body, this is not the right place. You certainly have more in depth knowledge, fancy portfolio and you have to express that. These questions are for lazy intermediate JS developers to get the job by creating an illusion of familiarity with css---</p> -->
         <div>
           <h2>Pure css navigation</h2>
+          <p><strong>Question: </strong> Can you create a navigation like the image below? Doesnt have to pretty. Don't spend more than 10min.</p>
+          <img src="images/layout.png">
           <h4>Step-1: Create html</h4>
           <p>Just create an unordered list <code>&lt;ul&gt;&lt;/ul&gt;</code> and all the menu options will be list item <code>&lt;li&gt;&lt;/li&gt;</code>. And to navigate to somewhere we will use an anchor tag <code>&lt;a&gt;&lt;/a&gt;</code>. If you have a drop down menu, then create unordered list list the list item.</p>
           <pre><code>
-&lt;nav class = &quot;myNav&quot;&gt;
+&lt;nav&gt;
   &lt;ul&gt;
     &lt;li&gt;&lt;a href=&quot;#&quot;&gt;JavaScript&lt;/a&gt;
       &lt;ul&gt;
@@ -238,8 +262,10 @@ nav ul li{
             </ul>
           </nav>
           </div>
+          <p class="">Content Below 1</p>
+          <p class="">Content Below 2</p>
           <h4>Step -4: add more style</h4>
-          <p></p>
+          <p>Now will solve two problem. Most important problem is, As the menu item is sitting next to each other </p>
           <pre><code>
 nav ul ul li{
   float: none;
@@ -279,16 +305,20 @@ nav ul li a{
               </ul>
             </nav>
           </div>
+          <p class="">Content Below 1</p>
+          <p class="">Content Below 2</p>
+          <p class="">Content Below 3</p>
+          <p class="">Content Below 4</p>
           <div>
-            <h4>Step -5: add more style</h4>
-          <p></p>
+          <h4>Step -5: add more style</h4>
+          <p>To avoid forcing content below. you have to apply two rules. First, make ul under nav to be positioned as relative. second, make ul under ul (which contains sub menu items), to be positioned relative</p>
+          <p>Now, sub menu will not be forced below.</p>
           <pre><code>
-nav ul ul li{
-  float: none;
-}
-
-nav ul li a{
-  padding: 20px 40px;        
+nav ul{
+  position: relative;
+}     
+nav ul ul {
+  position: absolute;
 }
           </code></pre>
           <strong>output:</strong>
@@ -322,13 +352,61 @@ nav ul li a{
             </nav>
           </div>
           </div>
+          <p>Content Below 1</p>
+          <p>Content Below 2</p>
+          <p>Content Below 3</p>
+          <p>Content Below 4</p>
+          <div>
+          <h4>Step - 6: put some color</h4>
+          <p>To avoid forcing content below. you have to apply two rules. First, make ul under nav to be positioned as relative. second, make ul under ul (which contains sub menu items), to be positioned relative</p>
+          <p>Now, sub menu will not be forced below.</p>
+          <pre><code>
+nav ul{
+  background: #efefef; 
+}
+nav ul li:hover{
+  background: #4b545f;
+}
+nav ul li a{
+  color: #757575;
+}
+nav ul li:hover a{
+  color:#fff;
+}
+          </code></pre>
+          <strong>output:</strong>
+          <div>
+            <nav class="myNav1 myNav2 myNav3 myNav4 myNav5">
+              <ul>              
+                <li><a href="#">JavaScript</a>
+                  <ul>
+                    <li><a href="#">Basic JavaScript</a></li>
+                    <li><a href="#">Beginners Algorithm</a></li>
+                    <li><a href="#">Dom related</a></li>
+                  </ul>
+                </li>              
+                <li><a href="#">CSS</a>
+                  <ul>
+                    <li><a href="#">Basic CSS questions</a></li>
+                    <li><a href="#">Pure CSS mockup</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">HTML</a></li>
+                <li><a href="#">Web</a></li>
+                <li><a href="#">Data Structure</a>
+                  <ul>
+                    <li><a href="#">Linked List</a></li>
+                    <li><a href="#">Search and Sort</a></li>
+                    <li><a href="#">Tree</a></li>
+                    <li><a href="#">Graph, map, vector</a></li>
+                  </ul>
+                </li>              
+              </ul>
+            </nav>
+          </div>
+          </div>
           <h4>End</h4>
-          <p>ref: <a href="http://www.delimited.io/blog/2014/6/17/force-directed-graphs-in-d3">Force directed graph in d3</a></p>
-          <li>try this: <a href="http://andornagy.com/css-dropdown-menu/">css drop down menu</a> with styled like <a href="http://line25.com/tutorials/how-to-create-a-pure-css-dropdown-menu">create pure css</a></li>
-          <li>option-2: <a href="http://jsfiddle.net/XPE3w/7/">js fiddle</a></li>
-          <li>another option:<a href="http://www.paulund.co.uk/creating-a-pure-css-horizontal-navigation-with-drop-downs">this one</a> combined with <a href="http://cssdeck.com/labs/pure-css3-smooth-drop-down-menu">this one</a></li>
-          <h4>or at least make something like this</h4>
-          <img src="images/layout.png">
+          <p> ref: <a href="http://line25.com/tutorials/how-to-create-a-pure-css-dropdown-menu">create pure css</a> <a href="http://cssdeck.com/labs/pure-css3-smooth-drop-down-menu">Extra one</a></p>
         </div>
         <div>
           <h2>psd to mockup</h2>
@@ -378,7 +456,7 @@ nav ul li a{
           <li>prevent line break</li>
           <li>create circles with border radius (45)</li>
           <li>css tooltips</li>
-          
+          <li>ref: <a href="http://www.delimited.io/blog/2014/6/17/force-directed-graphs-in-d3">Force directed graph in d3</a></li>
           <li><a href="http://fortysevenmedia.com/blog/archives/making_your_footer_stay_put_with_css/">Making your footer saty at foot with css</a></li>
           <li><a href="http://blog.themeforest.net/tutorials/vertical-centering-with-css/">five ways of vertical centering</a></li>
           <li><a href="http://24ways.org/2008/making-modular-layout-systems/">making modular layout</a></li>
@@ -406,6 +484,8 @@ nav ul li a{
        <div>
          <h2>other questions</h2>
          <ol>
+            <li><a href="http://www.pixelbind.com/make-a-div-stick-when-you-scroll/">make a div follow when u scroll</a></li>
+            <li>two column on fixed another fluid <a href="http://stackoverflow.com/questions/5195836/2-column-div-layout-right-column-with-fixed-width-left-fluid">check this </a> or <a href="http://radiatingstar.com/make-a-layout-with-fluid-and-fixed-size-columns">another example</a></li>
            <li>how quirks mode changes css box model</li>
            <li>why quirks mode is used</li>
            <li>what are the problem of quirk mode in old browser. may be FOUC (flash of unstyled content). most likely happens with old IE</li>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="that js dude" content="">    
+    <title>Intermediate developer</title>
+
+    <link rel="shortcut icon" href="images/favicon.jpg">    
+    <link rel="stylesheet" href="css/bootstrap.min.css" >
+    <link rel="stylesheet" href="css/zenburn.css">
+    <!-- Custom styles for this template -->
+    <style>
+      /* Move down content because we have a fixed navbar that is 50px tall */
+      body {        
+        padding-bottom: 20px;
+      }
+      .purpleBold{
+        color:purple;        
+        font-weight: bold;
+      }
+      .gray
+{        color: gray;
+      }
+      .blueish{
+        color: rgba(151, 182, 209, 0.98);
+      }
+      .singInStuff{
+        margin-top: 9px;
+      }
+      #uName{
+        margin-top: -7px;
+      }
+      .skipListItem{
+        list-style-type: none;
+      }
+      .skipListItem a{
+        color: inherit;
+      }
+      a:visited
+      { 
+        color: rgba(218, 209, 149, 0.98);
+      }
+      /*style for demo*/
+      
+    </style>
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+ 
+  <body>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>JS: OOP Quiz</h1>        
+        <h2>part -3: intermediate</h2>
+        <p>August 26, 2014</p>
+<!--         <div id="fb-root"></div><div class="fb-like" data-href="http://www.thatjsdude.com/interview/js1.htmQuiz" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div> &nbsp;<div class="g-plusone"></div>
+      -->
+      </div> 
+    </div>
+    <div class="container">
+      <!-- Example row of columns -->
+
+      <div class="row center">        
+        <!-- <iframe width="853" height="480" src="//www.youtube.com/embed/Rx_JFOSxgpY" frameborder="0" allowfullscreen></iframe> -->
+      </div>
+           
+      <!-- <p class="gray">if you are little more comfortable or claim to be comfortable with javascript, these questions would not be enough for you. more coming</p>
+      <p class="gray"> <span class="purpleBold">More Questions</span> <a href="css.html">css interview questions</a>, <a href="html.html">html interview questions</a> </p> -->
+      <div>
+        <h2>OOP</h2>
+        <p>Object oriented programming (OOP) has the following key parts</p>
+        <ul>
+           <li>class</li>
+           <li>inheritance</li>
+           <li>polymorphism</li>
+           <li>encapsulation</li>
+           <li>Abstraction</li>
+           <li>prototype chain</li>
+           <li>super</li>
+           <li></li>
+           <li></li>
+         </ul> 
+      </div>
+      <div>
+        <h2>class</h2>
+        <p>a function is a class in javascript. you can use either function declaration or function expression, either one will work.</p>
+        <pre><code>
+function Person(){}
+//or
+var Person = function(){}
+        </code></pre>
+        <p>if you want to have a property, u have to add the property to <code>this</code>. Similarly, if you want to have a method on the object, you will add that to <code>this</code> object as well. In the following code, we have a property called <code>name</code> and a method <code>sayHi</code></p>
+        <pre><code>
+function Person(name){
+  this.name = name;
+  this.sayHi = function(){
+      return 'Hi from ' + this.name;
+  }
+}
+        </code></pre>
+        <p>to create an instance of the object, you need to use <code>new</code></p>
+        <pre><code>
+var shelly = new Person('Sheldon Cooper');
+var amy = new Person('Amy Farrah Fowler');
+
+shelly.sayHi(); //"Hi from Sheldon Cooper"
+amy.sayHi(); //"Hi from Amy Farrah Fowler"
+        </code></pre>
+        <p>This works if you create five objects. However, every single object has it's own sayHi method which is not memory efficient if you create one hundred object. We have to use inheritance in similar case</p>
+      </div>
+      <div>
+        <h2>prototype Inheritance</h2>
+        <p><strong>prototype</strong> if you add the method to the prototype object of your class, then the method will be maintained at a higher level of the inheritance.</p>
+        <pre><code>
+function Person(name){
+  this.name = name;  
+}
+
+Person.prototype.sayHi = function(){
+  return 'Hi from '+ this.name;
+}
+        </code></pre>
+        <p>You can test that sayHi is not a method on the constructed object by using <code>hasOwnProperty</code></p>
+        <pre><code>
+var shelly = new Person('Sheldon Cooper');
+
+shelly.hasOwnProperty('sayHi'); //false
+        </code></pre>
+        <p>Even if you add a method to the prototype object after creating the object, it will also be inherited.</p>
+        <pre><code>
+Person.prototype.sayBye = function(){
+  return 'Good bye from '+ this.name;
+}
+
+shelly.sayBye(); //"Good bye from Sheldon Cooper"
+        </code></pre>
+      </div>
+      <div>
+        <h2>Inherit Object</h2>
+        <p>If you want to inherit directly from an object, you can use <code>object.create</code></p>
+        <pre><code>
+function Dad(name){
+  this.name = name;
+  this.whoIsYourDad = function(){
+     return this.name;
+  }
+}
+
+var son = 
+
+
+        </code></pre>
+        <pre><code>
+//internally it works 
+Object.create = function(o) {
+  function F() {}
+  F.prototype = o;
+  return new F();
+};
+        </code></pre>
+      </div>
+      <div>
+        <h2>encapsulation</h2>
+        <p></p>
+        <pre><code></code></pre>
+      </div>
+      <div>
+        <h2>Abstract</h2>
+        <p>The abstract modifier indicates that the thing being modified has a missing or incomplete implementation. The abstract modifier can be used with classes, methods, properties, indexers, and events. Use the abstract modifier in a class declaration to indicate that a class is intended only to be a base class of other classes. Members marked as abstract, or included in an abstract class, must be implemented by classes that derive from the abstract class.</p>
+        <ul>
+          <li>An abstract class cannot be instantiated.</li>
+          <li>An abstract class may contain abstract methods and accessors.</li>
+          <li>It is not possible to modify an abstract class with the sealed (C# Reference) modifier because the two modifers have opposite meanings. The sealed modifier prevents a class from being inherited and the abstract modifier requires a class to be inherited.</li>
+          <li>A non-abstract class derived from an abstract class must include actual implementations of all inherited abstract methods and accessors.</li>
+        </ul>
+        <pre><code>
+          
+        </code></pre>
+        <p>ref: <a href="http://msdn.microsoft.com/en-us/library/sf985hc5.aspx">C# abstract</a></p>
+      </div> 
+      <div>
+        <h2>virtual</h2>
+        <p>how to achieve virtual in javascript</p>        
+        <pre><code>
+          
+        </code></pre>
+        <p>ref: <a href="http://msdn.microsoft.com/en-us/library/9fkccyh4.aspx">C# virtual</a></p>
+      </div>
+      <div>
+        <h2>base</h2>
+        <p>how to achieve base in JavaScript</p>
+        <pre><code>
+          
+        </code></pre>
+        <p>ref: <a href="http://msdn.microsoft.com/en-us/library/hfw7t1ce.aspx">C# base</a></p>
+      </div>
+      <div>
+        <h2>namespace</h2>
+        <p>how to achieve namespace in JavaScript</p>
+      </div>
+      <div>
+        <h2>static</h2>
+        <p>ref: <a href="http://msdn.microsoft.com/en-us/library/98f28cdx.aspx">how to achieve static in JS</a></p>
+      </div>
+
+<div>
+  <!-- <h3 class="purpleBold">Express anger!</h3>
+  <p class="gray">Feel free to express your anger (sorry u have to use facebook). also find out mistakes ( technical, wrong answer, spelling, grammar, sentence, whatever), let ur dude learn and grow.</p>
+  <div class="fb-comments" data-href="http://www.thatjsdude.com/interview/js1.html" data-numposts="5" data-colorscheme="light"></div>
+-->
+</div> 
+      <hr>
+
+      <footer>
+        <p>&copy;thatJSDude <script type="text/javascript">document.write(new Date().getFullYear());</script></p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery-2.0.3.min.js"></script>    
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/highlight.pack.js"></script>    
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="js/toggleExample.js"></script>
+    <script type="text/javascript">
+      // //social plugins
+      // //g+
+      // (function() {
+      //   var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+      //   po.src = 'https://apis.google.com/js/platform.js';
+      //   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+      // })();
+      // //fb
+      // (function(d, s, id) {
+      //   var js, fjs = d.getElementsByTagName(s)[0];
+      //   if (d.getElementById(id)) return;
+      //   js = d.createElement(s); js.id = id;
+      //   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+      //   fjs.parentNode.insertBefore(js, fjs);
+      // }(document, 'script', 'facebook-jssdk'));
+    </script>
+  </body>
+</html>

@@ -66,7 +66,7 @@
     <div class="jumbotron">
       <div class="container">
         <h1>JS: Interview Questions</h1>        
-        <h4>Tree that relatd interview questions for intermediate JavaScript developers</h4>
+        <h4>Algorithm interview questions for intermediate JavaScript developers</h4>
         <h2>part-6: expert</h2>
         <p>June 29, 2014</p>
         <!-- <div id="fb-root"></div><div class="fb-like" data-href="http://www.thatjsdude.com/interview/dom.html" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div><div class="g-plusone"></div>  -->
@@ -83,92 +83,14 @@
       <p class="gray"> <span class="purpleBold">More Questions</span> <a href="css.html">css interview questions</a>, <a href="html.html">html interview questions</a> </p> -->
       <div id="questionList">
         <h2>todo list</h2>
-        <ul>
-          <li>binary, binary search tree <a href="http://blog.yojimbocorp.com/2012/08/21/introduction-to-data-structures-and-algorithms-in-javascript-binary-search-tree/">js bst</a> or <a href="https://gist.github.com/trevmex/821973">bst</a></li>
-          <li>balanced, unbalanced tree</li>
-          <li>full, complete tree</li>
-          <li>red black tree, AVL tree</li>
-          <li>tries</li>
-          <li>Graph Traversal</li>
-          <li>BFS, DFS</li>
-          <li>traversal: pre order, in order, post order</li>
-          <li>R tree</li>
-          <li>nary Tree</li>
-          <li>B-Tree</li>
-          <li>B+ Tree</li>
-          <li>Dancing Tree</li>
-          <li>Decision Tree</li>
-          <li><a href="http://en.wikipedia.org/wiki/Minimal_spanning_tree">minimal spanning tree</a></li>
-          <li>heap</li>          
-        </ul>
-        <h4>tree library</h4>
-        <ul>
-          <li><a href="https://www.npmjs.org/package/node-tree-data">node tree data</a></li>
-          <li><a href="http://jnuno.com/tree-model-js/">tree model</a></li>
-          <li><a href="https://github.com/mauriciosantos/buckets/">bucket</a></li>
-          <li><a href="https://github.com/aaronj1335/t-js">t.js</a></li>
-          <li><a href="https://github.com/stephen-james/DataStructures.Tree">data structure.Tree</a></li>
-          <li><a href="https://github.com/afiore/arboreal">arboreal</a></li>
-        </ul>
-        <h4>graph</h4>
-        <ul>
-          <li><a href="http://en.wikipedia.org/wiki/Directed_graph">directed graph</a></li>
-          <li><a href="http://en.wikipedia.org/wiki/Weighted_graph#Weighted_graphs_and_networks">weighted graphs and networks</a></li>
-          <li><a href="http://en.wikipedia.org/wiki/Shortest_path">shortest path</a></li>
-          <li><a href="http://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">dijkstra algorithm</a></li>
-          <li><a href="http://en.wikipedia.org/wiki/Maximal_flow">maximum flow problem</a></li>
-          <li><a href="http://en.wikipedia.org/wiki/Graph_colouring">graph coloring</a></li>
-        </ul>
       </div>
-      <div id="bst">
-        <h2>Binary Search Tree</h2>
-        <p><strong>Question:</strong> How would you create a binary search tree?</p>
-        <p><strong>Answer:</strong></p>
-        <p>to create a tree you need a node. a node in a tree looks like</p>
-        <pre><code>
-var node = {
-  value: 17, 
-  left: null,
-  right: null
-}
-        </code></pre>
-        <p>Create a constructor for binary search tree</p>
-        <pre><code>
-function BinarySearchTree(){
-  this.root = null;
-}
-        </code></pre>
-        <p>Now you need to understand the structure of a binary search tree. For every node value in the left is smaller than the value of the node and value at the right is higher than the value of the root.</p>
-        <p>so while inserting a value you have to find the appropriate location</p>
-        <pre><code>
-BinarySearchTree.prototype.push = function(val){
-  var root = this.root;
-  if(!root){
-    this.root = {value: val, left: null, right: null}
-    return;   
-  }
-  //if root exists
-}
-        </code></pre>
-      </div>
+      
       <div>
         <h2>Questions list</h2>
         <h4>from cracking the coding interview</h4>
         <ul>        
-          <li><a href="http://www.ardendertat.com/2011/10/10/programming-interview-questions-7-binary-search-tree-check/">check binary tree is balanced</a></li>
-          <li>BST from sorted array</li>
-          <li>From BST, linked list for each level</li>
-          <li>check binary tree is BST</li>
-          <li>next node (in-order successor) of BST</li>
-          <li>First common ancestor of two nodes in BT</li>
-          <li>Very large two BT. check one is sub tree of another</li>
-          <li>all path that sums to a number in BT</li>          
-          <li>fore directed graph, check whether there is a route between two node</li>
-          <li><a href="http://www.crazyforcode.com/tree/">carzy for code list of tree questions</a></li>
-          <li><a href="http://www.geeksforgeeks.org/forums/forum/trees-specific-questions/">geeks for geeks questions</a></li>
-          <li><a href="http://www.glassdoor.com/Interview/binary-trees-interview-questions-SRCH_KT0,12.htm">glassdoor questions</a></li>
-          <li><a href="https://www.youtube.com/playlist?list=PLC3855D81E15BC990">you tube got some questions as well</a></li>
-          <li><a href="http://www.careercup.com/page?pid=trees-and-graphs-interview-questions">career cup list of question</a></li>
+          <li>find median on an stream of integers: <a href="http://www.careercup.com/question?id=5681210609106944">link</a></li>
+          <li>quadra tree: <a href="http://www.careercup.com/question?id=5768273018748928">link</a></li>
         </ul>
       </div>
       <div>
