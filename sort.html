@@ -95,7 +95,12 @@
       <div id="binarySearch">
         <h2>binary search</h2>
         <p><strong>Question:</strong> How to implement binary search algorithm?</p>
-        <p><strong>Answer:</strong> Here is the iterative way of implementing binary search in an array. Just think about what is the condition in the while loop. Why it is like that. You can figure out rest of it</p>
+        <p><strong>Answer:</strong>Binary search tries to find an item in a sorted list.</p>
+        <p>For example, if you have an array like <code>[3,9,11,21,32,37,43,56,63,69,78]</code> and you are looking for 69.</p>
+        <p>If you randomly select an item, lets select the middle one, you got: 37. You are looking for 69. As you know, the array is sorted, you will know that 69 will be after 37.</p>
+        <p>Now, you will go and check the middle item of the upper half of the array. As you know your item would be in the upper half of the array.</p>
+        <p>The middle item of the upper half of the array is 63. Which is smaller than the number you are looking for. Hence, you will keep the </p>
+        <p><strong>::::</strong> Here is the iterative way of implementing binary search in an array. Just think about what is the condition in the while loop. Why it is like that. You can figure out rest of it</p>
         <pre><code>
 function binarySearchIterative(arr, val){
    var start = 0,
@@ -180,7 +185,7 @@ bubbleSort([1,2,3,4,5,6]); //[1, 2, 3, 4, 5, 6]
       </div>   
       <div id="selectionSort">
         <h2>Selection Sort</h2>
-        <p><strong>how does it works:</strong> It selects the lowest element in the array for a particular position. Here, for the first position of the array it goes through the whole array and find the index of the lowest element. After getting the index of the lowest element. it swaps the lowest element with the element in the first position. Hence the lowest in the array comes to the first position.</p>
+        <p><strong>how does it works:</strong> It selects the lowest element in the array for a particular position (first position or last position). For ascending sort, we will put in the first position of the array. loop pointer goes through the whole array and find the index of the lowest element. After getting the index of the lowest element. it swaps the lowest element with the element in the first position. Hence the lowest in the array comes to the first position.</p>
         <p>now looks for the second lowest for the second position element. by comparing rest of the elements and keep going</p>
         <pre><code>
 function selectionSort(arr){
