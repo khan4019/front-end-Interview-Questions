@@ -99,8 +99,9 @@
         <p>For example, if you have an array like <code>[3,9,11,21,32,37,43,56,63,69,78]</code> and you are looking for 69.</p>
         <p>If you randomly select an item, lets select the middle one, you got: 37. You are looking for 69. As you know, the array is sorted, you will know that 69 will be after 37.</p>
         <p>Now, you will go and check the middle item of the upper half of the array. As you know your item would be in the upper half of the array.</p>
-        <p>The middle item of the upper half of the array is 63. Which is smaller than the number you are looking for. Hence, you will keep the </p>
-        <p><strong>::::</strong> Here is the iterative way of implementing binary search in an array. Just think about what is the condition in the while loop. Why it is like that. You can figure out rest of it</p>
+        <p>The middle item of the upper half of the array is 63. Which is smaller than the number you are looking for. Hence, you will keep the right side and pick the middle</p>
+        <p>The middle of the right side is 69. Thats what you were looking for.</p>
+        <p><strong>why binary search</strong> If you were using linear search (start from the left and check one by one), you have to check 10 times to find the item. If you use binary search, you get after three times. You see the benefits!! Now if you have a million members</p>
         <pre><code>
 function binarySearchIterative(arr, val){
    var start = 0,
