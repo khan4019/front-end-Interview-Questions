@@ -92,68 +92,9 @@
       </ol>
     </div>
     
-      <div id="binarySearch">
-        <h2>binary search</h2>
-        <p><strong>Question:</strong> How to implement binary search algorithm?</p>
-        <p><strong>Answer:</strong> Here is the iterative way of implementing binary search in an array. Just think about what is the condition in the while loop. Why it is like that. You can figure out rest of it</p>
-        <pre><code>
-function binarySearchIterative(arr, val){
-   var start = 0,
-       end = arr.length-1, 
-       mid, 
-       midVal;
-    
-   while(end >= start){
-     mid = Math.floor((start+end)/2);
-
-     midVal = arr[mid];
-          
-     if(midVal==val)
-         return mid;
-     
-     if(val&lt;midVal)
-         end = mid - 1;
-     if(val&gt;midVal)
-         start = mid + 1;
-          
-  } 
-  return -1;
-}
-
-//try it now
-binarySearchIterative([1,2,3,4,5], 1); //0
-binarySearchIterative([1,2,3,4,5], 5); //4
-binarySearchIterative([1,2,3,4,5], 55); //-1
-        </code></pre>
-        <pstrong  Performance</p>
-        <p>Recusrive algo</p>
-        <pre><code>
-function binarySearchRecursive(arr, val, startIdx, endIdx){
-   var mid = Math.floor((startIdx + endIdx)/2), 
-       midVal = arr[mid];
-   
-   if(midVal == val)
-      return mid;
-   if (endIdx &lt; startIdx)
-      return -1;
-
-   if (val&lt;midVal)
-      return binarySearchRecursive(arr, val, startIdx, mid -1);
-   else if (val &gt; midVal)
-      return binarySearchRecursive(arr, val, mid + 1, endIdx);
-
-}
-
-//try it now
-binarySearchRecursive([1,2,3,4,5], 1, 0, 4); //0
-binarySearchRecursive([1,2,3,4,5], 5, 0, 4); //4
-binarySearchRecursive([1,2,3,4,5], 2, 0, 4); //1
-binarySearchRecursive([1,2,3,4,5], 22, 0, 4); //-1
-        </code></pre>
-        <p>ref: <a href="http://en.wikipedia.org/wiki/Binary_search_algorithm">binary search</a></p>
-      </div>  
       <div id="bubbleSort">
         <h2>bubble sort</h2>
+        <p><strong>How it works:</strong> Bubble sort, you compare one item of an array with the previous item. If the previous item is bigger than the current item, you swap them. In that way bigger items are bubbling towards the end and smaller one goes towards the bottom. In one run you go from left to right and then you do </p>
         <p><strong>how does it works:</strong> In the code block below, you see two loops. one is inside another. the inner one starts with 1 and checks whether whether the previous value is greater than the current value. if previous one is bigger it swaps it. hence the smaller one goes to left and bigger one right. now the right one is compared again with the next. hence the bigger the biggest one taken to the right.</p>
         <p>look at the upper limit of the loop value is "i". hence it will run full length first time. second time value of i gets one less of the full length.</p>
         <p>the looping again starts from the the second element and compare the second one with the first item. if the first one is bigger than the second one, it is swapped. and goes upto the second to the last. Hence the second highest number goes to the second to the last position</p>
