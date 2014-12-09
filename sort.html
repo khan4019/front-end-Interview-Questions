@@ -144,6 +144,12 @@ function selectionSort(arr){
       </div>
       <div id="insertionSort">
         <h2>Insertion sort</h2>
+        <p><strong>How it works: </strong> If you are playing card and somebody is giving you a card one by one. When you are receiving card, you are planning to put them in a way so that the smaller is on the left. This means you want to insert them in a sorted way</p>
+        <p>If the first card you are getting is 5. you dont have to do anything with it. If the second card is 2, you want to put it before 5 so that the two cards you have are sorted. When you are putting the card with number 2 at the left you are changing the position of the card 5 from first position to second position.</p>
+        <p>If the third card is 4. you will insert them in the middle so that total set of cards are sorted. When you put the third card in the middle, you are actually moving the position card (card with number 5) from second position to third position.</p>
+        <p>Then you got 10. As this is the highest number. You just add it at last. You dont have to move any cards.</p>
+        <p>If the final card you are getting is 7. You just move the position of the card 10 and insert card 7.</p>
+        <p>Now you have a deck of card sorted. by inserting them in the right position</p>
         <p><strong>how does it works</strong>: It starts with the second element. pick the second element to be inserted and put it in a temp variable toInsert. if the first one is bigger than the item to be inserted, we move the first.</p>
         <p>Now first and second item is sorted.</p>
         <p>Then, pick the third element and check whether the second element is bigger than the third (toInsert). if smaller, move the second to the third position. Now, check with first element whether first is smaller than toInsert, move first one to the second position. Now insert toInsert in the first position.</p>
