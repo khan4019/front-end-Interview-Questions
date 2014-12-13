@@ -181,7 +181,11 @@ function insertionSort(arr){
       <div id="mergeSort">
         <h2>Merge Sort</h2>
         <p>its a divide and conquer type algorithm. </p>
-        <p>just break down your array into small and small pieces and until you have one items in each pieces. then merge together by comparing them. If you still have hard time to figure out what i am talking about, look at <a href="http://upload.wikimedia.org/wikipedia/commons/c/cc/Merge-sort-example-300px.gif">wiki merge sort gif</a></p>
+        <p>just break down your array into small and small pieces and until you have one items in each pieces. then merge together by comparing them. If you still have hard time to figure out what i am talking about, look at merge sort gif taken from wikipedia</p>
+        <img src="images/mergeSort.gif" alt="">
+        <p><strong>Code Merge Sort:</strong> Merge sort has two parts. Main part does divide or breaks down and second part is merging/combining parts. At the time of combining, parts are combined together.</p>
+        <p><strong>Divide:</strong> the first function named as mergeSort is actually a divide function. where an array is divided into two.</p>
+        <p><strong>merge:</strong> this is just merging two sorted array. Just be careful this two array could be in different size</p>
         <pre><code>
 function mergeSort(arr){
    var len = arr.length;
@@ -202,8 +206,8 @@ function merge(left, right){
       rLen = right.length,
       l = 0,
       r = 0;
-  while(l&lt; lLen && r&lt;rLen){
-     if(left[l]&lt;right[r]){
+  while(l &lt; lLen && r &lt; rLen){
+     if(left[l] &lt; right[r]){
        result.push(left[l++]);
      }
      else{
