@@ -223,47 +223,59 @@ function merge(left, right){
       <div id="quickSort">
         <h2>Quick sort</h2>
         <p><strong>how does it works:</strong></p>
-        <p>try to understand this one. in depth</p>
+        <p><strong>Step-1:</strong> You have to pick a pivot. This could be randomly selected. Here we select the middle elements of the array.</p>
+        <p><strong>Step-2:</strong> Put all the items smaller than the pivot value to the left and larger than the pivot value to the right.</p>
+        <p><strong>Step-3:</strong>Repeat the step-2 for both left and right side of the pivot (pick a pivot, put all item smaller than the pivot to the left and larger on the right)</p>
+        <h4>Explain the code</h4>
+        <p><strong>Call Quick sort:</strong> Pass the array and pass left and right to the quickSort function. For the first call, left would be the index of the first element which is 0 and right would be the index of the last element which would be length -1.</p>
+        <p><strong>Select Pivot:</strong> We select pivot as the middle of the array. To make it working with any side of the array after partition (left or right), finding the middle index is left + 1/2 * (right - left)</p>
+        <p><strong>Call Partition function:</strong> After calculating the pivot, we send the pivot to the partition function. In the partition function we pass array, pivot index, left and right.</p>
+        <p><strong>partitionIndex:</strong> In the partition function, we keep move all the items smaller than the pivot value to the left and larger than pivot value to the right. We have to keep track of the position of the partition. so that we can split the array into two parts in the next step. This tracking of the index where we partition the array is done by using partitionIndex variable. the initial value is left.</p>
+        <p><strong>Swap function:</strong> This is just a helper function to swap values of the array.</p>
+        <p><strong>Hold Pivot</strong> Put pivot in the last element by swapping values between pivot index and right. After this, the pivot values goes to the right most element. When we are done moving elements, we will put the pivot values in the partitionIndex so that pivot values sits there and all value smaller than the pivot value stays in the left and larger ones goes to the right.</p>
+        <p><strong>move elements:</strong> we start a for loop from the left, and if the values is smaller than the pivot values we swap it with the position of the partitionIndex and increase the value of the partitionIndex. If the value is bigger, we don't do anything. We keep going until the element before the last element (remember last element is the pivot)</p>
+        <p><strong>place pivot</strong> After moving all the smallest element to the left, we swap the last element with the partitionIndex. By doing this, the pivot sits where it suppose to sit when the full array is sorted. As all elements left to it smaller and all element right to it is bigger. End of the function partition, return the partitionIndex</p>
+        <p><strong>Repeat the process: </strong>Now come back to quickSort function. when you get the partitionIndex, apply quickSort for the left side of the array and right side of the array. keep doing it until left is smaller than right.</p>
+        <pre><code>
+function quickSort(arr, left, right){
+   var len = arr.length, 
+   pivot,
+   partitionIndex;
+
+
+  if(left &lt; right){
+    pivot = left + Math.ceil((right - left)*0.5);
+    partitionIndex = partition(arr, pivot, left, right);
+    
+   //sort left and right
+   quickSort(arr, left, partitionIndex - 1);
+   quickSort(arr, partitionIndex + 1, right);
+  }
+  return arr;
+}
+        </code></pre>
+        <pre><code>
+function partition(arr, pivot, left, right){
+   var pivotValue = arr[pivot],
+       partitionIndex = left;
+
+   swap(arr, pivot, right);
+   
+   for(var i = left; i &lt; right; i++){
+    if(arr[i] &lt; pivotValue){
+      swap(arr, i, partitionIndex);
+      partitionIndex++;
+    }
+  }
+  swap(arr, right, partitionIndex);
+  return partitionIndex;
+}
+        </code></pre>
         <pre><code>
 function swap(arr, i, j){
    var temp = arr[i];
    arr[i] = arr[j];
    arr[j] = temp;
-}
-        </code></pre>
-        <pre><code>
-function partition(arr, pivot, left, right){
-   var storeIndex = left,
-       pivotValue = arr[pivot];
-
-   swap(arr, pivot, right);
-   
-   for(var i = left; i&lt;right;i++){
-    if(arr[i]&lt;pivotValue){
-      swap(arr, i, storeIndex);
-      storeIndex++;
-    }
-  }
-  swap(arr, right, storeIndex);
-  return storeIndex;
-}
-        </code></pre>
-        <pre><code>
-function quickSort(arr, left, right){
-   var len = arr.length, 
-   pivot,
-   newPivot;
-
-
-  if(left &lt; right){
-    pivot = left + Math.ceil((right - left)*0.5);
-    newPivot = partition(arr, pivot, left, right);
-    
-   //sort left and right
-   quickSort(arr, left, newPivot-1);
-   quickSort(arr, newPivot +1, right);
-  }
-  return arr;
 }
         </code></pre>
         <p>ref: <a href="https://gist.github.com/paullewis/1981455">quick sort</a></p>
