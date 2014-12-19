@@ -84,16 +84,24 @@
     <div id="questionList">
       <h2>todo list</h2>
       <ol>
-        <li>add questions</li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+        <li><a href="#bubbleSort">Bubble Sort</a></li>
+        <li><a href="#selectionSort">Selection Sort</a></li>
+        <li><a href="#insertionSort">Insertion Sort</a></li>
+        <li><a href="#mergeSort">Merger Sort</a></li>
+        <li><a href="#quickSort">Quick Sort</a></li>
+        <li><a href="#heapsort">Heap Sort</a></li>
+        <li><a href="#bucketSort">Bucket Sort</a></li>
+        <li><a href="#shellSort">Shell Sort</a></li>
+        <li><a href="#pigenholeSort">PigenHole Sort</a></li>
+        <li><a href="#binaryTreeSort">BinaryTree Sort</a></li>
+        <li><a href="#radixSort">Radix Sort</a></li>
+        <li><a href="#cocktailSort">Cocktail Sort</a></li>
+        <li><a href="#otherSort">Other Sort</a></li>
       </ol>
     </div>
     
       <div id="bubbleSort">
-        <h2>bubble sort</h2>
+        <h2>Bubble Sort</h2>
         <p><strong>How it works:</strong> Bubble sort, you compare one item of an array with the previous item. If the previous item is bigger than the current item, you swap them. In that way bigger items are bubbling towards the end and smaller one goes towards the bottom. In one run you go from left to right and then you do </p>
         <p><strong>how does it works:</strong> In the code block below, you see two loops. one is inside another. the inner one starts with 1 and checks whether whether the previous value is greater than the current value. if previous one is bigger it swaps it. hence the smaller one goes to left and bigger one right. now the right one is compared again with the next. hence the bigger the biggest one taken to the right.</p>
         <p>look at the upper limit of the loop value is "i". hence it will run full length first time. second time value of i gets one less of the full length.</p>
@@ -396,16 +404,6 @@ function swap(arr, i, j){
         <p><strong>others: </strong><a href="http://en.wikipedia.org/wiki/Gnome_sort">Gnome sort</a>, <a href="http://en.wikipedia.org/wiki/UnShuffle_Sort">unshuffle sort</a>, <a href="http://en.wikipedia.org/wiki/Strand_sort">Strand sort</a>, <a href="http://en.wikipedia.org/wiki/Smoothsort">smooth sort</a></p>
       </div>
     <div>
-      <h2>references</h2>
-      <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
-    </div>
-    <div>
       <h2>Need more:</h2>        
       <p>JavaScript part -1: <a href="js1.html">JS basic algorithm</a></p>
       <p>CSS: <a href="css.html">css related questions</a></p>
@@ -464,30 +462,6 @@ function swap(arr, i, j){
       //   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
       //   fjs.parentNode.insertBefore(js, fjs);
       // }(document, 'script', 'facebook-jssdk'));
-    </script>
-    <script type="text/javascript">        
-        document.getElementById('listToDestroy').addEventListener('click', function (e) {
-          var elm = e.target.parentNode;
-          elm.parentNode.removeChild(elm);
-          e.preventDefault();
-        }); 
-
-        document.getElementById('doubleHolder').addEventListener('click', function (e) {
-   
-           if(e.target.classList.contains('double')){
-              var btn = document.createElement('button');
-              btn.setAttribute('class', 'double');
-              btn.innerHTML = 'double';
-
-              var btn2 = document.createElement('button');
-              btn2.setAttribute('class', 'double');
-              btn2.innerHTML = 'double';
-             
-              this.appendChild(btn);
-              this.appendChild(btn2);
-              this.removeChild(e.target);   
-           }
-        }); 
     </script>
   </body>
 </html>
