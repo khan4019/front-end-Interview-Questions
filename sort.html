@@ -121,12 +121,15 @@ bubbleSort([1,2,3,4,5,6]); //[1, 2, 3, 4, 5, 6]
       </div>   
       <div id="selectionSort">
         <h2>Selection Sort</h2>
-        <p><strong>how does it works:</strong> It selects the lowest element in the array for a particular position. Here, for the first position of the array it goes through the whole array and find the index of the lowest element. After getting the index of the lowest element. it swaps the lowest element with the element in the first position. Hence the lowest in the array comes to the first position.</p>
-        <p>now looks for the second lowest for the second position element. by comparing rest of the elements and keep going</p>
+        <p><strong>how does it works:</strong> This is very simple. Go through the array, find the lowest element swap the lowest element with the first element. Hence first element is the lowest element in the array.</p>
+        <p>Now go through the rest of the array (excluding the first element) and find the lowest there and swap it with the second element.</p>
+        <p>thats how it continues to find out the lowest element of the array and putting it on the left until it hits the last element.</p>
+        <img src="images/selectionSort.png" alt="">        
         <pre><code>
 function selectionSort(arr){
-  var minIdx, temp;
-  for(var i =0, len = arr.length; i&lt;len; i++){
+  var minIdx, temp, 
+      len = arr.length;
+  for(var i = 0; i &lt; len; i++){
     minIdx = i;
     for(var  j = i+1; j&lt;len; j++){
        if(arr[j]&lt;arr[minIdx]){
@@ -290,7 +293,8 @@ quickSort([16,11,9,7,6,5,3, 2],0,7);
       <div id="heapSort">
         <h2>Heap sort</h2>        
         <p><strong>how does it works: </strong> first step is to build an heap. That is done in the heapify function. Hepaify put the largest element at the root.</p>
-        <h2 class="bg-danger">Don't understand a single bit of it</h2>
+        <h2 class="text-danger">Mostly didnt understand shiftDown</h2>
+        <p><a href="http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L13-HeapSortEx.htm">Try to understand from here.</a> It doesn't have any code.</p>
         <pre><code>
 function heapSort(arr){
   var len = arr.length,
@@ -309,7 +313,7 @@ function heapSort(arr){
 function heapify(arr, len){
    // break the array into root + two sides, to create tree (heap)
    var mid = Math.floor((len-2)/2);
-   while(mid >=0){
+   while(mid >= 0){
     siftDown(arr, mid--, len-1);    
   }
 }
@@ -320,10 +324,10 @@ function siftDown(arr, start, end){
        child = root*2 + 1,
        toSwap = root;
    while(child <= end){
-      if(arr[toSwap]&lt;arr[child]){
+      if(arr[toSwap] &lt; arr[child]){
         swap(arr, toSwap, child);
       }
-      if(child+1<=end && arr[toSwap]&lt;arr[child+1]){
+      if(child+1 <= end && arr[toSwap] &lt; arr[child+1]){
         swap(arr, toSwap, child+1)
       }
       if(toSwap != root){
