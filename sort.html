@@ -102,10 +102,13 @@
     
       <div id="bubbleSort">
         <h2>Bubble Sort</h2>
-        <p><strong>How it works:</strong> Bubble sort, you compare one item of an array with the previous item. If the previous item is bigger than the current item, you swap them. In that way bigger items are bubbling towards the end and smaller one goes towards the bottom. In one run you go from left to right and then you do </p>
-        <p><strong>how does it works:</strong> In the code block below, you see two loops. one is inside another. the inner one starts with 1 and checks whether whether the previous value is greater than the current value. if previous one is bigger it swaps it. hence the smaller one goes to left and bigger one right. now the right one is compared again with the next. hence the bigger the biggest one taken to the right.</p>
-        <p>look at the upper limit of the loop value is "i". hence it will run full length first time. second time value of i gets one less of the full length.</p>
-        <p>the looping again starts from the the second element and compare the second one with the first item. if the first one is bigger than the second one, it is swapped. and goes upto the second to the last. Hence the second highest number goes to the second to the last position</p>
+        <p><strong>How it works:</strong></p>
+        <p><strong>step-1:</strong> you compare the first item with the second. If the first item is bigger than the second item. you swap them so that the bigger one stays in the second position.</p>
+        <p><strong>step-2:</strong>And then compare second with third item. if second item is bigger than the third, we swap them. otherwise, they stayed in their position. Hence, the biggest among first three is in the third position.</p>
+        <p><strong>step-3:</strong>we keep doing it. until we hit the last element of the array. In that way we bubble up the biggest item of the array to the right most position of the array.</p>
+        <p><strong>step-4:</strong> Look at the inner loop in the code below.</p>
+        <p><strong>step-5:</strong> We repeat this process, starting from the last item of the array. look at the outer loop in the code below. We do this way, so that after finishing the first inner loop, the biggest one will be in the last item of the array.</p>
+        <p><strong>step-6:</strong> and then we move backward inside the outer loop.</p>
         <p>same thing is going on....</p>
         <pre><code>
 function bubbleSort(arr){
@@ -129,9 +132,9 @@ bubbleSort([1,2,3,4,5,6]); //[1, 2, 3, 4, 5, 6]
       </div>   
       <div id="selectionSort">
         <h2>Selection Sort</h2>
-        <p><strong>how does it works:</strong> This is very simple. Go through the array, find the lowest element swap the lowest element with the first element. Hence first element is the lowest element in the array.</p>
-        <p>Now go through the rest of the array (excluding the first element) and find the lowest there and swap it with the second element.</p>
-        <p>thats how it continues to find out the lowest element of the array and putting it on the left until it hits the last element.</p>
+        <p><strong>how does it works:</strong> This is very simple. Go through the array, find the index of the lowest element swap the lowest element with the first element. Hence first element is the lowest element in the array.</p>
+        <p>Now go through the rest of the array (excluding the first element) and find the index of the lowest and swap it with the second element.</p>
+        <p>thats how it continues to select (find out) the lowest element of the array and putting it on the left until it hits the last element.</p>
         <img src="images/selectionSort.png" alt="">        
         <pre><code>
 function selectionSort(arr){
@@ -155,9 +158,9 @@ function selectionSort(arr){
       </div>
       <div id="insertionSort">
         <h2>Insertion sort</h2>
-        <p><strong>How it works: </strong> If you are playing card and somebody is giving you a card one by one. When you are receiving card, you are planning to put them in a way so that the smaller is on the left. This means you want to insert them in a sorted way</p>
-        <p><strong>step-1:</strong> If the first card you are getting is 5. Just hold the card in your hand. you dont have to do anything else. </p>
-        <p><strong>step-2:</strong> If the second card is 2, you want to put it before 5 so that the two cards you have are sorted. When you are putting the card with number 2 at the left you are changing the position of the card 5 from first position to second position. And then first position becomes available and you put 2 there.</p>
+        <p><strong>How it works: </strong> Imagine you are playing cards. Somebody is giving you cards one by one. When you are receiving card, you are planning to put them in a way so that the smaller one is on the left. This means you want to insert them in a sorted way</p>
+        <p><strong>step-1:</strong> If the first card you are getting is 5. Just hold the card in your hand. you dont have to do anything. </p>
+        <p><strong>step-2:</strong> If the second card is 2, you want to put it before 5 so that the two cards you have are sorted. When you are putting the card with number 2 at the left, you are changing the position of the card 5 from first position to second position. And then first position becomes available and you put 2 there.</p>
         <p><strong>step-3:</strong> If the third card is 4. you will start from second position. In the second position, you have card 5 which is bigger than 4. Hence you will move 5 to the third position. The next card to the left is 2 which is smaller than 4. Hence, you wont move 2. And you will insert card 4 in the second position.</p>
         <p><strong> step-4:</strong> Then you got 10. It is bigger than the previous card which is 5. Hence, you just add it at the last position.</p>
         <p><strong> step-5:</strong> The next card is 7. You just move the position of the card 10 to the right and insert card 7.</p>
@@ -364,6 +367,9 @@ function swap(arr, i, j){
       <div id="bucketSort">
         <h2>Bucket Sort</h2>
         <p>bucket sort or bin sort. you partition the whole array into small buckets. put numbers in the related bucket and then sort each bucket by another algorithm or using bucket sort.</p>
+        <p>for example, you have an array where numbers between 1 to 100 is for a million times.</p>
+        <p>If you want to sort it by any of the method we talked before, will be time consuming.</p>
+        <p>Bucket sort would be convenient here</p>
       </div>
       <div id="shellSort">
         <h2>Shell Sort</h2>
