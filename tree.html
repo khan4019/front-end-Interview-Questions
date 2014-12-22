@@ -126,10 +126,10 @@
         <p><strong>Answer:</strong></p>
         <p>to create a tree you need a node. a node in a tree looks like</p>
         <pre><code>
-var node = {
-  value: 17, 
-  left: null,
-  right: null
+function Node(val){
+  this.value = val;
+  this.left = null;
+  this.right = null;
 }
         </code></pre>
         <p>Create a constructor for binary search tree</p>
@@ -142,13 +142,41 @@ function BinarySearchTree(){
         <p>so while inserting a value you have to find the appropriate location</p>
         <pre><code>
 BinarySearchTree.prototype.push = function(val){
-  var root = this.root;
-  if(!root){
-    this.root = {value: val, left: null, right: null}
-    return;   
+   var root = this.root;
+
+   if(!root){
+      this.root = new Node(val);
+      return;
+   }
+
+   var currentNode = root;
+   var newNode = new Node(val); 
+
+   while(currentNode){
+      if(val &lt; currentNode.value){
+          if(!currentNode.left){
+             currentNode.left = newNode;
+             break;
+          }
+          else{
+             currentNode = currentNode.left;
+        }
+     }
+     else{
+         if(!currentNode.right){
+            currentNode.right = newNode;
+            break;
+         }
+         else{
+            currentNode = currentNode.right;
+         }
+     }
   }
-  //if root exists
+
 }
+        </code></pre>
+        <pre><code>
+//test this code with multiple good example
         </code></pre>
       </div>
       <div>
