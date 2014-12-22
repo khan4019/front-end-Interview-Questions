@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="that js dude" content="">    
-    <title>JS: interview Questions -5</title>
+    <title>JS: Sorting Algorithm</title>
 
     <link rel="shortcut icon" href="images/favicon.jpg">    
     <link rel="stylesheet" href="css/bootstrap.min.css" >
@@ -66,8 +66,8 @@
     <div class="jumbotron">
       <div class="container">
         <h1>JS: Interview Questions</h1>        
-        <h4>Search and sort related interview questions for intermediate JavaScript developers</h4>
-        <h2>part-5: intermediate</h2>
+        <h4>Sort related interview questions for intermediate JavaScript developers</h4>
+        <h2>Part-5: intermediate</h2>
         <p>June 29, 2014</p>
 <!--         <div id="fb-root"></div><div class="fb-like" data-href="http://www.thatjsdude.com/interview/dom.html" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div><div class="g-plusone"></div> 
  -->      </div> 
@@ -82,81 +82,33 @@
       <!-- <p class="gray">if you are little more comfortable or claim to be comfortable with javascript, these questions would not be enough for you. more coming</p>
       <p class="gray"> <span class="purpleBold">More Questions</span> <a href="css.html">css interview questions</a>, <a href="html.html">html interview questions</a> </p> -->
     <div id="questionList">
-      <h2>todo list</h2>
+      <h2>Sorting Algorithm</h2>
       <ol>
-        <li>add questions</li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+        <li><a href="#bubbleSort">Bubble Sort</a> - explanation with tested code</li>
+        <li><a href="#selectionSort">Selection Sort</a> - explanation with tested code</li>
+        <li><a href="#insertionSort">Insertion Sort</a> - explanation with tested code</li>
+        <li><a href="#mergeSort">Merger Sort</a> - explanation with tested code</li>
+        <li><a href="#quickSort">Quick Sort</a> - explanation with tested code</li>
+        <li><a href="#heapsort">Heap Sort</a> - explanation with tested code</li>
+        <li><a href="#bucketSort">Bucket Sort</a></li>
+        <li><a href="#shellSort">Shell Sort</a></li>
+        <li><a href="#pigenholeSort">PigenHole Sort</a></li>
+        <li><a href="#binaryTreeSort">BinaryTree Sort</a></li>
+        <li><a href="#radixSort">Radix Sort</a></li>
+        <li><a href="#cocktailSort">Cocktail Sort</a></li>
+        <li><a href="#otherSort">Other Sort</a></li>
       </ol>
     </div>
     
-      <div id="binarySearch">
-        <h2>binary search</h2>
-        <p><strong>Question:</strong> How to implement binary search algorithm?</p>
-        <p><strong>Answer:</strong> Here is the iterative way of implementing binary search in an array. Just think about what is the condition in the while loop. Why it is like that. You can figure out rest of it</p>
-        <pre><code>
-function binarySearchIterative(arr, val){
-   var start = 0,
-       end = arr.length-1, 
-       mid, 
-       midVal;
-    
-   while(end >= start){
-     mid = Math.floor((start+end)/2);
-
-     midVal = arr[mid];
-          
-     if(midVal==val)
-         return mid;
-     
-     if(val&lt;midVal)
-         end = mid - 1;
-     if(val&gt;midVal)
-         start = mid + 1;
-          
-  } 
-  return -1;
-}
-
-//try it now
-binarySearchIterative([1,2,3,4,5], 1); //0
-binarySearchIterative([1,2,3,4,5], 5); //4
-binarySearchIterative([1,2,3,4,5], 55); //-1
-        </code></pre>
-        <pstrong  Performance</p>
-        <p>Recusrive algo</p>
-        <pre><code>
-function binarySearchRecursive(arr, val, startIdx, endIdx){
-   var mid = Math.floor((startIdx + endIdx)/2), 
-       midVal = arr[mid];
-   
-   if(midVal == val)
-      return mid;
-   if (endIdx &lt; startIdx)
-      return -1;
-
-   if (val&lt;midVal)
-      return binarySearchRecursive(arr, val, startIdx, mid -1);
-   else if (val &gt; midVal)
-      return binarySearchRecursive(arr, val, mid + 1, endIdx);
-
-}
-
-//try it now
-binarySearchRecursive([1,2,3,4,5], 1, 0, 4); //0
-binarySearchRecursive([1,2,3,4,5], 5, 0, 4); //4
-binarySearchRecursive([1,2,3,4,5], 2, 0, 4); //1
-binarySearchRecursive([1,2,3,4,5], 22, 0, 4); //-1
-        </code></pre>
-        <p>ref: <a href="http://en.wikipedia.org/wiki/Binary_search_algorithm">binary search</a></p>
-      </div>  
       <div id="bubbleSort">
-        <h2>bubble sort</h2>
-        <p><strong>how does it works:</strong> In the code block below, you see two loops. one is inside another. the inner one starts with 1 and checks whether whether the previous value is greater than the current value. if previous one is bigger it swaps it. hence the smaller one goes to left and bigger one right. now the right one is compared again with the next. hence the bigger the biggest one taken to the right.</p>
-        <p>look at the upper limit of the loop value is "i". hence it will run full length first time. second time value of i gets one less of the full length.</p>
-        <p>the looping again starts from the the second element and compare the second one with the first item. if the first one is bigger than the second one, it is swapped. and goes upto the second to the last. Hence the second highest number goes to the second to the last position</p>
+        <h2>Bubble Sort</h2>
+        <p><strong>How it works:</strong></p>
+        <p><strong>step-1:</strong> you compare the first item with the second. If the first item is bigger than the second item. you swap them so that the bigger one stays in the second position.</p>
+        <p><strong>step-2:</strong>And then compare second with third item. if second item is bigger than the third, we swap them. otherwise, they stayed in their position. Hence, the biggest among first three is in the third position.</p>
+        <p><strong>step-3:</strong>we keep doing it. until we hit the last element of the array. In that way we bubble up the biggest item of the array to the right most position of the array.</p>
+        <p><strong>step-4:</strong> Look at the inner loop in the code below.</p>
+        <p><strong>step-5:</strong> We repeat this process, starting from the last item of the array. look at the outer loop in the code below. We do this way, so that after finishing the first inner loop, the biggest one will be in the last item of the array.</p>
+        <p><strong>step-6:</strong> and then we move backward inside the outer loop.</p>
         <p>same thing is going on....</p>
         <pre><code>
 function bubbleSort(arr){
@@ -180,12 +132,15 @@ bubbleSort([1,2,3,4,5,6]); //[1, 2, 3, 4, 5, 6]
       </div>   
       <div id="selectionSort">
         <h2>Selection Sort</h2>
-        <p><strong>how does it works:</strong> It selects the lowest element in the array for a particular position. Here, for the first position of the array it goes through the whole array and find the index of the lowest element. After getting the index of the lowest element. it swaps the lowest element with the element in the first position. Hence the lowest in the array comes to the first position.</p>
-        <p>now looks for the second lowest for the second position element. by comparing rest of the elements and keep going</p>
+        <p><strong>how does it works:</strong> This is very simple. Go through the array, find the index of the lowest element swap the lowest element with the first element. Hence first element is the lowest element in the array.</p>
+        <p>Now go through the rest of the array (excluding the first element) and find the index of the lowest and swap it with the second element.</p>
+        <p>thats how it continues to select (find out) the lowest element of the array and putting it on the left until it hits the last element.</p>
+        <img src="images/selectionSort.png" alt="">        
         <pre><code>
 function selectionSort(arr){
-  var minIdx, temp;
-  for(var i =0, len = arr.length; i&lt;len; i++){
+  var minIdx, temp, 
+      len = arr.length;
+  for(var i = 0; i &lt; len; i++){
     minIdx = i;
     for(var  j = i+1; j&lt;len; j++){
        if(arr[j]&lt;arr[minIdx]){
@@ -203,21 +158,35 @@ function selectionSort(arr){
       </div>
       <div id="insertionSort">
         <h2>Insertion sort</h2>
-        <p><strong>how does it works</strong>: It starts with the second element. pick the second element to be inserted and put it in a temp variable toInsert. if the first one is bigger than the item to be inserted, we move the first.</p>
+        <p><strong>How it works: </strong> Imagine you are playing cards. Somebody is giving you cards one by one. When you are receiving card, you are planning to put them in a way so that the smaller one is on the left. This means you want to insert them in a sorted way</p>
+        <p><strong>step-1:</strong> If the first card you are getting is 5. Just hold the card in your hand. you dont have to do anything. </p>
+        <p><strong>step-2:</strong> If the second card is 2, you want to put it before 5 so that the two cards you have are sorted. When you are putting the card with number 2 at the left, you are changing the position of the card 5 from first position to second position. And then first position becomes available and you put 2 there.</p>
+        <p><strong>step-3:</strong> If the third card is 4. you will start from second position. In the second position, you have card 5 which is bigger than 4. Hence you will move 5 to the third position. The next card to the left is 2 which is smaller than 4. Hence, you wont move 2. And you will insert card 4 in the second position.</p>
+        <p><strong> step-4:</strong> Then you got 10. It is bigger than the previous card which is 5. Hence, you just add it at the last position.</p>
+        <p><strong> step-5:</strong> The next card is 7. You just move the position of the card 10 to the right and insert card 7.</p>
+        <p><strong> step-6:</strong> If the last card is 3. You will have to move 10 to the right as it is bigger than 3. and then you check with the next card to the left it is 7 which is bigger than 3. you move it to the right. similarly, you move 5, 4 to the right. And put the number 3 before 2 as 2 is smaller than 3.</p>
+        <p>congrats. you are done.</p>
+        <img src="images/insertionSort.png" alt="">
+        <p><strong>Code Insertion sort</strong>: Code is similar to the card and image above. It starts with the second element. Pick the second element to be inserted and then compare to the previous element. If the first one is bigger, move the first one to second position and second one at first.</p>
         <p>Now first and second item is sorted.</p>
-        <p>Then, pick the third element and check whether the second element is bigger than the third (toInsert). if smaller, move the second to the third position. Now, check with first element whether first is smaller than toInsert, move first one to the second position. Now insert toInsert in the first position.</p>
-        <p>now first three elements are sorted.</p>
+        <p>Then, pick the third element and check whether the second element is bigger than the third. keep going similar way until you hit the first element or a element smaller than the element you are comparing with. When you get an item smaller than the picked item, you insert it.</p>
+        <p>super easy.</p>
         <pre><code>
 function insertionSort(arr){
-  for(var i =1, len = arr.length; i&lt;len; i++){
-    var toInsert = arr[i];
-    var j = i;
+  var i, len = arr.length, el, j;
+
+  for(i = 1; i&lt;len; i++){
+    el = arr[i];
+    j = i;
+
     while(j>0 && arr[j-1]>toInsert){
       arr[j] = arr[j-1];
-      j--;   
+      j--;
    }
-   arr[j] = toInsert;
+
+   arr[j] = el;
   }
+
   return arr;
 }
         </code></pre>
@@ -226,7 +195,11 @@ function insertionSort(arr){
       <div id="mergeSort">
         <h2>Merge Sort</h2>
         <p>its a divide and conquer type algorithm. </p>
-        <p>just break down your array into small and small pieces and until you have one items in each pieces. then merge together by comparing them. If you still have hard time to figure out what i am talking about, look at <a href="http://upload.wikimedia.org/wikipedia/commons/c/cc/Merge-sort-example-300px.gif">wiki merge sort gif</a></p>
+        <p>just break down your array into small and small pieces and until you have one items in each pieces. then merge together by comparing them. If you still have hard time to figure out what i am talking about, look at merge sort gif taken from wikipedia</p>
+        <img src="images/mergeSort.gif" alt="">
+        <p><strong>Code Merge Sort:</strong> Merge sort has two parts. Main part does divide or breaks down and second part is merging/combining parts. At the time of combining, parts are combined together.</p>
+        <p><strong>Divide:</strong> the first function named as mergeSort is actually a divide function. where an array is divided into two.</p>
+        <p><strong>merge:</strong> this is just merging two sorted array. Just be careful this two array could be in different size</p>
         <pre><code>
 function mergeSort(arr){
    var len = arr.length;
@@ -247,8 +220,8 @@ function merge(left, right){
       rLen = right.length,
       l = 0,
       r = 0;
-  while(l&lt; lLen && r&lt;rLen){
-     if(left[l]&lt;right[r]){
+  while(l &lt; lLen && r &lt; rLen){
+     if(left[l] &lt; right[r]){
        result.push(left[l++]);
      }
      else{
@@ -264,7 +237,51 @@ function merge(left, right){
       <div id="quickSort">
         <h2>Quick sort</h2>
         <p><strong>how does it works:</strong></p>
-        <p>try to understand this one. in depth</p>
+        <p><strong>Step-1:</strong> You have to pick a pivot. This could be randomly selected or the middle one. Here we select the last element of the array.</p>
+        <p><strong>Step-2:</strong> Put all the items smaller than the pivot value to the left and larger than the pivot value to the right.</p>
+        <p><strong>Step-3:</strong>Repeat the step-2 for both left and right side of the pivot (pick a pivot, put all item smaller than the pivot to the left and larger on the right)</p>
+        <h4>Explain the code</h4>
+        <p><strong>Call Quick sort:</strong> Pass the array and pass left and right to the quickSort function. For the first call, left would be the index of the first element which is 0 and right would be the index of the last element which would be length -1.</p>
+        <p><strong>Select Pivot:</strong> We select pivot as the last index of the array. </p>
+        <p><strong>Call Partition function:</strong> After calculating the pivot, we send the pivot to the partition function. In the partition function we pass array, pivot index, left and right.</p>
+        <p><strong>partitionIndex:</strong> In the partition function, we keep move all the items smaller than the pivot value to the left and larger than pivot value to the right. We have to keep track of the position of the partition. so that we can split the array into two parts in the next step. This tracking of the index where we partition the array is done by using partitionIndex variable. the initial value is left.</p>
+        <p><strong>Swap function:</strong> This is just a helper function to swap values of the array.</p>
+        <p><strong>move elements:</strong> we start a for loop from the left, and if the values is smaller than the pivot values we swap it with the position of the partitionIndex and increase the value of the partitionIndex. If the value is bigger, we don't do anything. We keep going until the element before the last element (remember last element is the pivot)</p>
+        <p><strong>place pivot</strong> After moving all the smallest element to the left, we swap the last element (pivot value) with the partitionIndex. By doing this, the pivot sits where it suppose to sit when the full array is sorted. As all elements left to it smaller and all element right to it is bigger. End of the function partition, return the partitionIndex</p>
+        <p><strong>Repeat the process: </strong>Now come back to quickSort function. when you get the partitionIndex, apply quickSort for the left side of the array and right side of the array. keep doing it until left is smaller than right.</p>
+        <pre><code>
+function quickSort(arr, left, right){
+   var len = arr.length, 
+   pivot,
+   partitionIndex;
+
+
+  if(left &lt; right){
+    pivot = right;
+    partitionIndex = partition(arr, pivot, left, right);
+    
+   //sort left and right
+   quickSort(arr, left, partitionIndex - 1);
+   quickSort(arr, partitionIndex + 1, right);
+  }
+  return arr;
+}
+        </code></pre>
+        <pre><code>
+function partition(arr, pivot, left, right){
+   var pivotValue = arr[pivot],
+       partitionIndex = left;
+
+   for(var i = left; i &lt; right; i++){
+    if(arr[i] &lt; pivotValue){
+      swap(arr, i, partitionIndex);
+      partitionIndex++;
+    }
+  }
+  swap(arr, right, partitionIndex);
+  return partitionIndex;
+}
+        </code></pre>
         <pre><code>
 function swap(arr, i, j){
    var temp = arr[i];
@@ -272,47 +289,24 @@ function swap(arr, i, j){
    arr[j] = temp;
 }
         </code></pre>
+        <img src="images/quickSort.png" alt="">
         <pre><code>
-function partition(arr, pivot, left, right){
-   var storeIndex = left,
-       pivotValue = arr[pivot];
-
-   swap(arr, pivot, right);
-   
-   for(var i = left; i&lt;right;i++){
-    if(arr[i]&lt;pivotValue){
-      swap(arr, i, storeIndex);
-      storeIndex++;
-    }
-  }
-  swap(arr, right, storeIndex);
-  return storeIndex;
-}
-        </code></pre>
-        <pre><code>
-function quickSort(arr, left, right){
-   var len = arr.length, 
-   pivot,
-   newPivot;
-
-
-  if(left &lt; right){
-    pivot = left + Math.ceil((right - left)*0.5);
-    newPivot = partition(arr, pivot, left, right);
-    
-   //sort left and right
-   quickSort(arr, left, newPivot-1);
-   quickSort(arr, newPivot +1, right);
-  }
-  return arr;
-}
+quickSort([11,8,14,3,6,2,7],0,6); 
+//[2, 3, 6, 7, 8, 11, 14]
+quickSort([11,8,14,3,6,2,1, 7],0,7);
+//[1, 2, 3, 6, 7, 8, 11, 14]
+quickSort([16,11,9,7,6,5,3, 2],0,7);
+//[2, 3, 5, 6, 7, 9, 11, 16]
         </code></pre>
         <p>ref: <a href="https://gist.github.com/paullewis/1981455">quick sort</a></p>
+        <p><strong>time complexity:</strong> talk about time complexity of quick sort</p>
       </div>
       <div id="heapSort">
         <h2>Heap sort</h2>        
         <p><strong>how does it works: </strong> first step is to build an heap. That is done in the heapify function. Hepaify put the largest element at the root.</p>
-        <h2 class="bg-danger">Don't understand a single bit of it</h2>
+        <h2 class="text-danger">Add explanation for shiftDown</h2>
+        <h2 class="text-warning">Add graphical description</h2>
+        <p><a href="http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L13-HeapSortEx.htm">Try to understand from here.</a> It doesn't have any code.</p>
         <pre><code>
 function heapSort(arr){
   var len = arr.length,
@@ -331,7 +325,7 @@ function heapSort(arr){
 function heapify(arr, len){
    // break the array into root + two sides, to create tree (heap)
    var mid = Math.floor((len-2)/2);
-   while(mid >=0){
+   while(mid >= 0){
     siftDown(arr, mid--, len-1);    
   }
 }
@@ -342,10 +336,10 @@ function siftDown(arr, start, end){
        child = root*2 + 1,
        toSwap = root;
    while(child <= end){
-      if(arr[toSwap]&lt;arr[child]){
+      if(arr[toSwap] &lt; arr[child]){
         swap(arr, toSwap, child);
       }
-      if(child+1<=end && arr[toSwap]&lt;arr[child+1]){
+      if(child+1 <= end && arr[toSwap] &lt; arr[child+1]){
         swap(arr, toSwap, child+1)
       }
       if(toSwap != root){
@@ -373,6 +367,9 @@ function swap(arr, i, j){
       <div id="bucketSort">
         <h2>Bucket Sort</h2>
         <p>bucket sort or bin sort. you partition the whole array into small buckets. put numbers in the related bucket and then sort each bucket by another algorithm or using bucket sort.</p>
+        <p>for example, you have an array where numbers between 1 to 100 is for a million times.</p>
+        <p>If you want to sort it by any of the method we talked before, will be time consuming.</p>
+        <p>Bucket sort would be convenient here</p>
       </div>
       <div id="shellSort">
         <h2>Shell Sort</h2>
@@ -413,16 +410,6 @@ function swap(arr, i, j){
         <p><strong>Tournament sort: </strong> Its a selection sort with a priority queue to find the next element to sort. <a href="http://en.wikipedia.org/wiki/Tournament_sort">wiki: tournament sort</a></p>
         <p><strong>others: </strong><a href="http://en.wikipedia.org/wiki/Gnome_sort">Gnome sort</a>, <a href="http://en.wikipedia.org/wiki/UnShuffle_Sort">unshuffle sort</a>, <a href="http://en.wikipedia.org/wiki/Strand_sort">Strand sort</a>, <a href="http://en.wikipedia.org/wiki/Smoothsort">smooth sort</a></p>
       </div>
-    <div>
-      <h2>references</h2>
-      <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
-    </div>
     <div>
       <h2>Need more:</h2>        
       <p>JavaScript part -1: <a href="js1.html">JS basic algorithm</a></p>
@@ -482,30 +469,6 @@ function swap(arr, i, j){
       //   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
       //   fjs.parentNode.insertBefore(js, fjs);
       // }(document, 'script', 'facebook-jssdk'));
-    </script>
-    <script type="text/javascript">        
-        document.getElementById('listToDestroy').addEventListener('click', function (e) {
-          var elm = e.target.parentNode;
-          elm.parentNode.removeChild(elm);
-          e.preventDefault();
-        }); 
-
-        document.getElementById('doubleHolder').addEventListener('click', function (e) {
-   
-           if(e.target.classList.contains('double')){
-              var btn = document.createElement('button');
-              btn.setAttribute('class', 'double');
-              btn.innerHTML = 'double';
-
-              var btn2 = document.createElement('button');
-              btn2.setAttribute('class', 'double');
-              btn2.innerHTML = 'double';
-             
-              this.appendChild(btn);
-              this.appendChild(btn2);
-              this.removeChild(e.target);   
-           }
-        }); 
     </script>
   </body>
 </html>
