@@ -233,12 +233,43 @@ function inorder(node){
         <pre><code>
 //code here
         </code></pre>
+        <p>ref: <a href="http://en.wikipedia.org/wiki/Tree_traversal">wiki pseudocode doesnt work for JavaScript</a></p>
       </div>
       <div id="postOrder">
         <h2>Post order</h2>
         <img src="images/postorder.jpg" alt="">
         <pre><code>
 //code here
+        </code></pre>
+      </div>
+      <div id="minMax">
+        <h2>min and max value</h2>
+        <p><strong>Question:</strong> How can you find the min value in a bst</p>
+        <p>finding min is super simple. the go through the left node and left most node is the minimum node</p>
+        <p><strong></strong></p>
+        <pre><code>
+function minNode(node){
+   if(!node){
+      return 0;
+   }
+   if(node.left){
+     return minNode(node.left)
+  }
+  return node.value
+}
+        </code></pre>
+        <p><strong>Question:</strong> How can you find the max value in a bst</p>
+        <p><strong></strong></p>
+        <pre><code>
+function maxNode(node){
+   if(!node){
+     return 0;
+  }
+  if(node.right){
+     return maxNode(node.right)
+  }
+  return node.value;
+}
         </code></pre>
       </div>
       <div id="balanced">
@@ -302,7 +333,13 @@ function isBST(node){
         <p><strong></strong></p>
         <p><strong></strong></p>
         <pre><code>
+function height(node){
+   if(!node) return 0;
+   var leftHeight = height(node.left);
+   var rightHeight = height(node.right);
 
+   return Math.max(leftHeight, rightHeight) + 1;
+}
         </code></pre>
       </div>
       <div>
