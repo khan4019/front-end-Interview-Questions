@@ -184,6 +184,16 @@ bst.push(1);
 bst.push(5);
         </code></pre>
       </div>
+      <div id="bredthFirstSearch">
+        <h2>Breadth First Search</h2>
+        <p><strong>Question:</strong> How do you implement Breadth First Search</p>
+        <p><strong>Answer:</strong></p>
+        <pre><code>
+          
+        </code></pre>
+        <p>ref: <a href="http://stackoverflow.com/a/13633354/1535443">stackoverflow</a></p>
+        <p>ref: <a href="https://github.com/duereg/js-algorithms">js algorithms</a></p>
+      </div>
       <div id="inorderTraversal">
         <h2>Depth first search</h2>
         <p><strong>Question:</strong> How to perform in order traversal</p>
@@ -198,14 +208,38 @@ function dfs(node){
 }
         </code></pre>
       </div>
-      <div id="bredthFirstSearch">
-        <h2>Breadth First Search</h2>
-        <p><strong>Question:</strong> How do you implement Breadth First Search</p>
+      <div id="inorder">
+        <h2>In order Traversal</h2>
+        <p><strong>Question:</strong></p>
         <p><strong>Answer:</strong></p>
+        <p><strong></strong></p>
+        <img src="images/inorder.jpg" alt="">
         <pre><code>
-          
+function inorder(node){
+   if(node){
+      inorder(node.left);
+      console.log(node.value);
+      inorder(node.right);
+   }
+}
         </code></pre>
-        <p>ref: <a href="http://stackoverflow.com/a/13633354/1535443">stackoverflow</a></p>
+        <p>ref: <a href="http://www.javabeat.net/binary-search-tree-traversal-java/">source of image</a> </p>
+      </div>
+      <div id="preorder">
+        <h2>pre order</h2>
+        <p><strong></strong></p>
+        <p><strong></strong></p>
+        <img src="images/preorder.jpg" alt="">
+        <pre><code>
+//code here
+        </code></pre>
+      </div>
+      <div id="postOrder">
+        <h2>Post order</h2>
+        <img src="images/postorder.jpg" alt="">
+        <pre><code>
+//code here
+        </code></pre>
       </div>
       <div id="balanced">
         <h2>Balanced and Unbalanced Tree</h2>
