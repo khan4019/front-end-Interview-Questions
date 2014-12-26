@@ -342,6 +342,27 @@ function height(node){
 }
         </code></pre>
       </div>
+      <div id="printAncestor">
+        <h2>print ancestor</h2>
+        <p><strong>Question:</strong></p>
+        <p><strong>Answer:</strong></p>
+        <pre><code>
+function printAncestor(node, target){
+   if(!node) return false
+
+   if(node.value == target) return true;
+   
+   if(printAncestor(node.left, target) || printAncestor(node.rigth, target)){
+     console.log(node.value);
+     return true;
+  }
+
+  return false
+}
+        </code></pre>
+        <p>ref: <a href="http://stackoverflow.com/questions/12052192/printing-ancestors-of-a-node-in-binary-tree">from stack overflow</a></p>
+        <h3 class="text-danger">Doesnt work for intermediate nodes. Debug this</h3>
+      </div>
       <div id="nodesBetweenTwo">
         <h2>Print all nodes between two nodes</h2>
         <p><strong>Question:</strong></p>
@@ -350,6 +371,27 @@ function height(node){
 //put the code
         </code></pre>
         <p>ref: <a href="http://www.geeksforgeeks.org/given-binary-tree-print-nodes-two-given-level-numbers/">Get the code form here</a></p>
+      </div>
+      <div id="commonAncestor">
+        <h2>common ancestor</h2>
+        <p><strong></strong></p>
+        <p><strong></strong></p>
+        <pre><code>
+function commonAncestor(node, n1, n2){
+   if(!node) return;
+   var val = node.value;
+   if(n1<val && n2<val){
+     console.log(val);
+     return commonAncestor(node.left, n1, n2);
+   }
+   if(n1>val && n2>val){
+     console.log(val);
+     return commonAncestor(node.right, n1, n2);
+  }
+  console.log(val);
+  return node;
+}
+        </code></pre>
       </div>
       <div id="heightBalance">
         <h2>check bst is height balanced</h2>
@@ -373,7 +415,6 @@ function height(node){
         <ul>        
           <li><a href="http://www.ardendertat.com/2011/10/10/programming-interview-questions-7-binary-search-tree-check/">check binary tree is balanced</a></li>
           <li><a href="http://www.geeksforgeeks.org/check-two-nodes-cousins-binary-tree/">two nodes are cusin</a></li>
-          <li><a href="http://www.geeksforgeeks.org/print-ancestors-of-a-given-node-in-binary-tree/">print ancestor of a given node</a></li>
           <li><a href="http://www.geeksforgeeks.org/lowest-common-ancestor-in-a-binary-search-tree/">lowest common ancestor</a></li>
           <li><a href="http://www.geeksforgeeks.org/check-binary-tree-subtree-another-binary-tree-set-2/">check subtree</a></li>
           <li><a href="http://www.geeksforgeeks.org/find-k-th-smallest-element-in-bst-order-statistics-in-bst/">k th smalled node</a></li>
