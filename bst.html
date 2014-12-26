@@ -383,14 +383,12 @@ function commonAncestor(node, n1, n2){
    if(!node) return;
    var val = node.value;
    if(n1<val && n2<val){
-     console.log(val);
      return commonAncestor(node.left, n1, n2);
    }
    if(n1>val && n2>val){
-     console.log(val);
      return commonAncestor(node.right, n1, n2);
   }
-  console.log(val);
+  console.log('lowest common ancestor value: ', val);
   return node;
 }
         </code></pre>
