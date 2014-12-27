@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="that js dude" content="">    
-    <title>JS: interview Questions -3</title>
+    <title>JS: Binary Search Tree</title>
 
     <link rel="shortcut icon" href="images/favicon.jpg">    
     <link rel="stylesheet" href="css/bootstrap.min.css" >
@@ -65,9 +65,9 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>JS: Interview Questions</h1>        
-        <h4>Tree that relatd interview questions for intermediate JavaScript developers</h4>
-        <h2>part-6: expert</h2>
+        <h1>JS: Binary Search Tree</h1>        
+        <h4>Binary Search Tree relatd interview questions for expert JavaScript developers</h4>
+        <h2>part-7: expert</h2>
         <p>June 29, 2014</p>
         <!-- <div id="fb-root"></div><div class="fb-like" data-href="http://www.thatjsdude.com/interview/dom.html" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div><div class="g-plusone"></div>  -->
       </div> 
@@ -82,42 +82,11 @@
       <!-- <p class="gray">if you are little more comfortable or claim to be comfortable with javascript, these questions would not be enough for you. more coming</p>
       <p class="gray"> <span class="purpleBold">More Questions</span> <a href="css.html">css interview questions</a>, <a href="html.html">html interview questions</a> </p> -->
       <div id="questionList">
-        <h2>todo list</h2>
+        <h2>Questions</h2>
         <ul>
-          <li>binary, binary search tree <a href="http://blog.yojimbocorp.com/2012/08/21/introduction-to-data-structures-and-algorithms-in-javascript-binary-search-tree/">js bst</a> or <a href="https://gist.github.com/trevmex/821973">bst</a></li>
-          <li>balanced, unbalanced tree</li>
-          <li>full, complete tree</li>
-          <li>red black tree, AVL tree</li>
-          <li>tries</li>
-          <li>Graph Traversal</li>
-          <li>BFS, DFS</li>
-          <li>traversal: pre order, in order, post order</li>
-          <li>R tree</li>
-          <li>nary Tree</li>
-          <li>B-Tree</li>
-          <li>B+ Tree</li>
-          <li>Dancing Tree</li>
-          <li>Decision Tree</li>
-          <li><a href="http://en.wikipedia.org/wiki/Minimal_spanning_tree">minimal spanning tree</a></li>
-          <li>heap</li>          
-        </ul>
-        <h4>tree library</h4>
-        <ul>
-          <li><a href="https://www.npmjs.org/package/node-tree-data">node tree data</a></li>
-          <li><a href="http://jnuno.com/tree-model-js/">tree model</a></li>
-          <li><a href="https://github.com/mauriciosantos/buckets/">bucket</a></li>
-          <li><a href="https://github.com/aaronj1335/t-js">t.js</a></li>
-          <li><a href="https://github.com/stephen-james/DataStructures.Tree">data structure.Tree</a></li>
-          <li><a href="https://github.com/afiore/arboreal">arboreal</a></li>
-        </ul>
-        <h4>graph</h4>
-        <ul>
-          <li><a href="http://en.wikipedia.org/wiki/Directed_graph">directed graph</a></li>
-          <li><a href="http://en.wikipedia.org/wiki/Weighted_graph#Weighted_graphs_and_networks">weighted graphs and networks</a></li>
-          <li><a href="http://en.wikipedia.org/wiki/Shortest_path">shortest path</a></li>
-          <li><a href="http://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">dijkstra algorithm</a></li>
-          <li><a href="http://en.wikipedia.org/wiki/Maximal_flow">maximum flow problem</a></li>
-          <li><a href="http://en.wikipedia.org/wiki/Graph_colouring">graph coloring</a></li>
+          <li></li>
+          <li></li>
+          <li></li>
         </ul>
       </div>
       <div id="bst">
@@ -382,10 +351,10 @@ function printAncestor(node, target){
 function commonAncestor(node, n1, n2){
    if(!node) return;
    var val = node.value;
-   if(n1<val && n2<val){
+   if(n1 &lt; val && n2&lt;val){
      return commonAncestor(node.left, n1, n2);
    }
-   if(n1>val && n2>val){
+   if(n1&lt;val && n2&lt;val){
      return commonAncestor(node.right, n1, n2);
   }
   console.log('lowest common ancestor value: ', val);
@@ -396,7 +365,19 @@ function commonAncestor(node, n1, n2){
 
         <h4>coomon ancestor for binary tree</h4>
         <pre><code>
-//add code here
+function commonAncestorBT(node, n1, n2){
+   if(!node) return;
+   var val = node.value;
+   if(n1 == val || n2 ==val){
+     return node;
+   }
+   var left = commonAncestorBT(node.left, n1, n2);
+   var right = commonAncestorBT(node.right, n1, n2);
+   if(left && right){
+     return node;
+  }
+  return (left) ? left : right;
+}
         </code></pre>
         <p>ref: <a href="http://www.fusu.us/2013/06/p2-lowest-common-ancestor-in-binary-tree.html">try pavels blog</a></p>
         <p>ref: <a href="http://www.geeksforgeeks.org/lowest-common-ancestor-binary-tree-set-1/">common ancestor for binary tree</a></p>
@@ -413,6 +394,26 @@ function commonAncestor(node, n1, n2){
       <div id="bottomView">
         <h2>bottom view</h2>
       </div>
+      <div id="leftView">
+        <h2>leftview</h2>
+        <p> ref: <a href="http://www.geeksforgeeks.org/print-left-view-binary-tree/">bst left view</a></p>
+      </div>
+      <div id="rightView">
+        <h2>Right view</h2>
+        <p> ref: <a href="http://www.geeksforgeeks.org/print-right-view-binary-tree-2/">print right view</a></p>
+      </div>
+      <div id="mergeSorted">
+        <h2>Merge two BST</h2>
+        <p> ref: <a href="http://www.geeksforgeeks.org/merge-two-bsts-with-limited-extra-space/">merge two bst</a></p>
+      </div>
+      <div id="binaryToBST">
+        <h2>convert binary to BST</h2>
+        <p> ref: <a href="http://www.geeksforgeeks.org/binary-tree-to-binary-search-tree-conversion/">binary tree to bst</a></p>
+      </div>
+      <div id="checkSubTree">
+        <h2>Check Sub tree</h2>
+        <p>ref: <a href="http://www.geeksforgeeks.org/check-binary-tree-subtree-another-binary-tree-set-2/">check subtree</a></p>
+      </div>
       <div id="diagonalSum">
         <h2>Diagonal Sum</h2>
         <p>ref: <a href="http://www.geeksforgeeks.org/diagonal-sum-binary-tree/">gfg</a></p>
@@ -424,26 +425,21 @@ function commonAncestor(node, n1, n2){
           <li><a href="http://www.ardendertat.com/2011/10/10/programming-interview-questions-7-binary-search-tree-check/">check binary tree is balanced</a></li>
           <li><a href="http://www.geeksforgeeks.org/check-two-nodes-cousins-binary-tree/">two nodes are cusin</a></li>
           <li><a href="http://www.geeksforgeeks.org/lowest-common-ancestor-in-a-binary-search-tree/">lowest common ancestor</a></li>
-          <li><a href="http://www.geeksforgeeks.org/check-binary-tree-subtree-another-binary-tree-set-2/">check subtree</a></li>
           <li><a href="http://www.geeksforgeeks.org/find-k-th-smallest-element-in-bst-order-statistics-in-bst/">k th smalled node</a></li>
           <li><a href="http://www.geeksforgeeks.org/inorder-predecessor-successor-given-key-bst/">in order successor and precessor</a></li>
           <li><a href="http://www.geeksforgeeks.org/find-maximum-path-sum-two-leaves-binary-tree/">maximum path between two nodes</a></li>
-          <li><a href="http://www.geeksforgeeks.org/print-right-view-binary-tree-2/">print right view</a></li>
           <li><a href="http://www.geeksforgeeks.org/print-nodes-distance-k-given-node-binary-tree/">all nodes of k distance</a></li>
           <li><a href="http://www.geeksforgeeks.org/print-binary-tree-vertical-order/">vertical order</a></li>
           <li><a href="http://www.geeksforgeeks.org/print-nodes-dont-sibling-binary-tree/">nodes that doesnt have siblings</a></li>
           <li><a href="http://www.geeksforgeeks.org/convert-given-binary-tree-doubly-linked-list-set-3/">bst to doubly linked list</a></li>
           <li><a href="http://www.geeksforgeeks.org/deepest-left-leaf-node-in-a-binary-tree/">deepest left node</a></li>
           <li><a href="http://www.geeksforgeeks.org/check-leaves-level/">check leaves</a></li>
-          <li><a href="http://www.geeksforgeeks.org/print-left-view-binary-tree/">bst left view</a></li>
           <li><a href="http://www.geeksforgeeks.org/difference-between-sums-of-odd-and-even-levels/">sum of odd levels and even levels node</a></li>
           <li><a href="http://www.geeksforgeeks.org/tree-isomorphism-problem/">isporphisom: dont know what is this</a></li>
           <li><a href="http://www.geeksforgeeks.org/find-a-pair-with-given-sum-in-bst/">pair with a given sum</a></li>
           <li><a href="http://www.geeksforgeeks.org/floor-and-ceil-from-a-bst/">floor and ceil of bst</a></li>
           <li><a href="http://www.geeksforgeeks.org/fix-two-swapped-nodes-of-bst/">two nodes swapped, correct bst</a></li>
           <li><a href="http://www.geeksforgeeks.org/check-if-a-given-binary-tree-is-complete-tree-or-not/">check complete or not</a></li>
-          <li><a href="http://www.geeksforgeeks.org/binary-tree-to-binary-search-tree-conversion/">binary tree to bst</a></li>
-          <li><a href="http://www.geeksforgeeks.org/merge-two-bsts-with-limited-extra-space/">merge two bst</a></li>
           <li><a href="http://www.geeksforgeeks.org/maximum-width-of-a-binary-tree/">max width of bst</a></li>
           <li><a href="http://www.geeksforgeeks.org/given-a-binary-tree-print-all-root-to-leaf-paths/">all root to leaf path</a></li>
           <li>BST from sorted array</li>
@@ -453,7 +449,6 @@ function commonAncestor(node, n1, n2){
           <li>First common ancestor of two nodes in BT</li>
           <li>Very large two BT. check one is sub tree of another</li>
           <li>all path that sums to a number in BT</li>          
-          <li>fore directed graph, check whether there is a route between two node</li>
           <li><a href="http://www.crazyforcode.com/tree/">carzy for code list of tree questions</a></li>
           <li><a href="http://www.geeksforgeeks.org/forums/forum/trees-specific-questions/">geeks for geeks questions</a></li>
           <li><a href="http://www.glassdoor.com/Interview/binary-trees-interview-questions-SRCH_KT0,12.htm">glassdoor questions</a></li>
