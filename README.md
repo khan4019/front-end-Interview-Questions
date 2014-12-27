@@ -171,7 +171,10 @@ ______
 ##[JavaScript: LinkedList (part -4: work in porcess)](http://www.thatjsdude.com/interview/linkedList.html)
 Very rough stage..need to finish (for intermediate)
 
-##[JavaScript: search and Sort (part -5: work in porcess)](http://khan4019.github.io/front-end-Interview-Questions/js4.html)
+##[JavaScript: search and Sort (part -5: work in porcess)](http://khan4019.github.io/front-end-Interview-Questions/sort.html)
+Very rough stage..need to finish (for expert)
+
+##[JavaScript: Binary Search Tree (part -6: work in porcess)](http://khan4019.github.io/front-end-Interview-Questions/bst.html)
 Very rough stage..need to finish (for expert)
 __________________
 
