@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="that js dude" content="">    
+    <title>JS: Binary Search Tree</title>
+
+    <link rel="shortcut icon" href="images/favicon.jpg">    
+    <link rel="stylesheet" href="css/bootstrap.min.css" >
+    <link rel="stylesheet" href="css/zenburn.css">
+    <!-- Custom styles for this template -->
+    <style>
+      /* Move down content because we have a fixed navbar that is 50px tall */
+      body {        
+        padding-bottom: 20px;
+      }
+      .purpleBold{
+        color:purple;        
+        font-weight: bold;
+      }
+      .gray{
+        color: gray;
+      }
+      .blueish{
+        color: rgba(151, 182, 209, 0.98);
+      }
+      .singInStuff{
+        margin-top: 9px;
+      }
+      #uName{
+        margin-top: -7px;
+      }
+      .skipListItem{
+        list-style-type: none;
+      }
+      .skipListItem a{
+        color: inherit;
+      }
+      a:visited
+      { 
+        color: rgba(218, 209, 149, 0.98);
+      }
+      .padding10Px{
+        padding: 10px;
+      }
+      /*style for demo*/
+      
+    </style>
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+ 
+  <body>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>JS: Binary Search Tree</h1>        
+        <h4>Binary Search Tree relatd interview questions for expert JavaScript developers</h4>
+        <h2>part-7: expert</h2>
+        <p>June 29, 2014</p>
+        <!-- <div id="fb-root"></div><div class="fb-like" data-href="http://www.thatjsdude.com/interview/dom.html" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div><div class="g-plusone"></div>  -->
+      </div> 
+    </div>
+    <div class="container container-fluid">
+      <!-- Example row of columns -->
+
+      <div class="row center">        
+        <!-- <iframe width="853" height="480" src="//www.youtube.com/embed/Rx_JFOSxgpY" frameborder="0" allowfullscreen></iframe> -->
+      </div>
+           
+      <!-- <p class="gray">if you are little more comfortable or claim to be comfortable with javascript, these questions would not be enough for you. more coming</p>
+      <p class="gray"> <span class="purpleBold">More Questions</span> <a href="css.html">css interview questions</a>, <a href="html.html">html interview questions</a> </p> -->
+      <div id="questionList">
+        <h2>Questions</h2>
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+      <div id="bst">
+        <h2>Binary Search Tree</h2>
+        <p><strong>Question:</strong> How would you create a binary search tree?</p>
+        <p><strong>Answer:</strong></p>
+        <p>to create a tree you need a node. a node in a tree looks like</p>
+        <pre><code>
+function Node(val){
+  this.value = val;
+  this.left = null;
+  this.right = null;
+}
+        </code></pre>
+        <p>Create a constructor for binary search tree</p>
+        <pre><code>
+function BinarySearchTree(){
+  this.root = null;
+}
+        </code></pre>
+        <p>Now you need to understand the structure of a binary search tree. For every node value in the left is smaller than the value of the node and value at the right is higher than the value of the root.</p>
+        <p>so while inserting a value you have to find the appropriate location</p>
+        <pre><code>
+BinarySearchTree.prototype.push = function(val){
+   var root = this.root;
+
+   if(!root){
+      this.root = new Node(val);
+      return;
+   }
+
+   var currentNode = root;
+   var newNode = new Node(val); 
+
+   while(currentNode){
+      if(val &lt; currentNode.value){
+          if(!currentNode.left){
+             currentNode.left = newNode;
+             break;
+          }
+          else{
+             currentNode = currentNode.left;
+        }
+     }
+     else{
+         if(!currentNode.right){
+            currentNode.right = newNode;
+            break;
+         }
+         else{
+            currentNode = currentNode.right;
+         }
+     }
+  }
+
+}
+        </code></pre>
+        <pre><code>
+var bst = new BinarySearchTree();
+bst.push(3);
+bst.push(2);
+bst.push(4);
+bst.push(1);
+bst.push(5);
+        </code></pre>
+      </div>
+      <div id="bredthFirstSearch">
+        <h2>Breadth First Search</h2>
+        <p><strong>Question:</strong> How do you implement Breadth First Search</p>
+        <p><strong>Answer:</strong></p>
+        <pre><code>
+          
+        </code></pre>
+        <p>ref: <a href="http://stackoverflow.com/a/13633354/1535443">stackoverflow</a></p>
+        <p>ref: <a href="https://github.com/duereg/js-algorithms">js algorithms</a></p>
+      </div>
+      <div id="inorderTraversal">
+        <h2>Depth first search</h2>
+        <p><strong>Question:</strong> How to perform in order traversal</p>
+        <p><strong></strong></p>
+        <pre><code>
+function dfs(node){
+  if(node){
+    console.log(node.value);
+    dfs(node.left);
+    dfs(node.right);
+  }
+}
+        </code></pre>
+      </div>
+      <div id="inorder">
+        <h2>In order Traversal</h2>
+        <p><strong>Question:</strong></p>
+        <p><strong>Answer:</strong></p>
+        <p><strong></strong></p>
+        <img src="images/inorder.jpg" alt="">
+        <pre><code>
+function inorder(node){
+   if(node){
+      inorder(node.left);
+      console.log(node.value);
+      inorder(node.right);
+   }
+}
+        </code></pre>
+        <p>ref: <a href="http://www.javabeat.net/binary-search-tree-traversal-java/">source of image</a> </p>
+      </div>
+      <div id="preorder">
+        <h2>pre order</h2>
+        <p><strong></strong></p>
+        <p><strong></strong></p>
+        <img src="images/preorder.jpg" alt="">
+        <pre><code>
+//code here
+        </code></pre>
+        <p>ref: <a href="http://en.wikipedia.org/wiki/Tree_traversal">wiki pseudocode doesnt work for JavaScript</a></p>
+      </div>
+      <div id="postOrder">
+        <h2>Post order</h2>
+        <img src="images/postorder.jpg" alt="">
+        <pre><code>
+//code here
+        </code></pre>
+      </div>
+      <div id="minMax">
+        <h2>min and max value</h2>
+        <p><strong>Question:</strong> How can you find the min value in a bst</p>
+        <p>finding min is super simple. the go through the left node and left most node is the minimum node</p>
+        <p><strong></strong></p>
+        <pre><code>
+function minNode(node){
+   if(!node){
+      return 0;
+   }
+   if(node.left){
+     return minNode(node.left)
+  }
+  return node.value
+}
+        </code></pre>
+        <p><strong>Question:</strong> How can you find the max value in a bst</p>
+        <p><strong></strong></p>
+        <pre><code>
+function maxNode(node){
+   if(!node){
+     return 0;
+  }
+  if(node.right){
+     return maxNode(node.right)
+  }
+  return node.value;
+}
+        </code></pre>
+      </div>
+      <div id="balanced">
+        <h2>Balanced and Unbalanced Tree</h2>
+        <p><strong>Question:</strong>What is balanced and unbalanced tree</p>
+        <p><strong>Answer:</strong></p>
+        <ol>
+          <li>The left and right subtrees' heights differ by at most one, AND</li>
+          <li>The left subtree is balanced, AND</li>
+          <li>The right subtree is balanced</li>
+        </ol>
+
+        <p>ref: <a href="http://stackoverflow.com/questions/8015630/definition-of-a-balanced-tree">Get answer from here</a></p>
+      </div>
+      <div id="checkBST">
+        <h2>Check BST</h2>
+        <p><strong>Question:</strong> check a binary tree is BST or not?</p>
+        <p><strong>Answer:</strong></p>
+        <h4>Simple but wrong approach</h4>
+        <p><strong>Step-1:</strong> if node is null, its BST</p>
+
+        <pre><code>
+function isBST(node){
+   if(!node){
+     return true; 
+  }
+
+  if(node.left != null && node.left.value > node.value){ 
+    return false;
+  }
+
+  if(node.right !=null && node.right.value < node.value) {
+    return false;
+  }
+
+  if(!isBST(node.left) || !isBST(node.right)) {
+    return false;
+  }
+
+  return true;  
+}
+        </code></pre>
+        <p>The reason this method will generate wrong result is for</p>
+        <img src="images/bstWrong.gif" alt="">
+        <h4>do in order traversal</h4>
+        <p><strong></strong></p>
+        <pre><code>
+          //use method 4 in the link below
+        </code></pre>
+        <p>ref: <a href="http://www.geeksforgeeks.org/a-program-to-check-if-a-binary-tree-is-bst-or-not/">taken from geeksforgeeks</a></p>
+      </div>
+      <div id="checkBalance">
+        <h2>Check balanced</h2>
+        <p><strong>Quetion:</strong> How could you check a tree is balanced or not</p>
+        <p><strong>Answer: </strong></p>
+        <p>check multiple example whether it is balanced. <a href="http://webdocs.cs.ualberta.ca/~holte/T26/balanced-trees.html">check balanced tree example</a></p>
+        <p>ref: <a href="http://www.geeksforgeeks.org/how-to-determine-if-a-binary-tree-is-balanced/">get the answer from here</a></p>
+      </div>
+      <div id="height">
+        <h2>Height of a tree</h2>
+        <p><strong></strong></p>
+        <p><strong></strong></p>
+        <pre><code>
+function height(node){
+   if(!node) return 0;
+   var leftHeight = height(node.left);
+   var rightHeight = height(node.right);
+
+   return Math.max(leftHeight, rightHeight) + 1;
+}
+        </code></pre>
+      </div>
+      <div id="printAncestor">
+        <h2>print ancestor</h2>
+        <p><strong>Question:</strong></p>
+        <p><strong>Answer:</strong></p>
+        <pre><code>
+function printAncestor(node, target){
+   if(!node) return false
+
+   if(node.value == target) return true;
+   
+   if(printAncestor(node.left, target) || printAncestor(node.rigth, target)){
+     console.log(node.value);
+     return true;
+  }
+
+  return false
+}
+        </code></pre>
+        <p>ref: <a href="http://stackoverflow.com/questions/12052192/printing-ancestors-of-a-node-in-binary-tree">from stack overflow</a></p>
+        <h3 class="text-danger">Doesnt work for intermediate nodes. Debug this</h3>
+      </div>
+      <div id="nodesBetweenTwo">
+        <h2>Print all nodes between two nodes</h2>
+        <p><strong>Question:</strong></p>
+        <p><strong>Answer:</strong></p>
+        <pre><code>
+//put the code
+        </code></pre>
+        <p>ref: <a href="http://www.geeksforgeeks.org/given-binary-tree-print-nodes-two-given-level-numbers/">Get the code form here</a></p>
+      </div>
+      <div id="commonAncestor">
+        <h2>common ancestor</h2>
+        <p><strong></strong></p>
+        <p><strong></strong></p>
+        <p>this will work for bst only. If you are dealing with binary tree..this needs to be modified</p>
+        <h4 class="text-danger">Make this code better</h4>
+        <pre><code>
+function commonAncestor(node, n1, n2){
+   if(!node) return;
+   var val = node.value;
+   if(n1 &lt; val && n2&lt;val){
+     return commonAncestor(node.left, n1, n2);
+   }
+   if(n1&lt;val && n2&lt;val){
+     return commonAncestor(node.right, n1, n2);
+  }
+  console.log('lowest common ancestor value: ', val);
+  return node;
+}
+        </code></pre>
+        <p>ref: <a href="http://www.geeksforgeeks.org/lowest-common-ancestor-in-a-binary-search-tree/">common ancesotr</a></p>
+
+        <h4>coomon ancestor for binary tree</h4>
+        <pre><code>
+function commonAncestorBT(node, n1, n2){
+   if(!node) return;
+   var val = node.value;
+   if(n1 == val || n2 ==val){
+     return node;
+   }
+   var left = commonAncestorBT(node.left, n1, n2);
+   var right = commonAncestorBT(node.right, n1, n2);
+   if(left && right){
+     return node;
+  }
+  return (left) ? left : right;
+}
+        </code></pre>
+        <p>ref: <a href="http://www.fusu.us/2013/06/p2-lowest-common-ancestor-in-binary-tree.html">try pavels blog</a></p>
+        <p>ref: <a href="http://www.geeksforgeeks.org/lowest-common-ancestor-binary-tree-set-1/">common ancestor for binary tree</a></p>
+      </div>
+      <div id="heightBalance">
+        <h2>check bst is height balanced</h2>
+        <p><strong>Qustion</strong></p>
+        <p><strong></strong></p>
+        <p>ref: <a href="http://www.geeksforgeeks.org/how-to-determine-if-a-binary-tree-is-balanced/">get code from here</a></p>
+      </div>
+      <div id="topView">
+        <h2>Top view</h2>
+      </div>
+      <div id="bottomView">
+        <h2>bottom view</h2>
+      </div>
+      <div id="leftView">
+        <h2>leftview</h2>
+        <p> ref: <a href="http://www.geeksforgeeks.org/print-left-view-binary-tree/">bst left view</a></p>
+      </div>
+      <div id="rightView">
+        <h2>Right view</h2>
+        <p> ref: <a href="http://www.geeksforgeeks.org/print-right-view-binary-tree-2/">print right view</a></p>
+      </div>
+      <div id="mergeSorted">
+        <h2>Merge two BST</h2>
+        <p> ref: <a href="http://www.geeksforgeeks.org/merge-two-bsts-with-limited-extra-space/">merge two bst</a></p>
+      </div>
+      <div id="binaryToBST">
+        <h2>convert binary to BST</h2>
+        <p> ref: <a href="http://www.geeksforgeeks.org/binary-tree-to-binary-search-tree-conversion/">binary tree to bst</a></p>
+      </div>
+      <div id="checkSubTree">
+        <h2>Check Sub tree</h2>
+        <p>ref: <a href="http://www.geeksforgeeks.org/check-binary-tree-subtree-another-binary-tree-set-2/">check subtree</a></p>
+      </div>
+      <div id="diagonalSum">
+        <h2>Diagonal Sum</h2>
+        <p>ref: <a href="http://www.geeksforgeeks.org/diagonal-sum-binary-tree/">gfg</a></p>
+      </div>
+      <div>
+        <h2>Questions list</h2>
+        <h4>from cracking the coding interview</h4>
+        <ul>        
+          <li><a href="http://www.ardendertat.com/2011/10/10/programming-interview-questions-7-binary-search-tree-check/">check binary tree is balanced</a></li>
+          <li><a href="http://www.geeksforgeeks.org/check-two-nodes-cousins-binary-tree/">two nodes are cusin</a></li>
+          <li><a href="http://www.geeksforgeeks.org/lowest-common-ancestor-in-a-binary-search-tree/">lowest common ancestor</a></li>
+          <li><a href="http://www.geeksforgeeks.org/find-k-th-smallest-element-in-bst-order-statistics-in-bst/">k th smalled node</a></li>
+          <li><a href="http://www.geeksforgeeks.org/inorder-predecessor-successor-given-key-bst/">in order successor and precessor</a></li>
+          <li><a href="http://www.geeksforgeeks.org/find-maximum-path-sum-two-leaves-binary-tree/">maximum path between two nodes</a></li>
+          <li><a href="http://www.geeksforgeeks.org/print-nodes-distance-k-given-node-binary-tree/">all nodes of k distance</a></li>
+          <li><a href="http://www.geeksforgeeks.org/print-binary-tree-vertical-order/">vertical order</a></li>
+          <li><a href="http://www.geeksforgeeks.org/print-nodes-dont-sibling-binary-tree/">nodes that doesnt have siblings</a></li>
+          <li><a href="http://www.geeksforgeeks.org/convert-given-binary-tree-doubly-linked-list-set-3/">bst to doubly linked list</a></li>
+          <li><a href="http://www.geeksforgeeks.org/deepest-left-leaf-node-in-a-binary-tree/">deepest left node</a></li>
+          <li><a href="http://www.geeksforgeeks.org/check-leaves-level/">check leaves</a></li>
+          <li><a href="http://www.geeksforgeeks.org/difference-between-sums-of-odd-and-even-levels/">sum of odd levels and even levels node</a></li>
+          <li><a href="http://www.geeksforgeeks.org/tree-isomorphism-problem/">isporphisom: dont know what is this</a></li>
+          <li><a href="http://www.geeksforgeeks.org/find-a-pair-with-given-sum-in-bst/">pair with a given sum</a></li>
+          <li><a href="http://www.geeksforgeeks.org/floor-and-ceil-from-a-bst/">floor and ceil of bst</a></li>
+          <li><a href="http://www.geeksforgeeks.org/fix-two-swapped-nodes-of-bst/">two nodes swapped, correct bst</a></li>
+          <li><a href="http://www.geeksforgeeks.org/check-if-a-given-binary-tree-is-complete-tree-or-not/">check complete or not</a></li>
+          <li><a href="http://www.geeksforgeeks.org/maximum-width-of-a-binary-tree/">max width of bst</a></li>
+          <li><a href="http://www.geeksforgeeks.org/given-a-binary-tree-print-all-root-to-leaf-paths/">all root to leaf path</a></li>
+          <li>BST from sorted array</li>
+          <li>From BST, linked list for each level</li>
+          <li>check binary tree is BST</li>
+          <li>next node (in-order successor) of BST</li>
+          <li>First common ancestor of two nodes in BT</li>
+          <li>Very large two BT. check one is sub tree of another</li>
+          <li>all path that sums to a number in BT</li>          
+          <li><a href="http://www.crazyforcode.com/tree/">carzy for code list of tree questions</a></li>
+          <li><a href="http://www.geeksforgeeks.org/forums/forum/trees-specific-questions/">geeks for geeks questions</a></li>
+          <li><a href="http://www.glassdoor.com/Interview/binary-trees-interview-questions-SRCH_KT0,12.htm">glassdoor questions</a></li>
+          <li><a href="https://www.youtube.com/playlist?list=PLC3855D81E15BC990">you tube got some questions as well</a></li>
+          <li><a href="http://www.careercup.com/page?pid=trees-and-graphs-interview-questions">career cup list of question</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="purpleBold">Express anger!</h3>        
+        <!-- <p class="gray">Feel free to express your anger (sorry folks, you have to use g+.). Also point out my mistakes ( technical, wrong answer, spelling, grammar, sentence..., whatever), let your dude learn and grow.</p>
+        <script src="https://apis.google.com/js/plusone.js"></script>
+        <div class="g-comments"
+            data-href="http://www.thatjsdude.com/interview/dom.html"
+            data-width="642"
+            data-first_party_property="BLOGGER"
+            data-view_type="FILTERED_POSTMOD">
+        </div>         -->
+      </div>
+      <hr>
+
+      <footer>
+        <p>&copy;thatJSDude 2014</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery-2.0.3.min.js"></script>    
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/highlight.pack.js"></script>    
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="js/toggleExample.js"></script>
+    <script type="text/javascript">
+      //social plugins
+      // //g+
+      // (function() {
+      //   var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+      //   po.src = 'https://apis.google.com/js/platform.js';
+      //   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+      // })();
+      // //fb
+      // (function(d, s, id) {
+      //   var js, fjs = d.getElementsByTagName(s)[0];
+      //   if (d.getElementById(id)) return;
+      //   js = d.createElement(s); js.id = id;
+      //   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+      //   fjs.parentNode.insertBefore(js, fjs);
+      // }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <script type="text/javascript">        
+        document.getElementById('listToDestroy').addEventListener('click', function (e) {
+          var elm = e.target.parentNode;
+          elm.parentNode.removeChild(elm);
+          e.preventDefault();
+        }); 
+
+        document.getElementById('doubleHolder').addEventListener('click', function (e) {
+   
+           if(e.target.classList.contains('double')){
+              var btn = document.createElement('button');
+              btn.setAttribute('class', 'double');
+              btn.innerHTML = 'double';
+
+              var btn2 = document.createElement('button');
+              btn2.setAttribute('class', 'double');
+              btn2.innerHTML = 'double';
+             
+              this.appendChild(btn);
+              this.appendChild(btn2);
+              this.removeChild(e.target);   
+           }
+        }); 
+    </script>
+  </body>
+</html>
