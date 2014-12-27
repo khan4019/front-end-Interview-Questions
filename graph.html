@@ -85,6 +85,7 @@
         <h2>todo list</h2>
         <h4>graph</h4>
         <ul>
+          <li>All categories and pages in wikipedia related to<a href="http://en.wikipedia.org/wiki/Category:Graph_algorithms">Graph Theory</a></li>
           <li><a href="http://en.wikipedia.org/wiki/Directed_graph">directed graph</a></li>
           <li><a href="http://en.wikipedia.org/wiki/Weighted_graph#Weighted_graphs_and_networks">weighted graphs and networks</a></li>
           <li><a href="http://en.wikipedia.org/wiki/Shortest_path">shortest path</a></li>
@@ -97,6 +98,100 @@
         <h2>Graph</h2>
         <p><strong>Question:</strong></p>
         <p><strong>Answer:</strong></p>
+        <pre><code>
+function Graph(){
+   this._nodes={};
+   this.nodeSize = 0;
+   this.edgeSize = 0;
+}
+        </code></pre>
+        <p><strong>Add node: </strong> Use simple number or string as key of the node. After creating a node, a simple node is created and returned. If needed you can add new properties.</p>
+        <pre><code>
+Graph.prototype.addNode = function(id){
+   if(!this._nodes[id]){
+      this.nodeSize++;
+      return this._nodes[id] = {
+         _outEdges:{},
+         _inEdges:{}
+      }
+   }
+}
+        </code></pre>
+        <p><strong>Add Edge:</strong></p>
+        <pre><code>
+Graph.prototype.addEdge = function (fromId, toId, weight){
+   var fromNode, toNode, edge;
+   
+
+  if(this.getEdge(fromId, toId)){
+    return;
+  }
+  
+  fromNode = this._nodes[fromId];
+  toNode = this._nodes[toId];
+
+  if(!fromNode || !toNode){
+    return;
+  }
+
+  edge = {weight: weight |1};
+
+  fromNode._outEdges[toId] = edge;
+  toNode._inEdges[fromId] = edge;
+
+  this.edgeSize++;
+
+  return edge;
+}
+        </code></pre>
+        <p><strong>Get Edge:</strong></p>
+        <pre><code>
+Graph.prototype.getEdge = function(fromId, toId){
+  var fromNode = this._nodes[fromId];
+  var toNode = this._nodes[toId];
+
+  if(fromNode && toNode){
+     return fromNode._outEdges[toId];
+  }
+}
+        </code></pre>
+        <h3>Graph Utility Function</h3>
+        <p><strong>forEachNode</strong></p>
+        <pre><code>
+Graph.prototype.forEachNode = function(fn){
+   var node, nodeId, allNodes;
+   allNodes = this._nodes;
+  
+   for(nodeId in allNodes){
+     if(allNodes.hasOwnProperty(nodeId)){
+        fn(allNodes[nodeId], nodeId);
+    }
+  }
+}
+        </code></pre>
+        <p><strong>forEachEdge</strong></p>
+        <pre><code>
+Graph.prototype.forEachEdge = function(fn){
+  var edge,node, nodeId, toId, allNodes, outEdges;
+
+  allNodes = this._nodes;
+
+  for(nodeId in allNodes){
+    if(!allNodes.hasOwnProperty(nodeId)) continue;
+    
+    node = allNodes[nodeId];
+
+    outEdges = node._outEdges;
+
+    for(toId in outEdges){
+      if(!outEdges.hasOwnProperty(toId)) continue;
+
+      fn(outEdges[toId], nodeId + ' to ' +toId);
+    }
+  }
+}
+        </code></pre>
+        <p>ref: <a href="https://github.com/chenglou/data-structures/blob/master/distribution/Graph.js">javascript code for graph</a></p>
       </div>
       <div>
         <h2>Questions list</h2>
@@ -109,6 +204,10 @@
           <li><a href="https://www.youtube.com/playlist?list=PLC3855D81E15BC990">you tube got some questions as well</a></li>
           <li><a href="http://www.careercup.com/page?pid=trees-and-graphs-interview-questions">career cup list of question</a></li>
         </ul>
+      </div>
+      <div>
+        <h2>References</h2>
+        <li><a href="http://www.cs.usfca.edu/~galles/visualization/Algorithms.html">Data Structre Visualization</a></li>
       </div>
       <div>
         <h3 class="purpleBold">Express anger!</h3>
