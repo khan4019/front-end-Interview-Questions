@@ -92,11 +92,43 @@
           <li><a href="http://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">dijkstra algorithm</a></li>
           <li><a href="http://en.wikipedia.org/wiki/Maximal_flow">maximum flow problem</a></li>
           <li><a href="http://en.wikipedia.org/wiki/Graph_colouring">graph coloring</a></li>
+          <li><a href="http://en.wikipedia.org/wiki/Travelling_salesman_problem">Traveling sales man problem</a></li>
+          <li><a href="http://en.wikipedia.org/wiki/A*_search_algorithm">A* Algorithm</a></li>
+          <li><a href="http://en.wikipedia.org/wiki/B*">B* Algorithm</a></li>
+          <li><a href="http://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Dijkstra Algorithm</a></li>
+        </ul>
+        <h4>From geek for geeks</h4>
+        <ul>
+          <li><a href=""></a></li>
+          <li><a href="http://www.geeksforgeeks.org/find-edge-disjoint-paths-two-vertices/">maximum number of edges between two disjoint vertices</a></li>
+          
+          <li><a href="http://www.geeksforgeeks.org/connectivity-in-a-directed-graph/">connectivity-in-a-directed-graph</a></li>
+          <li><a href=""></a></li>
+          <li><a href="http://www.geeksforgeeks.org/shortest-path-exactly-k-edges-directed-weighted-graph/">Shortest path exactly k paths</a></li>
+          <li><a href="http://www.geeksforgeeks.org/shortest-path-for-directed-acyclic-graphs/">shortest path in a directed acyclic path</a></li>
+          <li><a href="http://www.geeksforgeeks.org/count-possible-paths-source-destination-exactly-k-edges/">all possible path with k steps</a></li>
+          <li><a href="http://www.geeksforgeeks.org/interesting-shortest-path-questions-set-1/">Interesting questions related to shortest path</a></li>
+          <li><a href="http://www.geeksforgeeks.org/tarjan-algorithm-find-strongly-connected-components/">Tarjan algorithm</a></li>
+          <li><a href="http://www.geeksforgeeks.org/euler-circuit-directed-graph/">Euler circuit</a></li>
+          <li><a href="http://www.geeksforgeeks.org/bridge-in-a-graph/">bridge in a graph</a></li>
+          <li><a href="http://www.geeksforgeeks.org/find-if-there-is-a-path-between-two-vertices-in-a-given-graph/">check if path exists between two paths</a></li>
+          <li><a href="http://www.geeksforgeeks.org/bipartite-graph/">bipartite graph</a></li>
+          <li><a href="http://www.geeksforgeeks.org/ford-fulkerson-algorithm-for-maximum-flow-problem/">Ford Fulkerson algorithm</a></li>
+          <li><a href="http://www.geeksforgeeks.org/the-celebrity-problem/">celebrity problem</a></li>
+          <li><a href="http://www.geeksforgeeks.org/fleurys-algorithm-for-printing-eulerian-path/">printing Eulerian path by Fleury's Algorithm</a></li>
+          <li><a href="http://www.geeksforgeeks.org/johnsons-algorithm/">Jhonson algorithm</a></li>
+          <li><a href="http://www.geeksforgeeks.org/greedy-algorithms-set-2-kruskals-minimum-spanning-tree-mst/">Greedy Algorithm</a></li>
+        </ul>
+        <h4>coloring</h4>
+        <ul>
+          <li><a href="http://www.geeksforgeeks.org/graph-coloring-applications/">graph coloring</a></li>
+          <li><a href="http://www.geeksforgeeks.org/graph-coloring-set-2-greedy-algorithm/">graph coloring (greedy algorith)</a></li>
+          <li><a href=""></a></li>
         </ul>
       </div>
       <div id="graph">
         <h2>Graph</h2>
-        <p><strong>Question:</strong></p>
+        <p><strong>Question:</strong> How do you write a graph in JS?</p>
         <p><strong>Answer:</strong></p>
         <pre><code>
 function Graph(){
@@ -192,6 +224,30 @@ Graph.prototype.forEachEdge = function(fn){
 }
         </code></pre>
         <p>ref: <a href="https://github.com/chenglou/data-structures/blob/master/distribution/Graph.js">javascript code for graph</a></p>
+      </div>
+      <div id="dfs">
+        <h2>Depth First Search</h2>
+        <p><strong>Question:</strong> Write an algorithm for Depth First Search in a Graph</p>
+        <p><strong>Answer:</strong></p>
+        <p>Be careful, graph could have cycle (pointing to itself)</p>
+        <pre><code>
+dfs(vertex v)
+{
+visit(v);
+for each neighbor w of v
+    if w is unvisited
+    {
+    dfs(w);
+    add edge vw to tree T
+    }
+}
+        </code></pre>
+        <p>ref:  <a href="http://www.ics.uci.edu/~eppstein/161/960215.html">dfs and bfs pseudocode</a></p>
+      </div>
+      <div id="bfs">
+        <h2>Breadth First Search</h2>
+        <p><strong>Question:</strong> Write an algorithm for Breadth First Search</p>
+        <p><strong>Answer:</strong></p>
       </div>
       <div>
         <h2>Questions list</h2>
