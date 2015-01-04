@@ -431,10 +431,25 @@ function commonAncestorBT(node, n1, n2){
         <p>It is Self balancing binary search tree. This means in an AVL tree, heights of two child subtrees of any node differ by at most one. If at any time if heights differ more than one, re-balancing is done to restore the height balance property.</p>
         <p>Lookup, insertion and deletion all takes O(logn) in average and worst case</p>
       </div>
+      <div id="insertAVL">
+        <h2>Insert, delete Into AVL</h2>
+      </div>
       <div id="redBlackTree">
         <h2>Red Black Tree</h2>
         <p><strong>Question:</strong></p>
-        <p><strong>Answer:</strong></p>
+        <p><strong>Answer:</strong>A red-black tree is a binary search tree with one extra attribute for each node: the colour, which is either red or black.</p>
+        <ul>
+          <li>Every node is either red or black.</li>
+          <li>Every leaf (NULL) is black.</li>
+          <li>If a node is red, then both its children are black. However, two black node may be adjacent</li>
+          <li>Every simple path from a node to a descendant leaf contains the same number of black nodes.</li>
+          <li>Root node will always be black</li>
+        </ul>
+        <img src="images/rb_tree1a.gif" alt="">
+        <p>ref: <a href="https://www.cs.auckland.ac.nz/software/AlgAnim/red_black.html">Red Black Trees</a></p>
+      </div>
+      <div id="redBlackInsertion">
+        <h2>Insert into Red Black Tree</h2>
       </div>
       <div>
         <h2>Questions list</h2>
