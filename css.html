@@ -280,7 +280,7 @@
         </div>
       </div>
     </div>    
-  <p>If interviewer wants to ask one question about css, that would be most likely about float</a>.</p>  
+  <p>If interviewer wants to ask one question about css, it will be most likely about float.</p>  
   <p><strong>extra:</strong> read the positioning constraints in <a href="http://www.w3.org/TR/CSS1/#floating-elements">W3.org: floating elements</a>.</p>  
   ref: <a href="http://css-tricks.com/all-about-floats/">css-tricks: float</a>, <a href="http://alistapart.com/article/css-floats-101">float 101</a> 
 </div>
@@ -312,15 +312,15 @@
   </div>
   <div id="rapidFire">
     <h2>3. rapid fire</h2>  
-  <p><strong>Question:</strong> Does css properties are case sensitive?</p>
+  <p><strong>Question:</strong> Are css properties case sensitive?</p>
   <p><strong>Answer:</strong> no.</p>
-  <p><strong>Question:</strong> Why css selectors mixed up with cases don't apply the styles?</p>
-  <p><strong>Answer:</strong> because, html ID and classes are case sensitive.</p>
-  <p><strong>Question:</strong> Does margin-top or margin-bottom has effect on inline element?</p>
+  <p><strong>Question:</strong> Are css selectors (id and classes) case sensitive?</p>
+  <p><strong>Answer:</strong> yes. </p>
+  <p><strong>Question:</strong> Do the properties margin-top and margin-bottom have an effect on inline element?</p>
   <p><strong>Answer:</strong> no.</p> 
-  <p><strong>Question:</strong> Does padding-top or padding-bottom has effect on inline element?</p>
+  <p><strong>Question:</strong> Do the properties padding-top and padding-bottom have an effect on inline element?</p>
   <p><strong>Answer:</strong> no.</p>
-  <p><strong>Question:</strong> Does padding-left or padding-right or margin-left or margin-right has effect on inline element?</p>
+  <p><strong>Question:</strong> Do the properties padding-left, padding-right, margin-left and margin-right have an effect on inline element?</p>
   <p><strong>Answer:</strong> yes.</p>
   <p><strong>Question:</strong> If you have a &lt;p&gt; element with font-size: 10rem, will the text be responsive when the user resizes / drags the browser window?</p>
   <p><strong>Answer:</strong> no.</p>
@@ -335,7 +335,7 @@
 
 <div id="units">
   <h2>4. units</h2>
-  <p><strong>Question:</strong> Which one would you prefer among px, em % or pt and why?</p>
+  <p><strong>Question:</strong> Which one of these units would you prefer: px, em % or pt and why?</p>
   <p><strong>Answer:</strong> it depends on what you are trying to do.</p>
   <p><code>px</code> gives fine grained control and maintains alignment because 1 px or multiple of 1 px is guaranteed to look sharp. px is not cascade, this means if parent font-size is 20px and child 16px. child would be 16px.</p>
   <p><code>em</code> maintains relative size. you can have responsive fonts. em is the width of the letter 'm' in the selected typeface. However, this concept is tricky. 1em is equal to the current font-size of the element or the browser default. if u sent font-size to 16px then 1em = 16px. The common practice is to set default body font-size to 62.5% (equal to 10px). em is cascade</p>
@@ -345,7 +345,7 @@
 </div>
 <div id="position">
   <h2>5. position</h2>
-  <p><strong>Question:</strong> How absolute, relative, fixed and static position differ?</p>
+  <p><strong>Question:</strong> How do absolute, relative, fixed and static position differ?</p>
   <p><strong>Answer:</strong> </p>
   <p><em>absolute</em>, place an element exactly where you want to place it. absolute position is actually set relative to the element's parent. if no parent available then relatively place to the page itself.</p>
   <p><em>relative</em>, is position an element relative to itself (from where the element would be placed, if u don't apply relative positioning). for example, if u set position relative to an element and set top: 10px, it will move 10px down from where it would be normally.</p>
@@ -357,7 +357,7 @@
   <h2>6. display vs visibility</h2>
   <p><strong>Question:</strong> What are the differences between visibility hidden and display none?</p>
   <p><strong>Answer:</strong> <code>display: none</code> removes the element from the normal layout flow and allow other elements to fill in. <code>visibility: hidden</code> tag is rendered, it takes space in the normal flow but doesn't show it.</p>
-  <p>if u want to say it smartly, <code>display: none</code> causes DOM reflow where is <code>visibility: hidden</code> doesn't. btw, what is re-flow? answer. sorry i wont tell you, google it.</p>
+  <p>if u want to say it smartly, <code>display: none</code> causes DOM reflow where as <code>visibility: hidden</code> doesn't. btw, what is re-flow? answer. sorry i wont tell you, google it.</p>
   <p>ref: <a href="http://www.vanseodesign.com/css/visibility-vs-display/">visibility vs Display</a></p>
 </div>
 <div id="inlineBlock">
@@ -549,7 +549,7 @@
 </div>
 <div id="seeAndTell">
   <h2>21. see & tell</h2>
-  <p><strong>Question:</strong> What would be the color of text "I am awesome" for he following rules?</p>
+  <p><strong>Question:</strong> What would be the color of text "I am awesome" for the following rules?</p>
   <p><strong>html:</strong> for questions a-d.</p>
   <pre><code>
 &lt;ul class=&quot;shopping-list&quot; id=&quot;awesome&quot;&gt;<br/>    &lt;li&gt;&lt;span&gt;Milk&lt;/span&gt;&lt;/li&gt;<br/>    &lt;li class=&quot;favorite&quot; id=&quot;must-buy&quot;&gt;&lt;span class=&quot;highlight&quot;&gt;I am awesome&lt;/span&gt;&lt;/li&gt;<br/>&lt;/ul&gt;
