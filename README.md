@@ -149,32 +149,32 @@ __________________
 ##[html: Basic Questions for Begginers](http://www.thatjsdude.com/interview/html.html)
 15 basic questions and asnwers
 ______
-1. Why do u need doctype?
-2. What is the use of data-* attribute?
-3. How can you generate public key in html?
-4. How do you change direction of html text?
+1. Why do you need doctype?
+2. What are data-* attributes used for?
+3. How can you generate a public key in html?
+4. How do you change the direction of html text?
 5. How can you highlight text in html?
 6. Can you apply css to a part of html document only?
-7. Will browser make http request for the following cases?
+7. Will a browser make http request for the following cases?
 8. Which resource would be downloaded first?
-9. What is optional tag?
+9. What is an optional tag?
 10. What are the differences between div and span?
-11. How would you differentiate div, section and article?
-12. How to select svg or canvas for your site?
+11. How would you differentiate between div, section, and article?
+12. How would you select svg or canvas for your site?
 13. How to serve html in multiple languages?
 14. Explain standard and quirks mode.
-15. What is semantic tag?
+15. What is a semantic tag?
 
 ####[HTML: Answers for Basic Questions](http://www.thatjsdude.com/interview/html.html)
 
 
-##[JavaScript: LinkedList (part -4: work in porcess)](http://www.thatjsdude.com/interview/linkedList.html)
+##[JavaScript: LinkedList (part 4: work in process)](http://www.thatjsdude.com/interview/linkedList.html)
 Very rough stage..need to finish (for intermediate)
 
-##[JavaScript: search and Sort (part -5: work in porcess)](http://khan4019.github.io/front-end-Interview-Questions/sort.html)
+##[JavaScript: search and Sort (part 5: work in process)](http://khan4019.github.io/front-end-Interview-Questions/sort.html)
 Very rough stage..need to finish (for expert)
 
-##[JavaScript: Binary Search Tree (part -6: work in porcess)](http://khan4019.github.io/front-end-Interview-Questions/bst.html)
+##[JavaScript: Binary Search Tree (part 6: work in process)](http://khan4019.github.io/front-end-Interview-Questions/bst.html)
 Very rough stage..need to finish (for expert)
 __________________
 
