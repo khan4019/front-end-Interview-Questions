@@ -120,7 +120,20 @@ bst.push(5);
         <p><strong>Question:</strong> How do you implement Breadth First Search</p>
         <p><strong>Answer:</strong></p>
         <pre><code>
-          
+BinarySearchTree.prototype.breadthFirstSearch = function() { 
+  var queue = [];
+  queue.push(this);
+  while (queue.length) {
+    var node = queue.shift();
+    console.log(node.value);
+    if (node.left) {
+      queue.push(node.left);
+    }
+    if (node.right) {
+      queue.push(node.right);
+    }
+  }
+};          
         </code></pre>
         <p>ref: <a href="http://stackoverflow.com/a/13633354/1535443">stackoverflow</a></p>
         <p>ref: <a href="https://github.com/duereg/js-algorithms">js algorithms</a></p>
