@@ -146,7 +146,7 @@ __________________
 
 
 
-##[html: Basic Questions for Begginers](http://www.thatjsdude.com/interview/html.html)
+##[html: Basic Questions for Beginners](http://www.thatjsdude.com/interview/html.html)
 15 basic questions and asnwers
 ______
 1. Why do you need doctype?
