@@ -111,7 +111,7 @@ __________________
 1. Find the largest sum of any two elements?
 1. Total number of zeros from 1 upto n?
 1. Check whether a given string is a substring of bigger string
-2. Get permutaitons of a string
+2. Get permutations of a string
 
 ####[JS: Answer for Algorithm Beginners Level](http://www.thatjsdude.com/interview/js1.html)
 
