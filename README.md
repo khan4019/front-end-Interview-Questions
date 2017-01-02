@@ -47,8 +47,8 @@ ____________
   1. Does padding-top or padding-bottom has effect on inline element?
   1. Does padding-left or padding-right or margin-left or margin-right has effect on inline element?
   1. If you have a &lt;p&gt; element with font-size: 10rem, will the text be responsive when the user resizes / drags the browser window?
-  1. The pseudo class :checked will select inputs with type radio or checkbox, but not
-  1. In a HTML document, the pseudo class :root always refers to the element.
+  1. The pseudo class :checked will select inputs with type radio or checkbox, but not &lt;option&gt; elements.
+  1. In a HTML document, the pseudo class :root always refers to the &lt;html&gt; element.
   1. The translate() function can move the position of an element on the z-axis.
 1. Which one would you prefer among px, em % or pt and why?
 1. How absolute, relative, fixed and static position differ?
