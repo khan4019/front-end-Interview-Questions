@@ -1,11 +1,16 @@
-front end Interview Questions
+Front end Interview Questions
 =============================
 -------
 To rock the interview to achieve what you deserve and to improve your concepts about front end technologies, I have consolidated a list of questions and answers. It's a one stop solution for front end interview process.
 
+## Table of Contents
+* 
 
 
-##[JavaScript: Basics and Tricky Questions](http://www.thatjsdude.com/interview/js2.html)
+### Angular Interview Questions
+An exclusive list of Angular interview Questions are [here](https://github.com/khan4019/angular-interview-questions)
+
+## [JavaScript: Basics and Tricky Questions](http://www.thatjsdude.com/interview/js2.html)
 21+ questions and answers (for intermediate)
 __________________
 1. What are the differences between ` null ` and ` undefined `?
@@ -30,11 +35,11 @@ __________________
 20. How could you implement moveLeft animation?
 21. How would you implement currying for any functions? 
 
-####[JS: Answer for Basics and Tricky Questions](http://www.thatjsdude.com/interview/js2.html)
+#### [JS: Answer for Basics and Tricky Questions](http://www.thatjsdude.com/interview/js2.html)
 
 
 
-##[css: Basics and Tricky Questions](http://www.thatjsdude.com/interview/css.html)
+## [css: Basics and Tricky Questions](http://www.thatjsdude.com/interview/css.html)
 21+ questions and answers
 ____________
 1. What does float do?
@@ -71,9 +76,9 @@ ____________
 1. What are the reasons to use preprocessor?
 1. [Show you couple of style example and you have to tell what does it do](http://www.thatjsdude.com/interview/css.html#seeAndTell).
 
-####[CSS: Answer for Basics and Tricky Questions](http://www.thatjsdude.com/interview/css.html)
+#### [CSS: Answer for Basics and Tricky Questions](http://www.thatjsdude.com/interview/css.html)
 
-###css Deleted questions!
+### css Deleted questions!
 Looks like these are for hardcore designer. Hence, didn't make for developers.
 ______
 1. How descendant css selectors are matched? [get answer](https://www.youtube.com/watch?v=EW8Bg_H_P7M)
@@ -89,7 +94,7 @@ ______
 
 
 
-##[JavaScript: Algorithm Beginners Level](http://www.thatjsdude.com/interview/js1.html)
+## [JavaScript: Algorithm Beginners Level](http://www.thatjsdude.com/interview/js1.html)
 20 questions and answers (for beginners)
 __________________
 1. Verify a prime number?
@@ -113,11 +118,11 @@ __________________
 1. Check whether a given string is a substring of bigger string
 2. Get permutaitons of a string
 
-####[JS: Answer for Algorithm Beginners Level](http://www.thatjsdude.com/interview/js1.html)
+#### [JS: Answer for Algorithm Beginners Level](http://www.thatjsdude.com/interview/js1.html)
 
 
 
-##[JavaScript: DOM related Questions](http://www.thatjsdude.com/interview/dom.html)
+## [JavaScript: DOM related Questions](http://www.thatjsdude.com/interview/dom.html)
 21+ questions and answers (for intermediate JS Developers)
 __________________
 1. Is there any difference between window and document?
@@ -142,11 +147,11 @@ __________________
 1. What is defer and async keyword does in a script tag?
 1. 10 rapid fire questions
 
-####[JS: Answers for DOM related Questions](http://www.thatjsdude.com/interview/dom.html)
+#### [JS: Answers for DOM related Questions](http://www.thatjsdude.com/interview/dom.html)
 
 
 
-##[html: Basic Questions for Begginers](http://www.thatjsdude.com/interview/html.html)
+## [html: Basic Questions for Begginers](http://www.thatjsdude.com/interview/html.html)
 15 basic questions and asnwers
 ______
 1. Why do you need doctype?
@@ -165,16 +170,16 @@ ______
 14. Explain standard and quirks mode.
 15. What is a semantic tag?
 
-####[HTML: Answers for Basic Questions](http://www.thatjsdude.com/interview/html.html)
+#### [HTML: Answers for Basic Questions](http://www.thatjsdude.com/interview/html.html)
 
 
-##[JavaScript: LinkedList (part 4: work in process)](http://www.thatjsdude.com/interview/linkedList.html)
+## [JavaScript: LinkedList (part 4: work in process)](http://www.thatjsdude.com/interview/linkedList.html)
 Very rough stage..need to finish (for intermediate)
 
-##[JavaScript: search and Sort (part 5: work in process)](http://khan4019.github.io/front-end-Interview-Questions/sort.html)
+## [JavaScript: search and Sort (part 5: work in process)](http://khan4019.github.io/front-end-Interview-Questions/sort.html)
 Very rough stage..need to finish (for expert)
 
-##[JavaScript: Binary Search Tree (part 6: work in process)](http://khan4019.github.io/front-end-Interview-Questions/bst.html)
+## [JavaScript: Binary Search Tree (part 6: work in process)](http://khan4019.github.io/front-end-Interview-Questions/bst.html)
 Very rough stage..need to finish (for expert)
 __________________
 
