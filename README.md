@@ -4,10 +4,13 @@ Front end Interview Questions
 To rock the interview to achieve what you deserve and to improve your concepts about front end technologies, I have consolidated a list of questions and answers. It's a one stop solution for front end interview process.
 
 ## Table of Contents
-* 
+* [JavaScript: Basics and Tricky Questions](#javascript-basics-and-tricky-questions)
+* [Algorithm Beginners Level](#javascript-algorithm-beginners-level)
+* [css: Basics and Tricky Questions](#css-basics-and-tricky-questions)
+* [DOM related Questions](#javascript-dom-related-questions)
+* [html: Basic Questions for Begginers](#html-basic-questions-for-begginers)
 
-
-### Angular Interview Questions
+### [Angular Interview Questions](https://github.com/khan4019/angular-interview-questions)
 An exclusive list of Angular interview Questions are [here](https://github.com/khan4019/angular-interview-questions)
 
 ## [JavaScript: Basics and Tricky Questions](http://www.thatjsdude.com/interview/js2.html)
@@ -151,11 +154,9 @@ __________________
 
 
 
-<<<<<<< HEAD
+
 ## [html: Basic Questions for Begginers](http://www.thatjsdude.com/interview/html.html)
-=======
-##[html: Basic Questions for Beginners](http://www.thatjsdude.com/interview/html.html)
->>>>>>> e8380b49e13b19166a7b548487515285eb456c16
+
 15 basic questions and asnwers
 ______
 1. Why do you need doctype?
@@ -187,19 +188,19 @@ Very rough stage..need to finish (for expert)
 Very rough stage..need to finish (for expert)
 __________________
 
-##ToDO list
+## TODO list
 1. CSS: Generate mock up from provided layout
 2. JavaScript: Programming challenges for expert
 3. HR related questions like
   1. What is your weakness
   2. Why are you leaving your current job
-  3. Tell me about a project that you werent able to finish on time
+  3. Tell me about a project that you weren't able to finish on time
   4. How you resolve conflict among team members
   5. How will you introduce a new technology to the team
-  6. Do you prefere to work individually or in a team
+  6. Do you prefer to work individually or in a team
   7. Sell this pen/coke/something to me
   8. How much salary do you want
-  3. What you dont like you current job
+  3. What you don't like you current job
   4. What you like least in your current job
 3. Tree Data Structure in JavaScript
 4. Graph and high order data structure in JavaScript
