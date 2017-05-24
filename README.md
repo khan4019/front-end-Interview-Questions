@@ -41,7 +41,7 @@ ____________
 1. How can you clear sides of a floating element?
   1. How can you clear sides of a floating element?
 1. some tricky questions in rapid fire style
-  1. Are CSS rule names case sensative?
+  1. Are CSS rule names case sensitive?
   1. Why css selectors mixed up with cases don't apply the styles?
   1. Does margin-top or margin-bottom has effect on inline element?
   1. Does padding-top or padding-bottom has effect on inline element?
