@@ -6,6 +6,7 @@ To rock the interview to achieve what you deserve and to improve your concepts a
 ## Table of Contents
 * [JavaScript: Basics and Tricky Questions](#javascript-basics-and-tricky-questions)
 * [Algorithm Beginners Level](#javascript-algorithm-beginners-level)
+* [Intermediate Level Questions](#javaScript-for-intermediate-level-developer)
 * [css: Basics and Tricky Questions](#css-basics-and-tricky-questions)
 * [DOM related Questions](#javascript-dom-related-questions)
 * [html: Basic Questions for Begginers](#html-basic-questions-for-begginers)
@@ -124,6 +125,18 @@ __________________
 #### [JS: Answer for Algorithm Beginners Level](http://www.thatjsdude.com/interview/js1.html)
 
 
+## JavaScript for Intermediate Level Developer
+
+1. What is the event loop? Can you draw a simple diagram to explain event loop?
+1. How to you explain closure?
+3. How would you make sure value of `this` works correctly inside `setTimeout`?
+1. What are the different possible values for `this`?
+1. What is debounce and how could you implement debounce?
+6. How would you communicate with server
+1. Explain Promise to your grandmother
+1. If and website is slow how what would you do to make it faster?
+9. What ES6 feature do you use other than let, var and arrow?
+1. What build tool you use and tell me some advantages to use that build tool
 
 ## [JavaScript: DOM related Questions](http://www.thatjsdude.com/interview/dom.html)
 21+ questions and answers (for intermediate JS Developers)
