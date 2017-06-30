@@ -6,7 +6,7 @@ To rock the interview to achieve what you deserve and to improve your concepts a
 ## Table of Contents
 * [JavaScript: Basics and Tricky Questions](#javascript-basics-and-tricky-questions)
 * [Algorithm Beginners Level](#javascript-algorithm-beginners-level)
-* [Intermediate Level Questions](#javaScript-for-intermediate-level-developer)
+* [Intermediate Level Questions](#javascript-for-intermediate-level-developer)
 * [css: Basics and Tricky Questions](#css-basics-and-tricky-questions)
 * [DOM related Questions](#javascript-dom-related-questions)
 * [html: Basic Questions for Begginers](#html-basic-questions-for-begginers)
