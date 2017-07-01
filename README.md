@@ -9,7 +9,7 @@ To rock the interview to achieve what you deserve and to improve your concepts a
 * [Intermediate Level Questions](#javascript-for-intermediate-level-developer)
 * [css: Basics and Tricky Questions](#css-basics-and-tricky-questions)
 * [DOM related Questions](#javascript-dom-related-questions)
-* [html: Basic Questions for Begginers](#html-basic-questions-for-begginers)
+* [html: Basic Questions for Beginners](#html-basic-questions-for-beginners)
 
 ### [Angular Interview Questions](https://github.com/khan4019/angular-interview-questions)
 An exclusive list of Angular interview Questions are [here](https://github.com/khan4019/angular-interview-questions)
@@ -37,7 +37,7 @@ __________________
 18. How could you cache execution of any function?
 19. If you need to implement the following chaining with call back, how will you implement it?
 20. How could you implement moveLeft animation?
-21. How would you implement currying for any functions? 
+21. How would you implement currying for any functions?
 
 #### [JS: Answer for Basics and Tricky Questions](http://www.thatjsdude.com/interview/js2.html)
 
@@ -118,7 +118,7 @@ __________________
 1. Find missing number from unsorted array of integers.
 1. Get two numbers that equal to a given number?
 1. Find the largest sum of any two elements?
-1. Total number of zeros from 1 upto n?
+1. Total number of zeros from 1 up to n?
 1. Check whether a given string is a substring of bigger string
 2. Get permutations of a string
 
@@ -168,7 +168,7 @@ __________________
 
 
 
-## [html: Basic Questions for Begginers](http://www.thatjsdude.com/interview/html.html)
+## [html: Basic Questions for Beginners](http://www.thatjsdude.com/interview/html.html)
 
 15 basic questions and asnwers
 ______
