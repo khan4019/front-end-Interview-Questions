@@ -277,6 +277,17 @@ function greatestCommonDivisor(a, b){
 }
         </code></pre>
         <p><strong>Note:</strong> use your brain to understand it.</p>
+        
+        <h3>fancy euclidian algorithm</h3>
+        <p>Better time complexity than <strong>Method 1</strong> and equivalent to <strong>Method 2</strong></p>
+        <pre><code>
+const GCD = (a,b) => {
+  while(a != b){
+    [a,b] = a > b ? [a-b, b] : [a, b-a];
+  }
+  return a || b
+}
+        </code></pre>
       </div>
       <div id="removeDuplicate">
         <h2>5. remove Duplicate</h2>
