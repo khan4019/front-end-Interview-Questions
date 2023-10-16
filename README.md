@@ -219,4 +219,4 @@ __________________
 4. Graph and high order data structure in JavaScript
 ___________________
 
-Inpsired by, [darcyclarke](https://github.com/darcyclarke/Front-end-Developer-Interview-Questions), [css-tricks](http://css-tricks.com/interview-questions-css/), [david shariff](http://davidshariff.com/quiz/) and some google results. If you want to add any question to this let me know.
+Inpsired by, [darcyclarke](https://github.com/darcyclarke/Front-end-Developer-Interview-Questions), [css-tricks](http://css-tricks.com/interview-questions-css/) and some google results. If you want to add any question to this let me know.
