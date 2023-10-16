@@ -9,7 +9,7 @@ To rock the interview to achieve what you deserve and to improve your concepts a
 * [Intermediate Level Questions](#javascript-for-intermediate-level-developer)
 * [css: Basics and Tricky Questions](#css-basics-and-tricky-questions)
 * [DOM related Questions](#javascript-dom-related-questions)
-* [html: Basic Questions for Begginers](#html-basic-questions-for-begginers)
+* [html: Basic Questions for Beginners](#html-basic-questions-for-begginers)
 
 ### [Angular Interview Questions](https://github.com/khan4019/angular-interview-questions)
 An exclusive list of Angular interview Questions are [here](https://github.com/khan4019/angular-interview-questions)
