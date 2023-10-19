@@ -330,12 +330,15 @@ rachelFeeDeductor(); //"Rachel Green remaining balance is 900"
         <p><strong>Question:</strong> If an older browser dont have bind function, how will you shim it</p>
         <p><strong>Answer:</strong> Look at the code below and use your brain.</p>
         <pre><code>
-Function.prototype.bind = Function.prototype.bind || function(context){
-  var self = this;
-  return function(){
-    return self.apply(context, arguments);
-  };
-}
+Function.prototype.bind = Function.prototype.bind || function (context) {
+    let prevArgs = [].slice.call(arguments, 1);
+
+    return () => {
+        let currentArgs = [].slice.call(arguments);
+        let combinedArgs = [].concat(prevArgs, currentArgs);
+        return this.apply(context, combinedArgs);
+    };
+};
         </code></pre>
       </div>
       <div id="call">
