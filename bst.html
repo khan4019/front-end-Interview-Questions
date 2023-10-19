@@ -329,7 +329,7 @@ function commonAncestor(node, n1, n2){
    if(n1 &lt; val && n2&lt;val){
      return commonAncestor(node.left, n1, n2);
    }
-   if(n1&lt;val && n2&lt;val){
+   if(n1&gt;val && n2&gt;val){
      return commonAncestor(node.right, n1, n2);
   }
   console.log('lowest common ancestor value: ', val);
