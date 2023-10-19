@@ -660,7 +660,7 @@ function getAllText(node){
         <p><strong>Question:</strong> What is defer and async keyword does in a script tag?</p>
         <p><strong>Answer:</strong> HTML parser will ignore defer and async keyword for inline script (script that does not have a src attribute). </p>
         <p><strong>normal:</strong> When you have a plain script tag (no defer or async keyword), parser will pause parsing, script would be downloaded and exectuted. After that parsing resume.</p>
-        <p><strong>defer:</strong> defer keyword in the script tag will defer the execution of the script. Hence script will be executed when DOM is available. Important point is, defer is not supported by all major major browsers.</p>
+        <p><strong>defer:</strong> defer keyword in the script tag will defer the execution of the script. Hence script will be executed when DOM is available. There is good <a href="http://caniuse.com/#search=defer">browser support</a> for it.
         <p><strong>async:</strong> If possible, set the execution of the script, asynchronously. <code>async</code> keyword has no effect on inline script.</p>
         <img src="images/asyncVsDefer.jpg" alt="">
         <p> Image copied from <a href="http://peter.sh/experiments/asynchronous-and-deferred-javascript-execution-explained/">JS script execution</a></p>
