@@ -592,7 +592,7 @@ function _fibonacci(n) {
    else if (n &lt; 2){
      return 1;
    }else{
-     _fibonacci(n-2) + _fibonacci(n-1);
+     return memo[n] = _fibonacci(n-2) + _fibonacci(n-1);
    }
 }
         </code></pre>        
