@@ -1,11 +1,20 @@
-front end Interview Questions
+Front end Interview Questions
 =============================
 -------
 To rock the interview to achieve what you deserve and to improve your concepts about front end technologies, I have consolidated a list of questions and answers. It's a one stop solution for front end interview process.
 
+## Table of Contents
+* [JavaScript: Basics and Tricky Questions](#javascript-basics-and-tricky-questions)
+* [Algorithm Beginners Level](#javascript-algorithm-beginners-level)
+* [Intermediate Level Questions](#javascript-for-intermediate-level-developer)
+* [css: Basics and Tricky Questions](#css-basics-and-tricky-questions)
+* [DOM related Questions](#javascript-dom-related-questions)
+* [html: Basic Questions for Beginners](#html-basic-questions-for-begginers)
 
+### [Angular Interview Questions](https://github.com/khan4019/angular-interview-questions)
+An exclusive list of Angular interview Questions are [here](https://github.com/khan4019/angular-interview-questions)
 
-##[JavaScript: Basics and Tricky Questions](http://www.thatjsdude.com/interview/js2.html)
+## [JavaScript: Basics and Tricky Questions](http://www.thatjsdude.com/interview/js2.html)
 21+ questions and answers (for intermediate)
 __________________
 1. What are the differences between ` null ` and ` undefined `?
@@ -30,25 +39,25 @@ __________________
 20. How could you implement moveLeft animation?
 21. How would you implement currying for any functions? 
 
-####[JS: Answer for Basics and Tricky Questions](http://www.thatjsdude.com/interview/js2.html)
+#### [JS: Answer for Basics and Tricky Questions](http://www.thatjsdude.com/interview/js2.html)
 
 
 
-##[css: Basics and Tricky Questions](http://www.thatjsdude.com/interview/css.html)
+## [css: Basics and Tricky Questions](http://www.thatjsdude.com/interview/css.html)
 21+ questions and answers
 ____________
 1. What does float do?
 1. How can you clear sides of a floating element?
   1. How can you clear sides of a floating element?
 1. some tricky questions in rapid fire style
-  1. Does css properties are case sensitive?
+  1. Are CSS rule names case sensitive?
   1. Why css selectors mixed up with cases don't apply the styles?
   1. Does margin-top or margin-bottom has effect on inline element?
   1. Does padding-top or padding-bottom has effect on inline element?
   1. Does padding-left or padding-right or margin-left or margin-right has effect on inline element?
   1. If you have a &lt;p&gt; element with font-size: 10rem, will the text be responsive when the user resizes / drags the browser window?
-  1. The pseudo class :checked will select inputs with type radio or checkbox, but not
-  1. In a HTML document, the pseudo class :root always refers to the element.
+  1. The pseudo class :checked will select inputs with type radio or checkbox, but not &lt;option&gt; elements.
+  1. In a HTML document, the pseudo class :root always refers to the &lt;html&gt; element.
   1. The translate() function can move the position of an element on the z-axis.
 1. Which one would you prefer among px, em % or pt and why?
 1. How absolute, relative, fixed and static position differ?
@@ -71,9 +80,9 @@ ____________
 1. What are the reasons to use preprocessor?
 1. [Show you couple of style example and you have to tell what does it do](http://www.thatjsdude.com/interview/css.html#seeAndTell).
 
-####[CSS: Answer for Basics and Tricky Questions](http://www.thatjsdude.com/interview/css.html)
+#### [CSS: Answer for Basics and Tricky Questions](http://www.thatjsdude.com/interview/css.html)
 
-###css Deleted questions!
+### css Deleted questions!
 Looks like these are for hardcore designer. Hence, didn't make for developers.
 ______
 1. How descendant css selectors are matched? [get answer](https://www.youtube.com/watch?v=EW8Bg_H_P7M)
@@ -89,7 +98,7 @@ ______
 
 
 
-##[JavaScript: Algorithm Beginners Level](http://www.thatjsdude.com/interview/js1.html)
+## [JavaScript: Algorithm Beginners Level](http://www.thatjsdude.com/interview/js1.html)
 20 questions and answers (for beginners)
 __________________
 1. Verify a prime number?
@@ -111,13 +120,25 @@ __________________
 1. Find the largest sum of any two elements?
 1. Total number of zeros from 1 upto n?
 1. Check whether a given string is a substring of bigger string
-2. Get permutaitons of a string
+2. Get permutations of a string
 
-####[JS: Answer for Algorithm Beginners Level](http://www.thatjsdude.com/interview/js1.html)
+#### [JS: Answer for Algorithm Beginners Level](http://www.thatjsdude.com/interview/js1.html)
 
 
+## JavaScript for Intermediate Level Developer
 
-##[JavaScript: DOM related Questions](http://www.thatjsdude.com/interview/dom.html)
+1. What is the event loop? Can you draw a simple diagram to explain event loop?
+1. How to you explain closure?
+3. How would you make sure value of `this` works correctly inside `setTimeout`?
+1. What are the different possible values for `this`?
+1. What is debounce and how could you implement debounce?
+6. How would you communicate with server
+1. Explain Promise to your grandmother
+1. If and website is slow how what would you do to make it faster?
+9. What ES6 feature do you use other than let, var and arrow?
+1. What build tool you use and tell me some advantages to use that build tool
+
+## [JavaScript: DOM related Questions](http://www.thatjsdude.com/interview/dom.html)
 21+ questions and answers (for intermediate JS Developers)
 __________________
 1. Is there any difference between window and document?
@@ -142,58 +163,60 @@ __________________
 1. What is defer and async keyword does in a script tag?
 1. 10 rapid fire questions
 
-####[JS: Answers for DOM related Questions](http://www.thatjsdude.com/interview/dom.html)
+#### [JS: Answers for DOM related Questions](http://www.thatjsdude.com/interview/dom.html)
 
 
 
-##[html: Basic Questions for Begginers](http://www.thatjsdude.com/interview/html.html)
+
+## [html: Basic Questions for Begginers](http://www.thatjsdude.com/interview/html.html)
+
 15 basic questions and asnwers
 ______
-1. Why do u need doctype?
-2. What is the use of data-* attribute?
-3. How can you generate public key in html?
-4. How do you change direction of html text?
+1. Why do you need doctype?
+2. What are data-* attributes used for?
+3. How can you generate a public key in html?
+4. How do you change the direction of html text?
 5. How can you highlight text in html?
 6. Can you apply css to a part of html document only?
-7. Will browser make http request for the following cases?
+7. Will a browser make http request for the following cases?
 8. Which resource would be downloaded first?
-9. What is optional tag?
+9. What is an optional tag?
 10. What are the differences between div and span?
-11. How would you differentiate div, section and article?
-12. How to select svg or canvas for your site?
+11. How would you differentiate between div, section, and article?
+12. How would you select svg or canvas for your site?
 13. How to serve html in multiple languages?
 14. Explain standard and quirks mode.
-15. What is semantic tag?
+15. What is a semantic tag?
 
-####[HTML: Answers for Basic Questions](http://www.thatjsdude.com/interview/html.html)
+#### [HTML: Answers for Basic Questions](http://www.thatjsdude.com/interview/html.html)
 
 
-##[JavaScript: LinkedList (part -4: work in porcess)](http://www.thatjsdude.com/interview/linkedList.html)
+## [JavaScript: LinkedList (part 4: work in process)](http://www.thatjsdude.com/interview/linkedList.html)
 Very rough stage..need to finish (for intermediate)
 
-##[JavaScript: search and Sort (part -5: work in porcess)](http://khan4019.github.io/front-end-Interview-Questions/sort.html)
+## [JavaScript: search and Sort (part 5: work in process)](http://khan4019.github.io/front-end-Interview-Questions/sort.html)
 Very rough stage..need to finish (for expert)
 
-##[JavaScript: Binary Search Tree (part -6: work in porcess)](http://khan4019.github.io/front-end-Interview-Questions/bst.html)
+## [JavaScript: Binary Search Tree (part 6: work in process)](http://khan4019.github.io/front-end-Interview-Questions/bst.html)
 Very rough stage..need to finish (for expert)
 __________________
 
-##ToDO list
+## TODO list
 1. CSS: Generate mock up from provided layout
 2. JavaScript: Programming challenges for expert
 3. HR related questions like
   1. What is your weakness
   2. Why are you leaving your current job
-  3. Tell me about a project that you werent able to finish on time
+  3. Tell me about a project that you weren't able to finish on time
   4. How you resolve conflict among team members
   5. How will you introduce a new technology to the team
-  6. Do you prefere to work individually or in a team
+  6. Do you prefer to work individually or in a team
   7. Sell this pen/coke/something to me
   8. How much salary do you want
-  3. What you dont like you current job
+  3. What you don't like you current job
   4. What you like least in your current job
 3. Tree Data Structure in JavaScript
 4. Graph and high order data structure in JavaScript
 ___________________
 
-Inpsired by, [darcyclarke](https://github.com/darcyclarke/Front-end-Developer-Interview-Questions), [css-tricks](http://css-tricks.com/interview-questions-css/), [david shariff](http://davidshariff.com/quiz/) and some google results. If you want to add any question to this let me know.
+Inpsired by, [darcyclarke](https://github.com/darcyclarke/Front-end-Developer-Interview-Questions), [css-tricks](http://css-tricks.com/interview-questions-css/), [david shariff](https://gist.github.com/jesspoemape/87665d65cde3980485ec27cef1602a0d) and some google results. If you want to add any question to this let me know.
