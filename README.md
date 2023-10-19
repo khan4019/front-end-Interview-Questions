@@ -17,27 +17,27 @@ An exclusive list of Angular interview Questions are [here](https://github.com/k
 ## [JavaScript: Basics and Tricky Questions](http://www.thatjsdude.com/interview/js2.html)
 21+ questions and answers (for intermediate)
 __________________
-1. What are the differences between ` null ` and ` undefined `?
+1. What are the differences between the keywords ` null ` and ` undefined `?
 2. What are the differences between `==` and `===`?
 3. How would you compare two objects in JavaScript?
 4. 11+ true false related questions that will trick you.
-5. As `[]` is true, `[] == true` should also be true. right?
+5. As `[]` is true, `[] == true` should also be true is it so?
 6. How could you write a method on instance of a date which will give you next day?
 7. If you want to use an arbitrary object as value of this, how will you do that?
-8. Write a simple function to tell whether 2 is passed as parameter or not?
-9. How could you use Math.max to find the max value in an array?
-10. What the heck is this in JavaScript?
+8. Write a simple function to tell whether 2 can be passed as parameter or not?
+9. How could you use ' Math.max ' to find the maximum value in an array?
+10. What is the precise function of 'this' element in the context of JavaScript?
 11. 21 quick questions that will trick you.
-12. How could you set a prefix before everything you log? for example, if you log('my message') it will log: "(app) my message"
+12. How could you set a prefix before everything you log? for example, if you write log('my message') it will log: "(app) my message"
 13. What will you see in the console for the following example?
-14. Look at the code below, you have a for loop if you have setTimeout inside it. If log the loop counter inside setTimeout, what will be logged?
+14. Look at the code below, you have a for loop if you have setTimeout inside it and if you log the loop counter inside setTimeout, what will be logged?
 15. Look at the code below, I have a property in a object and I am creating a new object where I am setting it to a new value. If I delete that property what will i get if I try to access that property?
 16. Does JavaScript pass parameter by value or by reference?
-17. How could you implement cache to save calculation time for a recursive fibonacci function?
-18. How could you cache execution of any function?
-19. If you need to implement the following chaining with call back, how will you implement it?
-20. How could you implement moveLeft animation?
-21. How would you implement currying for any functions? 
+17. How can you implement cache to save calculation time for a recursive fibonacci function?
+18. How can you cache execution of any function?
+19.If there is a requirement to implement the following chaining with callback functions, how would you approach the implementation?
+20. How can you implement moveLeft animation?
+21.What would be your approach for implementing currying for arbitrary functions?
 
 #### [JS: Answer for Basics and Tricky Questions](http://www.thatjsdude.com/interview/js2.html)
 
