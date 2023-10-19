@@ -446,7 +446,7 @@
 <div id="verticalCenter">
   <h2>12. vertical Center</h2>
   <p><strong>Question:</strong> How do you align a p center-center inside a div?</p>
-  <p><strong>Answer:</strong> <code>text-align: center</code>will do the horizontal alignment but <code>vertical-align: middle</code> will not work here. there are couple of different ways to solve this problem and one of them are positioning. You make the parent as relative position and child as absolute positioning. And then define all position parameter as sero and width 50% and height 30% (sounds messy look at the example and read ref) </p>
+  <p><strong>Answer:</strong> <code>text-align: center</code>will do the horizontal alignment but <code>vertical-align: middle</code> will not work here. there are couple of different ways to solve this problem and one of them are positioning. You make the parent as relative position and child as absolute positioning. And then define all position parameter as zero and width 50% and height 30% (sounds messy look at the example and read ref) </p>
   <div>
     <button id = "align" type="button" class="toggleExample btn btn-primary">show example</button>
     <div id="alignExample" class="hide">
@@ -497,7 +497,7 @@
 <div id="transition">
   <h2>18. transition</h2>
   <p><strong>Question:</strong> What do you know about transition?</p>
-  <p><strong>Answer:</strong> transition allows to add an effect while changing from one style to another. You can set the which property you want to transition, duration, how you want to transit (linear, ease, ease-in, ease-out, cubic-bezier) and delay when transition will start. you can transition more than one property by comma separation</p>
+  <p><strong>Answer:</strong> transition allows to add an effect while changing from one style to another. You can set which property you want to transit, duration, how you want to transit (linear, ease, ease-in, ease-out, cubic-bezier) and delay when transition will start. you can transition more than one property by comma separation</p>
   <div>
     <button id = "transition" type="button" class="toggleExample btn btn-primary">show example</button>
     <div id="transitionExample" class="hide">
@@ -516,7 +516,7 @@
   background-color: red;
 }
       </code></pre>
-      <p>Hover over the purple box and wait. also move the out ur mouse.</p>
+      <p>Hover over the purple box and wait. also move out ur mouse.</p>
       <div class="element"></div>
       <p><strong>Advanced:</strong> you can check transform: <a href="http://www.sitepoint.com/advanced-css3-2d-and-3d-transform-techniques/">css 2D 3D transform</a>, <a href="http://css3.bradshawenterprises.com/flip/">flip an image</a></p>
     </div>
@@ -530,12 +530,12 @@
   <div>
     <button id = "filter" type="button" class="toggleExample btn btn-primary">show example</button>
     <div id="filterExample" class="imageContainer hide">
-      <div class="imageHolder"><img class="" src="images/flower.jpg" alt=""><p>Original</p></div>
-      <div class="imageHolder"><img class="imgGray" src="images/flower.jpg" alt=""><p>grayscale(100%)</p></div>
-      <div class="imageHolder"><img class="imgBright" src="images/flower.jpg" alt=""><p>brightness(200%)</p></div>
-      <div class="imageHolder"><img class="imgBlur" src="images/flower.jpg" alt=""><p>blur(3px)</p></div>
-      <div class="imageHolder"><img class="imgOpacity" src="images/flower.jpg" alt=""><p>opacity(30%)</p></div>
-      <div class="imageHolder"><img class="imgInvert" src="images/flower.jpg" alt=""><p>invert(100%)</p></div>
+      <div class="imageHolder"><img class="" src="../../images/flower.jpg" alt=""><p>Original</p></div>
+      <div class="imageHolder"><img class="imgGray" src="../../images/flower.jpg" alt=""><p>grayscale(100%)</p></div>
+      <div class="imageHolder"><img class="imgBright" src="../../images/flower.jpg" alt=""><p>brightness(200%)</p></div>
+      <div class="imageHolder"><img class="imgBlur" src="../../images/flower.jpg" alt=""><p>blur(3px)</p></div>
+      <div class="imageHolder"><img class="imgOpacity" src="../../images/flower.jpg" alt=""><p>opacity(30%)</p></div>
+      <div class="imageHolder"><img class="imgInvert" src="../../images/flower.jpg" alt=""><p>invert(100%)</p></div>
     </div>    
   </div>
   <p>ref: <a href="http://www.html5rocks.com/en/tutorials/filters/understanding-css/">Understanding css filter effect</a></p>
@@ -595,7 +595,7 @@
   <pre><code>
 &lt;style&gt;<br/>  #test2 {<br/>    background-image: url('mypic.jpg');<br/>    display: none;<br/>  }<br/>&lt;/style&gt;<br/>&lt;div id=&quot;test1&quot;&gt;<br/>    &lt;span id=&quot;test2&quot;&gt;&lt;/span&gt;<br/>&lt;/div&gt;
   </code></pre>
-  <p><strong>Answer:</strong> yes.</p>
+  <p><strong>Answer:</strong> yes. Because the property display: might be set to other value in some condition (e.g. User click "show" button to show the picture)  </p>
   <p><strong>Question:</strong> On page load, will mypic.jpg get downloaded by the browser?</p>  
   <pre><code>
 &lt;style&gt;<br/>  #test1 {<br/>    display: none;<br/>  }<br/>  #test2 {<br/>    background-image: url('mypic.jpg');<br/>    visibility: hidden;<br/>  }<br/>&lt;/style&gt;<br/>&lt;div id=&quot;test1&quot;&gt;<br/>    &lt;span id=&quot;test2&quot;&gt;&lt;/span&gt;<br/>&lt;/div&gt;
@@ -609,7 +609,7 @@
 
 }
   </code></pre>
-  <p><strong>Answer:</strong> This selects anchor links that are not email links that are decedents of an unordered list that is the direct child of any element with a role attribute of 'navigation'. this answer copied from <a href="http://css-tricks.com/interview-questions-css/">css tricks</a></p>
+  <p><strong>Answer:</strong> This selects anchor links that are not email links that are descendents of an unordered list that is the direct child of any element with a role attribute of 'navigation'. this answer is copied from <a href="http://css-tricks.com/interview-questions-css/">css tricks</a></p>
   ref: show & tell is mostly based on <a href="http://davidshariff.com/quiz/">David Shariff: quiz</a> 
 </div>
 <div>
