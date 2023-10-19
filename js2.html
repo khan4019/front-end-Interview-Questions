@@ -5,20 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="javascript interview question, front end interview, front end interview preparation, front end interview questions">
-    <meta name="that js dude" content="">    
+    <meta name="that js dude" content="">
     <title>JS: Basics and Tricky Questions</title>
 
-    <link rel="shortcut icon" href="images/favicon.jpg">    
+    <link rel="shortcut icon" href="images/favicon.jpg">
     <link rel="stylesheet" href="css/bootstrap.min.css" >
     <link rel="stylesheet" href="css/zenburn.css">
     <!-- Custom styles for this template -->
     <style>
       /* Move down content because we have a fixed navbar that is 50px tall */
-      body {        
+      body {
         padding-bottom: 20px;
       }
       .purpleBold{
-        color:purple;        
+        color:purple;
         font-weight: bold;
       }
       .gray{
@@ -40,7 +40,7 @@
         color: inherit;
       }
       a:visited
-      { 
+      {
         color: rgba(218, 209, 149, 0.98);
       }
       .imageContainer{
@@ -58,7 +58,7 @@
         max-height: 180px;
         height: 180px;
         width: 280px;
-        float: left;        
+        float: left;
       }
       .imgTitleHolder{
         margin: 0 0 0 8%;
@@ -71,7 +71,7 @@
         padding: 10px;
       }
       /*style for demo*/
-      
+
     </style>
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
@@ -83,23 +83,23 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
   </head>
- 
+
   <body>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>JS: Basics and Tricky Questions</h1>        
+        <h1>JS: Basics and Tricky Questions</h1>
         <h2>Part -2: intermediate</h2>
         <p>June 22, 2014</p>
         <div id="fb-root"></div><div class="fb-like" data-href="http://www.thatjsdude.com/interview/js2.html" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div> &nbsp;<div class="g-plusone"></div>
-     
-      </div> 
+
+      </div>
     </div>
     <div class="container">
       <!-- Example row of columns -->
 
-      <div class="row center">        
+      <div class="row center">
         <!-- <iframe width="853" height="480" src="//www.youtube.com/embed/Rx_JFOSxgpY" frameborder="0" allowfullscreen></iframe> -->
       </div>
       <div>
@@ -113,7 +113,7 @@
           <li><a href="#extendObject">How could you write a method on instance of a date which will give you next day?</a></li>
           <li class="skipListItem"><a href="#extendObject">If i have a <code>var str = 'hello world'</code>, how could i get <code>str.reverse()</code> return 'dlrow olleh'?</a></li>
           <li class="skipListItem"><a href="#extendObject">How could you make this work [1,2,3,4,5].duplicator(); // [1,2,3,4,5,1,2,3,4,5] ?</a></li>
-          <li value="7"><a href="#bindthis">If you want to use an arbitrary object as value of this, how will you do that?</a></li>          
+          <li value="7"><a href="#bindthis">If you want to use an arbitrary object as value of this, how will you do that?</a></li>
           <li class="skipListItem"><a href="#bindthis"> If an older browser dont have bind function, how will you shim it</a></li>
           <li value="8"><a href="#call">Write a simple function to tell whether 2 is passed as parameter or not?</a></li>
           <li><a href="#apply">How could you use Math.max to find the max value in an array?</a></li>
@@ -128,11 +128,12 @@
           <li><a href="#cacheFunction">How could you cache execution of any function?</a></li>
           <li><a href="#chianing">If you need to implement the following chaining with call back, how will you implement it?</a></li>
           <li><a href="#animation">How could you implement moveLeft animation?</a></li>
-          <li><a href="#currying">How would you implement currying for any functions?</a></li> 
+          <li><a href="#currying">How would you implement currying for any functions?</a></li>
+          <li><a href="#var-and-let">What is the difference between <code>var</code> and <code>let</code>?</a></li>
         </ol>
-      </div>     
+      </div>
       <!-- <p class="gray">if you are little more comfortable or claim to be comfortable with javascript, these questions would not be enough for you. more coming</p>-->
-      <p class="gray"> <span class="purpleBold">More Questions: </span><a href="js1.html">Algorithm related questions</a>, <a href="dom.html">dom related</a>, <a href="css.html">css related</a>, <a href="html.html">html related</a> </p> 
+      <p class="gray"> <span class="purpleBold">More Questions: </span><a href="js1.html">Algorithm related questions</a>, <a href="dom.html">dom related</a>, <a href="css.html">css related</a>, <a href="html.html">html related</a> </p>
       <div id="nullVsUndefined">
         <h2>1. null vs undefined</h2>
         <p><strong>Question: </strong> What are the differences between <code>null</code> and <code>undefined</code>?</p>
@@ -148,12 +149,12 @@
           <li>Function parameters that have not passed.</li>
           <li>Anything that has been set to the value of undefined.</li>
           <li>Any expression in the form of void(expression)</li>
-          <li>The value of the global variable <code>undefined</code></li>          
+          <li>The value of the global variable <code>undefined</code></li>
         </ul>
         <h4>null</h4>
         <p><code>null</code> means empty or non-existent value which is used by programmers to indicate “no value”. null is a primitive value and you can assign null to any variable. null is not an object, it is a primitive value. For example, you cannot add properties to it. Sometimes people wrongly assume that it is an object, because typeof null returns "object".</p>
         <p>Btw, <code>null == undefined</code> ref: <a href="http://www.2ality.com/2013/10/typeof-null.html">history of typeof null</a></p>
-      </div>      
+      </div>
         <div id="doubleVsTripleEqual">
           <h2>2. == Vs ===</h2>
           <p><strong>Question:</strong> What are the differences between <code>==</code> and <code>===</code>?</p>
@@ -177,12 +178,12 @@ a === b //false
 var c = a;
 a == c//true
 a === c //true
-          </code></pre>          
-          <p>Special note:  NaN, null and undefined will never === another type. NaN does not even === itself.</p>          
+          </code></pre>
+          <p>Special note:  NaN, null and undefined will never === another type. NaN does not even === itself.</p>
           <p><strong>Homework:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isNaN"> Read confusing special cases of NaN</a></p>
         </div>
         <div id="objectEquality">
-        <h2>3. Object Equality</h2> 
+        <h2>3. Object Equality</h2>
         <p><strong>Question: </strong> How would you compare two objects in JavaScript?</p>
         <p><strong>Basics:</strong> JavaScript has two different approaches for testing equality. Primitives like strings and numbers are compared by their value, while objects like arrays, dates, and user defined objects are compared by their reference. This means it compares whether two objects are referring to the same location in memory.</p>
         <p><strong>Answer:</strong> Equality check will check whether two objects have the same value for the same property. To check that, you can get the keys for both the objects. If the number of properties doesn't match, these two objects are not equal. Secondly, you will check whether each property has the same value in both objects. If all the properties have the same value, they are equal.</p>
@@ -197,7 +198,7 @@ function isEqual(a, b) {
 
     for (var i = 0; i &lt; aProps.length; i++) {
         var propName = aProps[i];
-        
+
         if (a[propName] !== b[propName]) {
             return false;
         }
@@ -205,7 +206,7 @@ function isEqual(a, b) {
     return true;
 }
         </code></pre>
-        <strong>Limitation:</strong> 
+        <strong>Limitation:</strong>
           <ul>
             <li>If one of the property values is itself an object</li>
             <li>If one of the property values is NaN (the only value in JavaScript that is not equal to itself?)</li>
@@ -220,7 +221,7 @@ function isEqual(a, b) {
         <p><strong>truthy:</strong> There are only two truthy things- true and everything that is not false</p>
         <div>
           <h3>True False Rapid Fire</h3>
-          <div id="trueFalseRapidExample" class="bg-success toggleContent">            
+          <div id="trueFalseRapidExample" class="bg-success toggleContent">
             <p><strong>Question:</strong> Is <code>'false'</code> is false?</p>
             <p><strong>Answer:</strong> No. Because, it's a string with length greater than 0. Only empty string is false.</p>
             <p><strong>Question:</strong> Is <code>' '</code> is false?</p>
@@ -255,7 +256,7 @@ function isEqual(a, b) {
           <p>ref: <a href="http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/">angus croll: truth and eqality in JS</a>, ref: <a href="http://www.sitepoint.com/javascript-truthy-falsy/">truthy and falsy</a></p>
       </div>
 
-      </div>                  
+      </div>
       <div id="extendObject">
         <h2>6. Extend Core Object</h2>
         <p><strong>Question:</strong> How could you write a method on an instance of a date which will give you the next day?</p>
@@ -266,7 +267,7 @@ Date.prototype.nextDay = function(){
   return new Date(this.setDate(currentDate +1));
 }
 
-var date = new Date(); 
+var date = new Date();
 date; //Fri May 16 2014 20:47:14 GMT-0500 (Central Daylight Time)
 date.nextDay();//Sat May 17 2014 20:47:14 GMT-0500 (Central Daylight Time)
         </code></pre>
@@ -287,7 +288,7 @@ str.reverse();//"dlrow olleh"
             <p><strong>Answer:</strong> We need to add a method in the prototype of Array object.</p>
             <pre><code>
 Array.prototype.duplicator = function(){
-  return this.concat(this);  
+  return this.concat(this);
 }
 
 [1,2,3,4,5].duplicator(); // [1,2,3,4,5,1,2,3,4,5]
@@ -306,7 +307,7 @@ var monica = {
   total: 400,
   deductMontlyFee: function(fee){
      this.total = this.total - fee;
-     return this.name + ' remaining balance is '+ this.total; 
+     return this.name + ' remaining balance is '+ this.total;
   }
 }
         </code></pre>
@@ -351,7 +352,7 @@ function isTwoPassed(){
 
 isTwoPassed(1,4) //false
 isTowPassed(5,3,1,2) //true
-        </code></pre>                 
+        </code></pre>
         <p><strong>Danger:</strong> Don't name any argument as "arguments" or dont create any local variable named as "arguments", this will override build in arguments object.</p>
       </div>
       <div id="apply">
@@ -360,10 +361,10 @@ isTowPassed(5,3,1,2) //true
         <p><strong>Answer:</strong> Use apply on Math.max and pass the array as apply takes an array of arguments. Since we are not reading anything from this or using it at all. We can simply pass null as first parameter.</p>
         <pre><code>
 function getMax(arr){
-  return Math.max.apply(null, arr);  
+  return Math.max.apply(null, arr);
 }
         </code></pre>
-        <p><strong>Extra: </strong> call and apply, both takes the value of this as first parameter. However, call takes a collection of arguments after first parameter whereas apply use an array of arguments as second parameter.</p>        
+        <p><strong>Extra: </strong> call and apply, both takes the value of this as first parameter. However, call takes a collection of arguments after first parameter whereas apply use an array of arguments as second parameter.</p>
         <p> <strong>Tip: </strong>If you have weaker memory like me, you can remember apply starts with "a" and array starts with "a"</p>
       </div>
       <div id="this">
@@ -380,7 +381,7 @@ function getMax(arr){
           <li>For dom event handler, value of this would be the element that fired the event</li>
         </ol>
         <p>ref: <a href="https://www.youtube.com/watch?v=yuo8YqKDQ-M">Understand JavaScript this in a crystal clear way</a></p>
-      </div>  
+      </div>
       <div id="rapidFire">
         <h2>11. Rapid Fire</h2>
         <p><strong>Question:</strong> What is <code>typeof []</code></p>
@@ -430,18 +431,18 @@ function getMax(arr){
         <p><strong>Question:</strong> Why <code>.1+.2 != .3</code> </p>
         <p><strong>Answer:</strong> </p>
         <p><strong>Question: <code>42..toString()</code></strong></p>
-        <p><strong>Anwser:</strong> <code>"42"</code></p>
+        <p><strong>Answer:</strong> <code>"42"</code></p>
         <p><strong>Question:</strong> <code>4.2..toString</code></p>
-        <p><strong>Anwser:</strong> //SyntaxError: Unexpected token .</p>
+        <p><strong>Answer:</strong> //SyntaxError: Unexpected token .</p>
         <p><strong>Question:</strong><code>42   .     toString()</code></p>
-        <p><strong>Anwser:</strong> <code>"42"</code></p>        
+        <p><strong>Answer:</strong> <code>"42"</code></p>
         <p><strong>Question:</strong> <code>typeof(NaN)</code></p>
-        <p><strong>Anwser:</strong>"number"</p>
+        <p><strong>Answer:</strong>"number"</p>
         <p><strong>Question:</strong> <code>2 in [1,2]</code></p>
-        <p><strong>Anwser:</strong> false. Because "in" returns whether a particular property/index available in the Object. In this case object has index 0 and 1 but don't have 2. Hence you get false.</p>
-      </div>            
+        <p><strong>Answer:</strong> false. Because "in" returns whether a particular property/index available in the Object. In this case object has index 0 and 1 but don't have 2. Hence you get false.</p>
+      </div>
       <div id="insertSpace">
-        <h2>12. log prefix</h2>        
+        <h2>12. log prefix</h2>
         <p><strong>Question: </strong> How could you set a prefix before everything you log? for example, if you <code>log('my message')</code> it will log: "(app) my message"</p>
         <p><strong>Answer:</strong> Just get the arguments, convert it to an array and unshift whatever prefix you want to set. Finally, use apply to pass all the arguments to console.</p>
         <pre><code>
@@ -452,7 +453,7 @@ function log(){
 }
 
 log('my message'); //(app) my message
-log('my message', 'your message'); //(app) my message your message 
+log('my message', 'your message'); //(app) my message your message
         </code></pre>
         <p>ref: <a href="http://blog.sourcing.io/interview-questions">This is a really good materials, walks you through an interview process.</a></p>
       </div>
@@ -460,14 +461,14 @@ log('my message', 'your message'); //(app) my message your message
         <h2>13. Scope and hoisting</h2>
         <p><strong>Question:</strong> What will you see in the console for the following example?</p>
         <pre><code>
-var a = 1; 
-function b() { 
-    a = 10; 
-    return; 
-    function a() {} 
-} 
-b(); 
-console.log(a);          
+var a = 1;
+function b() {
+    a = 10;
+    return;
+    function a() {}
+}
+b();
+console.log(a);
         </code></pre>
         <p><strong>Answer:</strong> 1</p>
         <h4>Explanation:</h4>
@@ -480,7 +481,7 @@ console.log(a);
         <div>
           <button id = "hoistingExtra" type="button" class="toggleExample btn btn-primary">Show Tough Example</button>
           <div id="hoistingExtraExample" class="hide bg-success toggleContent">
-            <p><strong>Question:</strong> for the following code, what will be returned for executing foo</p>        
+            <p><strong>Question:</strong> for the following code, what will be returned for executing foo</p>
         <pre><code>
 function foo(){
     function bar() {
@@ -495,7 +496,7 @@ foo();//?
         </code></pre>
           <p><strong>Answer:</strong> 8</p>
           <p><strong>Explanation:</strong> As function declaration is get hoisted. the first bar is at the top and second bar after the return will also be hoisted. Since there is already a bar (first function declaration), the second one will replace the first one. As there could be one function for a single name and the last one stays. Hence, when you executing bar, you are executed the second one (after hoisting) and you get.</p>
-          </div>          
+          </div>
         </div>
         <p>ref: <a href="https://www.youtube.com/watch?v=7INtYcr8QIY">watch this video</a> or <a href="http://www.thatjsdude.com/jsConcepts/concepts/scope.html">learn more about scope and hoisting</a></p>
       </div>
@@ -505,13 +506,13 @@ foo();//?
 <pre><code>
   for(var i = 0; i < 10; i++) {
     setTimeout(function() {
-      console.log(i);  
+      console.log(i);
     }, 10);
 }
 </code></pre>
       <p><strong>Answer:</strong> The above will not output the numbers 0 through 9, but will simply print the number 10 ten times.</p>
       <p><strong>Explanation:</strong> The console log is inside the anonymous function of setTimeout and setTimeout is executed when current call stack is over. So, the loop finishes and before setTimeout get the chance to execute. However, anonymous functions keep a reference to i by creating a closure. Since, the loop is already finished, the value i has been set to 10. When setTimeout use the value of i by reference, it gets the value of i as 10. Hence, you see 10 ten times.</p>
-      <p><strong>Solution: </strong> You can fix it by avoiding closure. Just create a IIFE (Immediately Invoked Function Expression), it will create its own scope and you can pass i to the function. In that case i will be a local variable (will not refer to i in the closure) and value of the i in every loop will be preserved.</p>      
+      <p><strong>Solution: </strong> You can fix it by avoiding closure. Just create a IIFE (Immediately Invoked Function Expression), it will create its own scope and you can pass i to the function. In that case i will be a local variable (will not refer to i in the closure) and value of the i in every loop will be preserved.</p>
 <pre><code>
 for(var i = 0; i < 10; i++) {
     setTimeout((function(i) {
@@ -525,7 +526,7 @@ for(var i = 0; i < 10; i++) {
   setTimeout(console.log.bind(console, i), 10);
 }
 </code></pre>
-      </div>      
+      </div>
       <div id="deleteProperty">
         <h2>15. delete can delete but</h2>
         <p><strong>Question:</strong> Look at the code below, I have a property in a object and I am creating a new object where I am setting it to a new value. If I delete that property what will i get if I try to access that property?</p>
@@ -546,7 +547,7 @@ console.log(customObject.get_price());
         <p><strong>Explanation:</strong> This is very interesting question. When you create <code>object.create(myObject)</code> you are creating new object where the <code>myObject</code> will be the parent of the newly created object. Hence the price property will be at the parent.</p>
         <p>When you are assigning some value to <code>customObject.price</code>, you are creating a new property on the child. This means, when you <code>delete customObject.price</code> it deletes the <code>price</code> property in the customObject (in the child). However, when you call the method getprice, first it looks for <code>this.price</code> in the child since the customObject doesn't have price property, JavaScript executor walks through the prototype chain towards the parent. Since customObject was inherited from myObject and myObject has a <code>price</code> property, the get_price method returns the price from parent. Hence, you are getting 20.99</p>
       </div>
-      <div id="byValueByRef"> 
+      <div id="byValueByRef">
         <h2>16. Pass by value or by reference</h2>
         <p><strong>Question:</strong> Does JavaScript pass parameter by value or by reference?</p>
         <p><strong>Answer:</strong> Primitive type (string, number, etc.) are passed by value and objects are passed by reference. If you change a property of the passed object, the change will be affected. However, you assign a new object to the passed object, the changes will not be reflected.</p>
@@ -574,7 +575,7 @@ console.log(num); // 10
 console.log(name);// "Addy Osmani"
 console.log(obj1.value);//"first value"
 console.log(obj2.value);//"new value"
-console.log(obj3.value);//"new value"        
+console.log(obj3.value);//"new value"
      </code></pre>
         <p>ref: <a href="http://snook.ca/archives/javascript/javascript_pass">Snook: passing by value or reference</a></p>
       </div>
@@ -586,7 +587,7 @@ console.log(obj3.value);//"new value"
 var memo = [];
 
 function _fibonacci(n) {
-   if(memo[n]){    
+   if(memo[n]){
     return memo[n];
    }
    else if (n &lt; 2){
@@ -595,8 +596,8 @@ function _fibonacci(n) {
      _fibonacci(n-2) + _fibonacci(n-1);
    }
 }
-        </code></pre>        
-        <p><strong>Better Implementation: </strong><a href="http://www.sitepoint.com/implementing-memoization-in-javascript/">implement memoization in JavaScript</a></p>        
+        </code></pre>
+        <p><strong>Better Implementation: </strong><a href="http://www.sitepoint.com/implementing-memoization-in-javascript/">implement memoization in JavaScript</a></p>
       </div>
       <div id="cacheFunction">
         <h2>18. Cache function execution</h2>
@@ -605,7 +606,7 @@ function _fibonacci(n) {
         <pre><code>
 function cacheFn(fn) {
     var cache={};
-    
+
     return function(arg){
         if (cache[arg]){
            return cache[arg];
@@ -621,7 +622,7 @@ function cacheFn(fn) {
         <p><strong>Answer: </strong> First we have to use arguments to get all the parameters passed to the function and then we can generate key for the cache object. Generating key for the cache object could be tricky and one solution could be just get the all the parameters and concatenate those. Look at the code below.</p>
         <pre><code>
 return function(){
-  var args = arguments;  
+  var args = arguments;
   var key = [].slice.call(args).join('');
   if(cache[key]){
       return cache[key];
@@ -665,7 +666,7 @@ var obj = {   // every method returns obj---------v
 }
 
 obj.first().second().third();
-        </code></pre>        
+        </code></pre>
         <p>ref: <a href="http://blog.buymeasoda.com/creating-a-jquery-like-chaining-api/">jquery like chaining</a> or <a href="http://stackoverflow.com/questions/7475336/how-does-jquery-chaining-work">jquery like chaining</a></p>
       </div>
       <div id="animation">
@@ -686,7 +687,7 @@ function moveLeft(elem, distance) {
 
   var timeId = setInterval(frame, 10); // draw every 10ms
 }
-        </code></pre>        
+        </code></pre>
       </div>
       <div id ="currying">
         <h2>21. Currying</h2>
@@ -737,15 +738,15 @@ var milesToKm = converter.curry(1.62, 'km');
 mileToKm(3); //result here
 
 var kgToLb = converter.curry(2.2, 'lb');
-kgToLb(3); //result here 
+kgToLb(3); //result here
         </code></pre>
         <p>ref: <a href="http://fr.umio.us/favoring-curry/">Favoring Curry</a>, <a href="http://javascriptweblog.wordpress.com/2010/04/05/curry-cooking-up-tastier-functions/">curry: cooking up tastier functions</a></p>
-      </div>      
+      </div>
       <div>
         <h3>Deleted Questions</h3>
         <ul>
           <li>In JavaScript <code>isNaN(undefined)</code> returns true. how could you fix it? Answer: use <code>function isReallyNaN (x){return x!==x;}</code></li>
-          <li>What are differences between host object and native object? <a href="http://stackoverflow.com/a/7614380/1535443">read answer here</a></li>          
+          <li>What are differences between host object and native object? <a href="http://stackoverflow.com/a/7614380/1535443">read answer here</a></li>
           <li>Why extending build in JavaScript object is a bad idea? Answer: google it</li>
           <li>How will you get query string in a browsers URL? <a href="http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript?page=3&tab=votes#tab-top">detail answer</a> or <code>window.location.search;</code></li>
           <li>Why does nearly every object have a toString method?</li>
@@ -759,8 +760,50 @@ kgToLb(3); //result here
         <h3>Need more</h3>
         <p>ref: great place to learn JavaScript <a href="http://bonsaiden.github.io/JavaScript-Garden/">JS Garden</a></p>
       </div>
+      <div id="var-and-let">
+        <h2>22. var vs. let</h2>
+        <p><strong>Question: </strong> What is the difference between <code>var</code> and <code>let</code>?</p>
+        <p><strong>Answer:</strong> <code>var</code> and <code>let</code> differ because of scoping.</p>
+        <h4>var</h4>
+        <p>
+          <code>var</code> is function scoped if used inside a function otherwise its scope is global.
+          This means that the value of a variable defined with var in a function will be accessible anywhere inside that function.
+        </p>
+        <strong>Example:</strong>
+        <pre>
+          <code>
+            function countTill(number) {
+              for(var i = 1; i <= number; i++) {
+                console.log(i);
+              }
+              // Let's check value of i
+              console.log(i);
+            }
 
-      
+            countTill(9);
+          </code>
+        </pre>
+        <p>Here, the value of i after the loop will be 10 and this will be logged to the console. This happens because the variable i is still in score even after execution has come out of the loop.</p>
+        <h4>let</h4>
+        <p><code>let</code> is block scoped. This means that the value of a variable defined with let will be accessible inside the block that it was declared in.</p>
+        <strong>Example:</strong>
+        <pre>
+          <code>
+            function countTill(number) {
+              for(let i = 1; i <= number; i++) {
+                console.log(i);
+              }
+              // Let's check value of i
+              console.log(i);
+            }
+
+            countTill(9);
+          </code>
+        </pre>
+        <p>Here, we will get a ReferenceError after the loop as i is not defined for that scope because no such variable exists outside the for loop. The varable only exists inside the block in which it was created.</p>
+      </div>
+
+
       <div>
         <h3 class="purpleBold">Express anger!</h3>
         <p class="gray">Feel free to express your anger (sorry folks, you have to use g+.). Also point out my mistakes ( technical, wrong answer, spelling, grammar, sentence..., whatever), let your dude learn and grow.</p>
@@ -770,10 +813,10 @@ kgToLb(3); //result here
             data-width="642"
             data-first_party_property="BLOGGER"
             data-view_type="FILTERED_POSTMOD">
-        </div>        
+        </div>
       </div>
       <hr>
-      
+
       <footer>
         <p>&copy;thatJSDude <script type="text/javascript">document.write(new Date().getFullYear());</script></p>
       </footer>
@@ -783,9 +826,9 @@ kgToLb(3); //result here
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery-2.0.3.min.js"></script>    
+    <script src="js/jquery-2.0.3.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/highlight.pack.js"></script>    
+    <script src="js/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
     <script src="js/toggleExample.js"></script>
     <script type="text/javascript">
@@ -804,6 +847,6 @@ kgToLb(3); //result here
         js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
-    </script>    
+    </script>
   </body>
 </html>
