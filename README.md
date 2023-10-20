@@ -37,7 +37,8 @@ __________________
 18. How could you cache execution of any function?
 19. If you need to implement the following chaining with call back, how will you implement it?
 20. How could you implement moveLeft animation?
-21. How would you implement currying for any functions? 
+21. How would you implement currying for any functions?
+22. What is IIFEs (Immediately Invoked Function Expressions)?
 
 #### [JS: Answer for Basics and Tricky Questions](http://www.thatjsdude.com/interview/js2.html)
 
