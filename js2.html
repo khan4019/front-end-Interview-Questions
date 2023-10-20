@@ -129,6 +129,7 @@
           <li><a href="#chianing">If you need to implement the following chaining with call back, how will you implement it?</a></li>
           <li><a href="#animation">How could you implement moveLeft animation?</a></li>
           <li><a href="#currying">How would you implement currying for any functions?</a></li> 
+           <li><a href="#IIFEs">What is IIFEs (Immediately Invoked Function Expressions)?</a></li> 
         </ol>
       </div>     
       <!-- <p class="gray">if you are little more comfortable or claim to be comfortable with javascript, these questions would not be enough for you. more coming</p>-->
@@ -740,7 +741,19 @@ var kgToLb = converter.curry(2.2, 'lb');
 kgToLb(3); //result here 
         </code></pre>
         <p>ref: <a href="http://fr.umio.us/favoring-curry/">Favoring Curry</a>, <a href="http://javascriptweblog.wordpress.com/2010/04/05/curry-cooking-up-tastier-functions/">curry: cooking up tastier functions</a></p>
-      </div>      
+      </div> 
+      <div id="IIFEs">
+        <h2>22.IIFEs</h2>
+        <p><strong>Question: </strong>What is IIFEs (Immediately Invoked Function Expressions)?</p>
+        <p><strong>Answer:</strong>It’s an Immediately-Invoked Function Expression, or IIFE for short. It executes immediately after it’s created:</p>
+        <pre><code>
+(function IIFE(){
+    console.log( "Hello!" );
+})();
+// "Hello!"
+        </code></pre>
+        <p>This pattern is often used when trying to avoid polluting the global namespace, because all the variables used inside the IIFE (like in any other normal function) are not visible outside its scope.</p>
+      </div>
       <div>
         <h3>Deleted Questions</h3>
         <ul>
