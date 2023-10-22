@@ -170,7 +170,7 @@ __________________
 
 ## [html: Basic Questions for Begginers](http://www.thatjsdude.com/interview/html.html)
 
-15 basic questions and asnwers
+15+ basic questions and asnwers
 ______
 1. Why do you need doctype?
 2. What are data-* attributes used for?
@@ -187,6 +187,7 @@ ______
 13. How to serve html in multiple languages?
 14. Explain standard and quirks mode.
 15. What is a semantic tag?
+16. Differentiate between an Ordered list and an Unordered list?
 
 #### [HTML: Answers for Basic Questions](http://www.thatjsdude.com/interview/html.html)
 
