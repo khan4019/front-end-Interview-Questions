@@ -187,7 +187,7 @@ ______
 13. How to serve html in multiple languages?
 14. Explain standard and quirks mode.
 15. What is a semantic tag?
-16. Define the list types in HTML?
+16. Differentiate between an Ordered list and an Unordered list?
 
 #### [HTML: Answers for Basic Questions](http://www.thatjsdude.com/interview/html.html)
 
